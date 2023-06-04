@@ -1,0 +1,4 @@
+@echo off
+echo:Hello I am bob
+if NOT "/%1"=="/" exit /b 1
+exit /b 0
