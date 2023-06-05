@@ -1,6 +1,6 @@
 ---
 name: Ticket
-about: Unit of work
+about: Unit of work (that is not bug)
 title: ''
 labels: ''
 assignees: ''
