@@ -1,0 +1,39 @@
+{
+  "dependencies": {
+    "strong": [],
+    "weak": []
+  },
+  "directories": {
+    "primary": null,
+    "adoptedExtras": null
+  },
+  "info": {
+    "desc": "Colony.FreeRTOS package is an Outcast'ized distribution of the FreeRTOS kernel",
+    "owner": "Real Time Engineers Ltd.",
+    "email": "John.T.Taylor@gmail.com",
+    "url": "http://www.freertos.org",
+    "repo": {
+      "name": "freertos",
+      "type": "git",
+      "origin": "https://github.com/johnttaylor"
+    },
+    "pkgname": "freertos"
+  },
+  "publish": {
+    "current": {
+      "comment": "Update to newer version of FreeRTOS - also contains a patch to work with Segger's SysView tool",
+      "version": "10.4.3-LTS-Patch1",
+      "date": "Thu Apr 20 13:46:05 2023",
+      "timestamp": 1681998365,
+      "changes": null
+    },
+    "history": [
+      {
+        "comment": "Publish as Outcast2 package",
+        "version": "8.2.1",
+        "date": "Sun Nov 21 22:58:05 2021",
+        "timestamp": 1637535485
+      }
+    ]
+  }
+}
