@@ -7,7 +7,7 @@ standards require that doxygen execute without warning.
 The script assumes that doxygen is in the command path.
 
 
-Usage: doxygen
+Usage: doxygen [build-number]
 
 """
 
@@ -15,6 +15,7 @@ import subprocess
 import re
 import shutil
 import os
+import sys
 
 #------------------------------------------------------------------------------
 def filter_warnings( output ):
@@ -62,6 +63,16 @@ def filter_warnings( output ):
 #------------------------------------------------------------------------------
 print( "Running doxygen..." )    
 
+# Insert the build number into the Doxygen config
+build_num = '0'
+if len(sys.argv) > 1:
+    build_num = sys.argv[1]
+with open( "Doxyfile.src", 'r' ) as inf:
+    d = inf.read()
+    d = d.replace('$$$BUILD_NUMBER$$$', build_num )
+    with open( "Doxyfile", 'w' ) as outf:
+        outf.write( d )
+
 # run doxygen
 cmd = "doxygen"
 p   = subprocess.Popen( cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE )
@@ -70,8 +81,8 @@ if ( p.returncode != 0 ):
     exit( "ERROR: Doxygen failed to run.  Check if doxygen.exe is in your command path" )
 
 # delete the HTML files - only keep the Windows Help (.chm) file
-#path = os.path.join( '..', 'docs', 'html' )
-#shutil.rmtree( path, ignore_errors=True  )
+path = os.path.join( '..', 'docs', 'html' )
+shutil.rmtree( path, ignore_errors=True  )
 
 # check for errors
 if ( "warning: " in r[1].decode() or "error: " in r[1].decode() ):

@@ -32,19 +32,19 @@ DOXYFILE_ENCODING      = UTF-8
 # title of most generated pages and in a few other places.
 # The default value is: My Project.
 
-PROJECT_NAME           = Embedded Project Cookbook
+PROJECT_NAME           = "GM6000 Digital Heater Controller"
 
 # The PROJECT_NUMBER tag can be used to enter a project or revision number. This
 # could be handy for archiving the generated documentation or if some version
 # control system is used.
 
-PROJECT_NUMBER         = $$$PROJECT_NUMBER$$$
+PROJECT_NUMBER         = "Build Num: $$$BUILD_NUMBER$$$"
 
 # Using the PROJECT_BRIEF tag one can provide an optional one line description
 # for a project that appears at the top of each page and should give viewer a
 # quick idea about the purpose of the project. Keep the description short.
 
-PROJECT_BRIEF          = "GM6000 Digital Heater Controller"
+PROJECT_BRIEF          = SDX-1330
 
 # With the PROJECT_LOGO tag one can specify a logo or an icon that is included
 # in the documentation. The maximum height of the logo should not exceed 55
@@ -905,7 +905,8 @@ RECURSIVE              = YES
 # Note that relative paths are relative to the directory from which doxygen is
 # run.
 
-EXCLUDE                = ../src/Cpl/MAINPAGE.txt
+EXCLUDE                = ../src/Cpl/MAINPAGE.txt \
+                         ../src/Driver/DIO/Simulated/InOutModelPoints.h
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded
@@ -1389,7 +1390,7 @@ GENERATE_HTMLHELP      = YES
 # written to the html output directory.
 # This tag requires that the tag GENERATE_HTMLHELP is set to YES.
 
-CHM_FILE               = ..\patterns-in-the-machine.chm 
+CHM_FILE               = ..\sdx-1330-gm6000-software-doxygen-output.chm
 
 # The HHC_LOCATION tag can be used to specify the location (absolute path
 # including file name) of the HTML help compiler (hhc.exe). If non-empty,

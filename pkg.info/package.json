@@ -5,7 +5,7 @@
         "pkgname": "colony.core",
         "pkgtype": "overlay",
         "virtualAdoption": false,
-        "adoptedDate": "Sat Jun 17 22:07:23 2023",
+        "adoptedDate": "Sat Jun 17 22:32:21 2023",
         "parentDir": null,
         "version": {
           "semanticVersion": "4.4.0",
