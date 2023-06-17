@@ -53,6 +53,23 @@
           "type": "git",
           "origin": "https://github.com/johnttaylor"
         }
+      },
+      {
+        "pkgname": "ratt",
+        "pkgtype": "readonly",
+        "virtualAdoption": false,
+        "adoptedDate": "Sat Jun 17 21:23:14 2023",
+        "parentDir": "xsrc",
+        "version": {
+          "semanticVersion": "2.0.0",
+          "branch": null,
+          "tag": "OUTCAST2-main-2.0.0"
+        },
+        "repo": {
+          "name": "ratt",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
       }
     ]
   },
