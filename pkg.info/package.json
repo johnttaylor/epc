@@ -1,7 +1,43 @@
 {
   "dependencies": {
-    "strong": [],
-    "weak": []
+    "strong": [
+      {
+        "pkgname": "colony.core",
+        "pkgtype": "overlay",
+        "virtualAdoption": false,
+        "adoptedDate": "Sat Jun 17 22:07:23 2023",
+        "parentDir": null,
+        "version": {
+          "semanticVersion": "4.4.0",
+          "branch": null,
+          "tag": "OUTCAST2-main-4.4.1"
+        },
+        "repo": {
+          "name": "colony.core",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      }
+    ],
+    "weak": [
+      {
+        "pkgname": "catch",
+        "pkgtype": "overlay",
+        "virtualAdoption": false,
+        "adoptedDate": "Sat Jun 17 22:07:10 2023",
+        "parentDir": null,
+        "version": {
+          "semanticVersion": "2.13.7c",
+          "branch": null,
+          "tag": "OUTCAST2-main-2.13.7c"
+        },
+        "repo": {
+          "name": "catch",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      }
+    ]
   },
   "directories": {
     "primary": [
