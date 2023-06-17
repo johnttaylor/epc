@@ -1,0 +1,52 @@
+{
+  "dependencies": {
+    "strong": [
+      {
+        "pkgname": "nqbp2",
+        "pkgtype": "readonly",
+        "virtualAdoption": false,
+        "adoptedDate": "Sat Jun 17 21:01:48 2023",
+        "parentDir": "xsrc",
+        "version": {
+          "semanticVersion": "0.1.5",
+          "branch": null,
+          "tag": "OUTCAST2-main-0.1.5"
+        },
+        "repo": {
+          "name": "nqbp2",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      }
+    ],
+    "weak": []
+  },
+  "directories": {
+    "primary": [
+      "src",
+      "scripts",
+      "tests",
+      "projects"
+    ],
+    "adoptedExtras": [
+      "top",
+      "docs"
+    ]
+  },
+  "info": {
+    "pkgname": "epc",
+    "desc": "Source code for the Embedded Project Cookbook",
+    "owner": "John Taylor",
+    "email": "john.t.taylor@gmail.com",
+    "url": "https://github.com/johnttaylor/epc/blob/main/README.md",
+    "repo": {
+      "name": "epc",
+      "type": "git",
+      "origin": "https://github.com/johnttaylor"
+    }
+  },
+  "publish": {
+    "current": null,
+    "history": []
+  }
+}
