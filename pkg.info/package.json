@@ -17,6 +17,40 @@
           "type": "git",
           "origin": "https://github.com/johnttaylor"
         }
+      },
+      {
+        "pkgname": "freertos",
+        "pkgtype": "readonly",
+        "virtualAdoption": false,
+        "adoptedDate": "Sat Jun 17 22:16:00 2023",
+        "parentDir": "xsrc",
+        "version": {
+          "semanticVersion": "10.4.3-LTS-Patch1",
+          "branch": null,
+          "tag": "OUTCAST2-main-10.4.3-LTS-Patch1"
+        },
+        "repo": {
+          "name": "freertos",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      },
+      {
+        "pkgname": "stm32F4-sdk",
+        "pkgtype": "readonly",
+        "virtualAdoption": false,
+        "adoptedDate": "Sat Jun 17 22:15:39 2023",
+        "parentDir": "xsrc",
+        "version": {
+          "semanticVersion": null,
+          "branch": null,
+          "tag": "OUTCAST2-main-1.27.1"
+        },
+        "repo": {
+          "name": "stm32F4-sdk",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
       }
     ],
     "weak": [
@@ -50,40 +84,6 @@
         },
         "repo": {
           "name": "nqbp2",
-          "type": "git",
-          "origin": "https://github.com/johnttaylor"
-        }
-      },
-      {
-        "pkgname": "stm32F4-sdk",
-        "pkgtype": "readonly",
-        "virtualAdoption": false,
-        "adoptedDate": "Sat Jun 17 22:15:39 2023",
-        "parentDir": "xsrc",
-        "version": {
-          "semanticVersion": null,
-          "branch": null,
-          "tag": "OUTCAST2-main-1.27.1"
-        },
-        "repo": {
-          "name": "stm32F4-sdk",
-          "type": "git",
-          "origin": "https://github.com/johnttaylor"
-        }
-      },
-      {
-        "pkgname": "freertos",
-        "pkgtype": "readonly",
-        "virtualAdoption": false,
-        "adoptedDate": "Sat Jun 17 22:16:00 2023",
-        "parentDir": "xsrc",
-        "version": {
-          "semanticVersion": "10.4.3-LTS-Patch1",
-          "branch": null,
-          "tag": "OUTCAST2-main-10.4.3-LTS-Patch1"
-        },
-        "repo": {
-          "name": "freertos",
           "type": "git",
           "origin": "https://github.com/johnttaylor"
         }
