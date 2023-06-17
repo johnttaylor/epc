@@ -1,0 +1,246 @@
+{
+  "dependencies": {
+    "strong": [],
+    "weak": [
+      {
+        "pkgname": "stm32F4-sdk",
+        "pkgtype": "readonly",
+        "virtualAdoption": false,
+        "adoptedDate": "Fri Mar 31 21:29:23 2023",
+        "parentDir": "xsrc",
+        "version": {
+          "semanticVersion": null,
+          "branch": null,
+          "tag": "OUTCAST2-main-1.27.1"
+        },
+        "repo": {
+          "name": "stm32F4-sdk",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      },
+      {
+        "pkgname": "stm32-gcc-arm",
+        "pkgtype": "readonly",
+        "virtualAdoption": false,
+        "adoptedDate": "Fri Mar 31 21:30:22 2023",
+        "parentDir": "xsrc",
+        "version": {
+          "semanticVersion": null,
+          "branch": null,
+          "tag": "OUTCAST2-main-10.3-2021.10"
+        },
+        "repo": {
+          "name": "stm32-gcc-arm",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      },
+      {
+        "pkgname": "freertos",
+        "pkgtype": "readonly",
+        "virtualAdoption": false,
+        "adoptedDate": "Thu Apr 20 13:48:05 2023",
+        "parentDir": "xsrc",
+        "version": {
+          "semanticVersion": "10.4.3-LTS-Patch1",
+          "branch": null,
+          "tag": "OUTCAST2-main-10.4.3-LTS-Patch1"
+        },
+        "repo": {
+          "name": "freertos",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      },
+      {
+        "pkgname": "stm32F7-sdk",
+        "pkgtype": "readonly",
+        "virtualAdoption": false,
+        "adoptedDate": "Sat Apr 22 18:12:32 2023",
+        "parentDir": "xsrc",
+        "version": {
+          "semanticVersion": null,
+          "branch": null,
+          "tag": "OUTCAST2-main-1.17.0"
+        },
+        "repo": {
+          "name": "stm32F7-sdk",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      },
+      {
+        "pkgname": "ratt",
+        "pkgtype": "readonly",
+        "virtualAdoption": false,
+        "adoptedDate": "Sun Apr 30 22:45:38 2023",
+        "parentDir": "xsrc",
+        "version": {
+          "semanticVersion": "2.0.0",
+          "branch": null,
+          "tag": "OUTCAST2-main-2.0.0"
+        },
+        "repo": {
+          "name": "ratt",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      },
+      {
+        "pkgname": "catch",
+        "pkgtype": "overlay",
+        "virtualAdoption": false,
+        "adoptedDate": "Sat Jun 17 20:53:58 2023",
+        "parentDir": null,
+        "version": {
+          "semanticVersion": "2.13.7c",
+          "branch": null,
+          "tag": "OUTCAST2-main-2.13.7c"
+        },
+        "repo": {
+          "name": "catch",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      },
+      {
+        "pkgname": "nqbp2",
+        "pkgtype": "readonly",
+        "virtualAdoption": false,
+        "adoptedDate": "Sat Jun 17 20:55:54 2023",
+        "parentDir": "xsrc",
+        "version": {
+          "semanticVersion": "0.1.5",
+          "branch": null,
+          "tag": "OUTCAST2-main-0.1.5"
+        },
+        "repo": {
+          "name": "nqbp2",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      }
+    ]
+  },
+  "directories": {
+    "primary": [
+      "src",
+      "tests",
+      "scripts",
+      "top"
+    ],
+    "adoptedExtras": [
+      "top"
+    ]
+  },
+  "info": {
+    "desc": "Colony is C++ class library targeted specifically for embedded development.  Colony.Core is the base system/interfaces for the Colony packages.",
+    "owner": "John Taylor",
+    "email": "John.T.Taylor@gmail.com",
+    "url": "www.integerfox.com/colony.core",
+    "repo": {
+      "name": "colony.core",
+      "type": "git",
+      "origin": "https://github.com/johnttaylor"
+    },
+    "pkgname": "colony.core"
+  },
+  "publish": {
+    "current": {
+      "comment": "Fix bug in ST Uart driver.  Pickup newer version of Catch2 and Nqbp2",
+      "version": "4.4.1",
+      "date": "Sat Jun 17 20:57:45 2023",
+      "timestamp": 1687035465,
+      "changes": null
+    },
+    "history": [
+      {
+        "comment": "Migrate to STM32 as the default target platform",
+        "version": "4.4.0",
+        "date": "Thu Apr 27 00:10:33 2023",
+        "timestamp": 1682554233,
+        "changes": "\"- Updated to newer version of NQBP2 for STM32 toolchains\\n- Added STM32F413ZH as the 'default' target platform\\n- Added stream IO/driver for the STM32F MCU (works with/for other STM32x MCUs)\\n- Adopted the gcc toolchain for STM32 MCUs\\n- Adopted stm32 SDKs for the F4 and F7 families of MCU\\n- Deprecated the RX62N platform\\n- Move the BSP Package into the colony core (i.e. the BSP package has been deprecated)\\n- Added the 'Micro Application' framework (Cpl::MApp)\\n- Updated the freertos package to 10.4.3-LTS-Patch-1 (and added support for Seggers' SystemView)\""
+      },
+      {
+        "comment": "Switch to NQBP GEN2 build engine",
+        "version": "4.3.4",
+        "date": "Thu Feb 23 19:31:51 2023",
+        "timestamp": 1677180711,
+        "changes": null
+      },
+      {
+        "comment": "Maintainence (Stack, ElapsedTime, RingBuffer, etc.) and minor features add (logging framework, base64 encoding, etc.)",
+        "version": "4.3.3",
+        "date": "Sun Feb 19 14:14:55 2023",
+        "timestamp": 1676816095,
+        "changes": "\"- Refactor Stack container to be able to support ITEMs that are not numeric types\\n- Refactor the ElapsedTime implementation so as to provide a default implementation for all platforms (and correct bugs when number of seconds exceed 47 days)\\n- Refactor the TLS class to not use virtual method (not needed for the interface semantics)\\n- Add integer and real number expression parsers\\n- Update BetterEnum to support smaller memory footprint. \\n- Add a Restartable wrapper to the TShell\\n- Add a BlockEncoder\\n- Update Checksum interface to take a const buffer source. \\n- Add a getStream() method to the File InputOutput interface\\n- misc clean-up\\n- add logging framework. \\n- Add LargeInteger math. \\n- Safer RingBuffer. \\n- Specify correct abstract type for an 'event loop' mailbox reference. \\n- Add support for base64 encoding\\n\""
+      },
+      {
+        "comment": "Fix Tshell 'help text' errors introduced is previous update",
+        "version": "4.3.2",
+        "date": "Tue Jan 17 00:21:33 2023",
+        "timestamp": 1673914893,
+        "changes": "\"- Correct stupid clone-n-edit mistakes in the TShell commands.\\n- Add unit test to catch the above tshell errors in the future\\n- And new 'wait' tshell command.\\n- Clean up the 'wifi' tshell command\\n\\n\""
+      },
+      {
+        "comment": "Minor bug fix/clean-up to the TShell",
+        "version": "4.3.1",
+        "date": "Sun Jan 15 21:00:19 2023",
+        "timestamp": 1673816419,
+        "changes": "\"- Fix bug where the quote/escape characters where not being set correctly for the TShell Maker objects. \\n- Clean-up help strings \\n- Make base TShell command security aware\\n\""
+      },
+      {
+        "comment": "Feature adds to TShell, Data model, and enable default constructors for BETTER_ENUMs",
+        "version": "4.3.0",
+        "date": "Fri Dec 23 03:14:02 2022",
+        "timestamp": 1671765242,
+        "changes": "\"Add unit test for the Wifi-Station interface (though no concrete impl in colony.core)\\nEnable default constructors for BETTER_ENUMs\\nTShell refactored to support user login and three permission levels\\nAdd 'settling-time' feature to the Data Model's Persistent Records\\nRefactor Data Model Array MPs (array MPs are now typed ONLY by their element type)\\nRefactor String MPs (String MPs are now a single type)\\nAdd readAndSync() and isNotInvalidAndSync() method to properly synchronous Observers when the MP data is read in the change notification callback\\n\""
+      },
+      {
+        "comment": "Add additional driver support and non-blocking TCP socket streams",
+        "version": "4.2.2",
+        "date": "Sun Nov  6 23:15:51 2022",
+        "timestamp": 1667776551,
+        "changes": "\"- Add interface for WIFI Station functionality\\n- Add the ability to read 'out-of-band' input in the command shell.\\n- Add additional JSON support.\\n- Add Nvram driver interface.\\n- Add I2C platform independent interface definition.\\n- Add support for CAT24C512 EEPROM.\\n- Add non-blocking TCP socket interface and Win32 implementation\\n\""
+      },
+      {
+        "comment": "Minor bug fixes and external package updates",
+        "version": "4.2.1",
+        "date": "Sun Sep 11 18:56:47 2022",
+        "timestamp": 1662922607,
+        "changes": "\"- Fix bug in the missing 'blocking' argument for the frame decoders\\n- Fix issue of the Cpl::Io::Stream available() method reporting  mouse/focus events for stdin under Windoze\\n- Get the latest package version of: nqbp, colony.bsp, and colony.bsp.renesas.rx\\n\""
+      },
+      {
+        "comment": "Added new Drivers. Tweaked the StreamDecoder. Added VS solution. Added Null Media and RAM IO stream",
+        "version": "4.2.0",
+        "date": "Sun Sep  4 17:55:27 2022",
+        "timestamp": 1662314127
+      },
+      {
+        "comment": "Add Periodic Scheduler. Add non-blocking TShell processor",
+        "version": "4.1.0",
+        "date": "Thu Aug 18 01:03:06 2022",
+        "timestamp": 1660784586
+      },
+      {
+        "comment": "Refactor Model Points for smaller footprint (is a breaking change)",
+        "version": "3.0.0",
+        "date": "Mon May 30 18:11:49 2022",
+        "timestamp": 1653934309
+      },
+      {
+        "comment": "Try again at publishing as a Outcast2 package",
+        "version": "2.0.2",
+        "date": "Sun Nov 28 14:33:57 2021",
+        "timestamp": 1638110037
+      },
+      {
+        "comment": "Initial publish as a Outcast2 package",
+        "version": "2.0.1.",
+        "date": "Sat Nov 20 20:15:42 2021",
+        "timestamp": 1637439342
+      }
+    ]
+  }
+}
