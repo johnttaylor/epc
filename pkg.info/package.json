@@ -1,0 +1,138 @@
+{
+  "dependencies": {
+    "strong": [
+      {
+        "pkgname": "colony.core",
+        "pkgtype": "overlay",
+        "virtualAdoption": false,
+        "adoptedDate": "Sat Jun 17 22:32:21 2023",
+        "parentDir": null,
+        "version": {
+          "semanticVersion": "4.4.0",
+          "branch": null,
+          "tag": "OUTCAST2-main-4.4.1"
+        },
+        "repo": {
+          "name": "colony.core",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      },
+      {
+        "pkgname": "freertos",
+        "pkgtype": "readonly",
+        "virtualAdoption": false,
+        "adoptedDate": "Sat Jun 17 22:16:00 2023",
+        "parentDir": "xsrc",
+        "version": {
+          "semanticVersion": "10.4.3-LTS-Patch1",
+          "branch": null,
+          "tag": "OUTCAST2-main-10.4.3-LTS-Patch1"
+        },
+        "repo": {
+          "name": "freertos",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      },
+      {
+        "pkgname": "stm32F4-sdk",
+        "pkgtype": "readonly",
+        "virtualAdoption": false,
+        "adoptedDate": "Sat Jun 17 22:15:39 2023",
+        "parentDir": "xsrc",
+        "version": {
+          "semanticVersion": null,
+          "branch": null,
+          "tag": "OUTCAST2-main-1.27.1"
+        },
+        "repo": {
+          "name": "stm32F4-sdk",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      }
+    ],
+    "weak": [
+      {
+        "pkgname": "catch",
+        "pkgtype": "overlay",
+        "virtualAdoption": false,
+        "adoptedDate": "Sat Jun 17 22:07:10 2023",
+        "parentDir": null,
+        "version": {
+          "semanticVersion": "2.13.7c",
+          "branch": null,
+          "tag": "OUTCAST2-main-2.13.7c"
+        },
+        "repo": {
+          "name": "catch",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      },
+      {
+        "pkgname": "nqbp2",
+        "pkgtype": "readonly",
+        "virtualAdoption": false,
+        "adoptedDate": "Sat Jun 17 22:15:22 2023",
+        "parentDir": "xsrc",
+        "version": {
+          "semanticVersion": "0.1.5",
+          "branch": null,
+          "tag": "OUTCAST2-main-0.1.5"
+        },
+        "repo": {
+          "name": "nqbp2",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      },
+      {
+        "pkgname": "stm32-gcc-arm",
+        "pkgtype": "readonly",
+        "virtualAdoption": false,
+        "adoptedDate": "Sat Jun 17 22:16:14 2023",
+        "parentDir": "xsrc",
+        "version": {
+          "semanticVersion": null,
+          "branch": null,
+          "tag": "OUTCAST2-main-10.3-2021.10"
+        },
+        "repo": {
+          "name": "stm32-gcc-arm",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      }
+    ]
+  },
+  "directories": {
+    "primary": [
+      "src",
+      "scripts",
+      "tests",
+      "projects"
+    ],
+    "adoptedExtras": [
+      "top",
+      "docs"
+    ]
+  },
+  "info": {
+    "pkgname": "epc",
+    "desc": "Source code for the Embedded Project Cookbook",
+    "owner": "John Taylor",
+    "email": "john.t.taylor@gmail.com",
+    "url": "https://github.com/johnttaylor/epc/blob/main/README.md",
+    "repo": {
+      "name": "epc",
+      "type": "git",
+      "origin": "https://github.com/johnttaylor"
+    }
+  },
+  "publish": {
+    "current": null,
+    "history": []
+  }
+}

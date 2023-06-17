@@ -1,0 +1,10 @@
+hello world
+  start
+tab 	skip line
+not really end
+.good frame;
+this frame exceeds client's buffer
+ just kidding  
+a real frame followed by oob
+#my oob data here and more total of 44 bytes
+next frame
