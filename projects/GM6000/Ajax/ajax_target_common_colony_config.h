@@ -1,0 +1,10 @@
+#ifndef AJAX_TARGET_COLONY_CONFIG_H_
+#define AJAX_TARGET_COLONY_CONFIG_H_
+////////////////////////////////////////////////
+//
+// Common to ALL hardware-based Ajax projects
+//
+////////////////////////////////////////////////
+
+
+#endif
