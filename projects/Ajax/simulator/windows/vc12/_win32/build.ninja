@@ -164,12 +164,42 @@ build src\Cpl\System\Win32\_realtime\library.lib: ar src\Cpl\System\Win32\_realt
   arout = /OUT:
 
 
+# Directory: \_workspaces\zoe\epc\src\Ajax\Main\_plat_simulator
+
+build src\Ajax\Main\_plat_simulator\platform.obj: compile \_workspaces\zoe\epc\src\Ajax\Main\_plat_simulator\platform.cpp
+  ccopts =  /W3 /WX /EHsc /D CATCH_CONFIG_FAST_COMPILE /FS /nologo  /D "_CRT_SECURE_NO_WARNINGS" /D "_CONSOLE" /D "_MBCS" /Zi /FD /D "WIN32" /D "WIN32_LEAN_AND_MEAN" /c /D BUILD_VARIANT_WIN32 /D "BUILD_NUMBER=0"  /FS /Zi /Od /D "_DEBUG" /RTCs /D "_MY_APP_DEBUG_SWITCH_"  -I. -I\_workspaces\zoe\epc\src  -IC:\_workspaces\zoe\epc\projects\Ajax\simulator\windows\vc12 -I\_workspaces\zoe\epc\xsrc        
+
+build src\Ajax\Main\_plat_simulator\library.lib: ar src\Ajax\Main\_plat_simulator\platform.obj
+  aropts = /NOLOGO
+  arout = /OUT:
+
+
+# Directory: \_workspaces\zoe\epc\src\Cpl\System\_trace\_stdout
+
+build src\Cpl\System\_trace\_stdout\TraceOutput.obj: compile \_workspaces\zoe\epc\src\Cpl\System\_trace\_stdout\TraceOutput.cpp
+  ccopts =  /W3 /WX /EHsc /D CATCH_CONFIG_FAST_COMPILE /FS /nologo  /D "_CRT_SECURE_NO_WARNINGS" /D "_CONSOLE" /D "_MBCS" /Zi /FD /D "WIN32" /D "WIN32_LEAN_AND_MEAN" /c /D BUILD_VARIANT_WIN32 /D "BUILD_NUMBER=0"  /FS /Zi /Od /D "_DEBUG" /RTCs /D "_MY_APP_DEBUG_SWITCH_"  -I. -I\_workspaces\zoe\epc\src  -IC:\_workspaces\zoe\epc\projects\Ajax\simulator\windows\vc12 -I\_workspaces\zoe\epc\xsrc        
+
+build src\Cpl\System\_trace\_stdout\library.lib: ar src\Cpl\System\_trace\_stdout\TraceOutput.obj
+  aropts = /NOLOGO
+  arout = /OUT:
+
+
 # Directory: \_workspaces\zoe\epc\src\Cpl\System\_ansi\_shutdown
 
 build src\Cpl\System\_ansi\_shutdown\Shutdown.obj: compile \_workspaces\zoe\epc\src\Cpl\System\_ansi\_shutdown\Shutdown.cpp
   ccopts =  /W3 /WX /EHsc /D CATCH_CONFIG_FAST_COMPILE /FS /nologo  /D "_CRT_SECURE_NO_WARNINGS" /D "_CONSOLE" /D "_MBCS" /Zi /FD /D "WIN32" /D "WIN32_LEAN_AND_MEAN" /c /D BUILD_VARIANT_WIN32 /D "BUILD_NUMBER=0"  /FS /Zi /Od /D "_DEBUG" /RTCs /D "_MY_APP_DEBUG_SWITCH_"  -I. -I\_workspaces\zoe\epc\src  -IC:\_workspaces\zoe\epc\projects\Ajax\simulator\windows\vc12 -I\_workspaces\zoe\epc\xsrc        
 
 build src\Cpl\System\_ansi\_shutdown\library.lib: ar src\Cpl\System\_ansi\_shutdown\Shutdown.obj
+  aropts = /NOLOGO
+  arout = /OUT:
+
+
+# Directory: \_workspaces\zoe\epc\src\Cpl\Io\Stdio
+
+build src\Cpl\Io\Stdio\InputOutput_.obj: compile \_workspaces\zoe\epc\src\Cpl\Io\Stdio\InputOutput_.cpp
+  ccopts =  /W3 /WX /EHsc /D CATCH_CONFIG_FAST_COMPILE /FS /nologo  /D "_CRT_SECURE_NO_WARNINGS" /D "_CONSOLE" /D "_MBCS" /Zi /FD /D "WIN32" /D "WIN32_LEAN_AND_MEAN" /c /D BUILD_VARIANT_WIN32 /D "BUILD_NUMBER=0"  /FS /Zi /Od /D "_DEBUG" /RTCs /D "_MY_APP_DEBUG_SWITCH_"  -I. -I\_workspaces\zoe\epc\src  -IC:\_workspaces\zoe\epc\projects\Ajax\simulator\windows\vc12 -I\_workspaces\zoe\epc\xsrc        
+
+build src\Cpl\Io\Stdio\library.lib: ar src\Cpl\Io\Stdio\InputOutput_.obj
   aropts = /NOLOGO
   arout = /OUT:
 
@@ -190,6 +220,16 @@ build src\Ajax\Main\main.obj: compile \_workspaces\zoe\epc\src\Ajax\Main\main.cp
   ccopts =  /W3 /WX /EHsc /D CATCH_CONFIG_FAST_COMPILE /FS /nologo  /D "_CRT_SECURE_NO_WARNINGS" /D "_CONSOLE" /D "_MBCS" /Zi /FD /D "WIN32" /D "WIN32_LEAN_AND_MEAN" /c /D BUILD_VARIANT_WIN32 /D "BUILD_NUMBER=0"  /FS /Zi /Od /D "_DEBUG" /RTCs /D "_MY_APP_DEBUG_SWITCH_"  -I. -I\_workspaces\zoe\epc\src  -IC:\_workspaces\zoe\epc\projects\Ajax\simulator\windows\vc12 -I\_workspaces\zoe\epc\xsrc        
 
 build src\Ajax\Main\library.lib: ar src\Ajax\Main\main.obj
+  aropts = /NOLOGO
+  arout = /OUT:
+
+
+# Directory: \_workspaces\zoe\epc\src\mp
+
+build src\mp\ModelPoints.obj: compile \_workspaces\zoe\epc\src\mp\ModelPoints.cpp
+  ccopts =  /W3 /WX /EHsc /D CATCH_CONFIG_FAST_COMPILE /FS /nologo  /D "_CRT_SECURE_NO_WARNINGS" /D "_CONSOLE" /D "_MBCS" /Zi /FD /D "WIN32" /D "WIN32_LEAN_AND_MEAN" /c /D BUILD_VARIANT_WIN32 /D "BUILD_NUMBER=0"  /FS /Zi /Od /D "_DEBUG" /RTCs /D "_MY_APP_DEBUG_SWITCH_"  -I. -I\_workspaces\zoe\epc\src  -IC:\_workspaces\zoe\epc\projects\Ajax\simulator\windows\vc12 -I\_workspaces\zoe\epc\xsrc        
+
+build src\mp\library.lib: ar src\mp\ModelPoints.obj
   aropts = /NOLOGO
   arout = /OUT:
 
@@ -615,8 +655,8 @@ build .\main.obj: compile ..\..\main.cpp
 
 # Linking:
 
-build ajax-sim.exe: link .\main.obj | src\Cpl\TShell\Cmd\Win32\library.lib src\Cpl\System\Win32\library.lib src\Cpl\System\Win32\_fatalerror\library.lib src\Cpl\Io\Stdio\_win32\library.lib src\Cpl\Io\File\_win32\library.lib src\Cpl\Io\File\_win32\_api\library.lib src\Cpl\System\Win32\_realtime\library.lib src\Cpl\System\_ansi\_shutdown\library.lib xsrc\docopt-cpp\library.lib src\Ajax\Main\library.lib src\Cpl\Dm\Persistent\library.lib src\Cpl\Persistent\library.lib src\Cpl\Text\Frame\library.lib src\Cpl\Text\Tokenizer\library.lib src\Cpl\Memory\library.lib src\Cpl\Container\library.lib src\Cpl\Checksum\library.lib src\Cpl\Text\library.lib src\Cpl\Io\library.lib src\Cpl\Dm\library.lib src\Cpl\Dm\Mp\library.lib src\Cpl\Dm\TShell\library.lib src\Cpl\Itc\library.lib src\Cpl\System\library.lib src\Cpl\TShell\library.lib src\Cpl\TShell\Cmd\library.lib src\Cpl\System\_trace\library.lib .\main.obj
-  ldopts =     .\main.obj  /nologo /subsystem:console /pdb:ajax-sim.pdb /machine:X86 /debug /NODEFAULTLIB:LIBCMT        src\Cpl\TShell\Cmd\Win32\library.lib src\Cpl\System\Win32\library.lib src\Cpl\System\Win32\_fatalerror\library.lib src\Cpl\Io\Stdio\_win32\library.lib src\Cpl\Io\File\_win32\library.lib src\Cpl\Io\File\_win32\_api\library.lib src\Cpl\System\Win32\_realtime\library.lib src\Cpl\System\_ansi\_shutdown\library.lib xsrc\docopt-cpp\library.lib src\Ajax\Main\library.lib src\Cpl\Dm\Persistent\library.lib src\Cpl\Persistent\library.lib src\Cpl\Text\Frame\library.lib src\Cpl\Text\Tokenizer\library.lib src\Cpl\Memory\library.lib src\Cpl\Container\library.lib src\Cpl\Checksum\library.lib src\Cpl\Text\library.lib src\Cpl\Io\library.lib src\Cpl\Dm\library.lib src\Cpl\Dm\Mp\library.lib src\Cpl\Dm\TShell\library.lib src\Cpl\Itc\library.lib src\Cpl\System\library.lib src\Cpl\TShell\library.lib src\Cpl\TShell\Cmd\library.lib src\Cpl\System\_trace\library.lib    libcmtd.lib     
+build ajax-sim.exe: link .\main.obj | src\Cpl\TShell\Cmd\Win32\library.lib src\Cpl\System\Win32\library.lib src\Cpl\System\Win32\_fatalerror\library.lib src\Cpl\Io\Stdio\_win32\library.lib src\Cpl\Io\File\_win32\library.lib src\Cpl\Io\File\_win32\_api\library.lib src\Cpl\System\Win32\_realtime\library.lib src\Ajax\Main\_plat_simulator\library.lib src\Cpl\System\_trace\_stdout\library.lib src\Cpl\System\_ansi\_shutdown\library.lib src\Cpl\Io\Stdio\library.lib xsrc\docopt-cpp\library.lib src\Ajax\Main\library.lib src\mp\library.lib src\Cpl\Dm\Persistent\library.lib src\Cpl\Persistent\library.lib src\Cpl\Text\Frame\library.lib src\Cpl\Text\Tokenizer\library.lib src\Cpl\Memory\library.lib src\Cpl\Container\library.lib src\Cpl\Checksum\library.lib src\Cpl\Text\library.lib src\Cpl\Io\library.lib src\Cpl\Dm\library.lib src\Cpl\Dm\Mp\library.lib src\Cpl\Dm\TShell\library.lib src\Cpl\Itc\library.lib src\Cpl\System\library.lib src\Cpl\TShell\library.lib src\Cpl\TShell\Cmd\library.lib src\Cpl\System\_trace\library.lib .\main.obj
+  ldopts =     .\main.obj  /nologo /subsystem:console /pdb:ajax-sim.pdb /machine:X86 /debug /NODEFAULTLIB:LIBCMT        src\Cpl\TShell\Cmd\Win32\library.lib src\Cpl\System\Win32\library.lib src\Cpl\System\Win32\_fatalerror\library.lib src\Cpl\Io\Stdio\_win32\library.lib src\Cpl\Io\File\_win32\library.lib src\Cpl\Io\File\_win32\_api\library.lib src\Cpl\System\Win32\_realtime\library.lib src\Ajax\Main\_plat_simulator\library.lib src\Cpl\System\_trace\_stdout\library.lib src\Cpl\System\_ansi\_shutdown\library.lib src\Cpl\Io\Stdio\library.lib xsrc\docopt-cpp\library.lib src\Ajax\Main\library.lib src\mp\library.lib src\Cpl\Dm\Persistent\library.lib src\Cpl\Persistent\library.lib src\Cpl\Text\Frame\library.lib src\Cpl\Text\Tokenizer\library.lib src\Cpl\Memory\library.lib src\Cpl\Container\library.lib src\Cpl\Checksum\library.lib src\Cpl\Text\library.lib src\Cpl\Io\library.lib src\Cpl\Dm\library.lib src\Cpl\Dm\Mp\library.lib src\Cpl\Dm\TShell\library.lib src\Cpl\Itc\library.lib src\Cpl\System\library.lib src\Cpl\TShell\library.lib src\Cpl\TShell\Cmd\library.lib src\Cpl\System\_trace\library.lib    libcmtd.lib     
   ldout = /OUT:
 
 default ajax-sim.exe

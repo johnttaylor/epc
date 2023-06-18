@@ -51,6 +51,15 @@ int runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd );
 extern Cpl::Container::Map<Cpl::TShell::Command>    g_cmdlist;
 
 
+/*
+** Thread Priorities
+*/
+
+/// Thread priority
+#ifndef OPTION_AJAX_MAIN_THREAD_PRIORITY_CONSOLE
+#define OPTION_AJAX_MAIN_THREAD_PRIORITY_CONSOLE       (CPL_SYSTEM_THREAD_PRIORITY_NORMAL + ( 2* CPL_SYSTEM_THREAD_PRIORITY_LOWER) )
+#endif
+
 
 
 };      // end namespaces

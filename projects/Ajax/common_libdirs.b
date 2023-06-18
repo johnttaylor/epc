@@ -1,5 +1,6 @@
 # Application
 src/Ajax/Main 
+src/mp
 
 # persistent storage
 src/Cpl/Dm/Persistent
