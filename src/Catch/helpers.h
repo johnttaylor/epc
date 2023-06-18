@@ -18,7 +18,7 @@
 #include "colony_config.h"
 #include "Cpl/System/Api.h"
 #include "Cpl/System/Trace.h"
-#include "Cpl/System/Semeaphore.h"
+#include "Cpl/System/Semaphore.h"
 #include "Cpl/Dm/ModelPoint.h"
 #include "Cpl/Dm/MailboxServer.h"
 #include "Cpl/Itc/MailboxServer.h"
@@ -169,7 +169,7 @@ public:
 
 /** Same as the a DmMailbox class, except for ITC Mailbox server
  */
-class ItcMailbox : public Cpl::Itcs::MailboxServer
+class ItcMailbox : public Cpl::Itc::MailboxServer
 {
 public:
     /// Constructor
@@ -186,7 +186,7 @@ public:
     void appRun()
     {
         m_sema.signal();
-        Cpl::Dm::MailboxServer::appRun();
+        Cpl::Itc::MailboxServer::appRun();
     }
 
 public:
