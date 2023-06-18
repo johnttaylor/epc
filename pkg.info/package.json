@@ -2,23 +2,6 @@
   "dependencies": {
     "strong": [
       {
-        "pkgname": "colony.core",
-        "pkgtype": "overlay",
-        "virtualAdoption": false,
-        "adoptedDate": "Sat Jun 17 22:32:21 2023",
-        "parentDir": null,
-        "version": {
-          "semanticVersion": "4.4.0",
-          "branch": null,
-          "tag": "OUTCAST2-main-4.4.1"
-        },
-        "repo": {
-          "name": "colony.core",
-          "type": "git",
-          "origin": "https://github.com/johnttaylor"
-        }
-      },
-      {
         "pkgname": "freertos",
         "pkgtype": "readonly",
         "virtualAdoption": false,
@@ -65,6 +48,23 @@
         },
         "repo": {
           "name": "docopt-cpp",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      },
+      {
+        "pkgname": "colony.core",
+        "pkgtype": "overlay",
+        "virtualAdoption": false,
+        "adoptedDate": "Sun Jun 18 20:08:37 2023",
+        "parentDir": null,
+        "version": {
+          "semanticVersion": "4.4.0",
+          "branch": null,
+          "tag": "OUTCAST2-main-4.4.1"
+        },
+        "repo": {
+          "name": "colony.core",
           "type": "git",
           "origin": "https://github.com/johnttaylor"
         }
