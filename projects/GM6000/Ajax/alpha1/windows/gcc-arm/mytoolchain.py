@@ -33,7 +33,7 @@ from nqbplib.my_globals import NQBP_PKG_ROOT
 #---------------------------------------------------
 
 # Set the name for the final output item (with NO file extension)
-FINAL_OUTPUT_NAME = 'blink'
+FINAL_OUTPUT_NAME = 'ajax'
 
 
 # Path to SDK and the ST CubeMX generated BSP files

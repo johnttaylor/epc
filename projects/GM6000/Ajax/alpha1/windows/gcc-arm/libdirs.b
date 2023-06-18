@@ -1,7 +1,9 @@
-# Output stream for the trace engine (and the debug console)
-src/Cpl/Io/Serial/ST/M32F4
+# target specific stuffs
+src/Ajax/Main/_plat_alpha1
+src/Ajax/Main/_plat_alpha1/_app_platform
 
 # BSP
+src/Cpl/Io/Serial/ST/M32F4
 src/Bsp/Initech/alpha1/trace
 src/Bsp/Initech/alpha1 
 src/Bsp/Initech/alpha1/MX 

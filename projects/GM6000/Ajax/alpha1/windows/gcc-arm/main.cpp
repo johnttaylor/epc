@@ -5,8 +5,10 @@
 #include <stdint.h>
 #include "Cpl/System/Api.h"
 #include "Cpl/System/FreeRTOS/Thread.h"
+#include "Cpl/TShell/Cmd/FreeRTOS/Threads.h"
 #include "Bsp/Initech/alpha1/console/Output.h"
 
+static Cpl::TShell::Cmd::FreeRTOS::Threads cmdThreads_( Ajax::Main::g_cmdlist );
 
 /// Thread for the Main Pattern
 class ThreadMain : public Cpl::System::Runnable
@@ -41,12 +43,8 @@ int main( void )
     Cpl::System::Thread* t1 = Cpl::System::FreeRTOS::Thread::create( runnable_, "main", CPL_SYSTEM_THREAD_PRIORITY_NORMAL );
     if ( t1 == nullptr )
     {
-        printf( "Failed to created thread!!\n" );
-        while ( 1 );
-    }
-    else
-    {
         printf( "Failed to create the main thread\n" );
+        while ( 1 );
     }
 
     // Start the scheduler

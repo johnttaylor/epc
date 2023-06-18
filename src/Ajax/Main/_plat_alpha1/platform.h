@@ -1,5 +1,5 @@
-#ifndef Ajax_Main_plat_simulator_platform_h_
-#define Ajax_Main_plat_simulator_platform_h_
+#ifndef Ajax_Main_plat_alpha1_platform_h_
+#define Ajax_Main_plat_alpha1_platform_h_
 /*-----------------------------------------------------------------------------
 * This file is part of the Colony.Core Project.  The Colony.Core Project is an
 * open source project with a BSD type of licensing agreement.  See the license
