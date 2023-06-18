@@ -29,6 +29,7 @@ doskey gitchmodx=git update-index --chmod=+x $*
 doskey setexe=git update-index --chmod=+x $*
 doskey ports=reg query HKLM\HARDWARE\DEVICEMAP\SERIALCOMM
 doskey map=%NQBP_PKG_ROOT%scripts\colony.core\map.py $*
+doskey tvc=touch %NQBP_PKG_ROOT%*vcxproj
 
 :: No compiler option selected
 IF "/%1"=="/" GOTO :displaycc

@@ -1,0 +1,17 @@
+# Misc
+*.gcov
+_posix64/
+_posix/
+_cpp11/
+_win32/
+_win64/
+_stm32/
+ratt.log*
+
+# visual studio
+*.exe
+*.ilk
+*.pdb
+*.sln
+
+*.user
