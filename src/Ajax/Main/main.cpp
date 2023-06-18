@@ -12,6 +12,7 @@
 
 #include "main.h"
 #include "platform.h"
+#include "application.h"
 #include "mp/ModelPoints.h"
 #include "Cpl/System/Shutdown.h"
 #include "Cpl/System/Semaphore.h"
@@ -46,10 +47,13 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     ** STARTING UP...
     */
     platform_initialize0();
+    appvariant_initialize0();
 
     platform_initializeModelPoints0();
+    appvariant_initializeModelPoints0();
 
     platform_open0();
+    appvariant_open0();
 
     // Start the shell
     shell_.launch( infd, outfd );
@@ -64,6 +68,7 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     /*
     ** SHUTTING DOWN...
     */
+    appvariant_close0();
     platform_close0();
 
     // Run any/all register shutdown handlers (as registered by the Cpl::System::Shutdown interface) and then exit
@@ -71,7 +76,7 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
 }
 
 
-////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 int runShutdownHandlers() noexcept
 {
     exitCode_ = Cpl::System::Shutdown::notifyShutdownHandlers_( exitCode_ );

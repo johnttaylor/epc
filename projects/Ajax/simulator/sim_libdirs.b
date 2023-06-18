@@ -1,5 +1,7 @@
 # Application
+src/Ajax/Main/_app
 src/Ajax/Main/_plat_simulator
+src/Ajax/Main/_plat_simulator/_app_platform
 
 # Infrastructure
 src/Cpl/System/_trace/_stdout

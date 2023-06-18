@@ -12,8 +12,7 @@
 *----------------------------------------------------------------------------*/
 /** @file
 
-    This file contains the interface(s) that are platform specific to running
-    the Storm::Thermostat application
+    This file contains the interface(s) that are platform VARIANT specific
  */
 
 ///

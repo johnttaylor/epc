@@ -10,42 +10,27 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
-#include "Ajax/Main/platform.h"
-#include "app_platform.h"
-#include <stdlib.h>
+#include "Ajax/Main/application.h"
 
 using namespace Ajax::Main;
 
 /////////////////////////////
-void Ajax::Main::platform_initialize0()
+void Ajax::Main::appvariant_initialize0()
 {
-    // Platform init...
-
-    appvariant_platform_initialize0();
+    // Nothing currently needed
 }
 
-void Ajax::Main::platform_initializeModelPoints0()
+void Ajax::Main::appvariant_initializeModelPoints0()
 {
-    // Platform init...
-
-    appvariant_platform_initializeModelPoints0();
+    // Nothing currently needed
 }
 
-void Ajax::Main::platform_open0()
+void Ajax::Main::appvariant_open0()
 {
-    // Platform open...
-
-    appvariant_platform_open0();
+    // Nothing currently needed
 }
 
-void Ajax::Main::platform_close0()
+void Ajax::Main::appvariant_close0()
 {
-    appvariant_platform_close0();
- 
-    // Platform close...
-}
-
-int Ajax::Main::platform_exit( int exitCode )
-{
-    exit( exitCode );
+    // Nothing currently needed
 }
