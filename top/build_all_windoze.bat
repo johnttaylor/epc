@@ -24,18 +24,18 @@ echo:
 ::
 :: Build Mingw projects (just the Win32 builds)
 ::
-::call %_TOPDIR%..\env.bat 3
-::@echo on
-::
-:::: Build NON-unit-test projects
-::cd %_TOPDIR%..\projects
-::%_TOOLS%\bob.py -v4 mingw_w64 -c --bldtime -b win32 --bldnum %BUILD_NUMBER%
-::IF ERRORLEVEL 1 EXIT /b 1
-::
-:::: Build unit test projects
-::cd %_TOPDIR%..\tests
-::%_TOOLS%\bob.py -v4 mingw_w64 -c --bldtime -b win32  --bldnum %BUILD_NUMBER%
-::IF ERRORLEVEL 1 EXIT /b 1
+call %_TOPDIR%..\env.bat 3
+@echo on
+
+:: Build NON-unit-test projects
+cd %_TOPDIR%..\projects
+%_TOOLS%\bob.py -v4 mingw_w64 -c --bldtime -b win32 --bldnum %BUILD_NUMBER%
+IF ERRORLEVEL 1 EXIT /b 1
+
+:: Build unit test projects
+cd %_TOPDIR%..\tests
+%_TOOLS%\bob.py -v4 mingw_w64 -c --bldtime -b win32  --bldnum %BUILD_NUMBER%
+IF ERRORLEVEL 1 EXIT /b 1
 
 :: Run unit tests
 cd %_TOPDIR%..\tests
@@ -55,18 +55,18 @@ IF ERRORLEVEL 1 EXIT /b 1
 ::
 :: Build Visual Studio projects (just the win32 builds)
 ::
-::call %_TOPDIR%..\env.bat 1
-::@echo on
-::
-:::: Build NON-unit-test projects 
-::cd %_TOPDIR%..\projects
-::%_TOOLS%\bob.py -v4 vc12 -c --bldtime -b win32 --bldnum %BUILD_NUMBER%
-::IF ERRORLEVEL 1 EXIT /b 1
-::
-:::: Build unit test projects
-::cd %_TOPDIR%..\tests
-::%_TOOLS%\bob.py -v4 vc12 --bldtime --clean-all -b win32 --bldnum %BUILD_NUMBER%
-::IF ERRORLEVEL 1 EXIT /b 1
+call %_TOPDIR%..\env.bat 1
+@echo on
+
+:: Build NON-unit-test projects 
+cd %_TOPDIR%..\projects      
+%_TOOLS%\bob.py -v4 vc12 -c --bldtime -b win32 --bldnum %BUILD_NUMBER%
+IF ERRORLEVEL 1 EXIT /b 1
+
+:: Build unit test projects
+cd %_TOPDIR%..\tests
+%_TOOLS%\bob.py -v4 vc12 --bldtime --clean-all -b win32 --bldnum %BUILD_NUMBER%
+IF ERRORLEVEL 1 EXIT /b 1
 
 :: Run unit tests
 cd %_TOPDIR%\..\tests
