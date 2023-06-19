@@ -102,9 +102,6 @@ def run(argv):
     # Generate summary
     if (args['rpt']):
         python = 'python'
-        if ( platform.system() == 'Windows' ):
-            python = 'py -3'
-
         cmd  = '{} -m gcovr {} {} -j 8 -r {}{}src --object-directory . {}'.format(python, excludes, arcopt, pkg, os.sep, ' '.join(args['<args>']) if args['<args>'] else '') 
         if (args['<args>']):
             first = args['<args>'][0]
