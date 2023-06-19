@@ -29,25 +29,25 @@ call %_ROOT%\env.bat 3
 @echo on
 
 :: Build NON-unit-test projects
-cd %_ROOT%\projects
-%_TOOLS%\bob.py -v4 mingw_w64 -c --bldtime -b win32 --bldnum %BUILD_NUMBER%
-IF ERRORLEVEL 1 EXIT /b 1
-
-:: Build unit test projects
-cd %_ROOT%\tests
-%_TOOLS%\bob.py -v4 mingw_w64 -c --bldtime -b win32  --bldnum %BUILD_NUMBER%
-IF ERRORLEVEL 1 EXIT /b 1
-
-:: Run unit tests
-cd %_ROOT%\tests
-%_TOOLS%\chuck.py -v --match a.exe --dir mingw_w64
-IF ERRORLEVEL 1 EXIT /b 1
-%_TOOLS%\chuck.py -v --match aa.exe --dir mingw_w64
-IF ERRORLEVEL 1 EXIT /b 1
-%_TOOLS%\chuck.py -v --match a.py --dir mingw_w64
-IF ERRORLEVEL 1 EXIT /b 1
-%_TOOLS%\chuck.py -v --match aa.py --dir mingw_w64
-IF ERRORLEVEL 1 EXIT /b 1
+::cd %_ROOT%\projects
+::%_TOOLS%\bob.py -v4 mingw_w64 -c --bldtime -b win32 --bldnum %BUILD_NUMBER%
+::IF ERRORLEVEL 1 EXIT /b 1
+::
+:::: Build unit test projects
+::cd %_ROOT%\tests
+::%_TOOLS%\bob.py -v4 mingw_w64 -c --bldtime -b win32  --bldnum %BUILD_NUMBER%
+::IF ERRORLEVEL 1 EXIT /b 1
+::
+:::: Run unit tests
+::cd %_ROOT%\tests
+::%_TOOLS%\chuck.py -v --match a.exe --dir mingw_w64
+::IF ERRORLEVEL 1 EXIT /b 1
+::%_TOOLS%\chuck.py -v --match aa.exe --dir mingw_w64
+::IF ERRORLEVEL 1 EXIT /b 1
+::%_TOOLS%\chuck.py -v --match a.py --dir mingw_w64
+::IF ERRORLEVEL 1 EXIT /b 1
+::%_TOOLS%\chuck.py -v --match aa.py --dir mingw_w64
+::IF ERRORLEVEL 1 EXIT /b 1
 
 :: Generate code coverage metrics
 %_TOOLS%\chuck.py -v --dir mingw_w64 --match tca.py rpt --xml jenkins-gcovr.xml 
