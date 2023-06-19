@@ -48,6 +48,9 @@ IF ERRORLEVEL 1 EXIT /b 1
 %_TOOLS%\chuck.py -v --match aa.py --dir mingw_w64
 IF ERRORLEVEL 1 EXIT /b 1
 
+:: Generate code coverage metrics
+%_TOOLS%\chuck.py -vt --match tca.py --dir mingw_w64
+IF ERRORLEVEL 1 EXIT /b 1
 
 ::
 :: Build Visual Studio projects (just the win32 builds)
