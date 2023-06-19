@@ -18,9 +18,9 @@ echo:BUILD: BUILD_NUMBER=%BUILD_NUMBER%, BRANCH=%BUILD_BRANCH%
 echo:
 
 :: Run Doxygen first 
-::cd %_TOPDIR%
-::run_doxygen.py %BUILD_NUMBER% %BUILD_BRANCH% 
-::IF ERRORLEVEL 1 EXIT /b 1
+cd %_TOPDIR%
+run_doxygen.py %BUILD_NUMBER% %BUILD_BRANCH% 
+IF ERRORLEVEL 1 EXIT /b 1
 
 ::
 :: Build Mingw projects (just the Win32 builds)

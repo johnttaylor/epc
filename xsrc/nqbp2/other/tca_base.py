@@ -95,7 +95,7 @@ def run(argv):
     excludes = '--exclude=.*_0test.*  --exclude=^tests* --exclude-unreachable-branches --exclude-lines-by-pattern .*CPL_SYSTEM_TRACE.* --exclude-lines-by-pattern .*CPL_SYSTEM_ASSERT.*'
 
     # Setup 'arc' excludes for C++ code (see https://gcovr.com/en/stable/faq.html)
-    arcopt = ' --exclude-unreachable-branches'
+    arcopt = ' --exclude-unreachable-branches --decisions '
     if ( args['--all'] ):
         arcopt = ''
 

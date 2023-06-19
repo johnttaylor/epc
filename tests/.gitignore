@@ -1,4 +1,5 @@
 # Misc
+coverage.xml
 *.gcov
 _posix64/
 _posix/
