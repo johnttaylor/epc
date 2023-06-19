@@ -66,7 +66,7 @@ IF ERRORLEVEL 1 EXIT /b 1
 
 :: Build unit test projects
 cd %_ROOT%\tests
-%_TOOLS%\bob.py -v4 vc12 --bldtime --clean-all -b win32 --bldnum %BUILD_NUMBER%
+%_TOOLS%\bob.py -v4 vc12 --bldtime -c -b win32 --bldnum %BUILD_NUMBER%
 IF ERRORLEVEL 1 EXIT /b 1
 
 :: Run unit tests
