@@ -23,7 +23,7 @@ run_doxygen.py %BUILD_NUMBER% %BUILD_BRANCH%
 IF ERRORLEVEL 1 EXIT /b 1
 
 ::
-:: Build Mingw projects (just the Win32 builds)
+:: Build Mingw projects (just the Win32 builds) 
 ::
 call %_ROOT%\env.bat 3
 @echo on
