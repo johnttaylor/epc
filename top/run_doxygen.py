@@ -7,7 +7,7 @@ standards require that doxygen execute without warning.
 The script assumes that doxygen is in the command path.
 
 
-Usage: doxygen [build-number]
+Usage: doxygen [build-number] [build-branch]
 
 """
 
@@ -65,11 +65,15 @@ print( "Running doxygen..." )
 
 # Insert the build number into the Doxygen config
 build_num = '0'
+build_branch = '<none>'
 if len(sys.argv) > 1:
     build_num = sys.argv[1]
+if len(sys.argv) > 2:
+    build_branch = sys.argv[2]
 with open( "Doxyfile.src", 'r' ) as inf:
     d = inf.read()
     d = d.replace('$$$BUILD_NUMBER$$$', build_num )
+    d = d.replace('$$$BUILD_BRANCH$$$', build_branch )
     with open( "Doxyfile", 'w' ) as outf:
         outf.write( d )
 

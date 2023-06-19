@@ -92,20 +92,17 @@ def run(argv):
     pkg = NQBP_PKG_ROOT()
     
     # setup excludes 
-    excludes = '--exclude=.*_0test.*  --exclude=^tests* --exclude-unreachable-branches --exclude-lines-by-pattern .*CPL_SYSTEM_TRACE.* --exclude-lines-by-pattern .*CPL_SYSTEM_ASSERT.*'
+    excludes = '--exclude=.*_0test.* --filter=.*src/.*  --exclude=.*src/Catch.* --exclude-unreachable-branches --exclude-lines-by-pattern .*CPL_SYSTEM_TRACE.* --exclude-lines-by-pattern .*CPL_SYSTEM_ASSERT.*'
 
-    # Setup 'arc' excludes for C++ code (see https://gcovr.com/en/stable/faq.html)
-    arcopt = ' --exclude-unreachable-branches'
+    # Setup 'arc' excludes for C++ code (see https://gcovr.com/en/stable/faq.html) 
+    arcopt = ' --exclude-unreachable-branches --decisions '
     if ( args['--all'] ):
         arcopt = ''
 
     # Generate summary
     if (args['rpt']):
         python = 'python'
-        if ( platform.system() == 'Windows' ):
-            python = 'py -3'
-
-        cmd  = '{} -m gcovr {} {} -j 8 -r {}{}src --object-directory . {}'.format(python, excludes, arcopt, pkg, os.sep, ' '.join(args['<args>']) if args['<args>'] else '') 
+        cmd  = '{} -m gcovr {} {} --gcov-ignore-parse-errors=negative_hits.warn -j 8 -r {} --object-directory . {} .'.format(python, excludes, arcopt, pkg,  ' '.join(args['<args>']) if args['<args>'] else '') 
         if (args['<args>']):
             first = args['<args>'][0]
             if (first == '-h' or first == '--help'):
