@@ -102,7 +102,7 @@ def run(argv):
     # Generate summary
     if (args['rpt']):
         python = 'python'
-        cmd  = '{} -m gcovr {} {} -j 8 -r --gcov-ignore-parse-errors=negative_hits.warn {}{}src --object-directory . {}'.format(python, excludes, arcopt, pkg, os.sep, ' '.join(args['<args>']) if args['<args>'] else '') 
+        cmd  = '{} -m gcovr {} {} --gcov-ignore-parse-errors=negative_hits.warn -j 8 -r {}{}src --object-directory . {}'.format(python, excludes, arcopt, pkg, os.sep, ' '.join(args['<args>']) if args['<args>'] else '') 
         if (args['<args>']):
             first = args['<args>'][0]
             if (first == '-h' or first == '--help'):
