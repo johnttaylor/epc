@@ -1,5 +1,5 @@
 # Misc
-coverage.xml
+jenkins-gcovr.xml
 *.gcov
 _posix64/
 _posix/

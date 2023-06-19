@@ -30,6 +30,7 @@ doskey setexe=git update-index --chmod=+x $*
 doskey ports=reg query HKLM\HARDWARE\DEVICEMAP\SERIALCOMM
 doskey map=%NQBP_PKG_ROOT%scripts\colony.core\map.py $*
 doskey tvc=touch %NQBP_PKG_ROOT%*vcxproj
+doskey log=git log | grep -v "^commit.*" | grep -v "^Author:.*" | grep -v "^Date:.*" | grep -v " *Merge .*" | grep -v "^Merge:.*" | grep -v "^ *$" | grep -v "^git-subtree-dir:.*" | grep -v "^git-subtree-split:.*"
 
 :: No compiler option selected
 IF "/%1"=="/" GOTO :displaycc
