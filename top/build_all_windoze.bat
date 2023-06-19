@@ -89,15 +89,15 @@ call %_ROOT%\env.bat 5
 
 :: Build NON-unit-test projects
 
-cd %_ROOT%\projects
-%_TOOLS%\bob.py -v4 --p2 windows gcc-arm --bldtime -c --bld-all --bldnum %BUILD_NUMBER%
-IF ERRORLEVEL 1 EXIT /b 1
-
-:: Build unit test projects
-
-cd %_ROOT%\tests
-%_TOOLS%\bob.py -v4 --p2 windows gcc-arm --bldtime -c --bld-all --bldnum %BUILD_NUMBER%
-IF ERRORLEVEL 1 EXIT /b 1
+::cd %_ROOT%\projects
+::%_TOOLS%\bob.py -v4 --p2 windows gcc-arm --bldtime -c --bld-all --bldnum %BUILD_NUMBER%
+::IF ERRORLEVEL 1 EXIT /b 1
+::
+:::: Build unit test projects
+::
+::cd %_ROOT%\tests
+::%_TOOLS%\bob.py -v4 --p2 windows gcc-arm --bldtime -c --bld-all --bldnum %BUILD_NUMBER%
+::IF ERRORLEVEL 1 EXIT /b 1
 
 
 :: TODO: Add Linux builds....

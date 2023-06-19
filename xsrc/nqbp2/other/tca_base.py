@@ -92,7 +92,7 @@ def run(argv):
     pkg = NQBP_PKG_ROOT()
     
     # setup excludes 
-    excludes = '--exclude=.*_0test.*  --exclude=.*src/Catch.* --exclude=^tests* --exclude-unreachable-branches --exclude-lines-by-pattern .*CPL_SYSTEM_TRACE.* --exclude-lines-by-pattern .*CPL_SYSTEM_ASSERT.*'
+    excludes = '--exclude=.*_0test.* --filter=.*src/.*  --exclude=.*src/Catch.* --exclude-unreachable-branches --exclude-lines-by-pattern .*CPL_SYSTEM_TRACE.* --exclude-lines-by-pattern .*CPL_SYSTEM_ASSERT.*'
 
     # Setup 'arc' excludes for C++ code (see https://gcovr.com/en/stable/faq.html) 
     arcopt = ' --exclude-unreachable-branches --decisions '
@@ -102,7 +102,7 @@ def run(argv):
     # Generate summary
     if (args['rpt']):
         python = 'python'
-        cmd  = '{} -m gcovr {} {} --gcov-ignore-parse-errors=negative_hits.warn -j 8 -r {}{} --object-directory . {} .'.format(python, excludes, arcopt, pkg, os.sep, ' '.join(args['<args>']) if args['<args>'] else '') 
+        cmd  = '{} -m gcovr {} {} --gcov-ignore-parse-errors=negative_hits.warn -j 8 -r {} --object-directory . {} .'.format(python, excludes, arcopt, pkg,  ' '.join(args['<args>']) if args['<args>'] else '') 
         if (args['<args>']):
             first = args['<args>'][0]
             if (first == '-h' or first == '--help'):
