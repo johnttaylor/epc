@@ -92,7 +92,7 @@ def run(argv):
     pkg = NQBP_PKG_ROOT()
     
     # setup excludes 
-    excludes = '--exclude=.*_0test.* --filter=.*src/.*  --exclude=.*src/Catch.* --exclude-unreachable-branches --exclude-lines-by-pattern .*CPL_SYSTEM_TRACE.* --exclude-lines-by-pattern .*CPL_SYSTEM_ASSERT.*'
+    excludes = '--exclude=.*_0test.* --filter=.*src/.*  --exclude=.*src/Catch.* --exclude=.*src/Cpl/Json/Arudino.h.* --exclude=.*src/Cpl/Type/enum.h.* --exclude-unreachable-branches --exclude-lines-by-pattern .*CPL_SYSTEM_TRACE.* --exclude-lines-by-pattern .*CPL_SYSTEM_ASSERT.*'
 
     # Setup 'arc' excludes for C++ code (see https://gcovr.com/en/stable/faq.html) 
     arcopt = ' --exclude-unreachable-branches --decisions '
