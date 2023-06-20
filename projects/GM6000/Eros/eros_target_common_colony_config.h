@@ -1,0 +1,10 @@
+#ifndef EROS_TARGET_COLONY_CONFIG_H_
+#define EROS_TARGET_COLONY_CONFIG_H_
+////////////////////////////////////////////////
+//
+// Common to ALL hardware-based Ajax projects
+//
+////////////////////////////////////////////////
+
+
+#endif

@@ -10,30 +10,30 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
-#include "Ajax/Main/application.h"
+#include "Ajax/Main/_plat_simulator/app_platform.h"
 #include <stdio.h>
 
 using namespace Ajax::Main;
 
 /////////////////////////////
-void Ajax::Main::appvariant_initialize0()
+void Ajax::Main::appvariant_platform_initialize0()
 {
-    printf( "\nAJAX: appvariant_initialize0()\n" );
-
+    printf( "\nAJAX: simulator: appvariant_platform_initialize0()\n" );
+    
     // Nothing currently needed
 }
 
-void Ajax::Main::appvariant_initializeModelPoints0()
-{
-    // Nothing currently needed
-}
-
-void Ajax::Main::appvariant_open0()
+void Ajax::Main::appvariant_platform_initializeModelPoints0()
 {
     // Nothing currently needed
 }
 
-void Ajax::Main::appvariant_close0()
+void Ajax::Main::appvariant_platform_open0()
+{
+    // Nothing currently needed
+}
+
+void Ajax::Main::appvariant_platform_close0()
 {
     // Nothing currently needed
 }
