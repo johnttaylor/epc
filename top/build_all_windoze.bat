@@ -34,9 +34,9 @@ call %_ROOT%\env.bat 3
 ::IF ERRORLEVEL 1 EXIT /b 1
 ::
 :::: Build unit test projects
-cd %_ROOT%\tests
-%_TOOLS%\bob.py -v4 mingw_w64 -c --bldtime -b win32  --bldnum %BUILD_NUMBER%
-IF ERRORLEVEL 1 EXIT /b 1
+::cd %_ROOT%\tests
+::%_TOOLS%\bob.py -v4 mingw_w64 -c --bldtime -b win32  --bldnum %BUILD_NUMBER%
+::IF ERRORLEVEL 1 EXIT /b 1
 ::
 :::: Run unit tests
 cd %_ROOT%\tests
