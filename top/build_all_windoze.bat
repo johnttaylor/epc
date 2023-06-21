@@ -18,27 +18,27 @@ echo:BUILD: BUILD_NUMBER=%BUILD_NUMBER%, BRANCH=%BUILD_BRANCH%
 echo:
 
 :: Run Doxygen first 
-::cd %_TOPDIR%
-::run_doxygen.py %BUILD_NUMBER% %BUILD_BRANCH% 
-::IF ERRORLEVEL 1 EXIT /b 1
+cd %_TOPDIR%
+run_doxygen.py %BUILD_NUMBER% %BUILD_BRANCH% 
+IF ERRORLEVEL 1 EXIT /b 1
+
 ::
-::::
-:::: Build Mingw projects (just the Win32 builds) 
-::::
+:: Build Mingw projects (just the Win32 builds) 
+::
 call %_ROOT%\env.bat 3
 @echo on
-::
-:::: Build NON-unit-test projects
-::cd %_ROOT%\projects
-::%_TOOLS%\bob.py -v4 mingw_w64 -c --bldtime -b win32 --bldnum %BUILD_NUMBER%
-::IF ERRORLEVEL 1 EXIT /b 1
-::
-:::: Build unit test projects
-::cd %_ROOT%\tests
-::%_TOOLS%\bob.py -v4 mingw_w64 -c --bldtime -b win32  --bldnum %BUILD_NUMBER%
-::IF ERRORLEVEL 1 EXIT /b 1
-::
-:::: Run unit tests
+
+:: Build NON-unit-test projects
+cd %_ROOT%\projects
+%_TOOLS%\bob.py -v4 mingw_w64 -c --bldtime -b win32 --bldnum %BUILD_NUMBER%
+IF ERRORLEVEL 1 EXIT /b 1
+
+:: Build unit test projects
+cd %_ROOT%\tests
+%_TOOLS%\bob.py -v4 mingw_w64 -c --bldtime -b win32  --bldnum %BUILD_NUMBER%
+IF ERRORLEVEL 1 EXIT /b 1
+
+:: Run unit tests
 cd %_ROOT%\tests
 %_TOOLS%\chuck.py -v --match a.exe --dir mingw_w64
 IF ERRORLEVEL 1 EXIT /b 1
@@ -56,48 +56,48 @@ IF ERRORLEVEL 1 EXIT /b 1
 ::
 :: Build Visual Studio projects (just the win32 builds)
 ::
-::call %_ROOT%\env.bat 1
-::@echo on
+call %_ROOT%\env.bat 1
+@echo on
+
+:: Build NON-unit-test projects 
+cd %_ROOT%\projects      
+%_TOOLS%\bob.py -v4 vc12 -c --bldtime -b win32 --bldnum %BUILD_NUMBER%
+IF ERRORLEVEL 1 EXIT /b 1
+
+:: Build unit test projects
+cd %_ROOT%\tests
+%_TOOLS%\bob.py -v4 vc12 --bldtime -c -b win32 --bldnum %BUILD_NUMBER%
+IF ERRORLEVEL 1 EXIT /b 1
+
+:: Run unit tests
+cd %_ROOT%\tests
+%_TOOLS%\chuck.py -v --match a.exe --dir vc12
+IF ERRORLEVEL 1 EXIT /b 1
+%_TOOLS%\chuck.py -v --match aa.exe --dir vc12
+IF ERRORLEVEL 1 EXIT /b 1
+%_TOOLS%\chuck.py -v --match a.py --dir vc12
+IF ERRORLEVEL 1 EXIT /b 1
+%_TOOLS%\chuck.py -v --match aa.py --dir vc12
+IF ERRORLEVEL 1 EXIT /b 1
+
 ::
-:::: Build NON-unit-test projects 
-::cd %_ROOT%\projects      
-::%_TOOLS%\bob.py -v4 vc12 -c --bldtime -b win32 --bldnum %BUILD_NUMBER%
-::IF ERRORLEVEL 1 EXIT /b 1
+:: Build STM32 Target projects
 ::
-:::: Build unit test projects
-::cd %_ROOT%\tests
-::%_TOOLS%\bob.py -v4 vc12 --bldtime -c -b win32 --bldnum %BUILD_NUMBER%
-::IF ERRORLEVEL 1 EXIT /b 1
-::
-:::: Run unit tests
-::cd %_ROOT%\tests
-::%_TOOLS%\chuck.py -v --match a.exe --dir vc12
-::IF ERRORLEVEL 1 EXIT /b 1
-::%_TOOLS%\chuck.py -v --match aa.exe --dir vc12
-::IF ERRORLEVEL 1 EXIT /b 1
-::%_TOOLS%\chuck.py -v --match a.py --dir vc12
-::IF ERRORLEVEL 1 EXIT /b 1
-::%_TOOLS%\chuck.py -v --match aa.py --dir vc12
-::IF ERRORLEVEL 1 EXIT /b 1
-::
-::::
-:::: Build STM32 Target projects
-::::
-::
-::call %_ROOT%\env.bat 5
-::@echo on
-::
-:::: Build NON-unit-test projects
-::
-::cd %_ROOT%\projects
-::%_TOOLS%\bob.py -v4 --p2 windows gcc-arm --bldtime -c --bld-all --bldnum %BUILD_NUMBER%
-::IF ERRORLEVEL 1 EXIT /b 1
-::
-:::: Build unit test projects
-::
-::cd %_ROOT%\tests
-::%_TOOLS%\bob.py -v4 --p2 windows gcc-arm --bldtime -c --bld-all --bldnum %BUILD_NUMBER%
-::IF ERRORLEVEL 1 EXIT /b 1
+
+call %_ROOT%\env.bat 5
+@echo on
+
+:: Build NON-unit-test projects
+
+cd %_ROOT%\projects
+%_TOOLS%\bob.py -v4 --p2 windows gcc-arm --bldtime -c --bld-all --bldnum %BUILD_NUMBER%
+IF ERRORLEVEL 1 EXIT /b 1
+
+:: Build unit test projects
+
+cd %_ROOT%\tests
+%_TOOLS%\bob.py -v4 --p2 windows gcc-arm --bldtime -c --bld-all --bldnum %BUILD_NUMBER%
+IF ERRORLEVEL 1 EXIT /b 1
 
 
 :: TODO: Add Linux builds....
