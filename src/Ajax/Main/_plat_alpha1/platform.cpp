@@ -12,6 +12,7 @@
 
 #include "Ajax/Main/platform.h"
 #include "app_platform.h"
+#include "Bsp/Api.h"
 #include <stdlib.h>
 
 using namespace Ajax::Main;
@@ -47,5 +48,5 @@ void Ajax::Main::platform_close0()
 
 int Ajax::Main::platform_exit( int exitCode )
 {
-    exit( exitCode );
+    Bsp_Api_reset_MCU();
 }
