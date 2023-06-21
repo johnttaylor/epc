@@ -11,12 +11,15 @@
 /** @file */
 
 #include "Ajax/Main/application.h"
+#include <stdio.h>
 
 using namespace Ajax::Main;
 
 /////////////////////////////
 void Ajax::Main::appvariant_initialize0()
 {
+    printf( "\nAJAX: appvariant_initialize0()\n" );
+
     // Nothing currently needed
 }
 

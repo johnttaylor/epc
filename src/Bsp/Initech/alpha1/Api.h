@@ -46,7 +46,7 @@
 #define Bsp_NVIC_enableIRQ( irqNum )    //do { /*HAL_NVIC_EnableIRQ(irqNum); __DSB(); __ISB();*/ } while(0)
 
 /// Resets the MCU
-#define Bsp_Api_reset_MCU_MAP()         NVIC_SystemReset()
+#define Bsp_Api_reset_MCU()             NVIC_SystemReset()
 
 
 

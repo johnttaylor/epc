@@ -10,13 +10,16 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
-#include "Ajax/Main/_plat_simulator/app_platform.h"
+#include "Ajax/Main/_plat_alpha1/app_platform.h"
+#include <stdio.h>
 
 using namespace Ajax::Main;
 
 /////////////////////////////
 void Ajax::Main::appvariant_platform_initialize0()
 {
+    printf( "\nAJAX: alpha1: appvariant_platform_initialize0()\n" );
+
     // Nothing currently needed
 }
 
