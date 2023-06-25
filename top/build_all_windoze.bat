@@ -8,6 +8,7 @@
 set _TOPDIR=%~dp0
 set _TOOLS=%_TOPDIR%..\xsrc\nqbp2\other
 set _ROOT=%_TOPDIR%..
+set _TARGET=alpha1
 
 :: Set Build info (and force build number to zero for "non-official" builds)
 set BUILD_NUMBER=%1
@@ -33,9 +34,9 @@ cd %_ROOT%\projects
 %_TOOLS%\bob.py -v4 mingw_w64 -c --bldtime -b win32 --bldnum %BUILD_NUMBER%
 IF ERRORLEVEL 1 EXIT /b 1
 
-:: Build unit test projects
+:: Build unit test projects (debug builds for more accurate code coverage)
 cd %_ROOT%\tests
-%_TOOLS%\bob.py -v4 mingw_w64 -c --bldtime -b win32  --bldnum %BUILD_NUMBER%
+%_TOOLS%\bob.py -v4 mingw_w64 -cg --bldtime -b win32  --bldnum %BUILD_NUMBER%
 IF ERRORLEVEL 1 EXIT /b 1
 
 :: Run unit tests
@@ -59,9 +60,9 @@ IF ERRORLEVEL 1 EXIT /b 1
 call %_ROOT%\env.bat 1
 @echo on
 
-:: Build NON-unit-test projects 
+:: Build NON-unit-test projects (debug builds)
 cd %_ROOT%\projects      
-%_TOOLS%\bob.py -v4 vc12 -c --bldtime -b win32 --bldnum %BUILD_NUMBER%
+%_TOOLS%\bob.py -v4 vc12 -cg --bldtime -b win32 --bldnum %BUILD_NUMBER%
 IF ERRORLEVEL 1 EXIT /b 1
 
 :: Build unit test projects
@@ -88,7 +89,6 @@ call %_ROOT%\env.bat 5
 @echo on
 
 :: Build NON-unit-test projects
-
 cd %_ROOT%\projects
 %_TOOLS%\bob.py -v4 --p2 windows gcc-arm --bldtime -c --bld-all --bldnum %BUILD_NUMBER%
 IF ERRORLEVEL 1 EXIT /b 1
@@ -114,17 +114,54 @@ IF ERRORLEVEL 1 EXIT /b 1
 ::
 IF "%BUILD_BRANCH%"=="none" GOTO :builds_done
 
-:: TODO: Zip up (NON-debug) 'release' builds
-echo:zipping non-debug release builds...
+:: Make sure the _artifacts directory exists and is empty
+cd %_ROOT%
+rmdir /s /q _artifacts
+mkdir _artifacts
 
-:: TODO: Build DEBUG 'release' builds
-echo:Building debug release builds...
+:: Zip up (NON-debug) 'release' builds
+cd %_ROOT%\projects\GM6000\Ajax\%_TARGET%\windows\gcc-arm\_stm32
+7z a ajax-%TARGET%-%BUILD_NUMBER%.zip ajax.*
+IF ERRORLEVEL 1 EXIT /b 1
+copy *.zip %_ROOT%\_artifacts
+IF ERRORLEVEL 1 EXIT /b 1
 
-:: TODO: Zip up (debug) 'release' builds
-echo:zipping debug release builds...
+cd %_ROOT%\projects\GM6000\Eros\%_TARGET%\windows\gcc-arm\_stm32
+7z a eros-%TARGET%-%BUILD_NUMBER%.zip eros.*
+IF ERRORLEVEL 1 EXIT /b 1
+copy *.zip %_ROOT%\_artifacts
+IF ERRORLEVEL 1 EXIT /b 1
 
-:: TODO: Coverage Report
-:: TODO: Archive build artifacts
+:: Zip up simulator builds
+cd %_ROOT%\projects\GM6000\Ajax\simulator\windows\vc12\_win32
+7z a ajax-simulator-%BUILD_NUMBER%.zip ajax-sim.exe ajax-sim.pdb
+IF ERRORLEVEL 1 EXIT /b 1
+copy *.zip %_ROOT%\_artifacts
+IF ERRORLEVEL 1 EXIT /b 1
+
+cd %_ROOT%\projects\GM6000\Eros\simulator\windows\vc12\_win32
+7z a eros-simulator-%BUILD_NUMBER%.zip eros-sim.exe eros-sim.pdb
+IF ERRORLEVEL 1 EXIT /b 1
+copy *.zip %_ROOT%\_artifacts
+IF ERRORLEVEL 1 EXIT /b 1
+
+:: Build DEBUG version of the Target builds
+cd %_ROOT%\projects
+%_TOOLS%\bob.py -v4 --p2 windows gcc-arm --bldtime -cg --bld-all --bldnum %BUILD_NUMBER%
+IF ERRORLEVEL 1 EXIT /b 1
+
+:: Zip up DEBUG target builds
+cd %_ROOT%\projects\GM6000\Ajax\%_TARGET%\windows\gcc-arm\_stm32
+7z a ajax-%TARGET%-DEBUG-%BUILD_NUMBER%.zip ajax.*
+IF ERRORLEVEL 1 EXIT /b 1
+copy *.zip %_ROOT%\_artifacts
+IF ERRORLEVEL 1 EXIT /b 1
+
+cd %_ROOT%\projects\GM6000\Eros\%_TARGET%\windows\gcc-arm\_stm32
+7z a eros-%TARGET%-DEBUG-%BUILD_NUMBER%.zip eros.*
+IF ERRORLEVEL 1 EXIT /b 1
+copy *.zip %_ROOT%\_artifacts
+IF ERRORLEVEL 1 EXIT /b 1
 
 ::
 :: Everything worked!
