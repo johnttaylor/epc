@@ -18,9 +18,11 @@ echo:
 echo:BUILD: BUILD_NUMBER=%BUILD_NUMBER%, BRANCH=%BUILD_BRANCH% 
 echo:
 
-:: Run Doxygen first 
+:: Run Doxygen first (and copy the output to artifacts dir)
 cd %_TOPDIR%
 run_doxygen.py %BUILD_NUMBER% %BUILD_BRANCH% 
+IF ERRORLEVEL 1 EXIT /b 1
+copy %_ROOT%\docs\sdx-1330-gm6000-software-doxygen-output.chm %_TARGET%\sdx-1330-gm6000-software-doxygen-output__%BUILD_BRANCH%-%BUILD_NUMBER%.chm
 IF ERRORLEVEL 1 EXIT /b 1
 
 ::
