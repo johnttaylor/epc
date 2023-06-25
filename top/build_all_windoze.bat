@@ -121,13 +121,13 @@ mkdir _artifacts
 
 :: Zip up (NON-debug) 'release' builds
 cd %_ROOT%\projects\GM6000\Ajax\%_TARGET%\windows\gcc-arm\_stm32
-7z a ajax-%TARGET%-%BUILD_NUMBER%.zip ajax.*
+7z a ajax-%_TARGET%-%BUILD_NUMBER%.zip ajax.*
 IF ERRORLEVEL 1 EXIT /b 1
 copy *.zip %_ROOT%\_artifacts
 IF ERRORLEVEL 1 EXIT /b 1
 
 cd %_ROOT%\projects\GM6000\Eros\%_TARGET%\windows\gcc-arm\_stm32
-7z a eros-%TARGET%-%BUILD_NUMBER%.zip eros.*
+7z a eros-%_TARGET%-%BUILD_NUMBER%.zip eros.*
 IF ERRORLEVEL 1 EXIT /b 1
 copy *.zip %_ROOT%\_artifacts
 IF ERRORLEVEL 1 EXIT /b 1
@@ -152,13 +152,13 @@ IF ERRORLEVEL 1 EXIT /b 1
 
 :: Zip up DEBUG target builds
 cd %_ROOT%\projects\GM6000\Ajax\%_TARGET%\windows\gcc-arm\_stm32
-7z a ajax-%TARGET%-DEBUG-%BUILD_NUMBER%.zip ajax.*
+7z a ajax-%_TARGET%-DEBUG-%BUILD_NUMBER%.zip ajax.*
 IF ERRORLEVEL 1 EXIT /b 1
 copy *.zip %_ROOT%\_artifacts
 IF ERRORLEVEL 1 EXIT /b 1
 
 cd %_ROOT%\projects\GM6000\Eros\%_TARGET%\windows\gcc-arm\_stm32
-7z a eros-%TARGET%-DEBUG-%BUILD_NUMBER%.zip eros.*
+7z a eros-%_TARGET%-DEBUG-%BUILD_NUMBER%.zip eros.*
 IF ERRORLEVEL 1 EXIT /b 1
 copy *.zip %_ROOT%\_artifacts
 IF ERRORLEVEL 1 EXIT /b 1
