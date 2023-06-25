@@ -53,3 +53,4 @@ myMediaFile
 _compiler_.txt
 *.vcxproj.user
 .vs/
+_artifacts/
