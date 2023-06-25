@@ -14,7 +14,7 @@ set _TARGET=alpha1
 set BUILD_NUMBER=%1
 set BUILD_BRANCH=none
 IF NOT "/%2"=="/" set BUILD_BRANCH=%2
-IF "%BUILD_BRANCH%"=="none"" set BUILD_NUMBER=0
+IF "%BUILD_BRANCH%"=="none" set BUILD_NUMBER=0
 echo:
 echo:BUILD: BUILD_NUMBER=%BUILD_NUMBER%, BRANCH=%BUILD_BRANCH% 
 echo:
