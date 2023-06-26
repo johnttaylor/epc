@@ -1,5 +1,5 @@
 @echo on
-:: This script is used by the CI\Build machine to build the Windows test
+:: This script is used by the CI\Build machine to build the Windows Host
 :: projects
 ::
 :: usage: build_all_windoze.bat <buildNumber> [branch]
@@ -14,13 +14,22 @@ set _TARGET=alpha1
 set BUILD_NUMBER=%1
 set BUILD_BRANCH=none
 IF NOT "/%2"=="/" set BUILD_BRANCH=%2
+IF "%BUILD_BRANCH%"=="none" set BUILD_NUMBER=0
 echo:
 echo:BUILD: BUILD_NUMBER=%BUILD_NUMBER%, BRANCH=%BUILD_BRANCH% 
 echo:
 
-:: Run Doxygen first 
+:: Make sure the _artifacts directory exists and is empty
+cd %_ROOT%
+rmdir /s /q _artifacts
+mkdir _artifacts
+
+
+:: Run Doxygen first (and copy the output to artifacts dir)
 cd %_TOPDIR%
 run_doxygen.py %BUILD_NUMBER% %BUILD_BRANCH% 
+IF ERRORLEVEL 1 EXIT /b 1
+copy %_ROOT%\docs\sdx-1330-gm6000-software-doxygen-output.chm %_ROOT%\_artifacts\sdx-1330-gm6000-software-doxygen-output__%BUILD_BRANCH%-%BUILD_NUMBER%.chm
 IF ERRORLEVEL 1 EXIT /b 1
 
 ::
@@ -110,14 +119,9 @@ IF ERRORLEVEL 1 EXIT /b 1
 
 
 ::
-:: Skip additional project builds when NOT build a develop or main
+:: Skip additional project builds when NOT building develop or main
 ::
 IF "%BUILD_BRANCH%"=="none" GOTO :builds_done
-
-:: Make sure the _artifacts directory exists and is empty
-cd %_ROOT%
-rmdir /s /q _artifacts
-mkdir _artifacts
 
 :: Zip up (NON-debug) 'release' builds
 cd %_ROOT%\projects\GM6000\Ajax\%_TARGET%\windows\gcc-arm\_stm32
