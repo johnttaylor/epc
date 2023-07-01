@@ -11,7 +11,7 @@ set -e
 # Example: wsl_build.sh 32
 
 # setup the environment
-source ./env.sh default
+source ./_temp_env.sh default
 
 # Build all linux projects (just the posix64 builds)
 cd tests
