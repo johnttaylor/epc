@@ -109,13 +109,11 @@ cd %_ROOT%\tests
 IF ERRORLEVEL 1 EXIT /b 1
 
 
-:: TODO: Add Linux builds....
 :: Build linux projects (under WSL)
 :: Note: Because of Windows/Linux/Git newline issues - we brute force the shell scripts to have the correct newline characters
-::
-::FOR /F "tokens=*" %%g IN ('%_TOPDIR%win2wsl %_TOPDIR%') do (SET WSL_TOPDIR=%%g)
-::wsl cd %WSL_TOPDIR%; dos2unix wsl_build.sh; cd ..; dos2unix env.sh; top/wsl_build.sh %BUILD_NUMBER%
-::IF ERRORLEVEL 1 EXIT /b 1
+FOR /F "tokens=*" %%g IN ('%_TOPDIR%win2wsl %_TOPDIR%') do (SET WSL_TOPDIR=%%g)
+wsl cd %WSL_TOPDIR%; dos2unix wsl_build.sh; cd ..; dos2unix env.sh; top/wsl_build.sh %BUILD_NUMBER%
+IF ERRORLEVEL 1 EXIT /b 1
 
 
 ::

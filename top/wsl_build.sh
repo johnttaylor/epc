@@ -6,7 +6,7 @@ set -e
 #
 # The script ASSUMES that the working directory is the package root
 #
-# usage: wsl_build.sh <bldnum>
+# usage: wsl_build.sh <bldnum> 
 #
 # Example: wsl_build.sh 32
 
@@ -15,10 +15,10 @@ source ./env.sh default
 
 # Build all linux projects (just the posix64 builds)
 cd tests
-$NQBP_BIN/other/bob.py -v4 linux  -b posix64 --bldtime --bldnum $1
+$NQBP_BIN/other/bob.py -v4 linux -gc -b posix64 --bldtime --bldnum $1
 
 # Run unit tests (but only 64bit builds since WSL does not support 32bit executables)
-$NQBP_BIN/other/chuck.py -vt --match a.out --dir _posix64
+$NQBP_BIN/other/chuck.py -v --match a.out --dir _posix64
 $NQBP_BIN/other/chuck.py -v --match aa.out --dir _posix64
-$NQBP_BIN/other/chuck.py -vt --match a.py --dir _posix64
+$NQBP_BIN/other/chuck.py -v --match a.py --dir _posix64
 $NQBP_BIN/other/chuck.py -v --match aa.py --dir _posix64
