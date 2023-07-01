@@ -29,7 +29,7 @@ mkdir _artifacts
 cd %_TOPDIR%
 run_doxygen.py %BUILD_NUMBER% %BUILD_BRANCH% 
 IF ERRORLEVEL 1 EXIT /b 1
-copy %_ROOT%\docs\sdx-1330-gm6000-software-doxygen-output.chm %_ROOT%\_artifacts\sdx-1330-gm6000-software-doxygen-output__::BUILD_BRANCH%-%BUILD_NUMBER%.chm
+copy %_ROOT%\docs\sdx-1330-gm6000-software-doxygen-output.chm %_ROOT%\_artifacts\sdx-1330-gm6000-software-doxygen-output__%BUILD_BRANCH%-%BUILD_NUMBER%.chm
 IF ERRORLEVEL 1 EXIT /b 1
 
 ::
