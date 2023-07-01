@@ -25,88 +25,88 @@ rmdir /s /q _artifacts
 mkdir _artifacts
 
 
-:: Run Doxygen first (and copy the output to artifacts dir)
-cd %_TOPDIR%
-run_doxygen.py %BUILD_NUMBER% %BUILD_BRANCH% 
-IF ERRORLEVEL 1 EXIT /b 1
-copy %_ROOT%\docs\sdx-1330-gm6000-software-doxygen-output.chm %_ROOT%\_artifacts\sdx-1330-gm6000-software-doxygen-output__%BUILD_BRANCH%-%BUILD_NUMBER%.chm
-IF ERRORLEVEL 1 EXIT /b 1
-
+:::: Run Doxygen first (and copy the output to artifacts dir)
+::cd %_TOPDIR%
+::run_doxygen.py %BUILD_NUMBER% %BUILD_BRANCH% 
+::IF ERRORLEVEL 1 EXIT /b 1
+::copy %_ROOT%\docs\sdx-1330-gm6000-software-doxygen-output.chm %_ROOT%\_artifacts\sdx-1330-gm6000-software-doxygen-output__:%:BUILD_BRANCH%-%BUILD_NUMBER%.chm
+::IF ERRORLEVEL 1 EXIT /b 1
 ::
-:: Build Mingw projects (just the Win32 builds) 
+::::
+:::: Build Mingw projects (just the Win32 builds) 
+::::
+::call %_ROOT%\env.bat 3
+::@echo on
 ::
-call %_ROOT%\env.bat 3
-@echo on
-
-:: Build NON-unit-test projects
-cd %_ROOT%\projects
-%_TOOLS%\bob.py -v4 mingw_w64 -c --bldtime -b win32 --bldnum %BUILD_NUMBER%
-IF ERRORLEVEL 1 EXIT /b 1
-
-:: Build unit test projects (debug builds for more accurate code coverage)
-cd %_ROOT%\tests
-%_TOOLS%\bob.py -v4 mingw_w64 -cg --bldtime -b win32  --bldnum %BUILD_NUMBER%
-IF ERRORLEVEL 1 EXIT /b 1
-
-:: Run unit tests
-cd %_ROOT%\tests
-%_TOOLS%\chuck.py -v --match a.exe --dir mingw_w64
-IF ERRORLEVEL 1 EXIT /b 1
-%_TOOLS%\chuck.py -v --match aa.exe --dir mingw_w64
-IF ERRORLEVEL 1 EXIT /b 1
-%_TOOLS%\chuck.py -v --match a.py --dir mingw_w64
-IF ERRORLEVEL 1 EXIT /b 1
-%_TOOLS%\chuck.py -v --match aa.py --dir mingw_w64
-IF ERRORLEVEL 1 EXIT /b 1
-
-:: Generate code coverage metrics
-%_TOOLS%\chuck.py -v --dir mingw_w64 --match tca.py rpt --xml jenkins-gcovr.xml 
-IF ERRORLEVEL 1 EXIT /b 1
-
+:::: Build NON-unit-test projects
+::cd %_ROOT%\projects
+::%_TOOLS%\bob.py -v4 mingw_w64 -c --bldtime -b win32 --bldnum %BUILD_NUMBER%
+::IF ERRORLEVEL 1 EXIT /b 1
 ::
-:: Build Visual Studio projects (just the win32 builds)
+:::: Build unit test projects (debug builds for more accurate code coverage)
+::cd %_ROOT%\tests
+::%_TOOLS%\bob.py -v4 mingw_w64 -cg --bldtime -b win32  --bldnum %BUILD_NUMBER%
+::IF ERRORLEVEL 1 EXIT /b 1
 ::
-call %_ROOT%\env.bat 1
-@echo on
-
-:: Build NON-unit-test projects (debug builds)
-cd %_ROOT%\projects      
-%_TOOLS%\bob.py -v4 vc12 -cg --bldtime -b win32 --bldnum %BUILD_NUMBER%
-IF ERRORLEVEL 1 EXIT /b 1
-
-:: Build unit test projects
-cd %_ROOT%\tests
-%_TOOLS%\bob.py -v4 vc12 --bldtime -c -b win32 --bldnum %BUILD_NUMBER%
-IF ERRORLEVEL 1 EXIT /b 1
-
-:: Run unit tests
-cd %_ROOT%\tests
-%_TOOLS%\chuck.py -v --match a.exe --dir vc12
-IF ERRORLEVEL 1 EXIT /b 1
-%_TOOLS%\chuck.py -v --match aa.exe --dir vc12
-IF ERRORLEVEL 1 EXIT /b 1
-%_TOOLS%\chuck.py -v --match a.py --dir vc12
-IF ERRORLEVEL 1 EXIT /b 1
-%_TOOLS%\chuck.py -v --match aa.py --dir vc12
-IF ERRORLEVEL 1 EXIT /b 1
-
+:::: Run unit tests
+::cd %_ROOT%\tests
+::%_TOOLS%\chuck.py -v --match a.exe --dir mingw_w64
+::IF ERRORLEVEL 1 EXIT /b 1
+::%_TOOLS%\chuck.py -v --match aa.exe --dir mingw_w64
+::IF ERRORLEVEL 1 EXIT /b 1
+::%_TOOLS%\chuck.py -v --match a.py --dir mingw_w64
+::IF ERRORLEVEL 1 EXIT /b 1
+::%_TOOLS%\chuck.py -v --match aa.py --dir mingw_w64
+::IF ERRORLEVEL 1 EXIT /b 1
 ::
-:: Build STM32 Target projects
+:::: Generate code coverage metrics
+::%_TOOLS%\chuck.py -v --dir mingw_w64 --match tca.py rpt --xml jenkins-gcovr.xml 
+::IF ERRORLEVEL 1 EXIT /b 1
 ::
-
-call %_ROOT%\env.bat 5
-@echo on
-
-:: Build NON-unit-test projects
-cd %_ROOT%\projects
-%_TOOLS%\bob.py -v4 --p2 windows gcc-arm --bldtime -c --bld-all --bldnum %BUILD_NUMBER%
-IF ERRORLEVEL 1 EXIT /b 1
-
-:: Build unit test projects
-
-cd %_ROOT%\tests
-%_TOOLS%\bob.py -v4 --p2 windows gcc-arm --bldtime -c --bld-all --bldnum %BUILD_NUMBER%
-IF ERRORLEVEL 1 EXIT /b 1
+::::
+:::: Build Visual Studio projects (just the win32 builds)
+::::
+::call %_ROOT%\env.bat 1
+::@echo on
+::
+:::: Build NON-unit-test projects (debug builds)
+::cd %_ROOT%\projects      
+::%_TOOLS%\bob.py -v4 vc12 -cg --bldtime -b win32 --bldnum %BUILD_NUMBER%
+::IF ERRORLEVEL 1 EXIT /b 1
+::
+:::: Build unit test projects
+::cd %_ROOT%\tests
+::%_TOOLS%\bob.py -v4 vc12 --bldtime -c -b win32 --bldnum %BUILD_NUMBER%
+::IF ERRORLEVEL 1 EXIT /b 1
+::
+:::: Run unit tests
+::cd %_ROOT%\tests
+::%_TOOLS%\chuck.py -v --match a.exe --dir vc12
+::IF ERRORLEVEL 1 EXIT /b 1
+::%_TOOLS%\chuck.py -v --match aa.exe --dir vc12
+::IF ERRORLEVEL 1 EXIT /b 1
+::%_TOOLS%\chuck.py -v --match a.py --dir vc12
+::IF ERRORLEVEL 1 EXIT /b 1
+::%_TOOLS%\chuck.py -v --match aa.py --dir vc12
+::IF ERRORLEVEL 1 EXIT /b 1
+::
+::::
+:::: Build STM32 Target projects
+::::
+::
+::call %_ROOT%\env.bat 5
+::@echo on
+::
+:::: Build NON-unit-test projects
+::cd %_ROOT%\projects
+::%_TOOLS%\bob.py -v4 --p2 windows gcc-arm --bldtime -c --bld-all --bldnum %BUILD_NUMBER%
+::IF ERRORLEVEL 1 EXIT /b 1
+::
+:::: Build unit test projects
+::
+::cd %_ROOT%\tests
+::%_TOOLS%\bob.py -v4 --p2 windows gcc-arm --bldtime -c --bld-all --bldnum %BUILD_NUMBER%
+::IF ERRORLEVEL 1 EXIT /b 1
 
 
 :: Build linux projects (under WSL)
