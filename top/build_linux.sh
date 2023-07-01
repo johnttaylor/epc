@@ -14,8 +14,9 @@ set -e
 source ./env.sh default
 
 # Build all linux projects (only 64bit versions)
+# TODO: Currently building debug versions -->For non-debug builds - warnings are generated when using gcc 12 -->FIXME!
 cd tests
-$NQBP_BIN/other/bob.py -v4 linux  -b posix64 --bldtime --bldnum $1
+$NQBP_BIN/other/bob.py -v4 linux  -gb posix64 --bldtime --bldnum $1
 
 # Run unit tests (but only 64bit builds since WSL does not support 32bit executables)
 $NQBP_BIN/other/chuck.py -vt --match a.out --dir _posix64
