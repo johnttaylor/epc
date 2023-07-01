@@ -110,8 +110,10 @@ mkdir _artifacts
 
 
 :: Build linux projects (under WSL)
-FOR /F "tokens=*" %%g IN ('%_TOPDIR%win2wsl %_TOPDIR%') do (SET WSL_TOPDIR=%%g)
-wsl %WSL_TOPDIR%/wsl_build.sh %BUILD_NUMBER%
+::FOR /F "tokens=*" %%g IN ('%_TOPDIR%win2wsl %_TOPDIR%') do (SET WSL_TOPDIR=%%g)
+cd %_ROOT%
+::wsl cd %WSL_TOPDIR%; wsl_build.sh %BUILD_NUMBER%
+wsl top/wsl_build.sh %BUILD_NUMBER%
 IF ERRORLEVEL 1 EXIT /b 1
 
 
