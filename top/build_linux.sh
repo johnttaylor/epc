@@ -13,7 +13,7 @@ set -e
 # setup the environment
 source ./env.sh default
 
-# Build all linux projects (only 64bit versions)
+# Build all test linux projects (only 64bit versions)
 # TODO: Currently building debug versions -->For non-debug builds - warnings are generated when using gcc 12 -->FIXME!
 cd tests
 $NQBP_BIN/other/bob.py -v4 linux  -gb posix64 --bldtime --bldnum $1
@@ -23,3 +23,9 @@ $NQBP_BIN/other/chuck.py -vt --match a.out --dir _posix64
 $NQBP_BIN/other/chuck.py -v --match aa.out --dir _posix64
 $NQBP_BIN/other/chuck.py -vt --match a.py --dir _posix64
 $NQBP_BIN/other/chuck.py -v --match aa.py --dir _posix64
+
+# Build all "projects/" linux projects (only 64bit versions)
+# TODO: See above issue with GCC 12 -->FIXME!
+cd projects
+$NQBP_BIN/other/bob.py -v4 linux  -gb posix64 --bldtime --bldnum $1
+
