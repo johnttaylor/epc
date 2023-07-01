@@ -114,7 +114,7 @@ mkdir _artifacts
 :: Note: Because of Windows/Linux/Git newline issues - we brute force the shell scripts to have the correct newline characters
 ::
 FOR /F "tokens=*" %%g IN ('%_TOPDIR%win2wsl %_TOPDIR%') do (SET WSL_TOPDIR=%%g)
-wsl cd %WSL_TOPDIR%; whoami; dos2unix -n wsl_build.sh _temp_build.sh; cd ..; dos2unix -n env.sh _temp_env.sh; top/_temp_build.sh %BUILD_NUMBER%
+c:\Windows\system\wsl cd %WSL_TOPDIR%; whoami; dos2unix -n wsl_build.sh _temp_build.sh; cd ..; dos2unix -n env.sh _temp_env.sh; top/_temp_build.sh %BUILD_NUMBER%
 IF ERRORLEVEL 1 EXIT /b 1
 
 
