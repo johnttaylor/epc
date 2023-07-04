@@ -1,14 +1,12 @@
 #!/bin/bash
 set -e
 
-# This script is used by the CI/Build machine to build the Linux test
-# project on a Windows machine by running the WSL (Window Subsystem for Linux)
+# This script is used by the CI/Build machine to build the Linux projects
 #
 # The script ASSUMES that the working directory is the package root
 #
-# usage: wsl_build.sh <bldnum>
+# usage: build_linux.sh <bldnum>
 #
-# Example: wsl_build.sh 32
 
 # setup the environment
 source ./env.sh default
@@ -18,10 +16,10 @@ source ./env.sh default
 pushd tests
 $NQBP_BIN/other/bob.py -v4 linux  -gb posix64 --bldtime --bldnum $1
 
-# Run unit tests (but only 64bit builds since WSL does not support 32bit executables)
-$NQBP_BIN/other/chuck.py -vt --match a.out --dir _posix64
+# Run unit tests 
+$NQBP_BIN/other/chuck.py -v --match a.out --dir _posix64
 $NQBP_BIN/other/chuck.py -v --match aa.out --dir _posix64
-$NQBP_BIN/other/chuck.py -vt --match a.py --dir _posix64
+$NQBP_BIN/other/chuck.py -v --match a.py --dir _posix64
 $NQBP_BIN/other/chuck.py -v --match aa.py --dir _posix64
 
 # Build all "projects/" linux projects (only 64bit versions)
