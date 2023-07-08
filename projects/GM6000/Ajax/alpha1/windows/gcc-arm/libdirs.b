@@ -18,7 +18,6 @@ xsrc/stm32F4-SDK/Drivers/STM32F4xx_HAL_Driver/Src > stm32f4xx_hal_timebase_rtc_a
 
 # FreeRTOS
 xsrc/freertos
-xsrc/freertos/portable/MemMang
 xsrc/freertos/portable/GCC/ARM_CM4F
 
 # Common stuffs
