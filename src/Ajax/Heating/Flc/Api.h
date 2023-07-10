@@ -12,7 +12,7 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
-#include "Ajax/Heating/Flc/Config.h"
+#include "Ajax/Dm/MpFlcConfig.h"
 
 
 /// 
@@ -41,18 +41,26 @@ class Api
 {
 public:
     /// Constructor
-    Api( Config_T& cfg );
+    Api( Ajax::Dm::MpFlcConfig& mpCfg );
 
 public:
+    /** This method is used to initialize/reset the Controller.  It should
+        be called once, before calls to calcChange(). 
+    
+        Return true if successful; else false is returned
+    */
+    bool start() noexcept;
+
     /** This method should be called on a fixed periodic basis to calculate
         the fuzzy output.  The output is change (to increase/decrease) the
         current request output capacity
      */
     int32_t calcChange( int32_t currentTemp, int32_t setpoint ) noexcept;
 
-    /** This method is used to reset the controller
+    /** This method is used to stop the controller.  Once stopped, the 
+        controller can be restarted by calling start().
      */
-    void reset() noexcept;
+    void stop() noexcept;
 
 protected:
     /// Helper method to fuzzify an input value
@@ -68,13 +76,16 @@ protected:
 
 protected:
     /// Previous delta error
-    int32_t     m_prevDeltaError;
+    int32_t                 m_prevDeltaError;
 
-    /// Config
-    Config_T    m_cfg;
+    /// Config Model Point
+    Ajax::Dm::MpFlcConfig&  m_mpCfg;
+
+    /// Runtime config
+    Config_T                m_cfg;
 
     /// Flag for first-cycle
-    bool        m_firstCycle;
+    bool                    m_firstCycle;
 };
 
 

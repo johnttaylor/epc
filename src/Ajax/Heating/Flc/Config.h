@@ -51,6 +51,21 @@ struct Config_T
         memcpy( (void*) this, (void*) &other, sizeof( Config_T ) );
     }
 
+    /// Constructor - all arguments
+    Config_T( int32_t outputscalar,
+              int32_t maxy,
+              int32_t errscalar,
+              int32_t derrscalar,
+              int32_t outk[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS] )
+    {
+        memset( (void*) this, 0, sizeof( Config_T ) );
+        outputScalar = outputscalar;
+        maxY         = maxy;
+        errScalar    = errscalar;
+        dErrScalar   = derrscalar;
+        memcpy( outK, outk, sizeof( outK ) );
+    }
+
     /// Comparison operator (for DM support)
     bool operator == ( Config_T const other ) const
     {

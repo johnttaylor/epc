@@ -30,11 +30,22 @@ static const unsigned char inferenceTable_[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SE
 };
 
 /////////////////////////////////////////////////////////////////////////////
-Api::Api( Config_T& cfg )
+Api::Api( Ajax::Dm::MpFlcConfig& mpCfg )
     : m_prevDeltaError(0)
-    , m_cfg( cfg )
+    , m_mpCfg( mpCfg )
     , m_firstCycle( true )
 {
+}
+
+bool Api::start() noexcept
+{
+    m_firstCycle = true;
+    return m_mpCfg.read( m_cfg );
+}
+
+void Api::stop() noexcept
+{
+    // No actions are needed yet...
 }
 
 int32_t Api::calcChange( int32_t currentTemp, int32_t setpoint ) noexcept
@@ -172,11 +183,3 @@ int32_t Api::defuzz( const int32_t outVector[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_
     // Invert the final output
     return ((numerator * m_cfg.outputScalar) / denominator) * -1;
 }
-
-
-void Api::reset() noexcept
-{
-    m_firstCycle = true;
-}
-
-

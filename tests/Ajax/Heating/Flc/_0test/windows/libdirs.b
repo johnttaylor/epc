@@ -1,10 +1,3 @@
-# Unit under test
-src/Ajax/Heating/Flc
-
-# tests
-src/Ajax/Heating/Flc/_0test
-
-
 # Platforms
 src/Cpl/Io/Stdio/_ansi
 [win32|win64] /top/libdirs/platform_win32_default_for_test_libdirs.b

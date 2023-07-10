@@ -12,30 +12,32 @@
 #include "Catch/catch.hpp"
 #include "Ajax/Heating/Flc/Api.h"    
 #include "Cpl/System/_testsupport/Shutdown_TS.h"
-
+#include "Cpl/Dm/ModelDatabase.h"
+#include "Ajax/Dm/MpFlcConfig.h"
 
 using namespace Ajax::Heating::Flc;
 
-////////////////////////////////////////////////////////////////////////////////
+// Allocate/create my Model Database
+static Cpl::Dm::ModelDatabase   modelDb_( "ignoreThisParameter_usedToInvokeTheStaticConstructor" );
+static Ajax::Dm::MpFlcConfig    mpCfg_( modelDb_, "cfg" );
 
-static int32_t k1_[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS] ={ -16, -8, 0, 8, 16 };
+//static int32_t k1_[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS] ={ -16, -8, 0, 8, 16 };
 static int32_t k2_[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS] ={ -20, -10, 0, 10, 20 };
 
 ////////////////////////////////////////////////////////////////////////////////
 TEST_CASE( "api" )
 {
     Cpl::System::Shutdown_TS::clearAndUseCounter();
+    mpCfg_.setInvalid();
 
     SECTION( "baseline" )
     {
-        Config_T cfg;
-        cfg.maxY         = 1000;
-        cfg.outputScalar = 1000;
-        cfg.errScalar    = 4;
-        cfg.dErrScalar   = 16;
-        memcpy( cfg.outK, k2_, sizeof( cfg.outK ) );
+        // Create the UUT
+        Config_T cfg( 1000, 1000, 4, 16, k2_);
+        mpCfg_.write( cfg );
+        Api uut( mpCfg_ );
+        REQUIRE( uut.start() );
 
-        Api uut( cfg );
         // set an initial previous error
         int32_t r = uut.calcChange( 0, 76 );
         //printf( "r0= %d\n", r );
@@ -49,6 +51,8 @@ TEST_CASE( "api" )
         r = uut.calcChange( 0, 80 );
         //printf( "r2= %d\n", r );
         REQUIRE( r == 3200 );
+
+        uut.stop();
     }
 
 #define MIN_PWM     200
@@ -60,15 +64,13 @@ TEST_CASE( "api" )
 
     SECTION( "ramp-up" )
     {
-        // NOT REALLY A TEST -->just a manual "sanity check"
-        Config_T cfg;
-        cfg.maxY         = 1000;
-        cfg.outputScalar = 10;
-        cfg.errScalar    = 4;
-        cfg.dErrScalar   = 16;
-        memcpy( cfg.outK, k2_, sizeof( cfg.outK ) );
+        // Create the UUT
+        Config_T cfg( 10, 1000, 4, 16, k2_ );
+        mpCfg_.write( cfg );
+        Api uut( mpCfg_ );
+        REQUIRE( uut.start() );
 
-        Api uut( cfg );
+        // NOT REALLY A TEST -->just a manual "sanity check"
         int32_t curTemp   = 70 * 100;
         int32_t setpoint  = 72 * 100;
         int32_t pwm       = 0;
@@ -101,6 +103,8 @@ TEST_CASE( "api" )
         pwmAdjust = uut.calcChange( curTemp, setpoint );
         CLAMP_PWM( pwm, pwmAdjust );
         DISPLAY( t, pwm, curTemp, setpoint, pwmAdjust );
+
+        uut.stop();
     }
 
     REQUIRE( Cpl::System::Shutdown_TS::getAndClearCounter() == 0u );
