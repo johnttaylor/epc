@@ -30,9 +30,9 @@ TEST_CASE( "api" )
     {
         Config_T cfg;
         cfg.maxY         = 1000;
-        cfg.outputScaler = 1000;
-        cfg.errScaler    = 4;
-        cfg.dErrScaler   = 16;
+        cfg.outputScalar = 1000;
+        cfg.errScalar    = 4;
+        cfg.dErrScalar   = 16;
         memcpy( cfg.outK, k2_, sizeof( cfg.outK ) );
 
         Api uut( cfg );
@@ -63,9 +63,9 @@ TEST_CASE( "api" )
         // NOT REALLY A TEST -->just a manual "sanity check"
         Config_T cfg;
         cfg.maxY         = 1000;
-        cfg.outputScaler = 10;
-        cfg.errScaler    = 4;
-        cfg.dErrScaler   = 16;
+        cfg.outputScalar = 10;
+        cfg.errScalar    = 4;
+        cfg.dErrScalar   = 16;
         memcpy( cfg.outK, k2_, sizeof( cfg.outK ) );
 
         Api uut( cfg );

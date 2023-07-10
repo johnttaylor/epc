@@ -11,67 +11,81 @@
 /** @file */
 
 
-#include "ElapsedPrecisionTime.h"
+#include "MpFlcConfig.h"
 #include "Cpl/Text/format.h"
 #include "Cpl/Text/atob.h"
 #include "Cpl/Text/FString.h"
 
 ///
-using namespace Cpl::Dm::Mp;
+using namespace Ajax::Dm;
 
 
 ///////////////////////////////////////////////////////////////////////////////
-void ElapsedPrecisionTime::attach( Observer& observer, uint16_t initialSeqNumber ) noexcept
+void MpFlcConfig::attach( Observer& observer, uint16_t initialSeqNumber ) noexcept
 {
     attachSubscriber( observer, initialSeqNumber );
 }
 
 /// Type safe un-register observer
-void ElapsedPrecisionTime::detach( Observer& observer ) noexcept
+void MpFlcConfig::detach( Observer& observer ) noexcept
 {
     detachSubscriber( observer );
 }
 
-const char* ElapsedPrecisionTime::getTypeAsText() const noexcept
+const char* MpFlcConfig::getTypeAsText() const noexcept
 {
-    return "Cpl::Dm::Mp::ElapsedPrecisionTime";
+    return "Ajax::Dm::MpFlcConfig";
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////
-void ElapsedPrecisionTime::setJSONVal( JsonDocument& doc ) noexcept
+void MpFlcConfig::setJSONVal( JsonDocument& doc ) noexcept
 {
-    Cpl::Text::FString<20> tmp;
-    Cpl::Text::formatPrecisionTimeStamp( tmp, m_data, true );
-    doc["val"] = (char*) tmp.getString();
+    JsonObject valObj    = doc.createNestedObject( "val" );
+    valObj["maxY"]       = m_data.maxY;
+    valObj["outScalar"]  = m_data.outputScalar;
+    valObj["dErrScalar"] = m_data.dErrScalar;
+    valObj["errScalar"]  = m_data.errScalar;
+    JsonArray array      = valObj.createNestedArray( "outK" );
+    for ( unsigned i =0; i < AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS; i++ )
+    {
+        array.add( m_data.outK[i] );
+    }
 }
 
-bool ElapsedPrecisionTime::fromJSON_( JsonVariant& src, LockRequest_T lockRequest, uint16_t& retSequenceNumber, Cpl::Text::String* errorMsg ) noexcept
+bool MpFlcConfig::fromJSON_( JsonVariant& src, LockRequest_T lockRequest, uint16_t& retSequenceNumber, Cpl::Text::String* errorMsg ) noexcept
 {
-    // Does the value key/value pair exist?
-    const char* newValue = src;
-    if ( newValue == nullptr )
+    Ajax::Heating::Flc::Config_T updatedData = m_data;
+    
+    // Parse Numeric Fields
+    if ( src["maxY"].is<int32_t>() )
     {
-        if ( errorMsg )
-        {
-            *errorMsg = "Invalid syntax for the 'val' key/value pair";
-        }
-        return false;
+        updatedData.maxY = src["maxY"].as<int32_t>();
+    }
+    if ( src["outScalar"].is<int32_t>() )
+    {
+        updatedData.outputScalar = src["outScalar"].as<int32_t>();
+    }
+    if ( src["dErrScalar"].is<int32_t>() )
+    {
+        updatedData.dErrScalar = src["dErrScalar"].as<int32_t>();
+    }
+    if ( src["errScalar"].is<int32_t>() )
+    {
+        updatedData.errScalar = src["errScalar"].as<int32_t>();
     }
 
-    // Parse the time string, format is: [DD ]HH:MM:SS.sss]
-    Cpl::System::ElapsedTime::Precision_T newTime;
-    if ( Cpl::Text::parsePrecisionTimeStamp( newValue, newTime ) == false )
+    // Parse Array
+    if ( src["outK"].is<JsonArray>() )
     {
-        if ( errorMsg )
+        for ( unsigned i=0; i < src["outK"].as<JsonArray>().size() && i < AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS; i++ )
         {
-            errorMsg->format( "Failed to parse time stamp (%s)", newValue );
+            updatedData.outK[i] = src["outK"].as<JsonArray>()[i];
         }
-        return false;
-
     }
 
-    retSequenceNumber = write( newTime, lockRequest );
+    // Update the MP
+    retSequenceNumber = write( updatedData, lockRequest );
     return true;
 }
 

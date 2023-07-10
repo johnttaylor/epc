@@ -32,10 +32,10 @@ namespace Flc {
  */
 struct Config_T
 {
-    int32_t outputScaler;       //!< Scaler value (applied to numerator) used when defuzzifying the output
+    int32_t outputScalar;       //!< Scaler value (applied to numerator) used when defuzzifying the output
     int32_t maxY;               //!< Maximum Y axis value
-    int32_t errScaler;          //!< Scaler applied to the calculate error value (before fuzzifying)
-    int32_t dErrScaler;         //!< Scaler applied to the calculate dError value (before fuzzifying).  Recommend that is value is larger than errScaler 
+    int32_t errScalar;          //!< Scaler applied to the calculate error value (before fuzzifying)
+    int32_t dErrScalar;         //!< Scaler applied to the calculate dError value (before fuzzifying).  Recommend that is value is larger than errScalar 
     int32_t outK[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS]; //!< Set Strengths for the output membership function
 
 
@@ -45,10 +45,23 @@ struct Config_T
         memset( (void*) this, 0, sizeof( Config_T ) );
     }
 
+    /// Copy Constructor (to ensure any pad bytes get zero'd)
+    Config_T( const Config_T& other )
+    {
+        memcpy( (void*) this, (void*) &other, sizeof( Config_T ) );
+    }
+
     /// Comparison operator (for DM support)
     bool operator == ( Config_T const other ) const
     {
         return memcmp( this, &other, sizeof( Config_T ) ) == 0;
+    }
+
+    /// Copy operator
+    Config_T& operator =( const Config_T& other )
+    {
+        memcpy( (void*) this, (void*) &other, sizeof( Config_T ) );
+        return *this;
     }
 };
 

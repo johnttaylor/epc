@@ -41,7 +41,7 @@ class Api
 {
 public:
     /// Constructor
-    Api( Config_T cfg );
+    Api( Config_T& cfg );
 
 public:
     /** This method should be called on a fixed periodic basis to calculate

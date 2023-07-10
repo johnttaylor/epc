@@ -4,325 +4,223 @@
 * agreement (license.txt) in the top/ directory or on the Internet at
 * http://integerfox.com/colony.core/license.txt
 *
-* Copyright (c) 2014-2022  John T. Taylor
+* Copyright (c) 2014-2020  John T. Taylor
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
 
 #include "Catch/catch.hpp"
-#include "Cpl/Container/cdlist.h"    
 #include "Cpl/System/_testsupport/Shutdown_TS.h"
+#include "Cpl/System/Api.h"
+#include "Cpl/System/Trace.h"
+#include "Cpl/Text/FString.h"
+#include "Cpl/Text/DString.h"
+#include "Cpl/Math/real.h"
+#include "Cpl/Dm/ModelDatabase.h"
+#include "Ajax/Dm/MpFlcConfig.h"
+#include "common.h"
 #include <string.h>
 
 
-/// Short hand for brute forcing string compares when not using std::string
-#define STRING_EQ(a,b)  strcmp(a,b) == 0
+using namespace Ajax::Dm;
+
+#define STRCMP(s1,s2)       (strcmp(s1,s2)==0)
+#define MAX_STR_LENG        1024
+#define SECT_               "_0test"
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Allocate/create my Model Database
+static Cpl::Dm::ModelDatabase   modelDb_( "ignoreThisParameter_usedToInvokeTheStaticConstructor" );
+
+// Allocate my Model Points
+static MpFlcConfig          mp_apple_( modelDb_, "APPLE" );
+static MpFlcConfig          mp_orange_( modelDb_, "ORANGE" );
+
 
 
 ////////////////////////////////////////////////////////////////////////////////
 
-typedef struct MyItem_T
+//
+// Note: The bare minimum I need to test code that is 'new' to concrete MP type
+//
+TEST_CASE( "MpFlcConfig" )
 {
-	CPL_CONTAINTER_ITEM_DLIST;
-	const char* name;
-} MyItem_T;
+    Cpl::System::Shutdown_TS::clearAndUseCounter();
 
+    Cpl::Text::FString<MAX_STR_LENG> errorMsg = "noerror";
+    char string[MAX_STR_LENG + 1];
+    bool truncated;
+    bool valid;
+    Ajax::Heating::Flc::Config_T value;
+    Ajax::Heating::Flc::Config_T expectedVal;
+    mp_apple_.setInvalid();
+    mp_orange_.setInvalid();
 
-////////////////////////////////////////////////////////////////////////////////
-static CplContainerDList_T emptylist_;
-static CplContainerDList_T staticlist_;
-
-
-
-////////////////////////////////////////////////////////////////////////////////
-TEST_CASE( "cdlist" )
-{
-	CplContainerDList_T list; Cpl_Container_DList_initialize( &list );
-	MyItem_T  apple; Cpl_Container_Item_initialize( &apple ); apple.name = "apple";
-	MyItem_T  orange; Cpl_Container_Item_initialize( &orange ); orange.name = "orange";
-	MyItem_T  cherry; Cpl_Container_Item_initialize( &cherry );  cherry.name = "cherry";
-	MyItem_T  pear; Cpl_Container_Item_initialize( &pear );  pear.name = "pear";
-	MyItem_T  plum; Cpl_Container_Item_initialize( &plum );  plum.name = "plum";;
-	MyItem_T* ptr1;
-
-
-	SECTION( "Validate that an 'item' can be only in one Container" )
-	{
-		CplContainerDList_T foo; Cpl_Container_DList_initialize( &foo );
-		CplContainerDList_T bar; Cpl_Container_DList_initialize( &bar );
-
-		MyItem_T  item; Cpl_Container_Item_initialize( &item ); item.name = "bob";
-
-		REQUIRE( Cpl_Container_DList_putFirst( &foo, &item ) );
-		REQUIRE( Cpl_Container_DList_put( &bar, &item ) == false );
-		REQUIRE( Cpl_Container_DList_putFirst( &bar, &item ) == false );
-	}
-
-	SECTION( "Validate static Constructor" )
-	{
-		REQUIRE( Cpl_Container_DList_peekHead( &emptylist_ ) == 0 );
-		REQUIRE( Cpl_Container_DList_peekTail( &emptylist_ ) == 0 );
-
-		REQUIRE( Cpl_Container_DList_peekHead( &staticlist_ ) == 0 );
-		REQUIRE( Cpl_Container_DList_peekTail( &staticlist_ ) == 0 );
-	}
-
-	SECTION( "List Operations" )
-	{
-		CplContainerDList_T foo; Cpl_Container_DList_initialize( &foo );
-		CplContainerDList_T bar; Cpl_Container_DList_initialize( &bar );
-
-		MyItem_T  bob; Cpl_Container_Item_initialize( &bob ); bob.name = "bob";
-		MyItem_T  yours; Cpl_Container_Item_initialize( &yours ); yours.name = "yours";
-		MyItem_T  uncle; Cpl_Container_Item_initialize( &uncle ); uncle.name = "uncle";
-
-		REQUIRE( Cpl_Container_DList_put( &foo, &bob ) );
-		REQUIRE( Cpl_Container_DList_put( &foo, &yours ) );
-		REQUIRE( Cpl_Container_DList_put( &foo, &uncle ) );
-		ptr1 = (MyItem_T *) Cpl_Container_DList_peekHead( &foo );
-		REQUIRE( ptr1 );
-		REQUIRE( STRING_EQ( ptr1->name, "bob" ) );
-		ptr1 = (MyItem_T *) Cpl_Container_DList_peekTail( &foo );
-		REQUIRE( STRING_EQ( ptr1->name, "uncle" ) );
-		REQUIRE( Cpl_Container_DList_peekHead( &bar ) == 0 );
-		REQUIRE( Cpl_Container_DList_peekTail( &bar ) == 0 );
-
-		Cpl_Container_DList_move( &bar, &foo );
-		ptr1 = (MyItem_T *) Cpl_Container_DList_peekHead( &bar );
-		REQUIRE( ptr1 );
-		REQUIRE( STRING_EQ( ptr1->name, "bob" ) );
-		ptr1 = (MyItem_T *) Cpl_Container_DList_peekTail( &bar );
-		REQUIRE( STRING_EQ( ptr1->name, "uncle" ) );
-		REQUIRE( Cpl_Container_DList_peekHead( &foo ) == 0 );
-		REQUIRE( Cpl_Container_DList_peekTail( &foo ) == 0 );
-
-		Cpl_Container_DList_clear( &bar );
-		REQUIRE( Cpl_Container_DList_peekHead( &bar ) == 0 );
-		REQUIRE( Cpl_Container_DList_peekTail( &bar ) == 0 );
-	}
-
-    SECTION( "FIFO" )
+    SECTION( "gets" )
     {
-        REQUIRE( Cpl_Container_DList_get( &list ) == 0 );
-        REQUIRE( Cpl_Container_DList_peekHead( &list ) == 0 );
-        REQUIRE( Cpl_Container_DList_peekTail( &list ) == 0 );
+        // Gets...
+        const char* name = mp_apple_.getName();
+        REQUIRE( strcmp( name, "APPLE" ) == 0 );
 
-        REQUIRE( Cpl_Container_DList_put( &list, &apple ) );
+        size_t s = mp_apple_.getSize();
+        REQUIRE( s == sizeof( value ) );
 
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekHead( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "apple" ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekTail( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "apple" ) );
+        s = mp_apple_.getExternalSize();
+        REQUIRE( s == sizeof( value ) + sizeof( bool ) );
 
-        REQUIRE( Cpl_Container_DList_put( &list, &orange ) );
-
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekHead( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "apple" ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekTail( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "orange" ) );
-
-        REQUIRE( Cpl_Container_DList_put( &list, &cherry ) );
-
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekHead( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "apple" ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekTail( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "cherry" ) );
-
-        ptr1 = (MyItem_T*) Cpl_Container_DList_get( &list );
-        REQUIRE( ptr1 != 0 );
-        REQUIRE( STRING_EQ( ptr1->name, "apple" ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekHead( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "orange" ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekTail( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "cherry" ) );
-
-        ptr1 = (MyItem_T*) Cpl_Container_DList_get( &list );
-        REQUIRE( ptr1 != 0 );
-        REQUIRE( STRING_EQ( ptr1->name, "orange" ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekHead( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "cherry" ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekTail( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "cherry" ) );
-
-        ptr1 = (MyItem_T*) Cpl_Container_DList_get( &list );
-        REQUIRE( ptr1 != 0 );
-        REQUIRE( STRING_EQ( ptr1->name, "cherry" ) );
-        REQUIRE( Cpl_Container_DList_peekHead( &list ) == 0 );
-        REQUIRE( Cpl_Container_DList_peekTail( &list ) == 0 );
-
-        ptr1 = (MyItem_T*) Cpl_Container_DList_get( &list );
-        REQUIRE( ptr1 == 0 );
-        REQUIRE( Cpl_Container_DList_peekHead( &list ) == 0 );
-        REQUIRE( Cpl_Container_DList_peekTail( &list ) == 0 );
+        const char* mpType = mp_apple_.getTypeAsText();
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("typeText: [%s]", mpType) );
+        REQUIRE( strcmp( mpType, "Ajax::Dm::MpFlcConfig" ) == 0 );
     }
 
-    SECTION( "Ordered List" )
+    SECTION( "read/writes" )
     {
-        REQUIRE( Cpl_Container_DList_put( &list, &orange ) );
-        REQUIRE( Cpl_Container_DList_putFirst( &list, &apple ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekHead( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "apple" ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekTail( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "orange" ) );
+        int32_t outk[5] ={ 10, 20, 30, -10, -5 };
+        expectedVal.maxY = 1;
+        expectedVal.outputScalar = 2;
+        expectedVal.errScalar = 3;
+        expectedVal.dErrScalar = 4;
+        memcpy( expectedVal.outK, outk, sizeof( expectedVal.outK) );
+        mp_apple_.write( expectedVal );
+        valid = mp_apple_.read( value );
+        REQUIRE( valid );
+        REQUIRE( expectedVal == value );
 
-        ptr1 = (MyItem_T*) Cpl_Container_DList_get( &list );
-        REQUIRE( ptr1 != 0 );
-        REQUIRE( STRING_EQ( ptr1->name, "apple" ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekHead( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "orange" ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekTail( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "orange" ) );
+        expectedVal.outputScalar = 22;
+        mp_apple_.write( expectedVal );
+        valid = mp_apple_.read( value );
+        REQUIRE( valid );
+        REQUIRE( expectedVal == value );
 
-        REQUIRE( Cpl_Container_DList_putFirst( &list, &apple ) );
-        ptr1 = (MyItem_T*) Cpl_Container_DList_getLast( &list );
-        REQUIRE( ptr1 != 0 );
-        REQUIRE( STRING_EQ( ptr1->name, "orange" ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekHead( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "apple" ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekTail( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "apple" ) );
-
-        REQUIRE( Cpl_Container_DList_put( &list, &orange ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekHead( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "apple" ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekTail( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "orange" ) );
-
-        REQUIRE( Cpl_Container_DList_put( &list, &cherry ) );
-        REQUIRE( Cpl_Container_DList_put( &list, &pear ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekHead( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "apple" ) );
-        ptr1 = (MyItem_T*) Cpl_Container_DList_next( ptr1 );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "orange" ) );
-        ptr1 = (MyItem_T*) Cpl_Container_DList_next( ptr1 );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "cherry" ) );
-        ptr1 = (MyItem_T*) Cpl_Container_DList_next( ptr1 );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "pear" ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekTail( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "pear" ) );
-
-
-
-        REQUIRE( Cpl_Container_DList_remove( &list, &orange ) == true );
-        REQUIRE( Cpl_Container_DList_remove( &list, &cherry ) == true );
-        REQUIRE( Cpl_Container_DList_remove( &list, &orange ) == false );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekHead( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "apple" ) );
-        ptr1 = (MyItem_T*) Cpl_Container_DList_next( ptr1 );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "pear" ) );
-
-        REQUIRE( Cpl_Container_DList_remove( &list, &apple ) == true );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekHead( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "pear" ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekTail( &list );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "pear" ) );
-
-        REQUIRE( Cpl_Container_DList_isInList( &list, &plum ) == false );
-        REQUIRE( Cpl_Container_DList_isInList( &list, &orange ) == false );
-        REQUIRE( Cpl_Container_DList_isInList( &list, &pear ) == true );
-        REQUIRE( Cpl_Container_DList_isInList( &list, &apple ) == false );
-        REQUIRE( Cpl_Container_DList_isInList( &list, &cherry ) == false );
-
-        REQUIRE( Cpl_Container_DList_remove( &list, &pear ) == true );
+        expectedVal.outK[0] = 666;
+        mp_apple_.write( expectedVal );
+        valid = mp_apple_.read( value );
+        REQUIRE( valid );
+        REQUIRE( expectedVal == value );
     }
 
-    SECTION( "Previous" )
+    SECTION( "copy" )
     {
-        CplContainerDList_T foo; Cpl_Container_DList_initialize( &foo );
+        int32_t outk[5] ={ 110, 20, 30, -10, -5 };
+        expectedVal.maxY = 11;
+        expectedVal.outputScalar = 21;
+        expectedVal.errScalar = 31;
+        expectedVal.dErrScalar = 41;
+        memcpy( expectedVal.outK, outk, sizeof( expectedVal.outK ) );
+        mp_apple_.write( expectedVal );
+        mp_orange_.copyFrom( mp_apple_ );
+        valid = mp_orange_.read( value );
+        REQUIRE( valid );
+        REQUIRE( expectedVal == value );
 
-        MyItem_T  bob; Cpl_Container_Item_initialize( &bob ); bob.name = "bob";
-        MyItem_T  yours; Cpl_Container_Item_initialize( &yours ); yours.name = "yours";
-        MyItem_T  uncle; Cpl_Container_Item_initialize( &uncle ); uncle.name = "uncle";
+        mp_orange_.setInvalid();
+        REQUIRE( mp_apple_.isNotValid() == false );
+        mp_apple_.copyFrom( mp_orange_ );
+        REQUIRE( mp_apple_.isNotValid() );
+    }
+    
+    SECTION( "toJSON-pretty" )
+    {
+        int32_t outk[5] ={ 110, 20, 30, -10, -5 };
+        expectedVal.maxY = 11;
+        expectedVal.outputScalar = 21;
+        expectedVal.errScalar = 31;
+        expectedVal.dErrScalar = 41;
+        memcpy( expectedVal.outK, outk, sizeof( expectedVal.outK ) );
+        mp_apple_.write( expectedVal );
+        mp_apple_.toJSON( string, MAX_STR_LENG, truncated, true, true );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("toJSON: [%s]", string) );
 
-        REQUIRE( Cpl_Container_DList_put( &foo, &bob ) );
-        REQUIRE( Cpl_Container_DList_put( &foo, &yours ) );
-        REQUIRE( Cpl_Container_DList_put( &foo, &uncle ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekHead( &foo );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "bob" ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekTail( &foo );
-        REQUIRE( STRING_EQ( ptr1->name, "uncle" ) );
+        StaticJsonDocument<1024> doc;
+        DeserializationError err = deserializeJson( doc, string );
+        REQUIRE( err == DeserializationError::Ok );
+        REQUIRE( doc["val"]["maxY"] ==  11 );
+        REQUIRE( doc["val"]["outScalar"] == 21 );
+        REQUIRE( doc["val"]["errScalar"] == 31 );
+        REQUIRE( doc["val"]["dErrScalar"] == 41 );
+        REQUIRE( doc["val"]["outK"][0] == 110 );
+        REQUIRE( doc["val"]["outK"][1] == 20 );
+        REQUIRE( doc["val"]["outK"][2] == 30 );
+        REQUIRE( doc["val"]["outK"][3] == -10 );
+        REQUIRE( doc["val"]["outK"][4] == -5 );
+    }
+ 
+    SECTION( "fromJSON" )
+    {
+        const char* json = R"({
+              "name": "APPLE",
+              "val": {
+                "maxY": 121,
+                "outScalar": 221,
+                "dErrScalar": 421,
+                "errScalar": 321,
+                "outK": [
+                  111,
+                  20,
+                  30,
+                  -10,
+                  -6
+                ]
+              }
+            })";
+        bool result = modelDb_.fromJSON( json, &errorMsg );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("errorMsg: [%s]", errorMsg.getString()) );
+        REQUIRE( result == true );
+        valid = mp_apple_.read( value );
+        REQUIRE( valid );
 
-        ptr1 = (MyItem_T *) Cpl_Container_DList_prev( &bob );
-        REQUIRE( ptr1 == 0 );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_prev( &yours );
-        REQUIRE( ptr1 == &bob );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_prev( &uncle );
-        REQUIRE( ptr1 == &yours );
+        int32_t outk[5] ={ 111, 20, 30, -10, -6 };
+        expectedVal.maxY = 121;
+        expectedVal.outputScalar = 221;
+        expectedVal.errScalar = 321;
+        expectedVal.dErrScalar = 421;
+        memcpy( expectedVal.outK, outk, sizeof( expectedVal.outK ) );
+        REQUIRE( expectedVal == value );
+
+        json = "{name:\"APPLE\", val:{maxY:\"abc\"}}";
+        result = modelDb_.fromJSON( json, &errorMsg );
+        REQUIRE( result == true );
+        REQUIRE( errorMsg == "noerror" );
+        REQUIRE( expectedVal == value );
+
+        json = "{name:\"APPLE\", val:{outK:\"abc\"}}";
+        result = modelDb_.fromJSON( json, &errorMsg );
+        REQUIRE( result == true );
+        REQUIRE( errorMsg == "noerror" );
+        REQUIRE( expectedVal == value );
     }
 
-    SECTION( "inserts" )
+    SECTION( "observer" )
     {
-        CplContainerDList_T foo; Cpl_Container_DList_initialize( &foo );
+        Cpl::Dm::MailboxServer     t1Mbox;
+        int32_t outk[5] ={ 110, 20, 30, -10, -5 };
+        expectedVal.maxY = 11;
+        expectedVal.outputScalar = 21;
+        expectedVal.errScalar = 31;
+        expectedVal.dErrScalar = 41;
+        memcpy( expectedVal.outK, outk, sizeof( expectedVal.outK ) );
+        mp_apple_.write( expectedVal );
+        Viewer<MpFlcConfig, Ajax::Heating::Flc::Config_T>    viewer_apple1( t1Mbox, Cpl::System::Thread::getCurrent(), mp_apple_, expectedVal );
+        Cpl::System::Thread* t1 = Cpl::System::Thread::create( t1Mbox, "T1" );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("Created Viewer thread (%p)", t1) );
 
-        MyItem_T  bob; Cpl_Container_Item_initialize( &bob ); bob.name = "bob";
-        MyItem_T  yours; Cpl_Container_Item_initialize( &yours ); yours.name = "yours";
-        MyItem_T  uncle; Cpl_Container_Item_initialize( &uncle ); uncle.name = "uncle";
+        // NOTE: The MP MUST be in the INVALID state at the start of this test
+        viewer_apple1.open();
+        mp_apple_.write( expectedVal );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("Waiting for viewer signal...") );
+        Cpl::System::Thread::wait();
+        viewer_apple1.close();
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("Viewer closed.") );
 
-        REQUIRE( Cpl_Container_DList_put( &foo, &bob ) );
-        REQUIRE( Cpl_Container_DList_put( &foo, &yours ) );
-        REQUIRE( Cpl_Container_DList_put( &foo, &uncle ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekHead( &foo );
-        REQUIRE( ptr1 );
-        REQUIRE( STRING_EQ( ptr1->name, "bob" ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_peekTail( &foo );
-        REQUIRE( STRING_EQ( ptr1->name, "uncle" ) );
-
-        REQUIRE( Cpl_Container_DList_insertAfter( &foo, &bob, &plum ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_prev( &plum );
-        REQUIRE( ptr1 == &bob );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_next( &plum );
-        REQUIRE( ptr1 == &yours );
-
-        REQUIRE( Cpl_Container_DList_insertAfter( &foo, &uncle, &apple ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_prev( &apple );
-        REQUIRE( ptr1 == &uncle );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_next( &apple );
-        REQUIRE( ptr1 == 0 );
-
-        REQUIRE( Cpl_Container_DList_insertBefore( &foo, &bob, &cherry ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_prev( &cherry );
-        REQUIRE( ptr1 == 0);
-        ptr1 = (MyItem_T *) Cpl_Container_DList_next( &cherry );
-        REQUIRE( ptr1 == &bob );
-
-        REQUIRE( Cpl_Container_DList_insertBefore( &foo, &plum, &orange ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_prev( &orange );
-        REQUIRE( ptr1 == &bob );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_next( &orange );
-        REQUIRE( ptr1 == &plum );
-
-        REQUIRE( Cpl_Container_DList_insertBefore( &foo, &bob, &pear ) );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_prev( &pear );
-        REQUIRE( ptr1 == &cherry );
-        ptr1 = (MyItem_T *) Cpl_Container_DList_next( &pear );
-        REQUIRE( ptr1 == &bob );
+        // Shutdown threads
+        t1Mbox.pleaseStop();
+        Cpl::System::Api::sleep( 100 ); // allow time for threads to stop
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("Destroying Viewer thread (%p)...", t1) );
+        Cpl::System::Thread::destroy( *t1 );
+        Cpl::System::Api::sleep( 100 ); // allow time for threads to stop BEFORE the runnable object goes out of scope
     }
+
+
+    REQUIRE( Cpl::System::Shutdown_TS::getAndClearCounter() == 0u );
 }

@@ -14,24 +14,25 @@
 using namespace Ajax::Heating::Flc;
 
 
-#define SET_OM          0   // overshoot medium
-#define SET_OS          1   // overshoot small
+#define SET_NM          0   // negative medium
+#define SET_NS          1   // negative small
 #define SET_ZE          2   // zero equal
-#define SET_US          3   // undershoot small
-#define SET_UM          4   // undershoot medium
+#define SET_PS          3   // positive small
+#define SET_PM          4   // positive medium
 
 static const unsigned char inferenceTable_[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS][AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS] =
 {
-  { SET_UM, SET_UM, SET_UM, SET_US, SET_ZE },
-  { SET_UM, SET_UM, SET_US, SET_ZE, SET_OS },
-  { SET_UM, SET_US, SET_ZE, SET_OS, SET_OM },
-  { SET_US, SET_ZE, SET_OS, SET_OM, SET_OM },
-  { SET_ZE, SET_OS, SET_OM, SET_OM, SET_OM }
+  { SET_PM, SET_PM, SET_PM, SET_PS, SET_ZE },
+  { SET_PM, SET_PM, SET_PS, SET_ZE, SET_NS },
+  { SET_PM, SET_PS, SET_ZE, SET_NS, SET_NM },
+  { SET_PS, SET_ZE, SET_NS, SET_NM, SET_NM },
+  { SET_ZE, SET_NS, SET_NM, SET_NM, SET_NM }
 };
 
 /////////////////////////////////////////////////////////////////////////////
-Api::Api( Config_T cfg )
-    : m_cfg( cfg )
+Api::Api( Config_T& cfg )
+    : m_prevDeltaError(0)
+    , m_cfg( cfg )
     , m_firstCycle( true )
 {
 }
@@ -47,8 +48,8 @@ int32_t Api::calcChange( int32_t currentTemp, int32_t setpoint ) noexcept
     // Fuzzify the inputs
     int32_t m1[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS];
     int32_t m2[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS];
-    fuzzify( err * m_cfg.errScaler, m1 );
-    fuzzify( dErr * m_cfg.dErrScaler, m2 );
+    fuzzify( err * m_cfg.errScalar, m1 );
+    fuzzify( dErr * m_cfg.dErrScalar, m2 );
 
     // Run the inference rules
     int32_t out[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS];
@@ -68,36 +69,36 @@ void Api::fuzzify( int32_t inValue, int32_t fuzzyOut[AJAX_HEATING_FLC_CONFIG_NUM
     // Less than the OM center point
     if ( inValue < (xbase * (-2)) )
     {
-        fuzzyOut[SET_OM] = m_cfg.maxY;
+        fuzzyOut[SET_NM] = m_cfg.maxY;
     }
-    // Between: OM..OS 
+    // Between: NM..NS 
     else if ( inValue < (xbase * (-1)) )
     {
-        fuzzyOut[SET_OM] = m_cfg.maxY - (inValue + 2 * xbase);
-        fuzzyOut[SET_OS] = inValue + 2 * xbase;
+        fuzzyOut[SET_NM] = m_cfg.maxY - (inValue + 2 * xbase);
+        fuzzyOut[SET_NS] = inValue + 2 * xbase;
     }
-    // Between: OS..ZE
+    // Between: NS..ZE
     else if ( inValue < 0 )
     {
-        fuzzyOut[SET_OS] = m_cfg.maxY - (inValue + xbase);
+        fuzzyOut[SET_NS] = m_cfg.maxY - (inValue + xbase);
         fuzzyOut[SET_ZE] = inValue + xbase;
     }
-    // Between: ZE..US
+    // Between: ZE..PS
     else if ( inValue < xbase )
     {
         fuzzyOut[SET_ZE] = m_cfg.maxY - inValue;
-        fuzzyOut[SET_US] = inValue;
+        fuzzyOut[SET_PS] = inValue;
     }
-    // Between: US..UM
+    // Between: PS..PM
     else if ( inValue < (2 * xbase) )
     {
-        fuzzyOut[SET_US] = m_cfg.maxY - (inValue - xbase);
-        fuzzyOut[SET_UM] = inValue - xbase;
+        fuzzyOut[SET_PS] = m_cfg.maxY - (inValue - xbase);
+        fuzzyOut[SET_PM] = inValue - xbase;
     }
     // Greater than the UM center point
     else
     {
-        fuzzyOut[SET_UM] = m_cfg.maxY;
+        fuzzyOut[SET_PM] = m_cfg.maxY;
     }
 }
 
@@ -169,7 +170,7 @@ int32_t Api::defuzz( const int32_t outVector[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_
     }
 
     // Invert the final output
-    return ((numerator * m_cfg.outputScaler) / denominator) * -1;
+    return ((numerator * m_cfg.outputScalar) / denominator) * -1;
 }
 
 

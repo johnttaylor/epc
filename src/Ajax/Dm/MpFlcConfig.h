@@ -23,13 +23,13 @@ namespace Dm {
 
 
 /** This class provides a concrete implementation for a Point who's data a
-    Ajax::Heating::Flc::Config_t data structure
+    Ajax::Heating::Flc::Config_t data structure 
 
     The toJSON/fromJSON() format is:
     \code
 
     { name:"<mpname>", type=:<mptypestring>", valid:true|false, seqnum:nnnn, locked:true|false, 
-      val:{ "outScaler":nnn, "maxY": nnn, "inMaxX":nnn, "inMinX":nnn, "inPoints":[n,n,n,n,n], "outPoints":[n,n,n,n,n] }
+      val:{ "outScalar":nnn, "maxY": nnn, "errScalar":nnn, "dErrScalar":nnn, "outK":[n,n,n,n,n] }
     }
 
     \endcode
@@ -48,7 +48,7 @@ public:
     }
 
     /// Constructor. Valid MP.  Requires an initial value
-    MpFlcConfig( Cpl::Dm::ModelDatabase& myModelBase, const char* symbolicName, Cpl::System::ElapsedTime::Precision_T initialValue )
+    MpFlcConfig( Cpl::Dm::ModelDatabase& myModelBase, const char* symbolicName, Ajax::Heating::Flc::Config_T initialValue )
         :Cpl::Dm::ModelPointCommon_( myModelBase, symbolicName, &m_data, sizeof( m_data ), true )
     {
         m_data = initialValue;
@@ -56,13 +56,13 @@ public:
 
 public:
     /// Type safe read. See Cpl::Dm::ModelPoint
-    inline bool read( Cpl::System::ElapsedTime::Precision_T& dstData, uint16_t* seqNumPtr=0 ) const noexcept
+    inline bool read( Ajax::Heating::Flc::Config_T& dstData, uint16_t* seqNumPtr=0 ) const noexcept
     {
         return readData( &dstData, sizeof( m_data ), seqNumPtr );
     }
 
     /// Type safe write. See Cpl::Dm::ModelPoint
-    inline uint16_t write( Cpl::System::ElapsedTime::Precision_T newValue, LockRequest_T lockRequest = eNO_REQUEST ) noexcept
+    inline uint16_t write( Ajax::Heating::Flc::Config_T newValue, LockRequest_T lockRequest = eNO_REQUEST ) noexcept
     {
         return writeData( &newValue, sizeof( m_data ), lockRequest );
     }
@@ -84,7 +84,7 @@ public:
     void detach( Observer& observer ) noexcept;
 
     /// See Cpl::Dm::ModelPointCommon
-    inline bool readAndSync( Cpl::System::ElapsedTime::Precision_T& dstData, SubscriberApi& observerToSync )
+    inline bool readAndSync( Ajax::Heating::Flc::Config_T& dstData, Cpl::Dm::SubscriberApi& observerToSync )
     {
         return ModelPointCommon_::readAndSync( &dstData, sizeof( m_data ), observerToSync );
     }
@@ -102,7 +102,7 @@ protected:
 
 protected:
     /// My data
-    Cpl::System::ElapsedTime::Precision_T m_data;
+    Ajax::Heating::Flc::Config_T m_data;
 };
 
 
