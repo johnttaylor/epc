@@ -45,6 +45,8 @@ Arguments:
                    again.
                    
 Options:
+  --ci             Uses the repository root instead of the src/ directory. This
+                   is a work-around for Jenkins-Cobertura plugin
   -w LINES         Size of the 'window' when displaying the output when using
                    the '-m' option.  [Default: 2].
   -h, --help       Display command help.
@@ -90,9 +92,12 @@ def run(argv):
     
     # get the package root
     pkg = NQBP_PKG_ROOT()
-    
+    gcovr_root = f'-r {pkg}/src'
+    if args['--ci']:
+        gcovr_root = f'--filter .*src/.* -r {pkg}'
+
     # setup excludes 
-    excludes = '--exclude=.*_0test.* --filter=.*src/.*  --exclude=.*src/Catch.*  --exclude=.*src/Cpl/Json/Ardunio.h --exclude=.*src/Cpl/Type/enum.h --exclude-unreachable-branches --exclude-lines-by-pattern .*CPL_SYSTEM_TRACE.* --exclude-lines-by-pattern .*CPL_SYSTEM_ASSERT.*'
+    excludes = '--exclude=.*_0test.* --exclude=.*src/Catch.*  --exclude=.*src/Cpl/Json/Ardunio.h --exclude=.*src/Cpl/Type/enum.h --exclude-unreachable-branches --exclude-lines-by-pattern .*CPL_SYSTEM_TRACE.* --exclude-lines-by-pattern .*CPL_SYSTEM_ASSERT.*'
 
     # Setup 'arc' excludes for C++ code (see https://gcovr.com/en/stable/faq.html) 
     arcopt = ' --exclude-unreachable-branches --decisions '
@@ -102,7 +107,7 @@ def run(argv):
     # Generate summary
     if (args['rpt']):
         python = 'python'
-        cmd  = '{} -m gcovr {} {} --gcov-ignore-parse-errors=negative_hits.warn -j 8 -r {} --object-directory . {} .'.format(python, excludes, arcopt, pkg,  ' '.join(args['<args>']) if args['<args>'] else '') 
+        cmd  = '{} -m gcovr {} {} --gcov-ignore-parse-errors=negative_hits.warn -j 8 {} --object-directory . {} .'.format(python, excludes, arcopt, gcovr_root,  ' '.join(args['<args>']) if args['<args>'] else '') 
         if (args['<args>']):
             first = args['<args>'][0]
             if (first == '-h' or first == '--help'):
