@@ -60,7 +60,7 @@ IF ERRORLEVEL 1 EXIT /b 1
 IF ERRORLEVEL 1 EXIT /b 1
 
 :: Generate code coverage metrics
-%_TOOLS%\chuck.py -v --dir mingw_w64 --match tca.py --ci rpt --xml jenkins-gcovr.xml 
+%_TOOLS%\chuck.py -v --dir mingw_w64 --match tca.py args --ci rpt --xml jenkins-gcovr.xml 
 IF ERRORLEVEL 1 EXIT /b 1
 
 ::
