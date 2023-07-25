@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "strong": [],
+    "weak": []
+  },
+  "directories": {
+    "primary": null,
+    "adoptedExtras": null
+  },
+  "info": {
+    "pkgname": "pimoroni",
+    "desc": "Platform independent port of the Pimoroni Pico libaries",
+    "owner": "john taylor",
+    "email": "john.t.taylor@gmail.com",
+    "url": "https://github.com/johnttaylor",
+    "repo": {
+      "name": "pimoroni",
+      "type": "git",
+      "origin": "https://github.com/johnttaylor"
+    }
+  },
+  "publish": {
+    "current": {
+      "comment": "Initial port/version",
+      "version": "1.19.17-1",
+      "date": "Mon Jul 24 22:06:13 2023",
+      "timestamp": 1690236373,
+      "changes": null
+    },
+    "history": []
+  }
+}
