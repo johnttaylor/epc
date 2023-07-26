@@ -34,13 +34,13 @@ public:
     /** Constructor.  Note: the 'pinConfig' struct MUST stay in scope as long
         as the driver is in scope.
      */
-    Out( const DriverDioOutPinConfig_T& pinConfig, bool assertedHigh );
+    Out( const DriverDioOutPinConfig_T& pinConfig, bool assertedHigh = true );
 
 public:
     /** Starts the driver.
         Returns false if an error was encountered 
      */
-    bool start();
+    bool start( bool initialState );
 
     /** Stops the driver, places the output into a 'safe' state.  The safe state
         is defined by the platform
