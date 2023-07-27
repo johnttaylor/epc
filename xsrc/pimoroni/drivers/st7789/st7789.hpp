@@ -32,7 +32,7 @@ private:
 
     // The ST7789 requires 16 ns between SPI rising edges.
     // 16 ns = 62,500,000 Hz
-    static const uint32_t SPI_BAUD = 62'500'000;
+    static const uint32_t SPI_BAUD = 62500000;
 
 
 public:

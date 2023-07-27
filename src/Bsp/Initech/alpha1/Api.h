@@ -29,6 +29,9 @@
 #include "colony_config.h"
 #include "Bsp/Initech/alpha1/MX/Core/Inc/main.h"   // Access the PINs
 #include "Bsp/Initech/alpha1/MX/Core/Inc/usart.h"  // Access the UART handles/instances
+#include "Bsp/Initech/alpha1/MX/Core/Inc/tim.h"  // Access the UART handles/instances
+#include "Bsp/Initech/alpha1/MX/Core/Inc/spi.h"  // Access the UART handles/instances
+
 //#include "Bsp/Initech/alpha1/MX/Core/Inc/stm32f4xx_hal_conf.h"  // SDK header files...
 
 #ifdef ENABLE_BSP_SEGGER_SYSVIEW   

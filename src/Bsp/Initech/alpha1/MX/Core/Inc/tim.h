@@ -30,6 +30,7 @@ extern "C" {
 
 /* USER CODE BEGIN Includes */
 
+
 /* USER CODE END Includes */
 
 extern TIM_HandleTypeDef htim4;
@@ -39,6 +40,14 @@ extern TIM_HandleTypeDef htim10;
 extern TIM_HandleTypeDef htim11;
 
 /* USER CODE BEGIN Private defines */
+#define PWM_LED_BLUE_BLOCK_PTR      (&htim4)
+#define PWM_LED_BLUE_CHANNEL        TIM_CHANNEL_4
+#define PWM_LED_GREEN_BLOCK_PTR     (&htim4)
+#define PWM_LED_GREEN_CHANNEL       TIM_CHANNEL_3
+#define PWM_LED_RED_BLOCK_PTR       (&htim11)
+#define PWM_LED_RED_CHANNEL         TIM_CHANNEL_1
+#define PWM_BACKLIGHT_BLOCK_PTR     (&htim10)
+#define PWM_BACKLIGHT_CHANNEL       TIM_CHANNEL_1
 
 /* USER CODE END Private defines */
 

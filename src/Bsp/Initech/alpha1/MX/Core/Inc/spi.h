@@ -36,6 +36,8 @@ extern SPI_HandleTypeDef hspi1;
 
 /* USER CODE BEGIN Private defines */
 
+#define LCD_SPI_BLOCK_PTR       (&hspi1)
+
 /* USER CODE END Private defines */
 
 void MX_SPI1_Init(void);

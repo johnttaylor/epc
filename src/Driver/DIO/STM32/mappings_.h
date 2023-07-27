@@ -1,3 +1,6 @@
+#if defined(Driver_DIO_Out_h_) || defined (Driver_DIO_Pwm_h_)
+
+
 #ifndef Driver_DIO_STM32_mapping_h_
 #define Driver_DIO_STM32_mapping_h_
 /*-----------------------------------------------------------------------------
@@ -12,7 +15,7 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
-#include "stm32f4xx_hal.h"
+#include "Bsp/Api.h"
 #include <stdint.h>
 
 /** Structure that defines an Output Pin.
@@ -74,3 +77,4 @@ struct DriverDioPwmSTM32Config_T
 
 /*--------------------------------------------------------------------------*/
 #endif  // end header latch
+#endif  // end interface latch
