@@ -21,10 +21,14 @@
 
 
 
-static Driver::Button::PolledDebounced buttonA_( { OPTION_DRIVER_PICO_DISPLAY_STM32_BUTTON_A_PORT, OPTION_DRIVER_PICO_DISPLAY_STM32_BUTTON_A_PIN, true } );
-static Driver::Button::PolledDebounced buttonB_( { OPTION_DRIVER_PICO_DISPLAY_STM32_BUTTON_B_PORT, OPTION_DRIVER_PICO_DISPLAY_STM32_BUTTON_A_PIN, true } );
-static Driver::Button::PolledDebounced buttonX_( { OPTION_DRIVER_PICO_DISPLAY_STM32_BUTTON_X_PORT, OPTION_DRIVER_PICO_DISPLAY_STM32_BUTTON_A_PIN, true } );
-static Driver::Button::PolledDebounced buttonY_( { OPTION_DRIVER_PICO_DISPLAY_STM32_BUTTON_Y_PORT, OPTION_DRIVER_PICO_DISPLAY_STM32_BUTTON_A_PIN, true } );
+static DriverButtonPinHalSTM32_T     pinButtonA_( OPTION_DRIVER_PICO_DISPLAY_STM32_BUTTON_A_PORT, OPTION_DRIVER_PICO_DISPLAY_STM32_BUTTON_A_PIN, true );
+static DriverButtonPinHalSTM32_T     pinButtonB_( OPTION_DRIVER_PICO_DISPLAY_STM32_BUTTON_B_PORT, OPTION_DRIVER_PICO_DISPLAY_STM32_BUTTON_B_PIN, true );
+static DriverButtonPinHalSTM32_T     pinButtonX_( OPTION_DRIVER_PICO_DISPLAY_STM32_BUTTON_X_PORT, OPTION_DRIVER_PICO_DISPLAY_STM32_BUTTON_X_PIN, true );
+static DriverButtonPinHalSTM32_T     pinButtonY_( OPTION_DRIVER_PICO_DISPLAY_STM32_BUTTON_Y_PORT, OPTION_DRIVER_PICO_DISPLAY_STM32_BUTTON_Y_PIN, true );
+static Driver::Button::PolledDebounced buttonA_( pinButtonA_ );
+static Driver::Button::PolledDebounced buttonB_( pinButtonB_ );
+static Driver::Button::PolledDebounced buttonX_( pinButtonX_ );
+static Driver::Button::PolledDebounced buttonY_( pinButtonY_ );
 
 static DriverDioPwmSTM32Config_T     ledRPwm_( OPTION_DRIVER_PICO_DISPLAY_STM32_RGB_RED_TIMER, OPTION_DRIVER_PICO_DISPLAY_STM32_RGB_RED_CHANNEL);
 static DriverDioPwmSTM32Config_T     ledGPwm_( OPTION_DRIVER_PICO_DISPLAY_STM32_RGB_GREEN_TIMER, OPTION_DRIVER_PICO_DISPLAY_STM32_RGB_GREEN_CHANNEL );
@@ -54,8 +58,8 @@ pimoroni::ST7789 st7789_( pimoroni::PicoDisplay::WIDTH, pimoroni::PicoDisplay::H
 /////////////////////////////////////////////
 void Driver::PicoDisplay::STM32::initialize()
 {
-    st7789_.start();
-    rgbLEDDriver_.setRgb( 0, 0, 0 );
+    st7789_.start(); 
+    rgbLEDDriver_.start();
 
     driverButtonHalSTM32_initialize( buttonA_.getHandle() );
     driverButtonHalSTM32_initialize( buttonB_.getHandle() );

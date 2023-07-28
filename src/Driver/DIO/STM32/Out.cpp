@@ -49,7 +49,7 @@ bool Out::getOutput() const
     if ( m_started )
     {
         GPIO_PinState phy = HAL_GPIO_ReadPin( m_pin.port, m_pin.pin );
-        bool          log = phy == GPIO_PIN_SET ? true : false;
+        bool          log = phy ? true : false;
         return m_assertedHigh ? log : !log;
     }
 

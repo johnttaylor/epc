@@ -31,7 +31,7 @@ void OnProjectLoad (void) {
   //
   // User settings
   //
-  File.Open ("_stm32/ajax.elf");
+  File.Open ("_stm32/pico-sketch.elf");
   Project.SetOSPlugin ("FreeRTOSPlugin_CM4");
 }
 

@@ -410,7 +410,7 @@ void drawStartScreen()
 {
     // Turn the RGB LED off
     Driver::PicoDisplay::Api::rgbLED().setOff();
-    Driver::PicoDisplay::Api::rgbLED().setBrightness( 32 );
+    Driver::PicoDisplay::Api::rgbLED().setBrightness( 64 );
 
     // set the colour of the pen
     graphics_.set_pen( 0, 0, 255 );

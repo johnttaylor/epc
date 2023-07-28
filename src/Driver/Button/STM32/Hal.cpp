@@ -21,10 +21,10 @@ bool driverButtonHalSTM32_getRawPressState( DriverButtonPinHalSTM32_T pinHandle 
 {
     if ( pinHandle.activeLow )
     {
-        return HAL_GPIO_ReadPin( pinHandle.port, pinHandle.pin ) == GPIO_PIN_SET ? false : true;
+        return HAL_GPIO_ReadPin( pinHandle.port, pinHandle.pin ) ? false : true;
     }
     else 
     {
-        return HAL_GPIO_ReadPin( pinHandle.port, pinHandle.pin ) == GPIO_PIN_SET? true: false;
+        return HAL_GPIO_ReadPin( pinHandle.port, pinHandle.pin )? true: false;
     }
 }

@@ -94,7 +94,7 @@ void core0Start( Cpl::System::ElapsedTime::Precision_T currentTick )
     intializeLogicalButtons();
     intializeUI();
 
-    Driver::PicoDisplay::Api::setLCDBrightness( 50 );
+    Driver::PicoDisplay::Api::setLCDBrightness( 128 );
 }
 
 void core0Idle( Cpl::System::ElapsedTime::Precision_T currentTick, bool atLeastOneIntervalExecuted )

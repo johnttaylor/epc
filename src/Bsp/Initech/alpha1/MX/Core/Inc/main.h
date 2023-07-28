@@ -77,7 +77,7 @@ void SystemClock_Config(void);
 #define BUTTON_Y_GPIO_Port GPIOF
 #define LCD_RESET_Pin GPIO_PIN_15
 #define LCD_RESET_GPIO_Port GPIOF
-#define BUTTON_B_Pin GPIO_PIN_8
+#define BUTTON_B_Pin GPIO_PIN_9
 #define BUTTON_B_GPIO_Port GPIOE
 #define BUTTON_X_Pin GPIO_PIN_11
 #define BUTTON_X_GPIO_Port GPIOE
@@ -89,8 +89,8 @@ void SystemClock_Config(void);
 #define STLK_TX_GPIO_Port GPIOD
 #define PWM_LED_GREEN_Pin GPIO_PIN_14
 #define PWM_LED_GREEN_GPIO_Port GPIOD
-#define PWM_RED_BLUE_Pin GPIO_PIN_15
-#define PWM_RED_BLUE_GPIO_Port GPIOD
+#define PWM_LED_BLUE_Pin GPIO_PIN_15
+#define PWM_LED_BLUE_GPIO_Port GPIOD
 #define USB_PowerSwitchOn_Pin GPIO_PIN_6
 #define USB_PowerSwitchOn_GPIO_Port GPIOG
 #define USB_OverCurrent_Pin GPIO_PIN_7
