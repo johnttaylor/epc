@@ -38,27 +38,8 @@ FINAL_OUTPUT_NAME = 'pico-sketch.exe'
 # For build config/variant: "Release"
 #
 
-# PICO-SDK Header paths
-sdk_src_path  = os.path.join( NQBP_PKG_ROOT(), 'xsrc', 'pico-sdk', 'src' )
-sdk_inc       = f' -I{os.path.join(sdk_src_path,"rp2_common","include")}' + \
-                f' -I{os.path.join(sdk_src_path,"common","pico_stdlib", "include")}' + \
-                f' -I{os.path.join(sdk_src_path,"common","pico_base", "include")}' + \
-                f' -I{os.path.join(sdk_src_path,"rp2040","hardware_regs", "include")}' + \
-                f' -I{os.path.join(sdk_src_path,"rp2040","hardware_structs", "include")}' + \
-                f' -I{os.path.join(sdk_src_path,"rp2_common","pico_stdio", "include")}' + \
-                f' -I{os.path.join(sdk_src_path,"rp2_common","hardware_uart", "include")}' + \
-                f' -I{os.path.join(sdk_src_path,"rp2_common","hardware_irq", "include")}' + \
-                f' -I{os.path.join(sdk_src_path,"rp2_common","hardware_gpio", "include")}' + \
-                f' -I{os.path.join(sdk_src_path,"rp2_common","hardware_base", "include")}' + \
-                f' -I{os.path.join(sdk_src_path,"rp2_common","hardware_timer", "include")}' + \
-                f' -I{os.path.join(sdk_src_path,"rp2_common","hardware_spi", "include")}' + \
-                f' -I{os.path.join(sdk_src_path,"rp2_common","hardware_i2c", "include")}' + \
-                f' -I{os.path.join(sdk_src_path,"rp2_common","pico_stdio_uart", "include")}' + \
-                f' -I{os.path.join(sdk_src_path,"common","pico_time", "include")}' + \
-                f' -I{os.path.join(sdk_src_path,"rp2_common","pico_platform", "include")}'
-
 # Additional Header paths for PIMORONI supplied code
-pimoroni_src_path = os.path.join( NQBP_PKG_ROOT(), 'xsrc', 'pimoroni-pico' )
+pimoroni_src_path = os.path.join( NQBP_PKG_ROOT(), 'xsrc', 'pimoroni' )
 pimoroni_inc      = f' -I{pimoroni_src_path}' + \
                     f' -I{os.path.join(pimoroni_src_path,"common")}' +\
                     f' -I{os.path.join(pimoroni_src_path,"libraries","pico_display")}' +\
@@ -66,14 +47,12 @@ pimoroni_inc      = f' -I{pimoroni_src_path}' + \
                     f' -I{os.path.join(pimoroni_src_path,"libraries","pico_bitmap_fonts")}' +\
                     f' -I{os.path.join(pimoroni_src_path,"libraries","pico_hershey_fonts")}' 
 
-# Magic defines need to be able to compiler the PICO/pimoroni header files
-extra_cflags = '-DLIB_PICO_BIT_OPS=1 -DLIB_PICO_BIT_OPS_PICO=1 -DLIB_PICO_DIVIDER=1 -DLIB_PICO_DIVIDER_HARDWARE=1 -DLIB_PICO_DOUBLE=1 -DLIB_PICO_DOUBLE_PICO=1 -DLIB_PICO_FLOAT=1 -DLIB_PICO_FLOAT_PICO=1 -DLIB_PICO_INT64_OPS=1 -DLIB_PICO_INT64_OPS_PICO=1 -DLIB_PICO_MALLOC=1 -DLIB_PICO_MEM_OPS=1 -DLIB_PICO_MEM_OPS_PICO=1 -DLIB_PICO_PLATFORM=1 -DLIB_PICO_PRINTF=1 -DLIB_PICO_PRINTF_PICO=1 -DLIB_PICO_RUNTIME=1 -DLIB_PICO_STANDARD_LINK=1 -DLIB_PICO_STDIO=1 -DLIB_PICO_STDLIB=1 -DLIB_PICO_SYNC=1 -DLIB_PICO_SYNC_CORE=1 -DLIB_PICO_SYNC_CRITICAL_SECTION=1 -DLIB_PICO_SYNC_MUTEX=1 -DLIB_PICO_SYNC_SEM=1 -DLIB_PICO_TIME=1 -DLIB_PICO_UTIL=1 -DPICO_BUILD=1 -DLIB_PICO_UNIQUE_ID=1 -DLIB_PICO_STDIO_UART=1 -DPICO_BOARD=\\"pico\\" -DPICO_STACK_SIZE=2048 -DPICO_COPY_TO_RAM=0 -DPICO_CXX_ENABLE_EXCEPTIONS=0 -DPICO_NO_FLASH=0 -DPICO_NO_HARDWARE=0 -DPICO_ON_DEVICE=1 -DPICO_USE_BLOCKED_RAM=0 -DPICO_DEFAULT_UART_INSTANCE=uart0'
 
 # Set project specific 'base' (i.e always used) options
 base_release           = BuildValues()        # Do NOT comment out this line
-base_release.cflags    = f'-Wno-attributes -m32 -D__unused= -D__always_inline=__attribute__((always_inline)) {extra_cflags}'
+base_release.cflags    = f'-Wno-attributes -m32 -D__unused= -D__always_inline=__attribute__((always_inline))'
 base_release.cppflags  = f'-std=gnu++17'
-base_release.inc       = f'{sdk_inc}{pimoroni_inc}'
+base_release.inc       = f'{pimoroni_inc}'
 base_release.linkflags = '-m32 -fprofile-arcs'
 base_release.linklibs  = '-lgcov -lws2_32'
 
