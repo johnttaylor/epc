@@ -53,8 +53,8 @@ enum reg {
 void ST7789::start(){
     // configure spi interface and pins
     spi.start( SPI_BAUD );
-    cs.start();
-    dc.start();
+    cs.start( false );
+    dc.start( false );
     bl.start( 0 );
 
     common_init();

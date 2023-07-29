@@ -24,7 +24,10 @@ public:
         CPL_SYSTEM_ASSERT( pin_r.getMaxDutyCycle() == 0xFFFF );
         CPL_SYSTEM_ASSERT( pin_g.getMaxDutyCycle() == 0xFFFF );
         CPL_SYSTEM_ASSERT( pin_b.getMaxDutyCycle() == 0xFFFF );
+    };
 
+    void startDriver() noexcept
+    {
         uint16_t p = 0;
         if ( polarity == Polarity::ACTIVE_LOW ) {
             p = UINT16_MAX - p;
@@ -32,7 +35,15 @@ public:
         pin_r.start( p );
         pin_g.start( p );
         pin_b.start( p );
-    };
+    }
+
+    void stopDriver() noexcept
+    {
+        pin_r.stop();
+        pin_g.stop();
+        pin_b.stop();
+    }
+
 
     ~RGBLED() {
         pin_r.stop();

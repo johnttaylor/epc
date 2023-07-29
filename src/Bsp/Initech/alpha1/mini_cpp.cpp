@@ -38,6 +38,8 @@ void *operator new[]( size_t size, std::nothrow_t const& ) throw() { return pvPo
 
 void operator delete(void* p) throw() { rtosFree( p ); }
 void operator delete[]( void* p ) throw() { rtosFree( p ); }
+void operator delete(void * ptr, size_t size) { rtosFree( ptr ); }
+void operator delete[]( void * ptr, size_t size ) { rtosFree( ptr ); }
 
 const std::nothrow_t std::nothrow;
 //

@@ -59,6 +59,18 @@ public:
 
 public:
     /// See Driver::LED::RedGreeBlue
+    void start() noexcept
+    {
+        // Nothing needed
+    }
+
+    /// See Driver::LED::RedGreeBlue
+    void stop() noexcept
+    {
+        // Nothing needed
+    }
+
+    /// See Driver::LED::RedGreeBlue
     void setRgb( uint8_t redValue, uint8_t greenValue, uint8_t blueValue ) noexcept
     {
         m_red   = redValue;
