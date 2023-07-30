@@ -50,7 +50,7 @@ TEST_CASE( "Pwm" )
         REQUIRE( mp_pwm_.isNotValid() );
     }
 
-    SECTION( "errors" );
+    SECTION( "errors" )
     {
         Driver::DIO::Pwm uut( mp_pwm_ );
         mp_pwm_.write( 1 );  // Set MP valid

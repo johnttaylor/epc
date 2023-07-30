@@ -71,7 +71,7 @@ TEST_CASE( "Out" )
         REQUIRE( mp_out_.isNotValid() );
     }
 
-    SECTION( "errors" );
+    SECTION( "errors" )
     {
         Driver::DIO::Out uut( mp_out_ );
         mp_out_.write( 1 );  // Set MP valid
