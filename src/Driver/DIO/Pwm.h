@@ -32,7 +32,7 @@ public:
     /** Constructor Note: the 'pinConfig' struct MUST stay in scope as long
         as the driver is in scope.
      */
-    Pwm( const DriverDioPwmConfig_T& pinConfig );
+    Pwm( DriverDioPwmConfig_T& pinConfig );
 
 public:
     /** Starts the driver.
@@ -58,10 +58,10 @@ public:
 
 protected:
     /// PWM info
-    const DriverDioPwmConfig_T& m_pwm;
+    DriverDioPwmConfig_T& m_pwm;
 
     /// Started flag
-    bool                            m_started;
+    bool                        m_started;
 };
 
 } // End namespace(s)

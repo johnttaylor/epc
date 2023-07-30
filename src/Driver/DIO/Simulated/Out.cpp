@@ -15,7 +15,7 @@
 using namespace Driver::DIO;
 
 
-Out::Out( DriverDioOutSTM32PinConfig_T& pinConfig, bool assertedHigh )
+Out::Out( Cpl::Dm::Mp::Bool& pinConfig, bool assertedHigh )
     : m_pin( pinConfig )
     , m_assertedHigh( assertedHigh )
     , m_started( false )
@@ -26,8 +26,6 @@ bool Out::start( bool initialState )
     if ( !m_started )
     {
         m_started = true;
-        // TODO: Support config without using ST's HAL/MX IDE
-
         setOutput( initialState );
         return true;
     }
@@ -39,7 +37,7 @@ void Out::stop()
 {
     if ( m_started )
     {
-        setOutput( false );     // Assumes logical OFF is the a 'safe' state.
+        m_pin.setInvalid();  // Invalidate the MP 
         m_started = false;
     }
 }
@@ -48,9 +46,9 @@ bool Out::getOutput() const
 {
     if ( m_started )
     {
-        GPIO_PinState phy = HAL_GPIO_ReadPin( m_pin.port, m_pin.pin );
-        bool          log = phy ? true : false;
-        return m_assertedHigh ? log : !log;
+        bool state = false; // Default the state to 'off' when the MP is invalid
+        m_pin.read( state );
+        return m_assertedHigh ? state : !state;
     }
 
     return false;
@@ -60,9 +58,7 @@ void Out::setOutput( bool asserted )
 {
     if ( m_started )
     {
-        bool          phy    = m_assertedHigh ? asserted : !asserted;
-        GPIO_PinState pstate = phy ? GPIO_PIN_SET : GPIO_PIN_RESET;
-        HAL_GPIO_WritePin( m_pin.port, m_pin.pin, pstate );
+        m_pin.write( m_assertedHigh ? asserted : !asserted );
     }
 }
 
