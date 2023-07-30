@@ -12,6 +12,5 @@ ratt.log*
 *.exe
 *.ilk
 *.pdb
-*.sln
 
 *.user
