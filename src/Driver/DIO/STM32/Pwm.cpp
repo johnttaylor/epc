@@ -15,7 +15,7 @@
 using namespace Driver::DIO;
 
     
-Pwm::Pwm( const DriverDioPwmSTM32Config_T& pwmConfig )
+Pwm::Pwm( DriverDioPwmSTM32Config_T& pwmConfig )
     : m_pwm( pwmConfig )
     , m_started( false )
 
