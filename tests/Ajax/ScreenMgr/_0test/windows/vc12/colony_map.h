@@ -12,5 +12,6 @@
 // strapi mapping
 #include "Cpl/Text/_mappings/_vc12/strapi.h"
 
+#define AjaxScreenMgrEvent_T_MAP        uint32_t
 
 #endif

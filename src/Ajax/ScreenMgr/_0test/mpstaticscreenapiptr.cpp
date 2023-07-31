@@ -17,7 +17,7 @@
 #include "Cpl/Text/FString.h"
 #include "Cpl/Text/DString.h"
 #include "Cpl/Dm/ModelDatabase.h"
-#include "Cpl/Dm/Mp/Void.h"
+#include "Ajax/ScreenMgr/MpStaticScreenApiPtr.h"
 #include "common.h"
 #include <string.h>
 
@@ -25,13 +25,14 @@
 #define MAX_STR_LENG            2048
 #define SECT_                   "_0test"
 
-#define INITIAL_VALUE           ((void*) 0x123)
+#define INITIAL_VALUE           ((StaticScreenApi*) 0x123)
 #define INITIAL_VALUE_STR       "123"
 
 #define STREAM_BUFFER_SIZE      2048
 
 
 using namespace Cpl::Dm;
+using namespace Ajax::ScreenMgr;
 
 
 
@@ -41,8 +42,8 @@ using namespace Cpl::Dm;
 static ModelDatabase    modelDb_( "ignoreThisParameter_usedToInvokeTheStaticConstructor" );
 
 // Allocate my Model Points
-static Mp::Void       mp_apple_( modelDb_, "APPLE" );
-static Mp::Void       mp_orange_( modelDb_, "ORANGE", INITIAL_VALUE );
+static MpStaticScreenApiPtr       mp_apple_( modelDb_, "APPLE" );
+static MpStaticScreenApiPtr       mp_orange_( modelDb_, "ORANGE", INITIAL_VALUE );
 
 // Don't let the Runnable object go out of scope before its thread has actually terminated!
 static MailboxServer         t1Mbox_;
@@ -54,12 +55,12 @@ static MailboxServer         t1Mbox_;
 //
 // Note: The bare minimum I need to test code that is 'new' to the concrete MP type
 //
-TEST_CASE( "Void" )
+TEST_CASE( "StaticScreenApiPtr" )
 {
     Cpl::System::Shutdown_TS::clearAndUseCounter();
 
     Cpl::Text::FString<MAX_STR_LENG> errorMsg = "noerror";
-    void*    readValue;
+    StaticScreenApi*    readValue;
     char     string[MAX_STR_LENG + 1];
     bool     truncated;
     bool     valid;
@@ -79,7 +80,7 @@ TEST_CASE( "Void" )
 
         const char* mpType = mp_apple_.getTypeAsText();
         CPL_SYSTEM_TRACE_MSG( SECT_, ( "typeText: [%s]", mpType ) );
-        REQUIRE( strcmp( mpType, "Cpl::Dm::Mp::Void" ) == 0 );
+        REQUIRE( strcmp( mpType, "Ajax::ScreenMgr::MpStaticScreenApiPtr" ) == 0 );
     }
 
 
@@ -119,8 +120,8 @@ TEST_CASE( "Void" )
     SECTION( "observer" )
     {
         CPL_SYSTEM_TRACE_SCOPE( SECT_, "observer test" );
-        void* expectedVal = INITIAL_VALUE;
-        Viewer<Mp::Void,void*> viewer_apple1( t1Mbox_, Cpl::System::Thread::getCurrent(), mp_apple_, expectedVal );
+        StaticScreenApi* expectedVal = INITIAL_VALUE;
+        Viewer<MpStaticScreenApiPtr,void*> viewer_apple1( t1Mbox_, Cpl::System::Thread::getCurrent(), mp_apple_, expectedVal );
         Cpl::System::Thread* t1 = Cpl::System::Thread::create( t1Mbox_, "T1" );
 
         // NOTE: The MP MUST be in the INVALID state at the start of this test

@@ -13,7 +13,6 @@
 /** @file */
 
 #include "colony_map.h"
-
 #include <stdint.h>
 #include <string.h>
 

@@ -13,23 +13,21 @@
 #include "Ajax/Heating/Flc/Api.h"    
 #include "Cpl/System/_testsupport/Shutdown_TS.h"
 #include "Cpl/Dm/ModelDatabase.h"
-#include "Ajax/Dm/MpFlcConfig.h"
+#include "Ajax/ScreenMgr/Api.h"
 
-using namespace Ajax::Heating::Flc;
+using namespace Ajax::ScreenMgr;
 
 // Allocate/create my Model Database
 static Cpl::Dm::ModelDatabase   modelDb_( "ignoreThisParameter_usedToInvokeTheStaticConstructor" );
-static Ajax::Dm::MpFlcConfig    mpCfg_( modelDb_, "cfg" );
+//static Ajax::Dm::MpFlcConfig    mpCfg_( modelDb_, "cfg" );
 
-//static int32_t k1_[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS] ={ -16, -8, 0, 8, 16 };
-static int32_t k2_[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS] ={ -20, -10, 0, 10, 20 };
 
 ////////////////////////////////////////////////////////////////////////////////
 TEST_CASE( "api" )
 {
     Cpl::System::Shutdown_TS::clearAndUseCounter();
-    mpCfg_.setInvalid();
-
+    //mpCfg_.setInvalid();
+#if 0
     SECTION( "baseline" )
     {
         // Create the UUT
@@ -106,6 +104,7 @@ TEST_CASE( "api" )
 
         uut.stop();
     }
+#endif
 
     REQUIRE( Cpl::System::Shutdown_TS::getAndClearCounter() == 0u );
 }

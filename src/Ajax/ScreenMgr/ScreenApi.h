@@ -13,6 +13,7 @@
 /** @file */
 
 #include "Cpl/Container/Item.h"
+#include "Ajax/ScreenMgr/EventQueue.h"
 #include <stdint.h>
 
 /// 
