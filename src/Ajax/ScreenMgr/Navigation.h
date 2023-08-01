@@ -31,6 +31,11 @@ public:
 
         If the navigation stack is full, then Screen Manager 'logs an error' and
         the Home screen is made the active screen.
+
+        If 'newScreen' is the current home screen - this is consider an error!
+        However, when/if this happens, the call has the same behavior as 
+        popToHome().  That said the application should NEVER rely on this
+        behavior as it is subject to CHANGE without notice.
      */
     virtual void push( ScreenApi& newScreen ) noexcept = 0;
 

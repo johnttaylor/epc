@@ -69,7 +69,7 @@ public:
     typedef Cpl::Dm::Subscriber<MpStaticScreenApiPtr> Observer;
 
     /// See Cpl::Dm::ModelPointCommon
-    inline bool readAndSync( void*& dstData, Cpl::Dm::SubscriberApi& observerToSync )
+    inline bool readAndSync( StaticScreenApi*& dstData, Cpl::Dm::SubscriberApi& observerToSync )
     {
         return ModelPointCommon_::readAndSync( &dstData, sizeof( void* ), observerToSync );
     }

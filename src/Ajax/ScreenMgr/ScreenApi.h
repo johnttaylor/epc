@@ -12,9 +12,8 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
-#include "Cpl/Container/Item.h"
-#include "Ajax/ScreenMgr/EventQueue.h"
-#include <stdint.h>
+#include "Ajax/ScreenMgr/Event.h"
+#include "Cpl/System/ElapsedTime.h"
 
 /// 
 namespace Ajax {
@@ -27,51 +26,48 @@ namespace ScreenMgr {
 
     The current elapsed time (since power-up) is passed as argument to all 
     of the calls.
-
-    The screen supports being in containers - HOWEVER - the container use
-    is reserved to the ScreenMgr namespace.
  */
-class ScreenApi: Cpl::Container::ExtendedItem
+class ScreenApi
 {
 public:
     /** This method is called as part of making the screen the 'active' screen
      */
-    virtual void enter( uint32_t currentElapsedTimeMs ) noexcept = 0;
+    virtual void enter( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept = 0;
 
     /** This method is called as part of the sequence where the screen instance
         is no longer the active screen.
      */
-    virtual void exit( uint32_t currentElapsedTimeMs ) noexcept = 0;
+    virtual void exit( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept = 0;
 
 public:
     /** This method is used to inform the active screen that the display has
         been 'turned off'.  When the screen is over - no content is visible to
         user.  The actual state of the display RAM is indeterminate
      */
-    virtual void sleep( uint32_t currentElapsedTimeMs ) noexcept = 0;
+    virtual void sleep( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept = 0;
 
     /** This method is used to inform the active screen that the display has 
         been turned back on.  The Screen Manager is responsible for triggering
         a refresh() call if the display RAM needs to be updated.
      */
-    virtual void wake( uint32_t currentElapsedTimeMs ) noexcept = 0;
+    virtual void wake( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept = 0;
 
 public:
     /** This method is used to dispatch/forward a UI event to active screen.
      */
-    virtual void dispatch( AjaxScreenMgrEvent_T event, uint32_t currentElapsedTimeMs ) noexcept = 0;
+    virtual void dispatch( AjaxScreenMgrEvent_T event, Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept = 0;
 
     /** This method is used to notifiy the active screen that the Screen Managers
         20Hz timer has expired (i.e. called every 50ms)
      */
-    virtual void tick( uint32_t currentElapsedTimeMs );
+    virtual void tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept = 0;
 
     /** This method requests the active screen to ensure the its screen contents
         are up to date.  If the screen contents have not changed since the 
         last time the method was - the method returns false.  Returning true
         forces a physical display update.
       */
-    virtual bool refresh( uint32_t currentElapsedTimeMs );
+    virtual bool refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept = 0;
 
 public:
     /// Virtual destructor
