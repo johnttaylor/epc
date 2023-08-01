@@ -12,13 +12,28 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
+#include "colony_config.h"
 #include "Cpl/Dm/MailboxServer.h"
 #include "Cpl/Itc/CloseSync.h"
-#include "Ajax/ScreenMgr/EventQueue.h"
+#include "Ajax/ScreenMgr/Event.h"
 #include "Ajax/ScreenMgr/Navigation.h"
 #include "Ajax/ScreenMgr/MpScreenApiPtr.h"
 #include "Ajax/ScreenMgr/MpStaticScreenApiPtr.h"
+#include "Ajax/ScreenMgr/DisplayApi.h"
 #include "Cpl/Dm/Mp/Bool.h"
+#include "Cpl/Dm/SubscriberComposer.h"
+#include "Cpl/System/Timer.h"
+#include "Cpl/Container/RingBufferMP.h"
+#include "Cpl/Container/DList.h"
+#include "Cpl/Container/Item.h"
+
+
+
+/** The timer count down time, in milliseconds for the 20Hz tick timer 
+ */
+#ifndef OPTION_AJAX_SCREEN_MGR_TICK_TIME_MS
+#define OPTION_AJAX_SCREEN_MGR_TICK_TIME_MS     50
+#endif
 
 /// 
 namespace Ajax {
@@ -33,27 +48,39 @@ namespace ScreenMgr {
  */
 class Api : public Cpl::Dm::MailboxServer,
     public Cpl::Itc::CloseSync,
-    public EventQueue,
     public Navigation
 {
 public:
-    /// Constructor
+    /// Type for 'elements' in the Navigation Stack
+    class NavigationElement : public Cpl::Container::ExtendedItem
+    {
+    public:
+        /// Constructor
+        NavigationElement() :m_screenPtr( nullptr ){}
+        
+        /// Screen Pointer
+        ScreenApi*  m_screenPtr;
+    };
+
+public:
+    /** Constructor.  THe application is responsible for populating the 
+        'freeMemoryForNavigationStack' with 'NullScreen' instances.  The
+        number of elements in the list determines the depth of the navigation
+        stack.
+     */
     Api( Cpl::Dm::MailboxServer& uiMbox,
          MpScreenApiPtr&         homeScreenMP,
          MpStaticScreenApiPtr&   haltUiMP,
-         Cpl::Dm::Mp::Bool&      displaySleepRequestMP );
+         Cpl::Dm::Mp::Bool&      displaySleepRequestMP,
+         MpStaticScreenApiPtr&   shutdownMP,
+         DisplayApi&             display,
+         Cpl::Container::DList<NavigationElement>&           freeMemoryForNavigationStack,
+         Cpl::Container::RingBufferMP<AjaxScreenMgrEvent_T>& eventRingBuffer );
 
 public:
-    /** This struct contains the parameters that MUST passed as the 'args' argument
-        to the open() call.
+    /** Starts/initializes the manager.  The open() must pass a non-null
+        pointer to the splash screen (StaticScreenApi*) as the 'args' parameter.
      */
-    struct OpenArgs_T
-    {
-        StaticScreenApi* splashScreen;  //!< Pointer to the Splash screen
-        StaticScreenApi* haltScreen;    //!< Pointer to the 'default' error/halt screen (i.e. used when haltUiMP is invalid)
-    };
-
-    /// Starts/initializes the manager
     void request( OpenMsg& msg );
 
     /// Shutdowns the manager
@@ -72,11 +99,45 @@ public:
     /// See Ajax::ScreenMgr::Navigation
     void popToHome() noexcept;
 
-public:
-    /// See Ajax::ScreenMgr::EventQueue
-    bool add( AjaxScreenMgrEvent_T event ) noexcept;
 
 protected:
+    /// MP Change notification
+    void homeScreenMp_changed( MpScreenApiPtr& modelPointThatChanged, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
+
+    /// MP Change notification
+    void haltUiMp_changed( MpStaticScreenApiPtr& modelPointThatChanged, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
+
+    /// MP Change notification
+    void sleepRequestMp_changed( Cpl::Dm::Mp::Bool& modelPointThatChanged, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
+
+    /// MP Change notification
+    void shutdownMp_changed( MpStaticScreenApiPtr& modelPointThatChanged, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
+
+    /// MP Change notification
+    void eventQueueCountMp_changed( Cpl::Dm::Mp::Uint32& modelPointThatChanged, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
+
+    /// 20Hz timer expired
+    void timerExpired( void );
+
+protected:
+    /// Subscriber
+    Cpl::Dm::SubscriberComposer<Api, MpScreenApiPtr>        m_obHomeScreenMP;
+
+    /// Subscriber
+    Cpl::Dm::SubscriberComposer<Api, MpStaticScreenApiPtr>  m_obHaltUimMP;
+
+    /// Subscriber
+    Cpl::Dm::SubscriberComposer<Api, Cpl::Dm::Mp::Bool>     m_obSleepReqMP;
+
+    /// Subscriber
+    Cpl::Dm::SubscriberComposer<Api, MpStaticScreenApiPtr>  m_obShutdownReqMP;
+
+    /// Subscriber
+    Cpl::Dm::SubscriberComposer<Api, Cpl::Dm::Mp::Uint32>   m_obEventQueueCountMP;
+
+    /// 20Hz tick timer
+    Cpl::System::TimerComposer<Api>                         m_timer;
+
     /// Home screen MP
     MpScreenApiPtr&         m_mpHomeScreen;
 
@@ -86,14 +147,32 @@ protected:
     /// Sleep request MP (true:= turn off the display)
     Cpl::Dm::Mp::Bool&      m_mpDisplaySleepRequest;
         
-    /// Splash screen handle
-    StaticScreenApi*        m_splashScreenHdl;
-
-    /// Default Halt screen handle (used no the HalUi MP is invalid)
-    StaticScreenApi*        m_haltScreenHdl;
+    /// Shutdown request MP 
+    MpStaticScreenApiPtr&   m_mpShutdownScreen;
 
     /// Current Home Screen Handle
     ScreenApi*              m_homeScreenHdl;
+
+    /// Handle to the 'display'
+    DisplayApi&             m_display;
+
+    /// Thread safe Event queue
+    Cpl::Container::RingBufferMP<AjaxScreenMgrEvent_T>& m_eventQueue;
+
+    /// Free 'memory' for the navigation stack
+    Cpl::Container::DList<NavigationElement>&           m_freeStackMemoryList;
+
+    /// The Navigation stack
+    Cpl::Container::DList<NavigationElement>            m_navigationStack;
+
+    /// Current Screen
+    ScreenApi*              m_curScreenHdl;
+
+    /// Timer marker of last Tick call
+    uint32_t                m_timerMarker;
+
+    /// Shutdown flag
+    bool                    m_shuttingDown;
 
     /// My open state
     bool                    m_opened;

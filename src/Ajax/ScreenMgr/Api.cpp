@@ -10,6 +10,9 @@
 *----------------------------------------------------------------------------*/
 
 #include "Api.h"
+#include "Cpl/System/Trace.h"
+
+#define SECT_ "Ajax::ScreenMgr::Api"
 
 using namespace Ajax::ScreenMgr;
 
@@ -19,22 +22,347 @@ using namespace Ajax::ScreenMgr;
 Api::Api( Cpl::Dm::MailboxServer& uiMbox,
           MpScreenApiPtr&         homeScreenMP,
           MpStaticScreenApiPtr&   haltUiMP,
-          Cpl::Dm::Mp::Bool&      displaySleepRequestMP )
+          Cpl::Dm::Mp::Bool&      displaySleepRequestMP,
+          MpStaticScreenApiPtr&   shutdownMP,
+          DisplayApi&             display,
+          Cpl::Container::DList<NavigationElement>&           freeMemoryForNavigationStack,
+          Cpl::Container::RingBufferMP<AjaxScreenMgrEvent_T>& eventRingBuffer )
     : Cpl::Itc::CloseSync( uiMbox )
+    , m_obHomeScreenMP( uiMbox, *this, &Api::homeScreenMp_changed )
+    , m_obHaltUimMP( uiMbox, *this, &Api::haltUiMp_changed )
+    , m_obSleepReqMP( uiMbox, *this, &Api::sleepRequestMp_changed )
+    , m_obShutdownReqMP( uiMbox, *this, &Api::shutdownMp_changed )
+    , m_obEventQueueCountMP( uiMbox, *this, &Api::eventQueueCountMp_changed )
+    , m_timer( uiMbox, *this, &Api::timerExpired )
     , m_mpHomeScreen( homeScreenMP )
     , m_mpHaltUi( haltUiMP )
     , m_mpDisplaySleepRequest( displaySleepRequestMP )
-    , m_splashScreenHdl( nullptr )
-    , m_haltScreenHdl( nullptr )
+    , m_mpShutdownScreen( shutdownMP )
     , m_homeScreenHdl( nullptr )
+    , m_display( display )
+    , m_eventQueue<AjaxScreenMgrEvent_T>( eventRingBuffer )
+    , m_freeStackMemoryList( freeMemoryForNavigationStack )
+    , m_curScreenHdl( nullptr )
+    , m_shuttingDown( false )
     , m_opened( false )
 {
 }
 
 void Api::request( OpenMsg& msg )
 {
+    msg.getPayload().m_success = true;
+
+    if ( m_opened )
+    {
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("open() called when already opened") );
+        msg.returnToSender();
+    }
+
+    // Start the display/graphics engine and paint the Splash screen
+    StaticScreenApi* splash = (StaticScreenApi*) msg.getPayload().m_args;
+    CPL_SYSTEM_ASSERT( splash );
+    if ( !m_display.start() )
+    {
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("m_display.start() FAILED.") );
+        msg.getPayload().m_success = false;
+        msg.returnToSender();
+    }
+    splash->paint( Cpl::System::ElapsedTime::precision() );
+    m_display.update();
+
+    // Housekeeping
+    m_opened        = true;
+    m_shuttingDown  = false;
+    m_homeScreenHdl = nullptr;
+    m_curScreenHdl  = nullptr;
+
+    // Enable my 'events'
+    m_mpHomeScreen.attach( m_obHomeScreenMP );
+    m_mpHaltUi.attach( m_obHaltUimMP );
+    m_mpShutdownScreen.attach( m_obShutdownReqMP );
+    m_mpDisplaySleepRequest.attach( m_obSleepReqMP );
+    m_eventQueue.m_mpElementCount.attach( m_obEventQueueCountMP );
+    m_timerMarker = Cpl::System::ElapsedTime::milliseconds();
+
+    // All done!
+    msg.returnToSender();
 }
 
 void Api::request( CloseMsg& msg )
 {
+    if ( !m_opened )
+    {
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("close() called when already closed") );
+        msg.returnToSender();
+    }
+
+    // Housekeeping
+    m_opened       = false;
+    m_curScreenHdl = nullptr;
+
+    // Stop my timer and change notifications
+    m_timer.stop();
+    m_mpHomeScreen.detach( m_obHomeScreenMP );
+    m_mpHaltUi.detach( m_obHaltUimMP );
+    m_mpShutdownScreen.detach( m_obShutdownReqMP );
+    m_mpDisplaySleepRequest.detach( m_obSleepReqMP );
+    m_eventQueue.m_mpElementCount.detach( m_obEventQueueCountMP );
+
+    // Restore the Navigation free list
+    NavigationElement* item;
+    while ( (item=m_navigationStack.get()) )
+    {
+        m_freeStackMemoryList.put( *item );
+    }
+
+    // Shutdown the display
+    m_display.stop();
+    msg.returnToSender();
 }
+
+/////////////////////////////
+void Api::homeScreenMp_changed( MpScreenApiPtr& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept
+{
+    ScreenApi* homePtr;
+    if ( mp.readAndSync( homePtr, clientObserver ) && homePtr != nullptr )
+    {
+        bool firstHome  = m_homeScreenHdl == nullptr;
+        m_homeScreenHdl = homePtr;
+
+        // Transition from the splash screen to the Home screen
+        if ( firstHome )
+        {
+            Cpl::System::ElapsedTime::Precision_T now = Cpl::System::ElapsedTime::precision();
+            m_curScreenHdl = m_homeScreenHdl;
+            m_curScreenHdl->enter( now );
+            m_curScreenHdl->refresh( now );
+            m_timer.start( OPTION_AJAX_SCREEN_MGR_TICK_TIME_MS );
+        }
+    }
+}
+
+void Api::haltUiMp_changed( MpStaticScreenApiPtr& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept
+{
+    StaticScreenApi* haltPtr;
+    if ( mp.readAndSync( haltPtr, clientObserver ) && haltPtr != nullptr  )
+    {
+        // Transition to the shutting down screen
+        Cpl::System::ElapsedTime::Precision_T now = Cpl::System::ElapsedTime::precision();
+        if ( m_curScreenHdl )
+        {
+            m_curScreenHdl->exit( now );
+        }
+        haltPtr->paint( now );
+        m_curScreenHdl = nullptr;
+    }
+}
+
+void Api::sleepRequestMp_changed( Cpl::Dm::Mp::Bool& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept
+{
+    bool sleepRequest;
+    if ( mp.readAndSync( sleepRequest, clientObserver ) && m_curScreenHdl != nullptr )
+    {
+        if ( sleepRequest )
+        {
+            m_display.turnOff();
+        }
+        else
+        {
+            m_display.turnOn();
+        }
+    }
+}
+
+void Api::shutdownMp_changed( MpStaticScreenApiPtr& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept
+{
+    StaticScreenApi* shutdownPtr;
+    if ( mp.readAndSync( shutdownPtr, clientObserver ) && shutdownPtr != nullptr )
+    {
+        // Transition to the shutting down screen
+        Cpl::System::ElapsedTime::Precision_T now = Cpl::System::ElapsedTime::precision();
+        if ( m_curScreenHdl )
+        {
+            m_curScreenHdl->exit( now );
+        }
+        shutdownPtr->paint( now );
+        m_curScreenHdl = nullptr;
+    }
+}
+
+
+void Api::eventQueueCountMp_changed( Cpl::Dm::Mp::Uint32& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept
+{
+    uint32_t count;
+    if ( mp.readAndSync( count, clientObserver ) && m_curScreenHdl != nullptr )
+    {
+        if ( count > 0 )
+        {
+            // Un-subscribe so I don't get change notifications when removing elements
+            m_eventQueue.m_mpElementCount.detach( m_obEventQueueCountMP );
+            uint16_t finalSeqNum;
+
+            // Drain the event queue
+            AjaxScreenMgrEvent_T event;
+            while ( m_eventQueue.remove( event, finalSeqNum ) );
+            {
+                // Process the event
+                m_curScreenHdl->dispatch( event, Cpl::System::ElapsedTime::milliseconds() );
+            }
+
+            // Re-subscribe
+            m_eventQueue.m_mpElementCount.attach( m_obEventQueueCountMP, finalSeqNum );
+        }
+    }
+}
+
+void Api::timerExpired( void )
+{
+    // Do nothing if the splash/shutdown/error screen is active
+    if ( m_curScreenHdl != nullptr )
+    {
+        m_curScreenHdl->tick( Cpl::System::ElapsedTime::milliseconds() );
+
+        // Restart the timer - and attempt to be rate monotonic
+        uint32_t now   = Cpl::System::ElapsedTime::milliseconds();
+        uint32_t delta = now - m_timerMarker;
+        if ( delta > OPTION_AJAX_SCREEN_MGR_TICK_TIME_MS )
+        {
+            delta = delta - OPTION_AJAX_SCREEN_MGR_TICK_TIME_MS;
+            if ( delta > OPTION_AJAX_SCREEN_MGR_TICK_TIME_MS )
+            {
+                delta = OPTION_AJAX_SCREEN_MGR_TICK_TIME_MS;
+            }
+        }
+        else
+        {
+            delta = 0;
+        }
+        m_timerMarker = now;
+        m_timer.start( OPTION_AJAX_SCREEN_MGR_TICK_TIME_MS - delta );
+    }
+}
+
+
+////////////////////////////////
+void Api::push( ScreenApi & newScreen ) noexcept
+{
+    // Do nothing if the splash/shutdown/error screen is active
+    if ( m_curScreenHdl != nullptr )
+    {
+        // Handle the error case of pushing to the Home screen
+        if ( &newScreen == m_homeScreenHdl )
+        {
+            popToHome();
+            return;
+        }
+
+        // Get a free element - 'throw an error' if no free memory
+        NavigationElement* freeElem = m_freeStackMemoryList.get();
+        if ( freeElem == nullptr )
+        {
+            CPL_SYSTEM_TRACE_MSG( SECT_, ("push() failed due to lack of free memory") );
+            popToHome();
+            return;
+        }
+
+        // Push the current screen onto the Nav stack (if it is not the home screen)
+        if ( m_curScreenHdl != nullptr && m_curScreenHdl != m_homeScreenHdl )
+        {
+            freeElem->m_screenPtr = m_curScreenHdl;
+            m_navigationStack.putFirst( *freeElem );
+        }
+
+        // Do the screen transition
+        Cpl::System::ElapsedTime::Precision_T now = Cpl::System::ElapsedTime::precision();
+        m_curScreenHdl->exit( now );
+        m_curScreenHdl = &newScreen;
+        m_curScreenHdl->enter( now );
+        m_curScreenHdl->refresh( now );
+    }
+}
+
+void Api::pop( unsigned count=1 ) noexcept
+{
+    // Do nothing if currently on the home screen
+    if ( m_curScreenHdl != nullptr && m_curScreenHdl != m_homeScreenHdl )
+    {
+        // Pop N elements
+        bool stackEmpty               = false;
+        NavigationElement* poppedElem = nullptr;
+        while ( count-- )
+        {
+            poppedElem = m_navigationStack.getFirst();
+            m_freeStackMemoryList.put( *poppedElem );
+            if ( poppedElem == nullptr )
+            {
+                stackEmpty = true;
+                break;
+            }
+        }
+
+        // Exit the current screen
+        Cpl::System::ElapsedTime::Precision_T now = Cpl::System::ElapsedTime::precision();
+        m_curScreenHdl->exit( now );
+
+        // Set the new current screen and transition to it
+        m_curScreenHdl = stackEmpty ? m_homeScreenHdl : poppedElem->m_screenPtr;
+        m_curScreenHdl->enter( now );
+        m_curScreenHdl->refresh( now );
+    }
+}
+
+void Api::popTo( ScreenApi & returnToScreen ) noexcept
+{
+    // Do nothing if currently on the home screen
+    if ( m_curScreenHdl != nullptr && m_curScreenHdl != m_homeScreenHdl )
+    {
+        // Pop till there is match
+        bool stackEmpty = false;
+        NavigationElement* poppedElem = nullptr;
+        for ( ;;)
+        {
+            poppedElem = m_navigationStack.getFirst();
+            m_freeStackMemoryList.put( *poppedElem );
+            if ( poppedElem == nullptr )
+            {
+                stackEmpty = true;
+                break;
+            }
+            if ( poppedElem->m_screenPtr == &returnToScreen )
+            {
+                break;
+            }
+        }
+
+        // Exit the current screen
+        Cpl::System::ElapsedTime::Precision_T now = Cpl::System::ElapsedTime::precision();
+        m_curScreenHdl->exit( now );
+
+        // Set the new current screen and transition to it
+        m_curScreenHdl = stackEmpty ? m_homeScreenHdl : poppedElem->m_screenPtr;
+        m_curScreenHdl->enter( now );
+        m_curScreenHdl->refresh( now );
+    }
+}
+
+void Api::popToHome() noexcept
+{
+    // Do nothing if the splash/shutdown/error screen is active
+    if ( m_curScreenHdl != nullptr )
+    {
+        // Restore the Navigation free list
+        NavigationElement* item;
+        while ( (item=m_navigationStack.get()) )
+        {
+            m_freeStackMemoryList.put( *item );
+        }
+
+        // Transition to the home screen
+        Cpl::System::ElapsedTime::Precision_T now = Cpl::System::ElapsedTime::precision();
+        m_curScreenHdl->exit( now );
+        m_curScreenHdl = m_homeScreenHdl;
+        m_curScreenHdl->enter( now );
+        m_curScreenHdl->refresh( now );
+    }
+}
+

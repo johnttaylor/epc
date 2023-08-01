@@ -12,7 +12,7 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
-#include <stdint.h>
+#include "Cpl/System/ElapsedTime.h"
 
 /// 
 namespace Ajax {
@@ -29,9 +29,10 @@ namespace ScreenMgr {
  */
 class StaticScreenApi
 {
+public:
     /** This method requests the update/set/draw its screen contents
       */
-    virtual void paint( uint32_t currentElapsedTimeMs ) noexcept = 0;
+    virtual void paint( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept = 0;
 
 public:
     /// Virtual destructor
