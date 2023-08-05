@@ -41,7 +41,7 @@ unit_test_objects = '_BUILT_DIR_.src/Ajax/ScreenMgr/_0test'
 
 # Set project specific 'base' (i.e always used) options
 base_release           = BuildValues()        # Do NOT comment out this line
-base_release.cflags    = '-m32 -std=c++11 -Wall -Werror -x c++  -fprofile-arcs -ftest-coverage -DCATCH_CONFIG_FAST_COMPILE'
+base_release.cflags    = '-m32 -std=c++11 -Wall -Werror -x c++  -fprofile-arcs -ftest-coverage -DCATCH_CONFIG_FAST_COMPILE -Wno-class-memaccess '
 base_release.linkflags = '-m32 -fprofile-arcs'
 base_release.linklibs  = '-lgcov'
 base_release.firstobjs = unit_test_objects
