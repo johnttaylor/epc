@@ -121,7 +121,7 @@ TEST_CASE( "StaticScreenApiPtr" )
     {
         CPL_SYSTEM_TRACE_SCOPE( SECT_, "observer test" );
         StaticScreenApi* expectedVal = INITIAL_VALUE;
-        Viewer<MpStaticScreenApiPtr,void*> viewer_apple1( t1Mbox_, Cpl::System::Thread::getCurrent(), mp_apple_, expectedVal );
+        Viewer<MpStaticScreenApiPtr,StaticScreenApi*> viewer_apple1( t1Mbox_, Cpl::System::Thread::getCurrent(), mp_apple_, expectedVal );
         Cpl::System::Thread* t1 = Cpl::System::Thread::create( t1Mbox_, "T1" );
 
         // NOTE: The MP MUST be in the INVALID state at the start of this test

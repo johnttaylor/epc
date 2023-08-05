@@ -44,11 +44,9 @@ namespace ScreenMgr {
     for navigation mechanics and handling of the Splash, Shutting-Down, and
     Error-Halt screens
     
-    The Screen Manager is the owner/Runnable object for the UI thread
+    The Screen Manager is required to execute in the UI thread
  */
-class Api : public Cpl::Dm::MailboxServer,
-    public Cpl::Itc::CloseSync,
-    public Navigation
+class Api : public Cpl::Itc::CloseSync, public Navigation
 {
 public:
     /// Type for 'elements' in the Navigation Stack
@@ -74,7 +72,8 @@ public:
          Cpl::Dm::Mp::Bool&      displaySleepRequestMP,
          MpStaticScreenApiPtr&   shutdownMP,
          DisplayApi&             display,
-         Cpl::Container::DList<NavigationElement>&           freeMemoryForNavigationStack,
+         NavigationElement       memoryForNavigationStack[],
+         size_t                  numElementsInNavigtationStackArray,
          Cpl::Container::RingBufferMP<AjaxScreenMgrEvent_T>& eventRingBuffer );
 
 public:
@@ -98,7 +97,6 @@ public:
     
     /// See Ajax::ScreenMgr::Navigation
     void popToHome() noexcept;
-
 
 protected:
     /// MP Change notification
@@ -160,7 +158,7 @@ protected:
     Cpl::Container::RingBufferMP<AjaxScreenMgrEvent_T>& m_eventQueue;
 
     /// Free 'memory' for the navigation stack
-    Cpl::Container::DList<NavigationElement>&           m_freeStackMemoryList;
+    Cpl::Container::DList<NavigationElement>            m_freeStackMemoryList;
 
     /// The Navigation stack
     Cpl::Container::DList<NavigationElement>            m_navigationStack;

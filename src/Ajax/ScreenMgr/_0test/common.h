@@ -15,7 +15,7 @@
 #include "Cpl/Dm/SubscriberComposer.h"
 #include "Cpl/Itc/CloseSync.h"
 #include "Catch/catch.hpp"
-
+#include "Cpl/System/Api.h"
 
 /// Macro to help shutdown the observer thread
 #define WAIT_FOR_THREAD_TO_STOP(t)      for ( int i=0; i < 200; i++ ) \
