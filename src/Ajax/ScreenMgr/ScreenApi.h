@@ -57,8 +57,11 @@ public:
      */
     virtual void dispatch( AjaxScreenMgrEvent_T event, Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept = 0;
 
-    /** This method is used to notifiy the active screen that the Screen Managers
+    /** This method is used to notify the active screen that the Screen Managers
         20Hz timer has expired (i.e. called every 50ms)
+
+        NOTE: A software timer is used, so the accuracy of the callback frequency
+              is NOT guaranteed
      */
     virtual void tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept = 0;
 

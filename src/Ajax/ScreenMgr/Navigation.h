@@ -60,6 +60,13 @@ public:
     virtual void popToHome() noexcept =0;
 
 public:
+    /** Returns a pointer to the current screen.  If there is no current
+        screen (e.g. still displaying the splash screen), then nullptr
+        is returned.
+     */
+    virtual ScreenApi* getCurrentScreen() noexcept = 0;
+
+public:
     /// Virtual destructor
     virtual ~Navigation(){}
 };
