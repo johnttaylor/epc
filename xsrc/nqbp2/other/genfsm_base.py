@@ -160,8 +160,8 @@ def run( argv, copyright=None ):
     cleanup_trace( oldfsmcpp, names, fsm, oldfsm, oldtrace, newtrace, oldtracecpp )
     cleanup_includes( oldfsm,    names, oldfsm, newfsm, oldevt, newevt, base + '.h' )
     cleanup_includes( oldfsmcpp, names, oldfsm, newfsm, oldevt, newevt, base + '.h' )
-    convert_member_to_class_methods_header( oldfsm )  
-    convert_member_to_class_methods_cpp( oldfsmcpp )  
+    convert_member_to_class_methods_header( oldfsm, fsm )  
+    convert_member_to_class_methods_cpp( oldfsmcpp, fsm )  
 
     # Housekeeping for naming convention
     utils.delete_file( newfsm )
@@ -326,28 +326,30 @@ def cleanup_includes( headerfile, namespaces, oldfsm, newfsm, oldevt, newevt, ba
     os.rename( tmpfile, headerfile )
 
 #
-def convert_member_to_class_methods_header( file ):
+def convert_member_to_class_methods_header( file, parent_class ):
+    macroname = parent_class.upper()
     tmpfile  = file + ".tmp"
     with open( file ) as inf:
         with open( tmpfile, "w") as outf:  
             for line in inf:
                 if ( "const char* getNameByState(const unsigned short state) const" in line ):
                     line = line.replace("const char* getNameByState(const unsigned short state) const","static const char* getNameByState(const unsigned short state)" )
-                if ( "const char* getNameByEvent(const FSM_EVENT_T evt) const" in line ):
-                    line = line.replace("const char* getNameByEvent(const FSM_EVENT_T evt) const", "static const char* getNameByEvent(const FSM_EVENT_T evt)" )
+                if ( f"const char* getNameByEvent(const {macroname}_EVENT_T evt) const" in line ):
+                    line = line.replace(f"const char* getNameByEvent(const {macroname}_EVENT_T evt) const", f"static const char* getNameByEvent(const {macroname}_EVENT_T evt)" )
                 outf.write( line )
     os.remove( file )
     os.rename( tmpfile, file )
 
-def convert_member_to_class_methods_cpp( file ):
+def convert_member_to_class_methods_cpp( file, parent_class ):
+    macroname = parent_class.upper()
     tmpfile  = file + ".tmp"
     with open( file ) as inf:
         with open( tmpfile, "w") as outf:  
             for line in inf:
-                if ( "const char* Fsm::getNameByState(const unsigned short state) const" in line ):
-                    line = line.replace("const char* Fsm::getNameByState(const unsigned short state) const","const char* Fsm::getNameByState(const unsigned short state)" )
-                if ( "const char* Fsm::getNameByEvent(const FSM_EVENT_T evt) const" in line ):
-                    line = line.replace("const char* Fsm::getNameByEvent(const FSM_EVENT_T evt) const", "const char* Fsm::getNameByEvent(const FSM_EVENT_T evt)" )
+                if ( f"const char* {parent_class}::getNameByState(const unsigned short state) const" in line ):
+                    line = line.replace(f"const char* {parent_class}::getNameByState(const unsigned short state) const",f"const char* {parent_class}::getNameByState(const unsigned short state)" )
+                if ( f"const char* {parent_class}::getNameByEvent(const {macroname}_EVENT_T evt) const" in line ):
+                    line = line.replace(f"const char* {parent_class}::getNameByEvent(const {macroname}_EVENT_T evt) const", f"const char* {parent_class}::getNameByEvent(const {macroname}_EVENT_T evt)" )
                 outf.write( line )
     os.remove( file )
     os.rename( tmpfile, file )
