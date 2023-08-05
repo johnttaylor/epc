@@ -141,6 +141,11 @@ bool minWaitOnModelPointValidState( MPTYPE& src, bool expectedValidState, unsign
 /** This class is a DM Mailbox server that signals the provided semaphore when 
     it begins execution.  This is helpful when you need synchronize your test 
     with the mailbox thread actually running
+
+    The class also supports 'Pausing' the Mailbox server.  When the mailbox
+    is paused the thread essentially stops executing - providing a pseudo thread 
+    safe mechanism for the test manager to operate on objects/data/methods that
+    execute in the paused thread.
  */
 class DmMailbox : public Cpl::Dm::MailboxServer
 {
@@ -162,9 +167,37 @@ public:
         Cpl::Dm::MailboxServer::appRun();
     }
 
+    /// See Cpl::System::EventFlag
+    void processEventFlag( uint8_t eventNumber ) noexcept
+    {
+        if ( eventNumber == 31 )
+        {
+            m_semaPauseTread.wait();
+            m_sema.signal();
+        }
+    }
+
+public:
+    /// This method freezes/Pauses the Mailbox
+    void freeze()
+    {
+        notify( 31 );
+    }
+
+    /// THis method resumes/unfreezes the Mailbox.  The application is signaled when the Mailbox has resumed
+    void thaw()
+    {
+        // Signal the paused thread to wake up and then wait for it to actually wake up
+        m_semaPauseTread.signal();
+        m_sema.wait();
+    }
+
 public:
     /// Semaphore to signal when I run
     Cpl::System::Semaphore& m_sema;
+
+    /// Semaphore used to pause the Mailbox
+    Cpl::System::Semaphore  m_semaPauseTread;
 };
 
 /** Same as the a DmMailbox class, except for ITC Mailbox server
@@ -193,6 +226,7 @@ public:
     /// Semaphore to signal when I run
     Cpl::System::Semaphore& m_sema;
 };
+
 
 
 #endif  // end header latch
