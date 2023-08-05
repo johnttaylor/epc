@@ -16,7 +16,7 @@
 
 using namespace Ajax::ScreenMgr;
 
-
+ 
 
 /////////////////////////////////////////////////////////////////////////////
 Api::Api( Cpl::Dm::MailboxServer& uiMbox,
@@ -61,6 +61,7 @@ void Api::request( OpenMsg& msg )
     {
         CPL_SYSTEM_TRACE_MSG( SECT_, ("open() called when already opened") );
         msg.returnToSender();
+        return;
     }
 
     // Start the display/graphics engine and paint the Splash screen
@@ -71,6 +72,7 @@ void Api::request( OpenMsg& msg )
         CPL_SYSTEM_TRACE_MSG( SECT_, ("m_display.start() FAILED.") );
         msg.getPayload().m_success = false;
         msg.returnToSender();
+        return;
     }
     splash->paint( Cpl::System::ElapsedTime::precision() );
     if ( !m_display.update() )
@@ -78,6 +80,7 @@ void Api::request( OpenMsg& msg )
         CPL_SYSTEM_TRACE_MSG( SECT_, ("m_display.update() FAILED.") );
         msg.getPayload().m_success = false;
         msg.returnToSender();
+        return;
     }
 
     // Housekeeping
@@ -104,6 +107,7 @@ void Api::request( CloseMsg& msg )
     {
         CPL_SYSTEM_TRACE_MSG( SECT_, ("close() called when already closed") );
         msg.returnToSender();
+        return;
     }
 
     // Housekeeping
@@ -146,6 +150,13 @@ void Api::homeScreenMp_changed( MpScreenApiPtr& mp, Cpl::Dm::SubscriberApi& clie
             m_curScreenHdl = m_homeScreenHdl;
             m_curScreenHdl->enter( now );
             m_curScreenHdl->refresh( now );
+            eventQueueCountMp_changed( m_eventQueue.m_mpElementCount, m_obEventQueueCountMP );  // Drain any events that occurred before the Home screen was launched
+            
+            // Update the physical display
+            if ( !m_display.update() )
+            {
+                CPL_SYSTEM_TRACE_MSG( SECT_, ("homeScreenMp_changed.m_display.update() FAILED.") );
+            }
             m_timer.start( OPTION_AJAX_SCREEN_MGR_TICK_TIME_MS );
         }
     }
@@ -164,6 +175,10 @@ void Api::haltUiMp_changed( MpStaticScreenApiPtr& mp, Cpl::Dm::SubscriberApi& cl
         }
         haltPtr->paint( now );
         m_curScreenHdl = nullptr;
+        if ( !m_display.update() )
+        {
+            CPL_SYSTEM_TRACE_MSG( SECT_, ("haltUiMp_changed.m_display.update() FAILED.") );
+        }
     }
 }
 
@@ -202,6 +217,10 @@ void Api::shutdownMp_changed( MpStaticScreenApiPtr& mp, Cpl::Dm::SubscriberApi& 
         }
         shutdownPtr->paint( now );
         m_curScreenHdl = nullptr;
+        if ( !m_display.update() )
+        {
+            CPL_SYSTEM_TRACE_MSG( SECT_, ("shutdownMp_changed.m_display.update() FAILED.") );
+        }
     }
 }
 
@@ -260,6 +279,11 @@ void Api::timerExpired( void )
 
 
 ////////////////////////////////
+ScreenApi* Api::getCurrentScreen() noexcept
+{
+    return m_curScreenHdl;
+}
+
 void Api::push( ScreenApi & newScreen ) noexcept
 {
     // Do nothing if the splash/shutdown/error screen is active
@@ -272,18 +296,18 @@ void Api::push( ScreenApi & newScreen ) noexcept
             return;
         }
 
-        // Get a free element - 'throw an error' if no free memory
-        NavigationElement* freeElem = m_freeStackMemoryList.get();
-        if ( freeElem == nullptr )
-        {
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("push() failed due to lack of free memory") );
-            popToHome();
-            return;
-        }
-
         // Push the current screen onto the Nav stack (if it is not the home screen)
         if ( m_curScreenHdl != nullptr && m_curScreenHdl != m_homeScreenHdl )
         {
+            // Get a free element - 'throw an error' if no free memory
+            NavigationElement* freeElem = m_freeStackMemoryList.get();
+            if ( freeElem == nullptr )
+            {
+                CPL_SYSTEM_TRACE_MSG( SECT_, ("push() failed due to lack of free memory") );
+                popToHome();
+                return;
+            }
+
             freeElem->m_screenPtr = m_curScreenHdl;
             m_navigationStack.putFirst( *freeElem );
         }
@@ -294,6 +318,10 @@ void Api::push( ScreenApi & newScreen ) noexcept
         m_curScreenHdl = &newScreen;
         m_curScreenHdl->enter( now );
         m_curScreenHdl->refresh( now );
+        if ( !m_display.update() )
+        {
+            CPL_SYSTEM_TRACE_MSG( SECT_, ("push.m_display.update() FAILED.") );
+        }
     }
 }
 
@@ -308,12 +336,12 @@ void Api::pop( unsigned count ) noexcept
         while ( count-- )
         {
             poppedElem = m_navigationStack.getFirst();
-            m_freeStackMemoryList.put( *poppedElem );
             if ( poppedElem == nullptr )
             {
                 stackEmpty = true;
                 break;
             }
+            m_freeStackMemoryList.put( *poppedElem );
         }
 
         // Exit the current screen
@@ -324,6 +352,10 @@ void Api::pop( unsigned count ) noexcept
         m_curScreenHdl = stackEmpty ? m_homeScreenHdl : poppedElem->m_screenPtr;
         m_curScreenHdl->enter( now );
         m_curScreenHdl->refresh( now );
+        if ( !m_display.update() )
+        {
+            CPL_SYSTEM_TRACE_MSG( SECT_, ("pop.m_display.update() FAILED.") );
+        }
     }
 }
 
@@ -338,12 +370,12 @@ void Api::popTo( ScreenApi & returnToScreen ) noexcept
         for ( ;;)
         {
             poppedElem = m_navigationStack.getFirst();
-            m_freeStackMemoryList.put( *poppedElem );
             if ( poppedElem == nullptr )
             {
                 stackEmpty = true;
                 break;
             }
+            m_freeStackMemoryList.put( *poppedElem );
             if ( poppedElem->m_screenPtr == &returnToScreen )
             {
                 break;
@@ -358,6 +390,10 @@ void Api::popTo( ScreenApi & returnToScreen ) noexcept
         m_curScreenHdl = stackEmpty ? m_homeScreenHdl : poppedElem->m_screenPtr;
         m_curScreenHdl->enter( now );
         m_curScreenHdl->refresh( now );
+        if ( !m_display.update() )
+        {
+            CPL_SYSTEM_TRACE_MSG( SECT_, ("popTo.m_display.update() FAILED.") );
+        }
     }
 }
 
@@ -379,6 +415,10 @@ void Api::popToHome() noexcept
         m_curScreenHdl = m_homeScreenHdl;
         m_curScreenHdl->enter( now );
         m_curScreenHdl->refresh( now );
+        if ( !m_display.update() )
+        {
+            CPL_SYSTEM_TRACE_MSG( SECT_, ("popToHome.m_display.update() FAILED.") );
+        }
     }
 }
 
