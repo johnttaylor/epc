@@ -25,7 +25,8 @@ Api::Api( Cpl::Dm::MailboxServer& uiMbox,
           Cpl::Dm::Mp::Bool&      displaySleepRequestMP,
           MpStaticScreenApiPtr&   shutdownMP,
           DisplayApi&             display,
-          Cpl::Container::DList<NavigationElement>&           freeMemoryForNavigationStack,
+          NavigationElement       memoryForNavigationStack[],
+          size_t                  numElementsInNavigtationStackArray,
           Cpl::Container::RingBufferMP<AjaxScreenMgrEvent_T>& eventRingBuffer )
     : Cpl::Itc::CloseSync( uiMbox )
     , m_obHomeScreenMP( uiMbox, *this, &Api::homeScreenMp_changed )
@@ -40,12 +41,16 @@ Api::Api( Cpl::Dm::MailboxServer& uiMbox,
     , m_mpShutdownScreen( shutdownMP )
     , m_homeScreenHdl( nullptr )
     , m_display( display )
-    , m_eventQueue<AjaxScreenMgrEvent_T>( eventRingBuffer )
-    , m_freeStackMemoryList( freeMemoryForNavigationStack )
+    , m_eventQueue( eventRingBuffer )
     , m_curScreenHdl( nullptr )
     , m_shuttingDown( false )
     , m_opened( false )
 {
+    // Populate the free list
+    for ( size_t i=0; i < numElementsInNavigtationStackArray; i++ )
+    {
+        m_freeStackMemoryList.put( memoryForNavigationStack[i] );
+    }
 }
 
 void Api::request( OpenMsg& msg )
@@ -68,7 +73,12 @@ void Api::request( OpenMsg& msg )
         msg.returnToSender();
     }
     splash->paint( Cpl::System::ElapsedTime::precision() );
-    m_display.update();
+    if ( !m_display.update() )
+    {
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("m_display.update() FAILED.") );
+        msg.getPayload().m_success = false;
+        msg.returnToSender();
+    }
 
     // Housekeeping
     m_opened        = true;
@@ -164,11 +174,17 @@ void Api::sleepRequestMp_changed( Cpl::Dm::Mp::Bool& mp, Cpl::Dm::SubscriberApi&
     {
         if ( sleepRequest )
         {
-            m_display.turnOff();
+            if ( !m_display.turnOff() )
+            {
+                CPL_SYSTEM_TRACE_MSG( SECT_, ("m_display.turnOff() FAILED.") );
+            }
         }
         else
         {
-            m_display.turnOn();
+            if ( !m_display.turnOn() )
+            {
+                CPL_SYSTEM_TRACE_MSG( SECT_, ("m_display.turnOn() FAILED.") );
+            }
         }
     }
 }
@@ -203,7 +219,7 @@ void Api::eventQueueCountMp_changed( Cpl::Dm::Mp::Uint32& mp, Cpl::Dm::Subscribe
 
             // Drain the event queue
             AjaxScreenMgrEvent_T event;
-            while ( m_eventQueue.remove( event, finalSeqNum ) );
+            while ( m_eventQueue.remove( event, finalSeqNum ) )
             {
                 // Process the event
                 m_curScreenHdl->dispatch( event, Cpl::System::ElapsedTime::milliseconds() );
@@ -281,7 +297,7 @@ void Api::push( ScreenApi & newScreen ) noexcept
     }
 }
 
-void Api::pop( unsigned count=1 ) noexcept
+void Api::pop( unsigned count ) noexcept
 {
     // Do nothing if currently on the home screen
     if ( m_curScreenHdl != nullptr && m_curScreenHdl != m_homeScreenHdl )

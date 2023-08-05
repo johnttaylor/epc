@@ -13,6 +13,7 @@
 /** @file */
 
 #include "Ajax/ScreenMgr/ScreenApi.h"
+#include "Ajax/ScreenMgr/StaticScreenApi.h"
 
 /// 
 namespace Ajax {
@@ -36,6 +37,7 @@ public:
         , m_dispatchCount( 0 )
         , m_tickCount( 0 )
         , m_refreshCount( 0 )
+        , m_lastTimeStamp( { 0,0 } )
         , m_refreshResult( true )
     {
     }
@@ -64,55 +66,85 @@ public:
     bool m_refreshResult;
 
 public:
-    /// See Ajex::ScreenMgr::ScreenApi
-    void enter( Cpl::System::ElapsedTime::Precision_T currentElapsedTime )
+    /// See Ajax::ScreenMgr::ScreenApi
+    void enter( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
     {
         m_enterCount++;
         m_lastTimeStamp = currentElapsedTime;
     }
 
-    /// See Ajex::ScreenMgr::ScreenApi
-    void exit( Cpl::System::ElapsedTime::Precision_T currentElapsedTime )
+    /// See Ajax::ScreenMgr::ScreenApi
+    void exit( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
     {
         m_exitCount++;
         m_lastTimeStamp = currentElapsedTime;
     }
 
-    /// See Ajex::ScreenMgr::ScreenApi
-    void sleep( Cpl::System::ElapsedTime::Precision_T currentElapsedTime )
+    /// See Ajax::ScreenMgr::ScreenApi
+    void sleep( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
     {
         m_sleepCount++;
         m_lastTimeStamp = currentElapsedTime;
     }
 
-    /// See Ajex::ScreenMgr::ScreenApi
-    void wake( Cpl::System::ElapsedTime::Precision_T currentElapsedTime )
+    /// See Ajax::ScreenMgr::ScreenApi
+    void wake( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
     {
         m_wakeCount++;
         m_lastTimeStamp = currentElapsedTime;
     }
 
-    /// See Ajex::ScreenMgr::ScreenApi
-    void dispatch( AjaxScreenMgrEvent_T event, Cpl::System::ElapsedTime::Precision_T currentElapsedTime )
+    /// See Ajax::ScreenMgr::ScreenApi
+    void dispatch( AjaxScreenMgrEvent_T event, Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
     {
         m_dispatchCount++;
         m_lastEvent     = event;
         m_lastTimeStamp = currentElapsedTime;
     }
 
-    /// See Ajex::ScreenMgr::ScreenApi
-    void tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime )
+    /// See Ajax::ScreenMgr::ScreenApi
+    void tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
     {
         m_tickCount++;
         m_lastTimeStamp = currentElapsedTime;
     }
 
-    /// See Ajex::ScreenMgr::ScreenApi
-    bool refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime )
+    /// See Ajax::ScreenMgr::ScreenApi
+    bool refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
     {
         m_refreshCount++;
         m_lastTimeStamp = currentElapsedTime;
         return m_refreshResult;
+    }
+};
+
+/** This class implements a 'Mock' StaticScreenApi instances.  The intended usage
+    is for unit tests
+ */
+class MockStaticScreen : public StaticScreenApi
+{
+public:
+    /// Constructor
+    MockStaticScreen( const char* name )
+        : m_name( name )
+        , m_paintCount( 0 )
+        , m_lastTimeStamp( { 0,0 } )
+    {
+    }
+
+    /// Screen name
+    const char* m_name;
+    /// Call counter
+    unsigned m_paintCount;
+    /// Last Timestamp
+    Cpl::System::ElapsedTime::Precision_T m_lastTimeStamp;
+
+public:
+    /// See Ajax::ScreenMgr::ScreenApi
+    void paint( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
+    {
+        m_paintCount++;
+        m_lastTimeStamp = currentElapsedTime;
     }
 };
 

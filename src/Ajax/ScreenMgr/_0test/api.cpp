@@ -14,97 +14,184 @@
 #include "Cpl/System/_testsupport/Shutdown_TS.h"
 #include "Cpl/Dm/ModelDatabase.h"
 #include "Ajax/ScreenMgr/Api.h"
+#include "Ajax/ScreenMgr/MockScreen.h"
+#include "common.h"
 
 using namespace Ajax::ScreenMgr;
 
+// Mock display
+namespace { // begin anonymous namespace
+
+class MockDisplay : public DisplayApi
+{
+public:
+    /// counters
+    unsigned m_startCount;
+    unsigned m_stopCount;
+    unsigned m_udpateCount;
+    unsigned m_turnOnCount;
+    unsigned m_turnOffCount;
+    bool     m_returnResult;
+
+public:
+    MockDisplay()
+        : m_startCount( 0 )
+        , m_stopCount( 0 )
+        , m_udpateCount( 0 )
+        , m_turnOnCount( 0 )
+        , m_turnOffCount( 0 )
+        , m_returnResult( true )
+    {
+    }
+
+    bool start() noexcept{ m_startCount++; return m_returnResult; }
+    void stop() noexcept{ m_stopCount++;  }
+    bool update() noexcept{ m_udpateCount++; return m_returnResult;}
+    bool turnOff() noexcept{ m_turnOnCount++; return m_returnResult;}
+    bool turnOn() noexcept{ m_turnOffCount++; return m_returnResult;}
+};
+
+} // end anonymous namespace
+
 // Allocate/create my Model Database
 static Cpl::Dm::ModelDatabase   modelDb_( "ignoreThisParameter_usedToInvokeTheStaticConstructor" );
-//static Ajax::Dm::MpFlcConfig    mpCfg_( modelDb_, "cfg" );
+static MpScreenApiPtr           mp_homeScrPtr( modelDb_, "homeScreen" );
+static MpStaticScreenApiPtr     mp_errorScrPtr( modelDb_, "errorScreen" );
+static MpStaticScreenApiPtr     mp_shutdownScrPtr( modelDb_, "shutdownScreen" );
+static Cpl::Dm::Mp::Bool        mp_sleepRequst( modelDb_, "sleepReq" );
+static Cpl::Dm::Mp::Uint32      mp_eventBuffferCount( modelDb_, "eventQueCount" );
+
+// Memory for the Navigation stack
+#define SIZE_NAV_STACK  3
+static Api::NavigationElement   memoryNavStack_[SIZE_NAV_STACK];
+
+// Create the event queue. Note: AjaxScreenMgrEvent_T maps to a: uint32_t
+#define NUM_EVENTS      3
+static AjaxScreenMgrEvent_T memoryForEvents_[NUM_EVENTS + 1];
+static Cpl::Container::RingBufferMP< AjaxScreenMgrEvent_T> eventRingBuffer_( sizeof( memoryForEvents_ ) / sizeof( AjaxScreenMgrEvent_T ),
+                                                                             memoryForEvents_,
+                                                                             mp_eventBuffferCount );
+
+// Mock display
+static MockDisplay mockDisplay_;
+
+// Don't let the Runnable object go out of scope before its thread has actually terminated!
+//static Cpl::Dm::MailboxServer   uiMbox_;
 
 
 ////////////////////////////////////////////////////////////////////////////////
 TEST_CASE( "api" )
 {
     Cpl::System::Shutdown_TS::clearAndUseCounter();
-    //mpCfg_.setInvalid();
-#if 0
-    SECTION( "baseline" )
+    Cpl::Dm::MailboxServer uiMbox;
+    Cpl::System::Thread*   t1 = Cpl::System::Thread::create( uiMbox, "UI" );
+
+    memset( memoryNavStack_, 0, sizeof( memoryNavStack_ ) ); // Reset Navigation Elements
+
+    mp_homeScrPtr.setInvalid();
+    mp_errorScrPtr.setInvalid();
+    mp_sleepRequst.setInvalid();
+    mp_shutdownScrPtr.setInvalid();
+
+    // Mock screens
+    MockScreen  homeScreen( "home" );
+    MockScreen  appleScreen( "apple" );
+    MockScreen  cherryScreen( "cherry" );
+    MockScreen  orangeScreen( "orange" );
+    MockScreen  plumScreen( "plum" );
+    MockScreen  grapeScreen( "grape" );
+    MockStaticScreen splashScreen( "splash" );
+    MockStaticScreen shutdownScreen( "shutdown" );
+    MockStaticScreen errorScreen( "error" );
+
+    Api uut( uiMbox,
+             mp_homeScrPtr,
+             mp_errorScrPtr,
+             mp_sleepRequst,
+             mp_shutdownScrPtr,
+             mockDisplay_,
+             memoryNavStack_, sizeof( memoryNavStack_ ) / sizeof( Api::NavigationElement ),
+             eventRingBuffer_ );
+
+
+    SECTION( "start-up" )
     {
-        // Create the UUT
-        Config_T cfg( 1000, 1000, 4, 16, k2_);
-        mpCfg_.write( cfg );
-        Api uut( mpCfg_ );
-        REQUIRE( uut.start() );
+        // Splash
+        uut.open( &splashScreen );
+        
+        // Home
+        REQUIRE( splashScreen.m_paintCount == 1 );
+        REQUIRE( homeScreen.m_enterCount == 0 );
+        REQUIRE( homeScreen.m_refreshCount == 0 );
+        REQUIRE( homeScreen.m_exitCount == 0 );
+        REQUIRE( homeScreen.m_tickCount == 0 );
+        mp_homeScrPtr.write( &homeScreen );
+        Cpl::System::Api::sleep( 200 + 2*2* OPTION_AJAX_SCREEN_MGR_TICK_TIME_MS ); // Allow time for the change notification to propagate + Ext
+        REQUIRE( splashScreen.m_paintCount == 1 );
+        REQUIRE( homeScreen.m_enterCount == 1 );
+        REQUIRE( homeScreen.m_refreshCount == 1 );
+        REQUIRE( homeScreen.m_tickCount > 2 );
+        REQUIRE( homeScreen.m_exitCount == 0 );
+        REQUIRE( homeScreen.m_wakeCount == 0 );
+        REQUIRE( homeScreen.m_sleepCount == 0 );
+        
+        // Shutdown
+        REQUIRE( shutdownScreen.m_paintCount == 0 );
+        mp_shutdownScrPtr.write( &shutdownScreen );
+        Cpl::System::Api::sleep( 200 ); // Allow time for the change notification to propagate
+        REQUIRE( shutdownScreen.m_paintCount == 1 );
+        REQUIRE( homeScreen.m_enterCount == 1 );
+        REQUIRE( homeScreen.m_refreshCount == 1 );
+        REQUIRE( homeScreen.m_exitCount == 1 );
+        REQUIRE( homeScreen.m_tickCount > 2 );
+        REQUIRE( homeScreen.m_wakeCount == 0 );
+        REQUIRE( homeScreen.m_sleepCount == 0 );
 
-        // set an initial previous error
-        int32_t r = uut.calcChange( 0, 76 );
-        //printf( "r0= %d\n", r );
-        REQUIRE( r == 3040 );
-
-        // Expecting a err value of 0.8' and dErr of 0.04, with a final output of 3200
-        r = uut.calcChange( 0, 80 );
-        //printf( "r1= %d\n", r );
-        REQUIRE( r == 3200 );
-
-        r = uut.calcChange( 0, 80 );
-        //printf( "r2= %d\n", r );
-        REQUIRE( r == 3200 );
-
-        uut.stop();
+        uut.close();
     }
 
-#define MIN_PWM     200
-#define MAX_PWM     1000
-#define CLAMP_PWM(pwm, adj) {pwm+=adj; if ( pwm < MIN_PWM ) {pwm = MIN_PWM;}if ( pwm > MAX_PWM ){pwm = MAX_PWM;}}
-#define DISPLAY( t, newPwm, curTemp, setpt, adjust ) \
-    printf( "T=%03d, pwm=%03d, temp=%4d, err=%4d, adjust=%4d\n", \
-             t, newPwm, curTemp, setpt-curTemp, adjust )
-
-    SECTION( "ramp-up" )
+    SECTION( "error-case1" )
     {
-        // Create the UUT
-        Config_T cfg( 10, 1000, 4, 16, k2_ );
-        mpCfg_.write( cfg );
-        Api uut( mpCfg_ );
-        REQUIRE( uut.start() );
+        // Splash
+        uut.close();
+        uut.open( &splashScreen );
+        uut.open( &splashScreen );
 
-        // NOT REALLY A TEST -->just a manual "sanity check"
-        int32_t curTemp   = 70 * 100;
-        int32_t setpoint  = 72 * 100;
-        int32_t pwm       = 0;
-        int32_t pwmAdjust = 0;
-        unsigned t        = 0;
+        // Home
+        REQUIRE( splashScreen.m_paintCount == 1 );
+        REQUIRE( homeScreen.m_enterCount == 0 );
+        REQUIRE( homeScreen.m_refreshCount == 0 );
+        REQUIRE( homeScreen.m_exitCount == 0 );
+        REQUIRE( homeScreen.m_tickCount == 0 );
+        mp_homeScrPtr.write( &homeScreen );
+        Cpl::System::Api::sleep( 200 + 2 * 2 * OPTION_AJAX_SCREEN_MGR_TICK_TIME_MS ); // Allow time for the change notification to propagate + Ext
+        REQUIRE( splashScreen.m_paintCount == 1 );
+        REQUIRE( homeScreen.m_enterCount == 1 );
+        REQUIRE( homeScreen.m_refreshCount == 1 );
+        REQUIRE( homeScreen.m_tickCount > 2 );
+        REQUIRE( homeScreen.m_exitCount == 0 );
+        REQUIRE( homeScreen.m_wakeCount == 0 );
+        REQUIRE( homeScreen.m_sleepCount == 0 );
 
-        pwmAdjust = uut.calcChange( curTemp, setpoint );
-        CLAMP_PWM( pwm, pwmAdjust );
-        DISPLAY( t, pwm, curTemp, setpoint, pwmAdjust );
+        // Shutdown
+        REQUIRE( shutdownScreen.m_paintCount == 0 );
+        mp_shutdownScrPtr.write( &shutdownScreen );
+        Cpl::System::Api::sleep( 200 ); // Allow time for the change notification to propagate
+        REQUIRE( shutdownScreen.m_paintCount == 1 );
+        REQUIRE( homeScreen.m_enterCount == 1 );
+        REQUIRE( homeScreen.m_refreshCount == 1 );
+        REQUIRE( homeScreen.m_exitCount == 1 );
+        REQUIRE( homeScreen.m_tickCount > 2 );
+        REQUIRE( homeScreen.m_wakeCount == 0 );
+        REQUIRE( homeScreen.m_sleepCount == 0 );
 
-        t++;
-        pwmAdjust = uut.calcChange( curTemp, setpoint );
-        CLAMP_PWM( pwm, pwmAdjust );
-        DISPLAY( t, pwm, curTemp, setpoint, pwmAdjust );
-
-        t++;
-        curTemp += 20;  // increase 0.2'
-        pwmAdjust = uut.calcChange( curTemp, setpoint );
-        CLAMP_PWM( pwm, pwmAdjust );
-        DISPLAY( t, pwm, curTemp, setpoint, pwmAdjust );
-
-        t++;
-        curTemp += 40;  // increase 0.4'
-        pwmAdjust = uut.calcChange( curTemp, setpoint );
-        CLAMP_PWM( pwm, pwmAdjust );
-        DISPLAY( t, pwm, curTemp, setpoint, pwmAdjust );
-
-        t++;
-        curTemp += 20;  // increase 0.2'
-        pwmAdjust = uut.calcChange( curTemp, setpoint );
-        CLAMP_PWM( pwm, pwmAdjust );
-        DISPLAY( t, pwm, curTemp, setpoint, pwmAdjust );
-
-        uut.stop();
+        uut.close();
     }
-#endif
 
+
+    // Shutdown threads
+    uiMbox.pleaseStop();
+    WAIT_FOR_THREAD_TO_STOP( t1 );
+    Cpl::System::Thread::destroy( *t1 );
     REQUIRE( Cpl::System::Shutdown_TS::getAndClearCounter() == 0u );
 }
