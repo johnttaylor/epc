@@ -5,7 +5,7 @@ src/Eros/Main/_plat_alpha1
 # BSP
 src/Cpl/Io/Serial/ST/M32F4
 src/Bsp/Initech/alpha1/trace
-src/Bsp/Initech/alpha1 
+src/Bsp/Initech/alpha1 > mini_cpp.cpp
 src/Bsp/Initech/alpha1/MX 
 src/Bsp/Initech/alpha1/MX/Core/Src > freertos.c
 src/Bsp/Initech/alpha1/console

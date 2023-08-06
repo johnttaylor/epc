@@ -21,6 +21,17 @@
 #include "Cpl/Text/FString.h"
 #include <string.h>
 
+// Hack to get around that NOT all compilers support the "%lld" notation for printf
+#include <stdint.h>
+#if INTPTR_MAX == INT32_MAX
+#define PRINTF_SIZET_FMT    "%lx"
+#define PRINTF_SIZET_TYPE   unsigned long
+#elif INTPTR_MAX == INT64_MAX
+#define PRINTF_SIZET_FMT    "%llx"
+#define PRINTF_SIZET_TYPE   unsigned long long
+#else
+#error "Environment not 32 or 64-bit."
+#endif
 
 /// Endianess of a Bit array.  For little endian set to true; else set to false
 #ifndef OPTION_CPL_DM_MP_BITARRAY_IS_LITTLE_ENDIAN
@@ -310,7 +321,7 @@ public:
     void setJSONVal( JsonDocument& doc ) noexcept
     {
         Cpl::Text::FString<20> tmp;
-        tmp.format( "%llX", ( unsigned long long ) Numeric<size_t, MPTYPE>::m_data );
+        tmp.format( PRINTF_SIZET_FMT, (PRINTF_SIZET_TYPE) Numeric<size_t, MPTYPE>::m_data );
         doc["val"] = (char*) tmp.getString();
     }
 
