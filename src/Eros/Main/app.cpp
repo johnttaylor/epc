@@ -10,10 +10,15 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
+#include "Ajax/Main/appmain.h"      // FIXME: Must be first (because of the pimoroni graphic library stuffs)
 #include "Ajax/Main/application.h"
+#include "Eros/Ui/Home/Screen.h"
+#include "mp/ModelPoints.h"
 #include <stdio.h>
 
 using namespace Ajax::Main;
+
+static Eros::Ui::Home::Screen homeScreen_( g_graphics );
 
 /////////////////////////////
 void Ajax::Main::appvariant_initialize0()
@@ -33,7 +38,7 @@ void Ajax::Main::appvariant_open0()
 
 void Ajax::Main::appvariant_launchHomeScreen()
 {
-    // TODO: FIXME mp::homeScrPtr.write( &homeScreen_ );
+    mp::homeScrPtr.write( &homeScreen_ );
 }
 
 void Ajax::Main::appvariant_close0()
