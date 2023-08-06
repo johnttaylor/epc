@@ -24,8 +24,11 @@
 #include "Cpl/Dm/ModelDatabase.h"
 #include "Cpl/Dm/Mp/Bool.h"
 #include "Cpl/Dm/Mp/Uint32.h"
+#include "Cpl/Dm/Mp/String.h"
 #include "Ajax/ScreenMgr/MpScreenApiPtr.h"
 #include "Ajax/ScreenMgr/MpStaticScreenApiPtr.h"
+#include "Ajax/Constants.h"
+
 
 /** Encapsulate all Model Points in the 'mp' namespace to prevent polluting
     the global name space
@@ -95,6 +98,27 @@ extern Cpl::Dm::Mp::Bool    displaySleepTrigger;
 */
 extern Cpl::Dm::Mp::Uint32  uiEventQueueCount;
 
+/** This model point holds the firmware's version string
+
+    \b Units: n/a
+
+    \b Range: n/a
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::String<OPTION_AJAX_MAX_VERSION_LENGTH>  fwVersion;
+
+/** This model point holds the product's Model Number string
+
+    \b Units: n/a
+
+    \b Range: n/a
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::String<OPTION_AJAX_MAX_MODEL_LENGTH>    modelNumber;
 
 /*---------------------------------------------------------------------------*/
 /// The Application's Model Point Database

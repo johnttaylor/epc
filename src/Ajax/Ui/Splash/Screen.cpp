@@ -11,6 +11,8 @@
 /** @file */
 
 #include "Screen.h"
+#include "mp/ModelPoints.h"
+#include "Cpl/Text/FString.h"
 
 using namespace Ajax::Ui::Splash;
 
@@ -54,13 +56,17 @@ void Screen::paint( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) n
     m_graphics.text( "GM6000", pimoroni::Point( X0_TITLE, Y0_TITLE ), 240 );
 
     // Model Number
+    Cpl::Text::FString<OPTION_AJAX_MAX_MODEL_LENGTH> tmpModel="<unknown>";
+    mp::modelNumber.read( tmpModel );
     m_graphics.set_font( &font8 );
     m_graphics.text( "model:", pimoroni::Point( COLUMN0_X0, ROW0_Y0 ), 240 );
-    m_graphics.text( "12343", pimoroni::Point( COLUMN1_X0, ROW0_Y0 ), 240 );
+    m_graphics.text( tmpModel.getString(), pimoroni::Point( COLUMN1_X0, ROW0_Y0 ), 240 );
 
     // Version Number
+    Cpl::Text::FString<OPTION_AJAX_MAX_VERSION_LENGTH> tmpVer="<unknown>";
+    mp::fwVersion.read( tmpVer );
     m_graphics.text( "ver:", pimoroni::Point( COLUMN0_X0, ROW1_Y0 ), 240 );
-    m_graphics.text( "1.3.3-2000001", pimoroni::Point( COLUMN1_X0, ROW1_Y0 ), 240 );
+    m_graphics.text( tmpVer.getString(), pimoroni::Point( COLUMN1_X0, ROW1_Y0 ), 240 );
 
     // Company name
     m_graphics.text( "Initech, LLC.", pimoroni::Point( COLUMN0_X0, ROW3_Y0 ), 240 );

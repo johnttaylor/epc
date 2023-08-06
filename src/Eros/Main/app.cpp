@@ -28,7 +28,11 @@ void Ajax::Main::appvariant_initialize0()
 
 void Ajax::Main::appvariant_initializeModelPoints0()
 {
-    // Nothing currently needed
+    // Populate 'static' Model points
+    Cpl::Text::FString<OPTION_AJAX_MAX_VERSION_LENGTH> tmpVer;
+    tmpVer.format( "%s-%07lu", EROS_SEMANTIC_VERSION_STR, BUILD_NUMBER );
+    mp::fwVersion.write( tmpVer );
+    mp::modelNumber.write( EROS_MODEL_NUMBER_STR );
 }
 
 void Ajax::Main::appvariant_open0()

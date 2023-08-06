@@ -7,7 +7,11 @@
 ////////////////////////////////////////////////
 
 
-// TODO: Add Version Identifiers
+#define EROS_SEMANTIC_VERSION_STR                   "0.0.1"
+
+// Model Number
+#define EROS_MODEL_NUMBER_STR                       "eng-tester"
+
 
 // CLI
 #define OPTION_CPL_TSHELL_PROCESSOR_INPUT_SIZE      (4*1024)
