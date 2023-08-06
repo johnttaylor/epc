@@ -44,22 +44,19 @@
   </ImportGroup>
 
   <PropertyGroup>
-	<IncColonyCore>$(projectdir);$(ProjectDir)src;$(ProjectDir)\xsrc</IncColonyCore>
+	<IncColonyCore>$(projectdir);$(ProjectDir)src;$(ProjectDir)xsrc</IncColonyCore>
   </PropertyGroup>
   <PropertyGroup>
-	<IncDocopt>$(ProjectDir)\xsrc\docopt-cpp</IncDocopt>
+	<IncDocopt>$(ProjectDir)xsrc\docopt-cpp</IncDocopt>
   </PropertyGroup>
   <PropertyGroup>
-	<IncFreertos>$(ProjectDir)\xsrc\freertos\include</IncFreertos>
+	<IncFreertos>$(ProjectDir)xsrc\freertos\include</IncFreertos>
   </PropertyGroup>
   <PropertyGroup>
-	<IncBspStm32F4>$(ProjectDir)\src\Bsp\Initech\alpha1\SeggerSysView;$(ProjectDir)\src\Bsp\Initech\alpha1\MX\Core\Inc</IncBspStm32F4>
+	<IncBspStm32F4>$(ProjectDir)src\Bsp\Initech\alpha1\SeggerSysView;$(ProjectDir)\src\Bsp\Initech\alpha1\MX\Core\Inc</IncBspStm32F4>
   </PropertyGroup>
   <PropertyGroup>
-	<IncPicoSdk>$(ProjectDir)\xsrc\pico-sdk\src\common\pico_stdlib\include;$(ProjectDir)\xsrc\pico-sdk\src\common\pico_base\include;$(ProjectDir)\xsrc\pico-sdk\src\common\pico_sync\include;$(ProjectDir)\xsrc\pico-sdk\src\common\pico_bit_opts\include;$(ProjectDir)\xsrc\pico-sdk\src\common\pico_divider\include;$(ProjectDir)\xsrc\pico-sdk\src\common\pico_binary_info\include;$(ProjectDir)\xsrc\pico-sdk\src\common\pico_time\include;$(ProjectDir)\xsrc\pico-sdk\src\common\pico_util\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\hardware_gpio\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\pico_platform\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\hardware_base\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\hardware_claim\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\hardware_sync\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\hardware_ireq\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\hardware_timer\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\hardware_uart\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\hardware_i2c\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\hardware_divider\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\pico_runtime\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\hardware_clocks\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\hardware_resets\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\hardware_irq\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\hardware_pll\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\hardware_vreg\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\hardware_watchdog\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\hardware_xosc\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\hardware_flash\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\pico_printf\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\pico_bootrom\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\pico_double\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\pico_int64_ops\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\pico_float\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\pico_malloc\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\pico_mem_ops\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\boot_stage2\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\pico_stdio\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\pico_stdio_uart\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\pico_multicore\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2_common\pico_unique_id\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2040\hardware_regs\include;$(ProjectDir)\xsrc\pico-sdk\src\rp2040\hardware_structs\include;</IncPicoSdk>
-  </PropertyGroup>
-  <PropertyGroup>
-	<IncPimoroniPico>$(ProjectDir)\xsrc\pimoroni-pico;$(ProjectDir)\xsrc\pimoroni-pico\common;$(ProjectDir)\xsrc\pimoroni-pico\drivers\rgbled;$(ProjectDir)\xsrc\pimoroni-pico\drivers\st7789;$(ProjectDir)\xsrc\pimoroni-pico\libraries\pico_display;$(ProjectDir)\xsrc\pimoroni-pico\libraries\pico_graphcis;$(ProjectDir)\xsrc\pimoroni-pico\libraries\pico_bitmap_fonts;$(ProjectDir)\xsrc\pimoroni-pico\libraries\pico_hershey_fonts;</IncPimoroniPico>
+	<IncPimoroni>$(ProjectDir)xsrc\pimoroni;$(ProjectDir)xsrc\pimoroni\common;$(ProjectDir)xsrc\pimoroni\drivers\rgbled;$(ProjectDir)xsrc\pimoroni\drivers\st7789;$(ProjectDir)xsrc\pimoroni\libraries\pico_display;$(ProjectDir)xsrc\pimoroni\libraries\pico_graphics;$(ProjectDir)xsrc\pimoroni\libraries\pico_bitmap_fonts;$(ProjectDir)xsrc\pimoroni\libraries\pico_hershey_fonts</IncPimoroni>
   </PropertyGroup>
 
   <PropertyGroup Label="UserMacros" />
@@ -75,7 +72,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(IncColonyCore);$(IncDocopt);$(IncFreertos);$(IncBspStm32F4);$(IncPicoSdk);$(IncPimoroniPico)%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IncColonyCore);$(IncDocopt);$(IncFreertos);$(IncBspStm32F4);$(IncPimoroni);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -90,7 +87,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(IncColonyCore);$(IncDocopt);$(IncFreertos);$(IncBspStm32F4);$(IncPicoSdk);$(IncPimoroniPico)%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IncColonyCore);$(IncDocopt);$(IncFreertos);$(IncBspStm32F4);$(IncPimoroni);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

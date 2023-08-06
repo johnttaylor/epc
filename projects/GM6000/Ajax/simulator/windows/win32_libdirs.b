@@ -8,5 +8,5 @@ src/Cpl/Io/File/_win32/_api
 src/Cpl/System/Win32/_realtime
 
 # Sockets
-#src/Cpl/Io/Socket
-#src/Cpl/Io/Socket/Win32
+src/Cpl/Io/Socket
+src/Cpl/Io/Socket/Win32

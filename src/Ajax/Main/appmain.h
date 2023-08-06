@@ -16,6 +16,8 @@
     for the Ajax application
  */
 
+#include "Ajax/Ui/PicoDisplay.h"        // FIXME: This header file (because it include pimoroni header files) MUST be first :(
+#include "colony_config.h"
 #include "Cpl/Io/Input.h"
 #include "Cpl/Io/Output.h"
 #include "Cpl/Container/Map.h"
@@ -50,10 +52,18 @@ int runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd );
  */
 extern Cpl::Container::Map<Cpl::TShell::Command>    g_cmdlist;
 
+/** Expose the Graphic library (to faciliate static screen creation)
+ */
+extern pimoroni::PicoGraphics_PenRGB332 g_graphics;
 
 /*
 ** Thread Priorities
 */
+
+/// Thread priority
+#ifndef OPTION_AJAX_MAIN_THREAD_PRIORITY_UI
+#define OPTION_AJAX_MAIN_THREAD_PRIORITY_UI             (CPL_SYSTEM_THREAD_PRIORITY_NORMAL +  (CPL_SYSTEM_THREAD_PRIORITY_RAISE) )
+#endif
 
 /// Thread priority
 #ifndef OPTION_AJAX_MAIN_THREAD_PRIORITY_CONSOLE
@@ -61,6 +71,13 @@ extern Cpl::Container::Map<Cpl::TShell::Command>    g_cmdlist;
 #endif
 
 
+/*
+** Magic values
+*/
+/// Minimum amount of time (in milliseconds) the splash screen is displayed
+#ifndef OPTION_AJAX_MAIN_MIN_SPLASH_TIME_MS
+#define OPTION_AJAX_MAIN_MIN_SPLASH_TIME_MS     (2*1000)
+#endif
 
 };      // end namespaces
 };

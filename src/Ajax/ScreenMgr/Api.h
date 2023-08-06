@@ -35,6 +35,13 @@
 #define OPTION_AJAX_SCREEN_MGR_TICK_TIME_MS     50
 #endif
 
+/** Size of the Navigation Stack.  The 'total depth' (from the User perspective)
+    is the stack is N+2 screen depth including the Home Screen
+ */
+#ifndef OPTION_AJAX_SCREEN_MGR_NAV_STACK_SIZE
+#define OPTION_AJAX_SCREEN_MGR_NAV_STACK_SIZE   3
+#endif
+
 /// 
 namespace Ajax {
 /// 

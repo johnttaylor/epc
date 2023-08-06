@@ -15,7 +15,7 @@
     This file contains the interface(s) that are application VARIANT specific
  */
 
- ///
+///
 namespace Ajax {
 ///
 namespace Main {
@@ -34,6 +34,10 @@ void appvariant_initializeModelPoints0();
     is called BEFORE the common application 'open' calls are made
  */
 void appvariant_open0();
+
+/** This method is use to launch the Application UI's home screen
+ */
+void appvariant_launchHomeScreen();
 
 /** This method is used to 'close' any Application variant specific objects.  
     It is called AFTER to the application 'close' calls
