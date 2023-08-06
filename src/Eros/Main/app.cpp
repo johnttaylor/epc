@@ -31,6 +31,11 @@ void Ajax::Main::appvariant_open0()
     // Nothing currently needed
 }
 
+void Ajax::Main::appvariant_launchHomeScreen()
+{
+    // TODO: FIXME mp::homeScrPtr.write( &homeScreen_ );
+}
+
 void Ajax::Main::appvariant_close0()
 {
     // Nothing currently needed

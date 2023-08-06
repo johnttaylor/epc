@@ -16,6 +16,7 @@
 
 using namespace Ajax::Main;
 
+
 /////////////////////////////
 void Ajax::Main::platform_initialize0()
 {

@@ -14,6 +14,7 @@
 
     This file contains the interface(s) that are platform VARIANT specific
  */
+#include "Driver/PicoDisplay/Api.h"
 
 ///
 namespace Ajax {
@@ -42,7 +43,6 @@ void platform_close0();
 /** This method is used to 'exit' the application'
  */
 int platform_exit( int exitCode );
-
 
 }       // end namespaces
 }
