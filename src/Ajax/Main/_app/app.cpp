@@ -24,13 +24,15 @@ static Ajax::Ui::Home::Screen homeScreen_( g_graphics );
 void Ajax::Main::appvariant_initialize0()
 {
     printf( "\nAJAX: appvariant_initialize0()\n" );
-
-    // Nothing currently needed
 }
 
 void Ajax::Main::appvariant_initializeModelPoints0()
 {
-    // Nothing currently needed
+    // Populate 'static' Model points
+    Cpl::Text::FString<OPTION_AJAX_MAX_VERSION_LENGTH> tmpVer;
+    tmpVer.format( "%s-%07lu", AJAX_SEMANTIC_VERSION_STR, BUILD_NUMBER );
+    mp::fwVersion.write( tmpVer );
+    mp::modelNumber.write( AJAX_MODEL_NUMBER_STR );
 }
 
 void Ajax::Main::appvariant_open0()

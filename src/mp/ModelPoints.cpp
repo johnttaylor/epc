@@ -28,3 +28,5 @@ ALLOC_INVALID( Ajax::ScreenMgr::MpStaticScreenApiPtr, errorScrPtr );
 ALLOC_INVALID( Ajax::ScreenMgr::MpScreenApiPtr, homeScrPtr );
 ALLOC_INVALID( Cpl::Dm::Mp::Bool, displaySleepTrigger );
 ALLOC_INVALID( Cpl::Dm::Mp::Uint32, uiEventQueueCount );
+ALLOC_INVALID( Cpl::Dm::Mp::String<OPTION_AJAX_MAX_VERSION_LENGTH>, fwVersion );
+ALLOC_INVALID( Cpl::Dm::Mp::String<OPTION_AJAX_MAX_MODEL_LENGTH>, modelNumber );
