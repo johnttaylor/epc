@@ -22,7 +22,8 @@
 
 # get definition of the Options structure
 from nqbplib.base import BuildValues
-from nqbplib.my_globals import NQBP_WORK_ROOT
+from nqbplib.my_globals import NQBP_PKG_ROOT
+import os
 
 #===================================================
 # BEGIN EDITS/CUSTOMIZATIONS
@@ -31,6 +32,14 @@ from nqbplib.my_globals import NQBP_WORK_ROOT
 # Set the name for the final output item
 FINAL_OUTPUT_NAME = 'eros-sim.exe'
 
+# Additional Header paths for PIMORONI supplied code
+pimoroni_src_path = os.path.join( NQBP_PKG_ROOT(), 'xsrc', 'pimoroni' )
+pimoroni_inc      = f' -I{pimoroni_src_path}' + \
+                    f' -I{os.path.join(pimoroni_src_path,"common")}' +\
+                    f' -I{os.path.join(pimoroni_src_path,"libraries","pico_display")}' +\
+                    f' -I{os.path.join(pimoroni_src_path,"libraries","pico_graphics")}' +\
+                    f' -I{os.path.join(pimoroni_src_path,"libraries","pico_bitmap_fonts")}' +\
+                    f' -I{os.path.join(pimoroni_src_path,"libraries","pico_hershey_fonts")}' 
 
 #
 # For build config/variant: "Release"
@@ -38,8 +47,11 @@ FINAL_OUTPUT_NAME = 'eros-sim.exe'
 
 # Set project specific 'base' (i.e always used) options
 base_release           = BuildValues()        # Do NOT comment out this line
-base_release.cflags    = '-m32 -std=c++11 -Wall -Werror -x c++'
-base_release.linkflags = '-m32'
+base_release.cflags    = f'-Wno-attributes -m32 -D__unused= -D__always_inline=__attribute__((always_inline)) -Wall -Werror -x c++'
+base_release.cppflags  = f'-std=gnu++17'
+base_release.inc       = f'{pimoroni_inc}'
+base_release.linkflags = '-m32 -fprofile-arcs'
+base_release.linklibs  = '-lws2_32'
 
 # Set project specific 'optimized' options
 optimzed_release           = BuildValues()    # Do NOT comment out this line

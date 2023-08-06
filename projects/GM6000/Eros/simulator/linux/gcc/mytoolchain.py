@@ -22,7 +22,8 @@
 
 # get definition of the Options structure
 from nqbplib.base import BuildValues
-from nqbplib.my_globals import NQBP_WORK_ROOT
+from nqbplib.my_globals import NQBP_PKG_ROOT
+import os
 
 #===================================================
 # BEGIN EDITS/CUSTOMIZATIONS
@@ -30,6 +31,16 @@ from nqbplib.my_globals import NQBP_WORK_ROOT
 
 # Set the name for the final output item
 FINAL_OUTPUT_NAME = 'eros-sim'
+
+# Additional Header paths for PIMORONI supplied code
+pimoroni_src_path = os.path.join( NQBP_PKG_ROOT(), 'xsrc', 'pimoroni' )
+pimoroni_inc      = f' -I{pimoroni_src_path}' + \
+                    f' -I{os.path.join(pimoroni_src_path,"common")}' +\
+                    f' -I{os.path.join(pimoroni_src_path,"libraries","pico_display")}' +\
+                    f' -I{os.path.join(pimoroni_src_path,"libraries","pico_graphics")}' +\
+                    f' -I{os.path.join(pimoroni_src_path,"libraries","pico_bitmap_fonts")}' +\
+                    f' -I{os.path.join(pimoroni_src_path,"libraries","pico_hershey_fonts")}' 
+
 
 #
 # For build config/variant: "Release" (aka posix build variant)
@@ -48,6 +59,8 @@ debug_posix64    = BuildValues()
 
 # Set project specific 'base' (i.e always used) options
 base_posix64.cflags    = '-m64 -std=c++11 -Wall -Werror -x c++'
+base_posix64.cppflags  = f'-std=gnu++17'
+base_posix64.inc       = f'{pimoroni_inc}'
 base_posix64.linkflags = '-m64'
 base_posix64.linklibs  = '-lpthread -lm'
 

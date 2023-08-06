@@ -8,5 +8,5 @@ src/Cpl/System/Posix/_realtime
 src/Cpl/Text/_mappings/_posix
 
 # Sockets
-#src/Cpl/Io/Socket
-#src/Cpl/Io/Socket/Posix
+src/Cpl/Io/Socket
+src/Cpl/Io/Socket/Posix
