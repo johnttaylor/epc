@@ -28,6 +28,7 @@ namespace Home {
 class Screen : public Ajax::ScreenMgr::ScreenApi
 {
 public:
+    /// Constructor
     Screen( pimoroni::PicoGraphics& graphics );
 
 public:

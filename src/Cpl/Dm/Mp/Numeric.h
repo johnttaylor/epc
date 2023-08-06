@@ -20,14 +20,19 @@
 #include "Cpl/Text/format.h"
 #include "Cpl/Text/FString.h"
 #include <string.h>
-
-// Hack to get around that NOT all compilers support the "%lld" notation for printf
 #include <stdint.h>
+
+/// Hack to get around that NOT all compilers support the "%lld" notation for printf
 #if INTPTR_MAX == INT32_MAX
+/// print format max integer
 #define PRINTF_SIZET_FMT    "%lx"
+/// type for max integer
 #define PRINTF_SIZET_TYPE   unsigned long
+
 #elif INTPTR_MAX == INT64_MAX
+/// print format max integer
 #define PRINTF_SIZET_FMT    "%llx"
+/// print format max integer
 #define PRINTF_SIZET_TYPE   unsigned long long
 #else
 #error "Environment not 32 or 64-bit."
