@@ -28,6 +28,7 @@ namespace Shutdown {
 class Screen : public Ajax::ScreenMgr::StaticScreenApi
 {
 public:
+    /// Constructor
     Screen( pimoroni::PicoGraphics& graphics );
 
 public:
