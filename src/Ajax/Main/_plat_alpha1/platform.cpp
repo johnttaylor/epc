@@ -13,6 +13,7 @@
 #include "Ajax/Main/platform.h"
 #include "app_platform.h"
 #include "Bsp/Api.h"
+#include "Driver/PicoDisplay/STM32/Api.h"
 #include <stdlib.h>
 
 using namespace Ajax::Main;
@@ -21,6 +22,7 @@ using namespace Ajax::Main;
 void Ajax::Main::platform_initialize0()
 {
     // Platform init...
+    Driver::PicoDisplay::STM32::initialize();
 
     appvariant_platform_initialize0();
 }
