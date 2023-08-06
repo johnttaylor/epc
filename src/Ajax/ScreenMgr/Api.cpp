@@ -234,7 +234,7 @@ void Api::eventQueueCountMp_changed( Cpl::Dm::Mp::Uint32& mp, Cpl::Dm::Subscribe
         {
             // Un-subscribe so I don't get change notifications when removing elements
             m_eventQueue.m_mpElementCount.detach( m_obEventQueueCountMP );
-            uint16_t finalSeqNum;
+            uint16_t finalSeqNum = 0;
 
             // Drain the event queue
             AjaxScreenMgrEvent_T event;
