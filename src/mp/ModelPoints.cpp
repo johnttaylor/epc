@@ -17,10 +17,16 @@
 #define ALLOC_INVALID( t, n )           t mp::n(  mp::g_modelDatabase, (#n) )
 
 /// Static allocate the MP database
-Cpl::Dm::ModelDatabase   mp::g_modelDatabase("ignoreThisParameter_usedToCreateAUniqueConstructor");
+Cpl::Dm::ModelDatabase   mp::g_modelDatabase( "ignoreThisParameter_usedToCreateAUniqueConstructor" );
 
 
 
 /*---------------------------------------------------------------------------*/
 
-ALLOC_INVALID( Cpl::Dm::Mp::Bool, bob );
+ALLOC_INVALID( Ajax::ScreenMgr::MpStaticScreenApiPtr, shutdownScrPtr );
+ALLOC_INVALID( Ajax::ScreenMgr::MpStaticScreenApiPtr, errorScrPtr );
+ALLOC_INVALID( Ajax::ScreenMgr::MpScreenApiPtr, homeScrPtr );
+ALLOC_INVALID( Cpl::Dm::Mp::Bool, displaySleepTrigger );
+ALLOC_INVALID( Cpl::Dm::Mp::Uint32, uiEventQueueCount );
+ALLOC_INVALID( Cpl::Dm::Mp::String<OPTION_AJAX_MAX_VERSION_LENGTH>, fwVersion );
+ALLOC_INVALID( Cpl::Dm::Mp::String<OPTION_AJAX_MAX_MODEL_LENGTH>, modelNumber );

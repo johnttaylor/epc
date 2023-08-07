@@ -10,10 +10,15 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
+#include "Ajax/Main/appmain.h"      // FIXME: Must be first (because of the pimoroni graphic library stuffs)
 #include "Ajax/Main/application.h"
+#include "Eros/Ui/Home/Screen.h"
+#include "mp/ModelPoints.h"
 #include <stdio.h>
 
 using namespace Ajax::Main;
+
+static Eros::Ui::Home::Screen homeScreen_( g_graphics );
 
 /////////////////////////////
 void Ajax::Main::appvariant_initialize0()
@@ -23,12 +28,21 @@ void Ajax::Main::appvariant_initialize0()
 
 void Ajax::Main::appvariant_initializeModelPoints0()
 {
-    // Nothing currently needed
+    // Populate 'static' Model points
+    Cpl::Text::FString<OPTION_AJAX_MAX_VERSION_LENGTH> tmpVer;
+    tmpVer.format( "%s-%07lu", EROS_SEMANTIC_VERSION_STR, BUILD_NUMBER );
+    mp::fwVersion.write( tmpVer );
+    mp::modelNumber.write( EROS_MODEL_NUMBER_STR );
 }
 
 void Ajax::Main::appvariant_open0()
 {
     // Nothing currently needed
+}
+
+void Ajax::Main::appvariant_launchHomeScreen()
+{
+    mp::homeScrPtr.write( &homeScreen_ );
 }
 
 void Ajax::Main::appvariant_close0()
