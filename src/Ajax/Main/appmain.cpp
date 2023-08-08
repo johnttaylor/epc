@@ -23,10 +23,11 @@
 #include "Cpl/Dm/TShell/Dm.h"
 #include "Cpl/TShell/Maker.h"
 #include "Cpl/TShell/Stdio.h"
-#include "Ajax/ScreenMgr/Api.h"
 #include "Ajax/Ui/Splash/Screen.h"
 #include "Ajax/Ui/Shutdown/Screen.h"
 #include "Ajax/Ui/Home/Screen.h"
+#include "Ajax/Ui/LogicalButtons.h"
+
 
 using namespace Ajax::Main;
 
@@ -52,16 +53,17 @@ static AjaxScreenMgrEvent_T                     memoryForUiEvents_[OPTION_AJAX_S
 static Cpl::Container::RingBufferMP<AjaxScreenMgrEvent_T> uiEventRingBuffer_( sizeof( memoryForUiEvents_ ) / sizeof( AjaxScreenMgrEvent_T ),
                                                                               memoryForUiEvents_,
                                                                               mp::uiEventQueueCount );
-static Ajax::ScreenMgr::Api             screenMgr_( uiMboxServer_,
-                                                    mp::homeScrPtr,
-                                                    mp::errorScrPtr,
-                                                    mp::displaySleepTrigger,
-                                                    mp::shutdownScrPtr,
-                                                    uiDisplay_,
-                                                    uiMemoryNavStack_,
-                                                    sizeof( uiMemoryNavStack_ ) / sizeof( Ajax::ScreenMgr::Api::NavigationElement ),
-                                                    uiEventRingBuffer_ );
-
+static Ajax::Ui::LogicalButtons        buttonEvents_( uiMboxServer_, uiEventRingBuffer_ );
+static Ajax::ScreenMgr::Api            screenMgr_( uiMboxServer_,
+                                                   mp::homeScrPtr,
+                                                   mp::errorScrPtr,
+                                                   mp::displaySleepTrigger,
+                                                   mp::shutdownScrPtr,
+                                                   uiDisplay_,
+                                                   uiMemoryNavStack_,
+                                                   sizeof( uiMemoryNavStack_ ) / sizeof( Ajax::ScreenMgr::Api::NavigationElement ),
+                                                   uiEventRingBuffer_ );
+extern Ajax::ScreenMgr::Navigation&   Ajax::Main::g_screenNav = screenMgr_;
 static Ajax::Ui::Splash::Screen   splashScreen_( g_graphics );
 static Ajax::Ui::Shutdown::Screen shutdownScreen_( g_graphics );
 
@@ -86,7 +88,10 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     uint32_t uiStartTime = Cpl::System::ElapsedTime::milliseconds();
 
     platform_open0();
+    
     appvariant_open0();
+
+    buttonEvents_.open();
 
     // Start the shell
     shell_.launch( infd, outfd );
@@ -110,9 +115,12 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     ** SHUTTING DOWN...
     */
     // close() calls are the reverse order of the open() calls
+    buttonEvents_.close();
+
     appvariant_close0();
+
     platform_close0();
-    
+
     // DELETE-ME: For testing to see the shutdown screen.
     Cpl::System::Api::sleep( 1000 );
 

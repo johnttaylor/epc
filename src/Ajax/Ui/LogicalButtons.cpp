@@ -48,16 +48,17 @@ void LogicalButtons::request( OpenMsg& msg )
         return;
     }
 
-    m_opened         = true;
-    m_state          = STATE_IDLE;
-    m_buttonAPressed = false;
-    m_buttonBPressed = false;
-    m_buttonXPressed = false;
-    m_buttonYPressed = false;
-    m_releaseEvent   = false;
-    m_pressedEvent   = false;
-    m_latchedKey     = AJAX_UI_EVENT_NO_EVENT;
-    m_delayCounter   = OPTION_AJAX_UI_LOGICAL_BUTTON_HOLD_COUNT;
+    m_opened             = true;
+    m_state              = STATE_IDLE;
+    m_buttonAPressed     = false;
+    m_buttonBPressed     = false;
+    m_buttonXPressed     = false;
+    m_buttonYPressed     = false;
+    m_releaseEvent       = false;
+    m_pressedEvent       = false;
+    m_latchedKey         = AJAX_UI_EVENT_NO_EVENT;
+    m_delayCounter       = OPTION_AJAX_UI_LOGICAL_BUTTON_HOLD_COUNT;
+    m_10HzDividerCounter = 0;
 
     Timer::start( OPTION_AJAX_UI_LOGICAL_BUTTON_POLLING_RATE_MS );
     msg.returnToSender();
@@ -136,6 +137,13 @@ void LogicalButtons::expired( void ) noexcept
         break;
     }
 
+    // 'Hack' to update the simulator's display time (see detailed design doc for more details) 
+    if ( ++m_10HzDividerCounter >= 10 )
+    {
+        m_10HzDividerCounter = 0;
+        Driver::PicoDisplay::Api::nop();
+    }
+
     // Restart the timer
     Timer::start( OPTION_AJAX_UI_LOGICAL_BUTTON_POLLING_RATE_MS );
 
@@ -168,7 +176,7 @@ AjaxUiEvent_T LogicalButtons::lookUpLogicalKey( bool pressedA, bool pressedB, bo
     case 0b0010: return AJAX_UI_EVENT_BUTTON_B;
     case 0b0100: return AJAX_UI_EVENT_BUTTON_X;
     case 0b1000: return AJAX_UI_EVENT_BUTTON_Y;
-    case 0b1010: m_isSingleKeyEvent = false;  return AJAX_UI_EVENT_BUTTON_BACK;
+    case 0b1010: m_isSingleKeyEvent = false;  return AJAX_UI_EVENT_BUTTON_ESC;
     default:
         return AJAX_UI_EVENT_NO_EVENT;
     }

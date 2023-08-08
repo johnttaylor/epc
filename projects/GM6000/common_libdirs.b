@@ -1,7 +1,9 @@
 # UI framework
 src/Ajax/ScreenMgr
+src/Ajax/Ui
 src/Ajax/Ui/Splash
 src/Ajax/Ui/Shutdown
+src/Driver/Button
 
 # persistent storage
 src/Cpl/Dm/Persistent

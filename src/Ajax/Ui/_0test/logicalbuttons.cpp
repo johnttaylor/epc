@@ -83,6 +83,11 @@ Driver::Button::PolledDebounced& Driver::PicoDisplay::Api::buttonY() noexcept
 {
     return buttonY_;
 }
+static unsigned nopCounter_;
+void Driver::PicoDisplay::Api::nop() 
+{
+    nopCounter_++;
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -149,7 +154,14 @@ TEST_CASE( "LogicalButtons" )
         REQUIRE( mp_eventBuffferCount.read( eventCount ) );
         REQUIRE( eventCount == 1 );
         REQUIRE( eventRingBuffer_.remove( event ) );
-        REQUIRE( event == AJAX_UI_EVENT_BUTTON_BACK );
+        REQUIRE( event == AJAX_UI_EVENT_BUTTON_ESC );
+
+        // NOP test
+        nopCounter_ = 0;
+        Cpl::System::SimTick::advance( OPTION_AJAX_UI_LOGICAL_BUTTON_POLLING_RATE_MS * 25 );
+        REQUIRE( nopCounter_ == 2 );
+        Cpl::System::SimTick::advance( OPTION_AJAX_UI_LOGICAL_BUTTON_POLLING_RATE_MS * 5);
+        REQUIRE( nopCounter_ == 3 );
 
         // Stop
         // NOTE: close() is NOT called on purpose because it result in deadlock when using simulated.  

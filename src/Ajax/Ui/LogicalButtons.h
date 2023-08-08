@@ -99,6 +99,9 @@ protected:
     /// The current detected key event
     AjaxUiEvent_T m_latchedKey;
 
+    /// Divider to 10Hz 
+    unsigned    m_10HzDividerCounter;
+
     /// Track when the button has been pressed
     bool        m_buttonAPressed;
     

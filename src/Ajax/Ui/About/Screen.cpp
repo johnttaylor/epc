@@ -11,8 +11,11 @@
 /** @file */
 
 #include "Screen.h"
+#include "Cpl/System/Trace.h"
 
-using namespace Eros::Ui::Home;
+#define SECT_ "Ajax::Ui::About"
+
+using namespace Ajax::Ui::About;
 
 #define X0_TITLE                    90
 #define Y0_TITLE                    4
@@ -30,8 +33,8 @@ using namespace Eros::Ui::Home;
 #define ROW_HEIGHT                  (TEXT_HEIGHT+8)
 
 
-#define SET_PEN_BACKGROUND()        m_graphics.set_pen( 255, 0, 0 );        // red
-#define SET_PEN_TEXT()              m_graphics.set_pen( 255, 255, 255  );   // white
+#define SET_PEN_BACKGROUND()        m_graphics.set_pen( 255, 255, 255 );    // white
+#define SET_PEN_TEXT()              m_graphics.set_pen( 0, 0, 0  );         // black
 
 ///////////////////////////
 Screen::Screen( Ajax::ScreenMgr::Navigation&    screenMgr,
@@ -62,7 +65,10 @@ void Screen::wake( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) no
 
 void Screen::dispatch( AjaxScreenMgrEvent_T event, Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
 {
-    // TODO
+    if ( event == AJAX_UI_EVENT_BUTTON_A || event == AJAX_UI_EVENT_BUTTON_X )
+    {
+        m_screenMgr.pop();
+    }
 }
 
 void Screen::tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
@@ -79,3 +85,4 @@ bool Screen::refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime )
     m_graphics.clear();
     return true;
 }
+ 

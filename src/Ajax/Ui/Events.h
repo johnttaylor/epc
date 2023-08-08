@@ -25,7 +25,7 @@ enum AjaxUiEvent_T
     AJAX_UI_EVENT_BUTTON_B,       //!< Bottom left button
     AJAX_UI_EVENT_BUTTON_X,       //!< Top right button
     AJAX_UI_EVENT_BUTTON_Y,       //!< Bottom right button
-    AJAX_UI_EVENT_BUTTON_BACK,    //!< The two bottom buttons pressed together
+    AJAX_UI_EVENT_BUTTON_ESC,     //!< The two bottom buttons pressed together
     AJAX_UI_EVENT_NO_EVENT        //!< No/null/nop event
 };
 

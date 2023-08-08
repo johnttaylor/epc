@@ -1,5 +1,5 @@
-#ifndef Eros_Ui_Home_Screen_h_
-#define Eros_Ui_Home_Screen_h_
+#ifndef Ajax_Ui_About_Screen_h_
+#define Ajax_Ui_About_Screen_h_
 /*-----------------------------------------------------------------------------
 * This file is part of the Colony.Core Project.  The Colony.Core Project is an
 * open source project with a BSD type of licensing agreement.  See the license
@@ -14,23 +14,23 @@
 
 #include "pimoroni/libraries/pico_graphics/pico_graphics.hpp"
 #include "Ajax/ScreenMgr/ScreenApi.h"
-#include "Ajax/ScreenMgr/Navigation.h"
+#include "Ajax/ScreenMgr/Api.h"
 
 /// 
-namespace Eros {
+namespace Ajax {
 /// 
 namespace Ui {
 /// 
-namespace Home {
+namespace About {
 
 
-/** This class implements the Home screen
+/** This class implements the About screen
  */
 class Screen : public Ajax::ScreenMgr::ScreenApi
 {
 public:
     /// Constructor
-    Screen( Ajax::ScreenMgr::Navigation&    screenMgr, 
+    Screen( Ajax::ScreenMgr::Navigation&    screenMgr,
             pimoroni::PicoGraphics&         graphics );
 
 public:

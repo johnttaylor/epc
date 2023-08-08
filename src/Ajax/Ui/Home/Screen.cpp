@@ -11,6 +11,7 @@
 /** @file */
 
 #include "Screen.h"
+#include "Ajax/Main/screens.h"
 
 using namespace Ajax::Ui::Home;
 
@@ -34,8 +35,10 @@ using namespace Ajax::Ui::Home;
 #define SET_PEN_TEXT()              m_graphics.set_pen( 0, 255, 0  );   // green
 
 ///////////////////////////
-Screen::Screen( pimoroni::PicoGraphics& graphics )
-    :m_graphics( graphics )
+Screen::Screen( Ajax::ScreenMgr::Navigation&    screenMgr,
+                pimoroni::PicoGraphics&         graphics )
+    : m_screenMgr( screenMgr )
+    , m_graphics( graphics )
 {
 }
 
@@ -60,7 +63,12 @@ void Screen::wake( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) no
 
 void Screen::dispatch( AjaxScreenMgrEvent_T event, Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
 {
-    // TODO
+    // TODO - real implementation
+
+    if ( event == AJAX_UI_EVENT_BUTTON_ESC )
+    {
+        m_screenMgr.push( Ajax::Main::g_aboutScreen_ );
+    }
 }
 
 void Screen::tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
