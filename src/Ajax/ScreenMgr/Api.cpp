@@ -153,9 +153,12 @@ void Api::homeScreenMp_changed( MpScreenApiPtr& mp, Cpl::Dm::SubscriberApi& clie
             bool dirty = m_curScreenHdl->refresh( now );
 
             // Update the physical display
-            if ( dirty && !m_display.update() )
+            if ( dirty )
             {
-                CPL_SYSTEM_TRACE_MSG( SECT_, ("homeScreenMp_changed.m_display.update() FAILED.") );
+                if ( !m_display.update() )
+                {
+                    CPL_SYSTEM_TRACE_MSG( SECT_, ("homeScreenMp_changed.m_display.update() FAILED.") );
+                }
             }
             m_timer.start( OPTION_AJAX_SCREEN_MGR_TICK_TIME_MS );
         }
@@ -318,9 +321,12 @@ void Api::push( ScreenApi & newScreen ) noexcept
         m_curScreenHdl = &newScreen;
         m_curScreenHdl->enter( now );
         bool dirty = m_curScreenHdl->refresh( now );
-        if ( dirty && !m_display.update() )
+        if ( dirty )
         {
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("push.m_display.update() FAILED.") );
+            if ( !m_display.update() )
+            {
+                CPL_SYSTEM_TRACE_MSG( SECT_, ("push.m_display.update() FAILED.") );
+            }
         }
     }
 }
@@ -352,9 +358,12 @@ void Api::pop( unsigned count ) noexcept
         m_curScreenHdl = stackEmpty ? m_homeScreenHdl : poppedElem->m_screenPtr;
         m_curScreenHdl->enter( now );
         bool dirty = m_curScreenHdl->refresh( now );
-        if ( dirty && !m_display.update() )
+        if ( dirty )
         {
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("pop.m_display.update() FAILED.") );
+            if ( !m_display.update() )
+            {
+                CPL_SYSTEM_TRACE_MSG( SECT_, ("pop.m_display.update() FAILED.") );
+            }
         }
     }
 }
@@ -390,9 +399,12 @@ void Api::popTo( ScreenApi & returnToScreen ) noexcept
         m_curScreenHdl = stackEmpty ? m_homeScreenHdl : poppedElem->m_screenPtr;
         m_curScreenHdl->enter( now );
         bool dirty = m_curScreenHdl->refresh( now );
-        if ( dirty && !m_display.update() )
+        if ( dirty )
         {
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("popTo.m_display.update() FAILED.") );
+            if ( !m_display.update() )
+            {
+                CPL_SYSTEM_TRACE_MSG( SECT_, ("popTo.m_display.update() FAILED.") );
+            }
         }
     }
 }
@@ -415,9 +427,12 @@ void Api::popToHome() noexcept
         m_curScreenHdl = m_homeScreenHdl;
         m_curScreenHdl->enter( now );
         bool dirty = m_curScreenHdl->refresh( now );
-        if ( dirty && !m_display.update() )
+        if ( dirty )
         {
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("popToHome.m_display.update() FAILED.") );
+            if ( !m_display.update() )
+            {
+                CPL_SYSTEM_TRACE_MSG( SECT_, ("popToHome.m_display.update() FAILED.") );
+            }
         }
     }
 }
