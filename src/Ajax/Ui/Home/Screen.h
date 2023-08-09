@@ -14,6 +14,7 @@
 
 #include "pimoroni/libraries/pico_graphics/pico_graphics.hpp"
 #include "Ajax/ScreenMgr/ScreenApi.h"
+#include "Ajax/ScreenMgr/Api.h"
 
 /// 
 namespace Ajax {
@@ -29,7 +30,8 @@ class Screen : public Ajax::ScreenMgr::ScreenApi
 {
 public:
     /// Constructor
-    Screen( pimoroni::PicoGraphics& graphics );
+    Screen( Ajax::ScreenMgr::Navigation&  screenMgr,
+            pimoroni::PicoGraphics&       graphics );
 
 public:
     /// See Ajax::ScreenMgr::ScreenApi
@@ -54,8 +56,11 @@ public:
     bool refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept;
 
 protected:
+    /// Handle to the screen manager
+    Ajax::ScreenMgr::Navigation&    m_screenMgr;
+
     /// Graphic library handle
-    pimoroni::PicoGraphics& m_graphics;
+    pimoroni::PicoGraphics&         m_graphics;
 };
 
 }       // end namespaces

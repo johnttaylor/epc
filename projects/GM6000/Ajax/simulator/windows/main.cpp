@@ -1,6 +1,7 @@
 #include "Ajax/Main/appmain.h"
 #include "Ajax/Main/_plat_simulator/platform.h"
 #include "Cpl/System/Api.h"
+#include "Cpl/System/Trace.h"
 #include "Cpl/TShell/Cmd/Win32/Threads.h"
 #include "Cpl/Io/Stdio/StdIn.h"
 #include "Cpl/Io/Stdio/StdOut.h"
@@ -64,6 +65,10 @@ int main( int argc, char* const argv[] )
     // Set the title for the Simulation window
     Cpl::System::Api::sleep( 100 ); // Allow time for the TPipe thread to spin up
     Driver::PicoDisplay::TPipe::tpipe().sendCommand( TITLE_COMMAND, strlen( TITLE_COMMAND ) );
+
+    // Default tracing on
+    CPL_SYSTEM_TRACE_ENABLE();
+    CPL_SYSTEM_TRACE_ENABLE_SECTION( "*Ajax" );
 
     // Run the application
     return runTheApplication( infd_, outfd_ );
