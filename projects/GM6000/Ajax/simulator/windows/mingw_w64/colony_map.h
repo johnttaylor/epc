@@ -7,8 +7,7 @@
 // HAL mappings
 #include "Driver/Button/TPipe/mappings_.h"
 
-// TODO: Fix-me - UI Event type
-#define AjaxScreenMgrEvent_T_MAP        uint32_t
-
+#include "Ajax/Ui/Events.h"
+#define AjaxScreenMgrEvent_T_MAP        AjaxUiEvent_T
 
 #endif
