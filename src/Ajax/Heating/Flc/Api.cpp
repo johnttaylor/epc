@@ -10,7 +10,8 @@
 *----------------------------------------------------------------------------*/
 
 #include "Api.h"
- 
+#include "Ajax/Logging/Api.h"
+
 using namespace Ajax::Heating::Flc;
 
 
@@ -176,7 +177,9 @@ int32_t Api::defuzz( const int32_t outVector[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_
     // Do nothing if the denominator is zero (it should never be zero, but...)
     if ( denominator == 0 )
     {
-        // TODO: Log the failure, throw an alert, something...
+        // Log the failure, 
+        // TODO: throw an alert, something?
+        Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DIVIDE_BY_ZERO, "FLC: denominator in the defuzz() calculation was zero" );
         return 0;
     }
 
