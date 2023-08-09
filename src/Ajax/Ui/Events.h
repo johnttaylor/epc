@@ -12,7 +12,7 @@
 *----------------------------------------------------------------------------*/
 /** @file 
 
-    NOTE: This file can only contain valid C code since it will be #include
+    NOTE: This file can only contain valid C code since it will be included
           via the colony_map.h LHeader pattern
 */
 
