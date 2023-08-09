@@ -23,7 +23,7 @@ namespace Eros {
 namespace Main {
 
 /// Home Screen
-extern Ajax::Ui::Home::Screen g_homeScreen_;
+extern Eros::Ui::Home::Screen g_homeScreen;
 
 
 }       // end namespaces

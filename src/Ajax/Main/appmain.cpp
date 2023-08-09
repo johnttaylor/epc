@@ -63,7 +63,7 @@ static Ajax::ScreenMgr::Api            screenMgr_( uiMboxServer_,
                                                    uiMemoryNavStack_,
                                                    sizeof( uiMemoryNavStack_ ) / sizeof( Ajax::ScreenMgr::Api::NavigationElement ),
                                                    uiEventRingBuffer_ );
-extern Ajax::ScreenMgr::Navigation&   Ajax::Main::g_screenNav = screenMgr_;
+Ajax::ScreenMgr::Navigation&      Ajax::Main::g_screenNav = screenMgr_;
 static Ajax::Ui::Splash::Screen   splashScreen_( g_graphics );
 static Ajax::Ui::Shutdown::Screen shutdownScreen_( g_graphics );
 
