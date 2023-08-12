@@ -5,6 +5,9 @@ src/Ajax/Ui/Splash
 src/Ajax/Ui/Shutdown
 src/Driver/Button
 
+# application stuffs
+src/Ajax/Logging
+
 # persistent storage
 src/Cpl/Dm/Persistent
 src/Cpl/Persistent
@@ -15,6 +18,7 @@ src/Cpl/Text/Tokenizer
 src/Cpl/Memory
 src/Cpl/Container
 src/Cpl/Checksum
+src/Cpl/Logging
 src/Cpl/Text
 src/Cpl/Io
 src/Cpl/Dm
