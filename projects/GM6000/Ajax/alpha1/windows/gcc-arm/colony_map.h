@@ -8,8 +8,8 @@
 // strapi mapping
 #include "Cpl/Text/_mappings/_arm_gcc_stm32/strapi.h"
 
-// TODO: Fix-me - UI Event type
-#define AjaxScreenMgrEvent_T_MAP        uint32_t
+#include "Ajax/Ui/Events.h"
+#define AjaxScreenMgrEvent_T_MAP        AjaxUiEvent_T
 
 // My BSP
 #include "Bsp/Initech/alpha1/Api.h"

@@ -5,6 +5,6 @@
 ////////////////////////////////////////////////
 
 #define USE_PICO_SKETCH_RGB565
-
+#define USE_CPL_SYSTEM_TRACE
 
 #endif

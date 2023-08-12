@@ -152,7 +152,7 @@ void Api::homeScreenMp_changed( MpScreenApiPtr& mp, Cpl::Dm::SubscriberApi& clie
             bool dirty = m_curScreenHdl->refresh( now );
 
             // Update the physical display
-            if ( dirty && !m_display.update() )
+            if ( dirty )
             {
                 Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "PicoDisplay update() failed" );
             }
@@ -317,9 +317,9 @@ void Api::push( ScreenApi & newScreen ) noexcept
         m_curScreenHdl = &newScreen;
         m_curScreenHdl->enter( now );
         bool dirty = m_curScreenHdl->refresh( now );
-        if ( dirty && !m_display.update() )
+        if ( dirty )
         {
-            Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "PicoDisplay update() failed" );
+            CPL_SYSTEM_TRACE_MSG( SECT_, ("push.m_display.update() FAILED.") );
         }
     }
 }
@@ -353,7 +353,7 @@ void Api::pop( unsigned count ) noexcept
         bool dirty = m_curScreenHdl->refresh( now );
         if ( dirty && !m_display.update() )
         {
-            Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "PicoDisplay update() failed" );
+            CPL_SYSTEM_TRACE_MSG( SECT_, ("pop.m_display.update() FAILED.") );
         }
     }
 }
@@ -391,7 +391,7 @@ void Api::popTo( ScreenApi & returnToScreen ) noexcept
         bool dirty = m_curScreenHdl->refresh( now );
         if ( dirty && !m_display.update() )
         {
-            Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "PicoDisplay update() failed" );
+            CPL_SYSTEM_TRACE_MSG( SECT_, ("popTo.m_display.update() FAILED.") );
         }
     }
 }
@@ -416,7 +416,7 @@ void Api::popToHome() noexcept
         bool dirty = m_curScreenHdl->refresh( now );
         if ( dirty && !m_display.update() )
         {
-            Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "PicoDisplay update() failed" );
+            CPL_SYSTEM_TRACE_MSG( SECT_, ("popToHome.m_display.update() FAILED.") );
         }
     }
 }
