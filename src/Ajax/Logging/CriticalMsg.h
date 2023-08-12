@@ -28,10 +28,12 @@ namespace Logging {
 
     @param DRIVER                           An unrecoverable driver error occurred
     @param DIVIDE_BY_ZERO                   Calculation was aborted because the denominator was zero
+    @param UX_ERROR                         An error occurred that prevented proper operation of the Display and/or user buttons
  */
 BETTER_ENUM( CriticalMsg, uint16_t
              , DRIVER
              , DIVIDE_BY_ZERO
+             , UX_ERROR
 );
 
 
