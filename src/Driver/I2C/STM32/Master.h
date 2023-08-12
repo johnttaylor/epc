@@ -1,0 +1,87 @@
+#ifndef Driver_I2C_STM32_Master_h_
+#define Driver_I2C_STM32_Master_h_
+/*-----------------------------------------------------------------------------
+* This file is part of the Colony.Core Project.  The Colony.Core Project is an
+* open source project with a BSD type of licensing agreement.  See the license
+* agreement (license.txt) in the top/ directory or on the Internet at
+* http://integerfox.com/colony.core/license.txt
+*
+* Copyright (c) 2014-2022  John T. Taylor
+*
+* Redistributions of the source code must retain the above copyright notice.
+*----------------------------------------------------------------------------*/
+/** @file */
+
+
+#include "Driver/I2C/Master.h"
+#include "Bsp/Api.h"    // Pull's in the ST HAL APIs
+
+///
+namespace Driver {
+///
+namespace I2C {
+///
+namespace STM32 {
+
+
+/** This class implements the I2C interface for the STM32 family of
+    micro-controller using the ST's MX Cube/IDE to configure the SPI peripherals
+    and IO pins
+
+    NOTE: Currently (8/2023) the 'noStop' semantics of the write/read methods
+          is NOT supported.
+ */
+class Master : public Driver::I2C::Master
+{
+public:
+    /** Constructor.
+
+        The 'i2cInstance' MUST have already been initialize, i.e. the low
+        level MX_I2Cx_Init() from the ST HAL APIs has been called
+
+        TODO: Add support for configuring the I2C interface WITHOUT using
+              ST's MX tools.
+     */
+    Master( I2C_HandleTypeDef* i2cInstance,
+            uint32_t           timeoutMs = 50 );    // Default timeout is 50ms
+
+
+public:
+    /// See Driver::I2C::Master
+    bool start( size_t newBaudRateHz = 0 ) noexcept;
+
+    /// See Driver::I2C::Master
+    void stop() noexcept;
+
+    /// See Driver::I2C::Master
+    Result_T  writeToDevice( uint8_t        device7BitAddress,
+                             size_t         numBytesToTransmit,
+                             const void*    srcData,
+                             bool           noStop = false ) noexcept;
+
+    /// See Driver::I2C::Master
+    Result_T readFromDevice( uint8_t   device7BitAddress,
+                             size_t    numBytesToRead,
+                             void*     dstData,
+                             bool      noStop = false );
+
+
+protected:
+
+    /// Handle the low-level ST HAL driver instance
+    I2C_HandleTypeDef*  m_i2cDevice;
+
+    /// Timeout period for a SPI transaction
+    uintptr_t           m_timeout;
+
+    /// Track my started state
+    bool                m_started;
+};
+
+
+
+
+};      // end namespaces
+};
+};
+#endif  // end header latch
