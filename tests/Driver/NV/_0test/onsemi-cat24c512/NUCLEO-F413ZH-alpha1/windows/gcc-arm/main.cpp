@@ -10,7 +10,7 @@
 
 
 #ifndef OPTION_I2C_DEV_ADDRESS
-#define OPTION_I2C_DEV_ADDRESS  0x50
+#define OPTION_I2C_DEV_ADDRESS  (0x50<<1)
 #endif
 
 static Driver::I2C::STM32::Master           i2cDriver_( &hi2c2 );

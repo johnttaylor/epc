@@ -34,13 +34,13 @@ void Bsp_Api_initialize( void )
     SystemClock_Config();
 
     /* Initialize all configured peripherals */
+    MX_I2C2_Init();
     MX_GPIO_Init();
     MX_SPI1_Init();
     MX_TIM4_Init();   // PWM channels
     MX_TIM10_Init();  // PWM channels
     MX_TIM11_Init();  // PWM channels
     MX_USART3_UART_Init();
-    MX_I2C2_Init();
 
     // Initialize System View (asap after the basic board initialization has completed)
     INIT_SEGGER_SYSVIEW();
