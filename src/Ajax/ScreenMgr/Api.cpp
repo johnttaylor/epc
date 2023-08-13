@@ -10,13 +10,12 @@
 *----------------------------------------------------------------------------*/
 
 #include "Api.h"
-#include "Cpl/System/Trace.h"
+#include "Ajax/Logging/Api.h"
 
-#define SECT_ "Ajax::ScreenMgr::Api"
 
 using namespace Ajax::ScreenMgr;
 
- 
+
 
 /////////////////////////////////////////////////////////////////////////////
 Api::Api( Cpl::Dm::MailboxServer& uiMbox,
@@ -59,7 +58,7 @@ void Api::request( OpenMsg& msg )
 
     if ( m_opened )
     {
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("open() called when already opened") );
+        Ajax::Logging::logf( Ajax::Logging::WarningMsg::OPEN_CLOSE, "open: Ajax::ScreenMgr::Api");
         msg.returnToSender();
         return;
     }
@@ -69,7 +68,7 @@ void Api::request( OpenMsg& msg )
     CPL_SYSTEM_ASSERT( splash );
     if ( !m_display.start() )
     {
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("m_display.start() FAILED.") );
+        Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "Ajax::ScreenMgr::Api - PicoDisplay driver failed to start" );
         msg.getPayload().m_success = false;
         msg.returnToSender();
         return;
@@ -77,7 +76,7 @@ void Api::request( OpenMsg& msg )
     splash->paint( Cpl::System::ElapsedTime::precision() );
     if ( !m_display.update() )
     {
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("m_display.update() FAILED.") );
+        Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "Ajax::ScreenMgr::Api - PicoDisplay update() failed" );
         msg.getPayload().m_success = false;
         msg.returnToSender();
         return;
@@ -105,7 +104,7 @@ void Api::request( CloseMsg& msg )
 {
     if ( !m_opened )
     {
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("close() called when already closed") );
+        Ajax::Logging::logf( Ajax::Logging::WarningMsg::OPEN_CLOSE, "close: Ajax::ScreenMgr::Api" );
         msg.returnToSender();
         return;
     }
@@ -157,7 +156,7 @@ void Api::homeScreenMp_changed( MpScreenApiPtr& mp, Cpl::Dm::SubscriberApi& clie
             {
                 if ( !m_display.update() )
                 {
-                    CPL_SYSTEM_TRACE_MSG( SECT_, ("homeScreenMp_changed.m_display.update() FAILED.") );
+                    Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "PicoDisplay update() failed" );
                 }
             }
             m_timer.start( OPTION_AJAX_SCREEN_MGR_TICK_TIME_MS );
@@ -168,7 +167,7 @@ void Api::homeScreenMp_changed( MpScreenApiPtr& mp, Cpl::Dm::SubscriberApi& clie
 void Api::haltUiMp_changed( MpStaticScreenApiPtr& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept
 {
     StaticScreenApi* haltPtr;
-    if ( mp.readAndSync( haltPtr, clientObserver ) && haltPtr != nullptr  )
+    if ( mp.readAndSync( haltPtr, clientObserver ) && haltPtr != nullptr )
     {
         // Transition to the shutting down screen
         Cpl::System::ElapsedTime::Precision_T now = Cpl::System::ElapsedTime::precision();
@@ -180,7 +179,7 @@ void Api::haltUiMp_changed( MpStaticScreenApiPtr& mp, Cpl::Dm::SubscriberApi& cl
         m_curScreenHdl = nullptr;
         if ( !m_display.update() )
         {
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("haltUiMp_changed.m_display.update() FAILED.") );
+            Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "PicoDisplay update() failed" );
         }
     }
 }
@@ -194,14 +193,14 @@ void Api::sleepRequestMp_changed( Cpl::Dm::Mp::Bool& mp, Cpl::Dm::SubscriberApi&
         {
             if ( !m_display.turnOff() )
             {
-                CPL_SYSTEM_TRACE_MSG( SECT_, ("m_display.turnOff() FAILED.") );
+                Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "PicoDisplay turnOff() failed" );
             }
         }
         else
         {
             if ( !m_display.turnOn() )
             {
-                CPL_SYSTEM_TRACE_MSG( SECT_, ("m_display.turnOn() FAILED.") );
+                Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "PicoDisplay turnOn() failed" );
             }
         }
     }
@@ -222,7 +221,7 @@ void Api::shutdownMp_changed( MpStaticScreenApiPtr& mp, Cpl::Dm::SubscriberApi& 
         m_curScreenHdl = nullptr;
         if ( !m_display.update() )
         {
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("shutdownMp_changed.m_display.update() FAILED.") );
+            Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "PicoDisplay update() failed" );
         }
     }
 }
@@ -306,7 +305,7 @@ void Api::push( ScreenApi & newScreen ) noexcept
             NavigationElement* freeElem = m_freeStackMemoryList.get();
             if ( freeElem == nullptr )
             {
-                CPL_SYSTEM_TRACE_MSG( SECT_, ("push() failed due to lack of free memory") );
+                Ajax::Logging::logf( Ajax::Logging::WarningMsg::OUT_OF_MEMORY, "Ui::Navigation.push() failed" );
                 popToHome();
                 return;
             }
@@ -324,8 +323,9 @@ void Api::push( ScreenApi & newScreen ) noexcept
         if ( dirty )
         {
             if ( !m_display.update() )
+
             {
-                CPL_SYSTEM_TRACE_MSG( SECT_, ("push.m_display.update() FAILED.") );
+                Ajax::Logging::logf( Ajax::Logging::CriticalMsg::UX_ERROR, "push.m_display.update() failed" );
             }
         }
     }
@@ -358,11 +358,11 @@ void Api::pop( unsigned count ) noexcept
         m_curScreenHdl = stackEmpty ? m_homeScreenHdl : poppedElem->m_screenPtr;
         m_curScreenHdl->enter( now );
         bool dirty = m_curScreenHdl->refresh( now );
-        if ( dirty )
+        if ( dirty && !m_display.update() )
         {
             if ( !m_display.update() )
             {
-                CPL_SYSTEM_TRACE_MSG( SECT_, ("pop.m_display.update() FAILED.") );
+                Ajax::Logging::logf( Ajax::Logging::CriticalMsg::UX_ERROR, "pop.m_display.update() failed" );
             }
         }
     }
@@ -399,11 +399,11 @@ void Api::popTo( ScreenApi & returnToScreen ) noexcept
         m_curScreenHdl = stackEmpty ? m_homeScreenHdl : poppedElem->m_screenPtr;
         m_curScreenHdl->enter( now );
         bool dirty = m_curScreenHdl->refresh( now );
-        if ( dirty )
+        if ( dirty && !m_display.update() )
         {
             if ( !m_display.update() )
             {
-                CPL_SYSTEM_TRACE_MSG( SECT_, ("popTo.m_display.update() FAILED.") );
+                Ajax::Logging::logf( Ajax::Logging::CriticalMsg::UX_ERROR, "popTo.m_display.update() failed" );
             }
         }
     }
@@ -427,11 +427,11 @@ void Api::popToHome() noexcept
         m_curScreenHdl = m_homeScreenHdl;
         m_curScreenHdl->enter( now );
         bool dirty = m_curScreenHdl->refresh( now );
-        if ( dirty )
+        if ( dirty && !m_display.update() )
         {
             if ( !m_display.update() )
             {
-                CPL_SYSTEM_TRACE_MSG( SECT_, ("popToHome.m_display.update() FAILED.") );
+                Ajax::Logging::logf( Ajax::Logging::CriticalMsg::UX_ERROR, "popToHome.m_display.update() failed" );
             }
         }
     }

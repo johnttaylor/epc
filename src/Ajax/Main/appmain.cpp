@@ -27,6 +27,7 @@
 #include "Ajax/Ui/Shutdown/Screen.h"
 #include "Ajax/Ui/Home/Screen.h"
 #include "Ajax/Ui/LogicalButtons.h"
+#include "Cpl/System/Trace.h"
 
 
 using namespace Ajax::Main;
@@ -71,6 +72,15 @@ static Ajax::Ui::Shutdown::Screen shutdownScreen_( g_graphics );
 /////////////////////////////
 int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd )
 {
+    /// DELETE-ME.  For debugging during development
+    CPL_SYSTEM_TRACE_ENABLE();
+    CPL_SYSTEM_TRACE_ENABLE_SECTION( "CRITICAL" );  // Enable trace for the log statements
+    CPL_SYSTEM_TRACE_ENABLE_SECTION( "WARNING" );
+    CPL_SYSTEM_TRACE_ENABLE_SECTION( "ALERT" );
+    CPL_SYSTEM_TRACE_ENABLE_SECTION( "EVENT" );
+    CPL_SYSTEM_TRACE_ENABLE_SECTION( "INFO" );
+    CPL_SYSTEM_TRACE_ENABLE_SECTION( "METRICS" );
+
     /*
     ** STARTING UP...
     */
