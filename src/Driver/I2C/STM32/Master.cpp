@@ -76,7 +76,8 @@ Master::Result_T  Master::writeToDevice( uint8_t        device7BitAddress,
     
     if ( m_started )
     {
-        HAL_StatusTypeDef r = HAL_I2C_Master_Transmit( m_i2cDevice, device7BitAddress, (uint8_t*) srcData, (uint16_t) numBytesToTransmit, m_timeout );
+        // Note: Left shift the 7bit address so it is 'properly' align for the I2C peripheral 
+        HAL_StatusTypeDef r = HAL_I2C_Master_Transmit( m_i2cDevice, device7BitAddress<<1, (uint8_t*) srcData, (uint16_t) numBytesToTransmit, m_timeout );
         return convertHALErrorCode( r );
     }
     
@@ -92,7 +93,8 @@ Master::Result_T Master::readFromDevice( uint8_t   device7BitAddress,
 
     if ( m_started )
     {
-        HAL_StatusTypeDef r = HAL_I2C_Master_Receive( m_i2cDevice, device7BitAddress, (uint8_t*) dstData, (uint16_t) numBytesToRead, m_timeout );
+        // Note: Left shift the 7bit address so it is 'properly' align for the I2C peripheral 
+        HAL_StatusTypeDef r = HAL_I2C_Master_Receive( m_i2cDevice, device7BitAddress<<1, (uint8_t*) dstData, (uint16_t) numBytesToRead, m_timeout );
         return convertHALErrorCode( r );
     }
 

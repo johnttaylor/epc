@@ -33,14 +33,10 @@ void Bsp_Api_initialize( void )
     SystemClock_Config();
 
     /* Initialize all configured peripherals */
-    MX_I2C2_Init();
     MX_GPIO_Init();
     MX_TIM4_Init();
     MX_USART3_UART_Init();
-
-    //__HAL_RCC_I2C2_FORCE_RESET();
-    //HAL_Delay( 1000 );
-    //__HAL_RCC_I2C2_RELEASE_RESET();
+    MX_I2C2_Init();
 
     // Initialize System View (asap after the basic board initialization has completed)
     INIT_SEGGER_SYSVIEW();

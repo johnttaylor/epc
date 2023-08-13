@@ -20,6 +20,16 @@
 #include "colony_config.h"
 
 
+/// Maximum heating setpoint in hundreds of degrees Fahrenheit
+#ifndef OPTION_JAX_MAX_HEATING_SETPOINT_F
+#define OPTION_JAX_MAX_HEATING_SETPOINT_F       (85*100)
+#endif
+
+/// Minimum heating setpoint in hundreds of degrees Fahrenheit
+#ifndef OPTION_JAX_MIN_HEATING_SETPOINT_F
+#define OPTION_JAX_MIN_HEATING_SETPOINT_F       (55*100)
+#endif
+
 /** Maximum size, in bytes, a version string can be.  Does NOT include the
     null terminator
  */
@@ -34,6 +44,12 @@
 #define OPTION_AJAX_MAX_MODEL_LENGTH        16
 #endif
 
+ /** Maximum size, in bytes, a serial number string can be.  Does NOT include the
+     null terminator
+  */
+#ifndef OPTION_AJAX_MAX_SERIAL_NUM_LENGTH
+#define OPTION_AJAX_MAX_SERIAL_NUM_LENGTH   16
+#endif
 
 #endif  // end header latch
 

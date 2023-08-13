@@ -24,9 +24,12 @@
 #include "Cpl/Dm/ModelDatabase.h"
 #include "Cpl/Dm/Mp/Bool.h"
 #include "Cpl/Dm/Mp/Uint32.h"
+#include "Cpl/Dm/Mp/Uint64.h"
+#include "Cpl/Dm/Mp/Int32.h"
 #include "Cpl/Dm/Mp/String.h"
 #include "Ajax/ScreenMgr/MpScreenApiPtr.h"
 #include "Ajax/ScreenMgr/MpStaticScreenApiPtr.h"
+#include "Ajax/Dm/MpFanMode.h"
 #include "Ajax/Constants.h"
 
 
@@ -119,6 +122,127 @@ extern Cpl::Dm::Mp::String<OPTION_AJAX_MAX_VERSION_LENGTH>  fwVersion;
         n/a
 */
 extern Cpl::Dm::Mp::String<OPTION_AJAX_MAX_MODEL_LENGTH>    modelNumber;
+
+
+/** This model point holds the product's Serial Number string
+
+    \b Units: n/a
+
+    \b Range: n/a
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::String<OPTION_AJAX_MAX_SERIAL_NUM_LENGTH> serialNumber;
+
+/** This model point holds the current FanSpeed setting
+
+    \b Units: n/a
+
+    \b Range: n/a
+
+    \b Notes:
+        n/a
+*/
+extern Ajax::Dm::MpFanMode  fanMode;
+
+/** This model point holds the current temperature setpoint
+
+    \b Units: hundreds of degrees Fahrenheit (75.3'F -->7530)
+
+    \b Range: OPTION_JAX_MIN_HEATING_SETPOINT_F - OPTION_JAX_MAX_HEATING_SETPOINT_F
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::Int32   heatSetpoint;
+
+
+/** This model point holds the current Mode - On/Off
+
+    \b Units: bool
+
+    \b Range: true:     Active heating allowed
+              false:    No active heating
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::Bool    heatingMode;
+
+
+/** This model point holds metrics counter: Boot counter.
+    Is incremented every time the MCU is reset
+
+    \b Units: free running counter
+
+    \b Range: n/a
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::Uint32  metricBootCounter;
+
+/** This model point holds metrics counter: Running time.
+    Is updated every N seconds of elapsed time.
+
+    \b Units: seconds
+
+    \b Range: n/a
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::Uint64  metricRunningTime;
+
+/** This model point holds metrics counter: Heater on time.
+    Is updated every M seconds of when the heater is commanded to be on
+
+    \b Units: seconds
+
+    \b Range: n/a
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::Uint64  metricHeaterOnTime;
+
+/** This model point holds metrics counter: Fan on time.
+    Is updated every M seconds of when the Fan is commanded to be on
+
+    \b Units: seconds
+
+    \b Range: n/a
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::Uint64  metricFanOnTime;
+
+/** This model point holds metrics counter: Temperature Sensor Fault counter.
+    Is incremented every time a temperature sensor fault is raised.
+
+    \b Units: free running counter
+
+    \b Range: n/a
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::Uint32  metricFaultTempSensor;
+
+/** This model point holds metrics counter: Heater Safety Fault counter.
+    Is incremented every time the HW based heater safety circuit 'tripped'
+    input signal to the MCU is asserted.
+
+    \b Units: free running counter
+
+    \b Range: n/a
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::Uint32  metricFaultHeaterSafety;
 
 /*---------------------------------------------------------------------------*/
 /// The Application's Model Point Database

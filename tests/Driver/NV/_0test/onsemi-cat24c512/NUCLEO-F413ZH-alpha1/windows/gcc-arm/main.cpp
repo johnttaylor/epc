@@ -10,7 +10,7 @@
 
 
 #ifndef OPTION_I2C_DEV_ADDRESS
-#define OPTION_I2C_DEV_ADDRESS  (0x50<<1)
+#define OPTION_I2C_DEV_ADDRESS              (0x50)
 #endif
 
 static Driver::I2C::STM32::Master           i2cDriver_( &hi2c2 );
@@ -27,7 +27,7 @@ public:
 protected:
     void appRun()
     {
-        i2cDriver_.start(); // Start the low-level driver (because the NV Driver does not start since it is shareable resource)
+        i2cDriver_.start(); // Start the low-level driver (because the NV Driver does not start it since it is shareable resource)
         runtests( uut_,
                   OPTION_DRIVER_NV_ONSEMI_CAT24C512_NUM_PAGES,
                   OPTION_DRIVER_NV_ONSEMI_CAT24C512_BYTES_PER_PAGE,

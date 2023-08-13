@@ -38,7 +38,7 @@ void MX_I2C2_Init(void)
 
   /* USER CODE END I2C2_Init 1 */
   hi2c2.Instance = I2C2;
-  hi2c2.Init.ClockSpeed = 100000;
+  hi2c2.Init.ClockSpeed = 400000;
   hi2c2.Init.DutyCycle = I2C_DUTYCYCLE_2;
   hi2c2.Init.OwnAddress1 = 0;
   hi2c2.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
@@ -62,47 +62,26 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef* i2cHandle)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
   if(i2cHandle->Instance==I2C2)
   {
-      /*##-1- Enable peripherals and GPIO Clocks #################################*/
-      __HAL_RCC_GPIOF_CLK_ENABLE();
-      __HAL_RCC_I2C2_CLK_ENABLE();
+  /* USER CODE BEGIN I2C2_MspInit 0 */
+      //__HAL_RCC_GPIOF_CLK_ENABLE();
+      //__HAL_RCC_I2C2_CLK_ENABLE();
 
-      /*##-2- Configure peripheral GPIO ##########################################*/
-      /* I2C TX GPIO pin configuration  */
-  //  /**I2C2 GPIO Configuration
-  //  PF0     ------> I2C2_SDA
-  //  PF1     ------> I2C2_SCL
-  //  */
-      GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
-      GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
-      //GPIO_InitStruct.Pull = GPIO_PULLUP;
-      GPIO_InitStruct.Pull = GPIO_NOPULL;
-      GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-      GPIO_InitStruct.Alternate = GPIO_AF4_I2C2;
-      HAL_GPIO_Init( GPIOF, &GPIO_InitStruct );
+  /* USER CODE END I2C2_MspInit 0 */
 
-      /////* I2C RX GPIO pin configuration  */
-      //GPIO_InitStruct.Pin       = GPIO_PIN_0;
-      //GPIO_InitStruct.Alternate = GPIO_AF4_I2C2;
-      //HAL_GPIO_Init( GPIOF, &GPIO_InitStruct );
+    __HAL_RCC_GPIOF_CLK_ENABLE();
+    /**I2C2 GPIO Configuration
+    PF0     ------> I2C2_SDA
+    PF1     ------> I2C2_SCL
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF4_I2C2;
+    HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
 
-
-  ///* USER CODE END I2C2_MspInit 0 */
-
-  //  //__HAL_RCC_GPIOF_CLK_ENABLE();
-  //  /**I2C2 GPIO Configuration
-  //  PF0     ------> I2C2_SDA
-  //  PF1     ------> I2C2_SCL
-  //  */
-  //  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
-  //  GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
-  //  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  //  //GPIO_InitStruct.Pull = GPIO_PULLUP;
-  //  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-  //  GPIO_InitStruct.Alternate = GPIO_AF4_I2C2;
-  //  HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
-
-  //  /* I2C2 clock enable */
-  //  __HAL_RCC_I2C2_CLK_ENABLE();
+    /* I2C2 clock enable */
+    __HAL_RCC_I2C2_CLK_ENABLE();
   /* USER CODE BEGIN I2C2_MspInit 1 */
 
   /* USER CODE END I2C2_MspInit 1 */

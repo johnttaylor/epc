@@ -28,5 +28,18 @@ ALLOC_INVALID( Ajax::ScreenMgr::MpStaticScreenApiPtr, errorScrPtr );
 ALLOC_INVALID( Ajax::ScreenMgr::MpScreenApiPtr, homeScrPtr );
 ALLOC_INVALID( Cpl::Dm::Mp::Bool, displaySleepTrigger );
 ALLOC_INVALID( Cpl::Dm::Mp::Uint32, uiEventQueueCount );
+
 ALLOC_INVALID( Cpl::Dm::Mp::String<OPTION_AJAX_MAX_VERSION_LENGTH>, fwVersion );
 ALLOC_INVALID( Cpl::Dm::Mp::String<OPTION_AJAX_MAX_MODEL_LENGTH>, modelNumber );
+ALLOC_INVALID( Cpl::Dm::Mp::String<OPTION_AJAX_MAX_SERIAL_NUM_LENGTH>, serialNumber );
+
+ALLOC_INVALID( Ajax::Dm::MpFanMode, fanMode );
+ALLOC_INVALID( Cpl::Dm::Mp::Int32, heatSetpoint );
+ALLOC_INVALID( Cpl::Dm::Mp::Bool, heatingMode );
+
+ALLOC_INVALID( Cpl::Dm::Mp::Uint32, metricBootCounter );
+ALLOC_INVALID( Cpl::Dm::Mp::Uint64, metricRunningTime );
+ALLOC_INVALID( Cpl::Dm::Mp::Uint64, metricHeaterOnTime );
+ALLOC_INVALID( Cpl::Dm::Mp::Uint64, metricFanOnTime );
+ALLOC_INVALID( Cpl::Dm::Mp::Uint32, metricFaultTempSensor );
+ALLOC_INVALID( Cpl::Dm::Mp::Uint32, metricFaultHeaterSafety );
