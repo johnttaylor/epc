@@ -154,7 +154,10 @@ void Api::homeScreenMp_changed( MpScreenApiPtr& mp, Cpl::Dm::SubscriberApi& clie
             // Update the physical display
             if ( dirty )
             {
-                Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "PicoDisplay update() failed" );
+                if ( !m_display.update() )
+                {
+                    Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "PicoDisplay update() failed" );
+                }
             }
             m_timer.start( OPTION_AJAX_SCREEN_MGR_TICK_TIME_MS );
         }
@@ -319,7 +322,11 @@ void Api::push( ScreenApi & newScreen ) noexcept
         bool dirty = m_curScreenHdl->refresh( now );
         if ( dirty )
         {
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("push.m_display.update() FAILED.") );
+            if ( !m_display.update() )
+
+            {
+                Ajax::Logging::logf( Ajax::Logging::CriticalMsg::UX_ERROR, "push.m_display.update() failed" );
+            }
         }
     }
 }
@@ -353,7 +360,10 @@ void Api::pop( unsigned count ) noexcept
         bool dirty = m_curScreenHdl->refresh( now );
         if ( dirty && !m_display.update() )
         {
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("pop.m_display.update() FAILED.") );
+            if ( !m_display.update() )
+            {
+                Ajax::Logging::logf( Ajax::Logging::CriticalMsg::UX_ERROR, "pop.m_display.update() failed" );
+            }
         }
     }
 }
@@ -391,7 +401,10 @@ void Api::popTo( ScreenApi & returnToScreen ) noexcept
         bool dirty = m_curScreenHdl->refresh( now );
         if ( dirty && !m_display.update() )
         {
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("popTo.m_display.update() FAILED.") );
+            if ( !m_display.update() )
+            {
+                Ajax::Logging::logf( Ajax::Logging::CriticalMsg::UX_ERROR, "popTo.m_display.update() failed" );
+            }
         }
     }
 }
@@ -416,7 +429,10 @@ void Api::popToHome() noexcept
         bool dirty = m_curScreenHdl->refresh( now );
         if ( dirty && !m_display.update() )
         {
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("popToHome.m_display.update() FAILED.") );
+            if ( !m_display.update() )
+            {
+                Ajax::Logging::logf( Ajax::Logging::CriticalMsg::UX_ERROR, "popToHome.m_display.update() failed" );
+            }
         }
     }
 }

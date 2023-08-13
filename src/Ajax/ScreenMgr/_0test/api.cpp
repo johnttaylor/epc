@@ -62,7 +62,7 @@ static Cpl::Dm::ModelDatabase   modelDb_( "ignoreThisParameter_usedToInvokeTheSt
 static MpScreenApiPtr           mp_homeScrPtr( modelDb_, "homeScreen" );
 static MpStaticScreenApiPtr     mp_errorScrPtr( modelDb_, "errorScreen" );
 static MpStaticScreenApiPtr     mp_shutdownScrPtr( modelDb_, "shutdownScreen" );
-static Cpl::Dm::Mp::Bool        mp_sleepRequst( modelDb_, "sleepReq" );
+static Cpl::Dm::Mp::Bool        mp_sleepRequest( modelDb_, "sleepReq" );
 static Cpl::Dm::Mp::Uint32      mp_eventBuffferCount( modelDb_, "eventQueCount" );
 
 // Memory for the Navigation stack
@@ -104,7 +104,7 @@ TEST_CASE( "api" )
 
     mp_homeScrPtr.setInvalid();
     mp_errorScrPtr.setInvalid();
-    mp_sleepRequst.setInvalid();
+    mp_sleepRequest.setInvalid();
     mp_shutdownScrPtr.setInvalid();
 
     // Mock screens
@@ -122,7 +122,7 @@ TEST_CASE( "api" )
     Api uut( uiMbox,
              mp_homeScrPtr,
              mp_errorScrPtr,
-             mp_sleepRequst,
+             mp_sleepRequest,
              mp_shutdownScrPtr,
              mockDisplay,
              memoryNavStack_, sizeof( memoryNavStack_ ) / sizeof( Api::NavigationElement ),
@@ -150,7 +150,7 @@ TEST_CASE( "api" )
         // Set Home screen
         mp_homeScrPtr.write( &homeScreen );
         Cpl::System::Api::sleep( 200 ); // Allow time for the change notification to propagate 
-        mp_sleepRequst.write( true );
+        mp_sleepRequest.write( true );
         Cpl::System::Api::sleep( 200 ); // Allow time for the change notification to propagate 
         REQUIRE( homeScreen.m_enterCount == 1 );
         REQUIRE( homeScreen.m_refreshCount == 1 );
@@ -194,20 +194,20 @@ TEST_CASE( "api" )
         REQUIRE( mockDisplay.m_updateCount == 1 );
         REQUIRE( mockDisplay.m_turnOffCount == 0 );
         REQUIRE( mockDisplay.m_turnOnCount == 0 );
-        mp_sleepRequst.write( true );
+        mp_sleepRequest.write( true );
         Cpl::System::Api::sleep( 200 ); // Allow time for the change notification to propagate 
         REQUIRE( mockDisplay.m_startCount == 1 );
         REQUIRE( mockDisplay.m_updateCount == 1 );
         REQUIRE( mockDisplay.m_turnOffCount == 0 );
         REQUIRE( mockDisplay.m_turnOnCount == 0 );
         REQUIRE( uut.getCurrentScreen() == nullptr );
-        mp_sleepRequst.setInvalid();
+        mp_sleepRequest.setInvalid();
 
         // Sleep 
         mp_homeScrPtr.write( &homeScreen );
-        Cpl::System::Api::sleep( 200 ); // Allow time for the change notification to propagate 
-        mp_sleepRequst.write( true );
-        Cpl::System::Api::sleep( 200 ); // Allow time for the change notification to propagate 
+        Cpl::System::Api::sleep( 300 ); // Allow time for the change notification to propagate 
+        mp_sleepRequest.write( true );
+        Cpl::System::Api::sleep( 300 ); // Allow time for the change notification to propagate 
         REQUIRE( mockDisplay.m_startCount == 1 );
         REQUIRE( mockDisplay.m_updateCount == 2 );
         REQUIRE( mockDisplay.m_turnOffCount == 1 );
@@ -219,7 +219,7 @@ TEST_CASE( "api" )
         REQUIRE( mockDisplay.m_updateCount == 2 );
         REQUIRE( mockDisplay.m_turnOffCount == 1 );
         REQUIRE( mockDisplay.m_turnOnCount == 0 );
-        mp_sleepRequst.write( false );
+        mp_sleepRequest.write( false );
         Cpl::System::Api::sleep( 200 ); // Allow time for the change notification to propagate 
         REQUIRE( mockDisplay.m_startCount == 1 );
         REQUIRE( mockDisplay.m_updateCount == 2 );
