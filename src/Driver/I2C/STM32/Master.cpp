@@ -14,18 +14,18 @@
 #include "Cpl/System/Assert.h"
 #include <stdint.h>
 
-using namespace Driver::SPI::STM32;
+using namespace Driver::I2C::STM32;
 
 //////////////////////////////////////////////////////////////////////////////
-Master::Master( SPI_HandleTypeDef* spiInstance,
+Master::Master( I2C_HandleTypeDef* i2cInstance,
                 uint32_t           timeoutMs )
-    : m_spiDevice( spiInstance )
+    : m_i2cDevice( i2cInstance )
     , m_timeout( timeoutMs )
 {
 }
 
 //////////////////////////////////////////////////////////////////////////////
-bool Master::start( size_t newBaudRateHz ) noexcept
+bool Master::start() noexcept
 {
     if ( !m_started )
     {
@@ -45,33 +45,71 @@ void Master::stop() noexcept
     {
         m_started = false;
 
-        /* TODO: Support freeing up the GPIO pins.  This require being able to 
-                 config the SPI peripheral/pins independently of the ST MX tools
+        /* TODO: Support freeing up the GPIO pins.  This require being able to
+                 config the I2C peripheral/pins independently of the ST MX tools
         */
     }
 }
 
-
-bool Master::transfer( size_t      numBytes,
-                       const void* srcData,
-                       void*       dstData ) noexcept
+/////////////////////////////////////////////////////
+static Master::Result_T convertHALErrorCode( HAL_StatusTypeDef r )
 {
-    CPL_SYSTEM_ASSERT( numBytes <= UINT16_MAX )
+    switch ( r )
+    {
+    case HAL_OK:
+        return Master::Result_T::eSUCCESS;
+    case HAL_BUSY:
+        return Master::Result_T::eTIMEOUT;
+    default:
+        break;
+    }
+
+    return Master::Result_T::eERROR;
+}
+
+Master::Result_T  Master::writeToDevice( uint8_t        device7BitAddress,
+                                         size_t         numBytesToTransmit,
+                                         const void*    srcData,
+                                         bool           noStop ) noexcept
+{
+    // TODO: Add support for the 'noStop' semantics!
+    
+    if ( m_started )
+    {
+        HAL_StatusTypeDef r = HAL_I2C_Master_Transmit( m_i2cDevice, device7BitAddress, (uint8_t*) srcData, (uint16_t) numBytesToTransmit, m_timeout );
+        return convertHALErrorCode( r );
+    }
+    
+    return Master::Result_T::eERROR;
+}
+
+Master::Result_T Master::readFromDevice( uint8_t   device7BitAddress,
+                                         size_t    numBytesToRead,
+                                         void*     dstData,
+                                         bool      noStop )
+{
+    // TODO: Add support for the 'noStop' semantics!
 
     if ( m_started )
     {
-        HAL_StatusTypeDef r = HAL_ERROR;
-        if ( dstData == nullptr )
-        {
-            r = HAL_SPI_Transmit( m_spiDevice, (uint8_t*) srcData, (uint16_t) numBytes, m_timeout );
-        }
-        else
-        {
-            r = HAL_SPI_TransmitReceive( m_spiDevice, ( uint8_t*) srcData, (uint8_t*) dstData, (uint16_t) numBytes, m_timeout );
-        }
-
-        return r == HAL_OK;
+        HAL_StatusTypeDef r = HAL_I2C_Master_Receive( m_i2cDevice, device7BitAddress, (uint8_t*) dstData, (uint16_t) numBytesToRead, m_timeout );
+        return convertHALErrorCode( r );
     }
 
-    return false;
+    return Master::Result_T::eERROR;
 }
+
+size_t Master::setBaudRate( size_t newBaudRateHz ) noexcept
+{
+    // TODO: Actually implementation
+    return newBaudRateHz;
+}
+
+/// See Driver::I2C::Master
+size_t Master::setTransactionTimeout( size_t maxTimeMs ) noexcept
+{
+    size_t oldTimeout = m_timeout;
+    m_timeout = maxTimeMs;
+    return oldTimeout;
+}
+

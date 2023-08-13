@@ -48,7 +48,7 @@ public:
 
 public:
     /// See Driver::I2C::Master
-    bool start( size_t newBaudRateHz = 0 ) noexcept;
+    bool start() noexcept;
 
     /// See Driver::I2C::Master
     void stop() noexcept;
@@ -65,6 +65,12 @@ public:
                              void*     dstData,
                              bool      noStop = false );
 
+
+    /// See Driver::I2C::Master
+    size_t setBaudRate( size_t newBaudRateHz ) noexcept;
+    
+    /// See Driver::I2C::Master
+    size_t setTransactionTimeout( size_t maxTimeMs ) noexcept;
 
 protected:
 
