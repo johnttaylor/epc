@@ -23,7 +23,7 @@
 #include "Cpl/Container/Map.h"
 #include "Cpl/TShell/Command.h"
 #include "Ajax/ScreenMgr/Navigation.h"
-
+#include "Driver/NV/Api.h"
 
 ///
 namespace Ajax {
@@ -59,7 +59,8 @@ extern pimoroni::PicoGraphics_PenRGB332 g_graphics;
 /// Expose a handle to the global Screen Navigation instance
 extern Ajax::ScreenMgr::Navigation&     g_screenNav;
 
-
+/// Expose the handle to the NV driver
+extern Driver::NV::Api&                 g_nvramDriver;
 /*
 ** Thread Priorities
 */

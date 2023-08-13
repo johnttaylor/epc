@@ -10,6 +10,7 @@
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
+/** @file */
 
 #include "colony_config.h"
 #include "Cpl/Dm/Persistent/Record.h"
@@ -57,7 +58,7 @@ public:
     /// See Cpl::Dm::Persistent::Record
     bool resetData() noexcept
     {
-        // TODO: There are NO defaults -->through an unrecoverable error
+        // TODO: There are NO defaults -->throw an unrecoverable error
         return false;
     }
 

@@ -10,18 +10,33 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
+#include "colony_config.h"
 #include "Ajax/Main/platform.h"
+#include "Ajax/Main/appmain.h"
 #include "app_platform.h"
+#include "Driver/NV/File/Cpl/Api.h"
 #include <stdlib.h>
 
 using namespace Ajax::Main;
 
+#ifndef DRIVER_NV_FILE_NAME     
+#define DRIVER_NV_FILE_NAME         "eeprom.bin"
+#endif
+#ifndef DRIVER_NV_NUM_PAGES
+#define DRIVER_NV_NUM_PAGES         512
+#endif
+#ifndef DRIVER_NV_BYTES_PER_PAGE
+#define DRIVER_NV_BYTES_PER_PAGE    128
+#endif
+
+static Driver::NV::File::Cpl::Api nvDriver_( DRIVER_NV_NUM_PAGES, DRIVER_NV_BYTES_PER_PAGE, DRIVER_NV_FILE_NAME );
+Driver::NV::Api&                  g_nvramDriver = nvDriver_;
 
 /////////////////////////////
 void Ajax::Main::platform_initialize0()
 {
     // Platform init...
-
+    nvDriver_.start();
     appvariant_platform_initialize0();
 }
 
@@ -42,7 +57,7 @@ void Ajax::Main::platform_open0()
 void Ajax::Main::platform_close0()
 {
     appvariant_platform_close0();
- 
+
     // Platform close...
 }
 

@@ -10,6 +10,7 @@
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
+/** @file */
 
 #include "colony_config.h"
 #include "Cpl/Dm/Persistent/Record.h"

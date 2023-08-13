@@ -13,6 +13,10 @@
 #include "appmain.h"
 #include "platform.h"
 #include "application.h"
+#include "UserRecord.h"
+#include "MetricsRecord.h"
+#include "PersonalityRecord.h"
+#include "StorageMap_.h"
 #include "mp/ModelPoints.h"
 #include "Cpl/System/Shutdown.h"
 #include "Cpl/System/Semaphore.h"
@@ -28,7 +32,9 @@
 #include "Ajax/Ui/Home/Screen.h"
 #include "Ajax/Ui/LogicalButtons.h"
 #include "Cpl/System/Trace.h"
-
+#include "Cpl/Persistent/NVAdapter.h"
+#include "Cpl/Persistent/MirroredChunk.h"
+#include "Cpl/Persistent/RecordServer.h"
 
 using namespace Ajax::Main;
 
@@ -68,6 +74,23 @@ Ajax::ScreenMgr::Navigation&      Ajax::Main::g_screenNav = screenMgr_;
 static Ajax::Ui::Splash::Screen   splashScreen_( g_graphics );
 static Ajax::Ui::Shutdown::Screen shutdownScreen_( g_graphics );
 
+static Cpl::Persistent::NVAdapter           fd1UserRec_( g_nvramDriver, AJAX_MAIN_USER_REGION_A_START_ADDRESS, AJAX_MAIN_USER_REGION_LENGTH );
+static Cpl::Persistent::NVAdapter           fd2UserRec_( g_nvramDriver, AJAX_MAIN_USER_REGION_B_START_ADDRESS, AJAX_MAIN_USER_REGION_LENGTH );
+static Cpl::Persistent::MirroredChunk       chunkUserRec_( fd1UserRec_, fd2UserRec_ );
+static Ajax::Main::UserRecord               userRec_( chunkUserRec_ );
+
+static Cpl::Persistent::NVAdapter           fd1InstallerRec_( g_nvramDriver, AJAX_MAIN_PERSONALITY_REGION_A_START_ADDRESS, AJAX_MAIN_PERSONALITY_REGION_LENGTH );
+static Cpl::Persistent::NVAdapter           fd2InstallerRec_( g_nvramDriver, AJAX_MAIN_PERSONALITY_REGION_B_START_ADDRESS, AJAX_MAIN_PERSONALITY_REGION_LENGTH );
+static Cpl::Persistent::MirroredChunk       chunkInstallerRec_( fd1InstallerRec_, fd2InstallerRec_ );
+static Ajax::Main::MetricsRecord            metricsRec_( chunkInstallerRec_ );
+
+static Cpl::Persistent::NVAdapter           fd1RuntimeRec_( g_nvramDriver, AJAX_MAIN_METRICS_REGION_A_START_ADDRESS, AJAX_MAIN_METRICS_REGION_LENGTH );
+static Cpl::Persistent::NVAdapter           fd2RuntimeRec_( g_nvramDriver, AJAX_MAIN_METRICS_REGION_B_START_ADDRESS, AJAX_MAIN_METRICS_REGION_LENGTH );
+static Cpl::Persistent::MirroredChunk       chunkRuntimeRec_( fd1RuntimeRec_, fd2RuntimeRec_ );
+static Ajax::Main::PersonalityRecord        personalityRec_( chunkRuntimeRec_ );
+
+static Cpl::Persistent::Record*             records_[3 + 1] ={ &userRec_, &metricsRec_, &personalityRec_, 0 };
+static Cpl::Persistent::RecordServer        recordServer_( records_ );
 
 /////////////////////////////
 int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd )
