@@ -68,7 +68,7 @@ class ToolChain( base.ToolChain ):
         self._optimized_release.linkflags  = self._optimized_release.linkflags + ' -DNDEBUG'
 
         # Debug options, flags, etc.
-        self._debug_release.cflags     = r'-g3 -DDEBUG'
+        self._debug_release.cflags     = self._debug_release.cflags + r' -g3 -DDEBUG'
         
  
    #--------------------------------------------------------------------------

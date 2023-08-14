@@ -62,14 +62,13 @@ base_posix64.cflags    = '-m64 -std=c++11 -Wall -Werror -x c++'
 base_posix64.cppflags  = f'-std=gnu++17'
 base_posix64.inc       = f'{pimoroni_inc}'
 base_posix64.linkflags = '-m64'
-base_posix64.linklibs  = '-lpthread -lm'
+base_posix64.linklibs  = '-lpthread -lm -lstdc++'
 
 # Set project specific 'optimized' options
 optimzed_posix64.cflags    = '-O3'
-optimzed_posix64.linklibs  = '-lstdc++'
 
 # Set project specific 'debug' options
-debug_posix64.linklibs  = '-lstdc++'
+#debug_posix64.xxx = yyy
 
 
 #-------------------------------------------------

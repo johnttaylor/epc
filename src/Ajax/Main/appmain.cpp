@@ -36,22 +36,13 @@
 #include "Cpl/Persistent/MirroredChunk.h"
 #include "Cpl/Persistent/RecordServer.h"
 #include "Cpl/System/Trace.h"
-
+#include "Ajax/TShell/Provision.h"
 
 using namespace Ajax::Main;
 
 static Cpl::System::Semaphore       waitForShutdown_;
 static volatile int                 exitCode_;
 static int runShutdownHandlers() noexcept;
-
-Cpl::Container::Map<Cpl::TShell::Command>    Ajax::Main::g_cmdlist( "ignoreThisParameter_usedToCreateAUniqueConstructor" );
-static Cpl::TShell::Maker                    cmdProcessor_( g_cmdlist );
-static Cpl::TShell::Stdio                    shell_( cmdProcessor_, "TShell", OPTION_AJAX_MAIN_THREAD_PRIORITY_CONSOLE );
-static Cpl::TShell::Cmd::Help	             helpCmd_( g_cmdlist );
-static Cpl::TShell::Cmd::Bye	             byeCmd_( g_cmdlist );
-static Cpl::TShell::Cmd::Trace	             traceCmd_( g_cmdlist );
-static Cpl::TShell::Cmd::TPrint	             tprintCmd_( g_cmdlist );
-static Cpl::Dm::TShell::Dm	                 dmCmd_( g_cmdlist, mp::g_modelDatabase );
 
 // Graphics library: Use RGB332 mode (256 colours) on the Target to limit RAM usage canvas 
 static Cpl::Dm::MailboxServer                   uiMboxServer_;
@@ -93,6 +84,20 @@ static Ajax::Main::PersonalityRecord        personalityRec_( chunkPersonalityRec
 
 static Cpl::Persistent::Record*             records_[3 + 1] ={ &userRec_, &metricsRec_, &personalityRec_, 0 };
 static Cpl::Persistent::RecordServer        recordServer_( records_ );
+
+Cpl::Container::Map<Cpl::TShell::Command>    Ajax::Main::g_cmdlist( "ignoreThisParameter_usedToCreateAUniqueConstructor" );
+static Cpl::TShell::Maker                    cmdProcessor_( g_cmdlist );
+static Cpl::TShell::Stdio                    shell_( cmdProcessor_, "TShell", OPTION_AJAX_MAIN_THREAD_PRIORITY_CONSOLE );
+static Cpl::TShell::Cmd::Help	             helpCmd_( g_cmdlist );
+static Cpl::TShell::Cmd::Bye	             byeCmd_( g_cmdlist );
+static Cpl::TShell::Cmd::Trace	             traceCmd_( g_cmdlist );
+static Cpl::TShell::Cmd::TPrint	             tprintCmd_( g_cmdlist );
+static Cpl::Dm::TShell::Dm	                 dmCmd_( g_cmdlist, mp::g_modelDatabase );
+
+// Only include the Provision command in Ajax Debug build AND ALL Eros builds
+#if defined(DEBUG_BUILD) || defined(I_AM_EROS)
+static Ajax::TShell::Provision               provCmd_( g_cmdlist, personalityRec_, recordServer_ );
+#endif
 
 static void displayRecordSizes();
 

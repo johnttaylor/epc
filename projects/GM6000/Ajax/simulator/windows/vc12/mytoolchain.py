@@ -59,8 +59,6 @@ optimzed_release.cflags   = '/O2'
 
 # Set project specific 'debug' options
 debug_release          = BuildValues()       # Do NOT comment out this line
-debug_release.cflags   = '/D "_MY_APP_DEBUG_SWITCH_"'
-debug_release.linklibs = ''
 
 #
 # For build config/variant: "cpp11"

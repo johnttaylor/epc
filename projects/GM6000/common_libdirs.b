@@ -7,6 +7,7 @@ src/Driver/Button
 
 # application stuffs
 src/Ajax/Logging
+src/Ajax/TShell
 
 # persistent storage
 src/Cpl/Dm/Persistent

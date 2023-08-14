@@ -10,8 +10,6 @@
 // Human readable Version Identifier
 #define AJAX_SEMANTIC_VERSION_STR                   "0.0.1"
 
-// Model Number
-#define AJAX_MODEL_NUMBER_STR                       "gm6000-xb"
 
 // CLI
 #define OPTION_CPL_TSHELL_PROCESSOR_INPUT_SIZE      (4*1024)
