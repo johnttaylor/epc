@@ -27,7 +27,7 @@
 #define OPTION_AJAX_MAIN_USER_RECORD_MINOR      0
 #endif
 
-// Default value for the Heating setpoint (in hundredths of degrees Fahrenheit)
+/// Default value for the Heating setpoint (in hundredths of degrees Fahrenheit)
 #ifndef OPTION_AJAX_DEFAULT_HEATING_SETPOINT_F
 #define OPTION_AJAX_DEFAULT_HEATING_SETPOINT_F      (70*100)
 #endif
