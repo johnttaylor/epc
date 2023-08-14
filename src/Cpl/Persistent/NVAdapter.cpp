@@ -43,7 +43,12 @@ bool NVAdapter::write( size_t offset, const void* srcData, size_t srcLen ) noexc
     CPL_SYSTEM_ASSERT( srcData );
     CPL_SYSTEM_ASSERT( srcLen > 0 );
 
-    return m_driver.write( offset, srcData, srcLen );
+    // Check to make sure we don't overflow the region
+    if ( (offset + srcLen) > m_regionLength )
+    {
+        return false;
+    }
+    return m_driver.write( offset + m_startAddress, srcData, srcLen );
 }
 
 size_t NVAdapter::read( size_t offset, void* dstBuffer, size_t bytesToRead ) noexcept
@@ -51,5 +56,10 @@ size_t NVAdapter::read( size_t offset, void* dstBuffer, size_t bytesToRead ) noe
     CPL_SYSTEM_ASSERT( dstBuffer );
     CPL_SYSTEM_ASSERT( bytesToRead > 0 );
 
-    return m_driver.read( offset, dstBuffer, bytesToRead ) ? bytesToRead : 0;
+    // Check to make sure we don't overflow the region
+    if ( (offset + bytesToRead) > m_regionLength )
+    {
+        return 0;
+    }
+    return m_driver.read( offset + m_startAddress, dstBuffer, bytesToRead ) ? bytesToRead : 0;
 }

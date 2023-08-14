@@ -30,7 +30,7 @@ using namespace Ajax::Main;
 #endif
 
 static Driver::NV::File::Cpl::Api nvDriver_( DRIVER_NV_NUM_PAGES, DRIVER_NV_BYTES_PER_PAGE, DRIVER_NV_FILE_NAME );
-Driver::NV::Api&                  g_nvramDriver = nvDriver_;
+Driver::NV::Api&                  Ajax::Main::g_nvramDriver = nvDriver_;
 
 /////////////////////////////
 void Ajax::Main::platform_initialize0()

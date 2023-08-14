@@ -59,7 +59,9 @@ public:
     bool resetData() noexcept
     {
         // TODO: There are NO defaults -->throw an unrecoverable error
-        return false;
+        //return false;
+        return true;
+
     }
 
 };

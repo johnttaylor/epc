@@ -35,6 +35,8 @@
 #include "Cpl/Persistent/NVAdapter.h"
 #include "Cpl/Persistent/MirroredChunk.h"
 #include "Cpl/Persistent/RecordServer.h"
+#include "Cpl/System/Trace.h"
+
 
 using namespace Ajax::Main;
 
@@ -79,18 +81,20 @@ static Cpl::Persistent::NVAdapter           fd2UserRec_( g_nvramDriver, AJAX_MAI
 static Cpl::Persistent::MirroredChunk       chunkUserRec_( fd1UserRec_, fd2UserRec_ );
 static Ajax::Main::UserRecord               userRec_( chunkUserRec_ );
 
-static Cpl::Persistent::NVAdapter           fd1InstallerRec_( g_nvramDriver, AJAX_MAIN_PERSONALITY_REGION_A_START_ADDRESS, AJAX_MAIN_PERSONALITY_REGION_LENGTH );
-static Cpl::Persistent::NVAdapter           fd2InstallerRec_( g_nvramDriver, AJAX_MAIN_PERSONALITY_REGION_B_START_ADDRESS, AJAX_MAIN_PERSONALITY_REGION_LENGTH );
-static Cpl::Persistent::MirroredChunk       chunkInstallerRec_( fd1InstallerRec_, fd2InstallerRec_ );
-static Ajax::Main::MetricsRecord            metricsRec_( chunkInstallerRec_ );
+static Cpl::Persistent::NVAdapter           fd1MetricsRec_( g_nvramDriver, AJAX_MAIN_METRICS_REGION_A_START_ADDRESS, AJAX_MAIN_METRICS_REGION_LENGTH );
+static Cpl::Persistent::NVAdapter           fd2MetricsRec_( g_nvramDriver, AJAX_MAIN_METRICS_REGION_B_START_ADDRESS, AJAX_MAIN_METRICS_REGION_LENGTH );
+static Cpl::Persistent::MirroredChunk       chunkMetricsRec_( fd1MetricsRec_, fd2MetricsRec_ );
+static Ajax::Main::MetricsRecord            metricsRec_( chunkMetricsRec_ );
 
-static Cpl::Persistent::NVAdapter           fd1RuntimeRec_( g_nvramDriver, AJAX_MAIN_METRICS_REGION_A_START_ADDRESS, AJAX_MAIN_METRICS_REGION_LENGTH );
-static Cpl::Persistent::NVAdapter           fd2RuntimeRec_( g_nvramDriver, AJAX_MAIN_METRICS_REGION_B_START_ADDRESS, AJAX_MAIN_METRICS_REGION_LENGTH );
-static Cpl::Persistent::MirroredChunk       chunkRuntimeRec_( fd1RuntimeRec_, fd2RuntimeRec_ );
-static Ajax::Main::PersonalityRecord        personalityRec_( chunkRuntimeRec_ );
+static Cpl::Persistent::NVAdapter           fd1PersonalityRec_( g_nvramDriver, AJAX_MAIN_PERSONALITY_REGION_A_START_ADDRESS, AJAX_MAIN_PERSONALITY_REGION_LENGTH );
+static Cpl::Persistent::NVAdapter           fd2PersonalityRec_( g_nvramDriver, AJAX_MAIN_PERSONALITY_REGION_B_START_ADDRESS, AJAX_MAIN_PERSONALITY_REGION_LENGTH );
+static Cpl::Persistent::MirroredChunk       chunkPersonalityRec_( fd1PersonalityRec_, fd2PersonalityRec_ );
+static Ajax::Main::PersonalityRecord        personalityRec_( chunkPersonalityRec_ );
 
 static Cpl::Persistent::Record*             records_[3 + 1] ={ &userRec_, &metricsRec_, &personalityRec_, 0 };
 static Cpl::Persistent::RecordServer        recordServer_( records_ );
+
+static void displayRecordSizes();
 
 /////////////////////////////
 int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd )
@@ -120,8 +124,14 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     screenMgr_.open( &splashScreen_ );
     uint32_t uiStartTime = Cpl::System::ElapsedTime::milliseconds();
 
+    // Create thread for persistent storage
+    Cpl::System::Thread* storageThreadPtr = Cpl::System::Thread::create( recordServer_, "NVRAM", OPTION_AJAX_MAIN_THREAD_PRIORITY_STORAGE );
+
     platform_open0();
-    
+
+    recordServer_.open();               // Start Persistent server as soon as possible
+    metricsRec_.flush( recordServer_ ); // Immediate flush the metrics record so the new boot counter value is updated (see MetricsRecord for where the counter gets incremented)
+
     appvariant_open0();
 
     buttonEvents_.open();
@@ -138,9 +148,11 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     }
     appvariant_launchHomeScreen();
 
+     
     /*
     ** RUNNING...
     */
+    displayRecordSizes();
     waitForShutdown_.wait(); // Wait for the Application to be shutdown
     mp::shutdownScrPtr.write( &shutdownScreen_ );
 
@@ -151,7 +163,9 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     buttonEvents_.close();
 
     appvariant_close0();
-
+    
+    recordServer_.close();   
+    
     platform_close0();
 
     // DELETE-ME: For testing to see the shutdown screen.
@@ -160,9 +174,11 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     screenMgr_.close();
 
     // Delete UI Thread
+    recordServer_.pleaseStop();
     uiMboxServer_.pleaseStop();
     Cpl::System::Api::sleep( 100 ); // Allow time for the thread so self terminate
     Cpl::System::Thread::destroy( *uiThreadPtr );
+    Cpl::System::Thread::destroy( *storageThreadPtr );
 
     // Run any/all register shutdown handlers (as registered by the Cpl::System::Shutdown interface) and then exit
     return runShutdownHandlers();
@@ -188,4 +204,13 @@ int Cpl::System::Shutdown::failure( int exit_code )
     exitCode_ = exit_code;
     waitForShutdown_.signal();
     return exit_code;
+}
+
+#define SECT_   "INFO"
+
+void displayRecordSizes()
+{
+    CPL_SYSTEM_TRACE_MSG( SECT_, ("User Record size:        %lu (%lu) ", userRec_.getRecordSize(), userRec_.getRecordSize()+ chunkUserRec_.getMetadataLength()) );
+    CPL_SYSTEM_TRACE_MSG( SECT_, ("Metrics Record size:     %lu (%lu) ", metricsRec_.getRecordSize(), metricsRec_.getRecordSize() + chunkMetricsRec_.getMetadataLength()) );
+    CPL_SYSTEM_TRACE_MSG( SECT_, ("Personality Record size: %lu (%lu) ", personalityRec_.getRecordSize(), personalityRec_.getRecordSize() + chunkPersonalityRec_.getMetadataLength()) );
 }

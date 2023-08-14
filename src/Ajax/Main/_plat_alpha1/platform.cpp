@@ -10,18 +10,26 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
+#include "Ajax/Main/appmain.h"
 #include "Ajax/Main/platform.h"
 #include "app_platform.h"
 #include "Bsp/Api.h"
 #include "Driver/PicoDisplay/STM32/Api.h"
+#include "Driver/NV/Onsemi/CAT24C512/Api.h"
+#include "Driver/I2C/STM32/Master.h"
 #include <stdlib.h>
 
 using namespace Ajax::Main;
+
+static Driver::I2C::STM32::Master           i2cDriver_( BSP_I2C_HANDLE );
+static Driver::NV::Onsemi::CAT24C512::Api   nvDriver_( i2cDriver_, BSP_I2C_ADDRESS_EEPROM );
+Driver::NV::Api&                            Ajax::Main::g_nvramDriver = nvDriver_;
 
 /////////////////////////////
 void Ajax::Main::platform_initialize0()
 {
     // Platform init...
+    i2cDriver_.start();
     Driver::PicoDisplay::STM32::initialize();
 
     appvariant_platform_initialize0();

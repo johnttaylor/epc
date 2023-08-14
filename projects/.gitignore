@@ -7,6 +7,7 @@ _win32/
 _win64/
 _stm32/
 ratt.log*
+eeprom.bin
 
 # visual studio
 *.exe
