@@ -51,16 +51,14 @@ base_release.cflags    = f'-Wno-attributes -m32 -D__unused= -D__always_inline=__
 base_release.cppflags  = f'-std=gnu++17'
 base_release.inc       = f'{pimoroni_inc}'
 base_release.linkflags = '-m32 -fprofile-arcs'
-base_release.linklibs  = '-lws2_32'
+base_release.linklibs  = '-lws2_32 -lstdc++'
 
 # Set project specific 'optimized' options
 optimzed_release           = BuildValues()    # Do NOT comment out this line
 optimzed_release.cflags    = '-O3'
-optimzed_release.linklibs  = '-lstdc++'
 
 # Set project specific 'debug' options
 debug_release           = BuildValues()       # Do NOT comment out this line
-debug_release.linklibs  = '-lstdc++'
 
 
 #-------------------------------------------------

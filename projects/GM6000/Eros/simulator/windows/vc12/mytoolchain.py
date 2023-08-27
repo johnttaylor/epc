@@ -55,12 +55,9 @@ base_release.linklibs  = 'ws2_32.lib'
 # Set project specific 'optimized' options
 optimzed_release          = BuildValues()    # Do NOT comment out this line
 optimzed_release.cflags   = '/O2'
-optimzed_release.linklibs = ''
 
 # Set project specific 'debug' options
 debug_release          = BuildValues()       # Do NOT comment out this line
-debug_release.cflags   = '/D "_MY_APP_DEBUG_SWITCH_"'
-debug_release.linklibs = ''
 
 #
 # For build config/variant: "cpp11"

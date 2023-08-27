@@ -12,11 +12,9 @@
 *----------------------------------------------------------------------------*/
 /** @file
 
-    This file defines platform specific interfaces when running on the simulator
+    This file defines platform specific interfaces when running on the Target
  */
 
-#include "docopt-cpp/docopt.h"
-#include "docopt-cpp/docopt_value.h"
 
 ///
 namespace Ajax {
@@ -24,8 +22,6 @@ namespace Ajax {
 namespace Main {
 
 
-/// The simulator's command line arguments 
-extern std::map<std::string, docopt::value> g_args;
 
 
 

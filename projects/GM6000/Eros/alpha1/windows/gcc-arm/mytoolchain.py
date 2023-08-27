@@ -79,7 +79,6 @@ optimzed_release = BuildValues()    # Do NOT comment out this line
 
 # Set project specific 'debug' options
 debug_release = BuildValues()       # Do NOT comment out this line
-#debug_release.cflags = '-D_MY_APP_DEBUG_SWITCH_'
 
 
 

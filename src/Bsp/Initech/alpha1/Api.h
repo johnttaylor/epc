@@ -30,7 +30,8 @@
 #include "Bsp/Initech/alpha1/MX/Core/Inc/main.h"   // Access the PINs
 #include "Bsp/Initech/alpha1/MX/Core/Inc/usart.h"  // Access the UART handles/instances
 #include "Bsp/Initech/alpha1/MX/Core/Inc/tim.h"  // Access the UART handles/instances
-#include "Bsp/Initech/alpha1/MX/Core/Inc/spi.h"  // Access the UART handles/instances
+#include "Bsp/Initech/alpha1/MX/Core/Inc/spi.h"  // Access the SPI handles/instances
+#include "Bsp/Initech/alpha1/MX/Core/Inc/i2c.h"  // Access the I2C handles/instances
 
 //#include "Bsp/Initech/alpha1/MX/Core/Inc/stm32f4xx_hal_conf.h"  // SDK header files...
 
@@ -39,14 +40,24 @@
 #endif
 
 //////////////////////////////////////////////////////////
+/// BOARD Specific APIs
+//////////////////////////////////////////////////////////
+
+/// 7bit address for the offboard EEPROM
+#define BSP_I2C_ADDRESS_EEPROM      0x50
+
+/// I2C Bus handle
+#define BSP_I2C_HANDLE              &hi2c2 
+
+//////////////////////////////////////////////////////////
 /// ARM Specific APIs
 //////////////////////////////////////////////////////////
 
 /// Disable a specific interrupt (with memory barrier protection)
-#define Bsp_NVIC_disableIRQ( irqNum )   //do { /*HAL_NVIC_DisableIRQ(irqNum); __DSB(); __ISB();*/ } while(0)
+#define Bsp_NVIC_disableIRQ( irqNum )   do { HAL_NVIC_DisableIRQ(irqNum); __DSB(); __ISB(); } while(0)
 
 /// Enable a specific interrupt (with memory barrier protection)
-#define Bsp_NVIC_enableIRQ( irqNum )    //do { /*HAL_NVIC_EnableIRQ(irqNum); __DSB(); __ISB();*/ } while(0)
+#define Bsp_NVIC_enableIRQ( irqNum )    do { HAL_NVIC_EnableIRQ(irqNum); __DSB(); __ISB(); } while(0)
 
 /// Resets the MCU
 #define Bsp_Api_reset_MCU()             NVIC_SystemReset()
