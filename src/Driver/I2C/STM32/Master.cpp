@@ -81,7 +81,7 @@ Master::Result_T  Master::writeToDevice( uint8_t        device7BitAddress,
         return convertHALErrorCode( r );
     }
     
-    return Master::Result_T::eERROR;
+    return Master::Result_T::eNOT_STARTED;
 }
 
 Master::Result_T Master::readFromDevice( uint8_t   device7BitAddress,
@@ -98,7 +98,7 @@ Master::Result_T Master::readFromDevice( uint8_t   device7BitAddress,
         return convertHALErrorCode( r );
     }
 
-    return Master::Result_T::eERROR;
+    return Master::Result_T::eNOT_STARTED;
 }
 
 size_t Master::setBaudRate( size_t newBaudRateHz ) noexcept
