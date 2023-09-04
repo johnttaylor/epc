@@ -1,8 +1,9 @@
 # Unit under test
-src/Cpl/Dm/TShell
+src/Cpl/Logging/TShell
+src/Cpl/Logging
 
 # tests
-src/Cpl/Dm/TShell/_0test
+src/Cpl/Logging/TShell/_0test
 
 # supporting infrastructure
 src/Cpl/Dm
@@ -15,11 +16,14 @@ src/Cpl/Text
 src/Cpl/Text/Frame
 src/Cpl/Text/Tokenizer
 src/Cpl/Memory
-
+src/Cpl/Itc
+src/Cpl/Persistent
+src/Cpl/Checksum
 
 # Platforms
 src/Cpl/Io
 src/Cpl/Io/Stdio
+src/Cpl/Io/File
 src/Cpl/System/_ansi
 src/Cpl/System/_ansi/_shutdown
 src/Cpl/System/_trace

@@ -2,16 +2,15 @@
 #include "Cpl/System/Trace.h"
 #include "Cpl/Io/Stdio/StdIn.h"
 #include "Cpl/Io/Stdio/StdOut.h"
-#include "Cpl/TShell/Cmd/Threads.h"
+
+
 
 
 // External references
 extern void shell_test( Cpl::Io::Input& infd, Cpl::Io::Output& outfd );
 
-Cpl::Io::Stdio::StdIn   infd_;
-Cpl::Io::Stdio::StdOut  outfd_;
-Cpl::Container::Map<Cpl::TShell::Command>  cmdlist( "ignore_this_parameter-used to invoke the static constructor" );
-Cpl::TShell::Cmd::Threads threadsCmd_( cmdlist );
+Cpl::Io::Stdio::StdIn                           infd_;
+Cpl::Io::Stdio::StdOut                          outfd_;
 
 
 int main( int argc, char* const argv[] )

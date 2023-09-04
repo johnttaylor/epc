@@ -2,6 +2,8 @@
 [win32|win64] src/Cpl/TShell/Cmd/Win32
 
 # Platforms
+src/Cpl/Io/File/_win32
+src/Cpl/Io/File/_win32/_api
 src/Cpl/Io/Stdio/_win32
 [win32|win64] src/Cpl/System/Win32
 [win32|win64] src/Cpl/System/Win32/_fatalerror

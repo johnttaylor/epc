@@ -60,3 +60,57 @@ void Ajax::Logging::logf( MetricsMsg msgId, const char* msgTextFormat, ... ) noe
     Cpl::Logging::vlogf<CategoryId, MetricsMsg>( CategoryId::METRICS, msgId, msgTextFormat, ap );
     va_end( ap );
 }
+
+
+bool Cpl::Logging::getIDStrings( uint32_t             categoryNumericValue,
+                                 uint16_t             messageIdNumericValue,
+                                 Cpl::Text::String&   dstCategoryString,
+                                 Cpl::Text::String&   dstMessageString ) noexcept
+{
+    switch ( categoryNumericValue )
+    {
+    case Ajax::Logging::CategoryId::CRITICAL:
+        if ( Ajax::Logging::CriticalMsg::_is_valid( messageIdNumericValue ) )
+        {
+            dstCategoryString = (+Ajax::Logging::CategoryId::CRITICAL)._to_string();
+            dstMessageString  = Ajax::Logging::CriticalMsg::_from_integral_unchecked( messageIdNumericValue )._to_string();
+            return true;
+        }
+        break;
+    case Ajax::Logging::CategoryId::WARNING:
+        if ( Ajax::Logging::WarningMsg::_is_valid( messageIdNumericValue ) )
+        {
+            dstCategoryString = (+Ajax::Logging::CategoryId::WARNING)._to_string();
+            dstMessageString  = Ajax::Logging::WarningMsg::_from_integral_unchecked( messageIdNumericValue )._to_string();
+            return true;
+        }
+        break;
+    case Ajax::Logging::CategoryId::EVENT:
+        if ( Ajax::Logging::EventMsg::_is_valid( messageIdNumericValue ) )
+        {
+            dstCategoryString = (+Ajax::Logging::CategoryId::EVENT)._to_string();
+            dstMessageString  = Ajax::Logging::EventMsg::_from_integral_unchecked( messageIdNumericValue )._to_string();
+            return true;
+        }
+        break;
+    case Ajax::Logging::CategoryId::INFO:
+        if ( Ajax::Logging::InfoMsg::_is_valid( messageIdNumericValue ) )
+        {
+            dstCategoryString = (+Ajax::Logging::CategoryId::INFO)._to_string();
+            dstMessageString  = Ajax::Logging::InfoMsg::_from_integral_unchecked( messageIdNumericValue )._to_string();
+            return true;
+        }
+        break;
+    case Ajax::Logging::CategoryId::METRICS:
+        if ( Ajax::Logging::MetricsMsg::_is_valid( messageIdNumericValue ) )
+        {
+            dstCategoryString = (+Ajax::Logging::CategoryId::METRICS)._to_string();
+            dstMessageString  = Ajax::Logging::MetricsMsg::_from_integral_unchecked( messageIdNumericValue )._to_string();
+            return true;
+        }
+        break;
+    default:
+        break;
+    }
+    return false;
+}
