@@ -63,7 +63,6 @@ class BuildValues:
         self.asmflags     = ''
         self.linkflags    = ''
         self.linklibs     = ''
-        self.linkscript   = ''
         self.firstobjs    = ''
         self.lastobjs     = ''
 
@@ -76,7 +75,6 @@ class BuildValues:
         self.asmflags     += ' ' + src.asmflags         
         self.linkflags    += ' ' + src.linkflags        
         self.linklibs     += ' ' + src.linklibs 
-        self.linkscript   += ' ' + src.linkscript 
         self.firstobjs    += ' ' + src.firstobjs 
         self.lastobjs     += ' ' + src.lastobjs 
   
@@ -91,7 +89,6 @@ class BuildValues:
         new.asmflags     = self.asmflags         
         new.linkflags    = self.linkflags        
         new.linklibs     = self.linklibs 
-        new.linkscript   = self.linkscript 
         new.firstobjs    = self.firstobjs 
         new.lastobjs     = self.lastobjs 
        
@@ -201,7 +198,6 @@ class ToolChain:
         self._bld_variants[self._bld]['debug']     = self._debug_release
  
         
-    
     #--------------------------------------------------------------------------
     def set_printer(self, printer):
         self._printer = printer
@@ -364,8 +360,11 @@ class ToolChain:
         self._all_opts.asminc = utils.standardize_dir_sep( self._all_opts.asminc, self._os_sep  )
         self._all_opts.firstobjs = utils.standardize_dir_sep( self._all_opts.firstobjs, self._os_sep  )
         self._all_opts.lastobjs = utils.standardize_dir_sep( self._all_opts.lastobjs, self._os_sep  )
-        self._all_opts.linkscript = utils.standardize_dir_sep( self._all_opts.linkscript, self._os_sep  )
 
+        if ( arguments['--qry-opts'] ):
+            self._printer.enable_debug()
+            self._dump_options(  self._all_opts, True )
+            sys.exit(0)
         if ( arguments['--debug'] ):
             self._printer.debug( "# Final 'all_opts'" )
             self._dump_options(  self._all_opts, True )
@@ -488,11 +487,10 @@ class ToolChain:
 
         startgroup = self._linker_libgroup_start if len(libs) > 0 else ''
         endgroup   = self._linker_libgroup_end   if len(libs) > 0 else ''
-        ldopts = '{} {} {} {} {} {} {} {} {}'.format( 
+        ldopts = '{} {} {} {} {} {} {} {}'.format( 
                                             self._all_opts.firstobjs,
                                             " ".join(objfiles),
                                             self._all_opts.linkflags,
-                                            self._all_opts.linkscript,
                                             startgroup,
                                             " ".join(libs),
                                             endgroup,
@@ -527,6 +525,8 @@ class ToolChain:
         
     def _link_ldopts_standardize_dir_sep( self, ldopts ):
         return utils.standardize_dir_sep( ldopts, self._os_sep )
+
+        
 
     #==========================================================================
     # Private Methods
@@ -759,6 +759,5 @@ class ToolChain:
         self._printer.debug( '#      linklibs:   ' + sv.linklibs   + ("\n" if extraSpace else " "))
         self._printer.debug( '#      firstobjs:  ' + sv.firstobjs  + ("\n" if extraSpace else " "))
         self._printer.debug( '#      lastobjs:   ' + sv.lastobjs   + ("\n" if extraSpace else " "))
-        self._printer.debug( '#      linkscript: ' + sv.linkscript + ("\n" if extraSpace else " "))
   
                                                                          

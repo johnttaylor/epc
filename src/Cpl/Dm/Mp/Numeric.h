@@ -22,7 +22,7 @@
 #include <string.h>
 #include <stdint.h>
 
-/// Hack to get around that NOT all compilers support the "%lld" notation for printf
+/// Hack to get around that NOT all compilers support the "%llx" notation for printf
 #if INTPTR_MAX == INT32_MAX
 /// print format max integer
 #define PRINTF_SIZET_FMT    "%lx"

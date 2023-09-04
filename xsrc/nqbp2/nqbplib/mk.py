@@ -84,6 +84,7 @@ Arguments:
                    build variant) referenced in the libdirs.b file.
   --qry-dirs2      Same as --qry-dirs with the addition of the any source file
                    include/exclude info
+  --qry-opts       Displays all of the toolchain options (no build is performed) 
   --deps           Outputs the Header file dependencies. DOES NOT BUILD the 
                    projects.
   -h,--help        Display help.
