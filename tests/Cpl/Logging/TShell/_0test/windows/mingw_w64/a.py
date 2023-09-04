@@ -37,8 +37,8 @@ def compare_files( file1, file2 ):
     line1 = line2 = True
     with open(file1, 'r') as f1, open(file2, 'r') as f2:
         while line1 and line2:
-            line1 = f1.readline()
-            line2 = f2.readline()
+            line1 = f1.readline().replace(' ','') # remove whitespace since it varies based 32 vs 64 bit builds
+            line2 = f2.readline().replace(' ','')
             if line1 != line2:
                 return False
     return True
