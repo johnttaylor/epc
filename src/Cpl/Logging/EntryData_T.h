@@ -65,6 +65,16 @@ public:
     static constexpr unsigned entryLen = sizeof( timestamp ) + sizeof( category ) + sizeof( msgId ) + sizeof( msgText );
 
 public:
+    /// Constructor
+    EntryData_T()
+        : timestamp( 0 )
+        , category( 0 )
+        , msgId( 0 )
+    {
+        memset( msgText, 0, sizeof( msgText ) );
+    }
+
+public:
     /// See Cpl::Persistent::Payload (manual copy ensure no pad bytes are copied)
     size_t getData( void* dst, size_t maxDstLen ) noexcept
     {
