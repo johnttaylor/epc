@@ -88,6 +88,10 @@ extern Driver::NV::Api&                 g_nvramDriver;
 #define OPTION_AJAX_MAIN_MIN_SPLASH_TIME_MS     (2*1000)
 #endif
 
+/// Number of entries for the in-RAM logging buffer
+#ifndef OPTION_AJAX_MAIN_MAX_LOGGING_BUFFER_ENTRIES
+#define OPTION_AJAX_MAIN_MAX_LOGGING_BUFFER_ENTRIES     20  // (20+1) * 159 = 3339 = 3.3K
+#endif
 };      // end namespaces
 };
 #endif  // end header latch

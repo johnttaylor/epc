@@ -20,6 +20,7 @@ src/Cpl/Memory
 src/Cpl/Container
 src/Cpl/Checksum
 src/Cpl/Logging
+src/Cpl/Logging/TShell
 src/Cpl/Text
 src/Cpl/Io
 src/Cpl/Dm

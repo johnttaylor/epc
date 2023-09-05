@@ -43,3 +43,6 @@ ALLOC_INVALID( Cpl::Dm::Mp::Uint64, metricHeaterOnTime );
 ALLOC_INVALID( Cpl::Dm::Mp::Uint64, metricFanOnTime );
 ALLOC_INVALID( Cpl::Dm::Mp::Uint32, metricFaultTempSensor );
 ALLOC_INVALID( Cpl::Dm::Mp::Uint32, metricFaultHeaterSafety );
+
+ALLOC_INVALID( Cpl::Dm::Mp::Uint32, loggingQueCount );
+ALLOC_INVALID( Cpl::Dm::Mp::Uint64, latestLoggingEntryKey );
