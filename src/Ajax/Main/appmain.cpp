@@ -25,16 +25,23 @@
 #include "Cpl/TShell/Cmd/Trace.h"
 #include "Cpl/TShell/Cmd/TPrint.h"
 #include "Cpl/Dm/TShell/Dm.h"
+#include "Cpl/Logging/TShell/Log.h"
 #include "Cpl/TShell/Maker.h"
 #include "Cpl/TShell/Stdio.h"
 #include "Ajax/Ui/Splash/Screen.h"
 #include "Ajax/Ui/Shutdown/Screen.h"
 #include "Ajax/Ui/Home/Screen.h"
 #include "Ajax/Ui/LogicalButtons.h"
+#include "Ajax/Logging/Api.h"
+#include "Cpl/Logging/Api.h"
 #include "Cpl/System/Trace.h"
 #include "Cpl/Persistent/NVAdapter.h"
 #include "Cpl/Persistent/MirroredChunk.h"
+#include "Cpl/Persistent/CrcChunk.h"
 #include "Cpl/Persistent/RecordServer.h"
+#include "Cpl/Persistent/IndexedEntryRecord.h"
+#include "Cpl/Persistent/IndexedEntryServer.h"
+#include "Cpl/Persistent/IndexRecord.h"
 #include "Cpl/System/Trace.h"
 #include "Ajax/TShell/Provision.h"
 
@@ -67,6 +74,20 @@ Ajax::ScreenMgr::Navigation&      Ajax::Main::g_screenNav = screenMgr_;
 static Ajax::Ui::Splash::Screen   splashScreen_( g_graphics );
 static Ajax::Ui::Shutdown::Screen shutdownScreen_( g_graphics );
 
+
+#define LOG_BUFFER_SIZE (OPTION_AJAX_MAIN_MAX_LOGGING_BUFFER_ENTRIES+1)
+static Cpl::Logging::EntryData_T                                memoryEntryBuffer_[LOG_BUFFER_SIZE];
+static Cpl::Container::RingBufferMP<Cpl::Logging::EntryData_T>  logEntryBuffer_( LOG_BUFFER_SIZE, memoryEntryBuffer_, mp::loggingQueCount );
+
+static Cpl::Persistent::NVAdapter           fd1LogIndexRec_( g_nvramDriver, AJAX_MAIN_LOGINDEX_REGION_A_START_ADDRESS, AJAX_MAIN_LOGINDEX_REGION_LENGTH );
+static Cpl::Persistent::NVAdapter           fd2LogIndexRec_( g_nvramDriver, AJAX_MAIN_LOGINDEX_REGION_B_START_ADDRESS, AJAX_MAIN_LOGINDEX_REGION_LENGTH );
+static Cpl::Persistent::MirroredChunk       logIndexRecChunk_( fd1LogIndexRec_, fd2LogIndexRec_ );
+static Cpl::Persistent::IndexRecord			logIndexRecord_( logIndexRecChunk_ );
+
+static Cpl::Persistent::NVAdapter           fdLogEntriesRec_( g_nvramDriver, AJAX_MAIN_LOGENTRIES_REGION_START_ADDRESS, AJAX_MAIN_LOGENTRIES_REGION_DATA_LEN );
+static Cpl::Persistent::CrcChunk            logEntriesChunk_( fdLogEntriesRec_ );
+static Cpl::Persistent::IndexedEntryRecord	logEntryRecord_( logEntriesChunk_, Cpl::Logging::EntryData_T::entryLen, fdLogEntriesRec_, logIndexRecord_, mp::latestLoggingEntryKey );
+
 static Cpl::Persistent::NVAdapter           fd1UserRec_( g_nvramDriver, AJAX_MAIN_USER_REGION_A_START_ADDRESS, AJAX_MAIN_USER_REGION_LENGTH );
 static Cpl::Persistent::NVAdapter           fd2UserRec_( g_nvramDriver, AJAX_MAIN_USER_REGION_B_START_ADDRESS, AJAX_MAIN_USER_REGION_LENGTH );
 static Cpl::Persistent::MirroredChunk       chunkUserRec_( fd1UserRec_, fd2UserRec_ );
@@ -82,8 +103,9 @@ static Cpl::Persistent::NVAdapter           fd2PersonalityRec_( g_nvramDriver, A
 static Cpl::Persistent::MirroredChunk       chunkPersonalityRec_( fd1PersonalityRec_, fd2PersonalityRec_ );
 static Ajax::Main::PersonalityRecord        personalityRec_( chunkPersonalityRec_ );
 
-static Cpl::Persistent::Record*             records_[3 + 1] ={ &userRec_, &metricsRec_, &personalityRec_, 0 };
-static Cpl::Persistent::RecordServer        recordServer_( records_ );
+static Cpl::Persistent::Record*                                         records_[4 + 1] ={ &logEntryRecord_, &userRec_, &metricsRec_, &personalityRec_, 0 };
+static Cpl::Persistent::RecordServer                                    recordServer_( records_ );
+static Cpl::Persistent::IndexedEntryServer<Cpl::Logging::EntryData_T>   logServer_( recordServer_, logEntryRecord_, logEntryBuffer_ );
 
 Cpl::Container::Map<Cpl::TShell::Command>    Ajax::Main::g_cmdlist( "ignoreThisParameter_usedToCreateAUniqueConstructor" );
 static Cpl::TShell::Maker                    cmdProcessor_( g_cmdlist );
@@ -93,6 +115,7 @@ static Cpl::TShell::Cmd::Bye	             byeCmd_( g_cmdlist );
 static Cpl::TShell::Cmd::Trace	             traceCmd_( g_cmdlist );
 static Cpl::TShell::Cmd::TPrint	             tprintCmd_( g_cmdlist );
 static Cpl::Dm::TShell::Dm	                 dmCmd_( g_cmdlist, mp::g_modelDatabase );
+static Cpl::Logging::TShell::Log             logCmds_( g_cmdlist, recordServer_, logServer_ );
 
 // Only include the Provision command in Ajax Debug build AND ALL Eros builds
 #if defined(DEBUG_BUILD) || defined(I_AM_EROS)
@@ -116,6 +139,11 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     /*
     ** STARTING UP...
     */
+    Cpl::Logging::initialize( logEntryBuffer_,
+                              Ajax::Logging::CategoryId::WARNING,
+                              (+Ajax::Logging::CategoryId::WARNING)._to_string(),
+                              Ajax::Logging::WarningMsg::LOGGING_OVERFLOW,
+                              (+Ajax::Logging::WarningMsg::LOGGING_OVERFLOW)._to_string() );
     platform_initialize0();
     appvariant_initialize0();
 
@@ -136,7 +164,11 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
 
     recordServer_.open();               // Start Persistent server as soon as possible
     metricsRec_.flush( recordServer_ ); // Immediate flush the metrics record so the new boot counter value is updated (see MetricsRecord for where the counter gets incremented)
-
+    uint32_t bootCounter;
+    mp::metricBootCounter.read( bootCounter );
+    Ajax::Logging::logf( Ajax::Logging::MetricsMsg::POWER_ON, "Boot count = %lu", bootCounter );
+    logServer_.open();
+    
     appvariant_open0();
 
     buttonEvents_.open();
@@ -164,12 +196,15 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     /*
     ** SHUTTING DOWN...
     */
+    Ajax::Logging::logf( Ajax::Logging::MetricsMsg::SHUTDOWN, "Boot count = %lu", bootCounter );
+
     // close() calls are the reverse order of the open() calls
     buttonEvents_.close();
 
     appvariant_close0();
     
-    recordServer_.close();   
+    logServer_.close();
+    recordServer_.close();
     
     platform_close0();
 
@@ -218,4 +253,5 @@ void displayRecordSizes()
     CPL_SYSTEM_TRACE_MSG( SECT_, ("User Record size:        %lu (%lu) ", userRec_.getRecordSize(), userRec_.getRecordSize()+ chunkUserRec_.getMetadataLength()) );
     CPL_SYSTEM_TRACE_MSG( SECT_, ("Metrics Record size:     %lu (%lu) ", metricsRec_.getRecordSize(), metricsRec_.getRecordSize() + chunkMetricsRec_.getMetadataLength()) );
     CPL_SYSTEM_TRACE_MSG( SECT_, ("Personality Record size: %lu (%lu) ", personalityRec_.getRecordSize(), personalityRec_.getRecordSize() + chunkPersonalityRec_.getMetadataLength()) );
+    CPL_SYSTEM_TRACE_MSG( SECT_, ("Log Entry size:          %lu", logEntryRecord_.getMetadataLength()+ Cpl::Logging::EntryData_T::entryLen + logEntriesChunk_.getMetadataLength()) );
 }

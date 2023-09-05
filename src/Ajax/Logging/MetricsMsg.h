@@ -26,10 +26,12 @@ namespace Logging {
 
     @param MetricsMsg                       Enum
 
-    @param PLACE_HOLDER                     Place holder till I have a event log entry
+    @param POWER_ON                         The MCU was powered and/or was reset
+    @param SHUTDOWN                         An orderly shutdown of the application was initiated
  */
 BETTER_ENUM( MetricsMsg, uint16_t
-             , PLACE_HOLDER
+             , POWER_ON
+             , SHUTDOWN
 );
 
 

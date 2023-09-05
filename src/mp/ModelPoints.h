@@ -244,6 +244,32 @@ extern Cpl::Dm::Mp::Uint32  metricFaultTempSensor;
 */
 extern Cpl::Dm::Mp::Uint32  metricFaultHeaterSafety;
 
+/** This model point is contains the current count of number of elements
+    in the Logging queue.  It is used to for generating change notifications
+    to the Persistent storage framework to write record(s) to the physical
+    media.
+
+    \b Units: counter
+
+    \b Range: n/a
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::Uint32  loggingQueCount;
+
+/** This model point holds the latest 'log key' for the last log entry
+    written to persistent storage.
+
+    \b Units: free running counter
+
+    \b Range: n/a
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::Uint64  latestLoggingEntryKey;
+
 /*---------------------------------------------------------------------------*/
 /// The Application's Model Point Database
 extern Cpl::Dm::ModelDatabase   g_modelDatabase;
