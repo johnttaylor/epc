@@ -1,0 +1,8 @@
+*.obj
+*.o
+*.exe
+*.out
+*.hex
+*.bin
+*.pdb
+*.sln
