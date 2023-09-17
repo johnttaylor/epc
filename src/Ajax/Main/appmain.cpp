@@ -44,6 +44,8 @@
 #include "Cpl/Persistent/IndexRecord.h"
 #include "Cpl/System/Trace.h"
 #include "Ajax/TShell/Provision.h"
+#include "Driver/Crypto/Api.h"
+#include "Driver/Crypto/TShell/Random.h"
 
 using namespace Ajax::Main;
 
@@ -115,7 +117,8 @@ static Cpl::TShell::Cmd::Bye	             byeCmd_( g_cmdlist );
 static Cpl::TShell::Cmd::Trace	             traceCmd_( g_cmdlist );
 static Cpl::TShell::Cmd::TPrint	             tprintCmd_( g_cmdlist );
 static Cpl::Dm::TShell::Dm	                 dmCmd_( g_cmdlist, mp::g_modelDatabase );
-static Cpl::Logging::TShell::Log             logCmds_( g_cmdlist, recordServer_, logServer_ );
+static Cpl::Logging::TShell::Log             logCmd_( g_cmdlist, recordServer_, logServer_ );
+static Driver::Crypto::TShell::Random        randomCmd_( g_cmdlist );
 
 // Only include the Provision command in Ajax Debug build AND ALL Eros builds
 #if defined(DEBUG_BUILD) || defined(I_AM_EROS)
@@ -146,6 +149,7 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
                               (+Ajax::Logging::WarningMsg::LOGGING_OVERFLOW)._to_string() );
     platform_initialize0();
     appvariant_initialize0();
+    Driver::Crypto::initialize();
 
     platform_initializeModelPoints0();
     appvariant_initializeModelPoints0();
@@ -212,6 +216,8 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     Cpl::System::Api::sleep( 1000 );
 
     screenMgr_.close();
+    
+    Driver::Crypto::shutdown();
 
     // Delete UI Thread
     recordServer_.pleaseStop();

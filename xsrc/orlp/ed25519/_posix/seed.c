@@ -3,7 +3,7 @@
 
 int ed25519_create_seed(unsigned char *seed) 
 {
-    FILE *f = fopen("/dev/urandom", "rb");
+    FILE *f = fopen("/dev/random", "rb");
 
     if (f == NULL) {
         return 1;

@@ -49,7 +49,7 @@ pimoroni_inc      = f' -I{pimoroni_src_path}' + \
 base_release           = BuildValues()        # Do NOT comment out this line
 base_release.cflags    = '/W3 /WX /EHsc /std:c++20'  # /EHsc enables exceptions
 base_release.inc       = f'{pimoroni_inc}'
-base_release.linklibs  = 'ws2_32.lib'
+base_release.linklibs  = 'ws2_32.lib Advapi32.lib'
 
 
 # Set project specific 'optimized' options
