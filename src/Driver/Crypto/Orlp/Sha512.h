@@ -19,7 +19,7 @@
 ///
 namespace Driver {
 ///
-namespace Crytpto {
+namespace Crypto {
 ///
 namespace Orlp {
 
@@ -27,7 +27,7 @@ namespace Orlp {
 /** This class implements the Hash interface using Orson Peter's SHA512 
 	algorithm
  */
-class SHA512: public Hash
+class SHA512: public Driver::Crypto::Hash
 {
 public:
 	/// Constructor
