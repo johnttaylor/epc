@@ -27,6 +27,7 @@
 #include "Cpl/Dm/Mp/Uint64.h"
 #include "Cpl/Dm/Mp/Int32.h"
 #include "Cpl/Dm/Mp/String.h"
+#include "Cpl/Dm/Mp/Array.h"
 #include "Ajax/ScreenMgr/MpScreenApiPtr.h"
 #include "Ajax/ScreenMgr/MpStaticScreenApiPtr.h"
 #include "Ajax/Dm/MpFanMode.h"
@@ -269,6 +270,29 @@ extern Cpl::Dm::Mp::Uint32  loggingQueCount;
         n/a
 */
 extern Cpl::Dm::Mp::Uint64  latestLoggingEntryKey;
+
+/** This model point contains the hashed value for the console password.
+
+    \b Units: n/a
+
+    \b Range: n/a
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::ArrayUint8<OPTION_AJAX_HASHED_PASSWORD_SIZE> consolePwdHash;
+
+/** This model point contains the 'salt' value that was used when the
+    console password was hashed.
+
+    \b Units: n/a
+
+    \b Range: n/a
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::ArrayUint8<OPTION_AJAX_HASHED_PASSWORD_SALT_SIZE> consolePwdSalt;
 
 /*---------------------------------------------------------------------------*/
 /// The Application's Model Point Database

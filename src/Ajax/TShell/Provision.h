@@ -16,6 +16,7 @@
 #include "Cpl/TShell/Cmd/Command.h"
 #include "Cpl/Persistent/RecordServer.h"
 #include "Ajax/Main/PersonalityRecord.h"
+#include "Driver/Crypto/Hash.h"
 
 ///
 namespace Ajax {
@@ -48,13 +49,6 @@ public:
     static constexpr const char* detailedHelp = "  Provisions the GM6000 with its 'personality'";
 
 
-protected:
-    /// Persistent Storage Server
-    Cpl::Persistent::RecordServer& m_recordServer;
-
-    /// Personality record that I write to
-    Ajax::Main::PersonalityRecord& m_personalityRec;
-
 public:
     /// See Cpl::TShell::Command                                                               `
     const char* getUsage() const noexcept { return usage; }
@@ -68,12 +62,30 @@ public:
     Provision( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
                Ajax::Main::PersonalityRecord&             personalityRecord,
                Cpl::Persistent::RecordServer&             recordServer,
+               Driver::Crypto::Hash&                      sha512HashFunction,
                Cpl::TShell::Security::Permission_T        minPermLevel=OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;
 
 
 public:
     /// See Cpl::TShell::Command
     Cpl::TShell::Command::Result_T execute( Cpl::TShell::Context_& context, char* cmdString, Cpl::Io::Output& outfd ) noexcept;
+
+protected:
+    /// Helper function
+    bool hashPassword( const char*        plaintext,
+                       Cpl::Text::String& workBufferMem,
+                       Cpl::Text::String& workDigestMem,
+                       Cpl::Text::String& outputBufferMemory ) noexcept;
+
+protected:
+    /// Persistent Storage Server
+    Cpl::Persistent::RecordServer& m_recordServer;
+
+    /// Personality record that I write to
+    Ajax::Main::PersonalityRecord& m_personalityRec;
+
+    /// Hash function to use.  The expectation is this a SHA512 has function
+    Driver::Crypto::Hash&  m_sha512;
 
 };
 

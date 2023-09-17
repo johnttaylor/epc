@@ -46,3 +46,6 @@ ALLOC_INVALID( Cpl::Dm::Mp::Uint32, metricFaultHeaterSafety );
 
 ALLOC_INVALID( Cpl::Dm::Mp::Uint32, loggingQueCount );
 ALLOC_INVALID( Cpl::Dm::Mp::Uint64, latestLoggingEntryKey );
+
+ALLOC_INVALID( Cpl::Dm::Mp::ArrayUint8<OPTION_AJAX_HASHED_PASSWORD_SIZE>, consolePwdHash );
+ALLOC_INVALID( Cpl::Dm::Mp::ArrayUint8<OPTION_AJAX_HASHED_PASSWORD_SALT_SIZE>, consolePwdSalt );

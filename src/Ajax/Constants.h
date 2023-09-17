@@ -51,5 +51,30 @@
 #define OPTION_AJAX_MAX_SERIAL_NUM_LENGTH   16
 #endif
 
+/// Size, in bytes, of the Hashed password
+#ifndef OPTION_AJAX_HASHED_PASSWORD_SIZE
+#define OPTION_AJAX_HASHED_PASSWORD_SIZE            64
+#endif
+
+/// Size, in bytes, of the salt used when hashing the password
+#ifndef OPTION_AJAX_HASHED_PASSWORD_SALT_SIZE
+#define OPTION_AJAX_HASHED_PASSWORD_SALT_SIZE       16
+#endif
+
+/// Number of iteration to use when hashing a password
+#ifndef OPTION_AJAX_HASHED_PASSWORD_ITERATIONS
+#define OPTION_AJAX_HASHED_PASSWORD_ITERATIONS      2000    // ~2.3 seconds on the STM32 target
+#endif
+
+/// Maximum,size in bytes, of a password
+#ifndef OPTION_AJAX_PASSWORD_MAX_LENGTH
+#define OPTION_AJAX_PASSWORD_MAX_LENGTH             32
+#endif
+
+/// Minimum,size in bytes, of a password
+#ifndef OPTION_AJAX_PASSWORD_MIN_LENGTH
+#define OPTION_AJAX_PASSWORD_MIN_LENGTH             12
+#endif
+
 #endif  // end header latch
 

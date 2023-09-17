@@ -14,9 +14,17 @@
 #include "Ajax/Main/application.h"
 #include "Ajax/Main/screens.h"
 #include "mp/ModelPoints.h"
+#include "Cpl/TShell/Cmd/User.h"
+#include "TShellSecurity.h"
 #include <stdio.h>
 
 using namespace Ajax::Main;
+
+// Only use/require the 'User' command for Production builds
+//#if !defined(DEBUG_BUILD)
+static TShellSecurity         security_( *g_sha512Ptr );
+static Cpl::TShell::Cmd::User userCmd_( g_cmdlist, security_ );
+//#endif
 
 Ajax::Ui::Home::Screen  Ajax::Main::g_homeScreen_( Ajax::Main::g_screenNav, g_graphics );
 Ajax::Ui::About::Screen Ajax::Main::g_aboutScreen_( Ajax::Main::g_screenNav, g_graphics );
