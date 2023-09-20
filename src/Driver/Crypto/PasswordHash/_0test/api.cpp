@@ -17,7 +17,7 @@
 #include "Cpl/Text/FString.h"
 #include "Cpl/Text/format.h"
 
-using namespace Driver::Crypto::Password;
+using namespace Driver::Crypto::PasswordHash;
 
 #define HASH_DIGEST_SIZE        64
 #define MAX_PLAIN_TEXT_SIZE     64
