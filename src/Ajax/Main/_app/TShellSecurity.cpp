@@ -38,7 +38,7 @@ Cpl::TShell::Security::Permission_T TShellSecurity::validateCredentials( const c
 
     // Get the salt
     uint8_t salt[OPTION_AJAX_HASHED_PASSWORD_SALT_SIZE];
-    if ( !mp::consolePwdSalt.read( salt, sizeof(salt) ) )
+    if ( !mp::consolePwdSalt.read( salt, sizeof( salt ) ) )
     {
         Cpl::System::Api::sleep( ENFORCED_DELAY_MS );
         return ePUBLIC;
@@ -48,18 +48,18 @@ Cpl::TShell::Security::Permission_T TShellSecurity::validateCredentials( const c
     uint8_t workBuffer[OPTION_AJAX_PASSWORD_MAX_LENGTH + OPTION_AJAX_HASHED_PASSWORD_SIZE];
     uint8_t workDigest[OPTION_AJAX_HASHED_PASSWORD_SIZE];
     uint8_t outputBuffer[OPTION_AJAX_HASHED_PASSWORD_SIZE];
-    DriverCryptoStatus_T result = Driver::Crypto::Password::hash( password,
-                                                                  passwordLen,
-                                                                  salt,
-                                                                  sizeof( salt ),
-                                                                  workBuffer,
-                                                                  sizeof( workBuffer),
-                                                                  workDigest,
-                                                                  sizeof( workDigest),
-                                                                  m_sha512,
-                                                                  OPTION_AJAX_HASHED_PASSWORD_ITERATIONS,
-                                                                  outputBuffer,
-                                                                  sizeof(outputBuffer) );
+    DriverCryptoStatus_T result = Driver::Crypto::PasswordHash::hash( password,
+                                                                      passwordLen,
+                                                                      salt,
+                                                                      sizeof( salt ),
+                                                                      workBuffer,
+                                                                      sizeof( workBuffer ),
+                                                                      workDigest,
+                                                                      sizeof( workDigest ),
+                                                                      m_sha512,
+                                                                      OPTION_AJAX_HASHED_PASSWORD_ITERATIONS,
+                                                                      outputBuffer,
+                                                                      sizeof( outputBuffer ) );
     if ( result != DRIVER_CRYPTO_SUCCESS )
     {
         return ePUBLIC;
@@ -67,7 +67,7 @@ Cpl::TShell::Security::Permission_T TShellSecurity::validateCredentials( const c
 
     // Get and compare the expected hash
     if ( !mp::consolePwdHash.read( workDigest, sizeof( workDigest ) ) ||
-         memcmp( workDigest, outputBuffer, sizeof(workDigest)) != 0 )
+         memcmp( workDigest, outputBuffer, sizeof( workDigest ) ) != 0 )
     {
         return ePUBLIC;
     }
