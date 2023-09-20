@@ -106,20 +106,20 @@ bool Provision::hashPassword( const char*        plaintext,
 
     // Hash the password
     CPL_SYSTEM_TRACE_ALLOCATE( unsigned long, startTime, Cpl::System::ElapsedTime::milliseconds() );
-    DriverCryptoStatus_T result = Driver::Crypto::Password::hash( plaintext,
-                                                                  strlen( plaintext ),
-                                                                  salt,
-                                                                  sizeof( salt ),
-                                                                  workBuffer,
-                                                                  workBufferSize,
-                                                                  workDigest,
-                                                                  workDigestSize,
-                                                                  m_sha512,
-                                                                  OPTION_AJAX_HASHED_PASSWORD_ITERATIONS,
-                                                                  outputBuffer,
-                                                                  outputBufferSize );
+    DriverCryptoStatus_T result = Driver::Crypto::PasswordHash::hash( plaintext,
+                                                                      strlen( plaintext ),
+                                                                      salt,
+                                                                      sizeof( salt ),
+                                                                      workBuffer,
+                                                                      workBufferSize,
+                                                                      workDigest,
+                                                                      workDigestSize,
+                                                                      m_sha512,
+                                                                      OPTION_AJAX_HASHED_PASSWORD_ITERATIONS,
+                                                                      outputBuffer,
+                                                                      outputBufferSize );
     CPL_SYSTEM_TRACE_ALLOCATE( unsigned long, endTime, Cpl::System::ElapsedTime::milliseconds() );
-    CPL_SYSTEM_TRACE_MSG( SECT_, ("Hash time for %lu iterations = %lu ms", OPTION_AJAX_HASHED_PASSWORD_ITERATIONS, endTime - startTime ) );
+    CPL_SYSTEM_TRACE_MSG( SECT_, ("Hash time for %lu iterations = %lu ms", OPTION_AJAX_HASHED_PASSWORD_ITERATIONS, endTime - startTime) );
 
     // Update the model points
     if ( result == DRIVER_CRYPTO_SUCCESS )

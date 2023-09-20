@@ -37,7 +37,7 @@ namespace Driver {
 ///
 namespace Crypto {
 ///
-namespace Password {
+namespace PasswordHash {
 
 
 /** This method takes plain text plus a 'salt' and generates an hashed 

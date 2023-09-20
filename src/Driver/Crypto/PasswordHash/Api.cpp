@@ -15,18 +15,18 @@
 #include <string.h>
 
 
-DriverCryptoStatus_T Driver::Crypto::Password::hash( const char*           plaintext,
-                                                     size_t                plaintextLength,
-                                                     const void*           salt,
-                                                     size_t                saltLength,
-                                                     uint8_t*              workBuffer,
-                                                     size_t                workBufferLength,
-                                                     uint8_t*              workDigest,
-                                                     size_t                workDigestLength,
-                                                     Driver::Crypto::Hash& hf,
-                                                     size_t                numIterations,
-                                                     void*                 dstOutputBuffer,
-                                                     size_t                dstOutputBufferLen ) noexcept
+DriverCryptoStatus_T Driver::Crypto::PasswordHash::hash( const char*           plaintext,
+                                                         size_t                plaintextLength,
+                                                         const void*           salt,
+                                                         size_t                saltLength,
+                                                         uint8_t*              workBuffer,
+                                                         size_t                workBufferLength,
+                                                         uint8_t*              workDigest,
+                                                         size_t                workDigestLength,
+                                                         Driver::Crypto::Hash& hf,
+                                                         size_t                numIterations,
+                                                         void*                 dstOutputBuffer,
+                                                         size_t                dstOutputBufferLen ) noexcept
 {
     // Validate sizes
     if ( dstOutputBufferLen < hf.digestSize() )
@@ -77,7 +77,6 @@ DriverCryptoStatus_T Driver::Crypto::Password::hash( const char*           plain
         }
 
         // XOR the current 'u' with 'u-1'
-        // out = bytes( out ^ u for ( out, u ) in zip( out, u ) )
         uint8_t* out = (uint8_t*) dstOutputBuffer;
         for ( size_t idx=0; idx < hf.digestSize(); idx++ )
         {
@@ -87,24 +86,3 @@ DriverCryptoStatus_T Driver::Crypto::Password::hash( const char*           plain
 
     return DRIVER_CRYPTO_PASSWORD_SUCCESS;
 }
-
-/*
-def calculate_pwd( plaintext_string, store_guid_string ):
-    plaintext_bytes = bytes( plaintext_string, "utf-8" )
-    store_id_bytes  = uuid.UUID( store_guid_string ).bytes
-
-    # Calculate U1
-    x   = plaintext_bytes + store_id_bytes
-    u   = hashlib.md5( x ).digest()
-    out = u
-
-    # Calculate U2...U128
-    for i in range(127):
-        x = plaintext_bytes + u
-        u = hashlib.md5( x ).digest()
-
-        # XOR the current 'u' with 'u-1'
-        out = bytes(out ^ u for (out, u) in zip(out, u))
-
-    return out.hex()
-*/
