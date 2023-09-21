@@ -10,6 +10,8 @@
 
 #define EROS_SEMANTIC_VERSION_STR                   "0.0.1"
 
+// No console password required!
+#define OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL	Cpl::TShell::Security::ePUBLIC
 
 // CLI
 #define OPTION_CPL_TSHELL_PROCESSOR_INPUT_SIZE      (4*1024)

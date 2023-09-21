@@ -9,6 +9,9 @@
 // Enable trace
 #define USE_CPL_SYSTEM_TRACE
 
+// Stack size
+#define OPTION_CPL_SYSTEM_FREERTOS_DEFAULT_STACK_SIZE   (1024*4)
+
 // Define IO for the Pico-Display
 #define OPTION_DRIVER_PICO_DISPLAY_STM32_BUTTON_A_PIN           BUTTON_A_Pin
 #define OPTION_DRIVER_PICO_DISPLAY_STM32_BUTTON_A_PORT          BUTTON_A_GPIO_Port

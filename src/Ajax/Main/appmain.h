@@ -24,6 +24,7 @@
 #include "Cpl/TShell/Command.h"
 #include "Ajax/ScreenMgr/Navigation.h"
 #include "Driver/NV/Api.h"
+#include "Driver/Crypto/Hash.h"
 
 ///
 namespace Ajax {
@@ -61,6 +62,11 @@ extern Ajax::ScreenMgr::Navigation&     g_screenNav;
 
 /// Expose the handle to the NV driver
 extern Driver::NV::Api&                 g_nvramDriver;
+
+/// Expose the Console hash function
+extern Driver::Crypto::Hash*            g_sha512Ptr;
+
+
 /*
 ** Thread Priorities
 */

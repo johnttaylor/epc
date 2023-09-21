@@ -33,6 +33,7 @@
 #include "Ajax/Ui/Home/Screen.h"
 #include "Ajax/Ui/LogicalButtons.h"
 #include "Ajax/Logging/Api.h"
+#include "Ajax/TShell/Provision.h"
 #include "Cpl/Logging/Api.h"
 #include "Cpl/System/Trace.h"
 #include "Cpl/Persistent/NVAdapter.h"
@@ -43,15 +44,20 @@
 #include "Cpl/Persistent/IndexedEntryServer.h"
 #include "Cpl/Persistent/IndexRecord.h"
 #include "Cpl/System/Trace.h"
-#include "Ajax/TShell/Provision.h"
 #include "Driver/Crypto/Api.h"
 #include "Driver/Crypto/TShell/Random.h"
+#include "Driver/Crypto/Orlp/Sha512.h"
+#include "Driver/NV/_tshell/Cmd.h"
 
 using namespace Ajax::Main;
 
 static Cpl::System::Semaphore       waitForShutdown_;
 static volatile int                 exitCode_;
 static int runShutdownHandlers() noexcept;
+
+static Driver::Crypto::Orlp::SHA512 sha512_;
+Driver::Crypto::Hash*               Ajax::Main::g_sha512Ptr = &sha512_;
+
 
 // Graphics library: Use RGB332 mode (256 colours) on the Target to limit RAM usage canvas 
 static Cpl::Dm::MailboxServer                   uiMboxServer_;
@@ -122,7 +128,8 @@ static Driver::Crypto::TShell::Random        randomCmd_( g_cmdlist );
 
 // Only include the Provision command in Ajax Debug build AND ALL Eros builds
 #if defined(DEBUG_BUILD) || defined(I_AM_EROS)
-static Ajax::TShell::Provision               provCmd_( g_cmdlist, personalityRec_, recordServer_ );
+static Ajax::TShell::Provision               provCmd_( g_cmdlist, personalityRec_, recordServer_, *g_sha512Ptr );
+static Driver::NV::Cmd                       eepromCmd_( g_cmdlist, g_nvramDriver );
 #endif
 
 static void displayRecordSizes();

@@ -12,7 +12,12 @@
 #include "Provision.h"
 #include "mp/ModelPoints.h"
 #include "Cpl/Text/Tokenizer/TextBlock.h"
+#include "Driver/Crypto/Random.h"
+#include "Driver/Crypto/PasswordHash/Api.h"
+#include "Cpl/System/Trace.h"
 #include <string.h>
+
+#define SECT_   "Ajax::TShell"
 
 ///
 using namespace Ajax::TShell;
@@ -22,10 +27,12 @@ using namespace Ajax::TShell;
 Provision::Provision( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
                       Ajax::Main::PersonalityRecord&             personalityRecord,
                       Cpl::Persistent::RecordServer&             recordServer,
+                      Driver::Crypto::Hash&                      sha512HashFunction,
                       Cpl::TShell::Security::Permission_T        minPermLevel ) noexcept
     : Cpl::TShell::Cmd::Command( commandList, verb, minPermLevel )
     , m_recordServer( recordServer )
     , m_personalityRec( personalityRecord )
+    , m_sha512( sha512HashFunction )
 {
 }
 
@@ -42,9 +49,15 @@ Cpl::TShell::Command::Result_T Provision::execute( Cpl::TShell::Context_& contex
         return Command::eERROR_MISSING_ARGS;
     }
 
+    // Hash the password (and updates the Model points when successful)
+    if ( !hashPassword( tokens.getParameter( 3 ), context.getOutputBuffer(), context.getTokenBuffer(), context.getTokenBuffer2() ) )
+    {
+        context.writeFrame( "Failed to hash the console password" );
+        return Command::eERROR_FAILED;
+    }
+
     mp::modelNumber.write( tokens.getParameter( 1 ) );
     mp::serialNumber.write( tokens.getParameter( 2 ) );
-    // TODO: mp::consolePwdHash.write( tokens.getParameter( 3 ) );
     // TODO: mp::AlgorithmMPxyz.write( .. );
 
     // Update NVRAM
@@ -60,5 +73,61 @@ Cpl::TShell::Command::Result_T Provision::execute( Cpl::TShell::Context_& contex
     io &= context.writeFrame( outtext );
 
     // Return the command result
-    return io? Command::eSUCCESS: Command::eERROR_IO;
+    return io ? Command::eSUCCESS : Command::eERROR_IO;
 }
+
+
+bool Provision::hashPassword( const char*        plaintext,
+                              Cpl::Text::String& workBufferMem,
+                              Cpl::Text::String& workDigestMem,
+                              Cpl::Text::String& outputBufferMemory ) noexcept
+{
+    // Basic password validation. TODO: There is more validation required here...
+    size_t pwdLen = strlen( plaintext );
+    if ( pwdLen < OPTION_AJAX_PASSWORD_MIN_LENGTH || pwdLen > OPTION_AJAX_PASSWORD_MAX_LENGTH )
+    {
+        return false;
+    }
+
+    // Work space memory
+    int workBufferSize;
+    uint8_t* workBuffer = (uint8_t*) workBufferMem.getBuffer( workBufferSize );
+    CPL_SYSTEM_ASSERT( workBufferSize >= OPTION_AJAX_HASHED_PASSWORD_SIZE + OPTION_AJAX_PASSWORD_MAX_LENGTH );
+    int workDigestSize;
+    uint8_t* workDigest = (uint8_t*) workDigestMem.getBuffer( workDigestSize );
+    CPL_SYSTEM_ASSERT( workDigestSize >= OPTION_AJAX_HASHED_PASSWORD_SIZE );
+    int outputBufferSize;
+    uint8_t* outputBuffer = (uint8_t*) outputBufferMemory.getBuffer( outputBufferSize );
+    CPL_SYSTEM_ASSERT( outputBufferSize >= OPTION_AJAX_HASHED_PASSWORD_SIZE );
+
+    // Create a random salt
+    uint8_t salt[16] ={ 0, };
+    Driver::Crypto::generateRandom( salt, sizeof( salt ) );
+
+    // Hash the password
+    CPL_SYSTEM_TRACE_ALLOCATE( unsigned long, startTime, Cpl::System::ElapsedTime::milliseconds() );
+    DriverCryptoStatus_T result = Driver::Crypto::PasswordHash::hash( plaintext,
+                                                                      strlen( plaintext ),
+                                                                      salt,
+                                                                      sizeof( salt ),
+                                                                      workBuffer,
+                                                                      workBufferSize,
+                                                                      workDigest,
+                                                                      workDigestSize,
+                                                                      m_sha512,
+                                                                      OPTION_AJAX_HASHED_PASSWORD_ITERATIONS,
+                                                                      outputBuffer,
+                                                                      outputBufferSize );
+    CPL_SYSTEM_TRACE_ALLOCATE( unsigned long, endTime, Cpl::System::ElapsedTime::milliseconds() );
+    CPL_SYSTEM_TRACE_MSG( SECT_, ("Hash time for %lu iterations = %lu ms", OPTION_AJAX_HASHED_PASSWORD_ITERATIONS, endTime - startTime) );
+
+    // Update the model points
+    if ( result == DRIVER_CRYPTO_SUCCESS )
+    {
+        mp::consolePwdHash.write( outputBuffer, OPTION_AJAX_HASHED_PASSWORD_SIZE );
+        mp::consolePwdSalt.write( salt, sizeof( salt ) );
+        return true;
+    }
+    return false;
+}
+

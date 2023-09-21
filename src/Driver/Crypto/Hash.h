@@ -14,12 +14,13 @@
 
 #include "Driver/Crypto/Api.h"
 #include <stdint.h>
+#include <stdlib.h>
 
 
 ///
 namespace Driver {
 ///
-namespace Crytpto {
+namespace Crypto {
 
 
 /** This class defines an abstract interface for a Hashing Algorithms
@@ -46,7 +47,7 @@ public:
 
 public:
 	/// Returns the number of bytes in the digest
-	virtual size_t digestSize() const noexcept;
+	virtual size_t digestSize() const noexcept = 0;
 
 
 public:
@@ -55,8 +56,8 @@ public:
 
 };
 
-};      // end namespaces
-};
+}       // end namespaces
+} 
 #endif  // end header latch
 
 

@@ -8,8 +8,10 @@ src/Driver/Button
 # application stuffs
 src/Ajax/Logging
 src/Ajax/TShell
+src/Driver/NV/_tshell
 src/Driver/Crypto/TShell
 src/Driver/Crypto/Orlp
+src/Driver/Crypto/PasswordHash
 xsrc/orlp/ed25519
 
 # persistent storage
