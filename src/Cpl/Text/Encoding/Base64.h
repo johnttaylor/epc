@@ -54,8 +54,8 @@ bool base64Encode( const void *binarySrc,
     The method returns true if the decoding succeeded; else false is returned
     (e.g. insufficient output memory)
 */
-bool base64Decode( const char* encodeTextSrc,
-                   size_t      encodeTextSrcLen,
+bool base64Decode( const char* encodedTextSrc,
+                   size_t      encodedTextSrcLen,
                    void*       dstBinary,
                    size_t      dstSize,
                    size_t&     dstBinaryLen );

@@ -18,7 +18,7 @@ using namespace Cpl::Text::Encoding;
 ///////////////////////////////////
 static const unsigned char base64_table[65] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
-bool Cpl::Text::Encoding::base64Encode( const void *encodeTextSrc,
+bool Cpl::Text::Encoding::base64Encode( const void *encodedTextSrc,
                                         size_t      srcLen,
                                         char*       dstEncodedText,
                                         size_t      dstSize,
@@ -29,7 +29,7 @@ bool Cpl::Text::Encoding::base64Encode( const void *encodeTextSrc,
     size_t olen = srcLen * 4 / 3 + 4;   /* 3-byte blocks to 4-byte */
     if ( insertMIMELineFeeds )
     {
-        olen += olen / 72;              /* line feeds */
+        olen += olen / 76;              /* line feeds */
     }
     olen++;                             /* nul termination */
     if ( olen < srcLen || olen > dstSize )
@@ -41,8 +41,8 @@ bool Cpl::Text::Encoding::base64Encode( const void *encodeTextSrc,
         return false;
     }
 
-    const unsigned char* end = (const unsigned char*) encodeTextSrc + srcLen;
-    const unsigned char* in  = (const unsigned char*) encodeTextSrc;
+    const unsigned char* end = (const unsigned char*) encodedTextSrc + srcLen;
+    const unsigned char* in  = (const unsigned char*) encodedTextSrc;
     unsigned char*       pos = (unsigned char*) dstEncodedText;
     int line_len = 0;
     while ( end - in >= 3 )
@@ -53,7 +53,7 @@ bool Cpl::Text::Encoding::base64Encode( const void *encodeTextSrc,
         *pos++ = base64_table[in[2] & 0x3f];
         in += 3;
         line_len += 4;
-        if ( insertMIMELineFeeds && line_len >= 72 )
+        if ( insertMIMELineFeeds && line_len >= 76 )
         {
             *pos++ = '\n';
             line_len = 0;
@@ -86,8 +86,8 @@ bool Cpl::Text::Encoding::base64Encode( const void *encodeTextSrc,
 }
 
 
-bool Cpl::Text::Encoding::base64Decode( const char* encodeTextSrc,
-                                        size_t      encodeTextSrcLen,
+bool Cpl::Text::Encoding::base64Decode( const char* encodedTextSrc,
+                                        size_t      encodedTextSrcLen,
                                         void*       dstBinary,
                                         size_t      dstSize,
                                         size_t&     dstBinaryLen )
@@ -113,9 +113,9 @@ bool Cpl::Text::Encoding::base64Decode( const char* encodeTextSrc,
 
     // Get a count of valid encoding characters
     size_t count = 0;
-    for ( size_t i = 0; i < encodeTextSrcLen; i++ )
+    for ( size_t i = 0; i < encodedTextSrcLen; i++ )
     {
-        if ( dtable[encodeTextSrc[i]] != 0x80 )
+        if ( dtable[(int)(encodedTextSrc[i])] != 0x80 )
         {
             count++;
         }
@@ -131,15 +131,15 @@ bool Cpl::Text::Encoding::base64Decode( const char* encodeTextSrc,
     unsigned char  block[4];
     int            pad = 0;
     count = 0;
-    for ( size_t i = 0; i < encodeTextSrcLen; i++ )
+    for ( size_t i = 0; i < encodedTextSrcLen; i++ )
     {
-        unsigned char tmp = dtable[encodeTextSrc[i]];
+        unsigned char tmp = dtable[(int)(encodedTextSrc[i])];
         if ( tmp == 0x80 )
         {
             continue;
         }
 
-        if ( encodeTextSrc[i] == '=' )
+        if ( encodedTextSrc[i] == '=' )
         {
             pad++;
         }
