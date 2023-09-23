@@ -2,7 +2,7 @@
 :: This script is used by the CI\Build machine to build the Windows Host
 :: projects
 ::
-:: usage: build_all_windoze.bat <buildNumber> [branch]
+:: usage: build_all_windows.bat <buildNumber> [branch]
 ::
 
 set _TOPDIR=%~dp0
