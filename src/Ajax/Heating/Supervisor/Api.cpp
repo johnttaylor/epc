@@ -11,178 +11,165 @@
 
 #include "Api.h"
 #include "Ajax/Logging/Api.h"
+#include "mp/ModelPoints.h"
 
-using namespace Ajax::Heating::Flc;
+using namespace Ajax::Heating::Supervisor;
 
-
-#define SET_NM          0   // negative medium
-#define SET_NS          1   // negative small
-#define SET_ZE          2   // zero equal
-#define SET_PS          3   // positive small
-#define SET_PM          4   // positive medium
-
-static const unsigned char inferenceTable_[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS][AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS] =
-{
-  { SET_PM, SET_PM, SET_PM, SET_PS, SET_ZE },
-  { SET_PM, SET_PM, SET_PS, SET_ZE, SET_NS },
-  { SET_PM, SET_PS, SET_ZE, SET_NS, SET_NM },
-  { SET_PS, SET_ZE, SET_NS, SET_NM, SET_NM },
-  { SET_ZE, SET_NS, SET_NM, SET_NM, SET_NM }
-};
-
-/////////////////////////////////////////////////////////////////////////////
-Api::Api( Ajax::Dm::MpFlcConfig& mpCfg )
-    : m_prevDeltaError(0)
-    , m_mpCfg( mpCfg )
-    , m_firstCycle( true )
+//////////////////////////////////
+Api::Api( Cpl::Dm::MailboxServer& myMbox,
+          Ajax::Heating::Flc::Api& heatingController,
+          size_t                   maxHeaterPWM,
+          size_t                   maxFanPWM )
+    : Cpl::Itc::CloseSync( myMbox )
+    , Cpl::System::Timer( myMbox )
+    , m_flcController( heatingController )
+    , m_maxHeaterPWM( maxHeaterPWM )
+    , m_maxFanPWM( maxFanPWM )
+    , m_opened( false )
 {
 }
 
-bool Api::start() noexcept
+
+//////////////////////////////////
+void Api::request( OpenMsg& msg )
 {
-    m_firstCycle = true;
-    return m_mpCfg.read( m_cfg );
+    if ( !m_opened )
+    {
+        // Housekeeping
+        m_opened       = true;
+        m_heaterOutPWM = 0;
+
+        // Initialize the Fuzzy Logic controller
+        m_flcController.start();
+
+        // Brute force my FSM (allows restarting)
+        m_initialized=static_cast<int>(0U);
+        initialize();
+
+        // TODO: Subscribe to Safety limit MP. -->add changeCb() -->generate evSafetyLimit event
+        // Start processing
+        expired();
+    }
+
+    msg.returnToSender();
 }
 
-void Api::stop() noexcept
+void Api::request( CloseMsg& msg )
 {
-    // No actions are needed yet...
+    if ( m_opened )
+    {
+        // Housekeeping
+        m_opened = false;
+
+        // Shutdown stuffs...
+        Timer::stop();
+        m_flcController.stop();
+    }
+
+    msg.returnToSender();
 }
 
-int32_t Api::calcChange( int32_t currentTemp, int32_t setpoint ) noexcept
+void Api::expired() noexcept
 {
-    // Calculate the crisp inputs
-    int32_t err      = setpoint - currentTemp;
-    int32_t dErr     = m_firstCycle ? 0 : err - m_prevDeltaError;
-    m_firstCycle     = false;
-    m_prevDeltaError = err;
+    // 'Run' the FSM
+    generateEvent( FSM_NO_MSG );
 
-    // Fuzzify the inputs
-    int32_t m1[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS];
-    int32_t m2[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS];
-    fuzzify( err * m_cfg.errScalar, m1 );
-    fuzzify( dErr * m_cfg.dErrScalar, m2 );
-
-    // Run the inference rules
-    int32_t out[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS];
-    runInference( m1, m2, out );
-
-    // Defuzzify the output
-    return defuzz( out );
+    // Restart my interval timer
+    // Note: There will be jitter in the software timer, but the FLC algorithm
+    //       is not overly sensitive to jitter in its periodic interval.
+    Timer::start( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS );
 }
 
 
-void Api::fuzzify( int32_t inValue, int32_t fuzzyOut[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS] ) noexcept
+///////////////////////////
+void Api::clearHiTempAlert() noexcept
 {
-    // Initialize membership vector
-    memset( fuzzyOut, 0, sizeof( int32_t ) * AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS );
-    int32_t xbase = m_cfg.maxY;
-
-    // Less than the OM center point
-    if ( inValue < (xbase * (-2)) )
-    {
-        fuzzyOut[SET_NM] = m_cfg.maxY;
-    }
-    // Between: NM..NS 
-    else if ( inValue < (xbase * (-1)) )
-    {
-        fuzzyOut[SET_NM] = m_cfg.maxY - (inValue + 2 * xbase);
-        fuzzyOut[SET_NS] = inValue + 2 * xbase;
-    }
-    // Between: NS..ZE
-    else if ( inValue < 0 )
-    {
-        fuzzyOut[SET_NS] = m_cfg.maxY - (inValue + xbase);
-        fuzzyOut[SET_ZE] = inValue + xbase;
-    }
-    // Between: ZE..PS
-    else if ( inValue < xbase )
-    {
-        fuzzyOut[SET_ZE] = m_cfg.maxY - inValue;
-        fuzzyOut[SET_PS] = inValue;
-    }
-    // Between: PS..PM
-    else if ( inValue < (2 * xbase) )
-    {
-        fuzzyOut[SET_PS] = m_cfg.maxY - (inValue - xbase);
-        fuzzyOut[SET_PM] = inValue - xbase;
-    }
-    // Greater than the UM center point
-    else
-    {
-        fuzzyOut[SET_PM] = m_cfg.maxY;
-    }
+    mp::failedSafeAlert.lowerAlert();
+    Ajax::Logging::logf( Ajax::Logging::AlertMsg::FAILED_SAFE, "Cleared" );
 }
 
-void Api::runInference( const int32_t m1Vector[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS],
-                        const int32_t m2Vector[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS],
-                        int32_t       outVector[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS] ) noexcept
+void Api::clearSensorAlert() noexcept
 {
-    // Initialize output vector
-    memset( outVector, 0, sizeof( int32_t ) * AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS );
+    mp::sensorFailAlert.lowerAlert();
+    Ajax::Logging::logf( Ajax::Logging::AlertMsg::NO_TEMPERATURE_SENSOR, "Cleared" );
+}
 
-    // Loop through m1 membership set
-    for ( unsigned i = 0; i < AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS; i++ )
+void Api::heatOff() noexcept
+{
+    // Shut everything off
+    mp::cmdHeaterPWM.write( 0 );
+    mp::cmdFanPWM.write( 0 );
+}
+
+void Api::raiseHiTempAlert() noexcept
+{
+    mp::failedSafeAlert.raiseAlert();
+    Ajax::Logging::logf( Ajax::Logging::AlertMsg::FAILED_SAFE, "RAISED" );
+}
+
+void Api::raiseSensorAlert() noexcept
+{
+    mp::sensorFailAlert.raiseAlert();
+    Ajax::Logging::logf( Ajax::Logging::AlertMsg::NO_TEMPERATURE_SENSOR, "RAISED" );
+}
+
+void Api::runHeatingAlgo() noexcept
+{
+    int32_t currentTemp;
+    if ( getTemperature( currentTemp ) )
     {
-        int32_t minVector[5] ={ 0, };
-
-        // Loop through m2 membership set
-        for ( unsigned j = 0; j < AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS; j++ )
+        int32_t setpoint;
+        if ( mp::heatSetpoint.read( setpoint ) )
         {
-            // Find the min value
-            if ( m1Vector[i] < m2Vector[j] )
+            // Run the FLC and scale the output to the PWM range 
+            int32_t delta = m_flcController.calcChange( currentTemp, setpoint );
+            int32_t scaledDelta = (delta * m_maxHeaterPWM) / m_maxHeaterPWM;
+
+            // Update commanded output
+            m_heaterOutPWM += scaledDelta;
+            if ( m_heaterOutPWM < 0 )
             {
-                minVector[j] = m1Vector[i];
+                m_heaterOutPWM = 0;
             }
-            else
+            else if ( m_heaterOutPWM > m_maxHeaterPWM )
             {
-                minVector[j] = m2Vector[j];
+                m_heaterOutPWM = m_maxHeaterPWM;
             }
+            mp::cmdHeaterPWM.write( m_heaterOutPWM );
         }
-
-        // Find the maximum of the minimums
-        int32_t  maxValue = minVector[0];
-        unsigned maxIdx   = 0;
-        for ( unsigned j=1; j < AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS; j++ )
+        
+        // No setpoint value for SOME reason!
+        else
         {
-            // Capture the maximum and its index
-            if ( maxValue < minVector[j] )
-            {
-                maxValue = minVector[j];
-                maxIdx = j;
-            }
-        }
-
-        // 'Run' the inference rule
-        unsigned outIdx    = inferenceTable_[i][maxIdx];
-        outVector[outIdx] += maxValue;
-        if ( outVector[outIdx] > m_cfg.maxY )
-        {
-            // Clamp the output (cannot exceed Ymax)
-            outVector[outIdx] = m_cfg.maxY;
+            // TODO: What?
         }
     }
+
 }
 
-int32_t Api::defuzz( const int32_t outVector[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS] ) noexcept
+bool Api::isSensorAvailable() noexcept
 {
-    int32_t numerator  = 0;
-    int32_t denominator = 0;
-    for ( unsigned i = 0; i < AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS; i++ )
+    int32_t notUsed;
+    return getTemperature( notUsed );
+}
+
+
+////////////////////////////////////
+bool Api::getTemperature( int32_t& idt ) noexcept
+{
+    // NOTE: Until the system actually has a working 'remote sensor' - the follow logic will always 'fail'
+    if ( mp::remoteIdt.read( idt ) )
     {
-        denominator += outVector[i];
-        numerator  += outVector[i] * m_cfg.outK[i];
+        return true;
     }
 
-    // Do nothing if the denominator is zero (it should never be zero, but...)
-    if ( denominator == 0 )
+    // Try the built-in sensor
+    if ( mp::onBoardIdt.read( idt ) )
     {
-        // Log the failure, 
-        // TODO: throw an alert, something?
-        Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DIVIDE_BY_ZERO, "FLC: denominator in the defuzz() calculation was zero" );
-        return 0;
+        return true;
     }
 
-    // Invert the final output
-    return ((numerator * m_cfg.outputScalar) / denominator) * -1;
+    // If I get here, there is no available temperature sensor
+    generateEvent( Fsm_evNoTempSensor );
+    return false;
 }

@@ -24,7 +24,6 @@ LogSink::LogSink( Cpl::Dm::MailboxServer&                                    myM
 {
 }
 
-/// This method starts the server (See Cpl::Itc::OpenSync)
 void LogSink::request( OpenMsg& msg )
 {
     if ( !m_opened )
@@ -36,7 +35,6 @@ void LogSink::request( OpenMsg& msg )
     msg.returnToSender();
 }
 
-/// This method stops the server (See Cpl::Itc::CloseSync)
 void LogSink::request( CloseMsg& msg )
 {
     if ( m_opened )
@@ -48,7 +46,6 @@ void LogSink::request( CloseMsg& msg )
     msg.returnToSender();
 }
 
-/// Element Count Change notification 
 void LogSink::elementCountChanged( Cpl::Dm::Mp::Uint32& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept
 {
     uint32_t count;

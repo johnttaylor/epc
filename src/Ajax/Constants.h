@@ -20,10 +20,10 @@
 #include "colony_config.h"
 
 /// Alert priority: Hi-Temp Alert (lower number == higher priority)
-#define AJAX_ALERT_PRIORITY_HI_TEMP         1
+#define AJAX_ALERT_PRIORITY_HI_TEMP             1
 
 /// Alert priority: No Sensor Available Alert (lower number == higher priority)
-#define AJAX_ALERT_PRIORITY_SENSOR_FAILED   0     
+#define AJAX_ALERT_PRIORITY_SENSOR_FAILED       0     
 
 
 /// Maximum heating setpoint in hundreds of degrees Fahrenheit
@@ -51,21 +51,21 @@
     null terminator
  */
 #ifndef OPTION_AJAX_MAX_VERSION_LENGTH
-#define OPTION_AJAX_MAX_VERSION_LENGTH      16  // Assumed format is: mm.nn.pp-#######
+#define OPTION_AJAX_MAX_VERSION_LENGTH              16  // Assumed format is: mm.nn.pp-#######
 #endif
 
 /** Maximum size, in bytes, a model string can be.  Does NOT include the
     null terminator
  */
 #ifndef OPTION_AJAX_MAX_MODEL_LENGTH
-#define OPTION_AJAX_MAX_MODEL_LENGTH        16
+#define OPTION_AJAX_MAX_MODEL_LENGTH                16
 #endif
 
  /** Maximum size, in bytes, a serial number string can be.  Does NOT include the
      null terminator
   */
 #ifndef OPTION_AJAX_MAX_SERIAL_NUM_LENGTH
-#define OPTION_AJAX_MAX_SERIAL_NUM_LENGTH   16
+#define OPTION_AJAX_MAX_SERIAL_NUM_LENGTH           16
 #endif
 
 /// Size, in bytes, of the Hashed password

@@ -1,5 +1,5 @@
-#ifndef Ajax_Heating_Flc_Api_h_
-#define Ajax_Heating_Flc_Api_h_
+#ifndef Ajax_Heating_Supervisor_Api_h_
+#define Ajax_Heating_Supervisor_Api_h_
 /*-----------------------------------------------------------------------------
 * This file is part of the Colony.Core Project.  The Colony.Core Project is an
 * open source project with a BSD type of licensing agreement.  See the license
@@ -12,85 +12,101 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
-#include "Ajax/Dm/MpFlcConfig.h"
+#include "colony_config.h"
+#include "Cpl/Dm/MailboxServer.h"
+#include "Cpl/Itc/CloseSync.h"
+#include "Cpl/System/Timer.h"
+#include "Ajax/Heating/Supervisor/FsmEventQueue_.h"
+#include "Ajax/Heating/Flc/Api.h"
 
+/// Periodic interval (in milliseconds) for calling the FLC
+#ifndef OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS
+#define OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS         (2*1000)    // 2 seconds
+#endif
 
 /// 
 namespace Ajax {
 /// 
 namespace Heating {
 /// 
-namespace Flc {
+namespace Supervisor {
 
-/** This class implements the Fuzzy logic controller as defined by the 
-    SWA-1330 GM6000 Fuzzy Logic Temperature Control document.  
-    
-    The interface should be called on periodic basis.  
+/** This class implements the Heating Algorithm Supervisor.  The supervisor
+    is responsible for "managing/sequencing' the heating algorithm
 
-    The interface receives its 'configuration' via model points
+    All inputs and outputs (including alerts) are done via Model Points.  The 
+    model point references are via 'hard coded' model point names.
 
-    Inputs are (all values must have the same degree units):
-        Current Temperature
-        Current Setpoint
-
-    Outputs:
-        Value to change/adjust the current capacity 'output signal'
-
+    The class is NOT thread safe.
  */
-class Api
+class Api: public Cpl::Itc::CloseSync, public Cpl::System::Timer, public FsmEventQueue_
 {
 public:
     /// Constructor
-    Api( Ajax::Dm::MpFlcConfig& mpCfg );
+    Api( Cpl::Dm::MailboxServer&  myMbox,
+         Ajax::Heating::Flc::Api& heatingController,
+         size_t                   maxHeaterPWM,
+         size_t                   maxFanPWM ) noexcept;
 
 public:
-    /** This method is used to initialize/reset the Controller.  It should
-        be called once, before calls to calcChange(). 
+    /// This method starts the supervisor (See Cpl::Itc::OpenSync)
+    void request( OpenMsg& msg );
+
+    /// This method stops the supervisor (See Cpl::Itc::CloseSync)
+    void request( CloseMsg& msg );
+
+
+protected:
+    /// Action
+    void clearHiTempAlert() noexcept;
+
+    /// Action
+    void clearSensorAlert() noexcept;
+
+    /// Action
+    void heatOff() noexcept;
+
+    /// Action
+    void raiseHiTempAlert() noexcept;
+
+    /// Action
+    void raiseSensorAlert() noexcept;
+
+    /// Action
+    void runHeatingAlgo() noexcept;
+
+public:
+    /// Guard
+    bool isSensorAvailable() noexcept;
+
+
+protected:
+    /// See Cpl::System::Timer (timer expired callback)
+    void expired() noexcept;
     
-        Return true if successful; else false is returned
-    */
-    bool start() noexcept;
-
-    /** This method should be called on a fixed periodic basis to calculate
-        the fuzzy output.  The output is change (to increase/decrease) the
-        current request output capacity
-     */
-    int32_t calcChange( int32_t currentTemp, int32_t setpoint ) noexcept;
-
-    /** This method is used to stop the controller.  Once stopped, the 
-        controller can be restarted by calling start().
-     */
-    void stop() noexcept;
+    /// Helper method to select temperature source.  Returns false if there is no valid temperature source
+    bool getTemperature( int32_t& idt ) noexcept;
 
 protected:
-    /// Helper method to fuzzify an input value
-    void fuzzify( int32_t inValue, int32_t fuzzyOut[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS] ) noexcept;
+    /// Heating controller
+    Ajax::Heating::Flc::Api& m_flcController;
 
-    /// Helper that executes the inference rules
-    void runInference( const int32_t m1Vector[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS],
-                       const int32_t m2Vector[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS], 
-                       int32_t       outVector[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS] ) noexcept;
+    /// Maximum PWM output value (i.e 100% duty cycle) for the Heater
+    size_t                   m_maxHeaterPWM;
 
-    /// Helper method the defuzzifys the output vector
-    int32_t defuzz( const int32_t outVector[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS] ) noexcept;
+    /// Maximum PWM output value (i.e 100% duty cycle) for the Fan motor
+    size_t                   m_maxFanPWM;
 
-protected:
-    /// Previous delta error
-    int32_t                 m_prevDeltaError;
+    /// Heater PWM output value
+    int32_t                  m_heaterOutPWM;
 
-    /// Config Model Point
-    Ajax::Dm::MpFlcConfig&  m_mpCfg;
-
-    /// Runtime config
-    Config_T                m_cfg;
-
-    /// Flag for first-cycle
-    bool                    m_firstCycle;
+    /// Open state
+    bool                     m_opened;
 };
 
 
-};      // end namespaces
-};
-};
+}       // end namespaces
+} 
+} 
 #endif  // end header latch
 
