@@ -14,7 +14,8 @@
 
 
 // Helper macros to simplify the instantiation of the MP instances
-#define ALLOC_INVALID( t, n )           t mp::n(  mp::g_modelDatabase, (#n) )
+#define ALLOC_INVALID( t, n )               t mp::n(  mp::g_modelDatabase, (#n) )
+#define ALLOC_INVALID_ALERT( t, n, pri )    t mp::n(  mp::g_modelDatabase, (#n), (uint8_t) pri )
 
 /// Static allocate the MP database
 Cpl::Dm::ModelDatabase   mp::g_modelDatabase( "ignoreThisParameter_usedToCreateAUniqueConstructor" );
@@ -49,3 +50,11 @@ ALLOC_INVALID( Cpl::Dm::Mp::Uint64, latestLoggingEntryKey );
 
 ALLOC_INVALID( Cpl::Dm::Mp::ArrayUint8<OPTION_AJAX_HASHED_PASSWORD_SIZE>, consolePwdHash );
 ALLOC_INVALID( Cpl::Dm::Mp::ArrayUint8<OPTION_AJAX_HASHED_PASSWORD_SALT_SIZE>, consolePwdSalt );
+
+ALLOC_INVALID( Cpl::Dm::Mp::Int32, onBoardIdt );
+ALLOC_INVALID( Cpl::Dm::Mp::Int32, remoteIdt );
+ALLOC_INVALID( Cpl::Dm::Mp::Uint32, cmdHeaterPWM );
+ALLOC_INVALID( Cpl::Dm::Mp::Uint32, cmdFanPWM );
+ALLOC_INVALID_ALERT( Ajax::Dm::MpAlert, sensorFailAlert, AJAX_ALERT_PRIORITY_SENSOR_FAILED );
+ALLOC_INVALID_ALERT( Ajax::Dm::MpAlert, failedSafeAlert, AJAX_ALERT_PRIORITY_HI_TEMP );
+ALLOC_INVALID( Ajax::Dm::MpFlcConfig, flcConfig );

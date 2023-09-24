@@ -28,9 +28,11 @@
 #include "Cpl/Dm/Mp/Int32.h"
 #include "Cpl/Dm/Mp/String.h"
 #include "Cpl/Dm/Mp/Array.h"
+#include "Ajax/Dm/MpAlert.h"
 #include "Ajax/ScreenMgr/MpScreenApiPtr.h"
 #include "Ajax/ScreenMgr/MpStaticScreenApiPtr.h"
 #include "Ajax/Dm/MpFanMode.h"
+#include "Ajax/Dm/MpFlcConfig.h"
 #include "Ajax/Constants.h"
 
 
@@ -151,7 +153,7 @@ extern Ajax::Dm::MpFanMode  fanMode;
 
     \b Units: hundreds of degrees Fahrenheit (75.3'F -->7530)
 
-    \b Range: OPTION_JAX_MIN_HEATING_SETPOINT_F - OPTION_JAX_MAX_HEATING_SETPOINT_F
+    \b Range: OPTION_AJAX_MIN_HEATING_SETPOINT_F - OPTION_AJAX_MAX_HEATING_SETPOINT_F
 
     \b Notes:
         n/a
@@ -293,6 +295,92 @@ extern Cpl::Dm::Mp::ArrayUint8<OPTION_AJAX_HASHED_PASSWORD_SIZE> consolePwdHash;
         n/a
 */
 extern Cpl::Dm::Mp::ArrayUint8<OPTION_AJAX_HASHED_PASSWORD_SALT_SIZE> consolePwdSalt;
+
+/** This model point holds the current (filtered) temperature value from
+    the on-board thermistor
+
+    \b Units: hundreds of degrees Fahrenheit (75.3'F -->7530)
+
+    \b Range: OPTION_AJAX_MIN_INDOOR_TEMPERATURE_F - OPTION_AJAX_MAX_INDOOR_TEMPERATURE_F
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::Int32   onBoardIdt;
+
+/** This model point holds the current (filtered) temperature value from
+    the wireless/secondary temperature sensor
+
+    \b Units: hundreds of degrees Fahrenheit (75.3'F -->7530)
+
+    \b Range: OPTION_AJAX_MIN_INDOOR_TEMPERATURE_F - OPTION_AJAX_MAX_INDOOR_TEMPERATURE_F
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::Int32   remoteIdt;
+
+/** This model point contains the commanded output PWM value to drive the
+    heating capacity.
+
+    \b Units: Percentage
+
+    \b Range: 0=0% ... 100=100%
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::Uint32   cmdHeaterPWM;
+
+/** This model point contains the commanded output PWM value to drive the
+    FAN motor speed.
+
+    \b Units: Percentage
+
+    \b Range: 0=0% ... 100=100%
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::Uint32   cmdFanPWM;
+
+/**This model point represents the Temperature Sensor Alert
+
+    \b Units : n/a
+    
+    \b Range : n/a
+    
+    \b Notes :
+        The Alert 'present' state is indicated by the MP being valid.
+        No Alert is indicated by the MP being in the invalid state.
+ */
+extern Ajax::Dm::MpAlert     sensorFailAlert;
+
+/**This model point represents the Hi-Temperature Safety limit has
+    tripped Alert
+
+    \b Units : n/a
+
+    \b Range : n/a
+
+    \b Notes :
+        The Alert 'present' state is indicated by the MP being valid.
+        No Alert is indicated by the MP being in the invalid state.
+ */
+extern Ajax::Dm::MpAlert     failedSafeAlert;
+
+/** This model point contains the FLC configuration parameters for the
+    the heating algorithm.  The values are provisioned during
+    manufacturing
+
+    \b Units : n/a
+
+    \b Range : n/a
+
+    \b Notes : n/a
+        
+ */
+extern Ajax::Dm::MpFlcConfig    flcConfig;
 
 /*---------------------------------------------------------------------------*/
 /// The Application's Model Point Database

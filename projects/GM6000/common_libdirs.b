@@ -8,6 +8,8 @@ src/Driver/Button
 # application stuffs
 src/Ajax/Logging
 src/Ajax/TShell
+src/Ajax/Dm
+#src/Ajax/Heating/Flc
 src/Driver/NV/_tshell
 src/Driver/Crypto/TShell
 src/Driver/Crypto/Orlp

@@ -47,13 +47,15 @@ public:
         m_modelPoints[1] ={ &mp::serialNumber, CPL_DM_PERISTENCE_RECORD_NO_SUBSCRIBER };
         m_modelPoints[2] ={ &mp::consolePwdHash, CPL_DM_PERISTENCE_RECORD_NO_SUBSCRIBER };
         m_modelPoints[3] ={ &mp::consolePwdSalt, CPL_DM_PERISTENCE_RECORD_NO_SUBSCRIBER };
+        m_modelPoints[4] ={ &mp::flcConfig, CPL_DM_PERISTENCE_RECORD_NO_SUBSCRIBER };
+
         // TODO: Add Algorithm config MPs here...
-        m_modelPoints[4] ={ 0,0 };
+        m_modelPoints[5] ={ 0,0 };
     }
 
 protected:
     /// List of Model Points for the Record
-    Cpl::Dm::Persistent::Record::Item_T m_modelPoints[4 + 1];
+    Cpl::Dm::Persistent::Record::Item_T m_modelPoints[5 + 1];
 
 public:
     /// See Cpl::Dm::Persistent::Record
