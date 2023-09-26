@@ -40,7 +40,7 @@ public:
     static constexpr const char* verb = "prov";
 
     /// The command usage string
-    static constexpr const char* usage = "prov <modelNumber> <serialNumber> <consolePwd> <h-outS> <h-maxY> <h-errS> <h-dErrS> <h-outK0> <h-outK1> <h-outK2> <h-outK3> <h-outK4>";
+    static constexpr const char* usage = "prov <modelNumber> <serialNumber> <consolePwd> <h-outS> <h-maxY> <h-errS> <h-dErrS> <h-outK0> <h-outK1> <h-outK2> <h-outK3> <h-outK4> <fanLow> <fanMed> <fanHi>";
 
     /** The command detailed help string (recommended that lines do not exceed 80 chars)
                                                           1         2         3         4         5         6         7         8

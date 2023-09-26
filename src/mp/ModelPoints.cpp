@@ -58,3 +58,7 @@ ALLOC_INVALID( Cpl::Dm::Mp::Uint32, cmdFanPWM );
 ALLOC_INVALID_ALERT( Ajax::Dm::MpAlert, sensorFailAlert, AJAX_ALERT_PRIORITY_SENSOR_FAILED );
 ALLOC_INVALID_ALERT( Ajax::Dm::MpAlert, failedSafeAlert, AJAX_ALERT_PRIORITY_HI_TEMP );
 ALLOC_INVALID( Ajax::Dm::MpFlcConfig, flcConfig );
+ALLOC_INVALID( Cpl::Dm::Mp::Uint32, fanLowPercentage );
+ALLOC_INVALID( Cpl::Dm::Mp::Uint32, fanMedPercentage );
+ALLOC_INVALID( Cpl::Dm::Mp::Uint32, fanHighPercentage );
+ALLOC_INVALID( Cpl::Dm::Mp::Bool, hwSafetyLimit );

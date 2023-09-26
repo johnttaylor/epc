@@ -128,7 +128,7 @@ Pos="2900 -4100">
 <FreeText id="r101"
 Pos="3435 -3692"
 Origin="3">
-<Text>evSensorAvaiable/<p/>
+<Text>evSensorAvailable/<p/>
 clearSensorAlert();</Text>
 </FreeText>
 </Anchor>
@@ -391,7 +391,7 @@ Pos="13400 -3000">
 <FreeText id="r117"
 Pos="13100 -2900"
 Origin="4">
-<Text>evSensorAvaiable/<p/>
+<Text>evSensorAvailable/<p/>
 clearSensorAlert();</Text>
 </FreeText>
 </Anchor>
@@ -434,7 +434,7 @@ Pos="15400 -6600">
 <FreeText id="r128"
 Pos="15600 -6200"
 Origin="1">
-<Text>evSensorAvaiable/<p/>
+<Text>evSensorAvailable/<p/>
 clearSensorAlert();</Text>
 </FreeText>
 </Anchor>

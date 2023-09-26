@@ -25,8 +25,7 @@
 namespace Ajax { namespace Heating { namespace Supervisor  {
 
     enum FSM_EVENT_T {
-            Fsm_evSensorAvaiable=0U,
-            Fsm_evEnabled,
+            Fsm_evEnabled=0U,
             Fsm_evHiTemp,
             Fsm_evNoTempSensor,
             Fsm_evDisabled,

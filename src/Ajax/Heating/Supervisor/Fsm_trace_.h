@@ -33,7 +33,7 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
 
     /*Simulation strings which can be sent to the state-machine statediagram.simulator via UDP */
     /*or to print which event triggered a state change in trace code.  */
-    #define FSM_TRACE_EVENT_LEN (8U)
+    #define FSM_TRACE_EVENT_LEN (7U)
 
 #define FsmTraceEvent(a) CPL_SYSTEM_TRACE_MSG( SECT_, ( "  Old State=%s, Event=%s", getNameByState(getInnermostActiveState()), FsmTraceEvents[a] ));
 
@@ -41,9 +41,8 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
     "evHiTemp",
     "evSafeTemp",
     "evEnabled",
-    "evSensorAvaiable",
-    "evNoTempSensor",
     "evSensorAvailable",
+    "evNoTempSensor",
     "evDisabled",
     "__INIT__"
     };

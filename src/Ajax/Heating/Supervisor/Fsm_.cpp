@@ -40,10 +40,10 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
 
     /* Event names */
     const char events[]=
-        "Fsm_evSensorAvaiable\0Fsm_evEnabled\0Fsm_evHiTemp\0Fsm_evNoTempSensor\0Fsm_evDisabled\0Fsm_evSafeTemp\0Fsm_evSensorAvailable\0NO_MSG\0";
+        "Fsm_evEnabled\0Fsm_evHiTemp\0Fsm_evNoTempSensor\0Fsm_evDisabled\0Fsm_evSafeTemp\0Fsm_evSensorAvailable\0NO_MSG\0";
 
     const unsigned short evt_idx[]={
-        0,21,35,48,67,82,97,119};
+        0,14,27,46,61,76,98};
 
     const char* Fsm::getNameByState(const unsigned short state) {
         return (states+state_idx[state]);
@@ -93,7 +93,7 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
 
     // Initialize method. Must be called once to init the machine
     void Fsm::initialize(void){
-        FsmTraceEvent(7U);
+        FsmTraceEvent(6U);
         //call on entry code of default states
         if(m_initialized==static_cast<int>(0U)){
             m_initialized=static_cast<int>(1U);
@@ -172,7 +172,7 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
                     /* adjust state variables  */
                     stateVarsCopy.stateVar = Off;
                     FsmTraceEvent(4U);
-                }else if(msg==Fsm_evSensorAvaiable){
+                }else if(msg==Fsm_evSensorAvailable){
                     /* Transition from Off to Off */
                     evConsumed=1U;
 
@@ -219,7 +219,7 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
                     /* adjust state variables  */
                     stateVarsCopy.stateVar = Off;
                     FsmTraceEvent(1U);
-                }else if(msg==Fsm_evSensorAvaiable){
+                }else if(msg==Fsm_evSensorAvailable){
                     /* Transition from FailedSafeOff to FailedSafeOff */
                     evConsumed=1U;
 
@@ -272,7 +272,7 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
 
                             /* adjust state variables  */
                             stateVarsCopy.stateVarOn = Heating;
-                            FsmTraceEvent(5U);
+                            FsmTraceEvent(3U);
                         }else{
                             /* Intentionally left blank */
                         } /*end of event selection */
@@ -312,7 +312,7 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
 
                     /* adjust state variables  */
                     stateVarsCopy.stateVar = FailedSafeOff;
-                    FsmTraceEvent(6U);
+                    FsmTraceEvent(5U);
                 }else if(msg==Fsm_evNoTempSensor){
                     /* Transition from FailedSafeOn to FailedSafeOn */
                     evConsumed=1U;
@@ -342,7 +342,7 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
                     }
 
                     FsmTraceEvent(1U);
-                }else if(msg==Fsm_evSensorAvaiable){
+                }else if(msg==Fsm_evSensorAvailable){
                     /* Transition from FailedSafeOn to FailedSafeOn */
                     evConsumed=1U;
 

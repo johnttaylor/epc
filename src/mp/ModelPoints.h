@@ -382,6 +382,54 @@ extern Ajax::Dm::MpAlert     failedSafeAlert;
  */
 extern Ajax::Dm::MpFlcConfig    flcConfig;
 
+/** This model point contains fan speed setting (as a percent) for the
+    LOW fan mode. The value is provisioned during manufacturing
+
+    \b Units : Percentage
+
+    \b Range : 0=0%, 1000=100%
+
+    \b Notes : n/a
+
+ */
+extern Cpl::Dm::Mp::Uint32      fanLowPercentage;
+
+/** This model point contains fan speed setting (as a percent) for the
+    MEDIUM fan mode. The value is provisioned during manufacturing
+
+    \b Units : Percentage
+
+    \b Range : 0=0%, 1000=100%
+
+    \b Notes : n/a
+
+ */
+extern Cpl::Dm::Mp::Uint32      fanMedPercentage;
+
+/** This model point contains fan speed setting (as a percent) for the
+    HIGH fan mode. The value is provisioned during manufacturing
+
+    \b Units : Percentage
+
+    \b Range : 0=0%, 1000=100%
+
+    \b Notes : n/a
+
+ */
+extern Cpl::Dm::Mp::Uint32      fanHighPercentage;
+
+/** This model point represents the hardware safety limit input signal
+
+    \b Units : Bool
+
+    \b Range : true:=  Hardware Safety circuit has disabled the heating element
+               false:= Unit is operating within safe temperature limits
+
+    \b Notes : n/a
+
+ */
+extern Cpl::Dm::Mp::Bool        hwSafetyLimit;
+
 /*---------------------------------------------------------------------------*/
 /// The Application's Model Point Database
 extern Cpl::Dm::ModelDatabase   g_modelDatabase;

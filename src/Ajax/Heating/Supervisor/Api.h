@@ -18,6 +18,10 @@
 #include "Cpl/System/Timer.h"
 #include "Ajax/Heating/Supervisor/FsmEventQueue_.h"
 #include "Ajax/Heating/Flc/Api.h"
+#include "Cpl/Dm/SubscriberComposer.h"
+#include "Cpl/Dm/Mp/Int32.h"
+#include "Cpl/Dm/Mp/Bool.h"
+
 
 /// Periodic interval (in milliseconds) for calling the FLC
 #ifndef OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS
@@ -44,7 +48,6 @@ class Api: public Cpl::Itc::CloseSync, public Cpl::System::Timer, public FsmEven
 public:
     /// Constructor
     Api( Cpl::Dm::MailboxServer&  myMbox,
-         Ajax::Heating::Flc::Api& heatingController,
          size_t                   maxHeaterPWM,
          size_t                   maxFanPWM ) noexcept;
 
@@ -84,12 +87,38 @@ protected:
     /// See Cpl::System::Timer (timer expired callback)
     void expired() noexcept;
     
+    /// Change notification
+    void remoteIdtChanged( Cpl::Dm::Mp::Int32& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
+    
+    /// Change notification
+    void onboardIdtChanged( Cpl::Dm::Mp::Int32& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
+    
+    /// Change notification
+    void hwSafetyChanged( Cpl::Dm::Mp::Bool& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
+    
+    /// Change notification
+    void heatingEnabledChanged( Cpl::Dm::Mp::Bool& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
+
+
+protected:
     /// Helper method to select temperature source.  Returns false if there is no valid temperature source
     bool getTemperature( int32_t& idt ) noexcept;
 
 protected:
     /// Heating controller
-    Ajax::Heating::Flc::Api& m_flcController;
+    Ajax::Heating::Flc::Api  m_flcController;
+
+    /// Observer for change notification (to the Remote Sensor)
+    Cpl::Dm::SubscriberComposer<Api, Cpl::Dm::Mp::Int32>   m_obRemoteIdt;
+
+    /// Observer for change notification (to the built-in Sensor)
+    Cpl::Dm::SubscriberComposer<Api, Cpl::Dm::Mp::Int32>   m_obOnboardIdt;
+
+    /// Observer for change notification (to the hardware temperature safety limit)
+    Cpl::Dm::SubscriberComposer<Api, Cpl::Dm::Mp::Bool>    m_obHwSafety;
+
+    /// Observer for change notification (to the heating mode)
+    Cpl::Dm::SubscriberComposer<Api, Cpl::Dm::Mp::Bool>    m_obHeatingEnabled;
 
     /// Maximum PWM output value (i.e 100% duty cycle) for the Heater
     size_t                   m_maxHeaterPWM;
@@ -99,6 +128,12 @@ protected:
 
     /// Heater PWM output value
     int32_t                  m_heaterOutPWM;
+
+    /// Remote sensor available
+    bool                     m_remoteAvail;
+
+    /// Built-in sensor available
+    bool                     m_onboardAvail;
 
     /// Open state
     bool                     m_opened;
