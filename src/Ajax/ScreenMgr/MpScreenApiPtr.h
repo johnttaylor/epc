@@ -14,13 +14,15 @@
 
 
 #include "Cpl/Dm/Mp/Numeric.h"
-#include "Ajax/ScreenMgr/ScreenApi.h"
 
 ///
 namespace Ajax {
 ///
 namespace ScreenMgr {
 
+/** Forward reference for a ScreenApi pointer (breaks undesired dependencies)
+ */
+class ScreenApi;
 
 /** This class provides a concrete implementation for a Point who's data is a
 	ScreenApi pointer.  

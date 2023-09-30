@@ -26,11 +26,13 @@ namespace Logging {
 
     @param AlertMsg                         Enum
 
-    @param PLACE_HOLDER                     Place holder till I have a warning log entry
+    @param FAILED_SAFE                      The hardware hi-temperature safety limit Alert
+    @param NO_TEMPERATURE_SENSOR            No available/working space temperature sensor Alert
     
  */
 BETTER_ENUM( AlertMsg, uint16_t
-             , PLACE_HOLDER
+             , FAILED_SAFE
+             , NO_TEMPERATURE_SENSOR
 );
 
 

@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<c:Diagram
+xmlns:c="http://www.cadifra.com/schema/1.0"
+xmlns:c1v3="http://www.cadifra.com/schema/1.3"
+ProductVersion="1.3.3">
+
+<Page id="r1"
+Size="1"
+Width="21590"
+Height="27940"
+Rows="1"
+Columns="1"
+Margins="1016 1016 1016 1016"
+CutGlueMargins="1016 1016 1016 1016"
+Scale="1"/>
+
+<DiagramType id="r2"
+TypeValue="5"/>
+
+<Style id="r3">
+<dir n="Base" Typeface="arial" Size="11" Bold="0">
+<dir n="Free Text" Size="10" Bold="0"/>
+<dir n="State Diagram">
+<dir n="State" Bold="0">
+<dir n="Compartment" Size="8"/>
+<dir n="Header" Bold="1"/>
+</dir>
+<dir n="Transition" Bold="0"/>
+</dir>
+</dir>
+</Style>
+
+<State id="r4"
+Pos="3400 -3600"
+Size="3700 1000">
+<Text>Off</Text>
+</State>
+
+<State id="r6"
+Pos="11200 -3500"
+Size="3700 1000">
+<Text>FailedSafeOff</Text>
+</State>
+
+<Transition id="r8">
+<End id="r86"
+Pos="5300 -3600"
+State="r4"
+Type="1"/>
+<Segment id="r85"/>
+<Join id="r84"
+Pos="5300 -2500"/>
+<Segment id="r9">
+<Anchor id="r10"
+Pos="7600 -2500">
+<FreeText id="r11"
+Pos="7287 -2200"
+Origin="4">
+<Text>evHiTemp/</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r87"
+Pos="12000 -2500"/>
+<Segment id="r88"/>
+<End id="r89"
+Pos="12000 -3500"
+State="r6"
+Type="2"/>
+</Transition>
+
+<Transition id="r12">
+<End id="r70"
+Pos="11200 -4100"
+State="r6"
+Type="1"/>
+<Segment id="r13">
+<Anchor id="r14"
+Pos="7400 -4100">
+<FreeText id="r15"
+Pos="8000 -3800"
+Origin="4">
+<Text>evSafeTemp/</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r83"
+Pos="7100 -4100"
+State="r4"
+Type="2"/>
+</Transition>
+
+<Transition id="r16">
+<End id="r17"
+Pos="4100 -4600"
+State="r4"
+Type="1"/>
+<Segment id="r18">
+<Anchor id="r20"
+Pos="4100 -4800">
+<FreeText id="r21"
+Pos="3842 -8100"
+Origin="2">
+<Text>evEnabled/</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r19"
+Pos="4100 -10300"
+State="r44"
+Type="2"/>
+</Transition>
+
+<Transition id="r22">
+<End id="r23"
+Pos="5900 -10300"
+State="r44"
+Type="1"/>
+<Segment id="r24">
+<Anchor id="r26"
+Pos="5900 -5600">
+<FreeText id="r27"
+Pos="6100 -5600"
+Origin="1">
+<Text>evDisabled/<p/>
+heatOff();</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r25"
+Pos="5900 -4600"
+State="r4"
+Type="2"/>
+</Transition>
+
+<Transition id="r28">
+<End id="r29"
+Pos="6800 -14700"
+State="r5"
+Type="1"/>
+<Segment id="r30">
+<Anchor id="r32"
+Pos="8200 -14700">
+<FreeText id="r33"
+Pos="9735 -14500"
+Origin="3">
+<Text>evNoTempSensor/<p/>
+heatOff();</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r31"
+Pos="9500 -14700"
+State="r7"
+Type="2"/>
+</Transition>
+
+<Transition id="r34">
+<End id="r35"
+Pos="11500 -16200"
+State="r7"
+Type="1"/>
+<Segment id="r36"/>
+<Join id="r37"
+Pos="11500 -17100"/>
+<Segment id="r38">
+<Anchor id="r42"
+Pos="7100 -17100">
+<FreeText id="r43"
+Pos="6500 -17354"
+Origin="1">
+<Text>evSensorAvailable/</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r39"
+Pos="5000 -17100"/>
+<Segment id="r40"/>
+<End id="r41"
+Pos="5000 -16500"
+State="r5"
+Type="2"/>
+</Transition>
+
+<State id="r44"
+Pos="2900 -10300"
+Size="10500 8100"
+Large="1">
+<Text>On</Text>
+<State id="r5"
+Pos="4200 -14300"
+Size="2600 2200">
+<Text>Heating</Text>
+<Compartment id="r105"
+Pos="4200 -15300"
+Size="2600 1200">
+<Text>action:<p/>
+runHeatingAlgo();</Text>
+</Compartment>
+</State>
+<State id="r7"
+Pos="9500 -14300"
+Size="3600 1900">
+<Text>WaitingForSensor</Text>
+<Compartment id="r98"
+Pos="9500 -15300"
+Size="3600 900">
+<Text>action:<p/>
+checkForSensor();</Text>
+</Compartment>
+</State>
+<State id="r45"
+Pos="4400 -11800"
+Size="700 700">
+<Text>&lt;&gt;</Text>
+</State>
+<InitialState id="r65"
+Pos="3200 -11900"/>
+</State>
+
+<Transition id="r46">
+<End id="r47"
+Pos="5100 -12100"
+State="r45"
+Type="1"/>
+<Segment id="r48">
+<Anchor id="r79"
+Pos="8100 -12100">
+<FreeText id="r80"
+Pos="6600 -11900"
+Origin="4">
+<Text>[!isSensorAvailable()]</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r49"
+Pos="11500 -12100"/>
+<Segment id="r50"/>
+<End id="r51"
+Pos="11500 -14300"
+State="r7"
+Type="2"/>
+</Transition>
+
+<Transition id="r52">
+<End id="r133"
+Pos="4800 -12500"
+State="r45"
+Type="1"/>
+<Segment id="r53">
+<Anchor id="r81"
+Pos="4800 -13600">
+<FreeText id="r82"
+Pos="4535 -13646"
+Origin="3">
+<Text>[else]/</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r54"
+Pos="4800 -14300"
+State="r5"
+Type="2"/>
+</Transition>
+
+<State id="r55"
+Pos="11200 -6200"
+Size="3700 1000">
+<Text>FailedSafeOn</Text>
+</State>
+
+<Transition id="r56">
+<End id="r57"
+Pos="12700 -4500"
+State="r6"
+Type="1"/>
+<Segment id="r58">
+<Anchor id="r60"
+Pos="12700 -4500">
+<FreeText id="r61"
+Pos="12542 -5200"
+Origin="2">
+<Text>evEnabled/</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r59"
+Pos="12700 -6200"
+State="r55"
+Type="2"/>
+</Transition>
+
+<Transition id="r62">
+<End id="r122"
+Pos="12400 -10300"
+State="r44"
+Type="1"/>
+<Segment id="r63">
+<Anchor id="r77"
+Pos="12400 -9500">
+<FreeText id="r78"
+Pos="12176 -9900"
+Origin="3">
+<Text>evHiTemp/<p/>
+heatOff();</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r64"
+Pos="12400 -7200"
+State="r55"
+Type="2"/>
+</Transition>
+
+<Transition id="r66">
+<End id="r67"
+Pos="3600 -12100"
+State="r65"
+Type="1"/>
+<Segment id="r68"/>
+<End id="r69"
+Pos="4400 -12100"
+State="r45"
+Type="2"/>
+</Transition>
+
+<Transition id="r71">
+<End id="r72"
+Pos="13900 -6200"
+State="r55"
+Type="1"/>
+<Segment id="r73">
+<Anchor id="r75"
+Pos="13900 -4500">
+<FreeText id="r76"
+Pos="14000 -5100"
+Origin="1">
+<Text>evDisabled/</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r74"
+Pos="13900 -4500"
+State="r6"
+Type="2"/>
+</Transition>
+
+<Transition id="r90">
+<End id="r91"
+Pos="14300 -7200"
+State="r55"
+Type="1"/>
+<Segment id="r92">
+<Anchor id="r96"
+Pos="14300 -8500">
+<FreeText id="r97"
+Pos="14500 -8500"
+Origin="1">
+<Text>evSafeTemp/</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r93"
+Pos="14300 -11700"/>
+<Segment id="r94"/>
+<End id="r95"
+Pos="13400 -11700"
+State="r44"
+Type="2"/>
+</Transition>
+
+<InitialState id="r107"
+Pos="4500 -1100"/>
+
+<Transition id="r108">
+<End id="r109"
+Pos="4700 -1500"
+State="r107"
+Type="1"/>
+<Segment id="r110"/>
+<End id="r111"
+Pos="4700 -3600"
+State="r4"
+Type="2"/>
+</Transition>
+
+</c:Diagram>

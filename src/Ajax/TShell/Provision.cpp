@@ -36,7 +36,10 @@ Provision::Provision( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
 {
 }
 
+static bool parseInt32( const char* argName, const char* token, int32_t& val, Cpl::TShell::Context_& context, Cpl::Text::String& outtext  );
 
+#define PARSE_INT32( n, t, v, c, buf )      if ( !parseInt32( n,t,v,c,buf ) ) { return Command::eERROR_BAD_SYNTAX; }
+ 
 ///////////////////////////
 Cpl::TShell::Command::Result_T Provision::execute( Cpl::TShell::Context_& context, char* cmdString, Cpl::Io::Output& outfd ) noexcept
 {
@@ -44,7 +47,7 @@ Cpl::TShell::Command::Result_T Provision::execute( Cpl::TShell::Context_& contex
     Cpl::Text::String&              outtext  = context.getOutputBuffer();
 
     // Initial check for not-enough-tokens
-    if ( tokens.numParameters() != 4 )
+    if ( tokens.numParameters() != 4+9+3 )
     {
         return Command::eERROR_MISSING_ARGS;
     }
@@ -56,9 +59,29 @@ Cpl::TShell::Command::Result_T Provision::execute( Cpl::TShell::Context_& contex
         return Command::eERROR_FAILED;
     }
 
+    // Model/Serial
     mp::modelNumber.write( tokens.getParameter( 1 ) );
     mp::serialNumber.write( tokens.getParameter( 2 ) );
-    // TODO: mp::AlgorithmMPxyz.write( .. );
+
+    // Heating Algo Config
+    Ajax::Heating::Flc::Config_T config;
+    PARSE_INT32( "<h-outS>", tokens.getParameter( 4 ), config.outputScalar, context, outtext );
+    PARSE_INT32( "<h-maxY>", tokens.getParameter( 5 ), config.maxY, context, outtext );
+    PARSE_INT32( "<h-errS>", tokens.getParameter( 6 ), config.errScalar, context, outtext );
+    PARSE_INT32( "<h-dErrS>", tokens.getParameter( 7 ), config.dErrScalar, context, outtext );
+    PARSE_INT32( "<h-outK0>", tokens.getParameter( 8 ), config.outK[0], context, outtext );
+    PARSE_INT32( "<h-outK1>", tokens.getParameter( 9 ), config.outK[1], context, outtext );
+    PARSE_INT32( "<h-outK2>", tokens.getParameter( 10 ), config.outK[2], context, outtext );
+    PARSE_INT32( "<h-outK3>", tokens.getParameter( 11 ), config.outK[3], context, outtext );
+    PARSE_INT32( "<h-outK4>", tokens.getParameter( 12 ), config.outK[4], context, outtext );
+    int32_t fanLow, fanMed, fanHi;
+    PARSE_INT32( "<fanLow>", tokens.getParameter( 13 ), fanLow, context, outtext );
+    PARSE_INT32( "<fanMed>", tokens.getParameter( 14 ), fanMed, context, outtext );
+    PARSE_INT32( "<fanHi>", tokens.getParameter( 15 ), fanHi, context, outtext );
+    mp::flcConfig.write( config );
+    mp::fanLowPercentage.write( fanLow );
+    mp::fanMedPercentage.write( fanMed );
+    mp::fanHighPercentage.write( fanHi );
 
     // Update NVRAM
     m_personalityRec.flush( m_recordServer );
@@ -70,6 +93,30 @@ Cpl::TShell::Command::Result_T Provision::execute( Cpl::TShell::Context_& contex
     outtext.format( "Serial Number:    %s", tokens.getParameter( 2 ) );
     io &= context.writeFrame( outtext );
     outtext.format( "Console Pwd:      %s", tokens.getParameter( 3 ) );
+    io &= context.writeFrame( outtext );
+    outtext.format( "<h-outS>:         %s", tokens.getParameter( 4) );
+    io &= context.writeFrame( outtext );
+    outtext.format( "<h-maxY>:         %s", tokens.getParameter( 5 ) );
+    io &= context.writeFrame( outtext );
+    outtext.format( "<h-errS>:         %s", tokens.getParameter( 6 ) );
+    io &= context.writeFrame( outtext );
+    outtext.format( "<h-dErrS>:        %s", tokens.getParameter( 7 ) );
+    io &= context.writeFrame( outtext );
+    outtext.format( "<h-outK0>:        %s", tokens.getParameter( 8 ) );
+    io &= context.writeFrame( outtext );
+    outtext.format( "<h-outK1>:        %s", tokens.getParameter( 9 ) );
+    io &= context.writeFrame( outtext );
+    outtext.format( "<h-outK2>:        %s", tokens.getParameter( 10 ) );
+    io &= context.writeFrame( outtext );
+    outtext.format( "<h-outK3>:        %s", tokens.getParameter( 11 ) );
+    io &= context.writeFrame( outtext );
+    outtext.format( "<h-outK4>:        %s", tokens.getParameter( 12 ) );
+    io &= context.writeFrame( outtext );
+    outtext.format( "<fanLow>:         %s", tokens.getParameter( 13 ) );
+    io &= context.writeFrame( outtext );
+    outtext.format( "<fanMed>:         %s", tokens.getParameter( 14 ) );
+    io &= context.writeFrame( outtext );
+    outtext.format( "<fanHi>:          %s", tokens.getParameter( 15 ) );
     io &= context.writeFrame( outtext );
 
     // Return the command result
@@ -131,3 +178,15 @@ bool Provision::hashPassword( const char*        plaintext,
     return false;
 }
 
+bool parseInt32( const char* argName, const char* token, int32_t& val, Cpl::TShell::Context_& context, Cpl::Text::String& outtext )
+{
+    long tmpVal;
+    if ( Cpl::Text::a2l( tmpVal, token ) )
+    {
+        val = tmpVal;
+        return true;
+    }
+    outtext.format( "Failed to parse %s (%s)", argName, token );
+    context.writeFrame( outtext );
+    return false;
+}
