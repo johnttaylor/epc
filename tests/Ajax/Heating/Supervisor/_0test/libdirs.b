@@ -1,8 +1,8 @@
 # Unit under test
-src/Ajax/Heating/Flc
+src/Ajax/Heating/Supervisor
 
 # tests
-src/Ajax/Heating/Flc/_0test
+src/Ajax/Heating/Supervisor/_0test
 
 # support
 src/Ajax/Dm

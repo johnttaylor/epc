@@ -57,8 +57,7 @@ Pos="7600 -2500">
 <FreeText id="r11"
 Pos="7287 -2200"
 Origin="4">
-<Text>evHiTemp/<p/>
-raiseHiTempAlert();</Text>
+<Text>evHiTemp/</Text>
 </FreeText>
 </Anchor>
 </Segment>
@@ -80,10 +79,9 @@ Type="1"/>
 <Anchor id="r14"
 Pos="7400 -4100">
 <FreeText id="r15"
-Pos="7400 -3900"
+Pos="8000 -3800"
 Origin="4">
-<Text>evSafeTemp/<p/>
-clearHiTempAlert();</Text>
+<Text>evSafeTemp/</Text>
 </FreeText>
 </Anchor>
 </Segment>
@@ -95,176 +93,173 @@ Type="2"/>
 
 <Transition id="r16">
 <End id="r17"
-Pos="5900 -4600"
+Pos="4100 -4600"
 State="r4"
 Type="1"/>
 <Segment id="r18">
 <Anchor id="r20"
-Pos="5900 -4800">
+Pos="4100 -4800">
 <FreeText id="r21"
-Pos="5642 -8100"
+Pos="3842 -8100"
 Origin="2">
 <Text>evEnabled/</Text>
 </FreeText>
 </Anchor>
 </Segment>
 <End id="r19"
-Pos="5900 -10300"
+Pos="4100 -10300"
 State="r44"
 Type="2"/>
 </Transition>
 
 <Transition id="r22">
 <End id="r23"
-Pos="3400 -3900"
-State="r4"
+Pos="5900 -10300"
+State="r44"
 Type="1"/>
-<Segment id="r24"/>
-<Join id="r25"
-Pos="2900 -3900"/>
-<Segment id="r26">
-<Anchor id="r100"
-Pos="2900 -4100">
-<FreeText id="r101"
-Pos="3435 -3692"
-Origin="3">
-<Text>evSensorAvailable/<p/>
-clearSensorAlert();</Text>
+<Segment id="r24">
+<Anchor id="r26"
+Pos="5900 -5600">
+<FreeText id="r27"
+Pos="6100 -5600"
+Origin="1">
+<Text>evDisabled/<p/>
+heatOff();</Text>
 </FreeText>
 </Anchor>
 </Segment>
-<Join id="r27"
-Pos="2900 -4300"/>
-<Segment id="r98"/>
-<End id="r99"
-Pos="3400 -4300"
+<End id="r25"
+Pos="5900 -4600"
 State="r4"
 Type="2"/>
 </Transition>
 
 <Transition id="r28">
 <End id="r29"
-Pos="6900 -14700"
+Pos="6800 -14700"
 State="r5"
 Type="1"/>
 <Segment id="r30">
 <Anchor id="r32"
-Pos="8300 -14700">
+Pos="8200 -14700">
 <FreeText id="r33"
-Pos="9835 -14500"
+Pos="9735 -14500"
 Origin="3">
 <Text>evNoTempSensor/<p/>
-raiseSensorAlert();<p/>
 heatOff();</Text>
 </FreeText>
 </Anchor>
 </Segment>
 <End id="r31"
-Pos="9600 -14700"
+Pos="9500 -14700"
 State="r7"
 Type="2"/>
 </Transition>
 
 <Transition id="r34">
 <End id="r35"
-Pos="11600 -15300"
+Pos="11500 -16200"
 State="r7"
 Type="1"/>
 <Segment id="r36"/>
 <Join id="r37"
-Pos="11600 -17100"/>
+Pos="11500 -17100"/>
 <Segment id="r38">
 <Anchor id="r42"
-Pos="7200 -17100">
+Pos="7100 -17100">
 <FreeText id="r43"
-Pos="6600 -17354"
+Pos="6500 -17354"
 Origin="1">
-<Text>evSensorAvailable/<p/>
-clearSensorAlert();</Text>
+<Text>evSensorAvailable/</Text>
 </FreeText>
 </Anchor>
 </Segment>
 <Join id="r39"
-Pos="5100 -17100"/>
+Pos="5000 -17100"/>
 <Segment id="r40"/>
 <End id="r41"
-Pos="5100 -16500"
+Pos="5000 -16500"
 State="r5"
 Type="2"/>
 </Transition>
 
 <State id="r44"
-Pos="3000 -10300"
+Pos="2900 -10300"
 Size="10500 8100"
 Large="1">
 <Text>On</Text>
 <State id="r5"
-Pos="4300 -14300"
+Pos="4200 -14300"
 Size="2600 2200">
 <Text>Heating</Text>
 <Compartment id="r105"
-Pos="4300 -15300"
+Pos="4200 -15300"
 Size="2600 1200">
 <Text>action:<p/>
 runHeatingAlgo();</Text>
 </Compartment>
 </State>
 <State id="r7"
-Pos="9600 -14300"
-Size="3600 1000">
+Pos="9500 -14300"
+Size="3600 1900">
 <Text>WaitingForSensor</Text>
+<Compartment id="r98"
+Pos="9500 -15300"
+Size="3600 900">
+<Text>action:<p/>
+checkForSensor();</Text>
+</Compartment>
 </State>
 <State id="r45"
-Pos="4500 -11800"
+Pos="4400 -11800"
 Size="700 700">
 <Text>&lt;&gt;</Text>
 </State>
 <InitialState id="r65"
-Pos="3300 -11900"/>
+Pos="3200 -11900"/>
 </State>
 
 <Transition id="r46">
 <End id="r47"
-Pos="5200 -12100"
+Pos="5100 -12100"
 State="r45"
 Type="1"/>
 <Segment id="r48">
 <Anchor id="r79"
-Pos="8200 -12100">
+Pos="8100 -12100">
 <FreeText id="r80"
-Pos="6700 -11900"
+Pos="6600 -11900"
 Origin="4">
-<Text>[!isSensorAvailable()]/<p/>
-raiseSensorAlert();</Text>
+<Text>[!isSensorAvailable()]</Text>
 </FreeText>
 </Anchor>
 </Segment>
 <Join id="r49"
-Pos="11600 -12100"/>
+Pos="11500 -12100"/>
 <Segment id="r50"/>
 <End id="r51"
-Pos="11600 -14300"
+Pos="11500 -14300"
 State="r7"
 Type="2"/>
 </Transition>
 
 <Transition id="r52">
 <End id="r133"
-Pos="4900 -12500"
+Pos="4800 -12500"
 State="r45"
 Type="1"/>
 <Segment id="r53">
 <Anchor id="r81"
-Pos="4900 -13600">
+Pos="4800 -13600">
 <FreeText id="r82"
-Pos="4635 -13646"
+Pos="4535 -13646"
 Origin="3">
 <Text>[else]/</Text>
 </FreeText>
 </Anchor>
 </Segment>
 <End id="r54"
-Pos="4900 -14300"
+Pos="4800 -14300"
 State="r5"
 Type="2"/>
 </Transition>
@@ -298,35 +293,34 @@ Type="2"/>
 
 <Transition id="r62">
 <End id="r122"
-Pos="12500 -10300"
+Pos="12400 -10300"
 State="r44"
 Type="1"/>
 <Segment id="r63">
 <Anchor id="r77"
-Pos="12500 -9500">
+Pos="12400 -9500">
 <FreeText id="r78"
-Pos="12476 -10100"
+Pos="12176 -9900"
 Origin="3">
 <Text>evHiTemp/<p/>
-raiseHiTempAlert();<p/>
 heatOff();</Text>
 </FreeText>
 </Anchor>
 </Segment>
 <End id="r64"
-Pos="12500 -7200"
+Pos="12400 -7200"
 State="r55"
 Type="2"/>
 </Transition>
 
 <Transition id="r66">
 <End id="r67"
-Pos="3700 -12100"
+Pos="3600 -12100"
 State="r65"
 Type="1"/>
 <Segment id="r68"/>
 <End id="r69"
-Pos="4500 -12100"
+Pos="4400 -12100"
 State="r45"
 Type="2"/>
 </Transition>
@@ -363,8 +357,7 @@ Pos="14300 -8500">
 <FreeText id="r97"
 Pos="14500 -8500"
 Origin="1">
-<Text>evSafeTemp/<p/>
-clearHiTempAlert();</Text>
+<Text>evSafeTemp/</Text>
 </FreeText>
 </Anchor>
 </Segment>
@@ -372,36 +365,8 @@ clearHiTempAlert();</Text>
 Pos="14300 -11700"/>
 <Segment id="r94"/>
 <End id="r95"
-Pos="13500 -11700"
+Pos="13400 -11700"
 State="r44"
-Type="2"/>
-</Transition>
-
-<Transition id="r102">
-<End id="r103"
-Pos="13100 -3500"
-State="r6"
-Type="1"/>
-<Segment id="r104"/>
-<Join id="r106"
-Pos="13100 -3000"/>
-<Segment id="r112">
-<Anchor id="r116"
-Pos="13400 -3000">
-<FreeText id="r117"
-Pos="13100 -2900"
-Origin="4">
-<Text>evSensorAvailable/<p/>
-clearSensorAlert();</Text>
-</FreeText>
-</Anchor>
-</Segment>
-<Join id="r113"
-Pos="13900 -3000"/>
-<Segment id="r114"/>
-<End id="r115"
-Pos="13900 -3500"
-State="r6"
 Type="2"/>
 </Transition>
 
@@ -417,118 +382,6 @@ Type="1"/>
 <End id="r111"
 Pos="4700 -3600"
 State="r4"
-Type="2"/>
-</Transition>
-
-<Transition id="r118">
-<End id="r119"
-Pos="14900 -6400"
-State="r55"
-Type="1"/>
-<Segment id="r120"/>
-<Join id="r121"
-Pos="15400 -6400"/>
-<Segment id="r123">
-<Anchor id="r127"
-Pos="15400 -6600">
-<FreeText id="r128"
-Pos="15600 -6200"
-Origin="1">
-<Text>evSensorAvailable/<p/>
-clearSensorAlert();</Text>
-</FreeText>
-</Anchor>
-</Segment>
-<Join id="r124"
-Pos="15400 -6900"/>
-<Segment id="r125"/>
-<End id="r126"
-Pos="14900 -6900"
-State="r55"
-Type="2"/>
-</Transition>
-
-<Transition id="r129">
-<End id="r130"
-Pos="5000 -4600"
-State="r4"
-Type="1"/>
-<Segment id="r131"/>
-<Join id="r132"
-Pos="5000 -5100"/>
-<Segment id="r134">
-<Anchor id="r138"
-Pos="4600 -5100">
-<FreeText id="r139"
-Pos="5335 -5308"
-Origin="2">
-<Text>evNoTempSensor/<p/>
-raiseSensorAlert();</Text>
-</FreeText>
-</Anchor>
-</Segment>
-<Join id="r135"
-Pos="4300 -5100"/>
-<Segment id="r136"/>
-<End id="r137"
-Pos="4300 -4600"
-State="r4"
-Type="2"/>
-</Transition>
-
-<Transition id="r140">
-<End id="r141"
-Pos="11200 -6500"
-State="r55"
-Type="1"/>
-<Segment id="r142"/>
-<Join id="r143"
-Pos="10700 -6500"/>
-<Segment id="r144">
-<Anchor id="r148"
-Pos="10700 -6700">
-<FreeText id="r149"
-Pos="10251 -6300"
-Origin="2">
-<Text>evNoTempSensor/<p/>
-raiseSensorAlert();</Text>
-</FreeText>
-</Anchor>
-</Segment>
-<Join id="r145"
-Pos="10700 -7000"/>
-<Segment id="r146"/>
-<End id="r147"
-Pos="11200 -7000"
-State="r55"
-Type="2"/>
-</Transition>
-
-<Transition id="r150">
-<End id="r151"
-Pos="14900 -3700"
-State="r6"
-Type="1"/>
-<Segment id="r152"/>
-<Join id="r153"
-Pos="15400 -3700"/>
-<Segment id="r154">
-<Anchor id="r158"
-Pos="15400 -3900">
-<FreeText id="r159"
-Pos="15700 -3600"
-Origin="1">
-<Text>evNoTempSensor/<p/>
-raiseSensorAlert();</Text>
-</FreeText>
-</Anchor>
-</Segment>
-<Join id="r155"
-Pos="15400 -4200"/>
-<Segment id="r156"/>
-<End id="r157"
-Pos="14900 -4200"
-State="r6"
 Type="2"/>
 </Transition>
 

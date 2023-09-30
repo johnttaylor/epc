@@ -32,25 +32,20 @@ compound=true;
 remincross=true;
 nodesep=0.5;
 ranksep=0.5;
-structOff->structFailedSafeOff[minlen=1 label=<evHiTemp&#47; <br ALIGN="LEFT"/>raiseHiTempAlert();>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)Off FailedSafeOff
-structFailedSafeOff->structOff[minlen=1 label=<evSafeTemp&#47; <br ALIGN="LEFT"/>clearHiTempAlert();>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)FailedSafeOff Off
+structOff->structFailedSafeOff[minlen=1 label=<evHiTemp>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)Off FailedSafeOff
+structFailedSafeOff->structOff[minlen=1 label=<evSafeTemp>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)FailedSafeOff Off
 structOff -> structHeating[minlen=1 labeldistance=2.0 , label=<evEnabled>  color=black, fontname=Arial; fontsize=14, fontcolor=black lhead=clusterOn];// (D4)Off On
-structOff->structOff[minlen=1 label=<evSensorAvailable&#47; <br ALIGN="LEFT"/>clearSensorA...>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)Off Off
-structHeating->structWaitingForSensor[minlen=1 label=<evNoTempSensor&#47; <br ALIGN="LEFT"/>raiseSensorAler...>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)Heating WaitingForSensor
-structWaitingForSensor->structHeating[minlen=1 label=<evSensorAvailable&#47; <br ALIGN="LEFT"/>clearSensorA...>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)WaitingForSensor Heating
-struct__C0->structWaitingForSensor[minlen=1 label=<&#91;!isSensorAvailable()&#93;&#47; <br ALIGN="LEFT"/>raiseSe...>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)__C0 WaitingForSensor
+structDefaultOn->structOff[minlen=1 labeldistance=2.0 , headlabel=<evDisabled&#47; <br ALIGN="LEFT"/>heatOff();>  color=black, fontname=Arial; fontsize=14, fontcolor=black ltail=clusterOn];//  (I1)On structOff
+structHeating->structWaitingForSensor[minlen=1 label=<evNoTempSensor&#47; <br ALIGN="LEFT"/>heatOff();>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)Heating WaitingForSensor
+structWaitingForSensor->structHeating[minlen=1 label=<evSensorAvailable>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)WaitingForSensor Heating
+struct__C0->structWaitingForSensor[minlen=1 label=<&#91;!isSensorAvailable()&#93;>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)__C0 WaitingForSensor
 struct__C0->structHeating[minlen=1 label=<&#91;else&#93;>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)__C0 Heating
 structFailedSafeOff->structFailedSafeOn[minlen=1 label=<evEnabled>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)FailedSafeOff FailedSafeOn
-structDefaultOn->structFailedSafeOn[minlen=1 labeldistance=2.0 , headlabel=<evHiTemp&#47; <br ALIGN="LEFT"/>raiseHiTempAlert();<br ALIGN="LEFT"/>h...>  color=black, fontname=Arial; fontsize=14, fontcolor=black ltail=clusterOn];//  (I1)On structFailedSafeOn
+structDefaultOn->structFailedSafeOn[minlen=1 labeldistance=2.0 , headlabel=<evHiTemp&#47; <br ALIGN="LEFT"/>heatOff();>  color=black, fontname=Arial; fontsize=14, fontcolor=black ltail=clusterOn];//  (I1)On structFailedSafeOn
 structDefaultOn->struct__C0[minlen=1 label=<  > fontname=Arial; fontsize=14, style=dotted]; // (A) 
 structFailedSafeOn->structFailedSafeOff[minlen=1 label=<evDisabled>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)FailedSafeOn FailedSafeOff
-structFailedSafeOn -> structHeating[minlen=1 labeldistance=2.0 , label=<evSafeTemp&#47; <br ALIGN="LEFT"/>clearHiTempAlert();>  color=black, fontname=Arial; fontsize=14, fontcolor=black lhead=clusterOn];// (D4)FailedSafeOn On
-structFailedSafeOff->structFailedSafeOff[minlen=1 label=<evSensorAvailable&#47; <br ALIGN="LEFT"/>clearSensorA...>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)FailedSafeOff FailedSafeOff
+structFailedSafeOn -> structHeating[minlen=1 labeldistance=2.0 , label=<evSafeTemp>  color=black, fontname=Arial; fontsize=14, fontcolor=black lhead=clusterOn];// (D4)FailedSafeOn On
 structDefaultroot->structOff[minlen=1 label=<  > fontname=Arial; fontsize=14, style=dotted]; // (A) 
-structFailedSafeOn->structFailedSafeOn[minlen=1 label=<evSensorAvailable&#47; <br ALIGN="LEFT"/>clearSensorA...>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)FailedSafeOn FailedSafeOn
-structOff->structOff[minlen=1 label=<evNoTempSensor&#47; <br ALIGN="LEFT"/>raiseSensorAler...>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)Off Off
-structFailedSafeOn->structFailedSafeOn[minlen=1 label=<evNoTempSensor&#47; <br ALIGN="LEFT"/>raiseSensorAler...>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)FailedSafeOn FailedSafeOn
-structFailedSafeOff->structFailedSafeOff[minlen=1 label=<evNoTempSensor&#47; <br ALIGN="LEFT"/>raiseSensorAler...>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)FailedSafeOff FailedSafeOff
 
 structOff[margin="0.4,0.08" penwidth="1" style="rounded" BORDER="1" color="black" fontname=Arial; fontsize=14 label=< <TABLE STYLE="rounded" BORDER="0" CELLBORDER="0">
 <TR><TD PORT="NW"></TD><TD PORT="N"></TD><TD PORT="NE"></TD></TR>
@@ -92,6 +87,7 @@ structHeating[margin="0.4,0.08" penwidth="1" style="rounded" BORDER="1" color="b
 structWaitingForSensor[margin="0.4,0.08" penwidth="1" style="rounded" BORDER="1" color="black" fontname=Arial; fontsize=14 label=< <TABLE STYLE="rounded" BORDER="0" CELLBORDER="0">
 <TR><TD PORT="NW"></TD><TD PORT="N"></TD><TD PORT="NE"></TD></TR>
 <TR><TD PORT="W"></TD> <TD BORDER="1" SIDES="B">WaitingForSensor</TD><TD PORT="E"></TD></TR>
+<TR><TD COLSPAN="3" ALIGN="LEFT">Do:<br ALIGN="LEFT"/>checkForSensor();<br ALIGN="LEFT"/></TD></TR>
 <TR><TD PORT="SW"></TD><TD PORT="S"></TD><TD PORT="SE"></TD></TR>
 </TABLE> >];
 

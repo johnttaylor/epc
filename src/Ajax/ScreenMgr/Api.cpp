@@ -11,7 +11,7 @@
 
 #include "Api.h"
 #include "Ajax/Logging/Api.h"
-
+#include "StaticScreenApi.h"
 
 using namespace Ajax::ScreenMgr;
 

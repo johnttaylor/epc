@@ -1,7 +1,7 @@
-/** @namespace Ajax::Heating::Flc
+/** @namespace Ajax::Heating::Supervisor
 
-The 'Flc' namespace contains a Fuzzy Logic Controller that is used by control
-algorithm to calculate changes to the capacity output signal.
+The 'Supervisor' namespace is the top-level business logic for executing
+the heating algorithm
 
 */ 
 

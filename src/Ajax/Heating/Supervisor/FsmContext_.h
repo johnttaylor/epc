@@ -26,19 +26,10 @@ class FsmContext_
 {
 public:
     /// Action
-    virtual void clearHiTempAlert() noexcept = 0;
-
-    /// Action
-    virtual void clearSensorAlert() noexcept = 0;
+    virtual void checkForSensor() noexcept = 0;
 
     /// Action
     virtual void heatOff() noexcept = 0;
-
-    /// Action
-    virtual void raiseHiTempAlert() noexcept = 0;
-
-    /// Action
-    virtual void raiseSensorAlert() noexcept = 0;
 
     /// Action
     virtual void runHeatingAlgo() noexcept = 0;

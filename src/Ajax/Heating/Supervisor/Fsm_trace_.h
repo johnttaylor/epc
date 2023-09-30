@@ -41,9 +41,9 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
     "evHiTemp",
     "evSafeTemp",
     "evEnabled",
-    "evSensorAvailable",
-    "evNoTempSensor",
     "evDisabled",
+    "evNoTempSensor",
+    "evSensorAvailable",
     "__INIT__"
     };
 

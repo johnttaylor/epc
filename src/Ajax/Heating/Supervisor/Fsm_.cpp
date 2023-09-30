@@ -143,7 +143,6 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
                     
                     /* Init ends in choice, select default state based on given guards  */
                     if(!isSensorAvailable()){
-                        raiseSensorAlert();
                         stateVarsCopy.stateVarOn = WaitingForSensor; /* Selective default in entry chain  */
                     }else{
                         stateVarsCopy.stateVarOn = Heating; /* Selective default in entry chain  */
@@ -154,35 +153,10 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
                     /* Transition from Off to FailedSafeOff */
                     evConsumed=1U;
 
-                    /* Action code for transition  */
-                    raiseHiTempAlert();
-
 
                     /* adjust state variables  */
                     stateVarsCopy.stateVar = FailedSafeOff;
                     FsmTraceEvent(0U);
-                }else if(msg==Fsm_evNoTempSensor){
-                    /* Transition from Off to Off */
-                    evConsumed=1U;
-
-                    /* Action code for transition  */
-                    raiseSensorAlert();
-
-
-                    /* adjust state variables  */
-                    stateVarsCopy.stateVar = Off;
-                    FsmTraceEvent(4U);
-                }else if(msg==Fsm_evSensorAvailable){
-                    /* Transition from Off to Off */
-                    evConsumed=1U;
-
-                    /* Action code for transition  */
-                    clearSensorAlert();
-
-
-                    /* adjust state variables  */
-                    stateVarsCopy.stateVar = Off;
-                    FsmTraceEvent(3U);
                 }else{
                     /* Intentionally left blank */
                 } /*end of event selection */
@@ -197,39 +171,14 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
                     /* adjust state variables  */
                     stateVarsCopy.stateVar = FailedSafeOn;
                     FsmTraceEvent(2U);
-                }else if(msg==Fsm_evNoTempSensor){
-                    /* Transition from FailedSafeOff to FailedSafeOff */
-                    evConsumed=1U;
-
-                    /* Action code for transition  */
-                    raiseSensorAlert();
-
-
-                    /* adjust state variables  */
-                    stateVarsCopy.stateVar = FailedSafeOff;
-                    FsmTraceEvent(4U);
                 }else if(msg==Fsm_evSafeTemp){
                     /* Transition from FailedSafeOff to Off */
                     evConsumed=1U;
-
-                    /* Action code for transition  */
-                    clearHiTempAlert();
 
 
                     /* adjust state variables  */
                     stateVarsCopy.stateVar = Off;
                     FsmTraceEvent(1U);
-                }else if(msg==Fsm_evSensorAvailable){
-                    /* Transition from FailedSafeOff to FailedSafeOff */
-                    evConsumed=1U;
-
-                    /* Action code for transition  */
-                    clearSensorAlert();
-
-
-                    /* adjust state variables  */
-                    stateVarsCopy.stateVar = FailedSafeOff;
-                    FsmTraceEvent(3U);
                 }else{
                     /* Intentionally left blank */
                 } /*end of event selection */
@@ -249,7 +198,6 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
                             evConsumed=1U;
 
                             /* Action code for transition  */
-                            raiseSensorAlert();
                             heatOff();
 
 
@@ -262,17 +210,18 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
                     break; /* end of case Heating  */
 
                     case WaitingForSensor:
+                        /* action code  */
+                        checkForSensor();
+
+
                         if(msg==Fsm_evSensorAvailable){
                             /* Transition from WaitingForSensor to Heating */
                             evConsumed=1U;
 
-                            /* Action code for transition  */
-                            clearSensorAlert();
-
 
                             /* adjust state variables  */
                             stateVarsCopy.stateVarOn = Heating;
-                            FsmTraceEvent(3U);
+                            FsmTraceEvent(5U);
                         }else{
                             /* Intentionally left blank */
                         } /*end of event selection */
@@ -286,12 +235,22 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
                 /* Check if event was already processed  */
                 if(evConsumed==0){
 
-                    if(msg==Fsm_evHiTemp){
+                    if(msg==Fsm_evDisabled){
+                        /* Transition from On to Off */
+                        evConsumed=1U;
+                        
+                        /* Action code for transition  */
+                        heatOff();
+
+
+                        /* adjust state variables  */
+                        stateVarsCopy.stateVar = Off;
+                        FsmTraceEvent(3U);
+                    }else if(msg==Fsm_evHiTemp){
                         /* Transition from On to FailedSafeOn */
                         evConsumed=1U;
                         
                         /* Action code for transition  */
-                        raiseHiTempAlert();
                         heatOff();
 
 
@@ -312,47 +271,21 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
 
                     /* adjust state variables  */
                     stateVarsCopy.stateVar = FailedSafeOff;
-                    FsmTraceEvent(5U);
-                }else if(msg==Fsm_evNoTempSensor){
-                    /* Transition from FailedSafeOn to FailedSafeOn */
-                    evConsumed=1U;
-
-                    /* Action code for transition  */
-                    raiseSensorAlert();
-
-
-                    /* adjust state variables  */
-                    stateVarsCopy.stateVar = FailedSafeOn;
-                    FsmTraceEvent(4U);
+                    FsmTraceEvent(3U);
                 }else if(msg==Fsm_evSafeTemp){
                     /* Transition from FailedSafeOn to On */
                     evConsumed=1U;
-
-                    /* Action code for transition  */
-                    clearHiTempAlert();
 
                     stateVarsCopy.stateVar = On; /* Default in entry chain  */
                     
                     /* Init ends in choice, select default state based on given guards  */
                     if(!isSensorAvailable()){
-                        raiseSensorAlert();
                         stateVarsCopy.stateVarOn = WaitingForSensor; /* Selective default in entry chain  */
                     }else{
                         stateVarsCopy.stateVarOn = Heating; /* Selective default in entry chain  */
                     }
 
                     FsmTraceEvent(1U);
-                }else if(msg==Fsm_evSensorAvailable){
-                    /* Transition from FailedSafeOn to FailedSafeOn */
-                    evConsumed=1U;
-
-                    /* Action code for transition  */
-                    clearSensorAlert();
-
-
-                    /* adjust state variables  */
-                    stateVarsCopy.stateVar = FailedSafeOn;
-                    FsmTraceEvent(3U);
                 }else{
                     /* Intentionally left blank */
                 } /*end of event selection */

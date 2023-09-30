@@ -48,8 +48,8 @@ class Api: public Cpl::Itc::CloseSync, public Cpl::System::Timer, public FsmEven
 public:
     /// Constructor
     Api( Cpl::Dm::MailboxServer&  myMbox,
-         size_t                   maxHeaterPWM,
-         size_t                   maxFanPWM ) noexcept;
+         unsigned                 maxHeaterPWM,
+         unsigned                 maxFanPWM ) noexcept;
 
 public:
     /// This method starts the supervisor (See Cpl::Itc::OpenSync)
@@ -61,19 +61,10 @@ public:
 
 protected:
     /// Action
-    void clearHiTempAlert() noexcept;
-
-    /// Action
-    void clearSensorAlert() noexcept;
+    void checkForSensor() noexcept;
 
     /// Action
     void heatOff() noexcept;
-
-    /// Action
-    void raiseHiTempAlert() noexcept;
-
-    /// Action
-    void raiseSensorAlert() noexcept;
 
     /// Action
     void runHeatingAlgo() noexcept;
@@ -86,12 +77,6 @@ public:
 protected:
     /// See Cpl::System::Timer (timer expired callback)
     void expired() noexcept;
-    
-    /// Change notification
-    void remoteIdtChanged( Cpl::Dm::Mp::Int32& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
-    
-    /// Change notification
-    void onboardIdtChanged( Cpl::Dm::Mp::Int32& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
     
     /// Change notification
     void hwSafetyChanged( Cpl::Dm::Mp::Bool& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
@@ -108,12 +93,6 @@ protected:
     /// Heating controller
     Ajax::Heating::Flc::Api  m_flcController;
 
-    /// Observer for change notification (to the Remote Sensor)
-    Cpl::Dm::SubscriberComposer<Api, Cpl::Dm::Mp::Int32>   m_obRemoteIdt;
-
-    /// Observer for change notification (to the built-in Sensor)
-    Cpl::Dm::SubscriberComposer<Api, Cpl::Dm::Mp::Int32>   m_obOnboardIdt;
-
     /// Observer for change notification (to the hardware temperature safety limit)
     Cpl::Dm::SubscriberComposer<Api, Cpl::Dm::Mp::Bool>    m_obHwSafety;
 
@@ -121,19 +100,16 @@ protected:
     Cpl::Dm::SubscriberComposer<Api, Cpl::Dm::Mp::Bool>    m_obHeatingEnabled;
 
     /// Maximum PWM output value (i.e 100% duty cycle) for the Heater
-    size_t                   m_maxHeaterPWM;
+    unsigned                 m_maxHeaterPWM;
 
     /// Maximum PWM output value (i.e 100% duty cycle) for the Fan motor
-    size_t                   m_maxFanPWM;
+    unsigned                 m_maxFanPWM;
 
     /// Heater PWM output value
     int32_t                  m_heaterOutPWM;
 
-    /// Remote sensor available
-    bool                     m_remoteAvail;
-
-    /// Built-in sensor available
-    bool                     m_onboardAvail;
+    /// Temperature sensor available
+    bool                     m_temperatureSensorAvailable;
 
     /// Open state
     bool                     m_opened;
