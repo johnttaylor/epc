@@ -16,6 +16,7 @@
 #include "mp/ModelPoints.h"
 #include "Cpl/TShell/Cmd/User.h"
 #include "TShellSecurity.h"
+#include "Ajax/Heating/Supervisor/Api.h"
 #include <stdio.h>
 
 using namespace Ajax::Main;
@@ -26,6 +27,10 @@ static TShellSecurity         security_( *g_sha512Ptr );
 static Cpl::TShell::Cmd::User userCmd_( g_cmdlist, security_ );
 //#endif
 
+// Algorithm
+static Ajax::Heating::Supervisor::Api  heatingAlgo_( g_appMbox, OPTION_AJAX_MAX_PWM_VALUE_HEATER, OPTION_AJAX_MAX_PWM_VALUE_FAN );
+
+// Screens...
 Ajax::Ui::Home::Screen  Ajax::Main::g_homeScreen_( Ajax::Main::g_screenNav, g_graphics );
 Ajax::Ui::About::Screen Ajax::Main::g_aboutScreen_( Ajax::Main::g_screenNav, g_graphics );
 
@@ -45,7 +50,7 @@ void Ajax::Main::appvariant_initializeModelPoints0()
 
 void Ajax::Main::appvariant_open0()
 {
-    // Nothing currently needed
+    heatingAlgo_.open();
 }
 
 void Ajax::Main::appvariant_launchHomeScreen()
@@ -55,5 +60,5 @@ void Ajax::Main::appvariant_launchHomeScreen()
 
 void Ajax::Main::appvariant_close0()
 {
-    // Nothing currently needed
+    heatingAlgo_.close();
 }
