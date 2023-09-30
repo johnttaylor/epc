@@ -18,10 +18,12 @@
 #include "colony_config.h"
 #include "Cpl/System/Api.h"
 #include "Cpl/System/Trace.h"
+#include "Cpl/System/Mutex.h"
 #include "Cpl/System/Semaphore.h"
 #include "Cpl/Dm/ModelPoint.h"
 #include "Cpl/Dm/MailboxServer.h"
 #include "Cpl/Itc/MailboxServer.h"
+#include "Cpl/Itc/CloseSync.h"
 
 
  /** Default Trace section used by/for the Helper methods
@@ -184,7 +186,7 @@ public:
         notify( 31 );
     }
 
-    /// THis method resumes/unfreezes the Mailbox.  The application is signaled when the Mailbox has resumed
+    /// This method resumes/unfreezes the Mailbox.  The application is signaled when the Mailbox has resumed
     void thaw()
     {
         // Signal the paused thread to wake up and then wait for it to actually wake up
@@ -226,7 +228,136 @@ public:
     /// Semaphore to signal when I run
     Cpl::System::Semaphore& m_sema;
 };
+/** This class is used to 'convert' the synchronous ITC semantics of open/close
+    requests to asynchronous.  The initial use case is when using Simulate
+    time and the thread calling the open/close is also the thread that is
+    responsible for advancing simulated time.  There use case is essentially
+    a dead-lock scenario. By changing the open/close semantics to asynchronous
+    the dead-lock is avoid (albeit polling and an extra thread is required).
+ */
+class AsyncOpenClose : public Cpl::System::Runnable
+{
+public:
+    /// Synchronize open/close calls
+    Cpl::System::Semaphore m_sema;
+    
+    /// Synchronize the thread is ready (for an open call)
+    Cpl::System::Semaphore m_semaReady;
+    
+    /// Critical section for flags
+    Cpl::System::Mutex     m_lock;
+    
+    /// The instance to be opened/closed
+    Cpl::Itc::CloseSync&   m_target;
+    
+    /// Optional open argument
+    void*                  m_openArgs;
 
+    /// Open/close state
+    bool                   m_opened;
+    
+    /// Option to exit the runnable object/thread when closeSubject() is called
+    bool                   m_exitOnClose;
 
+public:
+    /// Constructor
+    AsyncOpenClose( Cpl::Itc::CloseSync& target )
+        : m_target( target )
+        , m_openArgs( nullptr )
+        , m_opened( false )
+        , m_exitOnClose( true )
+    {
+    }
+
+public:
+    /// Used to invoke the open() request using asynchronous semantics (with respect to the caller)
+    void openSubject( void* args=nullptr )
+    {
+        m_semaReady.wait();
+        m_openArgs = args;
+        m_sema.signal();
+    }
+    
+    /// Used to invoke the close() request using asynchronous semantics (with respect to the caller)
+    void closeSubject( bool exitThreadOnClose = false )
+    {
+        m_exitOnClose = exitThreadOnClose;
+        m_sema.signal();
+    }
+
+    /// Test executive calls this method to get the status of open/close class
+    bool isOpened()
+    {
+        Cpl::System::Mutex::ScopeBlock criticalSection( m_lock );
+        return m_opened;
+    }
+
+protected:
+    /// See Cpl::System::Runnable
+    void appRun()
+    {
+        for ( ;;)
+        {
+            m_semaReady.signal();
+            m_sema.wait();
+            m_target.open( m_openArgs );
+            setState( true );
+            m_sema.wait();
+            m_target.close();
+            setState( false );
+            if ( m_exitOnClose )
+            {
+                break;
+            }
+        }
+    }
+
+    /// Helper method
+    inline void setState( bool opened )
+    {
+        Cpl::System::Mutex::ScopeBlock criticalSection( m_lock );
+        m_opened = opened;
+    }
+};
+
+#ifdef USE_CPL_SYSTEM_SIM_TICK
+#include "Cpl/System/SimTick.h"
+
+/** This is a convenience method that for the 'test executive' to advance simulated
+    time AND poll the status of the asynchronous open call.
+    
+    Returns the number of ticks advanced
+ */
+static inline size_t simAdvanceTillOpened( AsyncOpenClose& openerCloser, size_t advanceStep=1 )
+{
+    size_t ticks = 0;
+    while ( openerCloser.isOpened() == false )
+    {
+        ticks += advanceStep;
+        Cpl::System::SimTick::advance( advanceStep );
+        Cpl::System::Api::sleepInRealTime( 10 );
+    }
+
+    return ticks;
+}
+
+/** This is a convenience method that for the 'test executive' to advance simulated
+    time AND poll the status of the asynchronous close call.
+
+    Returns the number of ticks advanced
+ */
+static inline size_t simAdvanceTillClosed( AsyncOpenClose& openerCloser, size_t advanceStep=1 )
+{
+    size_t ticks = 0;
+    while ( openerCloser.isOpened() == true )
+    {
+        ticks += advanceStep;
+        Cpl::System::SimTick::advance( advanceStep );
+        Cpl::System::Api::sleepInRealTime( 10 );
+    }
+
+    return ticks;
+}
+#endif
 
 #endif  // end header latch

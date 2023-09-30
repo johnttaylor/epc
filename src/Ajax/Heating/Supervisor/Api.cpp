@@ -152,6 +152,7 @@ void Api::heatOff() noexcept
     // Shut everything off
     mp::cmdHeaterPWM.write( 0 );
     mp::cmdFanPWM.write( 0 );
+    m_heaterOutPWM = 0;
 }
 
 void Api::runHeatingAlgo() noexcept
