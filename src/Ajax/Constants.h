@@ -93,5 +93,15 @@
 #define OPTION_AJAX_PASSWORD_MIN_LENGTH             12
 #endif
 
+/// Value that maps to 100% PWM Duty Cycle for the Heater output signal
+#ifndef OPTION_AJAX_MAX_PWM_VALUE_HEATER
+#define OPTION_AJAX_MAX_PWM_VALUE_HEATER            0xFFFF      // Defaulting to a STM32 target
+#endif
+
+/// Value that maps to 100% PWM Duty Cycle for the Fan output signal
+#ifndef OPTION_AJAX_MAX_PWM_VALUE_FAN
+#define OPTION_AJAX_MAX_PWM_VALUE_FAN               0xFFFF      // Defaulting to a STM32 target
+#endif
+
 #endif  // end header latch
 

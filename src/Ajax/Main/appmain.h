@@ -25,6 +25,8 @@
 #include "Ajax/ScreenMgr/Navigation.h"
 #include "Driver/NV/Api.h"
 #include "Driver/Crypto/Hash.h"
+#include "Cpl/Dm/MailboxServer.h"
+
 
 ///
 namespace Ajax {
@@ -66,6 +68,9 @@ extern Driver::NV::Api&                 g_nvramDriver;
 /// Expose the Console hash function
 extern Driver::Crypto::Hash*            g_sha512Ptr;
 
+/// Expose the mailbox for the "application" thread (for Ajax this is the Algorithm thread)
+extern Cpl::Dm::MailboxServer           g_appMbox;
+
 
 /*
 ** Thread Priorities
@@ -77,14 +82,20 @@ extern Driver::Crypto::Hash*            g_sha512Ptr;
 #endif
 
 /// Thread priority
-#ifndef OPTION_AJAX_MAIN_THREAD_PRIORITY_CONSOLE
-#define OPTION_AJAX_MAIN_THREAD_PRIORITY_CONSOLE       (CPL_SYSTEM_THREAD_PRIORITY_NORMAL + ( 3* CPL_SYSTEM_THREAD_PRIORITY_LOWER) )
+#ifndef OPTION_AJAX_MAIN_THREAD_PRIORITY_APPLICATION
+#define OPTION_AJAX_MAIN_THREAD_PRIORITY_APPLICATION   (CPL_SYSTEM_THREAD_PRIORITY_NORMAL)
 #endif
 
 /// Thread priority
 #ifndef OPTION_AJAX_MAIN_THREAD_PRIORITY_STORAGE
 #define OPTION_AJAX_MAIN_THREAD_PRIORITY_STORAGE       (CPL_SYSTEM_THREAD_PRIORITY_NORMAL + ( 2* CPL_SYSTEM_THREAD_PRIORITY_LOWER) )
 #endif
+
+/// Thread priority
+#ifndef OPTION_AJAX_MAIN_THREAD_PRIORITY_CONSOLE
+#define OPTION_AJAX_MAIN_THREAD_PRIORITY_CONSOLE       (CPL_SYSTEM_THREAD_PRIORITY_NORMAL + ( 3* CPL_SYSTEM_THREAD_PRIORITY_LOWER) )
+#endif
+
 
 /*
 ** Magic values

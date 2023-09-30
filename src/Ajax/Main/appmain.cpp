@@ -55,6 +55,8 @@ static Cpl::System::Semaphore       waitForShutdown_;
 static volatile int                 exitCode_;
 static int runShutdownHandlers() noexcept;
 
+Cpl::Dm::MailboxServer              Ajax::Main::g_appMbox;
+
 static Driver::Crypto::Orlp::SHA512 sha512_;
 Driver::Crypto::Hash*               Ajax::Main::g_sha512Ptr = &sha512_;
 
@@ -132,6 +134,7 @@ static Ajax::TShell::Provision               provCmd_( g_cmdlist, personalityRec
 static Driver::NV::Cmd                       eepromCmd_( g_cmdlist, g_nvramDriver );
 #endif
 
+
 static void displayRecordSizes();
 
 /////////////////////////////
@@ -161,6 +164,9 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     platform_initializeModelPoints0();
     appvariant_initializeModelPoints0();
 
+    // Create Application thread
+    Cpl::System::Thread* appThreadPtr = Cpl::System::Thread::create( g_appMbox, "APP", OPTION_AJAX_MAIN_THREAD_PRIORITY_APPLICATION );
+    
     // Create the UI Thread - and display the splash screen
     Cpl::System::Thread* uiThreadPtr = Cpl::System::Thread::create( uiMboxServer_, "UI", OPTION_AJAX_MAIN_THREAD_PRIORITY_UI );
     Driver::PicoDisplay::Api::rgbLED().setOff();
@@ -229,9 +235,11 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     // Delete UI Thread
     recordServer_.pleaseStop();
     uiMboxServer_.pleaseStop();
+    g_appMbox.pleaseStop();
     Cpl::System::Api::sleep( 100 ); // Allow time for the thread so self terminate
     Cpl::System::Thread::destroy( *uiThreadPtr );
     Cpl::System::Thread::destroy( *storageThreadPtr );
+    Cpl::System::Thread::destroy( *appThreadPtr );
 
     // Run any/all register shutdown handlers (as registered by the Cpl::System::Shutdown interface) and then exit
     return runShutdownHandlers();
