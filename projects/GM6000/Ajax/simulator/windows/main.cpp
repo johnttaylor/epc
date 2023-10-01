@@ -68,7 +68,7 @@ int main( int argc, char* const argv[] )
 
     // Default tracing on
     CPL_SYSTEM_TRACE_ENABLE();
-    CPL_SYSTEM_TRACE_ENABLE_SECTION( "*Ajax" );
+    //CPL_SYSTEM_TRACE_ENABLE_SECTION( "*Ajax" );
 
     // Run the application
     return runTheApplication( infd_, outfd_ );
