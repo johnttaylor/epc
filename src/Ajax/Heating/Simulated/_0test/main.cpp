@@ -48,6 +48,7 @@
 #include "Ajax/TShell/Provision.h"
 #include "Ajax/TShell/State.h"
 #include "Driver/Crypto/Orlp/Sha512.h"
+#include "Cpl/System/SimTick.h"
 
 /// 
 extern int algorithmTest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd );
@@ -187,12 +188,13 @@ int algorithmTest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd )
     // Start the algorithm
     asyncAlgo_.openSubject();   // NOTE: Because I am using simulate time - we can't use synchronous semantics
     simAdvanceTillOpened( asyncAlgo_ );
-    
+
+
     /*
     ** RUNNING...
     */
     waitForShutdown_.wait(); // Wait for the Application to be shutdown
-    
+
 
     /*
     ** SHUTTING DOWN...
@@ -201,7 +203,7 @@ int algorithmTest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd )
 
     asyncAlgo_.closeSubject( true );      // NOTE: Because I am using simulate time - we can't use synchronous semantics
     simAdvanceTillClosed( asyncAlgo_ );
-    
+
 
     logServer_.close();
     recordServer_.close();
@@ -210,11 +212,13 @@ int algorithmTest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd )
     recordServer_.pleaseStop();
     algoMbox_.pleaseStop();
     houseSimulator_.pleaseStop();
-    Cpl::System::Api::sleep( 100 ); // Allow time for the thread so self terminate
+    Cpl::System::SimTick::advance( 10 );    // Advance sim time to ensure that my simulated threads have a chance to self terminate
+    Cpl::System::Api::sleep( 100 );         // Allow time for the thread so self terminate
     Cpl::System::Thread::destroy( *algoThreadPtr );
     Cpl::System::Thread::destroy( *storageThreadPtr );
     Cpl::System::Thread::destroy( *simulatorThreadPtr );
     Cpl::System::Thread::destroy( *t1 );
+    Cpl::System::Api::sleep( 100 ); // Allow time for the thread so self terminate
 
     // Run any/all register shutdown handlers (as registered by the Cpl::System::Shutdown interface) and then exit
     return runShutdownHandlers();

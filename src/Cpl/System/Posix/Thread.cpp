@@ -325,7 +325,7 @@ Cpl::System::Thread* Cpl::System::Thread::create( Runnable&   runnable,
                                                   bool        allowSimTicks
 )
 {
-    return new Cpl::System::Posix::Thread( runnable, name, priority, stackSize, allowSimTicks );
+    return new Cpl::System::Posix::Thread( runnable, name, priority, stackSize, SCHED_OTHER, allowSimTicks );
 }
 
 

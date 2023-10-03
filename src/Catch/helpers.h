@@ -254,10 +254,10 @@ public:
     void*                  m_openArgs;
 
     /// Open/close state
-    bool                   m_opened;
+    volatile bool          m_opened;
     
     /// Option to exit the runnable object/thread when closeSubject() is called
-    bool                   m_exitOnClose;
+    volatile bool          m_exitOnClose;
 
 public:
     /// Constructor

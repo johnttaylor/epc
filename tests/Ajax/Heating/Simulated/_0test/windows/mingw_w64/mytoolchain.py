@@ -29,10 +29,7 @@ from nqbplib.my_globals import NQBP_WORK_ROOT
 #---------------------------------------------------
 
 # Set the name for the final output item
-FINAL_OUTPUT_NAME = 'a.exe'
-
-# Link unittest directory by object module so that Catch's self-registration mechanism 'works'
-unit_test_objects = '_BUILT_DIR_.src/Ajax/Heating/Supervisor/_0test'
+FINAL_OUTPUT_NAME = 'b.exe'
 
 
 #
@@ -43,8 +40,7 @@ unit_test_objects = '_BUILT_DIR_.src/Ajax/Heating/Supervisor/_0test'
 base_release           = BuildValues()        # Do NOT comment out this line
 base_release.cflags    = '-m32 -std=c++11 -Wall -Werror -x c++  -fprofile-arcs -ftest-coverage -DCATCH_CONFIG_FAST_COMPILE'
 base_release.linkflags = '-m32 -fprofile-arcs'
-base_release.linklibs  = '-lgcov'
-base_release.firstobjs = unit_test_objects
+base_release.linklibs  = '-lAdvapi32'
 
 # Set project specific 'optimized' options
 optimzed_release           = BuildValues()    # Do NOT comment out this line
@@ -71,7 +67,6 @@ debug_cpp11    = BuildValues()
 # Set 'base' options
 base_cpp11.cflags     = '-m64 -std=c++11 -Wall -Werror -x c++ -DCATCH_CONFIG_FAST_COMPILE'
 base_cpp11.linkflags  = '-m64'
-base_cpp11.firstobjs  = unit_test_objects
 
 # Set 'Optimized' options
 optimzed_cpp11.cflags    = '-O3'
@@ -95,7 +90,7 @@ debug_win64    = BuildValues()
 # Set 'base' options
 base_win64.cflags     = '-m64 -std=c++11 -Wall -Werror -x c++  -DCATCH_CONFIG_FAST_COMPILE'
 base_win64.linkflags  = '-m64'
-base_win64.firstobjs  = unit_test_objects
+base_win64.linklibs   = '-lAdvapi32'
 
 # Set 'Optimized' options
 optimzed_win64.cflags    = '-O3'

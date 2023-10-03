@@ -6,16 +6,8 @@
 
 #define USE_CPL_SYSTEM_TRACE
 
-//// For C tests
-//#define CPL_CONTAINER_ITEM_FATAL_ERROR_HANDLER myFatalErrorHandler
-//#ifdef __cplusplus
-//extern "C" {
-//#endif
-//
-//    extern void myFatalErrorHandler( void* item, void* currentList, void* newList );
-//
-//#ifdef __cplusplus
-//}
-//#endif
+#define OPTION_CPL_TSHELL_PROCESSOR_INPUT_SIZE      (4*1024)
+#define OPTION_CPL_TSHELL_PROCESSOR_OUTPUT_SIZE     (4*1024)
+
 
 #endif
