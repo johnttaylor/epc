@@ -28,7 +28,7 @@ namespace TShell {
 /** This class implements a TShell command that is used to provision a GM6000
     unit at production.
 
-    This class assumes tha the following MP exists:
+    This class assumes that the following MP exists:
         mp::serialNumber
         mp::modelNumber
         TODO: mp::XYZ - Algorithm stuffs....

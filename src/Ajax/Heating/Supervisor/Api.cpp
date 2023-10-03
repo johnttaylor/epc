@@ -140,10 +140,13 @@ void Api::checkForSensor() noexcept
     // Poll the state of the temperature sensors
     if ( !mp::onBoardIdt.isNotValid() || !mp::remoteIdt.isNotValid() )
     {
-        m_temperatureSensorAvailable = true;
-        Ajax::Logging::logf( Ajax::Logging::AlertMsg::NO_TEMPERATURE_SENSOR, "Cleared" );
-        mp::sensorFailAlert.lowerAlert();
-        generateEvent( Fsm_evSensorAvailable );
+        if ( !m_temperatureSensorAvailable ) // Prevent 'double' clear
+        {
+            m_temperatureSensorAvailable = true;
+            Ajax::Logging::logf( Ajax::Logging::AlertMsg::NO_TEMPERATURE_SENSOR, "Cleared" );
+            mp::sensorFailAlert.lowerAlert();
+            generateEvent( Fsm_evSensorAvailable );
+        }
     }
 }
 
@@ -165,7 +168,7 @@ void Api::runHeatingAlgo() noexcept
         {
             // Run the FLC and scale the output to the PWM range 
             int32_t delta       = m_flcController.calcChange( currentTemp, setpoint );
-            int32_t scaledDelta = (delta * m_maxHeaterPWM) / m_maxHeaterPWM;
+            int32_t scaledDelta = (int32_t) ((delta * ((int64_t) m_maxHeaterPWM)) / ((int64_t) m_maxHeaterPWM));
 
             // Update commanded Heater output
             m_heaterOutPWM += scaledDelta;
@@ -225,10 +228,13 @@ void Api::runHeatingAlgo() noexcept
     // No sensor available
     else
     {
-        m_temperatureSensorAvailable = false;
-        Ajax::Logging::logf( Ajax::Logging::AlertMsg::NO_TEMPERATURE_SENSOR, "RAISED" );
-        mp::failedSafeAlert.raiseAlert();
-        generateEvent( Fsm_evNoTempSensor );
+        if ( m_temperatureSensorAvailable ) // Prevent 'double' raise
+        {
+            m_temperatureSensorAvailable = false;
+            Ajax::Logging::logf( Ajax::Logging::AlertMsg::NO_TEMPERATURE_SENSOR, "RAISED" );
+            mp::sensorFailAlert.raiseAlert();
+            generateEvent( Fsm_evNoTempSensor );
+        }
     }
 }
 

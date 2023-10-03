@@ -44,6 +44,10 @@
 #include "Cpl/Logging/TShell/Log.h"
 #include "Ajax/Logging/Api.h"
 #include "Driver/NV/File/Cpl/Api.h"
+#include "Catch/helpers.h"
+#include "Ajax/TShell/Provision.h"
+#include "Ajax/TShell/State.h"
+#include "Driver/Crypto/Orlp/Sha512.h"
 
 /// 
 extern int algorithmTest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd );
@@ -73,6 +77,8 @@ Cpl::Dm::Mp::Float simOdt( mp::g_modelDatabase, "simOdt" );
 static Cpl::System::Semaphore       waitForShutdown_;
 static volatile int                 exitCode_;
 static int runShutdownHandlers() noexcept;
+
+static Driver::Crypto::Orlp::SHA512 sha512_;
 
 #define LOG_BUFFER_SIZE (OPTION_MAX_LOGGING_BUFFER_ENTRIES+1)
 static Cpl::Logging::EntryData_T                                memoryEntryBuffer_[LOG_BUFFER_SIZE];
@@ -122,11 +128,14 @@ static Cpl::TShell::Cmd::TPrint	       tprintCmd_( cmdlist_ );
 static Cpl::Dm::TShell::Dm	           dmCmd_( cmdlist_, mp::g_modelDatabase, "dm" );
 static Cpl::Logging::TShell::Log       logCmd_( cmdlist_, recordServer_, logServer_ );
 static Ajax::Heating::Simulated::Cmd   simCmd_( cmdlist_, mp::simEnable, mp::onBoardIdt, mp::simOdt );
-
+static Ajax::TShell::Provision         provCmd_( cmdlist_, personalityRec_, recordServer_, sha512_ );
+static Ajax::TShell::State             stateCmd_( cmdlist_, OPTION_AJAX_MAX_PWM_VALUE_HEATER, OPTION_AJAX_MAX_PWM_VALUE_FAN );
 static Cpl::Dm::MailboxServer          algoMbox_;
 static Ajax::Heating::Supervisor::Api  heatingAlgo_( algoMbox_, OPTION_AJAX_MAX_PWM_VALUE_HEATER, OPTION_AJAX_MAX_PWM_VALUE_FAN );
 
 static Ajax::Heating::Simulated::House houseSimulator_( mp::simEnable, mp::onBoardIdt, mp::simOdt, mp::cmdHeaterPWM, OPTION_AJAX_MAX_PWM_VALUE_HEATER, mp::cmdFanPWM, OPTION_AJAX_MAX_PWM_VALUE_FAN );
+
+static AsyncOpenClose asyncAlgo_( heatingAlgo_ );
 
 
 int algorithmTest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd )
@@ -149,8 +158,15 @@ int algorithmTest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd )
                               Ajax::Logging::WarningMsg::LOGGING_OVERFLOW,
                               (+Ajax::Logging::WarningMsg::LOGGING_OVERFLOW)._to_string() );
 
+    // Default some model points
+    mp::onBoardIdt.write( 7000 ); // Matches the 'starting IDT' for the house sim
+    mp::simEnable.write( false );
+
     // Start the shell
     shell_.launch( infd, outfd );
+
+    // Extra thread for the 'async-opener-closer' helper
+    Cpl::System::Thread* t1 = Cpl::System::Thread::create( asyncAlgo_, "ASYNC-HELPER" );
 
     // Create thread to run the Algorithm
     Cpl::System::Thread* algoThreadPtr = Cpl::System::Thread::create( algoMbox_, "Algorithm", CPL_SYSTEM_THREAD_PRIORITY_NORMAL + CPL_SYSTEM_THREAD_PRIORITY_RAISE );
@@ -158,8 +174,8 @@ int algorithmTest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd )
     // Create thread to run the House simulation
     Cpl::System::Thread* simulatorThreadPtr = Cpl::System::Thread::create( houseSimulator_, "HouseSim", CPL_SYSTEM_THREAD_PRIORITY_NORMAL + CPL_SYSTEM_THREAD_PRIORITY_RAISE );
 
-    // Create thread for persistent storage
-    Cpl::System::Thread* storageThreadPtr = Cpl::System::Thread::create( recordServer_, "NVRAM", CPL_SYSTEM_THREAD_PRIORITY_NORMAL );
+    // Create thread for persistent storage. Note: Run in REAL-TIME (not simulated time)
+    Cpl::System::Thread* storageThreadPtr = Cpl::System::Thread::create( recordServer_, "NVRAM", CPL_SYSTEM_THREAD_PRIORITY_NORMAL, 0, 0, false );
 
     recordServer_.open();               // Start Persistent server as soon as possible
     metricsRec_.flush( recordServer_ ); // Immediate flush the metrics record so the new boot counter value is updated (see MetricsRecord for where the counter gets incremented)
@@ -169,19 +185,24 @@ int algorithmTest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd )
     logServer_.open();
 
     // Start the algorithm
-    heatingAlgo_.open();
-
+    asyncAlgo_.openSubject();   // NOTE: Because I am using simulate time - we can't use synchronous semantics
+    simAdvanceTillOpened( asyncAlgo_ );
+    
     /*
     ** RUNNING...
     */
     waitForShutdown_.wait(); // Wait for the Application to be shutdown
+    
 
     /*
     ** SHUTTING DOWN...
     */
     Ajax::Logging::logf( Ajax::Logging::MetricsMsg::SHUTDOWN, "Boot count = %lu", bootCounter );
 
-    heatingAlgo_.close();
+    asyncAlgo_.closeSubject( true );      // NOTE: Because I am using simulate time - we can't use synchronous semantics
+    simAdvanceTillClosed( asyncAlgo_ );
+    
+
     logServer_.close();
     recordServer_.close();
 
@@ -193,6 +214,7 @@ int algorithmTest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd )
     Cpl::System::Thread::destroy( *algoThreadPtr );
     Cpl::System::Thread::destroy( *storageThreadPtr );
     Cpl::System::Thread::destroy( *simulatorThreadPtr );
+    Cpl::System::Thread::destroy( *t1 );
 
     // Run any/all register shutdown handlers (as registered by the Cpl::System::Shutdown interface) and then exit
     return runShutdownHandlers();

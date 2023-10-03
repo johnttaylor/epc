@@ -6,7 +6,7 @@
 #include "Cpl/TShell/Command.h"
 
 // External references
-extern void algorithmTest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd );
+extern int algorithmTest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd );
 
 Cpl::Io::Stdio::StdIn   infd_;
 Cpl::Io::Stdio::StdOut  outfd_;
@@ -24,11 +24,6 @@ int main( int argc, char* const argv[] )
     // Run the test
     algorithmTest( infd_, outfd_ );
 
-    // do not exit
-    for ( ;;)
-    {
-        Cpl::System::Api::sleep( 1000 );
-    }
 
     return 0;
 }

@@ -29,10 +29,7 @@ from nqbplib.my_globals import NQBP_WORK_ROOT
 #---------------------------------------------------
 
 # Set the name for the final output item
-FINAL_OUTPUT_NAME = 'a.exe'
-
-# Link unittest directory by object module so that Catch's self-registration mechanism 'works'
-unit_test_objects = '_BUILT_DIR_.src/Ajax/Heating/Supervisor/_0test'
+FINAL_OUTPUT_NAME = 'b.exe'
 
 #
 # For build config/variant: "Release" 
@@ -41,7 +38,7 @@ unit_test_objects = '_BUILT_DIR_.src/Ajax/Heating/Supervisor/_0test'
 # Set project specific 'base' (i.e always used) options
 base_release           = BuildValues()        # Do NOT comment out this line
 base_release.cflags    = '/W3 /WX /EHsc /D CATCH_CONFIG_FAST_COMPILE'  # /EHsc enables exceptions
-base_release.firstobjs = unit_test_objects
+base_release.linklibs  = 'Advapi32.lib'
 
 
 # Set project specific 'optimized' options
@@ -68,7 +65,6 @@ debug_cpp11    = BuildValues()
 
 # Set 'base' options
 base_cpp11.cflags     = '/W3 /WX /EHsc /D CATCH_CONFIG_FAST_COMPILE'  # /EHsc enables exceptions
-base_cpp11.firstobjs  = unit_test_objects
 
 # Set 'Optimized' options
 optimzed_cpp11.cflags   = '/O2'

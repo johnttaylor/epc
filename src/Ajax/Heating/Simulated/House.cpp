@@ -11,7 +11,6 @@
 
 #include "House.h"
 #include "ModelPoints.h"
-#include "Storm/Thermostat/ModelPoints.h"
 
 using namespace Ajax::Heating::Simulated;
 
@@ -28,7 +27,7 @@ House::House( Cpl::Dm::Mp::Bool&                   mpSimEnabled,
               uint32_t                             maxHeatingPWMValue,
               Cpl::Dm::Mp::Uint32&                 mpFanPWMOutput,
               uint32_t                             maxFanPWMValue,
-              unsigned long                        timeOutPeriodInMsec = OPTION_AJAX_HEATING_SIMULATED_HOUSE_SIM_TIMING_MS,
+              unsigned long                        timeOutPeriodInMsec,
               Cpl::System::SharedEventHandlerApi*  eventHandler )
     : EventLoop( timeOutPeriodInMsec, eventHandler )                        // Wake up once a second
     , m_sim( OPTION_AJAX_HEATING_SIMULATED_HOUSE_SIM_TIMING_MS / 1000.0     // Convert to seconds

@@ -80,7 +80,7 @@ protected:
     Cpl::Dm::Mp::Uint32&    m_mpHeaterPWMOutput;
 
     /// INPUT: Requested fan speed
-    Cpl::Dm::Mp::Uint32     m_mpFanPWMOutput;
+    Cpl::Dm::Mp::Uint32&    m_mpFanPWMOutput;
 
     /// Heater: Max PWM duty cycle value
     uint32_t                m_maxHeatingPWMValue;
