@@ -71,7 +71,7 @@ Cpl::TShell::Command::Result_T Cmd::execute( Cpl::TShell::Context_& context, cha
     }
 
     // Set new ODT
-    else if ( numParms == 2 )
+    else if ( numParms == 2 && tokens.getParameter( 1 )[0] != 'd' )
     {
         double odt = 0;
         if ( !Cpl::Text::a2d( odt, tokens.getParameter( 1 ) ) )

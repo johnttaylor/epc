@@ -1,6 +1,6 @@
 """ Test Suite: 
 
-    Test basic duty cycling
+    Test basic Heating operation
 
     Pre-Conditions:  The Mocked UUT must be running.
 
@@ -9,6 +9,9 @@
 
 from rattlib import *
 import config
+import time
+
+prompt_string = '$ '
 
 def main():
     """ Entry point for the Test Suite
@@ -16,30 +19,36 @@ def main():
 
     output.write_entry( __name__ )
     passcode = config.g_passed
+    uut.setprompt( prompt_string )
 
-    # Send a newline to the UUT and wait for a response form UUT, i.e. is the UUT alive?
-    r = uut.cli( "help", '$$$ ', 2)
+    # Wait for the UUT to start
+    r = uut.waitfor( 10, prompt_string )
     if ( r == None ):
         output.writeline("ERROR: The UUT is not responding")
         passcode = config.g_failed
 
-    # Configure as single state AC, with a 3 stage furnace
+    # Provision the unit
     if ( passcode == config.g_passed ):
-        uut.cli( 'dm write { name:"equipmentConfig", val:{iduType:"eFURNACE",numIduHeat:3,oduType:"eAC",numCompStages:1}}', '$$$ ', 2)
-        uut.cli( 'dm write { name:"comfortConfig", val:{cmpCool:{cph:"e3CPH",minOn:300,minOff:250},indoorHeat:{cph:"e3CPH",minOn:300,minOff:250}}}', '$$$ ', 2)
+        r = uut.cli( 'prov T-101 SN800 PasswordNotUsed  1000 1000 4 16 -20 -10 0 10 20  600 800 1000' )
+        if "ERROR: [prov]" in r:
+            output.writeline("ERROR: Failed provision the UUT")
+            passcode = config.g_failed
 
-    # Test Basic Cooling
-    if ( passcode == config.g_passed ):
-         tc = std.load("tc_cooling_basic_cycling")
-         passcode = config.g_failed if tc == None else tc.run()
+    # sit idle (to 'normalize' the simulate time/duration of the UUT start-up
+    uut.cli( 'tick +1000')
 
     # Test Basic Heating
     if ( passcode == config.g_passed ):
-         tc = std.load("tc_idheating_basic_cycling")
+         tc = std.load("tc_basic_heating")
+         passcode = config.g_failed if tc == None else tc.run()
+
+    # Test Heating Alerts
+    if ( passcode == config.g_passed ):
+         tc = std.load("tc_heating_alerts")
          passcode = config.g_failed if tc == None else tc.run()
 
     # Cleanly Exit the UUT
     uut.cli("bye app")
 
     output.write_exit( __name__ )
-    return passcode if passcode != None else config.g_failed
+    return passcode 
