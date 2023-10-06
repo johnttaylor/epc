@@ -17,6 +17,7 @@
 #include "Cpl/TShell/Cmd/Trace.h"
 #include "Cpl/TShell/Cmd/TPrint.h"
 #include "Cpl/Dm/TShell/Dm.h"
+#include "Cpl/Dm/Mp/Double.h"
 #include "Cpl/TShell/Maker.h"
 #include "Cpl/Dm/MailboxServer.h"
 #include "Cpl/System/Shutdown.h"
@@ -71,8 +72,8 @@ extern int algorithmTest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd );
 ////////////////////////////////////////////////////////////////////////////////
 namespace mp
 {
-Cpl::Dm::Mp::Bool simEnable( mp::g_modelDatabase, "simEnable" );
-Cpl::Dm::Mp::Float simOdt( mp::g_modelDatabase, "simOdt" );
+Cpl::Dm::Mp::Bool   simEnable( mp::g_modelDatabase, "simEnable" );
+Cpl::Dm::Mp::Double simOdt( mp::g_modelDatabase, "simOdt" );
 }
 
 static Cpl::System::Semaphore       waitForShutdown_;
@@ -132,9 +133,7 @@ static Ajax::Heating::Simulated::Cmd   simCmd_( cmdlist_, mp::simEnable, mp::onB
 static Ajax::TShell::Provision         provCmd_( cmdlist_, personalityRec_, recordServer_, sha512_ );
 static Ajax::TShell::State             stateCmd_( cmdlist_, OPTION_AJAX_MAX_PWM_VALUE_HEATER, OPTION_AJAX_MAX_PWM_VALUE_FAN );
 static Cpl::Dm::MailboxServer          algoMbox_;
-static Ajax::Heating::Supervisor::Api  heatingAlgo_( algoMbox_, OPTION_AJAX_MAX_PWM_VALUE_HEATER, OPTION_AJAX_MAX_PWM_VALUE_FAN );
-
-static Ajax::Heating::Simulated::House houseSimulator_( mp::simEnable, mp::onBoardIdt, mp::simOdt, mp::cmdHeaterPWM, OPTION_AJAX_MAX_PWM_VALUE_HEATER, mp::cmdFanPWM, OPTION_AJAX_MAX_PWM_VALUE_FAN );
+static Ajax::Heating::Simulated::House heatingAlgo_( algoMbox_, mp::simEnable, mp::simOdt, OPTION_AJAX_MAX_PWM_VALUE_HEATER, OPTION_AJAX_MAX_PWM_VALUE_FAN );
 
 static AsyncOpenClose asyncAlgo_( heatingAlgo_ );
 
@@ -149,6 +148,7 @@ int algorithmTest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd )
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "EVENT" );
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "INFO" );
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "METRICS" );
+    //CPL_SYSTEM_TRACE_ENABLE_SECTION( "*Ajax::Heating" );
 
     /*
     ** STARTING UP...
@@ -171,9 +171,6 @@ int algorithmTest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd )
 
     // Create thread to run the Algorithm
     Cpl::System::Thread* algoThreadPtr = Cpl::System::Thread::create( algoMbox_, "Algorithm", CPL_SYSTEM_THREAD_PRIORITY_NORMAL + CPL_SYSTEM_THREAD_PRIORITY_RAISE );
-
-    // Create thread to run the House simulation
-    Cpl::System::Thread* simulatorThreadPtr = Cpl::System::Thread::create( houseSimulator_, "HouseSim", CPL_SYSTEM_THREAD_PRIORITY_NORMAL + CPL_SYSTEM_THREAD_PRIORITY_RAISE );
 
     // Create thread for persistent storage. Note: Run in REAL-TIME (not simulated time)
     Cpl::System::Thread* storageThreadPtr = Cpl::System::Thread::create( recordServer_, "NVRAM", CPL_SYSTEM_THREAD_PRIORITY_NORMAL, 0, 0, false );
@@ -211,12 +208,10 @@ int algorithmTest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd )
     // Delete UI Thread
     recordServer_.pleaseStop();
     algoMbox_.pleaseStop();
-    houseSimulator_.pleaseStop();
     Cpl::System::SimTick::advance( 10 );    // Advance sim time to ensure that my simulated threads have a chance to self terminate
     Cpl::System::Api::sleep( 100 );         // Allow time for the thread so self terminate
     Cpl::System::Thread::destroy( *algoThreadPtr );
     Cpl::System::Thread::destroy( *storageThreadPtr );
-    Cpl::System::Thread::destroy( *simulatorThreadPtr );
     Cpl::System::Thread::destroy( *t1 );
     Cpl::System::Api::sleep( 100 ); // Allow time for the thread so self terminate
 

@@ -197,7 +197,7 @@ TEST_CASE( "api" )
     REQUIRE( fanPWM == 0 );
 
     mp::onBoardIdt.write( 7500 );
-    Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS );
+    Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS*2 );
     REQUIRE( uut.isInHeating() );
     REQUIRE( flcStartCount_ == 1 );
     REQUIRE( flcStopCount_ == 0 );

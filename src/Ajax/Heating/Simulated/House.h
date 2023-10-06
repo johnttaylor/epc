@@ -13,19 +13,12 @@
 
 #include "colony_config.h"
 #include "Ajax/SimHouse/House.h"
-#include "Cpl/System/EventLoop.h"
+#include "Ajax/Heating/Supervisor/Api.h"
 #include "Cpl/Dm/Mp/Bool.h"
-#include "Cpl/Dm/Mp/Float.h"
-#include "Cpl/Dm/Mp/Uint32.h"
-#include "Cpl/Dm/Mp/Int32.h"
+#include "Cpl/Dm/Mp/Double.h"
 
-/** The periodic timing, in milliseconds, to run the house simulator
- */
-#ifndef OPTION_AJAX_HEATING_SIMULATED_HOUSE_SIM_TIMING_MS
-#define OPTION_AJAX_HEATING_SIMULATED_HOUSE_SIM_TIMING_MS        1000
-#endif
 
- ///
+///
 namespace Ajax
 {
 ///
@@ -41,23 +34,19 @@ namespace Simulated
     the 'mpSimEnabled' MP is true.  Requires an outdoor temperature model point
     as an input
  */
-class House : public Cpl::System::EventLoop
+class House : public Ajax::Heating::Supervisor::Api
 {
 public:
     /// Constructor
-    House( Cpl::Dm::Mp::Bool&                   mpSimEnabled,
-           Cpl::Dm::Mp::Int32&                  mpIndoorTemperature,
-           Cpl::Dm::Mp::Float&                  mpOutdoorTemperature,
-           Cpl::Dm::Mp::Uint32&                 mpHeaterPWMOutput,
+    House( Cpl::Dm::MailboxServer&              myMbox, 
+           Cpl::Dm::Mp::Bool&                   mpSimEnabled,
+           Cpl::Dm::Mp::Double&                 mpOutdoorTemperature,
            uint32_t                             maxHeatingPWMValue,
-           Cpl::Dm::Mp::Uint32&                 mpFanPWMOutput,
-           uint32_t                             maxFanPWMValue,
-           unsigned long                        timeOutPeriodInMsec = OPTION_AJAX_HEATING_SIMULATED_HOUSE_SIM_TIMING_MS,
-           Cpl::System::SharedEventHandlerApi*  eventHandler        = 0 );
+           uint32_t                             maxFanPWMValue );
 
 protected:
-    /// Override base implementation to access the event-loop timing directly
-    void appRun();
+    /// Override my parent class to hook into the Algorithm periodic timing
+    void intervalExpired() noexcept;
 
     /// Helper method
     void executeSimulation();
@@ -67,26 +56,11 @@ protected:
     /// The underlying house simulation
     Ajax::SimHouse::House   m_sim;
 
-    /// OUTPUT: Indoor/space temperature
-    Cpl::Dm::Mp::Int32&     m_mpIdt;
-
     /// INPUT: Enable switch
     Cpl::Dm::Mp::Bool&      m_mpSimEnabled;
 
     /// INPUT: Outdoor temperature 
-    Cpl::Dm::Mp::Float&     m_mpOutdoorTemperature;
-
-    /// INPUT: Requested heater capacity
-    Cpl::Dm::Mp::Uint32&    m_mpHeaterPWMOutput;
-
-    /// INPUT: Requested fan speed
-    Cpl::Dm::Mp::Uint32&    m_mpFanPWMOutput;
-
-    /// Heater: Max PWM duty cycle value
-    uint32_t                m_maxHeatingPWMValue;
-
-    /// Heater: Max PWM duty cycle value
-    uint32_t                m_maxFanPWMValue;
+    Cpl::Dm::Mp::Double&    m_mpOutdoorTemperature;
 };
 
 };      // end namespace(s)

@@ -84,10 +84,17 @@ protected:
     /// Change notification
     void heatingEnabledChanged( Cpl::Dm::Mp::Bool& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
 
-
 protected:
     /// Helper method to select temperature source.  Returns false if there is no valid temperature source
     bool getTemperature( int32_t& idt ) noexcept;
+
+    /// Helper method that schedules when the algorithm executes
+    void scheduleAlgorithm() noexcept;
+
+    /** Helper method that is called when the algorithm's periodic interval has 
+        expired, i.e. the periodic execution of the algorithm
+     */
+    virtual void intervalExpired() noexcept;
 
 protected:
     /// Heating controller
@@ -107,6 +114,12 @@ protected:
 
     /// Heater PWM output value
     int32_t                  m_heaterOutPWM;
+
+    /// Timer marker of last processing cycle
+    uint32_t                 m_timeMarker;
+
+    /// Flag for first execution of the algorithm
+    bool                     m_firstExecution;
 
     /// Temperature sensor available
     bool                     m_temperatureSensorAvailable;

@@ -11,9 +11,11 @@
 /** @file */
 
 ///
-namespace Ajax {
+namespace Ajax
+{
 ///
-namespace SimHouse {
+namespace SimHouse
+{
 
 
 /** This class simulates a "system" whose state is affected
@@ -89,9 +91,9 @@ public:
      * the capacitor/system.
      */
     System( double	tickPeriodInSeconds,
-               double	environmentResistance,
-               double	capacitance,
-               double	initialOutputPotential ) noexcept;
+            double	environmentResistance,
+            double	capacitance,
+            double	initialOutputPotential ) noexcept;
 
     /** This operation is used to start an accumulation cycle.
         It allows several sources to affect the calculation

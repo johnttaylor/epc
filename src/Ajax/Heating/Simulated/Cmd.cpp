@@ -23,7 +23,7 @@ using namespace Ajax::Heating::Simulated;
 Cmd::Cmd( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
           Cpl::Dm::Mp::Bool&                   mpSimEnabled,
           Cpl::Dm::Mp::Int32&                  mpIndoorTemperature,
-          Cpl::Dm::Mp::Float&                  mpOutdoorTemperatur ) noexcept
+          Cpl::Dm::Mp::Double&                 mpOutdoorTemperatur ) noexcept
     : Command( commandList, verb )
     , m_mpIdt( mpIndoorTemperature )
     , m_mpSimEnabled( mpSimEnabled )
@@ -50,7 +50,7 @@ Cpl::TShell::Command::Result_T Cmd::execute( Cpl::TShell::Context_& context, cha
     if ( numParms == 1 )
     {
         bool    enabled;
-        float   odt;
+        double  odt;
         int32_t idt;
         if ( m_mpSimEnabled.read( enabled ) == false ||
              m_mpIdt.read( idt ) == false )
@@ -81,7 +81,7 @@ Cpl::TShell::Command::Result_T Cmd::execute( Cpl::TShell::Context_& context, cha
             return Cpl::TShell::Command::eERROR_INVALID_ARGS;
         }
 
-        m_mpOutdoorTemperature.write( (float) odt );
+        m_mpOutdoorTemperature.write( odt );
 
         outtext.format( "odt=%0.02f", odt );
         io = context.writeFrame( outtext.getString() );
@@ -98,7 +98,7 @@ Cpl::TShell::Command::Result_T Cmd::execute( Cpl::TShell::Context_& context, cha
             return Cpl::TShell::Command::eERROR_INVALID_ARGS;
         }
 
-        m_mpOutdoorTemperature.write( (float) odt );
+        m_mpOutdoorTemperature.write( odt );
         m_mpSimEnabled.write( true );
         io = context.writeFrame( "House simulator ENABLED." );
     }

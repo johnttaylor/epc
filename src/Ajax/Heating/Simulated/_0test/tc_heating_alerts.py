@@ -22,11 +22,14 @@ def run():
     uut.cli( 'dm write {name:"heatingMode",val:true}' )
     uut.cli( 'dm write {name:"heatSetpoint",val:7100}' )
     uut.cli( 'dm write {name:"fanMode",val:"eMEDIUM"}' )
+    uut.cli( 'tick @60000') # Advance to a known time
+
+    # enable the house simulator
     uut.cli( 'house enable 45')
        
-    # Advance 20 seconds       
+    # Advance 10 seconds       
     if ( passcode == config.g_passed ):
-        t = uut.cli( 'tick +20000').strip() 
+        t = uut.cli( 'tick +10000').strip() 
         r = uut.cli( 'state' )
         if ( r == None ):
             output.writeline(f"ERROR {t}: UUT timed out")
@@ -34,7 +37,7 @@ def run():
         
         # Validate expected state
         else:
-            passcode = expected( r, t, "Heating: ON", "Fan: eMEDIUM", "heatPWM:  10%  fanPWM:  80%", "Setpoint:    71             err=0.14" )
+            passcode = expected( r, t, "Heating: ON", "Fan: eMEDIUM", "heatPWM:  21%  fanPWM:  80%", "Setpoint:    71             err=0.17" )
 
     # Advance 2 minutes
     if ( passcode == config.g_passed ):
@@ -46,7 +49,7 @@ def run():
         
         # Validate expected state
         else:
-            passcode = expected( r, t, "Heating: ON", "Fan: eMEDIUM", "heatPWM:  55%  fanPWM:  80%", "Setpoint:    71             err=-0.02" )
+            passcode = expected( r, t, "Heating: ON", "Fan: eMEDIUM", "heatPWM:  50%  fanPWM:  80%", "Setpoint:    71             err=-0.08" )
 
     # Trigger Safety limit
     if ( passcode == config.g_passed ):
@@ -84,7 +87,7 @@ def run():
         
         # Validate expected state
         else:
-            passcode = expected( r, t, "Heating: ON", "Fan: eMEDIUM", "heatPWM:   2%  fanPWM:  80%", "Setpoint:    71             err=0.08" )
+            passcode = expected( r, t, "Heating: ON", "Fan: eMEDIUM", "heatPWM:   0%  fanPWM:  80%", "Setpoint:    71             err=0.04" )
 
     # No sensor
     if ( passcode == config.g_passed ):
@@ -123,7 +126,7 @@ def run():
         
         # Validate expected state
         else:
-            passcode = expected( r, t, "Heating: ON", "Fan: eMEDIUM", "heatPWM:  10%  fanPWM:  80%", "Setpoint:    71             err=0.19" )
+            passcode = expected( r, t, "Heating: ON", "Fan: eMEDIUM", "heatPWM:   8%  fanPWM:  80%", "Setpoint:    71             err=0.16" )
 
     uut.cli( 'dm write {name:"heatingMode",val:false}' )
     uut.cli( 'house disable')

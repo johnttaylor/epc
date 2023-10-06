@@ -15,7 +15,7 @@
 #include "colony_config.h"
 #include "Cpl/TShell/Cmd/Command.h"
 #include "Cpl/Dm/Mp/Bool.h"
-#include "Cpl/Dm/Mp/Float.h"
+#include "Cpl/Dm/Mp/Double.h"
 #include "Cpl/Dm/Mp/Int32.h"
 
 ///
@@ -61,7 +61,7 @@ public:
     Cmd( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
          Cpl::Dm::Mp::Bool&                   mpSimEnabled,
          Cpl::Dm::Mp::Int32&                  mpIndoorTemperature,
-         Cpl::Dm::Mp::Float&                  mpOutdoorTemperature ) noexcept;
+         Cpl::Dm::Mp::Double&                 mpOutdoorTemperature ) noexcept;
 
 
 public:
@@ -76,7 +76,7 @@ protected:
     Cpl::Dm::Mp::Bool&      m_mpSimEnabled;
 
     /// MP: Outdoor temperature 
-    Cpl::Dm::Mp::Float&     m_mpOutdoorTemperature;
+    Cpl::Dm::Mp::Double&    m_mpOutdoorTemperature;
 
 };
 

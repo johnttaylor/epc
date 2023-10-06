@@ -43,6 +43,7 @@ void Api::request( OpenMsg& msg )
         // Housekeeping
         m_opened                     = true;
         m_heaterOutPWM               = 0;
+        m_firstExecution             = true;
         m_temperatureSensorAvailable = true; // If there is no sensor actually available, the runHeatingAlgo() method will generate a evNoTempSensor event
         heatOff();
 
@@ -88,15 +89,40 @@ void Api::request( CloseMsg& msg )
 ////////////////////////////////
 void Api::expired() noexcept
 {
-    // 'Run' the FSM
-    generateEvent( FSM_NO_MSG );
+    // Run the algorithm (when the interval time has expired)
+    scheduleAlgorithm();
 
-    // Restart my interval timer
-    // Note: There will be jitter in the software timer, but the FLC algorithm
-    //       is not overly sensitive to jitter in its periodic interval.
-    Timer::start( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS );
+    // Restart my interval timer - just needs to be 'faster' than the actual polling rate
+    Timer::start( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS / 10 );
 }
 
+void Api::scheduleAlgorithm() noexcept
+{
+    uint32_t now = Cpl::System::ElapsedTime::milliseconds();
+
+    // Initialize the interval (but only once)
+    if ( m_firstExecution )
+    {
+        // Round down to the nearest interval boundary
+        m_firstExecution = false;
+        m_timeMarker     = (now / OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS) * OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS;
+    }
+
+    // Has the interval expired?
+    if ( Cpl::System::ElapsedTime::expiredMilliseconds( m_timeMarker, OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS, now ) )
+    {
+        // Execute the algorithm
+        m_timeMarker += OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS;
+        intervalExpired();
+    }
+}
+
+
+void Api::intervalExpired() noexcept
+{
+    // 'Run' the FSM
+    generateEvent( FSM_NO_MSG );
+}
 
 void Api::hwSafetyChanged( Cpl::Dm::Mp::Bool& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept
 {

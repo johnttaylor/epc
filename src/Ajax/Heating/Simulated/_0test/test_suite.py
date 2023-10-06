@@ -35,7 +35,7 @@ def main():
             passcode = config.g_failed
 
     # sit idle (to 'normalize' the simulate time/duration of the UUT start-up
-    uut.cli( 'tick +1000')
+    #uut.cli( 'tick +1000')
 
     # Test Basic Heating
     if ( passcode == config.g_passed ):

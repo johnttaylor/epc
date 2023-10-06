@@ -72,5 +72,16 @@ double House::tick( double currentOdt, double percentActiveCapacity, bool coolin
 
     m_sim.start( inPotential, resistance );
     m_sim.accumulate( inPotential, resistance );
-    return m_sim.finish() + m_minOdt;
+    
+    // Calculate IDT - and apply a crude sanity check to the value
+    double idt = m_sim.finish() + m_minOdt;
+    if ( idt > m_maxOdt )
+    {
+        idt = m_maxOdt;
+    }
+    else if ( idt < m_minOdt )
+    {
+        idt = m_minOdt;
+    }
+    return idt;
 }

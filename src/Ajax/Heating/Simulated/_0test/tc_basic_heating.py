@@ -22,11 +22,14 @@ def run():
     uut.cli( 'dm write {name:"heatingMode",val:true}' )
     uut.cli( 'dm write {name:"heatSetpoint",val:7100}' )  # 71'F
     uut.cli( 'dm write {name:"fanMode",val:"eHIGH"}' )
+    uut.cli( 'tick @60000') # Advance to a known time
+
+    # enable the house simulator
     uut.cli( 'house enable 45')
        
-    # Advance 20 seconds       
+    # Advance 10 seconds       
     if ( passcode == config.g_passed ):
-        t = uut.cli( 'tick +20000').strip() 
+        t = uut.cli( 'tick +10000').strip() 
         r = uut.cli( 'state' )
         if ( r == None ):
             output.writeline(f"ERROR {t}: UUT timed out")
@@ -34,7 +37,7 @@ def run():
         
         # Validate expected state
         else:
-            passcode = expected( r, t, "Heating: ON", "Fan: eHIGH", "heatPWM:  32%  fanPWM: 100%", "Setpoint:    71             err=0.53" )
+            passcode = expected( r, t, "Heating: ON", "Fan: eHIGH", "heatPWM:  98%  fanPWM: 100%", "Setpoint:    71             err=0.39" )
 
     # Advance 2 minutes
     if ( passcode == config.g_passed ):
@@ -46,7 +49,7 @@ def run():
         
         # Validate expected state
         else:
-            passcode = expected( r, t, "Heating: ON", "Fan: eHIGH", "heatPWM:  48%  fanPWM: 100%", "Setpoint:    71             err=-0.48" )
+            passcode = expected( r, t, "Heating: ON", "Fan: eHIGH", "heatPWM:   0%  fanPWM:   0%", "Setpoint:    71             err=-0.5" )
 
     # Advance 2 minutes
     if ( passcode == config.g_passed ):
@@ -58,7 +61,7 @@ def run():
         
         # Validate expected state
         else:
-            passcode = expected( r, t, "Heating: ON", "Fan: eHIGH", "heatPWM:   3%  fanPWM: 100%", "Setpoint:    71             err=0.08" )
+            passcode = expected( r, t, "Heating: ON", "Fan: eHIGH", "heatPWM:  15%  fanPWM: 100%", "Setpoint:    71             err=0.15" )
 
     uut.cli( 'dm write {name:"heatingMode",val:false}' )
     uut.cli( 'house disable')
