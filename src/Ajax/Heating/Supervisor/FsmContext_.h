@@ -32,9 +32,6 @@ public:
     virtual void checkForSensor() noexcept = 0;
 
     /// Action
-    virtual void fanOff() noexcept = 0;
-
-    /// Action
     virtual void fanOn() noexcept = 0;
 
     /// Action

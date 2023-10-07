@@ -40,10 +40,9 @@ void Api::request( OpenMsg& msg )
     {
         // Housekeeping
         m_opened                     = true;
-        m_sumCapacityRequest         = 0;
         m_firstExecution             = true;
         m_temperatureSensorAvailable = true; // If there is no sensor actually available, the runHeatingAlgo() method will generate a evNoTempSensor event
-        heatOff();
+        allOff();
 
         // Retrieve configuration value(s)
         m_maxCapacity = 1; // Default value if the MP is invalid (which should never happen)

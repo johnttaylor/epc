@@ -180,7 +180,7 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
                     evConsumed=1U;
 
                     /* Action code for transition  */
-                    fanOff();
+                    allOff();
 
 
                     /* adjust state variables  */

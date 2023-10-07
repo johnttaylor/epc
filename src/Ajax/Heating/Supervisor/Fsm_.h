@@ -33,7 +33,7 @@ remincross=true;
 nodesep=0.5;
 ranksep=0.5;
 structOff->structFailedSafeOff[minlen=1 label=<evHiTemp&#47; <br ALIGN="LEFT"/>fanOn();>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)Off FailedSafeOff
-structFailedSafeOff->structOff[minlen=1 label=<evSafeTemp&#47; <br ALIGN="LEFT"/>fanOff();>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)FailedSafeOff Off
+structFailedSafeOff->structOff[minlen=1 label=<evSafeTemp&#47; <br ALIGN="LEFT"/>allOff();>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)FailedSafeOff Off
 structOff -> structHeating[minlen=1 labeldistance=2.0 , label=<evEnabled>  color=black, fontname=Arial; fontsize=14, fontcolor=black lhead=clusterOn];// (D4)Off On
 structDefaultOn->structOff[minlen=1 labeldistance=2.0 , headlabel=<evDisabled&#47; <br ALIGN="LEFT"/>allOff();>  color=black, fontname=Arial; fontsize=14, fontcolor=black ltail=clusterOn];//  (I1)On structOff
 structHeating->structWaitingForSensor[minlen=1 label=<evNoTempSensor&#47; <br ALIGN="LEFT"/>allOff();>  color=black, fontname=Arial; fontsize=14, fontcolor=black]; // (B)Heating WaitingForSensor

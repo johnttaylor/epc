@@ -83,7 +83,7 @@ Pos="7400 -4100">
 Pos="8000 -3800"
 Origin="4">
 <Text>evSafeTemp/<p/>
-fanOff();</Text>
+allOff();</Text>
 </FreeText>
 </Anchor>
 </Segment>
