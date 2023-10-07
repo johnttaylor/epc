@@ -15,6 +15,7 @@ def run():
     """
 
     output.write_entry(__name__)
+    helper = std.load( "tc_common" )
 
     passcode = config.g_passed
 
@@ -28,135 +29,44 @@ def run():
     uut.cli( 'house enable 45')
        
     # Advance 10 seconds       
-    if ( passcode == config.g_passed ):
-        t = uut.cli( 'tick +10000').strip() 
-        r = uut.cli( 'state' )
-        if ( r == None ):
-            output.writeline(f"ERROR {t}: UUT timed out")
-            passcode = config.g_failed
-        
-        # Validate expected state
-        else:
-            passcode = expected( r, t, "Heating: ON", "Fan: eMEDIUM", "heatPWM:  21%  fanPWM:  80%", "Setpoint:    71             err=0.17" )
-
+    passcode = helper.advance_and_validate( passcode, 10000, "ON", 'eMEDIUM', 71, 0.49, 13, 80, "---", "---" )
+    
     # Advance 2 minutes
-    if ( passcode == config.g_passed ):
-        t = uut.cli( 'tick +120000').strip() 
-        r = uut.cli( 'state' )
-        if ( r == None ):
-            output.writeline( f"ERROR {t}: UUT timed out")
-            passcode = config.g_failed
-        
-        # Validate expected state
-        else:
-            passcode = expected( r, t, "Heating: ON", "Fan: eMEDIUM", "heatPWM:  50%  fanPWM:  80%", "Setpoint:    71             err=-0.08" )
+    passcode = helper.advance_and_validate( passcode, 240000, "ON", 'eMEDIUM', 71, 0.5, 41, 80, "---", "---" )
 
     # Trigger Safety limit
-    if ( passcode == config.g_passed ):
-        uut.cli( 'dm write {name:"hwSafetyLimit",val:true}' )
-        t = uut.cli( 'tick +1000').strip() # Advance 1 second
-        r = uut.cli( 'state' )
-        if ( r == None ):
-            output.writeline( f"ERROR {t}: UUT timed out")
-            passcode = config.g_failed
-        
-        # Validate expected state
-        else:
-            passcode = expectedAlerts( r, t, "safety: RAISED  ack=no",  "sensor: ---" )
+    #uut.cli( 'trace section on *Ajax::Heating' )
+    uut.cli( 'trace' )
+    uut.cli( 'dm write {name:"hwSafetyLimit",val:true}' )
+    passcode = helper.advance_and_validate( passcode, 1000, "ON", 'eMEDIUM', 71, 0.48, 0, 80, "---", "RAISED" )
+
+    # Advance 1 minute
+    passcode = helper.advance_and_validate( passcode, 60000, "ON", 'eMEDIUM', 71, -0.07, 0, 80, "---", "RAISED" )
 
     # Remove the safety limit trip
-    if ( passcode == config.g_passed ):
-        uut.cli( 'dm write {name:"hwSafetyLimit",val:false}' )
-        t = uut.cli( 'tick +1000').strip() # Advance 1 second
-        r = uut.cli( 'state' )
-        if ( r == None ):
-            output.writeline( f"ERROR {t}: UUT timed out")
-            passcode = config.g_failed
-        
-        # Validate expected state
-        else:
-            passcode = expectedAlerts( r, t, "safety: ---",  "sensor: ---" )
+    uut.cli( 'dm write {name:"hwSafetyLimit",val:false}' )
+    passcode = helper.advance_and_validate( passcode, 1000, "ON", 'eMEDIUM', 71, -0.07, 0, 80, "---", "---" )
+    #uut.cli( 'trace section off *Ajax::Heating' )
 
     # Advance 20 seconds       
-    if ( passcode == config.g_passed ):
-        t = uut.cli( 'tick +20000').strip() 
-        r = uut.cli( 'state' )
-        if ( r == None ):
-            output.writeline(f"ERROR {t}: UUT timed out")
-            passcode = config.g_failed
-        
-        # Validate expected state
-        else:
-            passcode = expected( r, t, "Heating: ON", "Fan: eMEDIUM", "heatPWM:   0%  fanPWM:  80%", "Setpoint:    71             err=0.04" )
+    passcode = helper.advance_and_validate( passcode, 20000, "ON", 'eMEDIUM', 71, -0.09, 41, 80, "---", "---" )
 
     # No sensor
-    if ( passcode == config.g_passed ):
-        uut.cli( 'dm write {name:"onBoardIdt",valid:false,locked:true}' )
-        uut.cli( 'dm write {name:"remoteIdt",valid:false,locked:true}' )
-        t = uut.cli( 'tick +4000').strip() # Advance 4 seconds
-        r = uut.cli( 'state' )
-        if ( r == None ):
-            output.writeline( f"ERROR {t}: UUT timed out")
-            passcode = config.g_failed
-        
-        # Validate expected state
-        else:
-            passcode = expectedAlerts( r, t, "safety: ---",  "sensor: RAISED  ack=no" )
-
-    # Restore the sensor
-    if ( passcode == config.g_passed ):
-        uut.cli( 'dm write {name:"onBoardIdt",locked:false}' )
-        t = uut.cli( 'tick +4000').strip() # Advance 4 seconds
-        r = uut.cli( 'state' )
-        if ( r == None ):
-            output.writeline( f"ERROR {t}: UUT timed out")
-            passcode = config.g_failed
-        
-        # Validate expected state
-        else:
-            passcode = expectedAlerts( r, t, "safety: ---",  "sensor: ---" )
+    uut.cli( 'dm write {name:"onBoardIdt",valid:false,locked:true}' )
+    uut.cli( 'dm write {name:"remoteIdt",valid:false,locked:true}' )
+    passcode = helper.advance_and_validate( passcode, 1000, "ON", 'eMEDIUM', 71, 71, 0, 0, "RAISED", "---" )
 
     # Advance 20 seconds       
-    if ( passcode == config.g_passed ):
-        t = uut.cli( 'tick +20000').strip() 
-        r = uut.cli( 'state' )
-        if ( r == None ):
-            output.writeline(f"ERROR {t}: UUT timed out")
-            passcode = config.g_failed
-        
-        # Validate expected state
-        else:
-            passcode = expected( r, t, "Heating: ON", "Fan: eMEDIUM", "heatPWM:   8%  fanPWM:  80%", "Setpoint:    71             err=0.16" )
+    passcode = helper.advance_and_validate( passcode, 20000, "ON", 'eMEDIUM', 71, 71, 0, 0, "RAISED", "---" )
 
-    uut.cli( 'dm write {name:"heatingMode",val:false}' )
-    uut.cli( 'house disable')
-    output.write_exit(__name__)
-    return passcode
+    # Restore the sensor
+    #uut.cli( 'trace section on *Ajax::Heating' )
+    uut.cli( 'dm write {name:"onBoardIdt",locked:false}' )
+    passcode = helper.advance_and_validate( passcode, 8000, "ON", 'eMEDIUM', 71, 0.1, 0, 80, "---", "---" )
+    #uut.cli( 'dm read cmdHeaterPWM' )
+    #uut.cli( 'dm read cmdFanPWM' )
 
+    # Advance 2 minute
+    passcode = helper.advance_and_validate( passcode, 120000, "ON", 'eMEDIUM', 71, 0.48, 7, 80, "---", "---" )
 
-def expected( r, t, expectedHeatMode, expectedFanMode, expectedPWM, expectedSetpt ):
-    if not expectedHeatMode in r:
-        output.writeline( f"ERROR {t}: Heating mode is NOT the expected value" )
-        return config.g_failed
-    if not expectedFanMode in r:
-        output.writeline( f"ERROR {t}: Fan mode is NOT the expected value" )
-        return config.g_failed
-    if not expectedPWM in r:
-        output.writeline( f"ERROR {t}: Heater/Fan PWM are NOT the expected values" )
-        return config.g_failed
-    if not expectedSetpt in r:
-        output.writeline( f"ERROR {t}: IDT/delta-err are NOT the expected values" )
-        return config.g_failed
-
-    return config.g_passed
-
-def expectedAlerts( r, t, expectedSafety, expectedSensor ):
-    if not expectedSafety in r:
-        output.writeline( f"ERROR {t}: Not the expected Safety Alert value" )
-        return config.g_failed
-    if not expectedSensor in r:
-        output.writeline( f"ERROR {t}: Not the expected Sensor Alert value" )
-        return config.g_failed
-
-    return config.g_passed
 

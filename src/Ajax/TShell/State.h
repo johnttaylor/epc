@@ -66,23 +66,12 @@ public:
 public:
     /// Constructor
     State( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
-           uint32_t                                   maxHeaterPWMValue,
-           uint32_t                                   maxFanPWMValue,
            Cpl::TShell::Security::Permission_T        minPermLevel=OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;
 
 
 public:
     /// See Cpl::TShell::Command
     Cpl::TShell::Command::Result_T execute( Cpl::TShell::Context_& context, char* cmdString, Cpl::Io::Output& outfd ) noexcept;
-
-
-protected:
-    /// Max PWM
-    uint32_t   m_maxHeaterPWMValue;
-
-    /// Max PWM
-    uint32_t   m_maxFanPWMValue;
-
 };
 
 }       // end namespaces

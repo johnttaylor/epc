@@ -26,7 +26,16 @@ class FsmContext_
 {
 public:
     /// Action
+    virtual void allOff() noexcept = 0;
+
+    /// Action
     virtual void checkForSensor() noexcept = 0;
+
+    /// Action
+    virtual void fanOff() noexcept = 0;
+
+    /// Action
+    virtual void fanOn() noexcept = 0;
 
     /// Action
     virtual void heatOff() noexcept = 0;

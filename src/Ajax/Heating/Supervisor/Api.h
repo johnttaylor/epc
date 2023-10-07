@@ -47,9 +47,7 @@ class Api: public Cpl::Itc::CloseSync, public Cpl::System::Timer, public FsmEven
 {
 public:
     /// Constructor
-    Api( Cpl::Dm::MailboxServer&  myMbox,
-         unsigned                 maxHeaterPWM,
-         unsigned                 maxFanPWM ) noexcept;
+    Api( Cpl::Dm::MailboxServer&  myMbox ) noexcept;
 
 public:
     /// This method starts the supervisor (See Cpl::Itc::OpenSync)
@@ -61,7 +59,16 @@ public:
 
 protected:
     /// Action
+    void allOff() noexcept;
+
+    /// Action
     void checkForSensor() noexcept;
+
+    /// Action
+    void fanOff() noexcept;
+    
+    /// Action
+    void fanOn() noexcept;
 
     /// Action
     void heatOff() noexcept;
@@ -96,6 +103,9 @@ protected:
      */
     virtual void intervalExpired() noexcept;
 
+    /// Helper method that gets the fan setting
+    uint32_t getFanPWM() noexcept;
+
 protected:
     /// Heating controller
     Ajax::Heating::Flc::Api  m_flcController;
@@ -106,17 +116,14 @@ protected:
     /// Observer for change notification (to the heating mode)
     Cpl::Dm::SubscriberComposer<Api, Cpl::Dm::Mp::Bool>    m_obHeatingEnabled;
 
-    /// Maximum PWM output value (i.e 100% duty cycle) for the Heater
-    unsigned                 m_maxHeaterPWM;
-
-    /// Maximum PWM output value (i.e 100% duty cycle) for the Fan motor
-    unsigned                 m_maxFanPWM;
-
-    /// Heater PWM output value
-    int32_t                  m_heaterOutPWM;
+    /// Accumulated capacity requests
+    int32_t                  m_sumCapacityRequest;
 
     /// Timer marker of last processing cycle
     uint32_t                 m_timeMarker;
+
+    /// Maximum capacity
+    uint32_t                 m_maxCapacity;
 
     /// Flag for first execution of the algorithm
     bool                     m_firstExecution;

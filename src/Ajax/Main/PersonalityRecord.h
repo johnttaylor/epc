@@ -51,14 +51,15 @@ public:
         m_modelPoints[5] ={ &mp::fanLowPercentage, CPL_DM_PERISTENCE_RECORD_NO_SUBSCRIBER };
         m_modelPoints[6] ={ &mp::fanMedPercentage, CPL_DM_PERISTENCE_RECORD_NO_SUBSCRIBER };
         m_modelPoints[7] ={ &mp::fanHighPercentage, CPL_DM_PERISTENCE_RECORD_NO_SUBSCRIBER };
+        m_modelPoints[8] ={ &mp::maxHeatingCapacity, CPL_DM_PERISTENCE_RECORD_NO_SUBSCRIBER };
 
         // TODO: Add Algorithm config MPs here...
-        m_modelPoints[8] ={ 0,0 };
+        m_modelPoints[9] ={ 0,0 };
     }
 
 protected:
     /// List of Model Points for the Record
-    Cpl::Dm::Persistent::Record::Item_T m_modelPoints[8 + 1];
+    Cpl::Dm::Persistent::Record::Item_T m_modelPoints[9 + 1];
 
 public:
     /// See Cpl::Dm::Persistent::Record

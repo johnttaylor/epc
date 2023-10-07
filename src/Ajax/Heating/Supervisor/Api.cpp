@@ -17,19 +17,17 @@
 
 #define SECT_ "Ajax::Heating::Supervisor"
 
+#define MAX_PWM     ((uint64_t)0xFFFF)
+
 using namespace Ajax::Heating::Supervisor;
 
 //////////////////////////////////
-Api::Api( Cpl::Dm::MailboxServer&  myMbox,
-          unsigned                 maxHeaterPWM,
-          unsigned                 maxFanPWM ) noexcept
+Api::Api( Cpl::Dm::MailboxServer&  myMbox ) noexcept
     : Cpl::Itc::CloseSync( myMbox )
     , Cpl::System::Timer( myMbox )
     , m_flcController( mp::flcConfig )
     , m_obHwSafety( *((Cpl::Dm::EventLoop*) &myMbox), *this, &Api::hwSafetyChanged )
     , m_obHeatingEnabled( *((Cpl::Dm::EventLoop*) &myMbox), *this, &Api::heatingEnabledChanged )
-    , m_maxHeaterPWM( maxHeaterPWM )
-    , m_maxFanPWM( maxFanPWM )
     , m_opened( false )
 {
 }
@@ -42,10 +40,14 @@ void Api::request( OpenMsg& msg )
     {
         // Housekeeping
         m_opened                     = true;
-        m_heaterOutPWM               = 0;
+        m_sumCapacityRequest         = 0;
         m_firstExecution             = true;
         m_temperatureSensorAvailable = true; // If there is no sensor actually available, the runHeatingAlgo() method will generate a evNoTempSensor event
         heatOff();
+
+        // Retrieve configuration value(s)
+        m_maxCapacity = 1; // Default value if the MP is invalid (which should never happen)
+        mp::maxHeatingCapacity.read( m_maxCapacity );
 
         // Initialize the Fuzzy Logic controller
         m_flcController.start();
@@ -176,13 +178,29 @@ void Api::checkForSensor() noexcept
     }
 }
 
-void Api::heatOff() noexcept
+void Api::allOff() noexcept
 {
     // Shut everything off
-    mp::cmdHeaterPWM.write( 0 );
-    mp::cmdFanPWM.write( 0 );
-    m_heaterOutPWM = 0;
+    heatOff();
+    fanOff();
+    m_sumCapacityRequest = 0; 
 }
+
+void Api::fanOff() noexcept
+{
+    mp::cmdFanPWM.write( 0 );
+}
+
+void Api::fanOn() noexcept
+{
+    mp::cmdFanPWM.write( getFanPWM() );
+}
+
+void Api::heatOff() noexcept
+{
+    mp::cmdHeaterPWM.write( 0 );
+}
+
 
 void Api::runHeatingAlgo() noexcept
 {
@@ -192,55 +210,38 @@ void Api::runHeatingAlgo() noexcept
         int32_t setpoint;
         if ( mp::heatSetpoint.read( setpoint ) )
         {
-            // Run the FLC and scale the output to the PWM range 
-            int32_t delta       = m_flcController.calcChange( currentTemp, setpoint );
-            int32_t scaledDelta = (int32_t) ((delta * ((int64_t) m_maxHeaterPWM)) / ((int64_t) m_maxHeaterPWM));
+            // Run the FLC, accumulate the capacity requests, and clamp at max capacity
+            int32_t delta         = m_flcController.calcChange( currentTemp, setpoint );
+            m_sumCapacityRequest += delta;
+            if ( m_sumCapacityRequest < 0 )
+            {
+                m_sumCapacityRequest = 0;
+            }
+            else if ( m_sumCapacityRequest > ((int32_t)m_maxCapacity) )
+            {
+                m_sumCapacityRequest = m_maxCapacity;
+            }
 
-            // Update commanded Heater output
-            m_heaterOutPWM += scaledDelta;
-            if ( m_heaterOutPWM < 0 )
-            {
-                m_heaterOutPWM = 0;
-            }
-            else if ( ((unsigned) m_heaterOutPWM) > m_maxHeaterPWM )
-            {
-                m_heaterOutPWM = m_maxHeaterPWM;
-            }
-            mp::cmdHeaterPWM.write( m_heaterOutPWM );
+            // Convert Capacity request to PWM
+            uint32_t heaterPwm = (m_sumCapacityRequest * MAX_PWM) / m_maxCapacity;
+            mp::cmdHeaterPWM.write( heaterPwm );
 
             // Set Fan speed (Note: Fan only runs when the heater is 'on')
-            uint32_t newFanPWM = 0;
-            if ( m_heaterOutPWM > 0 )
+            uint32_t fanPWM = 0;
+            if ( heaterPwm > 0 )
             {
-                Ajax::Type::FanMode fanMode       = Ajax::Type::FanMode::eHIGH; // Default to high speed
-                uint32_t            fanPercentage = 0;
-                mp::fanMode.read( fanMode );
-                switch ( fanMode )
-                {
-                case Ajax::Type::FanMode::eLOW:
-                    mp::fanLowPercentage.read( fanPercentage );
-                    break;
-                case Ajax::Type::FanMode::eMEDIUM:
-                    mp::fanMedPercentage.read( fanPercentage );
-                    break;
-                default:
-                    mp::fanHighPercentage.read( fanPercentage );
-                    break;
-                }
-
-                // Convert percentage to a actual PWM duty cycle value (note: fanPercentage range is 0-1000)
-                newFanPWM = (fanPercentage * m_maxFanPWM) / 1000;
+                fanPWM = getFanPWM();
             }
+            mp::cmdFanPWM.write( fanPWM );
 
-            mp::cmdFanPWM.write( newFanPWM );
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("idt=%ld, setpt=%ld, err=%ld.  flc=%ld, scaled=%ld.  newHeaterPWM=%lu, newFanPWM=%lu",
+            CPL_SYSTEM_TRACE_MSG( SECT_, ("idt=%ld, setpt=%ld, err=%ld.  flc=%ld, capreq=%ld.  newHeaterPWM=%lu, newFanPWM=%lu",
                                            currentTemp,
                                            setpoint,
                                            setpoint - currentTemp,
                                            delta,
-                                           scaledDelta,
-                                           m_heaterOutPWM,
-                                           newFanPWM) );
+                                           m_sumCapacityRequest,
+                                           heaterPwm,
+                                           fanPWM) );
         }
 
         // No setpoint value for SOME reason 
@@ -263,6 +264,7 @@ void Api::runHeatingAlgo() noexcept
         }
     }
 }
+
 
 bool Api::isSensorAvailable() noexcept
 {
@@ -287,4 +289,24 @@ bool Api::getTemperature( int32_t& idt ) noexcept
 
     // If I get here, there is no available temperature sensor
     return false;
+}
+
+uint32_t Api::getFanPWM() noexcept
+{
+    uint32_t fanPWM             = MAX_PWM;
+    Ajax::Type::FanMode fanMode = Ajax::Type::FanMode::eHIGH; // Default to high speed
+    mp::fanMode.read( fanMode );
+    switch ( fanMode )
+    {
+    case Ajax::Type::FanMode::eLOW:
+        mp::fanLowPercentage.read( fanPWM );
+        break;
+    case Ajax::Type::FanMode::eMEDIUM:
+        mp::fanMedPercentage.read( fanPWM );
+        break;
+    default:
+        mp::fanHighPercentage.read( fanPWM );
+        break;
+    }
+    return fanPWM;
 }

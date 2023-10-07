@@ -29,14 +29,12 @@ def main():
 
     # Provision the unit
     if ( passcode == config.g_passed ):
-        r = uut.cli( 'prov T-101 SN800 PasswordNotUsed  1000 1000 4 16 -20 -10 0 10 20  600 800 1000' )
+        r = uut.cli( 'prov T-101 SN800 PasswordNotUsed  1000 1000  5 20  -20 -10 0 10 20  39322 52429 65536  1200000' )
         if "ERROR: [prov]" in r:
             output.writeline("ERROR: Failed provision the UUT")
             passcode = config.g_failed
 
-    # sit idle (to 'normalize' the simulate time/duration of the UUT start-up
-    #uut.cli( 'tick +1000')
-
+    uut.cli( "dm read fanLowPercentage" )
     # Test Basic Heating
     if ( passcode == config.g_passed ):
          tc = std.load("tc_basic_heating")

@@ -325,7 +325,7 @@ extern Cpl::Dm::Mp::Int32   remoteIdt;
 
     \b Units: Percentage
 
-    \b Range: 0=0% ... 100=100%
+    \b Range: 0=0% ... 65536=100%
 
     \b Notes:
         n/a
@@ -337,7 +337,7 @@ extern Cpl::Dm::Mp::Uint32   cmdHeaterPWM;
 
     \b Units: Percentage
 
-    \b Range: 0=0% ... 100=100%
+    \b Range: 0=0% ... 65536=100%
 
     \b Notes:
         n/a
@@ -387,7 +387,7 @@ extern Ajax::Dm::MpFlcConfig    flcConfig;
 
     \b Units : Percentage
 
-    \b Range : 0=0%, 1000=100%
+    \b Range : 0=0%, 65536=100%
 
     \b Notes : n/a
 
@@ -399,7 +399,7 @@ extern Cpl::Dm::Mp::Uint32      fanLowPercentage;
 
     \b Units : Percentage
 
-    \b Range : 0=0%, 1000=100%
+    \b Range : 0=0%, 65536=100%
 
     \b Notes : n/a
 
@@ -411,7 +411,7 @@ extern Cpl::Dm::Mp::Uint32      fanMedPercentage;
 
     \b Units : Percentage
 
-    \b Range : 0=0%, 1000=100%
+    \b Range : 0=0%, 65536=100%
 
     \b Notes : n/a
 
@@ -429,6 +429,19 @@ extern Cpl::Dm::Mp::Uint32      fanHighPercentage;
 
  */
 extern Cpl::Dm::Mp::Bool        hwSafetyLimit;
+
+/** This model point contains specifies the maximum logical 'capacity' value
+    for the heating algorithm.  The value is provisioned during manufacturing
+
+    \b Units : none
+
+    \b Range : n/a
+
+    \b Notes : n/a
+
+ */
+extern Cpl::Dm::Mp::Uint32      maxHeatingCapacity;
+
 
 /*---------------------------------------------------------------------------*/
 /// The Application's Model Point Database

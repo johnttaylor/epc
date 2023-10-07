@@ -12,21 +12,21 @@
 #include "House.h"
 #include "ModelPoints.h"
 #include "mp/ModelPoints.h"
+#include "Cpl/System/Trace.h"
 
 using namespace Ajax::Heating::Simulated;
 
+#define SECT_ "Ajax::Heating::Simulated"
 
 #define RESISTANCE_NO_CAPACITY          50
 #define RESISTANCE_COOLING_CAPCITY      (RESISTANCE_NO_CAPACITY*2.0/3.0)
 #define RESISTANCE_HEATING_CAPCITY      (RESISTANCE_COOLING_CAPCITY*3.0)
 
 //////////////////////
-House::House( Cpl::Dm::MailboxServer&              myMbox,
-              Cpl::Dm::Mp::Bool&                   mpSimEnabled,
-              Cpl::Dm::Mp::Double&                 mpOutdoorTemperature,
-              uint32_t                             maxHeatingPWMValue,
-              uint32_t                             maxFanPWMValue )
-    : Api( myMbox, maxHeatingPWMValue, maxFanPWMValue )
+House::House( Cpl::Dm::MailboxServer&  myMbox,
+              Cpl::Dm::Mp::Bool&       mpSimEnabled,
+              Cpl::Dm::Mp::Double&     mpOutdoorTemperature )
+    : Api( myMbox )
     , m_sim( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS / 1000.0    // Convert to seconds
              , 70.0                         // ODT
              , 120.0                        // max odt
@@ -59,10 +59,28 @@ void House::executeSimulation()
          mp::cmdFanPWM.read( fanPWM ) == true &&
          m_mpSimEnabled.read( simEnabled ) == true && simEnabled )
     {
+        
         // Heating capacity
-        double heater    = ((double) heaterPWM) / ((double) m_maxHeaterPWM);
-        double fan       = ((double) fanPWM) / ((double) m_maxFanPWM);
+        bool   safetyTrip;
+        double heater = heaterPWM / 65536.0;
+        if ( mp::hwSafetyLimit.read(safetyTrip) && safetyTrip  )
+        {
+            // If there is temperature safety limit trip -->then the actual heat 
+            // output is ABOVE the designed limit (but the algorithm has turned 
+            // off the command PWM value)
+            heater = 1.0;
+        }
+        
+        // Final capacity is function of the fan speed
+        double fan       = fanPWM / 65536.0;
         double capacity  = heater * fan;
+        CPL_SYSTEM_TRACE_MSG( SECT_, ( "hpwm=%lu, fpwm=%lu, capacity=%g, heater=%g, fan=%g", 
+                                       heaterPWM,
+                                       fanPWM,
+                                       capacity,
+                                       heater, 
+                                       fan 
+                                       ));
 
         // Run the simulation
         double idt = m_sim.tick( odt, capacity, false );

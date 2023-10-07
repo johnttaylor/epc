@@ -23,12 +23,8 @@ using namespace Ajax::TShell;
 
 ///////////////////////////
 State::State( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
-                      uint32_t                                   maxHeaterPWMValue,
-                      uint32_t                                   maxFanPWMValue,
                       Cpl::TShell::Security::Permission_T        minPermLevel ) noexcept
     : Cpl::TShell::Cmd::Command( commandList, verb, minPermLevel )
-    , m_maxHeaterPWMValue( maxHeaterPWMValue )
-    , m_maxFanPWMValue( maxFanPWMValue )
 {
 }
 
@@ -78,12 +74,12 @@ Cpl::TShell::Command::Result_T State::execute( Cpl::TShell::Context_& context, c
     parm1 = "<invalid>";
     if ( mp::cmdHeaterPWM.read( pwm ) )
     {
-        parm1.format( "%3d", (pwm * 100) / m_maxHeaterPWMValue);
+        parm1.format( "%3d", (pwm * 100) / 0xFFFF );
     }
     parm2 = "<invalid>";
     if ( mp::cmdFanPWM.read( pwm ) )
     {
-        parm2.format( "%3d", (pwm * 100) / m_maxFanPWMValue );
+        parm2.format( "%3d", (pwm * 100) / 0xFFFF );
     }
     outtext.format( "Outputs:     heatPWM: %s%%  fanPWM: %s%%", parm1.getString(), parm2.getString() );
     io &= context.writeFrame( outtext );

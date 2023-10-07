@@ -131,9 +131,9 @@ static Cpl::Dm::TShell::Dm	           dmCmd_( cmdlist_, mp::g_modelDatabase, "dm
 static Cpl::Logging::TShell::Log       logCmd_( cmdlist_, recordServer_, logServer_ );
 static Ajax::Heating::Simulated::Cmd   simCmd_( cmdlist_, mp::simEnable, mp::onBoardIdt, mp::simOdt );
 static Ajax::TShell::Provision         provCmd_( cmdlist_, personalityRec_, recordServer_, sha512_ );
-static Ajax::TShell::State             stateCmd_( cmdlist_, OPTION_AJAX_MAX_PWM_VALUE_HEATER, OPTION_AJAX_MAX_PWM_VALUE_FAN );
+static Ajax::TShell::State             stateCmd_( cmdlist_ );
 static Cpl::Dm::MailboxServer          algoMbox_;
-static Ajax::Heating::Simulated::House heatingAlgo_( algoMbox_, mp::simEnable, mp::simOdt, OPTION_AJAX_MAX_PWM_VALUE_HEATER, OPTION_AJAX_MAX_PWM_VALUE_FAN );
+static Ajax::Heating::Simulated::House heatingAlgo_( algoMbox_, mp::simEnable, mp::simOdt );
 
 static AsyncOpenClose asyncAlgo_( heatingAlgo_ );
 
@@ -142,6 +142,7 @@ int algorithmTest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd )
 {
     /// Output log messages
     CPL_SYSTEM_TRACE_ENABLE();
+    CPL_SYSTEM_TRACE_SET_INFO_LEVEL( Cpl::System::Trace::eBRIEF );
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "CRITICAL" );  // Enable trace for the log statements
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "WARNING" );
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "ALERT" );
