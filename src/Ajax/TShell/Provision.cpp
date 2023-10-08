@@ -47,7 +47,7 @@ Cpl::TShell::Command::Result_T Provision::execute( Cpl::TShell::Context_& contex
     Cpl::Text::String&              outtext  = context.getOutputBuffer();
 
     // Initial check for not-enough-tokens
-    if ( tokens.numParameters() != 4+9+3 )
+    if ( tokens.numParameters() != 4+9+3+1 )
     {
         return Command::eERROR_MISSING_ARGS;
     }
@@ -78,10 +78,18 @@ Cpl::TShell::Command::Result_T Provision::execute( Cpl::TShell::Context_& contex
     PARSE_INT32( "<fanLow>", tokens.getParameter( 13 ), fanLow, context, outtext );
     PARSE_INT32( "<fanMed>", tokens.getParameter( 14 ), fanMed, context, outtext );
     PARSE_INT32( "<fanHi>", tokens.getParameter( 15 ), fanHi, context, outtext );
+    int32_t maxCap;
+    PARSE_INT32( "<maxCap>", tokens.getParameter( 16 ), maxCap, context, outtext );
+    if ( maxCap < 0 )
+    {
+        context.writeFrame( "ERROR: <maxCap> is negative" );
+        return Command::eERROR_FAILED;
+    }
     mp::flcConfig.write( config );
     mp::fanLowPercentage.write( fanLow );
     mp::fanMedPercentage.write( fanMed );
     mp::fanHighPercentage.write( fanHi );
+    mp::maxHeatingCapacity.write( maxCap );
 
     // Update NVRAM
     m_personalityRec.flush( m_recordServer );
@@ -117,6 +125,8 @@ Cpl::TShell::Command::Result_T Provision::execute( Cpl::TShell::Context_& contex
     outtext.format( "<fanMed>:         %s", tokens.getParameter( 14 ) );
     io &= context.writeFrame( outtext );
     outtext.format( "<fanHi>:          %s", tokens.getParameter( 15 ) );
+    io &= context.writeFrame( outtext );
+    outtext.format( "<maxCap>:         %s", tokens.getParameter( 16 ) );
     io &= context.writeFrame( outtext );
 
     // Return the command result

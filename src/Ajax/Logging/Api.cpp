@@ -109,6 +109,14 @@ bool Cpl::Logging::getIDStrings( uint32_t             categoryNumericValue,
             return true;
         }
         break;
+    case Ajax::Logging::CategoryId::ALERT:
+        if ( Ajax::Logging::AlertMsg::_is_valid( messageIdNumericValue ) )
+        {
+            dstCategoryString = (+Ajax::Logging::CategoryId::ALERT)._to_string();
+            dstMessageString  = Ajax::Logging::AlertMsg::_from_integral_unchecked( messageIdNumericValue )._to_string();
+            return true;
+        }
+        break;
     default:
         break;
     }

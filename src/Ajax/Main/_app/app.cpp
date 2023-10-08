@@ -28,7 +28,7 @@ static Cpl::TShell::Cmd::User userCmd_( g_cmdlist, security_ );
 //#endif
 
 // Algorithm
-static Ajax::Heating::Supervisor::Api  heatingAlgo_( g_appMbox, OPTION_AJAX_MAX_PWM_VALUE_HEATER, OPTION_AJAX_MAX_PWM_VALUE_FAN );
+static Ajax::Heating::Supervisor::Api  heatingAlgo_( g_appMbox );
 
 // Screens...
 Ajax::Ui::Home::Screen  Ajax::Main::g_homeScreen_( Ajax::Main::g_screenNav, g_graphics );

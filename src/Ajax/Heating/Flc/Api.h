@@ -12,8 +12,8 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
+#include "colony_config.h"
 #include "Ajax/Dm/MpFlcConfig.h"
-
 
 /// 
 namespace Ajax {

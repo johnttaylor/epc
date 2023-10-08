@@ -35,7 +35,6 @@
 #include "Ajax/Logging/Api.h"
 #include "Ajax/TShell/Provision.h"
 #include "Cpl/Logging/Api.h"
-#include "Cpl/System/Trace.h"
 #include "Cpl/Persistent/NVAdapter.h"
 #include "Cpl/Persistent/MirroredChunk.h"
 #include "Cpl/Persistent/CrcChunk.h"

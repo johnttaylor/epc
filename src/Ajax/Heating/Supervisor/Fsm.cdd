@@ -57,7 +57,8 @@ Pos="7600 -2500">
 <FreeText id="r11"
 Pos="7287 -2200"
 Origin="4">
-<Text>evHiTemp/</Text>
+<Text>evHiTemp/<p/>
+fanOn();</Text>
 </FreeText>
 </Anchor>
 </Segment>
@@ -81,7 +82,8 @@ Pos="7400 -4100">
 <FreeText id="r15"
 Pos="8000 -3800"
 Origin="4">
-<Text>evSafeTemp/</Text>
+<Text>evSafeTemp/<p/>
+allOff();</Text>
 </FreeText>
 </Anchor>
 </Segment>
@@ -124,7 +126,7 @@ Pos="5900 -5600">
 Pos="6100 -5600"
 Origin="1">
 <Text>evDisabled/<p/>
-heatOff();</Text>
+allOff();</Text>
 </FreeText>
 </Anchor>
 </Segment>
@@ -146,7 +148,7 @@ Pos="8200 -14700">
 Pos="9735 -14500"
 Origin="3">
 <Text>evNoTempSensor/<p/>
-heatOff();</Text>
+allOff();</Text>
 </FreeText>
 </Anchor>
 </Segment>
@@ -230,7 +232,8 @@ Pos="8100 -12100">
 <FreeText id="r80"
 Pos="6600 -11900"
 Origin="4">
-<Text>[!isSensorAvailable()]</Text>
+<Text>[!isSensorAvailable()]/<p/>
+allOff();</Text>
 </FreeText>
 </Anchor>
 </Segment>
@@ -279,7 +282,7 @@ Type="1"/>
 <Anchor id="r60"
 Pos="12700 -4500">
 <FreeText id="r61"
-Pos="12542 -5200"
+Pos="12542 -5000"
 Origin="2">
 <Text>evEnabled/</Text>
 </FreeText>

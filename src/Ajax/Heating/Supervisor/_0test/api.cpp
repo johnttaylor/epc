@@ -86,6 +86,7 @@ static void resetState( int32_t calcResult )
     mp::fanHighPercentage.setInvalid();
     mp::fanLowPercentage.setInvalid();
     mp::fanMedPercentage.setInvalid();
+    mp::maxHeatingCapacity.setInvalid();
 }
 
 
@@ -97,7 +98,7 @@ TEST_CASE( "api" )
 {
     Cpl::System::Shutdown_TS::clearAndUseCounter();
     Cpl::Dm::MailboxServer mbox;
-    Api                    uut( mbox, 100, 100 );
+    Api                    uut( mbox );
     AsyncOpenClose         openerCloser( uut );
     uint32_t               heaterPWM;
     uint32_t               fanPWM;
@@ -115,6 +116,7 @@ TEST_CASE( "api" )
     mp::heatSetpoint.write( 7600 );
     mp::fanMode.write( Ajax::Type::FanMode::eMEDIUM );
     mp::fanMedPercentage.write( 666 ); // 66.6%
+    mp::maxHeatingCapacity.write( 1000 );
 
     openerCloser.openSubject();
     simAdvanceTillOpened( openerCloser );
@@ -134,9 +136,9 @@ TEST_CASE( "api" )
     REQUIRE( flcStopCount_ == 0 );
     REQUIRE( flcCalcChangeCount_ == 2 );
     REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
-    REQUIRE( heaterPWM == 20 );
+    REQUIRE( heaterPWM == ((uint32_t)(0.02 * 0xFFFF)) );
     REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 66 );
+    REQUIRE( fanPWM == 666 );
 
     mp::heatingMode.write( false );
     Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS );
@@ -163,6 +165,7 @@ TEST_CASE( "api" )
     mp::heatSetpoint.write( 7600 );
     mp::fanMode.write( Ajax::Type::FanMode::eLOW );
     mp::fanLowPercentage.write( 333 ); // 33.3%
+    mp::maxHeatingCapacity.write( 1000 );
 
     openerCloser.openSubject();
     simAdvanceTillOpened( openerCloser );
@@ -197,15 +200,15 @@ TEST_CASE( "api" )
     REQUIRE( fanPWM == 0 );
 
     mp::onBoardIdt.write( 7500 );
-    Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS );
+    Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS*2 );
     REQUIRE( uut.isInHeating() );
     REQUIRE( flcStartCount_ == 1 );
     REQUIRE( flcStopCount_ == 0 );
     REQUIRE( flcCalcChangeCount_ == 1 );
     REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
-    REQUIRE( heaterPWM == 10 );
+    REQUIRE( heaterPWM == ((uint32_t) (0.01 * 0xFFFF)) );
     REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 33 );
+    REQUIRE( fanPWM == 333 );
 
     mp::onBoardIdt.setInvalid();
     Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS );
@@ -233,6 +236,7 @@ TEST_CASE( "api" )
     mp::fanMode.write( Ajax::Type::FanMode::eHIGH );
     mp::fanHighPercentage.write( 1000 ); // 100%
     mp::hwSafetyLimit.write( true );
+    mp::maxHeatingCapacity.write( 1000 );
 
     openerCloser.openSubject();
     simAdvanceTillOpened( openerCloser );
@@ -243,7 +247,7 @@ TEST_CASE( "api" )
     REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
     REQUIRE( heaterPWM == 0 );
     REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 0 );
+    REQUIRE( fanPWM == 1000 );
 
     mp::hwSafetyLimit.write( false );
     Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS  );
@@ -263,9 +267,9 @@ TEST_CASE( "api" )
     REQUIRE( flcStopCount_ == 0 );
     REQUIRE( flcCalcChangeCount_ == 2 );
     REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
-    REQUIRE( heaterPWM == 20 );
+    REQUIRE( heaterPWM == ((uint32_t) (0.02 * 0xFFFF)) );
     REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 100 );
+    REQUIRE( fanPWM == 1000 );
 
     mp::hwSafetyLimit.write( true );
     Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS );
@@ -276,7 +280,7 @@ TEST_CASE( "api" )
     REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
     REQUIRE( heaterPWM == 0 );
     REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 0 );
+    REQUIRE( fanPWM == 1000 );
 
     mp::heatingMode.write( false );
     Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS );
@@ -287,7 +291,7 @@ TEST_CASE( "api" )
     REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
     REQUIRE( heaterPWM == 0 );
     REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 0 );
+    REQUIRE( fanPWM == 1000 );
 
     mp::heatingMode.write( true );
     Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS );
@@ -298,7 +302,7 @@ TEST_CASE( "api" )
     REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
     REQUIRE( heaterPWM == 0 );
     REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 0 );
+    REQUIRE( fanPWM == 1000 );
 
     mp::hwSafetyLimit.write( false );
     Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS );
@@ -307,9 +311,9 @@ TEST_CASE( "api" )
     REQUIRE( flcStopCount_ == 0 );
     REQUIRE( flcCalcChangeCount_ == 4 );
     REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
-    REQUIRE( heaterPWM == 10 );
+    REQUIRE( heaterPWM == ((uint32_t) (0.04 * 0xFFFF)) );
     REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 100 );
+    REQUIRE( fanPWM == 1000 );
 
     openerCloser.closeSubject( true );  // Exit the Async helper to that its thread self terminates
     simAdvanceTillClosed( openerCloser );

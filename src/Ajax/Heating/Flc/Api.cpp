@@ -11,9 +11,11 @@
 
 #include "Api.h"
 #include "Ajax/Logging/Api.h"
-
+#include "Cpl/System/Trace.h"
 using namespace Ajax::Heating::Flc;
 
+
+#define SECT_ "Ajax::Heating::Flc"
 
 #define SET_NM          0   // negative medium
 #define SET_NS          1   // negative small
@@ -32,7 +34,7 @@ static const unsigned char inferenceTable_[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SE
 
 /////////////////////////////////////////////////////////////////////////////
 Api::Api( Ajax::Dm::MpFlcConfig& mpCfg )
-    : m_prevDeltaError(0)
+    : m_prevDeltaError( 0 )
     , m_mpCfg( mpCfg )
     , m_firstCycle( true )
 {
@@ -149,7 +151,7 @@ void Api::runInference( const int32_t m1Vector[AJAX_HEATING_FLC_CONFIG_NUM_MEMBE
             if ( maxValue < minVector[j] )
             {
                 maxValue = minVector[j];
-                maxIdx = j;
+                maxIdx   = j;
             }
         }
 
@@ -166,12 +168,12 @@ void Api::runInference( const int32_t m1Vector[AJAX_HEATING_FLC_CONFIG_NUM_MEMBE
 
 int32_t Api::defuzz( const int32_t outVector[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS] ) noexcept
 {
-    int32_t numerator  = 0;
-    int32_t denominator = 0;
+    int64_t numerator  = 0;
+    int64_t denominator = 0;
     for ( unsigned i = 0; i < AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS; i++ )
     {
         denominator += outVector[i];
-        numerator  += outVector[i] * m_cfg.outK[i];
+        numerator   += outVector[i] * m_cfg.outK[i];
     }
 
     // Do nothing if the denominator is zero (it should never be zero, but...)
@@ -184,5 +186,6 @@ int32_t Api::defuzz( const int32_t outVector[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_
     }
 
     // Invert the final output
-    return ((numerator * m_cfg.outputScalar) / denominator) * -1;
+    int64_t result = ((numerator * m_cfg.outputScalar) / denominator) * -1;
+    return (int32_t) result;
 }

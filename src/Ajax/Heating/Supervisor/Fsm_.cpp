@@ -143,6 +143,7 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
                     
                     /* Init ends in choice, select default state based on given guards  */
                     if(!isSensorAvailable()){
+                        allOff();
                         stateVarsCopy.stateVarOn = WaitingForSensor; /* Selective default in entry chain  */
                     }else{
                         stateVarsCopy.stateVarOn = Heating; /* Selective default in entry chain  */
@@ -152,6 +153,9 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
                 }else if(msg==Fsm_evHiTemp){
                     /* Transition from Off to FailedSafeOff */
                     evConsumed=1U;
+
+                    /* Action code for transition  */
+                    fanOn();
 
 
                     /* adjust state variables  */
@@ -174,6 +178,9 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
                 }else if(msg==Fsm_evSafeTemp){
                     /* Transition from FailedSafeOff to Off */
                     evConsumed=1U;
+
+                    /* Action code for transition  */
+                    allOff();
 
 
                     /* adjust state variables  */
@@ -198,7 +205,7 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
                             evConsumed=1U;
 
                             /* Action code for transition  */
-                            heatOff();
+                            allOff();
 
 
                             /* adjust state variables  */
@@ -240,7 +247,7 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
                         evConsumed=1U;
                         
                         /* Action code for transition  */
-                        heatOff();
+                        allOff();
 
 
                         /* adjust state variables  */
@@ -280,6 +287,7 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
                     
                     /* Init ends in choice, select default state based on given guards  */
                     if(!isSensorAvailable()){
+                        allOff();
                         stateVarsCopy.stateVarOn = WaitingForSensor; /* Selective default in entry chain  */
                     }else{
                         stateVarsCopy.stateVarOn = Heating; /* Selective default in entry chain  */

@@ -47,9 +47,7 @@ class Api: public Cpl::Itc::CloseSync, public Cpl::System::Timer, public FsmEven
 {
 public:
     /// Constructor
-    Api( Cpl::Dm::MailboxServer&  myMbox,
-         unsigned                 maxHeaterPWM,
-         unsigned                 maxFanPWM ) noexcept;
+    Api( Cpl::Dm::MailboxServer&  myMbox ) noexcept;
 
 public:
     /// This method starts the supervisor (See Cpl::Itc::OpenSync)
@@ -61,7 +59,16 @@ public:
 
 protected:
     /// Action
+    void allOff() noexcept;
+
+    /// Action
     void checkForSensor() noexcept;
+
+    /// Action
+    void fanOff() noexcept;
+    
+    /// Action
+    void fanOn() noexcept;
 
     /// Action
     void heatOff() noexcept;
@@ -84,10 +91,20 @@ protected:
     /// Change notification
     void heatingEnabledChanged( Cpl::Dm::Mp::Bool& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
 
-
 protected:
     /// Helper method to select temperature source.  Returns false if there is no valid temperature source
     bool getTemperature( int32_t& idt ) noexcept;
+
+    /// Helper method that schedules when the algorithm executes
+    void scheduleAlgorithm() noexcept;
+
+    /** Helper method that is called when the algorithm's periodic interval has 
+        expired, i.e. the periodic execution of the algorithm
+     */
+    virtual void intervalExpired() noexcept;
+
+    /// Helper method that gets the fan setting
+    uint32_t getFanPWM() noexcept;
 
 protected:
     /// Heating controller
@@ -99,14 +116,17 @@ protected:
     /// Observer for change notification (to the heating mode)
     Cpl::Dm::SubscriberComposer<Api, Cpl::Dm::Mp::Bool>    m_obHeatingEnabled;
 
-    /// Maximum PWM output value (i.e 100% duty cycle) for the Heater
-    unsigned                 m_maxHeaterPWM;
+    /// Accumulated capacity requests
+    int32_t                  m_sumCapacityRequest;
 
-    /// Maximum PWM output value (i.e 100% duty cycle) for the Fan motor
-    unsigned                 m_maxFanPWM;
+    /// Timer marker of last processing cycle
+    uint32_t                 m_timeMarker;
 
-    /// Heater PWM output value
-    int32_t                  m_heaterOutPWM;
+    /// Maximum capacity
+    uint32_t                 m_maxCapacity;
+
+    /// Flag for first execution of the algorithm
+    bool                     m_firstExecution;
 
     /// Temperature sensor available
     bool                     m_temperatureSensorAvailable;
