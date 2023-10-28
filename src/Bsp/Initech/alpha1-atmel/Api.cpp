@@ -23,6 +23,20 @@ extern Cpl::Io::InputOutput& Bsp_Serial( void );
 ///////////////////////////////////////////
 void Bsp_Api_initialize( void )
 {
+    // Configure Board specific IO
+    pinMode( PIN_RESET_LCD, OUTPUT );
+    pinMode( PIN_DC_LCD, OUTPUT );
+    pinMode( PIN_PWM_LED_RED, OUTPUT );
+    pinMode( PIN_PWM_LED_GREEN, OUTPUT );
+    pinMode( PIN_PWM_LED_BLUE, OUTPUT );
+    pinMode( PIN_PWM_LCD_BACKLIGHT, OUTPUT );
+    pinMode( PIN_CS_LCD, OUTPUT );
+
+    pinMode( PIN_BUTTON_A, INPUT_PULLUP );
+    pinMode( PIN_BUTTON_B, INPUT_PULLUP );
+    pinMode( PIN_BUTTON_X, INPUT_PULLUP );
+    pinMode( PIN_BUTTON_Y, INPUT_PULLUP );
+
     // Configure the LEDs as output pins 
     pinMode( OPTION_BSP_DEBUG_LED1_INDEX, OUTPUT );
 }

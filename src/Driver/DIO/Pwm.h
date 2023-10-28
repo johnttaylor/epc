@@ -17,6 +17,10 @@
 /// Defer the definition of the PWM configuration to the application's 'platform'
 #define DriverDioPwmConfig_T          DriverDioPwmConfig_T_MAP
 
+/// Value for Maximum Duty/100% cycle
+#ifndef OPTION_DRIVER_DIO_PWM_MAX_DUTY_CYCLE_VALUE  
+#define OPTION_DRIVER_DIO_PWM_MAX_DUTY_CYCLE_VALUE  0xFFFF
+#endif
 
 ///
 namespace Driver {
@@ -32,13 +36,16 @@ public:
     /** Constructor Note: the 'pinConfig' struct MUST stay in scope as long
         as the driver is in scope.
      */
-    Pwm( DriverDioPwmConfig_T& pinConfig );
+    Pwm( DriverDioPwmConfig_T pinConfig );
 
 public:
-    /** Starts the driver.
+    /** Starts the driver.  For 'initialLogicalDutyCycle', a value of 0 is 
+        0% duty cycle. A value of OPTION_DRIVER_DIO_PWM_MAX_DUTY_CYCLE_VALUE
+        is 100% duty cycle.
+
         Returns false if an error was encountered 
      */
-    bool start( size_t initialDutyCycle );
+    bool start( size_t initialLogicalDutyCycle );
 
     /** Stops the driver, places the output into a 'safe' state.  The safe state
         is defined by the platform
@@ -46,22 +53,18 @@ public:
     void stop();
 
 public:
-    /** Returns the value that generates 100% duty cycle.  This method can be
-        called at any time (e.g. before the driver is started)
-     */
-    size_t getMaxDutyCycle() const;
-
     /** Sets/updates the duty cycle.  A value of 0 is 0% duty cycle. A
-        value of getMaxDutyCycle() is 100% duty cycle 
+        value of OPTION_DRIVER_DIO_PWM_MAX_DUTY_CYCLE_VALUE is 100% duty cycle 
      */
-    void setDutyCycle( size_t dutyCycle );
+    void setDutyCycle( size_t logicalDutyCycle );
+
 
 protected:
     /// PWM info
-    DriverDioPwmConfig_T& m_pwm;
+    DriverDioPwmConfig_T    m_pwm;
 
     /// Started flag
-    bool                        m_started;
+    bool                    m_started;
 };
 
 } // End namespace(s)

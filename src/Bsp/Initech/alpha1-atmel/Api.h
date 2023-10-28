@@ -45,8 +45,8 @@ void Bsp_beginArduinoSerialObject( unsigned long baudrate, uint16_t frameConfig 
  */
 void Bsp_beginFileSystem();
 
-/** Returns a reference to the Primary Serial Port Object. This is implicitly 
-    exposed (can't directly expose it due to racing conditions on how the colony_map.h 
+/** Returns a reference to the Primary Serial Port Object. This is implicitly
+    exposed (can't directly expose it due to racing conditions on how the colony_map.h
     header files work).  This means that the application must cut-n-paste the following
     extern statement to get access to this method.
 
@@ -99,6 +99,42 @@ void Bsp_beginFileSystem();
 #define SERIAL_7O2	                (HARDSER_STOP_BIT_2 | HARDSER_PARITY_ODD  | HARDSER_DATA_7)
 #define SERIAL_8O2	                (HARDSER_STOP_BIT_2 | HARDSER_PARITY_ODD  | HARDSER_DATA_8)
 
+//////////////////////////////////////////////////////////
+/// Board Specific APIs
+//////////////////////////////////////////////////////////
+
+/// Arduino Pin Number
+#define PIN_BUTTON_A            13
+
+/// Arduino Pin Number
+#define PIN_BUTTON_B            12
+
+/// Arduino Pin Number
+#define PIN_BUTTON_X            11 
+
+/// Arduino Pin Number
+#define PIN_BUTTON_Y            10
+
+/// Arduino Pin Number
+#define PIN_RESET_LCD           7
+
+/// Arduino Pin Number
+#define PIN_DC_LCD              6
+
+/// Arduino Pin Number
+#define PIN_PWM_LED_RED         5 
+
+/// Arduino Pin Number
+#define PIN_PWM_LED_GREEN       4
+
+/// Arduino Pin Number
+#define PIN_PWM_LED_BLUE        3
+
+/// Arduino Pin Number
+#define PIN_PWM_LCD_BACKLIGHT   2
+
+/// Arduino Pin Number
+#define PIN_CS_LCD              53
 
 
 //////////////////////////////////////////////////////////

@@ -15,7 +15,7 @@
 using namespace Driver::DIO;
 
 
-Out::Out( DriverDioOutSTM32PinConfig_T& pinConfig, bool assertedHigh )
+Out::Out( DriverDioOutSTM32PinConfig_T pinConfig, bool assertedHigh )
     : m_pin( pinConfig )
     , m_assertedHigh( assertedHigh )
     , m_started( false )
@@ -27,7 +27,6 @@ bool Out::start( bool initialState )
     {
         m_started = true;
         // TODO: Support config without using ST's HAL/MX IDE
-
         setOutput( initialState );
         return true;
     }
