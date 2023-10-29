@@ -37,15 +37,14 @@ TEST_CASE( "Pwm" )
         Driver::DIO::Pwm uut( mp_pwm_ );
         REQUIRE( mp_pwm_.isNotValid() );
         REQUIRE( uut.start( 5 ) );
-        REQUIRE( uut.getMaxDutyCycle() == OPTION_DRIVER_DIO_SIMUALTED_PWM_MAX_DUTY_CYCLE );
         REQUIRE( mp_pwm_.read( state ) );
         REQUIRE( state == 5 );
         uut.setDutyCycle( 9 );
         REQUIRE( mp_pwm_.read( state ) );
         REQUIRE( state == 9 );
-        uut.setDutyCycle( OPTION_DRIVER_DIO_SIMUALTED_PWM_MAX_DUTY_CYCLE+1 );
+        uut.setDutyCycle( OPTION_DRIVER_DIO_PWM_MAX_DUTY_CYCLE_VALUE +1 );
         REQUIRE( mp_pwm_.read( state ) );
-        REQUIRE( state == OPTION_DRIVER_DIO_SIMUALTED_PWM_MAX_DUTY_CYCLE );
+        REQUIRE( state == OPTION_DRIVER_DIO_PWM_MAX_DUTY_CYCLE_VALUE );
         uut.stop();
         REQUIRE( mp_pwm_.isNotValid() );
     }

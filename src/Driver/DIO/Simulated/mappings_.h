@@ -19,10 +19,10 @@
 
 
 /// Platform mapping
-#define DriverDioOutPinConfig_T_MAP         Cpl::Dm::Mp::Bool
+#define DriverDioOutPinConfig_T_MAP         Cpl::Dm::Mp::Bool&
 
 /// Platform mapping
-#define DriverDioPwmConfig_T_MAP            Cpl::Dm::Mp::Uint32
+#define DriverDioPwmConfig_T_MAP            Cpl::Dm::Mp::Uint32&
 
 /*--------------------------------------------------------------------------*/
 #endif  // end header latch

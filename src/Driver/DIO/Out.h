@@ -34,7 +34,7 @@ public:
     /** Constructor.  Note: the 'pinConfig' struct MUST stay in scope as long
         as the driver is in scope.
      */
-    Out( DriverDioOutPinConfig_T& pinConfig, bool assertedHigh = true );
+    Out( DriverDioOutPinConfig_T pinConfig, bool assertedHigh = true );
 
 public:
     /** Starts the driver.
@@ -77,7 +77,7 @@ public:
 
 protected:
     /// PIN info
-    DriverDioOutPinConfig_T&  m_pin;
+    DriverDioOutPinConfig_T   m_pin;
 
     /// Polarity of the output ping
     bool                      m_assertedHigh;

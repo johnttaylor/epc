@@ -49,19 +49,14 @@ public:
     ///
     void appRun()
     {
-        uint16_t maxPwm = m_uutPwm.getMaxDutyCycle();
-        uint16_t step   = maxPwm / 10;
-        uint16_t curPwm = 0;
-        if ( maxPwm != 0xFFFF )
-        {
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("Max PWM is not correct, expected 0xFFFF, got %X", maxPwm ) );
-            for ( ;;);
-        }
+        static uint16_t pwwValues[] ={ 0, OPTION_DRIVER_DIO_PWM_MAX_DUTY_CYCLE_VALUE / 4, OPTION_DRIVER_DIO_PWM_MAX_DUTY_CYCLE_VALUE / 2, OPTION_DRIVER_DIO_PWM_MAX_DUTY_CYCLE_VALUE * 3 / 4, OPTION_DRIVER_DIO_PWM_MAX_DUTY_CYCLE_VALUE };
+        unsigned pwmIdx = 0;
+        uint16_t curPwm = pwwValues[pwmIdx];
 
         // Run forever
         for ( int i=1; true; i++ )
         {
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("Loop %d", i) );
+            CPL_SYSTEM_TRACE_MSG( SECT_, ("Loop %d, pwm=%d (%d %%)", i, curPwm, (curPwm*100)/ OPTION_DRIVER_DIO_PWM_MAX_DUTY_CYCLE_VALUE) );
 
             // Start the driver
             if ( !m_uutOut.start( true ) )
@@ -77,20 +72,23 @@ public:
 
 
             /** NOTE: With a SYSCLK of 96MHz - the expected PWM frequency is 1.46KHz */
-            for ( int i=0; i < 10; i++ )
+            for ( int i=0; i < ((int)((10*1000) / m_delay)); i++ )
             {
                 Cpl::System::Api::sleep( m_delay );
                 bool cur = m_uutOut.getOutput();
                 m_uutOut.setOutput( !cur );
-                curPwm += step;
-                m_uutPwm.setDutyCycle( curPwm );
             }
+            m_uutOut.deassertOutput();
 
             // stop the driver
             m_uutOut.stop();
             m_uutPwm.stop();
-            curPwm = 0;
-            Cpl::System::Api::sleep( m_delay * 2 );
+            pwmIdx++;
+            if ( pwmIdx > 4 )
+            {
+                pwmIdx = 0;
+            }
+            curPwm = pwwValues[pwmIdx];
         }
     }
 };
@@ -107,7 +105,10 @@ void runtests( Driver::DIO::Out& uutOut,
     MyRunnable*  uutloop     = new(std::nothrow) MyRunnable( uutOut, uutPwm, loopDelayMs );
     Cpl::System::Thread::create( *uutloop, "UUT" );
 
-    // Start the scheduler
-    CPL_SYSTEM_TRACE_MSG( SECT_, ("Starting scheduler...") );
-    Cpl::System::Api::enableScheduling();
+    // Start the scheduler (when it is NOT already running)
+    if ( !Cpl::System::Api::isSchedulingEnabled() )
+    {
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("Starting scheduler...") );
+        Cpl::System::Api::enableScheduling();
+    }
 }

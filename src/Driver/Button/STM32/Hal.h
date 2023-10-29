@@ -12,8 +12,8 @@
 *----------------------------------------------------------------------------*/ 
 /** @file 
     
-    This file defines the concrete implementation for the Butotn HAL running on 
-    Raspberry PI RP2040 MCU
+    This file defines the concrete implementation for the Button HAL running on 
+    STM32 MCUs
 
 */
 

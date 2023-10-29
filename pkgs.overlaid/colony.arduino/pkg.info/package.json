@@ -1,0 +1,138 @@
+{
+  "dependencies": {
+    "strong": [
+      {
+        "pkgname": "colony.core",
+        "pkgtype": "overlay",
+        "virtualAdoption": false,
+        "adoptedDate": "Thu Apr 27 00:28:42 2023",
+        "parentDir": null,
+        "version": {
+          "semanticVersion": "4.4.0",
+          "branch": null,
+          "tag": "OUTCAST2-main-4.4.0"
+        },
+        "repo": {
+          "name": "colony.core",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      }
+    ],
+    "weak": [
+      {
+        "pkgname": "catch",
+        "pkgtype": "overlay",
+        "adoptedDate": "Sat Jun 11 18:22:44 2022",
+        "parentDir": null,
+        "version": {
+          "semanticVersion": "2.13.7b",
+          "branch": null,
+          "tag": "OUTCAST2-main-2.13.7b"
+        },
+        "repo": {
+          "name": "catch",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      },
+      {
+        "pkgname": "nqbp2",
+        "pkgtype": "readonly",
+        "virtualAdoption": false,
+        "adoptedDate": "Fri Feb 24 18:41:25 2023",
+        "parentDir": "xsrc",
+        "version": {
+          "semanticVersion": "0.1.1",
+          "branch": null,
+          "tag": "OUTCAST2-main-0.1.1"
+        },
+        "repo": {
+          "name": "nqbp2",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      }
+    ]
+  },
+  "directories": {
+    "primary": [
+      "arduino",
+      "projects",
+      "src",
+      "tests"
+    ],
+    "adoptedExtras": [
+      "docs",
+      "top"
+    ]
+  },
+  "info": {
+    "pkgname": "colony.arduino",
+    "desc": "Arduino support for the Colony.* eco-system. This include Arduino libraries, BSPs, Cpl adapters, etc.",
+    "owner": "John Taylor",
+    "email": "john.t.taylor@gmail.com",
+    "url": "www.integerfox.com/colony.arduino",
+    "repo": {
+      "name": "colony.arduino",
+      "type": "git",
+      "origin": "https://github.com/johnttaylor"
+    }
+  },
+  "publish": {
+    "current": {
+      "comment": "adopt new version of colony core (4.4.0) and deprecated bsp package",
+      "version": "1.0.8",
+      "date": "Thu Apr 27 00:32:06 2023",
+      "timestamp": 1682555526,
+      "changes": null
+    },
+    "history": [
+      {
+        "comment": "Update to NQBP2 and latest colony.core",
+        "version": "1.0.7",
+        "date": "Fri Feb 24 02:02:25 2023",
+        "timestamp": 1677204145,
+        "changes": null
+      },
+      {
+        "comment": "Clean-up TShell command (no functionality changes)",
+        "version": "1.0.6",
+        "date": "Sun Jan 15 21:12:02 2023",
+        "timestamp": 1673817122,
+        "changes": null
+      },
+      {
+        "comment": "Update to the latest package version",
+        "version": "1.0.5",
+        "date": "Sun Sep 11 22:51:29 2022",
+        "timestamp": 1662936689,
+        "changes": null
+      },
+      {
+        "comment": "Pickup latest changes to colony.core and nqbp",
+        "version": "1.0.4",
+        "date": "Sat Jul  9 23:31:17 2022",
+        "timestamp": 1657409477
+      },
+      {
+        "comment": "Pickup latest changes to colony.core, nqbp, and catch",
+        "version": "1.0.3",
+        "date": "Sat Jun 11 18:25:14 2022",
+        "timestamp": 1654971914
+      },
+      {
+        "comment": "Fix doxgyen errors",
+        "version": "1.0.2",
+        "date": "Mon May 30 20:03:36 2022",
+        "timestamp": 1653941016
+      },
+      {
+        "comment": "Publish as an Outcast2 package",
+        "version": "1.0.1",
+        "date": "Sun Nov 28 20:11:42 2021",
+        "timestamp": 1638130302
+      }
+    ]
+  }
+}

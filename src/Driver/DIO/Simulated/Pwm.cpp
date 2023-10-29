@@ -15,10 +15,6 @@
 
 using namespace Driver::DIO;
 
-#ifndef OPTION_DRIVER_DIO_SIMUALTED_PWM_MAX_DUTY_CYCLE
-#define OPTION_DRIVER_DIO_SIMUALTED_PWM_MAX_DUTY_CYCLE      0xFFFF
-#endif
-
 
 Pwm::Pwm( Cpl::Dm::Mp::Uint32& pwmConfig )
     : m_pwm( pwmConfig )
@@ -47,18 +43,13 @@ void Pwm::stop()
     }
 }
 
-size_t Pwm::getMaxDutyCycle() const
-{
-    return OPTION_DRIVER_DIO_SIMUALTED_PWM_MAX_DUTY_CYCLE;
-}
-
 void Pwm::setDutyCycle( size_t dutyCycle )
 {
     if ( m_started )
     {
-        if ( dutyCycle > OPTION_DRIVER_DIO_SIMUALTED_PWM_MAX_DUTY_CYCLE )
+        if ( dutyCycle > OPTION_DRIVER_DIO_PWM_MAX_DUTY_CYCLE_VALUE )
         {
-            dutyCycle = OPTION_DRIVER_DIO_SIMUALTED_PWM_MAX_DUTY_CYCLE;
+            dutyCycle = OPTION_DRIVER_DIO_PWM_MAX_DUTY_CYCLE_VALUE;
         }
         m_pwm.write( dutyCycle );
     }
