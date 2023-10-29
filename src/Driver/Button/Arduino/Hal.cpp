@@ -1,5 +1,3 @@
-#ifndef Driver_Button_STM32_Hal_h_
-#define Driver_Button_STM32_Hal_h_
 /*----------------------------------------------------------------------------- 
 * This file is part of the Colony.Core Project.  The Colony.Core Project is an   
 * open source project with a BSD type of licensing agreement.  See the license  
@@ -10,22 +8,19 @@
 *                                                                               
 * Redistributions of the source code must retain the above copyright notice.    
 *----------------------------------------------------------------------------*/ 
-/** @file 
-    
-    This file defines the concrete implementation for the Button HAL running on 
-    STM32 MCUs
-
-*/
+/** @file */
 
 #include "Driver/Button/Hal.h"
+#include <stdint.h>
 
+void driverButtonHalArduino_initialize( DriverButtonPinHalArduino_T buttonHdl )
+{
+    pinMode( buttonHdl.pin, buttonHdl.mode );
+}
 
-/*-------------- PUBLIC API ------------------------------------------------*/
-/** This method is used to initialize the GPIO for the pin/configuration specified
-    by 'buttonHdl'
- */
-void driverButtonHalSTM32_initialize( Driver_Button_Hal_T buttonHdl );
-
-
-/*--------------------------------------------------------------------------*/
-#endif  
+bool driverButtonHalArduino_getRawPressState( DriverButtonPinHalArduino_T pinHandle )
+{
+    uint32_t phy = digitalRead( pinHandle.pin );
+    bool     log = phy == HIGH ? true : false;
+    return pinHandle.activeLow ? !log : log;
+}

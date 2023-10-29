@@ -54,11 +54,11 @@ struct DriverButtonPinHalSTM32_T
 };
 
 
-/// RP2040 Mapping
+/// STM32 Mapping
 #define Driver_Button_Pin_Hal_T_MAP                 DriverButtonPinHalSTM32_T  
 
 
-/// RP2040 Mapping
+/// STM32 Mapping
 #define Driver_Button_Hal_getRawPressedState_MAP    driverButtonHalSTM32_getRawPressState
 
 

@@ -51,7 +51,7 @@ bool Out::getOutput() const
     if ( m_started )
     {
         uint32_t phy = digitalRead( m_pin );
-        bool     log = phy ? HIGH : LOW;
+        bool     log = phy == HIGH ? true : false;
         return m_assertedHigh ? log : !log;
     }
 

@@ -1,5 +1,5 @@
-#ifndef Driver_Button_STM32_Hal_h_
-#define Driver_Button_STM32_Hal_h_
+#ifndef Driver_Button_Arduino_Hal_h_
+#define Driver_Button_Arduino_Hal_h_
 /*----------------------------------------------------------------------------- 
 * This file is part of the Colony.Core Project.  The Colony.Core Project is an   
 * open source project with a BSD type of licensing agreement.  See the license  
@@ -13,7 +13,7 @@
 /** @file 
     
     This file defines the concrete implementation for the Button HAL running on 
-    STM32 MCUs
+    the Arduino Framework
 
 */
 
@@ -24,7 +24,7 @@
 /** This method is used to initialize the GPIO for the pin/configuration specified
     by 'buttonHdl'
  */
-void driverButtonHalSTM32_initialize( Driver_Button_Hal_T buttonHdl );
+void driverButtonHalArduino_initialize( Driver_Button_Hal_T buttonHdl );
 
 
 /*--------------------------------------------------------------------------*/
