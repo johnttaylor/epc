@@ -47,9 +47,9 @@ public:
      */
     struct SPIConfig_T
     {
-        uint32_t  baudrate;   // Baudrate in HZ, e.g. 20MHz is 20000000
-        BitOrder  bitOrder;   // Bit order: MSBFIRST, LSBFIRST
-        uint8_t   dataMode;   // Data mode: SPI_MODE0, SPI_MODE1, SPI_MODE2, SPI_MODE3
+        uint32_t  baudrate;   //!< Baudrate in HZ, e.g. 20MHz is 20000000
+        BitOrder  bitOrder;   //!< Bit order: MSBFIRST, LSBFIRST
+        uint8_t   dataMode;   //!< Data mode: SPI_MODE0, SPI_MODE1, SPI_MODE2, SPI_MODE3
 
         /// Constructor
         SPIConfig_T( uint32_t bRate, BitOrder bOrder, uint8_t dMode )
