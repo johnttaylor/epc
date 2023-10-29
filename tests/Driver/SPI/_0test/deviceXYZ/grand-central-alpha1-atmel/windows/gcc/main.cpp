@@ -4,16 +4,16 @@
 #include "Cpl/System/FreeRTOS/Thread.h"
 #include "Cpl/Io/InputOutput.h"
 #include "Cpl/System/Trace.h"
-#include "Driver/Button/_0test/_hw/test.h"
-#include "Driver/Button//Arduino/Hal.h"
+#include "Driver/SPI/_0test/deviceXYZ.h"
+#include "Driver/SPI/Arduino/Master.h"
 
 #define SECT_ "_0test"
 
+
 extern Cpl::Io::InputOutput& Bsp_Serial( void );
 
-static DriverButtonPinHalArduino_T button1_( PIN_BUTTON_A, INPUT_PULLUP, true );
-static DriverButtonPinHalArduino_T button2_( PIN_BUTTON_B, INPUT_PULLUP, true );
-
+static Driver::SPI::Arduino::Master::SPIConfig_T cfg( 8000000, MSBFIRST, SPI_MODE0 );
+static Driver::SPI::Arduino::Master uut_( SPI, cfg );
 
 // the setup function runs once when you press reset or power the board
 // NOTE: FreeRTOS is RUNNING at this point
@@ -38,7 +38,7 @@ void setup()
 // This function is called repeatedly forever
 void loop()
 {
-    Cpl::System::Api::sleep( 5000 ); // Allow time to connect a serial terminal
-    CPL_SYSTEM_TRACE_MSG( SECT_, ("Hello - Starting BUTTON test(s)....") );
-    runtests( button1_, 2, button2_, 100 );   // This method never returns
+    Cpl::System::Api::sleep( 5000 );  // Allow time to spin up a terminal session
+    CPL_SYSTEM_TRACE_MSG( SECT_, ("Hello - SPI ??? tests ....") );
+    runtests( uut_ ); // This method never returns
 }

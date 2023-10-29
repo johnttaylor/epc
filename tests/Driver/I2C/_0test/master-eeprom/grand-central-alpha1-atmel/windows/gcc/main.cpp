@@ -15,7 +15,7 @@
 
 extern Cpl::Io::InputOutput& Bsp_Serial( void );
 
-static Driver::I2C::Arduino::Master uut_( Wire );
+static Driver::I2C::Arduino::Master uut_( I2C_BUS_DRIVER );
 
 // the setup function runs once when you press reset or power the board
 // NOTE: FreeRTOS is RUNNING at this point

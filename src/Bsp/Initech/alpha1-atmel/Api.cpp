@@ -25,12 +25,12 @@ void Bsp_Api_initialize( void )
 {
     // Configure Board specific IO
     pinMode( PIN_RESET_LCD, OUTPUT );
-    pinMode( PIN_DC_LCD, OUTPUT );
+    pinMode( PIN_LCD_DC, OUTPUT );
     pinMode( PIN_PWM_LED_RED, OUTPUT );
     pinMode( PIN_PWM_LED_GREEN, OUTPUT );
     pinMode( PIN_PWM_LED_BLUE, OUTPUT );
     pinMode( PIN_PWM_LCD_BACKLIGHT, OUTPUT );
-    pinMode( PIN_CS_LCD, OUTPUT );
+    pinMode( PIN_LCD_CS, OUTPUT );
 
     pinMode( PIN_BUTTON_A, INPUT_PULLUP );
     pinMode( PIN_BUTTON_B, INPUT_PULLUP );

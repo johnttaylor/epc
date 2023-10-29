@@ -104,22 +104,22 @@ void Bsp_beginFileSystem();
 //////////////////////////////////////////////////////////
 
 /// Arduino Pin Number
-#define PIN_BUTTON_A            13
+#define PIN_BUTTON_A            12
 
 /// Arduino Pin Number
-#define PIN_BUTTON_B            12
+#define PIN_BUTTON_B            11
 
 /// Arduino Pin Number
-#define PIN_BUTTON_X            11 
+#define PIN_BUTTON_X            10 
 
 /// Arduino Pin Number
-#define PIN_BUTTON_Y            10
+#define PIN_BUTTON_Y            9
 
 /// Arduino Pin Number
 #define PIN_RESET_LCD           7
 
 /// Arduino Pin Number
-#define PIN_DC_LCD              6
+#define PIN_LCD_DC              6
 
 /// Arduino Pin Number
 #define PIN_PWM_LED_RED         5 
@@ -134,7 +134,31 @@ void Bsp_beginFileSystem();
 #define PIN_PWM_LCD_BACKLIGHT   2
 
 /// Arduino Pin Number
-#define PIN_CS_LCD              53
+#define PIN_LCD_CS              53
+
+
+/// Arduino Pin Number (alias)
+#define PIN_LCD_SPI_CLK         PIN_SPI_SCK
+
+/// Arduino Pin Number (alias)
+#define PIN_LCD_SPI_MOSI        PIN_SPI_MOSI
+
+/// Arduino Pin Number (alias)
+#define PIN_LCD_SPI_MISO        PIN_SPI_MISO
+
+/// Arduino SPI driver instance (alias)
+#define LCD_SPI_DRIVER          SPI
+
+
+/// Arduino Pin Number (alias)
+#define PIN_I2C_BUS_SCK         PIN_WIRE_SCL
+
+/// Arduino Pin Number (alias)
+#define PIN_I2C_BUS_SDA         PIN_WIRE_SDA
+
+/// Arduino I2C driver instance (alias)
+#define I2C_BUS_DRIVER          Wire
+
 
 
 //////////////////////////////////////////////////////////
