@@ -34,6 +34,10 @@ bool Master::start( size_t newBaudRateHz ) noexcept
         m_started = true;
         m_spiConfig.baudrate = newBaudRateHz;
         m_spiDevice.begin();
+        
+        // Only need to call this once (the exception is when using SPI interrupts - which this driver not)
+        SPISettings settings( m_spiConfig.baudrate, m_spiConfig.bitOrder, m_spiConfig.dataMode );
+        m_spiDevice.beginTransaction( settings );    
         return true;
     }
 
@@ -45,6 +49,7 @@ void Master::stop() noexcept
     if ( m_started )
     {
         m_started = false;
+        m_spiDevice.endTransaction();
         m_spiDevice.end();
     }
 }
@@ -58,14 +63,34 @@ bool Master::transfer( size_t      numBytes,
 
     if ( m_started )
     {
-        // Arduino uses a single 'transfer' buffer -->so copy src to the dst buffer
-        memcpy( dstData, srcData, numBytes );
+        // Bi-directional transfer
+        if ( dstData != nullptr )
+        {
+            // Arduino uses a single 'transfer' buffer -->so copy src to the dst buffer
+            memcpy( dstData, srcData, numBytes );
 
-        // Perform the transfer
-        SPISettings settings( m_spiConfig.baudrate, m_spiConfig.bitOrder, m_spiConfig.dataMode );
-        m_spiDevice.beginTransaction( settings );
-        m_spiDevice.transfer( dstData, numBytes );
-        m_spiDevice.endTransaction();
+            // Perform the transfer
+            m_spiDevice.transfer( dstData, numBytes );
+        }
+
+        // Output only transfer
+        else
+        {
+            // NOTE: Since it is possible that 'srcData' points to read-only 
+            //       data (e.g. a buffer in flash memory), but the Arduino SPI 
+            //       API requires a writable buffer - we create a temporary 
+            //       writable buffer on the stack.
+            
+            // Fail transaction if there is not sufficient buffer space
+            if ( numBytes > OPTION_DRIVER_SPI_ARDUINO_OUTPUT_ONLY_BUF_SIZE )
+            {
+                return false;
+            }
+
+            uint8_t buf[OPTION_DRIVER_SPI_ARDUINO_OUTPUT_ONLY_BUF_SIZE];
+            memcpy( buf, srcData, numBytes );
+            m_spiDevice.transfer( buf, numBytes );
+        }
         return true;
     }
 

@@ -36,6 +36,10 @@ using namespace Driver::SPI;
 #define NEW_BAUD_RATE           (0x07)
 #define RESET_BAUD_RATE         (0x0A)
 
+#define POWER_CTL_ADDRESS       (0x2D)
+#define READWRITE_POWER_CTL_LEN (1+1)
+#define ENABLE_MEASUREMENTS     (0x08)
+
 #define DATAXYZ_START_ADDRESS   0x32
 #define READ_DATAXYZ_LEN        (6+1)
 #define DATAX0_LO_BYTE_INDEX    (0+1)
@@ -65,22 +69,24 @@ void runtests( Driver::SPI::Master & uut, Driver::DIO::Out& cs )
     //  FIFO: bypassed
     //  Device ID:= 0xE5
 
-    // Start the driver
-    bool result = uut.start( BAUD_RATE );
-    if ( !result )
-    {
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("FAILED to start the SPI driver") );
-        STOP_TEST();
-    }
-    result = cs.start( BAUD_RATE );
+    // Initialize ChipSelect
+    bool result = cs.start( false );
     if ( !result )
     {
         CPL_SYSTEM_TRACE_MSG( SECT_, ("FAILED to start the CS driver") );
         STOP_TEST();
     }
 
+    // Start the driver
+    result = uut.start( BAUD_RATE );
+    if ( !result )
+    {
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("FAILED to start the SPI driver") );
+        STOP_TEST();
+    }
+
     // Read the device ID
-    uint8_t srcBuffer[READ_DATAXYZ_LEN] ={ 0, };
+    uint8_t srcBuffer[2] ={ 0, };
     uint8_t dstBuffer[READ_DATAXYZ_LEN]  ={ 0, };
     srcBuffer[0] = READ_OPERATION | DEVICE_ID_ADDRESS;
     cs.assertOutput();
@@ -118,6 +124,7 @@ void runtests( Driver::SPI::Master & uut, Driver::DIO::Out& cs )
     memset( srcBuffer, 0, sizeof( srcBuffer ) );
     memset( dstBuffer, 0, sizeof( dstBuffer ) );
     srcBuffer[0] = WRITE_OPERATION | BAUD_RATE_ADDRESS;
+    srcBuffer[1] = NEW_BAUD_RATE;
     cs.assertOutput();
     result       = uut.transfer( READWRITE_BAUD_RATE_LEN, srcBuffer, dstBuffer );
     cs.deassertOutput();
@@ -139,9 +146,23 @@ void runtests( Driver::SPI::Master & uut, Driver::DIO::Out& cs )
         CPL_SYSTEM_TRACE_MSG( SECT_, ("FAILED read the BaudRate register") );
         STOP_TEST();
     }
-    if ( dstBuffer[BAUD_RATE_INDEX] != RESET_BAUD_RATE )
+    if ( dstBuffer[BAUD_RATE_INDEX] != NEW_BAUD_RATE )
     {
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("FAILED to set a new baud rate, read=%02X, expected=%02X", dstBuffer[BAUD_RATE_INDEX], RESET_BAUD_RATE) );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("FAILED to set a new baud rate, read=%02X, expected=%02X", dstBuffer[BAUD_RATE_INDEX], NEW_BAUD_RATE) );
+    }
+
+    // Enable measurements
+    memset( srcBuffer, 0, sizeof( srcBuffer ) );
+    memset( dstBuffer, 0, sizeof( dstBuffer ) );
+    srcBuffer[0] = WRITE_OPERATION | POWER_CTL_ADDRESS;
+    srcBuffer[1] = ENABLE_MEASUREMENTS;
+    cs.assertOutput();
+    result       = uut.transfer( READWRITE_POWER_CTL_LEN, srcBuffer, dstBuffer );
+    cs.deassertOutput();
+    if ( !result )
+    {
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("FAILED WRITE the Power_Control register") );
+        STOP_TEST();
     }
 
     // Poll the Accelerometer
