@@ -12,7 +12,10 @@
 
 #include "Master.h"
 #include "Cpl/System/Assert.h"
+#include "Cpl/System/Trace.h"
 #include <string.h>
+
+#define SECT_ "Driver::SPI::Arduino"
 
 using namespace Driver::SPI::Arduino;
 
@@ -84,6 +87,7 @@ bool Master::transfer( size_t      numBytes,
             // Fail transaction if there is not sufficient buffer space
             if ( numBytes > OPTION_DRIVER_SPI_ARDUINO_OUTPUT_ONLY_BUF_SIZE )
             {
+                CPL_SYSTEM_TRACE_MSG( SECT_, ("Transfer failed because local 'srcBuffer' is too small. size=%u, needed size=%u", OPTION_DRIVER_SPI_ARDUINO_OUTPUT_ONLY_BUF_SIZE, numBytes) );
                 return false;
             }
 
