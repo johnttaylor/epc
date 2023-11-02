@@ -1,5 +1,5 @@
-#ifndef Driver_SPI_Master_0test_deviceXYZ_h_
-#define Driver_SPI_Master_0test_deviceXYZ_h_
+#ifndef Driver_SPI_Master_0test_adxl345_h_
+#define Driver_SPI_Master_0test_adxl345_h_
 /*-----------------------------------------------------------------------------
 * This file is part of the Colony.Core Project.  The Colony.Core Project is an
 * open source project with a BSD type of licensing agreement.  See the license
@@ -10,12 +10,17 @@
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
-/** @file */
+/** @file 
+
+    This test assumes an Analog Device's ADXL345 Digital Accelerometer
+    in SPI 4-wire mode.
+*/
 
 #include "Driver/SPI/Master.h"
+#include "Driver/DIO//Out.h"
 
 /// This method NEVER returns
-void runtests( Driver::SPI::Master& uut );
+void runtests( Driver::SPI::Master& uut, Driver::DIO::Out& cs );
 
 
 /*--------------------------------------------------------------------------*/

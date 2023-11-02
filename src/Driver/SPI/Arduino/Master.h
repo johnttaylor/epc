@@ -18,6 +18,12 @@
 #include "SPI.h"
 #include <stdint.h>
 
+/** Maximum buffer size for an output only transfer.  The buffer 
+    is allocated on the stack - so be CAREFUL on its size
+ */
+#ifndef OPTION_DRIVER_SPI_ARDUINO_OUTPUT_ONLY_BUF_SIZE
+#define OPTION_DRIVER_SPI_ARDUINO_OUTPUT_ONLY_BUF_SIZE   16
+#endif
 
 ///
 namespace Driver {
@@ -38,13 +44,13 @@ public:
     /** SPI Settings (note: needed because the SPISettings class does not 
         allow changing the baudrate once instantiated)
 
-        The Arduino documentation does not explicitly define what the 
-        different SPI_MODEn are (the table is my best guess)
-            SPI_MODE0   - Clock Polarity=0, rising SCLK
-            SPI_MODE1   - Clock Polarity=0, falling SCLK
-            SPI_MODE2   - Clock Polarity=1, rising SCLK
-            SPI_MODE3   - Clock Polarity=1, falling SCLK
-     */
+        Mode	    Clock-Polarity (CPOL)	Clock-Phase (CPHA)	Output Edge	 Data Capture
+        ----------  ---------------------   ------------------  -----------  ------------
+        SPI_MODE0	    0	                    0	              Falling	   Rising
+        SPI_MODE1	    0	                    1	              Rising	   Falling
+        SPI_MODE2	    1	                    0	              Rising	   Falling
+        SPI_MODE3	    1	                    1	              Falling	   Rising
+ */
     struct SPIConfig_T
     {
         uint32_t  baudrate;   //!< Baudrate in HZ, e.g. 20MHz is 20000000

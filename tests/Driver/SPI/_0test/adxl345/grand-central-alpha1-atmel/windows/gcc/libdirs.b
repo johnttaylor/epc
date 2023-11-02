@@ -3,6 +3,7 @@
 
 # UUT 
 src/Driver/SPI/Arduino
+src/Driver/DIO/Arduino
 
 # Core CPL
 src/Cpl/Container
