@@ -1278,6 +1278,9 @@ IGNORE_PREFIX          =
 # Configuration options related to the HTML output
 #---------------------------------------------------------------------------
 
+# Needed to be compatible with 1.9.8
+HTML_CODE_FOLDING = NO
+
 # If the GENERATE_HTML tag is set to YES, doxygen will generate HTML output
 # The default value is: YES.
 
