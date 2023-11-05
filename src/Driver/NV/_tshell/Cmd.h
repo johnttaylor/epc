@@ -68,6 +68,13 @@ public:
     Cpl::TShell::Command::Result_T execute( Cpl::TShell::Context_& context, char* cmdString, Cpl::Io::Output& outfd ) noexcept;
 
 protected:
+    /// Helper method
+    Cpl::TShell::Command::Result_T writeAll( uint8_t valueToWrite, Cpl::TShell::Context_& context, Cpl::Text::String& outtext );
+
+    /// Helper method
+    Cpl::TShell::Command::Result_T readAll( uint8_t execptedValue, Cpl::TShell::Context_& context, Cpl::Text::String& outtext );
+
+protected:
     /// NV driver
     Driver::NV::Api& m_nvDriver;
 };

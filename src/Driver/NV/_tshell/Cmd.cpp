@@ -165,46 +165,122 @@ Cpl::TShell::Command::Result_T Cmd::execute( Cpl::TShell::Context_& context, cha
         // Blank check (assumes 0xFF is the 'erased' value)
         if ( strcmp( tokens.getParameter( 2 ), "blank" ) == 0 )
         {
-            // Get a work buffer
-            int   bufLen;
-            char* tmpBuf = context.getTokenBuffer().getBuffer( bufLen );
-            int   buf2Len;
-            char* tmpBuf2 = context.getTokenBuffer2().getBuffer( buf2Len );
-            if ( bufLen < buf2Len )
-            {
-                bufLen = buf2Len;
-            }
-            memset( tmpBuf2, 0xFF, buf2Len );
+            unsigned long     startTime = Cpl::System::ElapsedTime::milliseconds();
+            Command::Result_T result    = readAll( 0xFF, context, outtext );
+            unsigned long     endTime   = Cpl::System::ElapsedTime::milliseconds();
 
-            // Read the entire storage
-            unsigned      bytesRemaining = m_nvDriver.getTotalSize();
-            unsigned      offset         = 0;
-            unsigned long startTime      = Cpl::System::ElapsedTime::milliseconds();
-            while ( bytesRemaining )
+            if ( result == Command::eSUCCESS )
             {
-                size_t bytesToRead = bytesRemaining > (unsigned) bufLen ? (unsigned) bufLen : bytesRemaining;
-                if ( !m_nvDriver.read( offset, tmpBuf, bytesToRead ) )
-                {
-                    outtext.format( "Read failed at offset: %lu", offset );
-                    context.writeFrame( outtext );
-                    return Command::eERROR_FAILED;
-                }
-                if ( memcmp( tmpBuf, tmpBuf2, bytesToRead ) != 0 )
-                {
-                    outtext.format( "Failed blank check.  Non-0xFF value at offset: %u, len=%lu", offset, bytesToRead );
-                    context.writeFrame( outtext );
-                    return Command::eERROR_FAILED;
-                }
-                bytesRemaining -= bytesToRead;
-                offset         += bytesToRead;
+                outtext.format( "Verify Blank completed. Duration = %lu ms", endTime - startTime );
+                io &= context.writeFrame( outtext );
+                return io ? Command::eSUCCESS : Command::eERROR_IO;
             }
-            unsigned long endTime = Cpl::System::ElapsedTime::milliseconds();
-            outtext.format( "Verify Blank completed. Duration = %lu ms", endTime - startTime );
-            io &= context.writeFrame( outtext );
-            return io ? Command::eSUCCESS : Command::eERROR_IO;
+            return result;
+        }
+
+        // Write 0x55
+        if ( strcmp( tokens.getParameter( 2 ), "55" ) == 0 )
+        {
+            unsigned long     startTime = Cpl::System::ElapsedTime::milliseconds();
+            Command::Result_T result    = writeAll( 0x55, context, outtext );
+            if ( result == Command::eSUCCESS )
+            {
+                result = readAll( 0x55, context, outtext );
+                unsigned long     endTime   = Cpl::System::ElapsedTime::milliseconds();
+                if ( result == Command::eSUCCESS )
+                {
+                    outtext.format( "Test '55' completed. Duration = %lu ms", endTime - startTime );
+                    io &= context.writeFrame( outtext );
+                    return io ? Command::eSUCCESS : Command::eERROR_IO;
+                }
+            }
+            return result;
+        }
+
+        // Write 0xAA
+        if ( strcmp( tokens.getParameter( 2 ), "AA" ) == 0 || strcmp( tokens.getParameter( 2 ), "aa" ) == 0 )
+        {
+            unsigned long     startTime = Cpl::System::ElapsedTime::milliseconds();
+            Command::Result_T result    = writeAll( 0xAA, context, outtext );
+            if ( result == Command::eSUCCESS )
+            {
+                result = readAll( 0xAA, context, outtext );
+                unsigned long     endTime   = Cpl::System::ElapsedTime::milliseconds();
+                if ( result == Command::eSUCCESS )
+                {
+                    outtext.format( "Test 'AA' completed. Duration = %lu ms", endTime - startTime );
+                    io &= context.writeFrame( outtext );
+                    return io ? Command::eSUCCESS : Command::eERROR_IO;
+                }
+            }
+            return result;
         }
     }
 
     // If I get here -->the argument(s) where bad
     return Cpl::TShell::Command::eERROR_INVALID_ARGS;
+}
+
+Cpl::TShell::Command::Result_T Cmd::writeAll( uint8_t value, Cpl::TShell::Context_& context, Cpl::Text::String& outtext )
+{
+    // Get a work buffer
+    int   bufLen;
+    char* tmpBuf = context.getTokenBuffer().getBuffer( bufLen );
+    memset( tmpBuf, value, bufLen );
+
+    // Write the entire storage
+    unsigned      bytesRemaining = m_nvDriver.getTotalSize();
+    unsigned      offset         = 0;
+    while ( bytesRemaining )
+    {
+        size_t bytesToWrite = bytesRemaining > (unsigned) bufLen ? (unsigned) bufLen : bytesRemaining;
+        if ( !m_nvDriver.write( offset, tmpBuf, bytesToWrite ) )
+        {
+            outtext.format( "Write failed at offset: %lu", offset );
+            context.writeFrame( outtext );
+            return Command::eERROR_FAILED;
+        }
+        bytesRemaining -= bytesToWrite;
+        offset         += bytesToWrite;
+    }
+
+    return Command::eSUCCESS;
+}
+
+Cpl::TShell::Command::Result_T Cmd::readAll( uint8_t expectedVal, Cpl::TShell::Context_& context, Cpl::Text::String& outtext )
+{
+    // Get a work buffer
+    int   bufLen;
+    char* tmpBuf = context.getTokenBuffer().getBuffer( bufLen );
+    int   buf2Len;
+    char* tmpBuf2 = context.getTokenBuffer2().getBuffer( buf2Len );
+    if ( bufLen < buf2Len )
+    {
+        bufLen = buf2Len;
+    }
+    memset( tmpBuf2, expectedVal, buf2Len );
+
+    // Read the entire storage
+    unsigned bytesRemaining = m_nvDriver.getTotalSize();
+    unsigned offset         = 0;
+    while ( bytesRemaining )
+    {
+        size_t bytesToRead = bytesRemaining > (unsigned) bufLen ? (unsigned) bufLen : bytesRemaining;
+        if ( !m_nvDriver.read( offset, tmpBuf, bytesToRead ) )
+        {
+            outtext.format( "Read failed at offset: %lu", offset );
+            context.writeFrame( outtext );
+            return Command::eERROR_FAILED;
+        }
+        if ( memcmp( tmpBuf, tmpBuf2, bytesToRead ) != 0 )
+        {
+            outtext.format( "Failed verify check.  Non '%02X' value at offset: %u, len=%lu", expectedVal, offset, bytesToRead );
+            context.writeFrame( outtext );
+            return Command::eERROR_FAILED;
+        }
+        bytesRemaining -= bytesToRead;
+        offset         += bytesToRead;
+    }
+
+    return Command::eSUCCESS;
 }
