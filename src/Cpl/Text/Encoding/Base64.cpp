@@ -37,7 +37,7 @@ bool Cpl::Text::Encoding::base64Encode( const void *encodedTextSrc,
     {
         return false; /* integer overflow AND/OR insufficient output memory */
     }
-    if ( dstEncodedText == nullptr )
+    if ( dstEncodedText == nullptr || encodedTextSrc == nullptr )
     {
         return false;
     }
@@ -79,7 +79,9 @@ bool Cpl::Text::Encoding::base64Encode( const void *encodedTextSrc,
     }
 
     if ( insertMIMELineFeeds && line_len )
+    {
         *pos++ = '\n';
+    }
 
     *pos = '\0';
     encodedOutputStringLen = pos - (unsigned char*) dstEncodedText;
@@ -111,6 +113,11 @@ bool Cpl::Text::Encoding::base64Decode( const char* encodedTextSrc,
         0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
         0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
         0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80 };
+
+    if ( encodedTextSrc == nullptr || dstBinary == nullptr )
+    {
+        return false;
+    }
 
     // Get a count of valid encoding characters
     size_t count = 0;
