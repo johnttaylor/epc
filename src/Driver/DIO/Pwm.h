@@ -13,6 +13,7 @@
 /** @file */
 
 #include "colony_map.h"
+#include "colony_config.h"
 
 /// Defer the definition of the PWM configuration to the application's 'platform'
 #define DriverDioPwmConfig_T          DriverDioPwmConfig_T_MAP

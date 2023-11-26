@@ -32,7 +32,7 @@ struct DriverButtonPinHalSTM32_T
 {
     GPIO_TypeDef*   port;       //!< Port structure for the Pin
     uint16_t        pin;        //!< Pin number (within the port)
-    bool            activeLow;             //!< Set to true when the pressed state is ACTIVE_LOW; else set to false for ACTIVE_HIGH
+    bool            activeLow;  //!< Set to true when the pressed state is ACTIVE_LOW; else set to false for ACTIVE_HIGH
 
     /// Constructor
     DriverButtonPinHalSTM32_T( GPIO_TypeDef*   portStruct,
