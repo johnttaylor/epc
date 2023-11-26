@@ -60,7 +60,6 @@ void Pwm::stop()
 
 void Pwm::setDutyCycle( size_t logicalDutyCycle )
 {
-
     if ( m_started )
     {
         // The Driver's logical duty-cycle maps the Hardware's duty-cycle range -->So I just need to clamp out-of-range values
