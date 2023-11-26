@@ -11,6 +11,8 @@
 /** @file */
 
 #include "Driver/Button/Hal.h"
+#include "Hal.h"
+
 
 void driverButtonHalSTM32_initialize( Driver_Button_Hal_T buttonHdl )
 {

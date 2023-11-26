@@ -30,8 +30,8 @@
     NOTE: The state of All buttons must ALWAYS be sent.
         
         Example:
-        buttons A up B up X DN Y up     // Only the Y button is pressed
-        buttons A UP B UP X up Y up     // Only the A & B buttons are pressed
+        buttons A up B up X DN Y up     // Only the X button is pressed
+        buttons A DN B DN X up Y up     // Only the A & B buttons are pressed
 
     \endcode
 
