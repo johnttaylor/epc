@@ -87,7 +87,7 @@ public:
             }
         }
 
-        // If I get the button name was found in the List of buttons supplied by the TPipe
+        // If I get the button name was not found in the List of buttons supplied by the TPipe
         return false;
     }
 };
