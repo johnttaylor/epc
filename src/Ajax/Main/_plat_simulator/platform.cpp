@@ -11,7 +11,7 @@
 /** @file */
 
 #include "Ajax/Main/platform.h"
-#include "app_platform.h"
+#include "platform.h"
 #include <stdlib.h>
 
 using namespace Ajax::Main;
@@ -20,28 +20,20 @@ using namespace Ajax::Main;
 void Ajax::Main::platform_initialize0()
 {
     // Platform init...
-
-    appvariant_platform_initialize0();
 }
 
 void Ajax::Main::platform_initializeModelPoints0()
 {
     // Platform init...
-
-    appvariant_platform_initializeModelPoints0();
 }
 
 void Ajax::Main::platform_open0()
 {
     // Platform open...
-
-    appvariant_platform_open0();
 }
 
 void Ajax::Main::platform_close0()
 {
-    appvariant_platform_close0();
- 
     // Platform close...
 }
 

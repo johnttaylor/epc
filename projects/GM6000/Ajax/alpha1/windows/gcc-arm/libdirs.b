@@ -1,6 +1,5 @@
 # target specific stuffs
 src/Ajax/Main/_plat_alpha1
-src/Ajax/Main/_plat_alpha1/_app_platform
 
 # BSP
 src/Cpl/Io/Serial/ST/M32F4
