@@ -4,7 +4,7 @@
 #include "../../../ajax_common_colony_config.h"
 #include "../../../ajax_target_common_colony_config.h"
 #include "../../../../common_colony_config.h"
-#include "../../../../stm32_target_common_colony_config.h"
+#include "../../../../arduino_target_common_colony_config.h"
 
 
 

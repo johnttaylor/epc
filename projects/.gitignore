@@ -6,6 +6,7 @@ _cpp11/
 _win32/
 _win64/
 _stm32/
+_arduino/
 ratt.log*
 eeprom.bin
 

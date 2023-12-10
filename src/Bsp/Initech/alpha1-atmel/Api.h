@@ -159,7 +159,22 @@ void Bsp_beginFileSystem();
 /// Arduino I2C driver instance (alias)
 #define I2C_BUS_DRIVER          Wire
 
+/// 7bit address for the offboard EEPROM
+#define BSP_I2C_ADDRESS_EEPROM      0x50
 
+
+//////////////////////////////////////////////////////////
+/// ARM Specific APIs
+//////////////////////////////////////////////////////////
+
+/// Disable a specific interrupt (with memory barrier protection)
+#define Bsp_NVIC_disableIRQ( irqNum )   do { NVIC_DisableIRQ(irqNum); __DSB(); __ISB(); } while(0)
+
+/// Enable a specific interrupt (with memory barrier protection)
+#define Bsp_NVIC_enableIRQ( irqNum )    do { NVIC_EnableIRQ(irqNum); __DSB(); __ISB(); } while(0)
+
+/// Resets the MCU
+#define Bsp_Api_reset_MCU()             NVIC_SystemReset()
 
 //////////////////////////////////////////////////////////
 /// Generic APIs

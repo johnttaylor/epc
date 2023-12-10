@@ -25,3 +25,4 @@ xsrc/freertos/portable/GCC/ARM_CM4F
 ../../../ajax_target_common_libdirs.b
 ../../../../common_libdirs.b
 ../../../../target_common_libdirs.b
+../../../../stm32_target_common_libdirs.b

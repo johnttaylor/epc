@@ -39,6 +39,11 @@ void Bsp_Api_initialize( void )
 
     // Configure the LEDs as output pins 
     pinMode( OPTION_BSP_DEBUG_LED1_INDEX, OUTPUT );
+
+    // Initialize the MCU's TRNG
+    MCLK->APBCMASK.bit.TRNG_   = 1; // Enable Main Clock (MCLK) for TRNG
+    TRNG->CTRLA.bit.ENABLE     = 1; // Enable TRNG
+    TRNG->INTENSET.bit.DATARDY = 1; // Enable TRNG interrupt when data ready
 }
 
 void Bsp_beginArduinoSerialObject( unsigned long baudrate, uint16_t frameConfig )

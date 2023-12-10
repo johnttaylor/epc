@@ -166,12 +166,12 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     // Create Application thread
     Cpl::System::Thread* appThreadPtr = Cpl::System::Thread::create( g_appMbox, "APP", OPTION_AJAX_MAIN_THREAD_PRIORITY_APPLICATION );
     
-    // Create the UI Thread - and display the splash screen
-    Cpl::System::Thread* uiThreadPtr = Cpl::System::Thread::create( uiMboxServer_, "UI", OPTION_AJAX_MAIN_THREAD_PRIORITY_UI );
-    Driver::PicoDisplay::Api::rgbLED().setOff();
-    Driver::PicoDisplay::Api::rgbLED().setBrightness( 64 );
-    screenMgr_.open( &splashScreen_ );
-    uint32_t uiStartTime = Cpl::System::ElapsedTime::milliseconds();
+    //// Create the UI Thread - and display the splash screen
+    //Cpl::System::Thread* uiThreadPtr = Cpl::System::Thread::create( uiMboxServer_, "UI", OPTION_AJAX_MAIN_THREAD_PRIORITY_UI );
+    //Driver::PicoDisplay::Api::rgbLED().setOff();
+    //Driver::PicoDisplay::Api::rgbLED().setBrightness( 64 );
+    //screenMgr_.open( &splashScreen_ );
+    //uint32_t uiStartTime = Cpl::System::ElapsedTime::milliseconds();
 
     // Create thread for persistent storage
     Cpl::System::Thread* storageThreadPtr = Cpl::System::Thread::create( recordServer_, "NVRAM", OPTION_AJAX_MAIN_THREAD_PRIORITY_STORAGE );
@@ -185,21 +185,21 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     Ajax::Logging::logf( Ajax::Logging::MetricsMsg::POWER_ON, "Boot count = %lu", bootCounter );
     logServer_.open();
     
-    appvariant_open0();
+    //appvariant_open0();
 
-    buttonEvents_.open();
+    //buttonEvents_.open();
 
     // Start the shell
     shell_.launch( infd, outfd );
 
     // Splash screen must stay visible for at least N seconds per the requirements
-    uint32_t now = Cpl::System::ElapsedTime::milliseconds();
-    while ( !Cpl::System::ElapsedTime::expiredMilliseconds( uiStartTime, OPTION_AJAX_MAIN_MIN_SPLASH_TIME_MS, now ) )
-    {
-        Cpl::System::Api::sleep( 50 );
-        now = Cpl::System::ElapsedTime::milliseconds();
-    }
-    appvariant_launchHomeScreen();
+    //uint32_t now = Cpl::System::ElapsedTime::milliseconds();
+    //while ( !Cpl::System::ElapsedTime::expiredMilliseconds( uiStartTime, OPTION_AJAX_MAIN_MIN_SPLASH_TIME_MS, now ) )
+    //{
+    //    Cpl::System::Api::sleep( 50 );
+    //    now = Cpl::System::ElapsedTime::milliseconds();
+    //}
+    //appvariant_launchHomeScreen();
 
      
     /*
@@ -215,9 +215,9 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     Ajax::Logging::logf( Ajax::Logging::MetricsMsg::SHUTDOWN, "Boot count = %lu", bootCounter );
 
     // close() calls are the reverse order of the open() calls
-    buttonEvents_.close();
+    //buttonEvents_.close();
 
-    appvariant_close0();
+    //appvariant_close0();
     
     logServer_.close();
     recordServer_.close();
@@ -227,16 +227,16 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     // DELETE-ME: For testing to see the shutdown screen.
     Cpl::System::Api::sleep( 1000 );
 
-    screenMgr_.close();
+    //screenMgr_.close();
     
     Driver::Crypto::shutdown();
 
     // Delete UI Thread
     recordServer_.pleaseStop();
-    uiMboxServer_.pleaseStop();
+    //uiMboxServer_.pleaseStop();
     g_appMbox.pleaseStop();
     Cpl::System::Api::sleep( 100 ); // Allow time for the thread so self terminate
-    Cpl::System::Thread::destroy( *uiThreadPtr );
+    //Cpl::System::Thread::destroy( *uiThreadPtr );
     Cpl::System::Thread::destroy( *storageThreadPtr );
     Cpl::System::Thread::destroy( *appThreadPtr );
 

@@ -59,8 +59,8 @@
 /// Enable a specific interrupt (with memory barrier protection)
 #define Bsp_NVIC_enableIRQ( irqNum )    do { HAL_NVIC_EnableIRQ(irqNum); __DSB(); __ISB(); } while(0)
 
-/// Resets the MCU
-#define Bsp_Api_reset_MCU()             NVIC_SystemReset()
+/// Resets the MCU (using an D51/Arduino call)
+#define Bsp_Api_reset_MCU()             do { initiateReset( 250 ); while(1); } while(0)  
 
 
 
