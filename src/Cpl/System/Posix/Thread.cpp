@@ -243,13 +243,7 @@ void* Thread::entryPoint( void* data )
 //////////////////////////////
 Cpl::System::Thread& Cpl::System::Thread::getCurrent() noexcept
 {
-    // Trap potential error
-    if ( !keyCreated_ )
-    {
-        Cpl::System::FatalError::logRaw( "Posix::Thread::getCurrent().  Have not yet created 'Tls Index'." );
-    }
-
-    Thread* curThread = (Thread*) pthread_getspecific( tsdKey_ );
+    Thread* curThread = tryGetCurrent();
 
     // Trap potential error
     if ( !curThread )
@@ -259,6 +253,18 @@ Cpl::System::Thread& Cpl::System::Thread::getCurrent() noexcept
 
     return *curThread;
 }
+
+Cpl::System::Thread* Cpl::System::Thread::tryGetCurrent() noexcept
+{
+    // Trap potential error
+    if ( !keyCreated_ )
+    {
+        Cpl::System::FatalError::logRaw( "Posix::Thread::tryGetCurrent().  Have not yet created 'Tls Index'." );
+    }
+
+    return (Thread*) pthread_getspecific( tsdKey_ );
+}
+
 
 
 void Cpl::System::Thread::wait() noexcept

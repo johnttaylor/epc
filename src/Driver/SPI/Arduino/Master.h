@@ -15,7 +15,7 @@
 
 #include "Driver/SPI/Master.h"
 #include "Bsp/Api.h"    // Pull's in the (core) Arduino APIs
-#include "SPI.h"
+#include "SPI.h"        // Arduino SPI module
 #include <stdint.h>
 
 /** Maximum buffer size for an output only transfer.  The buffer 
@@ -71,8 +71,7 @@ public:
     /** Constructor.
      */
     Master( SPIClass&   spiInstance,
-            SPIConfig_T spiConfig,
-            uint32_t    timeoutMs = 50 );    // Default timeout is 50ms
+            SPIConfig_T spiConfig ); 
 
 
 public:
@@ -94,9 +93,6 @@ protected:
 
     /// Handle the SPI configuration
     SPIConfig_T m_spiConfig;
-
-    /// Timeout period for a SPI transaction
-    uintptr_t   m_timeout;
 
     /// Track my started state
     bool        m_started;

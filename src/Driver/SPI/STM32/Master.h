@@ -15,6 +15,7 @@
 
 #include "Driver/SPI/Master.h"
 #include "Bsp/Api.h"    // Pull's in the ST HAL APIs
+#include <stdint.h>
 
 ///
 namespace Driver {
@@ -61,7 +62,7 @@ protected:
     SPI_HandleTypeDef*  m_spiDevice;
 
     /// Timeout period for a SPI transaction
-    uintptr_t           m_timeout;
+    uint32_t            m_timeout;
 
     /// Track my started state
     bool                m_started;

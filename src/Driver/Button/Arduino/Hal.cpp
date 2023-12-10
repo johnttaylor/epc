@@ -11,6 +11,7 @@
 /** @file */
 
 #include "Driver/Button/Hal.h"
+#include "Hal.h"
 #include <stdint.h>
 
 void driverButtonHalArduino_initialize( DriverButtonPinHalArduino_T buttonHdl )

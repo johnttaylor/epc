@@ -21,11 +21,9 @@ using namespace Driver::SPI::Arduino;
 
 //////////////////////////////////////////////////////////////////////////////
 Master::Master( SPIClass&   spiInstance,
-                SPIConfig_T spiConfig,
-                uint32_t    timeoutMs )
+                SPIConfig_T spiConfig )
     : m_spiDevice( spiInstance )
     , m_spiConfig( spiConfig )
-    , m_timeout( timeoutMs )
 {
 }
 

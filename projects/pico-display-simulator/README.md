@@ -1,11 +1,11 @@
-# GUI for the Pico-Sketch Simulator
+# GUI for the Pico-Display Simulator
 
 This Visual Studio C# Solution is used to build the Windows executable that 
-provides the simulated Display, RGB LED, and buttons for the Pico-Sketch application.
+provides the simulated Display, RGB LED, and buttons.
 
-The executable communicates with the Pico-Sketch application via TCP sockets.
+The executable communicates with a console application via TCP sockets.
 The executable is a _listener_ on port `5010`.  The GUI application must be
-launch prior to running the simulated Pico-Sketch console application.
+launch prior to running the GM6000 simulator console application.
 
 #### Keys
 The GUI has 4 button boxes/widgets - one for each physical key.  The application
