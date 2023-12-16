@@ -14,7 +14,9 @@
 #include <stdint.h>
 
 
-#define ARDUINO_MAX_DUTY_CYCLE      255
+#ifndef OPTION_DRIVER_DIO_PWM_ARDUINO_MAX_DUTY_CYCLE      
+#define OPTION_DRIVER_DIO_PWM_ARDUINO_MAX_DUTY_CYCLE      255
+#endif
 
 using namespace Driver::DIO;
 
@@ -32,7 +34,6 @@ bool Pwm::start( size_t initialLogicalDutyCycle )
     {
         m_started = true;
         setDutyCycle( initialLogicalDutyCycle );
-        return true;
     }
 
     return true;
@@ -48,19 +49,29 @@ void Pwm::stop()
     }
 }
 
-
 void Pwm::setDutyCycle( size_t logicalDutyCycle )
 {
     if ( m_started )
     {
         // Scale the logical duty-cycle to the hardware range
-        size_t dutyCycle = logicalDutyCycle / (ARDUINO_MAX_DUTY_CYCLE + 1);
-        if ( dutyCycle > ARDUINO_MAX_DUTY_CYCLE )
+        size_t dutyCycle = (logicalDutyCycle  * (OPTION_DRIVER_DIO_PWM_ARDUINO_MAX_DUTY_CYCLE +1)) / (OPTION_DRIVER_DIO_PWM_MAX_DUTY_CYCLE_VALUE + 1);
+        if ( dutyCycle >= OPTION_DRIVER_DIO_PWM_ARDUINO_MAX_DUTY_CYCLE )
         {
-            dutyCycle = ARDUINO_MAX_DUTY_CYCLE;
+            // At max duty cycle 'force' the output high 
+            // Note: Since I am relying on the Arduino framework - I don't have detailed
+            //       knowledge/control of the PWM/Timer peripheral, so we brute force 
+            //       the edge cases to ensure all on/off at the duty cycle boundaries
+            digitalWrite( m_pwm, HIGH );
         }
-
-        // Set the output
-        analogWrite( m_pwm, dutyCycle );
+        else if ( dutyCycle == 0 )
+        {
+            // At min duty cycle 'force' the output low
+            digitalWrite( m_pwm, LOW );
+        }
+        else
+        {
+            // Set the output
+            analogWrite( m_pwm, dutyCycle );
+        }
     }
 }

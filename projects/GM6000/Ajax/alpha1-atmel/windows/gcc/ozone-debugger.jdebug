@@ -22,11 +22,11 @@ void OnProjectLoad (void) {
   //
   // Dialog-generated settings
   //
-  //Project.AddPathSubstitute ("./", "$(ProjectDir)");
-  Project.SetDevice ("ATSAMD51P20");
-  Project.SetHostIF ("USB", "");
+  Project.SetDevice ("ATSAMD51P20A");
+  Project.SetHostIF ("USB", "600107295");
   Project.SetTargetIF ("SWD");
   Project.SetTIFSpeed ("4 MHz");
+  //Project.AddPathSubstitute ("./", "$(ProjectDir)");
   Project.AddSvdFile ("Cortex-M4F.svd");
   Project.SetOSPlugin("FreeRTOSPlugin_CM4");
 

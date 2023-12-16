@@ -84,15 +84,15 @@ void assert_triggered( const char *file, uint32_t line );
 #define configUSE_RECURSIVE_MUTEXES             1
 #define configGENERATE_RUN_TIME_STATS           0
 #define configUSE_16_BIT_TICKS                  0
-//#define configCHECK_FOR_STACK_OVERFLOW          1
-//#define configRECORD_STACK_HIGH_ADDRESS         1
+#define configCHECK_FOR_STACK_OVERFLOW          0
+#define configRECORD_STACK_HIGH_ADDRESS         0
 #define configUSE_MALLOC_FAILED_HOOK            0
 #define configUSE_IDLE_HOOK                     0
 #define configUSE_TICK_HOOK                     0   
 #define configUSE_TICKLESS_IDLE                 0
 #define configUSE_TRACE_FACILITY                1
 #define configUSE_STATS_FORMATTING_FUNCTIONS    1
-#define configUSE_PORT_OPTIMISED_TASK_SELECTION 1
+#define configUSE_PORT_OPTIMISED_TASK_SELECTION 0
 #define configUSE_APPLICATION_TASK_TAG          1
 #define configUSE_CO_ROUTINES                   0
 #define configMAX_CO_ROUTINE_PRIORITIES         (2)
@@ -101,7 +101,7 @@ void assert_triggered( const char *file, uint32_t line );
 #define configTIMER_TASK_PRIORITY               (2)
 #define configTIMER_QUEUE_LENGTH                2
 #define configTIMER_TASK_STACK_DEPTH            (64)
-#define configPRIO_BITS                         4
+#define configPRIO_BITS                         3
 #define configMAX_TASK_NAME_LEN                 (16)
 #define configIDLE_SHOULD_YIELD                 1
 #define configQUEUE_REGISTRY_SIZE               0
@@ -146,13 +146,13 @@ extern uint32_t vGetRunTimeCounterValue( void );
 
 /* The lowest interrupt priority that can be used in a call to a "set priority"
 function. */
-#define configLIBRARY_LOWEST_INTERRUPT_PRIORITY     15 
+#define configLIBRARY_LOWEST_INTERRUPT_PRIORITY 0x07
 
 /* The highest interrupt priority that can be used by any interrupt service
 routine that makes calls to interrupt safe FreeRTOS API functions.  DO NOT CALL
 INTERRUPT SAFE FREERTOS API FUNCTIONS FROM ANY INTERRUPT THAT HAS A HIGHER
 PRIORITY THAN THIS! (higher priorities are lower numeric values. */
-#define configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY 5
+#define configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY 4
 
 /* Interrupt priorities used by the kernel port layer itself.  These are generic
 to all Cortex-M ports, and do not rely on any particular library functions. */

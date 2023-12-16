@@ -20,6 +20,7 @@
 
 #define ARDUINO_MAIN
 #include "Arduino.h"
+#include "Cpl/System/Thread.h"
 #include "FreeRTOS.h"
 #include "task.h"
 #include <ios>
