@@ -41,7 +41,7 @@ static Driver::LED::Pimoroni::RedGreenBlue rgbLEDDriver_( pwmLedRDriver_,
 static Driver::DIO::Out              csDriver_( OPTION_DRIVER_PICO_DISPLAY_ARDUINO_SPI_CS_PIN, false );
 static Driver::DIO::Out              dcDriver_( OPTION_DRIVER_PICO_DISPLAY_ARDUINO_SPI_DC_PIN, false );
 static Driver::DIO::Pwm              pwmDriver_( OPTION_DRIVER_PICO_DISPLAY_ARDUINO_BACKLIGHT_PWM );
-static Driver::SPI::Arduino::Master::SPIConfig_T cfg_( 8000000, MSBFIRST, SPI_MODE3 );
+static Driver::SPI::Arduino::Master::SPIConfig_T cfg_( 1000000, MSBFIRST, SPI_MODE3 );
 static Driver::SPI::Arduino::Master              spiDriver_( OPTION_DRIVER_PICO_DISPLAY_ARDUINO_SPI_BUS, cfg_ );
 
 

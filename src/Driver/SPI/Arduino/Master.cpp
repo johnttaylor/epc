@@ -79,8 +79,7 @@ bool Master::transfer( size_t      numBytes,
         {
             // NOTE: Since it is possible that 'srcData' points to read-only 
             //       data (e.g. a buffer in flash memory), but the Arduino SPI 
-            //       API requires a writable buffer - we create a temporary 
-            //       writable buffer on the stack.
+            //       API requires a writable buffer 
             
             // Fail transaction if there is not sufficient buffer space
             if ( numBytes > OPTION_DRIVER_SPI_ARDUINO_OUTPUT_ONLY_BUF_SIZE )
@@ -89,9 +88,8 @@ bool Master::transfer( size_t      numBytes,
                 return false;
             }
 
-            uint8_t buf[OPTION_DRIVER_SPI_ARDUINO_OUTPUT_ONLY_BUF_SIZE];
-            memcpy( buf, srcData, numBytes );
-            m_spiDevice.transfer( buf, numBytes );
+            memcpy( m_buf, srcData, numBytes );
+            m_spiDevice.transfer( m_buf, numBytes );
         }
         return true;
     }

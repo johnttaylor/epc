@@ -94,6 +94,9 @@ protected:
     /// Handle the SPI configuration
     SPIConfig_T m_spiConfig;
 
+    /// Temporary buffer need to performing transfer since the Arduino SPI interface uses a single buffer for writing/reading data
+    uint8_t     m_buf[OPTION_DRIVER_SPI_ARDUINO_OUTPUT_ONLY_BUF_SIZE];
+
     /// Track my started state
     bool        m_started;
 };
