@@ -58,7 +58,7 @@ void Api::request( OpenMsg& msg )
 
     if ( m_opened )
     {
-        Ajax::Logging::logf( Ajax::Logging::WarningMsg::OPEN_CLOSE, "open: Ajax::ScreenMgr::Api");
+        Ajax::Logging::logf( Ajax::Logging::WarningMsg::OPEN_CLOSE, "open: Ajax::ScreenMgr::Api" );
         msg.returnToSender();
         return;
     }
@@ -189,15 +189,20 @@ void Api::sleepRequestMp_changed( Cpl::Dm::Mp::Bool& mp, Cpl::Dm::SubscriberApi&
     bool sleepRequest;
     if ( mp.readAndSync( sleepRequest, clientObserver ) && m_curScreenHdl != nullptr )
     {
+        Cpl::System::ElapsedTime::Precision_T now = Cpl::System::ElapsedTime::precision();
+
         if ( sleepRequest )
         {
             if ( !m_display.turnOff() )
             {
                 Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "PicoDisplay turnOff() failed" );
             }
+            m_curScreenHdl->sleep( now );
         }
         else
         {
+            m_curScreenHdl->wake( now );
+            m_curScreenHdl->refresh( now );
             if ( !m_display.turnOn() )
             {
                 Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "PicoDisplay turnOn() failed" );

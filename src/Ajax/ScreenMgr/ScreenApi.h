@@ -41,13 +41,13 @@ public:
 
 public:
     /** This method is used to inform the active screen that the display has
-        been 'turned off'.  When the screen is over - no content is visible to
+        been 'turned off'.  When the screen is off - no content is visible to
         user.  The actual state of the display RAM is indeterminate
      */
     virtual void sleep( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept = 0;
 
-    /** This method is used to inform the active screen that the display has 
-        been turned back on.  The Screen Manager is responsible for triggering
+    /** This method is used to inform the active screen that the display is about 
+        to be turned back on.  The Screen Manager is responsible for triggering
         a refresh() call if the display RAM needs to be updated.
      */
     virtual void wake( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept = 0;
