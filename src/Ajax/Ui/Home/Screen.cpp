@@ -17,8 +17,10 @@
 
 #define SECT_   "Ajax::Ui::Home"
 
+
 using namespace Ajax::Ui::Home;
 
+#define ONE_PERCENT_PWM             ((0xFFFF/100) + 1)
 
 #define TEXT_HEIGHT                 18
 
@@ -26,7 +28,6 @@ using namespace Ajax::Ui::Home;
 #define COLUMN1_X0                  (COLUMN0_X0+50+8)
 #define COLUMN2_X0                  (COLUMN1_X0+50+8)
 #define COLUMN3_X0                  (COLUMN2_X0+50+8)
-
 
 #define ROW0_Y0                     (TEXT_HEIGHT/2)
 #define ROW1_Y0                     (ROW0_Y0+ROW_HEIGHT)
@@ -48,6 +49,8 @@ Screen::Screen( Ajax::ScreenMgr::Navigation&  screenMgr,
     , m_graphics( graphics )
     , m_mpIdt( mpSpaceTemperature )
     , m_obHeatMode( *((Cpl::Dm::EventLoop*) &myMbox), *this, &Screen::heatingModeChanged )
+    , m_obFanMode( *((Cpl::Dm::EventLoop*) &myMbox), *this, &Screen::fanModeChanged )
+    , m_obSetpoint( *((Cpl::Dm::EventLoop*) &myMbox), *this, &Screen::setpointChanged )
 {
 }
 
@@ -56,7 +59,25 @@ void Screen::heatingModeChanged( Cpl::Dm::Mp::Bool& mp, Cpl::Dm::SubscriberApi& 
 {
     if ( !mp.isNotValidAndSync( clientObserver ) )
     {
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("hmode changed") );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("heat mode changed") );
+        m_stale = true;
+    }
+}
+
+void Screen::fanModeChanged( Ajax::Dm::MpFanMode& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept
+{
+    if ( !mp.isNotValidAndSync( clientObserver ) )
+    {
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("fan mode changed") );
+        m_stale = true;
+    }
+}
+
+void Screen::setpointChanged( Cpl::Dm::Mp::Int32& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept
+{
+    if ( !mp.isNotValidAndSync( clientObserver ) )
+    {
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("setpoint changed") );
         m_stale = true;
     }
 }
@@ -66,13 +87,16 @@ void Screen::enter( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) n
 {
     m_timerMarker = currentElapsedTime.asMilliseconds();
     m_stale       = false;
-    getDisplayIdt( m_idtInteger, m_idtTenths );
     mp::heatingMode.attach( m_obHeatMode, mp::heatingMode.getSequenceNumber() );    // Subscribe at the current 'value'
+    mp::fanMode.attach( m_obFanMode, mp::fanMode.getSequenceNumber() );
+    mp::heatSetpoint.attach( m_obSetpoint, mp::heatSetpoint.getSequenceNumber() );
 }
 
 void Screen::exit( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
 {
     mp::heatingMode.detach( m_obHeatMode );
+    mp::fanMode.detach( m_obFanMode );
+    mp::heatSetpoint.detach( m_obSetpoint );
 }
 
 void Screen::sleep( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
@@ -89,7 +113,7 @@ void Screen::wake( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) no
 
 void Screen::dispatch( AjaxScreenMgrEvent_T event, Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
 {
-    // TODO - real implementation
+    // TODO - Transition to the Edit screen...
 
     if ( event == AJAX_UI_EVENT_BUTTON_ESC )
     {
@@ -99,29 +123,12 @@ void Screen::dispatch( AjaxScreenMgrEvent_T event, Cpl::System::ElapsedTime::Pre
 
 bool Screen::tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
 {
-    bool prev = m_stale;
-
     // Poll the space temperature and update on change
     uint32_t now = currentElapsedTime.asMilliseconds();
     if ( Cpl::System::ElapsedTime::expiredMilliseconds( m_timerMarker, OPTION_AJAX_UI_HOME_SCREEN_POLLING_MS, now ) )
     {
         m_timerMarker = now;
-        int32_t idtInteger;
-        int32_t idtTenths;
-        if ( getDisplayIdt( idtInteger, idtTenths ) &&
-             (idtInteger != m_idtInteger ||
-               idtTenths != m_idtTenths) )
-        {
-            m_idtInteger = idtInteger;
-            m_idtTenths  = idtTenths;
-            m_stale      = true;
-        }
-    }
-
-    // Check if my content is stale/out-of-date
-    if ( !prev && m_stale )
-    {
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("tick. m_stale transitioned to TRUE") );
+        m_stale       = true;
     }
 
     return m_stale;
@@ -142,7 +149,7 @@ bool Screen::refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime )
     m_graphics.text( "fan:", pimoroni::Point( COLUMN2_X0, ROW0_Y0 ), 240 );
     m_graphics.text( "temp:", pimoroni::Point( COLUMN0_X0, ROW1_Y0 ), 240 );
     m_graphics.text( "temp:", pimoroni::Point( COLUMN2_X0, ROW1_Y0 ), 240 );
-    m_graphics.text( "heater:", pimoroni::Point( COLUMN0_X0, ROW2_Y0 ), 240 );
+    m_graphics.text( "heat:", pimoroni::Point( COLUMN0_X0, ROW2_Y0 ), 240 );
     m_graphics.text( "fan:", pimoroni::Point( COLUMN2_X0, ROW2_Y0 ), 240 );
 
     // Dynamic text: Heating mode
@@ -170,17 +177,60 @@ bool Screen::refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime )
     m_graphics.text( fmodeString, pimoroni::Point( COLUMN3_X0, ROW0_Y0 ), 240 );
 
     // Dynamic text: Space Temperature
-    if ( !m_idtValid )
+    int32_t idtInteger;
+    int32_t idtTenths;
+    if ( !getDisplayIdt(idtInteger, idtTenths) )
     {
         m_graphics.text( "--.-", pimoroni::Point( COLUMN1_X0, ROW1_Y0 ), 240 );
     }
     else
     {
         Cpl::Text::FString<5> tmp;
-        tmp.format( "%02d.%d", m_idtInteger, m_idtTenths );
+        tmp.format( "%02d.%d", idtInteger, idtTenths );
         m_graphics.text( tmp.getString(), pimoroni::Point( COLUMN1_X0, ROW1_Y0 ), 240 );
     }
 
+    // Dynamic text: Setpoint
+    int32_t setpt;
+    if ( !mp::heatSetpoint.read( setpt ) )
+    {
+        m_graphics.text( "--", pimoroni::Point( COLUMN3_X0, ROW1_Y0 ), 240 );
+    }
+    else
+    {
+        Cpl::Text::FString<3> tmp;
+        tmp.format( "%02d", setpt / 100 );
+        m_graphics.text( tmp.getString(), pimoroni::Point( COLUMN3_X0, ROW1_Y0 ), 240 );
+    }
+
+    // Dynamic text: Heater PWM
+    SET_PEN_DYNAMIC_TEXT();
+    uint32_t pwm;
+    if ( !mp::cmdHeaterPWM.read( pwm ) || pwm == 0 )
+    {
+        m_graphics.text( "off", pimoroni::Point( COLUMN1_X0, ROW2_Y0 ), 240 );
+    }
+    else
+    {
+        Cpl::Text::FString<4> tmp;
+        pwm += ONE_PERCENT_PWM / 2; // Round to the nearest 1%
+        tmp.format( "%d%%", pwm / ONE_PERCENT_PWM );
+        m_graphics.text( tmp.getString(), pimoroni::Point( COLUMN1_X0, ROW2_Y0 ), 240 );
+    }
+
+    // Dynamic text: Fan PWM
+    SET_PEN_DYNAMIC_TEXT();
+    if ( !mp::cmdFanPWM.read( pwm ) || pwm == 0 )
+    {
+        m_graphics.text( "off", pimoroni::Point( COLUMN3_X0, ROW2_Y0 ), 240 );
+    }
+    else
+    {
+        Cpl::Text::FString<4> tmp;
+        pwm += ONE_PERCENT_PWM / 2; // Round to the nearest 1%
+        tmp.format( "%d%%", pwm / ONE_PERCENT_PWM );
+        m_graphics.text( tmp.getString(), pimoroni::Point( COLUMN3_X0, ROW2_Y0 ), 240 );
+    }
 
     m_stale = false;
     return true;
@@ -195,11 +245,8 @@ bool Screen::getDisplayIdt( int32_t& dstInteger, int32_t& dstFractional ) noexce
         idt += 5;   // Round 'hundredths' of degree to 'tenths'
         dstFractional = (idt % 100) / 10;
         dstInteger    = idt / 100;
-        m_idtValid    = true;
+        return true;
     }
-    else
-    {
-        m_idtValid = false;
-    }
-    return m_idtValid;
+
+    return false;
 }

@@ -40,13 +40,14 @@ public:
     bool start() noexcept
     {
         // The driver is required to be initialized by the application prior to starting the UI sub-system
+        turnOn();
         return true;
     }
     
     /// See Ajax::ScreenMsg::DisplayApi
     void stop() noexcept
     {
-        // Do nothing - Driver does not support stop/shutdown
+        turnOff();
     }
     
     /// See Ajax::ScreenMsg::DisplayApi
@@ -59,14 +60,14 @@ public:
     /// See Ajax::ScreenMsg::DisplayApi
     bool turnOff() noexcept
     {
-        // Do nothing - NOT support by the driver
+        Driver::PicoDisplay::Api::setLCDBrightness( 0 ); // Not really turning of the display - but the user doesn't know the difference
         return true;
     }
     
     /// See Ajax::ScreenMsg::DisplayApi
     bool turnOn() noexcept
     {
-        // Do nothing - NOT support by the driver
+        Driver::PicoDisplay::Api::setLCDBrightness( 255 ); 
         return true;
     }
 

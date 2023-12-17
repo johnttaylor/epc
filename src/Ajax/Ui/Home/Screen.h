@@ -16,11 +16,13 @@
 #include "Ajax/ScreenMgr/ScreenApi.h"
 #include "Ajax/ScreenMgr/Api.h"
 #include "Cpl/Dm/Mp/Int32.h"
+#include "Cpl/Dm/Mp/Bool.h"
 #include "Cpl/Dm/SubscriberComposer.h"
+#include "Ajax/Dm/MpFanMode.h"
 
 /// Polling rate, in milliseconds, for sampling the space temperature
 #ifndef OPTION_AJAX_UI_HOME_SCREEN_POLLING_MS
-#define OPTION_AJAX_UI_HOME_SCREEN_POLLING_MS       1000     // 1 second
+#define OPTION_AJAX_UI_HOME_SCREEN_POLLING_MS       2000     // 2 second
 #endif
 
 
@@ -72,6 +74,12 @@ protected:
     /// Change notification
     void heatingModeChanged( Cpl::Dm::Mp::Bool& mpThatChanged, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
 
+    /// Change notification
+    void fanModeChanged( Ajax::Dm::MpFanMode& mpThatChanged, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
+
+    /// Change notification
+    void setpointChanged( Cpl::Dm::Mp::Int32& mpThatChanged, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
+
 protected:
     /// Helper method to get and break down the current IDT into integer and fractional components
     bool getDisplayIdt( int32_t& dstInteger, int32_t& dstFractional ) noexcept;
@@ -89,20 +97,17 @@ protected:
     /// Subscriber heating mode
     Cpl::Dm::SubscriberComposer<Screen, Cpl::Dm::Mp::Bool> m_obHeatMode;
 
+    /// Subscriber fan mode
+    Cpl::Dm::SubscriberComposer<Screen, Ajax::Dm::MpFanMode> m_obFanMode;
+
+    /// Subscriber setpoint
+    Cpl::Dm::SubscriberComposer<Screen, Cpl::Dm::Mp::Int32> m_obSetpoint;
+
     /// Current space temperature
     int32_t                         m_currentIdt;
 
     /// Time marker used to trigger 1second polling of the space temperature
     uint32_t                        m_timerMarker;
-
-    /// Fractional portion of the current space temperature
-    int32_t                         m_idtTenths;
-
-    /// Integer portion of the space temperature
-    int32_t                         m_idtInteger;
-
-    /// Is the current IDT valid?
-    bool                            m_idtValid;
 
     /// Dirty flag (i.e. need the screen manager to call refresh())
     bool                            m_stale;

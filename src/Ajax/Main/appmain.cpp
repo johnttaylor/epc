@@ -162,26 +162,30 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     appvariant_initialize0();
     Driver::Crypto::initialize();
 
+    // Turn off the RGB LED (and set the default brightness)
+    Driver::PicoDisplay::Api::setLCDBrightness( 0 );
+    Driver::PicoDisplay::Api::rgbLED().setOff();
+    Driver::PicoDisplay::Api::rgbLED().setBrightness( 65 );
+
     platform_initializeModelPoints0();
     appvariant_initializeModelPoints0();
 
-    // Create Application thread
-    Cpl::System::Thread* appThreadPtr = Cpl::System::Thread::create( g_appMbox, "APP", OPTION_AJAX_MAIN_THREAD_PRIORITY_APPLICATION );
+    // Create Threads
+    Cpl::System::Thread* appThreadPtr     = Cpl::System::Thread::create( g_appMbox, "APP", OPTION_AJAX_MAIN_THREAD_PRIORITY_APPLICATION );
+    Cpl::System::Thread* uiThreadPtr      = Cpl::System::Thread::create( g_uiMbox, "UI", OPTION_AJAX_MAIN_THREAD_PRIORITY_UI );
+    Cpl::System::Thread* storageThreadPtr = Cpl::System::Thread::create( recordServer_, "NVRAM", OPTION_AJAX_MAIN_THREAD_PRIORITY_STORAGE );
 
-    // Create the UI Thread - and display the splash screen
-    Cpl::System::Thread* uiThreadPtr = Cpl::System::Thread::create( g_uiMbox, "UI", OPTION_AJAX_MAIN_THREAD_PRIORITY_UI );
-    Driver::PicoDisplay::Api::rgbLED().setOff();
-    Driver::PicoDisplay::Api::rgbLED().setBrightness( 255 );
+    recordServer_.open();               // Start the Persistent server as soon as possible AND before the splash screen
+    metricsRec_.flush( recordServer_ ); // Immediate flush the metrics record so the new boot counter value is updated (see MetricsRecord for where the counter gets incremented)
+
+    // Display the splash screen
     screenMgr_.open( &splashScreen_ );
     uint32_t uiStartTime = Cpl::System::ElapsedTime::milliseconds();
 
-    // Create thread for persistent storage
-    Cpl::System::Thread* storageThreadPtr = Cpl::System::Thread::create( recordServer_, "NVRAM", OPTION_AJAX_MAIN_THREAD_PRIORITY_STORAGE );
 
+    // Complete "starting" the application
     platform_open0();
 
-    recordServer_.open();               // Start Persistent server as soon as possible
-    metricsRec_.flush( recordServer_ ); // Immediate flush the metrics record so the new boot counter value is updated (see MetricsRecord for where the counter gets incremented)
     uint32_t bootCounter;
     mp::metricBootCounter.read( bootCounter );
     Ajax::Logging::logf( Ajax::Logging::MetricsMsg::POWER_ON, "Boot count = %lu", bootCounter );
@@ -222,14 +226,14 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     appvariant_close0();
 
     logServer_.close();
-    recordServer_.close();
 
     platform_close0();
 
     // DELETE-ME: For testing to see the shutdown screen.
     Cpl::System::Api::sleep( 1000 );
 
-    //screenMgr_.close();
+    recordServer_.close();
+    screenMgr_.close();
 
     Driver::Crypto::shutdown();
 
