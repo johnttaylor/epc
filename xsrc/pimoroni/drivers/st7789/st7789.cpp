@@ -123,12 +123,12 @@ void ST7789::configure_display( Rotation rotate ) {
 
     // 240x240 Square and Round LCD Breakouts
     if ( width == 240 && height == 240 ) {
-        int row_offset = round ? 40 : 80;
+        int row_offset = m_round ? 40 : 80;
         int col_offset = 0;
 
         switch ( rotate ) {
         case ROTATE_90:
-            if ( !round ) row_offset = 0;
+            if ( !m_round ) row_offset = 0;
             caset[0] = row_offset;
             caset[1] = width + row_offset - 1;
             raset[0] = col_offset;
@@ -153,7 +153,7 @@ void ST7789::configure_display( Rotation rotate ) {
             madctl = MADCTL::ROW_ORDER | MADCTL::SWAP_XY;
             break;
         default: // ROTATE_0 (and for any smart-alec who tries to rotate 45 degrees or something...)
-            if ( !round ) row_offset = 0;
+            if ( !m_round ) row_offset = 0;
             caset[0] = col_offset;
             caset[1] = width + col_offset - 1;
             raset[0] = row_offset;

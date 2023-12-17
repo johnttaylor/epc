@@ -10,7 +10,7 @@
 
 extern Cpl::Io::InputOutput& Bsp_Serial( void );
 
-static Driver::DIO::Out  uutOut_( PIN_DC_LCD, true );
+static Driver::DIO::Out  uutOut_( PIN_LCD_DC, true );
 static Driver::DIO::Pwm  uutPwm_( PIN_PWM_LCD_BACKLIGHT );
 
 // the setup function runs once when you press reset or power the board

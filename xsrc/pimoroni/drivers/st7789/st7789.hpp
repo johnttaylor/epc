@@ -18,7 +18,7 @@ namespace pimoroni {
 class ST7789 : public DisplayDriver {
 
 public:
-    bool round;
+    bool m_round;  // Name change -->was 'round' -->naming collision with an Arduino #define round(x) macro
 
     //--------------------------------------------------
     // Variables
@@ -45,13 +45,13 @@ public:
     ST7789( uint16_t             width,
             uint16_t             height,
             Rotation             rotation,
-            bool                 round,
+            bool                 m_round,
             Driver::SPI::Master& spiDriver,
             Driver::DIO::Out&    csDriver,
             Driver::DIO::Out&    dcDriver,
             Driver::DIO::Pwm&    blDriver )
         : DisplayDriver( width, height, rotation )
-        , round( round )
+        , m_round( m_round )
         , spi( spiDriver )
         , cs( csDriver )
         , dc( dcDriver )

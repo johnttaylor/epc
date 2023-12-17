@@ -9,6 +9,7 @@
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
 /** @file */
+#define SECT_   "INFO"
 
 #include "appmain.h"
 #include "platform.h"
@@ -165,11 +166,11 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
 
     // Create Application thread
     Cpl::System::Thread* appThreadPtr = Cpl::System::Thread::create( g_appMbox, "APP", OPTION_AJAX_MAIN_THREAD_PRIORITY_APPLICATION );
-    
+
     // Create the UI Thread - and display the splash screen
     Cpl::System::Thread* uiThreadPtr = Cpl::System::Thread::create( uiMboxServer_, "UI", OPTION_AJAX_MAIN_THREAD_PRIORITY_UI );
     Driver::PicoDisplay::Api::rgbLED().setOff();
-    Driver::PicoDisplay::Api::rgbLED().setBrightness( 64 );
+    Driver::PicoDisplay::Api::rgbLED().setBrightness( 255 );
     screenMgr_.open( &splashScreen_ );
     uint32_t uiStartTime = Cpl::System::ElapsedTime::milliseconds();
 
@@ -184,7 +185,7 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     mp::metricBootCounter.read( bootCounter );
     Ajax::Logging::logf( Ajax::Logging::MetricsMsg::POWER_ON, "Boot count = %lu", bootCounter );
     logServer_.open();
-    
+
     appvariant_open0();
 
     buttonEvents_.open();
@@ -201,7 +202,7 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     }
     appvariant_launchHomeScreen();
 
-     
+
     /*
     ** RUNNING...
     */
@@ -218,17 +219,17 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     buttonEvents_.close();
 
     appvariant_close0();
-    
+
     logServer_.close();
     recordServer_.close();
-    
+
     platform_close0();
 
     // DELETE-ME: For testing to see the shutdown screen.
     Cpl::System::Api::sleep( 1000 );
 
-    screenMgr_.close();
-    
+    //screenMgr_.close();
+
     Driver::Crypto::shutdown();
 
     // Delete UI Thread
@@ -266,12 +267,11 @@ int Cpl::System::Shutdown::failure( int exit_code )
     return exit_code;
 }
 
-#define SECT_   "INFO"
 
 void displayRecordSizes()
 {
-    CPL_SYSTEM_TRACE_MSG( SECT_, ("User Record size:        %lu (%lu) ", userRec_.getRecordSize(), userRec_.getRecordSize()+ chunkUserRec_.getMetadataLength()) );
+    CPL_SYSTEM_TRACE_MSG( SECT_, ("User Record size:        %lu (%lu) ", userRec_.getRecordSize(), userRec_.getRecordSize() + chunkUserRec_.getMetadataLength()) );
     CPL_SYSTEM_TRACE_MSG( SECT_, ("Metrics Record size:     %lu (%lu) ", metricsRec_.getRecordSize(), metricsRec_.getRecordSize() + chunkMetricsRec_.getMetadataLength()) );
     CPL_SYSTEM_TRACE_MSG( SECT_, ("Personality Record size: %lu (%lu) ", personalityRec_.getRecordSize(), personalityRec_.getRecordSize() + chunkPersonalityRec_.getMetadataLength()) );
-    CPL_SYSTEM_TRACE_MSG( SECT_, ("Log Entry size:          %lu", logEntryRecord_.getMetadataLength()+ Cpl::Logging::EntryData_T::entryLen + logEntriesChunk_.getMetadataLength()) );
+    CPL_SYSTEM_TRACE_MSG( SECT_, ("Log Entry size:          %lu", logEntryRecord_.getMetadataLength() + Cpl::Logging::EntryData_T::entryLen + logEntriesChunk_.getMetadataLength()) );
 }

@@ -1,0 +1,36 @@
+#ifndef TARGET_COLONY_CONFIG_H_
+#define TARGET_COLONY_CONFIG_H_
+////////////////////////////////////////////////
+//
+// Common to ALL hardware-based application variants
+//
+////////////////////////////////////////////////
+
+// Enable trace
+#define USE_CPL_SYSTEM_TRACE
+
+// Stack size
+#define OPTION_CPL_SYSTEM_FREERTOS_DEFAULT_STACK_SIZE   (1024*4)
+
+// Thread Priority of the main/start-up thread
+#define OPTION_MAIN_THREAD_PRIORITY     CPL_SYSTEM_THREAD_PRIORITY_HIGHEST
+
+// SPI Buffer size (need to be able to hold a single LCD row worth of data)
+#define OPTION_DRIVER_SPI_ARDUINO_OUTPUT_ONLY_BUF_SIZE      (2*240)
+
+// Define IO for the Pico-Display
+#define OPTION_DRIVER_PICO_DISPLAY_ARDUINO_BUTTON_A_PIN         PIN_BUTTON_A
+#define OPTION_DRIVER_PICO_DISPLAY_ARDUINO_BUTTON_B_PIN         PIN_BUTTON_B
+#define OPTION_DRIVER_PICO_DISPLAY_ARDUINO_BUTTON_X_PIN         PIN_BUTTON_X 
+#define OPTION_DRIVER_PICO_DISPLAY_ARDUINO_BUTTON_Y_PIN         PIN_BUTTON_Y  
+#define OPTION_DRIVER_PICO_DISPLAY_ARDUINO_RGB_RED_PWM          PIN_PWM_LED_RED
+#define OPTION_DRIVER_PICO_DISPLAY_ARDUINO_RGB_GREEN_PWM        PIN_PWM_LED_GREEN
+#define OPTION_DRIVER_PICO_DISPLAY_ARDUINO_RGB_BLUE_PWM         PIN_PWM_LED_BLUE
+#define OPTION_DRIVER_PICO_DISPLAY_ARDUINO_SPI_BUS              LCD_SPI_DRIVER
+#define OPTION_DRIVER_PICO_DISPLAY_ARDUINO_SPI_CS_PIN           PIN_LCD_CS
+#define OPTION_DRIVER_PICO_DISPLAY_ARDUINO_SPI_DC_PIN           PIN_LCD_DC       
+#define OPTION_DRIVER_PICO_DISPLAY_ARDUINO_BACKLIGHT_PWM        PIN_PWM_LCD_BACKLIGHT 
+
+#endif
+
+
