@@ -308,6 +308,18 @@ extern Cpl::Dm::Mp::ArrayUint8<OPTION_AJAX_HASHED_PASSWORD_SALT_SIZE> consolePwd
 */
 extern Cpl::Dm::Mp::Int32   onBoardIdt;
 
+/** This model point holds the current (filtered) temperature value from
+    the wireless/secondary temperature sensor
+
+    \b Units: hundreds of degrees Fahrenheit (75.3'F -->7530)
+
+    \b Range: OPTION_AJAX_MIN_INDOOR_TEMPERATURE_F - OPTION_AJAX_MAX_INDOOR_TEMPERATURE_F
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::Int32   remoteIdt;
+
 /** This model point contains the commanded output PWM value to drive the
     heating capacity.
 

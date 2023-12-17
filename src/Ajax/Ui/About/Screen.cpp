@@ -49,20 +49,19 @@ Screen::Screen( Ajax::ScreenMgr::Navigation&    screenMgr,
 ///////////////////////////
 void Screen::enter( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
 {
-    // TODO
+    // Nothing needed
 }
 void Screen::exit( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
 {
-    // TODO
+    // Nothing needed
 }
 void Screen::sleep( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
 {
-    // TODO
+    // Nothing needed
 }
-
 void Screen::wake( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
 {
-    // TODO
+    // Nothing needed
 }
 
 void Screen::dispatch( AjaxScreenMgrEvent_T event, Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
@@ -73,9 +72,9 @@ void Screen::dispatch( AjaxScreenMgrEvent_T event, Cpl::System::ElapsedTime::Pre
     }
 }
 
-void Screen::tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
+bool Screen::tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
 {
-    // TODO
+    return false;
 }
 
 bool Screen::refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept

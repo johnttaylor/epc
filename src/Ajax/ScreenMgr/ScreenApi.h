@@ -62,8 +62,10 @@ public:
 
         NOTE: A software timer is used, so the accuracy of the callback frequency
               is NOT guaranteed
+
+        Returning true forces a physical display update.
      */
-    virtual void tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept = 0;
+    virtual bool tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept = 0;
 
     /** This method requests the active screen to ensure the its screen contents
         are up to date.  If the screen contents have not changed since the 

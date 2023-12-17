@@ -62,7 +62,7 @@ Driver::Crypto::Hash*               Ajax::Main::g_sha512Ptr = &sha512_;
 
 
 // Graphics library: Use RGB332 mode (256 colours) on the Target to limit RAM usage canvas 
-static Cpl::Dm::MailboxServer                   uiMboxServer_;
+Cpl::Dm::MailboxServer                          Ajax::Main::g_uiMbox;
 pimoroni::PicoGraphics_PenRGB332                Ajax::Main::g_graphics( OPTION_DRIVER_PICO_DISPLAY_LCD_WIDTH, OPTION_DRIVER_PICO_DISPLAY_LCD_HEIGHT, nullptr );
 static Ajax::Ui::PicoDisplay                    uiDisplay_( g_graphics );
 static Ajax::ScreenMgr::Api::NavigationElement  uiMemoryNavStack_[OPTION_AJAX_SCREEN_MGR_NAV_STACK_SIZE];
@@ -70,8 +70,8 @@ static AjaxScreenMgrEvent_T                     memoryForUiEvents_[OPTION_AJAX_S
 static Cpl::Container::RingBufferMP<AjaxScreenMgrEvent_T> uiEventRingBuffer_( sizeof( memoryForUiEvents_ ) / sizeof( AjaxScreenMgrEvent_T ),
                                                                               memoryForUiEvents_,
                                                                               mp::uiEventQueueCount );
-static Ajax::Ui::LogicalButtons        buttonEvents_( uiMboxServer_, uiEventRingBuffer_ );
-static Ajax::ScreenMgr::Api            screenMgr_( uiMboxServer_,
+static Ajax::Ui::LogicalButtons        buttonEvents_( Ajax::Main::g_uiMbox, uiEventRingBuffer_ );
+static Ajax::ScreenMgr::Api            screenMgr_( Ajax::Main::g_uiMbox,
                                                    mp::homeScrPtr,
                                                    mp::errorScrPtr,
                                                    mp::displaySleepTrigger,
@@ -148,6 +148,7 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "EVENT" );
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "INFO" );
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "METRICS" );
+    CPL_SYSTEM_TRACE_ENABLE_SECTION( "*Ajax::Ui" );
 
     /*
     ** STARTING UP...
@@ -168,7 +169,7 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     Cpl::System::Thread* appThreadPtr = Cpl::System::Thread::create( g_appMbox, "APP", OPTION_AJAX_MAIN_THREAD_PRIORITY_APPLICATION );
 
     // Create the UI Thread - and display the splash screen
-    Cpl::System::Thread* uiThreadPtr = Cpl::System::Thread::create( uiMboxServer_, "UI", OPTION_AJAX_MAIN_THREAD_PRIORITY_UI );
+    Cpl::System::Thread* uiThreadPtr = Cpl::System::Thread::create( g_uiMbox, "UI", OPTION_AJAX_MAIN_THREAD_PRIORITY_UI );
     Driver::PicoDisplay::Api::rgbLED().setOff();
     Driver::PicoDisplay::Api::rgbLED().setBrightness( 255 );
     screenMgr_.open( &splashScreen_ );
@@ -234,7 +235,7 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
 
     // Delete UI Thread
     recordServer_.pleaseStop();
-    uiMboxServer_.pleaseStop();
+    g_uiMbox.pleaseStop();
     g_appMbox.pleaseStop();
     Cpl::System::Api::sleep( 100 ); // Allow time for the thread so self terminate
     Cpl::System::Thread::destroy( *uiThreadPtr );

@@ -31,7 +31,7 @@ static Cpl::TShell::Cmd::User userCmd_( g_cmdlist, security_ );
 static Ajax::Heating::Supervisor::Api  heatingAlgo_( g_appMbox );
 
 // Screens...
-Ajax::Ui::Home::Screen  Ajax::Main::g_homeScreen_( Ajax::Main::g_screenNav, g_graphics );
+Ajax::Ui::Home::Screen  Ajax::Main::g_homeScreen_( Ajax::Main::g_screenNav, g_graphics, Ajax::Main::g_uiMbox, mp::onBoardIdt );
 Ajax::Ui::About::Screen Ajax::Main::g_aboutScreen_( Ajax::Main::g_screenNav, g_graphics );
 
 /////////////////////////////

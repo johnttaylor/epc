@@ -262,10 +262,11 @@ void Api::timerExpired( void )
     // Do nothing if the splash/shutdown/error screen is active
     if ( m_curScreenHdl != nullptr )
     {
-        m_curScreenHdl->tick( Cpl::System::ElapsedTime::milliseconds() );
+        bool stale = m_curScreenHdl->tick( Cpl::System::ElapsedTime::milliseconds() );
 
         // Restart the timer - and attempt to be rate monotonic
-        uint32_t now   = Cpl::System::ElapsedTime::milliseconds();
+        Cpl::System::ElapsedTime::Precision_T precNow = Cpl::System::ElapsedTime::milliseconds();
+        uint32_t now   = precNow.asMilliseconds();
         uint32_t delta = now - m_timerMarker;
         if ( delta > OPTION_AJAX_SCREEN_MGR_TICK_TIME_MS )
         {
@@ -281,6 +282,19 @@ void Api::timerExpired( void )
         }
         m_timerMarker = now;
         m_timer.start( OPTION_AJAX_SCREEN_MGR_TICK_TIME_MS - delta );
+
+        if ( stale )
+        {
+            if ( m_curScreenHdl->refresh( precNow ) )
+            {
+                if ( !m_display.update() )
+
+                {
+                    Ajax::Logging::logf( Ajax::Logging::CriticalMsg::UX_ERROR, "tick.m_display.update() failed" );
+                }
+            }
+
+        }
     }
 }
 

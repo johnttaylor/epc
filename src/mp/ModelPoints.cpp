@@ -52,6 +52,7 @@ ALLOC_INVALID( Cpl::Dm::Mp::ArrayUint8<OPTION_AJAX_HASHED_PASSWORD_SIZE>, consol
 ALLOC_INVALID( Cpl::Dm::Mp::ArrayUint8<OPTION_AJAX_HASHED_PASSWORD_SALT_SIZE>, consolePwdSalt );
 
 ALLOC_INVALID( Cpl::Dm::Mp::Int32, onBoardIdt );
+ALLOC_INVALID( Cpl::Dm::Mp::Int32, remoteIdt );
 ALLOC_INVALID( Cpl::Dm::Mp::Uint32, cmdHeaterPWM );
 ALLOC_INVALID( Cpl::Dm::Mp::Uint32, cmdFanPWM );
 ALLOC_INVALID_ALERT( Ajax::Dm::MpAlert, sensorFailAlert, AJAX_ALERT_PRIORITY_SENSOR_FAILED );

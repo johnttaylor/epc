@@ -39,6 +39,7 @@ public:
         , m_refreshCount( 0 )
         , m_lastTimeStamp( { 0,0 } )
         , m_refreshResult( true )
+        , m_tickResult( false )
     {
     }
 
@@ -64,6 +65,8 @@ public:
     Cpl::System::ElapsedTime::Precision_T m_lastTimeStamp;
     /// Return value for refresh
     bool m_refreshResult;
+    /// Return value for tick
+    bool m_tickResult;
 
 public:
     /// See Ajax::ScreenMgr::ScreenApi
@@ -103,10 +106,11 @@ public:
     }
 
     /// See Ajax::ScreenMgr::ScreenApi
-    void tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
+    bool tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
     {
         m_tickCount++;
         m_lastTimeStamp = currentElapsedTime;
+        return m_tickResult;
     }
 
     /// See Ajax::ScreenMgr::ScreenApi

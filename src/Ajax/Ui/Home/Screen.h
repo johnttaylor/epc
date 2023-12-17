@@ -15,13 +15,24 @@
 #include "pimoroni/libraries/pico_graphics/pico_graphics.hpp"
 #include "Ajax/ScreenMgr/ScreenApi.h"
 #include "Ajax/ScreenMgr/Api.h"
+#include "Cpl/Dm/Mp/Int32.h"
+#include "Cpl/Dm/SubscriberComposer.h"
+
+/// Polling rate, in milliseconds, for sampling the space temperature
+#ifndef OPTION_AJAX_UI_HOME_SCREEN_POLLING_MS
+#define OPTION_AJAX_UI_HOME_SCREEN_POLLING_MS       1000     // 1 second
+#endif
+
 
 /// 
-namespace Ajax {
+namespace Ajax
+{
 /// 
-namespace Ui {
+namespace Ui
+{
 /// 
-namespace Home {
+namespace Home
+{
 
 
 /** This class implements the Home screen
@@ -31,7 +42,9 @@ class Screen : public Ajax::ScreenMgr::ScreenApi
 public:
     /// Constructor
     Screen( Ajax::ScreenMgr::Navigation&  screenMgr,
-            pimoroni::PicoGraphics&       graphics );
+            pimoroni::PicoGraphics&       graphics,
+            Cpl::Dm::MailboxServer&       myMbox,
+            Cpl::Dm::Mp::Int32&           mpSpaceTemperature );
 
 public:
     /// See Ajax::ScreenMgr::ScreenApi
@@ -50,10 +63,18 @@ public:
     void dispatch( AjaxScreenMgrEvent_T event, Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept;
 
     /// See Ajax::ScreenMgr::ScreenApi
-    void tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept;
+    bool tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept;
 
     /// See Ajax::ScreenMgr::ScreenApi
     bool refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept;
+
+protected:
+    /// Change notification
+    void heatingModeChanged( Cpl::Dm::Mp::Bool& mpThatChanged, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
+
+protected:
+    /// Helper method to get and break down the current IDT into integer and fractional components
+    bool getDisplayIdt( int32_t& dstInteger, int32_t& dstFractional ) noexcept;
 
 protected:
     /// Handle to the screen manager
@@ -61,6 +82,30 @@ protected:
 
     /// Graphic library handle
     pimoroni::PicoGraphics&         m_graphics;
+
+    /// Current space temperature
+    Cpl::Dm::Mp::Int32&             m_mpIdt;
+
+    /// Subscriber heating mode
+    Cpl::Dm::SubscriberComposer<Screen, Cpl::Dm::Mp::Bool> m_obHeatMode;
+
+    /// Current space temperature
+    int32_t                         m_currentIdt;
+
+    /// Time marker used to trigger 1second polling of the space temperature
+    uint32_t                        m_timerMarker;
+
+    /// Fractional portion of the current space temperature
+    int32_t                         m_idtTenths;
+
+    /// Integer portion of the space temperature
+    int32_t                         m_idtInteger;
+
+    /// Is the current IDT valid?
+    bool                            m_idtValid;
+
+    /// Dirty flag (i.e. need the screen manager to call refresh())
+    bool                            m_stale;
 };
 
 }       // end namespaces
