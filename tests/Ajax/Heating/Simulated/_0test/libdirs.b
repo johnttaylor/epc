@@ -16,7 +16,7 @@ src/Cpl/Dm/TShell
 src/Cpl/TShell
 src/Cpl/Persistent
 src/Cpl/Checksum
-src/Ajax/TShell
+src/Ajax/TShell > Ui.cpp
 src/Ajax/SimHouse
 src/Cpl/Text/Frame
 src/Driver/NV/File/Cpl
