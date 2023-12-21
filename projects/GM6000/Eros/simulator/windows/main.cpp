@@ -24,6 +24,8 @@ R"(Ajax Simulation.
       -v            Be verbose
       --help        Show this screen.
 
+    Note: No 'Display simulation' is required.
+
 )"; 
 
 using namespace Ajax::Main;

@@ -22,7 +22,9 @@ R"(Ajax Simulation.
       -v            Be verbose
       --help        Show this screen.
 
-)"; 
+    Note: No 'Display simulation' is required.
+
+)";
 
 #define SIMULATION_TITLE        "GM6000 - Eros Test App"
 #define TITLE_COMMAND           "00 00:00:00.000 title " SIMULATION_TITLE
