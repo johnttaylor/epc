@@ -7,6 +7,7 @@
 #include "Driver/PicoDisplay/TPipe/Api.h"
 #include "Cpl/Io/Socket/Win32/Connector.h"
 #include "Cpl/Io/Socket/InputOutput.h"
+#include "Cpl/Io/Null.h"
 
 #define SIMULATION_TITLE        "GM6000 - Eros Test App"
 #define TITLE_COMMAND           "00 00:00:00.000 title " SIMULATION_TITLE
@@ -33,6 +34,7 @@ std::map<std::string, docopt::value> Ajax::Main::g_args;
 
 Cpl::Io::Stdio::StdIn   infd_;
 Cpl::Io::Stdio::StdOut  outfd_;
+Cpl::Io::Null           nullFd_;
 
 
 int main( int argc, char* const argv[] )
@@ -45,18 +47,22 @@ int main( int argc, char* const argv[] )
 
     // Platform specific sockets: Connect to the Display simulation
     Cpl::Io::Descriptor                 socketFd;
+    Cpl::Io::Socket::InputOutput        socketStream;
     Cpl::Io::Socket::Win32::Connector   connector;
     if ( connector.establish( g_args["-s"].asString().c_str(), g_args["-p"].asLong(), socketFd ) != Cpl::Io::Socket::Connector::eSUCCESS )
     {
-        printf( "\nERROR. Failed to connected to the Display Simulation. (host=%s, port=%ld).\n",
+        printf( "\nWARNING. Failed to connected to the Display Simulation. (host=%s, port=%ld).\n         Running without Simulated display.\n",
                 g_args["-s"].asString().c_str(),
                 g_args["-p"].asLong() );
-        return 1;
-    }
-    Cpl::Io::Socket::InputOutput socketStream( socketFd );
 
-    // Initializes the simulator's socket connect to the GUI application
-    Driver::PicoDisplay::TPipe::initialize( socketStream, socketStream );
+        Driver::PicoDisplay::TPipe::initialize( nullFd_, nullFd_ );
+    }
+    else
+    {
+        // Initializes the simulator's socket connect to the GUI application
+        socketStream.activate( socketFd );
+        Driver::PicoDisplay::TPipe::initialize( socketStream, socketStream );
+    }
 
     // Set the title for the Simulation window
     Cpl::System::Api::sleep( 100 ); // Allow time for the TPipe thread to spin up

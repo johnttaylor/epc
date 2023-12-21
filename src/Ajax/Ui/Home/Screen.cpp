@@ -113,11 +113,46 @@ void Screen::wake( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) no
 
 void Screen::dispatch( AjaxScreenMgrEvent_T event, Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
 {
-    // TODO - Transition to the Edit screen...
-
-    if ( event == AJAX_UI_EVENT_BUTTON_ESC )
+    switch ( event )
     {
+    case AJAX_UI_EVENT_BUTTON_A:
+    {
+        bool heatMode;
+        if ( mp::heatingMode.read( heatMode ) )
+        {
+            mp::heatingMode.write( !heatMode );
+        }
+    }
+    break;
+
+    case AJAX_UI_EVENT_BUTTON_B:
+        break;
+
+    case AJAX_UI_EVENT_BUTTON_X:
+    {
+        Ajax::Type::FanMode fmod;
+        if ( mp::fanMode.read( fmod ) )
+        {
+            unsigned newMode = fmod + 1;
+            if ( newMode >= Ajax::Type::FanMode::eLAST_MODE )
+            {
+                newMode = 0;
+            }
+            mp::fanMode.write( Ajax::Type::FanMode::_from_integral_unchecked( newMode) );
+        }
+    }
+    break;
+
+    case AJAX_UI_EVENT_BUTTON_Y:
+        // TODO - Transition to the Edit screen...
+        break;
+
+    case AJAX_UI_EVENT_BUTTON_ESC:
         m_screenMgr.push( Ajax::Main::g_aboutScreen_ );
+        break;
+
+    default:
+        break;
     }
 }
 
@@ -179,7 +214,7 @@ bool Screen::refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime )
     // Dynamic text: Space Temperature
     int32_t idtInteger;
     int32_t idtTenths;
-    if ( !getDisplayIdt(idtInteger, idtTenths) )
+    if ( !getDisplayIdt( idtInteger, idtTenths ) )
     {
         m_graphics.text( "--.-", pimoroni::Point( COLUMN1_X0, ROW1_Y0 ), 240 );
     }
@@ -204,7 +239,6 @@ bool Screen::refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime )
     }
 
     // Dynamic text: Heater PWM
-    SET_PEN_DYNAMIC_TEXT();
     uint32_t pwm;
     if ( !mp::cmdHeaterPWM.read( pwm ) || pwm == 0 )
     {
@@ -219,7 +253,6 @@ bool Screen::refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime )
     }
 
     // Dynamic text: Fan PWM
-    SET_PEN_DYNAMIC_TEXT();
     if ( !mp::cmdFanPWM.read( pwm ) || pwm == 0 )
     {
         m_graphics.text( "off", pimoroni::Point( COLUMN3_X0, ROW2_Y0 ), 240 );

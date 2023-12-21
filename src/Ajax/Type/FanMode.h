@@ -27,11 +27,13 @@ namespace Type {
     @param eLOW                             Minimum Fan speed
     @param eMEDIUM                          Medium Fan speed
     @param eHIGH                            Maximum Fan speed
+    @param eLAST_MODE                       Marker for end-of-enum-list
  */
 BETTER_ENUM( FanMode, unsigned
-             , eLOW
+             , eLOW = 0
              , eMEDIUM
              , eHIGH
+             , eLAST_MODE  
 );
 
 };      // end namespaces

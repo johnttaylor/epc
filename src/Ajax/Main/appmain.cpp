@@ -35,6 +35,7 @@
 #include "Ajax/Ui/LogicalButtons.h"
 #include "Ajax/Logging/Api.h"
 #include "Ajax/TShell/Provision.h"
+#include "Ajax/TShell/Ui.h"
 #include "Cpl/Logging/Api.h"
 #include "Cpl/Persistent/NVAdapter.h"
 #include "Cpl/Persistent/MirroredChunk.h"
@@ -127,6 +128,7 @@ static Cpl::TShell::Cmd::TPrint	             tprintCmd_( g_cmdlist );
 static Cpl::Dm::TShell::Dm	                 dmCmd_( g_cmdlist, mp::g_modelDatabase );
 static Cpl::Logging::TShell::Log             logCmd_( g_cmdlist, recordServer_, logServer_ );
 static Driver::Crypto::TShell::Random        randomCmd_( g_cmdlist );
+static Ajax::TShell::Ui                      uiEventCmd_( g_cmdlist, uiEventRingBuffer_ );
 
 // Only include the Provision command in Ajax Debug build AND ALL Eros builds
 #if defined(DEBUG_BUILD) || defined(I_AM_EROS)
