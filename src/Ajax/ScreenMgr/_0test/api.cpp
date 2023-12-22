@@ -157,7 +157,7 @@ TEST_CASE( "api" )
         REQUIRE( homeScreen.m_exitCount == 0 );
         REQUIRE( homeScreen.m_tickCount > 2 );
         REQUIRE( homeScreen.m_wakeCount == 0 );
-        REQUIRE( homeScreen.m_sleepCount == 0 );
+        REQUIRE( homeScreen.m_sleepCount == 1 );
         REQUIRE( homeScreen.m_dispatchCount == 1 );
         REQUIRE( homeScreen.m_lastEvent == 42 );
         REQUIRE( uut.getCurrentScreen() == &homeScreen );
@@ -174,6 +174,45 @@ TEST_CASE( "api" )
         REQUIRE( homeScreen.m_dispatchCount == 1 );
         REQUIRE( orangeScreen.m_lastEvent == 7 );
         REQUIRE( orangeScreen.m_dispatchCount == 3 );
+
+        // Close
+        uut.close();
+    }
+
+    SECTION( "tick" )
+    {
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("SECTION: tick") );
+
+        // Wait for the UI/Test thread to actual start
+        semaUi_.wait();
+
+        // Splash
+        uut.open( &splashScreen );
+        REQUIRE( mockDisplay.m_startCount == 1 );
+        REQUIRE( mockDisplay.m_updateCount == 1 );
+        REQUIRE( mockDisplay.m_turnOffCount == 0 );
+        REQUIRE( mockDisplay.m_turnOnCount == 0 );
+
+        // Transition to home screen
+        mp_homeScrPtr.write( &homeScreen );
+        Cpl::System::Api::sleep( 300 ); // Allow time for the change notification to propagate 
+        REQUIRE( mockDisplay.m_startCount == 1 );
+        REQUIRE( mockDisplay.m_updateCount == 2 );
+        REQUIRE( mockDisplay.m_turnOffCount == 0 );
+        REQUIRE( mockDisplay.m_turnOnCount == 0 );
+        REQUIRE( uut.getCurrentScreen() == &homeScreen );
+        unsigned tickCount = homeScreen.m_tickCount;
+        REQUIRE( tickCount > 2 );
+
+        // Trigger a tick-refresh (note: this is not really thread-safe - so the results are not deterministic 
+        homeScreen.m_tickResult = true;
+        Cpl::System::Api::sleep( 300 ); // Allow time for the tick timer to expire
+        REQUIRE( homeScreen.m_tickCount > tickCount );
+        REQUIRE( mockDisplay.m_startCount == 1 );
+        REQUIRE( mockDisplay.m_updateCount > 2 );
+        REQUIRE( mockDisplay.m_turnOffCount == 0 );
+        REQUIRE( mockDisplay.m_turnOnCount == 0 );
+        REQUIRE( uut.getCurrentScreen() == &homeScreen );
 
         // Close
         uut.close();

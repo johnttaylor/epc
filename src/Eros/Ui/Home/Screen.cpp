@@ -65,9 +65,10 @@ void Screen::dispatch( AjaxScreenMgrEvent_T event, Cpl::System::ElapsedTime::Pre
     // TODO
 }
 
-void Screen::tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
+bool Screen::tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
 {
     // TODO
+    return false;
 }
 
 bool Screen::refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept

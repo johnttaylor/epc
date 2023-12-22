@@ -58,7 +58,7 @@ void Api::request( OpenMsg& msg )
 
     if ( m_opened )
     {
-        Ajax::Logging::logf( Ajax::Logging::WarningMsg::OPEN_CLOSE, "open: Ajax::ScreenMgr::Api");
+        Ajax::Logging::logf( Ajax::Logging::WarningMsg::OPEN_CLOSE, "open: Ajax::ScreenMgr::Api" );
         msg.returnToSender();
         return;
     }
@@ -189,15 +189,20 @@ void Api::sleepRequestMp_changed( Cpl::Dm::Mp::Bool& mp, Cpl::Dm::SubscriberApi&
     bool sleepRequest;
     if ( mp.readAndSync( sleepRequest, clientObserver ) && m_curScreenHdl != nullptr )
     {
+        Cpl::System::ElapsedTime::Precision_T now = Cpl::System::ElapsedTime::precision();
+
         if ( sleepRequest )
         {
             if ( !m_display.turnOff() )
             {
                 Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "PicoDisplay turnOff() failed" );
             }
+            m_curScreenHdl->sleep( now );
         }
         else
         {
+            m_curScreenHdl->wake( now );
+            m_curScreenHdl->refresh( now );
             if ( !m_display.turnOn() )
             {
                 Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "PicoDisplay turnOn() failed" );
@@ -257,10 +262,11 @@ void Api::timerExpired( void )
     // Do nothing if the splash/shutdown/error screen is active
     if ( m_curScreenHdl != nullptr )
     {
-        m_curScreenHdl->tick( Cpl::System::ElapsedTime::milliseconds() );
+        bool stale = m_curScreenHdl->tick( Cpl::System::ElapsedTime::milliseconds() );
 
         // Restart the timer - and attempt to be rate monotonic
-        uint32_t now   = Cpl::System::ElapsedTime::milliseconds();
+        Cpl::System::ElapsedTime::Precision_T precNow = Cpl::System::ElapsedTime::milliseconds();
+        uint32_t now   = precNow.asMilliseconds();
         uint32_t delta = now - m_timerMarker;
         if ( delta > OPTION_AJAX_SCREEN_MGR_TICK_TIME_MS )
         {
@@ -276,6 +282,19 @@ void Api::timerExpired( void )
         }
         m_timerMarker = now;
         m_timer.start( OPTION_AJAX_SCREEN_MGR_TICK_TIME_MS - delta );
+
+        if ( stale )
+        {
+            if ( m_curScreenHdl->refresh( precNow ) )
+            {
+                if ( !m_display.update() )
+
+                {
+                    Ajax::Logging::logf( Ajax::Logging::CriticalMsg::UX_ERROR, "tick.m_display.update() failed" );
+                }
+            }
+
+        }
     }
 }
 
@@ -358,7 +377,7 @@ void Api::pop( unsigned count ) noexcept
         m_curScreenHdl = stackEmpty ? m_homeScreenHdl : poppedElem->m_screenPtr;
         m_curScreenHdl->enter( now );
         bool dirty = m_curScreenHdl->refresh( now );
-        if ( dirty && !m_display.update() )
+        if ( dirty )
         {
             if ( !m_display.update() )
             {
@@ -399,7 +418,7 @@ void Api::popTo( ScreenApi & returnToScreen ) noexcept
         m_curScreenHdl = stackEmpty ? m_homeScreenHdl : poppedElem->m_screenPtr;
         m_curScreenHdl->enter( now );
         bool dirty = m_curScreenHdl->refresh( now );
-        if ( dirty && !m_display.update() )
+        if ( dirty )
         {
             if ( !m_display.update() )
             {
@@ -427,7 +446,7 @@ void Api::popToHome() noexcept
         m_curScreenHdl = m_homeScreenHdl;
         m_curScreenHdl->enter( now );
         bool dirty = m_curScreenHdl->refresh( now );
-        if ( dirty && !m_display.update() )
+        if ( dirty )
         {
             if ( !m_display.update() )
             {

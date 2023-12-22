@@ -74,7 +74,6 @@ public:
         Cpl::System::Mutex::ScopeBlock lock( m_lock );
         for ( int i=0; i < OPTION_DRIVER_BUTTON_HAL_TPIPE_MAX_BUTTONS; i++ )
         {
-
             // Exit early if the end-of-list is found
             if ( m_buttons[i].buttonName.length() == 0 )
             {

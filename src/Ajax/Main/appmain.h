@@ -71,6 +71,8 @@ extern Driver::Crypto::Hash*            g_sha512Ptr;
 /// Expose the mailbox for the "application" thread (for Ajax this is the Algorithm thread)
 extern Cpl::Dm::MailboxServer           g_appMbox;
 
+/// Expose the mailbox for the "UI" thread 
+extern Cpl::Dm::MailboxServer           g_uiMbox;
 
 /*
 ** Thread Priorities

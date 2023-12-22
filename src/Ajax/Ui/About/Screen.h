@@ -50,7 +50,7 @@ public:
     void dispatch( AjaxScreenMgrEvent_T event, Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept;
 
     /// See Ajax::ScreenMgr::ScreenApi
-    void tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept;
+    bool tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept;
 
     /// See Ajax::ScreenMgr::ScreenApi
     bool refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept;

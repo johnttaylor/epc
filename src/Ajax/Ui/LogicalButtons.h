@@ -23,7 +23,7 @@
 
 /// Polling rate, in milliseconds
 #ifndef OPTION_AJAX_UI_LOGICAL_BUTTON_POLLING_RATE_MS
-#define OPTION_AJAX_UI_LOGICAL_BUTTON_POLLING_RATE_MS   10      // 10Hz
+#define OPTION_AJAX_UI_LOGICAL_BUTTON_POLLING_RATE_MS   10      // 100Hz
 #endif
 
 /** Specifies the initial hold time, in interval counts, before
