@@ -377,7 +377,7 @@ void Api::pop( unsigned count ) noexcept
         m_curScreenHdl = stackEmpty ? m_homeScreenHdl : poppedElem->m_screenPtr;
         m_curScreenHdl->enter( now );
         bool dirty = m_curScreenHdl->refresh( now );
-        if ( dirty && !m_display.update() )
+        if ( dirty )
         {
             if ( !m_display.update() )
             {
@@ -418,7 +418,7 @@ void Api::popTo( ScreenApi & returnToScreen ) noexcept
         m_curScreenHdl = stackEmpty ? m_homeScreenHdl : poppedElem->m_screenPtr;
         m_curScreenHdl->enter( now );
         bool dirty = m_curScreenHdl->refresh( now );
-        if ( dirty && !m_display.update() )
+        if ( dirty )
         {
             if ( !m_display.update() )
             {
@@ -446,7 +446,7 @@ void Api::popToHome() noexcept
         m_curScreenHdl = m_homeScreenHdl;
         m_curScreenHdl->enter( now );
         bool dirty = m_curScreenHdl->refresh( now );
-        if ( dirty && !m_display.update() )
+        if ( dirty )
         {
             if ( !m_display.update() )
             {
