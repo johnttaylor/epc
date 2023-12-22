@@ -144,7 +144,7 @@ void Screen::dispatch( AjaxScreenMgrEvent_T event, Cpl::System::ElapsedTime::Pre
     break;
 
     case AJAX_UI_EVENT_BUTTON_Y:
-        // TODO - Transition to the Edit screen...
+        m_screenMgr.push( Ajax::Main::g_editSetptScreen_ );
         break;
 
     case AJAX_UI_EVENT_BUTTON_ESC:
@@ -183,7 +183,7 @@ bool Screen::refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime )
     m_graphics.text( "mode:", pimoroni::Point( COLUMN0_X0, ROW0_Y0 ), 240 );
     m_graphics.text( "fan:", pimoroni::Point( COLUMN2_X0, ROW0_Y0 ), 240 );
     m_graphics.text( "temp:", pimoroni::Point( COLUMN0_X0, ROW1_Y0 ), 240 );
-    m_graphics.text( "temp:", pimoroni::Point( COLUMN2_X0, ROW1_Y0 ), 240 );
+    m_graphics.text( "setpt:", pimoroni::Point( COLUMN2_X0, ROW1_Y0 ), 240 );
     m_graphics.text( "heat:", pimoroni::Point( COLUMN0_X0, ROW2_Y0 ), 240 );
     m_graphics.text( "fan:", pimoroni::Point( COLUMN2_X0, ROW2_Y0 ), 240 );
 

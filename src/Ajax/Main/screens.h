@@ -17,6 +17,7 @@
 
 #include "Ajax/Ui/Home/Screen.h"
 #include "Ajax/Ui/About/Screen.h"
+#include "Ajax/Ui/EditSetpt/Screen.h"
 
 ///
 namespace Ajax {
@@ -24,10 +25,13 @@ namespace Ajax {
 namespace Main {
 
 /// Home Screen
-extern Ajax::Ui::Home::Screen g_homeScreen_;
+extern Ajax::Ui::Home::Screen       g_homeScreen_;
+
+/// Edit setpoint Screen
+extern Ajax::Ui::EditSetpt::Screen  g_editSetptScreen_;
 
 /// About Screen
-extern Ajax::Ui::About::Screen g_aboutScreen_;
+extern Ajax::Ui::About::Screen      g_aboutScreen_;
 
 }       // end namespaces
 }
