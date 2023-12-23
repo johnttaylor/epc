@@ -33,6 +33,7 @@
 #include "Ajax/ScreenMgr/MpStaticScreenApiPtr.h"
 #include "Ajax/Dm/MpFanMode.h"
 #include "Ajax/Dm/MpFlcConfig.h"
+#include "Ajax/Dm/MpAlertSummary.h"
 #include "Ajax/Constants.h"
 
 
@@ -442,16 +443,16 @@ extern Cpl::Dm::Mp::Bool        hwSafetyLimit;
  */
 extern Cpl::Dm::Mp::Uint32      maxHeatingCapacity;
 
-/** This model point contains current number of active alerts.
+/** This model point contains the 'summary' of the current active alerts.
 
-    \b Units : unsigned counter
+    \b Units : struct
 
-    \b Range : 0 to max-number-of-alerts
+    \b Range : n/a
 
     \b Notes : n/a
 
  */
-extern Cpl::Dm::Mp::Uint32      currentNumAlerts;
+extern Ajax::Dm::MpAlertSummary alertSummary;
 
 /*---------------------------------------------------------------------------*/
 /// The Application's Model Point Database

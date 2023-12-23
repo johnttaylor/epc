@@ -19,6 +19,7 @@
 #include "Cpl/Dm/Mp/Bool.h"
 #include "Cpl/Dm/SubscriberComposer.h"
 #include "Ajax/Dm/MpFanMode.h"
+#include "Ajax/Dm/MpAlertSummary.h"
 
 /// Polling rate, in milliseconds, for sampling the space temperature
 #ifndef OPTION_AJAX_UI_HOME_SCREEN_POLLING_MS
@@ -80,6 +81,9 @@ protected:
     /// Change notification
     void setpointChanged( Cpl::Dm::Mp::Int32& mpThatChanged, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
 
+    /// Change notification
+    void alertSummaryChanged( Ajax::Dm::MpAlertSummary& mpThatChanged, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
+
 protected:
     /// Helper method to get and break down the current IDT into integer and fractional components
     bool getDisplayIdt( int32_t& dstInteger, int32_t& dstFractional ) noexcept;
@@ -103,11 +107,17 @@ protected:
     /// Subscriber setpoint
     Cpl::Dm::SubscriberComposer<Screen, Cpl::Dm::Mp::Int32> m_obSetpoint;
 
+    /// Subscriber Alert Summary
+    Cpl::Dm::SubscriberComposer<Screen, Ajax::Dm::MpAlertSummary> m_obAlertSummary;
+
     /// Current space temperature
     int32_t                         m_currentIdt;
 
     /// Time marker used to trigger 1second polling of the space temperature
     uint32_t                        m_timerMarker;
+
+    /// Current Alert index
+    unsigned                        m_alertIndex;
 
     /// Dirty flag (i.e. need the screen manager to call refresh())
     bool                            m_stale;

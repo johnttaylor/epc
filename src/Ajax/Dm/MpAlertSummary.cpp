@@ -47,11 +47,7 @@ void MpAlertSummary::setJSONVal( JsonDocument& doc ) noexcept
     JsonArray arrayObj = valObj.createNestedArray( "active" );
     for ( unsigned i = 0; i < m_data.count; i++ )
     {
-        Ajax::Dm::MpAlert::Data alertInfo;
-        if ( m_data.activeAlerts[i]->read( alertInfo ) )
-        {
-            arrayObj.add( alertInfo.name._to_string() );
-        }
+        arrayObj.add( m_data.activeAlerts[i]._to_string() );
     }
 }
 
@@ -63,15 +59,14 @@ bool MpAlertSummary::fromJSON_( JsonVariant& src, LockRequest_T lockRequest, uin
         Data      newData;
         for ( unsigned i=0; i < list.size(); i++ )
         {
-            // Get the MP name string
-            const char* mpname = list[i];
-            if ( mpname != nullptr )
+            // Get the enum
+            const char* alertenum = list[i];
+            if ( alertenum != nullptr )
             {
-                // Lookup the MP (and validate it IS a MpAlert instance)
-                ModelPoint* mpPtr = m_modelDatabase.lookupModelPoint( mpname );
-                if ( mpPtr && strcmp( mpPtr->getTypeAsText(), "Ajax::Dm::MpAlert" ) == 0 )
+                auto maybeValue = Ajax::Type::Alert::_from_string_nothrow( alertenum );
+                if ( maybeValue )
                 {
-                    newData.activeAlerts[i] = (Ajax::Dm::MpAlert*) mpPtr;
+                    newData.activeAlerts[i] = *maybeValue;
                     newData.count++;
                 }
             }

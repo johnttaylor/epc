@@ -36,11 +36,9 @@ namespace Dm {
     \endcode
 
     NOTE: When writing the 'val' object to the MP, ONLY the 'active' field is 
-          written and the 'count' field is derived from the list count. Also the
-          name of the alert is the symbolic model point name NOT the alert-enum
-          name that is displayed when serialized, for 
+          written and the 'count' field is derived from the list count. For 
           example:
-            {name:"<mpname>,val:["<alertMpName>", ...]}
+            {name:"<mpname>,val:["<alertEnum>", ...]}
 
     NOTE: All methods in this class ARE thread Safe unless explicitly
           documented otherwise.
@@ -53,7 +51,7 @@ public:
     struct Data
     {
         unsigned count;         //!< Number of currently active Alerts
-        Ajax::Dm::MpAlert* activeAlerts[Ajax::Type::Alert::NUM_ALERTS]; //!< Sorted (by priority) list of active Alerts
+        Ajax::Type::Alert activeAlerts[Ajax::Type::Alert::NUM_ALERTS]; //!< Sorted (by priority) list of active Alerts
 
         /// Constructor (to ensure any pad bytes get zero'd)
         Data()

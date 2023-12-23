@@ -105,12 +105,12 @@ Cpl::TShell::Command::Result_T State::execute( Cpl::TShell::Context_& context, c
     parm1 = "---";
     if ( mp::sensorFailAlert.read( alert ) )
     {
-        parm1.format( "RAISED  ack=%s (%u).", alert.acked ? "YES" : "no ", alert.priority );
+        parm1.format( "RAISED (%u).", alert.priority );
     }
     parm2 = "---";
     if ( mp::failedSafeAlert.read( alert ) )
     {
-        parm2.format( "RAISED  ack=%s (%u).", alert.acked ? "YES" : "no ", alert.priority );
+        parm2.format( "RAISED (%u).", alert.priority );
     }
     outtext.format( "Alerts:      sensor: %s    safety: %s", parm1.getString(), parm2.getString() );
     io &= context.writeFrame( outtext );

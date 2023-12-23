@@ -90,34 +90,34 @@ TEST_CASE( "MpAlertSummary" )
         REQUIRE( value.count == expectedValue.count );
 
         expectedValue.count           = 2;
-        expectedValue.activeAlerts[0] = &mp_alert1_;
-        expectedValue.activeAlerts[1] = &mp_alert2_;
+        expectedValue.activeAlerts[0] = Ajax::Type::Alert::eHITEMP_HEATER_FAILSAFE;
+        expectedValue.activeAlerts[1] = Ajax::Type::Alert::eONBOARD_SENSOR_FAILED;
         mp_apple_.write( expectedValue );
         valid = mp_apple_.read( value );
         REQUIRE( valid );
         REQUIRE( value.count == expectedValue.count );
-        REQUIRE( expectedValue.activeAlerts[0] == &mp_alert1_ );
-        REQUIRE( expectedValue.activeAlerts[1] == &mp_alert2_ );
+        REQUIRE( expectedValue.activeAlerts[0] == +Ajax::Type::Alert::eHITEMP_HEATER_FAILSAFE );
+        REQUIRE( expectedValue.activeAlerts[1] == +Ajax::Type::Alert::eONBOARD_SENSOR_FAILED );
 
         expectedValue.count           = 1;
-        expectedValue.activeAlerts[0] = nullptr;
+        expectedValue.activeAlerts[0] = Ajax::Type::Alert::eONBOARD_SENSOR_FAILED;
         mp_orange_.write( expectedValue );
         valid = mp_orange_.read( value );
         REQUIRE( valid );
         REQUIRE( value.count == expectedValue.count );
-        REQUIRE( expectedValue.activeAlerts[0] == nullptr );
+        REQUIRE( expectedValue.activeAlerts[0] == +Ajax::Type::Alert::eONBOARD_SENSOR_FAILED );
     }
 
     SECTION( "copy" )
     {
         expectedValue.count = 1;
-        expectedValue.activeAlerts[0] = &mp_alert2_;
+        expectedValue.activeAlerts[0] = Ajax::Type::Alert::eONBOARD_SENSOR_FAILED;
         mp_apple_.write( expectedValue );
         mp_orange_.copyFrom( mp_apple_ );
         valid = mp_orange_.read( value );
         REQUIRE( valid );
         REQUIRE( value.count == expectedValue.count );
-        REQUIRE( expectedValue.activeAlerts[0] == &mp_alert2_ );
+        REQUIRE( expectedValue.activeAlerts[0] == +Ajax::Type::Alert::eONBOARD_SENSOR_FAILED );
 
 
         mp_orange_.setInvalid();
@@ -129,10 +129,8 @@ TEST_CASE( "MpAlertSummary" )
     SECTION( "toJSON-pretty" )
     {
         expectedValue.count           = 2;
-        expectedValue.activeAlerts[0] = &mp_alert1_;
-        expectedValue.activeAlerts[1] = &mp_alert2_;
-        mp_alert1_.raiseAlert();
-        mp_alert2_.raiseAlert();
+        expectedValue.activeAlerts[0] = Ajax::Type::Alert::eONBOARD_SENSOR_FAILED;
+        expectedValue.activeAlerts[1] = Ajax::Type::Alert::eHITEMP_HEATER_FAILSAFE;
 
         mp_apple_.write( expectedValue );
         mp_apple_.toJSON( string, MAX_STR_LENG, truncated, true, true );
@@ -144,20 +142,21 @@ TEST_CASE( "MpAlertSummary" )
         REQUIRE( doc["locked"] == false );
         REQUIRE( doc["valid"] == true );
         REQUIRE( doc["val"]["count"] == 2 );
-        REQUIRE( strcmp( doc["val"]["active"][0], "eHITEMP_HEATER_FAILSAFE" ) == 0 );
+        REQUIRE( strcmp( doc["val"]["active"][0], "eONBOARD_SENSOR_FAILED" ) == 0 );
+        REQUIRE( strcmp( doc["val"]["active"][1], "eHITEMP_HEATER_FAILSAFE" ) == 0 );
     }
 
     SECTION( "fromJSON" )
     {
-        const char* json = "{name:\"APPLE\", val:[\"alert2\",\"alert1\"]}}";
+        const char* json = "{name:\"APPLE\", val:[\"eHITEMP_HEATER_FAILSAFE\",\"eONBOARD_SENSOR_FAILED\"]}}";
         bool result = modelDb_.fromJSON( json, &errorMsg );
         CPL_SYSTEM_TRACE_MSG( SECT_, ("errorMsg: [%s]", errorMsg.getString()) );
         REQUIRE( result == true );
         valid = mp_apple_.read( value );
         REQUIRE( valid );
         REQUIRE( value.count == 2 );
-        REQUIRE( value.activeAlerts[0] == &mp_alert2_ );
-        REQUIRE( value.activeAlerts[1] == &mp_alert1_ );
+        REQUIRE( value.activeAlerts[0] == +Ajax::Type::Alert::eHITEMP_HEATER_FAILSAFE );
+        REQUIRE( value.activeAlerts[1] == +Ajax::Type::Alert::eONBOARD_SENSOR_FAILED );
 
 
         json = "{name:\"APPLE\", val:{ack:abc}}";
@@ -177,10 +176,9 @@ TEST_CASE( "MpAlertSummary" )
         REQUIRE( result == false );
     }
 
-#if 0
     SECTION( "observer" )
     {
-        expectedValue = { Ajax::Type::Alert::eHITEMP_HEATER_FAILSAFE, APPLE_PRIORITY };
+        expectedValue.count = 10;
         Cpl::Dm::MailboxServer          t1Mbox;
         Viewer<MpAlertSummary, MpAlertSummary::Data>  viewer_apple1( t1Mbox, Cpl::System::Thread::getCurrent(), mp_apple_, expectedValue );
         Cpl::System::Thread* t1 = Cpl::System::Thread::create( t1Mbox, "T1" );
@@ -189,7 +187,7 @@ TEST_CASE( "MpAlertSummary" )
         // NOTE: The MP MUST be in the INVALID state at the start of this test
         mp_apple_.setInvalid();
         viewer_apple1.open();
-        mp_apple_.raiseAlert();
+        mp_apple_.write( expectedValue );
         CPL_SYSTEM_TRACE_MSG( SECT_, ("Waiting for viewer signal...") );
         Cpl::System::Thread::wait();
         viewer_apple1.close();
@@ -203,6 +201,6 @@ TEST_CASE( "MpAlertSummary" )
         Cpl::System::Thread::destroy( *t1 );
         Cpl::System::Api::sleep( 100 ); // allow time for threads to stop BEFORE the runnable object goes out of scope
     }
-#endif
+
     REQUIRE( Cpl::System::Shutdown_TS::getAndClearCounter() == 0u );
 }
