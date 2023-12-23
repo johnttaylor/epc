@@ -39,6 +39,9 @@ using namespace Ajax::Ui::Home;
 #define SET_PEN_BACKGROUND()        m_graphics.set_pen( 0, 0, 0 );          // black
 #define SET_PEN_STATIC_TEXT()       m_graphics.set_pen( 255, 255, 255  );   // white
 #define SET_PEN_DYNAMIC_TEXT()      m_graphics.set_pen( 255, 255, 0  );     // Yellow
+#define SET_PEN_ALERT_TEXT()        m_graphics.set_pen( 255, 0, 0  );       // Red
+
+static const char* convertAlertEnumToUItext( Ajax::Type::Alert alertName );
 
 ///////////////////////////
 Screen::Screen( Ajax::ScreenMgr::Navigation&  screenMgr,
@@ -51,6 +54,7 @@ Screen::Screen( Ajax::ScreenMgr::Navigation&  screenMgr,
     , m_obHeatMode( *((Cpl::Dm::EventLoop*) &myMbox), *this, &Screen::heatingModeChanged )
     , m_obFanMode( *((Cpl::Dm::EventLoop*) &myMbox), *this, &Screen::fanModeChanged )
     , m_obSetpoint( *((Cpl::Dm::EventLoop*) &myMbox), *this, &Screen::setpointChanged )
+    , m_obAlertSummary( *((Cpl::Dm::EventLoop*) &myMbox), *this, &Screen::alertSummaryChanged )
 {
 }
 
@@ -82,14 +86,25 @@ void Screen::setpointChanged( Cpl::Dm::Mp::Int32& mp, Cpl::Dm::SubscriberApi& cl
     }
 }
 
+void Screen::alertSummaryChanged( Ajax::Dm::MpAlertSummary& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept
+{
+    if ( !mp.isNotValidAndSync( clientObserver ) )
+    {
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("alert summary changed") );
+        m_stale = true;
+    }
+}
+
 ///////////////////////////
 void Screen::enter( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
 {
     m_timerMarker = currentElapsedTime.asMilliseconds();
     m_stale       = false;
+    m_alertIndex  = 0;
     mp::heatingMode.attach( m_obHeatMode, mp::heatingMode.getSequenceNumber() );    // Subscribe at the current 'value'
     mp::fanMode.attach( m_obFanMode, mp::fanMode.getSequenceNumber() );
     mp::heatSetpoint.attach( m_obSetpoint, mp::heatSetpoint.getSequenceNumber() );
+    mp::alertSummary.attach( m_obAlertSummary, mp::heatSetpoint.getSequenceNumber() );
 }
 
 void Screen::exit( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
@@ -97,6 +112,7 @@ void Screen::exit( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) no
     mp::heatingMode.detach( m_obHeatMode );
     mp::fanMode.detach( m_obFanMode );
     mp::heatSetpoint.detach( m_obSetpoint );
+    mp::alertSummary.detach( m_obAlertSummary );
 }
 
 void Screen::sleep( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
@@ -126,6 +142,8 @@ void Screen::dispatch( AjaxScreenMgrEvent_T event, Cpl::System::ElapsedTime::Pre
     break;
 
     case AJAX_UI_EVENT_BUTTON_B:
+        m_alertIndex++;
+        m_stale = true;
         break;
 
     case AJAX_UI_EVENT_BUTTON_X:
@@ -265,6 +283,25 @@ bool Screen::refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime )
         m_graphics.text( tmp.getString(), pimoroni::Point( COLUMN3_X0, ROW2_Y0 ), 240 );
     }
 
+    // Dynamic text: Alerts
+    SET_PEN_ALERT_TEXT();
+    Ajax::Dm::MpAlertSummary::Data alertSummary;
+    if ( mp::alertSummary.read( alertSummary ) )
+    {
+        if ( alertSummary.count > 0 )
+        {
+            // Make sure the alert index is still valid
+            if ( m_alertIndex >= alertSummary.count )
+            {
+                m_alertIndex = 0;
+            }
+
+            Cpl::Text::FString<32> tmp;
+            tmp.format( "%d/%d  %s", m_alertIndex + 1, alertSummary.count, convertAlertEnumToUItext( alertSummary.activeAlerts[m_alertIndex]) );
+            m_graphics.text( tmp.getString(), pimoroni::Point( COLUMN0_X0, ROW3_Y0 ), 240 );
+        }
+    }
+
     m_stale = false;
     return true;
 }
@@ -282,4 +319,15 @@ bool Screen::getDisplayIdt( int32_t& dstInteger, int32_t& dstFractional ) noexce
     }
 
     return false;
+}
+
+
+const char* convertAlertEnumToUItext( Ajax::Type::Alert alertName )
+{
+    switch ( alertName )
+    {
+    case Ajax::Type::Alert::eHITEMP_HEATER_FAILSAFE: return "hitemp shutoff";
+    case Ajax::Type::Alert::eONBOARD_SENSOR_FAILED: return "sensor failed";
+    default: return "error";
+    }
 }
