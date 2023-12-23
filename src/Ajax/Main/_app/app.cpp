@@ -17,6 +17,7 @@
 #include "Cpl/TShell/Cmd/User.h"
 #include "TShellSecurity.h"
 #include "Ajax/Heating/Supervisor/Api.h"
+#include "Ajax/Ui/StatusIndicator/Api.h"
 #include <stdio.h>
 
 using namespace Ajax::Main;
@@ -35,6 +36,8 @@ Ajax::Ui::Home::Screen      Ajax::Main::g_homeScreen_( Ajax::Main::g_screenNav, 
 Ajax::Ui::EditSetpt::Screen Ajax::Main::g_editSetptScreen_( Ajax::Main::g_screenNav, g_graphics );
 Ajax::Ui::About::Screen     Ajax::Main::g_aboutScreen_( Ajax::Main::g_screenNav, g_graphics );
 
+static Ajax::Ui::StatusIndicator::Api  statusIndicator_( Ajax::Main::g_uiMbox, Driver::PicoDisplay::Api::rgbLED() );
+
 /////////////////////////////
 void Ajax::Main::appvariant_initialize0()
 {
@@ -51,6 +54,7 @@ void Ajax::Main::appvariant_initializeModelPoints0()
 
 void Ajax::Main::appvariant_open0()
 {
+    statusIndicator_.open();
     heatingAlgo_.open();
 }
 
@@ -62,4 +66,5 @@ void Ajax::Main::appvariant_launchHomeScreen()
 void Ajax::Main::appvariant_close0()
 {
     heatingAlgo_.close();
+    statusIndicator_.close();
 }

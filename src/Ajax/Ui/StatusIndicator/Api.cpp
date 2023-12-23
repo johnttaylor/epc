@@ -10,106 +10,107 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
-#include "Screen.h"
+#include "Api.h"
 #include "Cpl/System/Trace.h"
+#include "Ajax/Logging/Api.h"
 #include "mp/ModelPoints.h"
 
-#define SECT_ "Ajax::Ui::About"
+#define SECT_ "Ajax::Ui::StatusIndicator"
 
-using namespace Ajax::Ui::About;
+using namespace Ajax::Ui::StatusIndicator;
 
-#define X0_TITLE                    90
-#define Y0_TITLE                    0   // No title
-
-
-#define TEXT_HEIGHT                 18
-
-#define COLUMN0_X0                  10
-#define COLUMN1_X0                  (COLUMN0_X0+60+8)
-
-#define ROW0_Y0                     (TEXT_HEIGHT/2)
-#define ROW1_Y0                     (ROW0_Y0+ROW_HEIGHT)
-#define ROW2_Y0                     (ROW1_Y0+ROW_HEIGHT)
-#define ROW3_Y0                     (ROW2_Y0+ROW_HEIGHT)
-#define ROW_HEIGHT                  (TEXT_HEIGHT+8)
-
-#define CALL_JENNY                  "1-888-867-5309"
-
-#define SET_PEN_BACKGROUND()        m_graphics.set_pen( 255, 255, 255 );    // white
-#define SET_PEN_TEXT()              m_graphics.set_pen( 0, 0, 0  );         // black
 
 ///////////////////////////
-Screen::Screen( Ajax::ScreenMgr::Navigation&    screenMgr,
-                pimoroni::PicoGraphics&         graphics )
-    : m_screenMgr( screenMgr )
-    , m_graphics( graphics )
+Api::Api( Cpl::Dm::MailboxServer&    myMbox,
+          Driver::LED::RedGreenBlue& statusLED )
+    : Cpl::Itc::CloseSync( myMbox )
+    , m_ledDriver( statusLED )
+    , m_obAlertSummary( *((Cpl::Dm::EventLoop*) &myMbox), *this, &Api::alertSummaryChanged )
+    , m_obHeaterPWM( *((Cpl::Dm::EventLoop*) &myMbox), *this, &Api::heaterPWMChanged )
 {
 }
 
-///////////////////////////
-void Screen::enter( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
+void Api::request( OpenMsg& msg )
 {
-    // Nothing needed
-}
-void Screen::exit( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
-{
-    // Nothing needed
-}
-void Screen::sleep( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
-{
-    // Nothing needed
-}
-void Screen::wake( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
-{
-    // Nothing needed
-}
-
-void Screen::dispatch( AjaxScreenMgrEvent_T event, Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
-{
-    if ( event == AJAX_UI_EVENT_BUTTON_A || event == AJAX_UI_EVENT_BUTTON_X )
+    if ( m_opened )
     {
-        m_screenMgr.pop();
+        Ajax::Logging::logf( Ajax::Logging::WarningMsg::OPEN_CLOSE, "open: " SECT_ );
+        msg.returnToSender();
+        return;
+    }
+
+    // Housekeeping
+    m_opened = true;
+    mp::alertSummary.attach( m_obAlertSummary );
+    mp::cmdHeaterPWM.attach( m_obHeaterPWM );
+    m_ledDriver.setOff();
+
+    msg.returnToSender();
+}
+
+/// Shutdowns the component
+void Api::request( CloseMsg& msg )
+{
+    if ( !m_opened )
+    {
+        Ajax::Logging::logf( Ajax::Logging::WarningMsg::OPEN_CLOSE, "close: " SECT_ );
+        msg.returnToSender();
+        return;
+    }
+
+    // Housekeeping
+    m_opened = false;
+    mp::alertSummary.detach( m_obAlertSummary );
+    mp::cmdHeaterPWM.detach( m_obHeaterPWM );
+    m_ledDriver.setOff();
+
+    msg.returnToSender();
+}
+
+///////////////////////////
+void Api::alertSummaryChanged( Ajax::Dm::MpAlertSummary& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept
+{
+    if ( !mp.isNotValidAndSync( clientObserver ) )
+    {
+        setStatus();
     }
 }
 
-bool Screen::tick( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
+void Api::heaterPWMChanged( Cpl::Dm::Mp::Uint32& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept
 {
-    return false;
+    if ( !mp.isNotValidAndSync( clientObserver ) )
+    {
+        setStatus();
+    }
 }
 
-bool Screen::refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept
+///////////////////////////
+void Api::setStatus() noexcept
 {
-    // set the colour of the pen
-    SET_PEN_BACKGROUND();
-
-    // fill the screen with the current pen colour
-    m_graphics.clear();
-
-    // Model Number
-    SET_PEN_TEXT();
-    Cpl::Text::FString<OPTION_AJAX_MAX_MODEL_LENGTH> tmpModel="<unknown>";
-    mp::modelNumber.read( tmpModel );
-    m_graphics.set_font( &font8 );
-    m_graphics.text( "model:", pimoroni::Point( COLUMN0_X0, ROW0_Y0 ), 240 );
-    m_graphics.text( tmpModel.getString(), pimoroni::Point( COLUMN1_X0, ROW0_Y0 ), 240 );
-
-    // Serial Number
-    Cpl::Text::FString<OPTION_AJAX_MAX_SERIAL_NUM_LENGTH> tmpSerial="<unknown>";
-    mp::serialNumber.read( tmpSerial );
-    m_graphics.set_font( &font8 );
-    m_graphics.text( "serial:", pimoroni::Point( COLUMN0_X0, ROW1_Y0 ), 240 );
-    m_graphics.text( tmpSerial.getString(), pimoroni::Point( COLUMN1_X0, ROW1_Y0 ), 240 );
-
-    // Version Number
-    Cpl::Text::FString<OPTION_AJAX_MAX_VERSION_LENGTH> tmpVer="<unknown>";
-    mp::fwVersion.read( tmpVer );
-    m_graphics.text( "ver:", pimoroni::Point( COLUMN0_X0, ROW2_Y0 ), 240 );
-    m_graphics.text( tmpVer.getString(), pimoroni::Point( COLUMN1_X0, ROW2_Y0 ), 240 );
-
-    // Tech support phone number
-    m_graphics.text( "tel:", pimoroni::Point( COLUMN0_X0, ROW3_Y0 ), 240 );
-    m_graphics.text( CALL_JENNY, pimoroni::Point( COLUMN1_X0, ROW3_Y0 ), 240 );
+    Ajax::Dm::MpAlertSummary::Data alertSummary;
+    uint32_t                       heaterPWM;
+    if ( mp::alertSummary.read( alertSummary ) && mp::cmdHeaterPWM.read( heaterPWM ) )
+    {
+        if ( alertSummary.count > 0 )
+        {
+            // At least one alert -->set to RED
+            m_ledDriver.setRgb( 255, 0, 0 );
+        }
+        else if ( heaterPWM > 0 )
+        {
+            // Heater is on -->set to Blue
+            m_ledDriver.setRgb( 0, 0, 255 );
+        }
+        else 
+        {
+            // Heater is off -->set to Green
+            m_ledDriver.setRgb( 0, 255, 0 );
+        }
+    }
     
-    return true;
+    // Cannot determine state -->set to White
+    else
+    {
+        m_ledDriver.setRgb( 255, 255, 255 );
+    }
 }
- 

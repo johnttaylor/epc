@@ -17,14 +17,18 @@
 #include "Cpl/Itc/CloseSync.h"
 #include "Ajax/Dm/MpAlertSummary.h"
 #include "Cpl/Dm/Mp/Uint32.h"
+#include "Cpl/Dm/SubscriberComposer.h"
 
 
 /// 
-namespace Ajax {
+namespace Ajax
+{
 /// 
-namespace Ui {
+namespace Ui
+{
 /// 
-namespace StatusIndicator {
+namespace StatusIndicator
+{
 
 
 /** This class manages the what color/on-off-state of the RGB LED
@@ -33,8 +37,8 @@ class Api : public Cpl::Itc::CloseSync
 {
 public:
     /// Constructor
-    Api( Cpl::Dm::MailboxServer&       myMbox,
-            Driver::LED::RedGreenBlue& statusLED );
+    Api( Cpl::Dm::MailboxServer&    myMbox,
+         Driver::LED::RedGreenBlue& statusLED );
 
 public:
     /// Starts the component
@@ -45,10 +49,27 @@ public:
 
 protected:
     /// Change notification: Alert Summary
-    void alertSummaryChanged( Aj
+    void alertSummaryChanged( Ajax::Dm::MpAlertSummary& mpThatChanged, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
+
+    /// Change notification: Commanded Heater PWM
+    void heaterPWMChanged( Cpl::Dm::Mp::Uint32& mpThatChanged, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
+
+protected:
+    /// Helper method that set the actual LED state
+    void setStatus() noexcept;
+
 protected:
     /// Handle to the RGD LED driver
     Driver::LED::RedGreenBlue&    m_ledDriver;
+
+    /// Observer for change notifications
+    Cpl::Dm::SubscriberComposer<Api, Ajax::Dm::MpAlertSummary> m_obAlertSummary;
+
+    /// Observer for change notifications
+    Cpl::Dm::SubscriberComposer<Api, Cpl::Dm::Mp::Uint32> m_obHeaterPWM;
+
+    /// open/close state
+    bool    m_opened;
 };
 
 }       // end namespaces
