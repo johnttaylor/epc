@@ -33,12 +33,13 @@ namespace Dm {
     { name:"<mpname>", type:"<mptypestring>", valid:true|false, seqnum:nnnn, locked:true|false, 
       val:{"count":1, active:["<alertEnum>",...]} }
 
-    \endcode
 
     NOTE: When writing the 'val' object to the MP, ONLY the 'active' field is 
           written and the 'count' field is derived from the list count. For 
           example:
             {name:"<mpname>,val:["<alertEnum>", ...]}
+
+    \endcode
 
     NOTE: All methods in this class ARE thread Safe unless explicitly
           documented otherwise.
