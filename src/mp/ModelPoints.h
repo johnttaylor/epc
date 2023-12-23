@@ -33,6 +33,7 @@
 #include "Ajax/ScreenMgr/MpStaticScreenApiPtr.h"
 #include "Ajax/Dm/MpFanMode.h"
 #include "Ajax/Dm/MpFlcConfig.h"
+#include "Ajax/Dm/MpAlertSummary.h"
 #include "Ajax/Constants.h"
 
 
@@ -356,7 +357,7 @@ extern Cpl::Dm::Mp::Uint32   cmdFanPWM;
  */
 extern Ajax::Dm::MpAlert     sensorFailAlert;
 
-/**This model point represents the Hi-Temperature Safety limit has
+/** This model point represents the Hi-Temperature Safety limit has
     tripped Alert
 
     \b Units : n/a
@@ -442,6 +443,16 @@ extern Cpl::Dm::Mp::Bool        hwSafetyLimit;
  */
 extern Cpl::Dm::Mp::Uint32      maxHeatingCapacity;
 
+/** This model point contains the 'summary' of the current active alerts.
+
+    \b Units : struct
+
+    \b Range : n/a
+
+    \b Notes : n/a
+
+ */
+extern Ajax::Dm::MpAlertSummary alertSummary;
 
 /*---------------------------------------------------------------------------*/
 /// The Application's Model Point Database
