@@ -356,7 +356,7 @@ extern Cpl::Dm::Mp::Uint32   cmdFanPWM;
  */
 extern Ajax::Dm::MpAlert     sensorFailAlert;
 
-/**This model point represents the Hi-Temperature Safety limit has
+/** This model point represents the Hi-Temperature Safety limit has
     tripped Alert
 
     \b Units : n/a
@@ -442,6 +442,16 @@ extern Cpl::Dm::Mp::Bool        hwSafetyLimit;
  */
 extern Cpl::Dm::Mp::Uint32      maxHeatingCapacity;
 
+/** This model point contains current number of active alerts.
+
+    \b Units : unsigned counter
+
+    \b Range : 0 to max-number-of-alerts
+
+    \b Notes : n/a
+
+ */
+extern Cpl::Dm::Mp::Uint32      currentNumAlerts;
 
 /*---------------------------------------------------------------------------*/
 /// The Application's Model Point Database

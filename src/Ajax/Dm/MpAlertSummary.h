@@ -1,5 +1,5 @@
-#ifndef Ajax_Dm_MpAlert_h_
-#define Ajax_Dm_MpAlert_h_
+#ifndef Ajax_Dm_MpAlertSummary_h_
+#define Ajax_Dm_MpAlertSummary_h_
 /*-----------------------------------------------------------------------------
 * This file is part of the Colony.Core Project.  The Colony.Core Project is an
 * open source project with a BSD type of licensing agreement.  See the license
@@ -13,8 +13,7 @@
 /** @file */
 
 #include "Cpl/Dm/ModelPointCommon_.h"
-#include "Ajax/Type/Alert.h"
-
+#include "Ajax/Dm/MpAlert.h"
 
 
 ///
@@ -23,14 +22,7 @@ namespace Ajax {
 namespace Dm {
 
 
-/** This class provides a concrete implementation for a basic Alert that has
-    following attributes:
-
-        - Tracks the 'user acknowledgeable' state
-        - Associates a priority level (relative to other instances) to the Alert
-    
-    The MP's valid/invalid state is used to indicate that the Alert is 
-    raised/lowered respectively
+/** This class provides a concrete implementation for an Alert Summary
 
     The toJSON() method is a read/modify operation, i.e. omitted key/value 
     fields in the 'val' object are NOT updated.
@@ -39,40 +31,34 @@ namespace Dm {
     \code
 
     { name:"<mpname>", type:"<mptypestring>", valid:true|false, seqnum:nnnn, locked:true|false, 
-      val:{"name":"<AlertEnum>, "priority":nn} }
+      val:{"count":1, active:["<alertEnum>",...]} }
 
     \endcode
 
-    The Alert MP does NOT really have any run-time modifiable fields - it uses
-    valid/invalid state for active/inactive state of the Alert.  To set an Alert MP
-    to the valid/active-alert -->set the "val" field to true, e.g.:
-        { name:"alertApple", val:true }
+    NOTE: When writing the 'val' object to the MP, ONLY the 'active' field is 
+          written and the 'count' field is derived from the list count. Also the
+          name of the alert is the symbolic model point name NOT the alert-enum
+          name that is displayed when serialized, for 
+          example:
+            {name:"<mpname>,val:["<alertMpName>", ...]}
 
     NOTE: All methods in this class ARE thread Safe unless explicitly
           documented otherwise.
  */
-class MpAlert : public Cpl::Dm::ModelPointCommon_
+class MpAlertSummary : public Cpl::Dm::ModelPointCommon_
 {
 public:
     /** The MP's Data container.
      */
     struct Data
     {
-        Ajax::Type::Alert   name;           //!< Identifies the Alert instance
-        uint8_t             priority;       //!< Priority of the alarm.  Zero is highest, 255 is the lowest
+        unsigned count;         //!< Number of currently active Alerts
+        Ajax::Dm::MpAlert* activeAlerts[Ajax::Type::Alert::NUM_ALERTS]; //!< Sorted (by priority) list of active Alerts
 
         /// Constructor (to ensure any pad bytes get zero'd)
         Data()
         {
             memset( (void*) this, 0, sizeof( Data ) );
-        }
-
-        /// Constructor (to ensure any pad bytes get zero'd)
-        Data( Ajax::Type::Alert alertName, uint8_t priority )
-        {
-            memset( (void*) this, 0, sizeof( Data ) );
-            this->name     = alertName;
-            this->priority = priority;
         }
     };
 
@@ -83,10 +69,7 @@ protected:
 public:
     /** Constructor (MP in the invalid state)
      */
-    MpAlert( Cpl::Dm::ModelDatabase& myModelBase, 
-             const char*             symbolicName, 
-             Ajax::Type::Alert       alertIdentifer,
-             uint8_t                 priority );
+    MpAlertSummary( Cpl::Dm::ModelDatabase& myModelBase, const char* symbolicName );
 
 public:
     /// Type safe read. See Cpl::Dm::ModelPoint
@@ -101,25 +84,16 @@ public:
         return writeData( &srcData, sizeof( Data ), lockRequest );
     }
 
-    /// Sets the Alert state
-    uint16_t raiseAlert( LockRequest_T lockRequest = eNO_REQUEST ) noexcept;
-
-    /// Clears/lowers the Alert.  
-    uint16_t lowerAlert( LockRequest_T lockRequest = eNO_REQUEST ) noexcept
-    {
-        return setInvalid();
-    }
-
 public:
     /// Updates the MP with the valid-state/data from 'src'. Note: the src.lock state is NOT copied
-    inline uint16_t copyFrom( const MpAlert& src, LockRequest_T lockRequest = eNO_REQUEST ) noexcept
+    inline uint16_t copyFrom( const MpAlertSummary& src, LockRequest_T lockRequest = eNO_REQUEST ) noexcept
     {
         return copyDataAndStateFrom( src, lockRequest );
     }
 
 public:
     /// Type safe subscriber
-    typedef Cpl::Dm::Subscriber<MpAlert> Observer;
+    typedef Cpl::Dm::Subscriber<MpAlertSummary> Observer;
 
     /// Type safe register observer
     void attach( Observer& observer, uint16_t initialSeqNumber=SEQUENCE_NUMBER_UNKNOWN ) noexcept;
@@ -143,9 +117,6 @@ public:
 protected:
     /// See Cpl::Dm::Point.  
     void setJSONVal( JsonDocument& doc ) noexcept;
-
-    /// Set valid default values when the MP is invalidated
-    void hookSetInvalid() noexcept;
 };
 
 

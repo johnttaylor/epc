@@ -18,9 +18,12 @@ using namespace Ajax::Dm;
 
 
 ///////////////////////////////////////////////////////////////////////////////
-MpAlert::MpAlert( Cpl::Dm::ModelDatabase& myModelBase, const char* symbolicName, uint8_t priority )
+MpAlert::MpAlert( Cpl::Dm::ModelDatabase& myModelBase,
+                  const char*             symbolicName,
+                  Ajax::Type::Alert       alertIdentifer,
+                  uint8_t                 priority )
     : ModelPointCommon_( myModelBase, symbolicName, &m_data, sizeof( m_data ), false )
-    , m_data( { priority, false } )
+    , m_data( { alertIdentifer, priority } )
 {
 }
 
@@ -28,29 +31,19 @@ MpAlert::MpAlert( Cpl::Dm::ModelDatabase& myModelBase, const char* symbolicName,
 ///////////////////////////////////////////////////////////////////////////////
 void MpAlert::hookSetInvalid() noexcept
 {
-    // Override parent implement -->Do NOT clear the priority field
+    // Override parent implement -->Do NOT clear the priority or name fields
 }
 
 uint16_t MpAlert::raiseAlert( LockRequest_T lockRequest ) noexcept
 {
     m_modelDatabase.lock_();
-    Data newData( m_data.priority, false );
-    uint16_t result = writeData( &newData, sizeof( Data ), lockRequest );
+    Data newData( m_data );  
+    uint16_t result = writeData( &newData, sizeof( Data ), lockRequest ); // set the MP to the valid state
     m_modelDatabase.unlock_();
 
     return result;
 }
 
-uint16_t MpAlert::acknowledgeAlert( LockRequest_T lockRequest ) noexcept
-{
-
-    m_modelDatabase.lock_();
-    Data newData( m_data.priority, true );
-    uint16_t result = writeData( &newData, sizeof( Data ), lockRequest );
-    m_modelDatabase.unlock_();
-
-    return result;
-}
 
 ///////////////////////////////////////////////////////////////////////////////
 void MpAlert::attach( Observer& observer, uint16_t initialSeqNumber ) noexcept
@@ -71,33 +64,25 @@ const char* MpAlert::getTypeAsText() const noexcept
 void MpAlert::setJSONVal( JsonDocument& doc ) noexcept
 {
     JsonObject valObj  = doc.createNestedObject( "val" );
-    valObj["ack"]      = m_data.acked;
+    valObj["name"]     = m_data.name._to_string();
     valObj["priority"] = m_data.priority;
 }
 
 bool MpAlert::fromJSON_( JsonVariant& src, LockRequest_T lockRequest, uint16_t& retSequenceNumber, Cpl::Text::String* errorMsg ) noexcept
 {
-    if ( src.is<JsonObject>() )
+    if ( src.is<bool>() )
     {
         Data updatedData = m_data;
-
-        // Parse Fields
-        if ( src["ack"].is<bool>() )
+        if ( src.as<bool>() )
         {
-            updatedData.acked = src["ack"];
+            retSequenceNumber = write( updatedData, lockRequest );
+            return true;
         }
-        if ( src["priority"].is<uint8_t>() )
-        {
-            updatedData.priority = src["priority"];
-        }
-
-        retSequenceNumber = write( updatedData, lockRequest );
-        return true;
     }
 
     if ( errorMsg )
     {
-        errorMsg->format( "Invalid key/value for 'val'" );
+        errorMsg->format( "Invalid key/value for 'val' (only supports 'val:true')" );
     }
     return false;
 }

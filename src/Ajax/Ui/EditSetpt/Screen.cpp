@@ -144,7 +144,7 @@ bool Screen::refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime )
     m_graphics.text( "Press Y to decrease", pimoroni::Point( COLUMN0_X0, ROW3_Y0 ), 240 );
     m_graphics.text( "Press B to exit", pimoroni::Point( COLUMN0_X0, ROW4_Y0 ), 240 );
 
-    //// Edit text: Heating mode
+    //// Edit text: Setpoint
     SET_PEN_EDIT_BACKGROUND();
     pimoroni::Rect editBackground( COLUMN3_X0 - OUTLINE_COL_OFFSET, ROW1_Y0 - OUTLINE_ROW_OFFSET, 28, ROW_HEIGHT );
     m_graphics.rectangle( editBackground );
@@ -160,34 +160,5 @@ bool Screen::refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime )
         tmp.format( "%02d", setpt / 100 );
         m_graphics.text( tmp.getString(), pimoroni::Point( COLUMN3_X0, ROW1_Y0 ), 240 );
     }
-
-    //// Dynamic text: Heater PWM
-    //uint32_t pwm;
-    //if ( !mp::cmdHeaterPWM.read( pwm ) || pwm == 0 )
-    //{
-    //    m_graphics.text( "off", pimoroni::Point( COLUMN1_X0, ROW2_Y0 ), 240 );
-    //}
-    //else
-    //{
-    //    Cpl::Text::FString<4> tmp;
-    //    pwm += ONE_PERCENT_PWM / 2; // Round to the nearest 1%
-    //    tmp.format( "%d%%", pwm / ONE_PERCENT_PWM );
-    //    m_graphics.text( tmp.getString(), pimoroni::Point( COLUMN1_X0, ROW2_Y0 ), 240 );
-    //}
-
-    //// Dynamic text: Fan PWM
-    //if ( !mp::cmdFanPWM.read( pwm ) || pwm == 0 )
-    //{
-    //    m_graphics.text( "off", pimoroni::Point( COLUMN3_X0, ROW2_Y0 ), 240 );
-    //}
-    //else
-    //{
-    //    Cpl::Text::FString<4> tmp;
-    //    pwm += ONE_PERCENT_PWM / 2; // Round to the nearest 1%
-    //    tmp.format( "%d%%", pwm / ONE_PERCENT_PWM );
-    //    m_graphics.text( tmp.getString(), pimoroni::Point( COLUMN3_X0, ROW2_Y0 ), 240 );
-    //}
-
-    //m_stale = false;
     return true;
 }
