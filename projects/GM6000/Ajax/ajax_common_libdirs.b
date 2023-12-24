@@ -9,3 +9,4 @@ src/mp
 src/Ajax/Ui/Home
 src/Ajax/Ui/About
 src/Ajax/Ui/EditSetpt
+src/Ajax/Ui/StatusIndicator
