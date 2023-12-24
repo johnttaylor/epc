@@ -62,6 +62,8 @@ ALLOC_INVALID( Cpl::Dm::Mp::Uint32, fanMedPercentage );
 ALLOC_INVALID( Cpl::Dm::Mp::Uint32, fanHighPercentage );
 ALLOC_INVALID( Cpl::Dm::Mp::Bool, hwSafetyLimit );
 
+ALLOC_INVALID_ALERT( Ajax::Dm::MpAlert, remoteSensorFailAlert, Ajax::Type::Alert::eREMOTE_SENSOR_FAILED, AJAX_ALERT_PRIORITY_REMOTE_SENSOR_FAILED );
 ALLOC_INVALID_ALERT( Ajax::Dm::MpAlert, sensorFailAlert, Ajax::Type::Alert::eONBOARD_SENSOR_FAILED, AJAX_ALERT_PRIORITY_SENSOR_FAILED );
 ALLOC_INVALID_ALERT( Ajax::Dm::MpAlert, failedSafeAlert, Ajax::Type::Alert::eHITEMP_HEATER_FAILSAFE, AJAX_ALERT_PRIORITY_HI_TEMP );
+ALLOC_INVALID_ALERT( Ajax::Dm::MpAlert, postFailedAlert, Ajax::Type::Alert::ePOST_FAILURE, AJAX_ALERT_PRIORITY_POST_FAILED );
 ALLOC_INVALID( Ajax::Dm::MpAlertSummary, alertSummary );

@@ -345,7 +345,7 @@ extern Cpl::Dm::Mp::Uint32   cmdHeaterPWM;
 */
 extern Cpl::Dm::Mp::Uint32   cmdFanPWM;
 
-/**This model point represents the Temperature Sensor Alert
+/** This model point represents the onboard Temperature Sensor Alert
 
     \b Units : n/a
     
@@ -356,6 +356,19 @@ extern Cpl::Dm::Mp::Uint32   cmdFanPWM;
         No Alert is indicated by the MP being in the invalid state.
  */
 extern Ajax::Dm::MpAlert     sensorFailAlert;
+
+/** This model point represents the remote Temperature Sensor Alert.
+    
+
+    \b Units : n/a
+
+    \b Range : n/a
+
+    \b Notes :
+        The Alert 'present' state is indicated by the MP being valid.
+        No Alert is indicated by the MP being in the invalid state.
+ */
+extern Ajax::Dm::MpAlert     remoteSensorFailAlert;
 
 /** This model point represents the Hi-Temperature Safety limit has
     tripped Alert
@@ -369,6 +382,19 @@ extern Ajax::Dm::MpAlert     sensorFailAlert;
         No Alert is indicated by the MP being in the invalid state.
  */
 extern Ajax::Dm::MpAlert     failedSafeAlert;
+
+/** This model point represents that one or more Power On Self Tests
+    failed
+
+    \b Units : n/a
+
+    \b Range : n/a
+
+    \b Notes :
+        The Alert 'present' state is indicated by the MP being valid.
+        No Alert is indicated by the MP being in the invalid state.
+ */
+extern Ajax::Dm::MpAlert     postFailedAlert;
 
 /** This model point contains the FLC configuration parameters for the
     the heating algorithm.  The values are provisioned during

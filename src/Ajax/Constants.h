@@ -19,12 +19,17 @@
 
 #include "colony_config.h"
 
+/// Alert priority: POST Alert (lower number == higher priority)
+#define AJAX_ALERT_PRIORITY_POST_FAILED             10
+
+/// Alert priority: No (onboard) Sensor Available Alert (lower number == higher priority)
+#define AJAX_ALERT_PRIORITY_SENSOR_FAILED           20     
+
 /// Alert priority: Hi-Temp Alert (lower number == higher priority)
-#define AJAX_ALERT_PRIORITY_HI_TEMP             1
+#define AJAX_ALERT_PRIORITY_HI_TEMP                 30
 
 /// Alert priority: No Sensor Available Alert (lower number == higher priority)
-#define AJAX_ALERT_PRIORITY_SENSOR_FAILED       0     
-
+#define AJAX_ALERT_PRIORITY_REMOTE_SENSOR_FAILED    40
 
 /// Maximum heating setpoint in hundreds of degrees Fahrenheit
 #ifndef OPTION_AJAX_MAX_HEATING_SETPOINT_F

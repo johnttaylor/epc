@@ -140,6 +140,40 @@ bool minWaitOnModelPointValidState( MPTYPE& src, bool expectedValidState, unsign
     return false;
 };
 
+/** This method is similar to minWaitOnModelPoint<>(), except that it waits for
+    a change in the MP's sequence number
+ */
+template<class MPTYPE>
+bool minWaitOnModelPointSeqNumChange( MPTYPE& src, uint16_t currentSeqNum, unsigned long minWait, uint16_t* newSeqNum=nullptr, unsigned long maxWaitMs=10000, unsigned long waitDelayMs=10 )
+{
+    Cpl::System::Api::sleep( minWait );
+
+    uint16_t seqNum = src.getSequenceNumber();
+    while ( maxWaitMs )
+    {
+        if ( seqNum != currentSeqNum )
+        {
+            // Return the new sequence number
+            if ( newSeqNum )
+            {
+                *newSeqNum = seqNum;
+            }
+            return true;
+        }
+
+        Cpl::System::Api::sleep( waitDelayMs );
+        maxWaitMs -= waitDelayMs;
+        seqNum = src.getSequenceNumber();;
+    }
+
+    // Return the last read value
+    if ( newSeqNum )
+    {
+        *newSeqNum = seqNum;
+    }
+    return false;
+};
+
 /** This class is a DM Mailbox server that signals the provided semaphore when 
     it begins execution.  This is helpful when you need synchronize your test 
     with the mailbox thread actually running
