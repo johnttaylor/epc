@@ -30,6 +30,7 @@ Summary::Summary( Cpl::Dm::MailboxServer& myMbox,
     : Cpl::Itc::CloseSync( myMbox )
     , m_alertList( alertList )
     , m_eventLoop( myMbox )
+    , m_opened( false )
 {
 }
 
@@ -124,7 +125,7 @@ void Summary::alertChanged( Ajax::Dm::MpAlert& mp, Cpl::Dm::SubscriberApi& clien
     // Copy the sorted list of active alerts into the Alert Summary
     for ( unsigned i=0; i < summaryInfo.count; i++ )
     {
-        summaryInfo.activeAlerts[i] = activeAlertsInfo->name;
+        summaryInfo.activeAlerts[i] = activeAlertsInfo[i].name;
     }
     mp::alertSummary.write( summaryInfo );
 }

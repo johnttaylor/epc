@@ -35,9 +35,10 @@ static Ajax::Dm::MpAlert* alerts_[Ajax::Type::Alert::NUM_ALERTS] ={
 TEST_CASE( "Summary" )
 {
     Cpl::System::Shutdown_TS::clearAndUseCounter();
-    Cpl::Dm::MailboxServer  uutMbox;
-    Cpl::System::Thread*    t1 = Cpl::System::Thread::create( uutMbox, "UUT" );
-    Summary uut( uutMbox, alerts_ );
+    Cpl::Dm::MailboxServer          uutMbox;
+    Cpl::System::Thread*            t1 = Cpl::System::Thread::create( uutMbox, "UUT" );
+    Summary                         uut( uutMbox, alerts_ );
+    Ajax::Dm::MpAlertSummary::Data  summaryInfo;
     mp::alertSummary.setInvalid();
     mp::failedSafeAlert.setInvalid();
     mp::sensorFailAlert.setInvalid();
@@ -53,8 +54,72 @@ TEST_CASE( "Summary" )
         minWaitOnModelPointSeqNumChange<Ajax::Dm::MpAlertSummary>( mp::alertSummary, 10, seqNum, &seqNum );
         mp::failedSafeAlert.raiseAlert();
         minWaitOnModelPointSeqNumChange<Ajax::Dm::MpAlertSummary>( mp::alertSummary, 10, seqNum, &seqNum );
+        bool valid = mp::alertSummary.read( summaryInfo );
+        REQUIRE( valid );
+        REQUIRE( summaryInfo.count == 1 );
+        REQUIRE( summaryInfo.activeAlerts[0] == +Ajax::Type::Alert::eHITEMP_HEATER_FAILSAFE );
 
+        uut.close();
+    }
 
+    SECTION( "priority-all" )
+    {
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("SECTION: priority-all") );
+
+        uut.open();
+        mp::postFailedAlert.raiseAlert();
+        mp::sensorFailAlert.raiseAlert();
+        mp::failedSafeAlert.raiseAlert();
+        uint16_t seqNum = mp::alertSummary.getSequenceNumber();
+        mp::remoteSensorFailAlert.raiseAlert();
+        minWaitOnModelPointSeqNumChange<Ajax::Dm::MpAlertSummary>( mp::alertSummary, 10, seqNum, &seqNum );
+        bool valid = mp::alertSummary.read( summaryInfo );
+        REQUIRE( valid );
+        REQUIRE( summaryInfo.count == 4 );
+        REQUIRE( summaryInfo.activeAlerts[0] == +Ajax::Type::Alert::ePOST_FAILURE );
+        REQUIRE( summaryInfo.activeAlerts[1] == +Ajax::Type::Alert::eONBOARD_SENSOR_FAILED );
+        REQUIRE( summaryInfo.activeAlerts[2] == +Ajax::Type::Alert::eHITEMP_HEATER_FAILSAFE );
+        REQUIRE( summaryInfo.activeAlerts[3] == +Ajax::Type::Alert::eREMOTE_SENSOR_FAILED );
+
+        uut.close();
+    }
+
+    SECTION( "priority-3" )
+    {
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("SECTION: priority-3") );
+
+        uut.open();
+        mp::sensorFailAlert.raiseAlert();
+        mp::failedSafeAlert.raiseAlert();
+        uint16_t seqNum = mp::alertSummary.getSequenceNumber();
+        mp::remoteSensorFailAlert.raiseAlert();
+        minWaitOnModelPointSeqNumChange<Ajax::Dm::MpAlertSummary>( mp::alertSummary, 10, seqNum, &seqNum );
+        bool valid = mp::alertSummary.read( summaryInfo );
+        REQUIRE( valid );
+        REQUIRE( summaryInfo.count == 3 );
+        REQUIRE( summaryInfo.activeAlerts[0] == +Ajax::Type::Alert::eONBOARD_SENSOR_FAILED );
+        REQUIRE( summaryInfo.activeAlerts[1] == +Ajax::Type::Alert::eHITEMP_HEATER_FAILSAFE );
+        REQUIRE( summaryInfo.activeAlerts[2] == +Ajax::Type::Alert::eREMOTE_SENSOR_FAILED );
+
+        uut.close();
+    }
+
+    SECTION( "priority-2" )
+    {
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("SECTION: priority-2") );
+
+        uut.open();
+        mp::sensorFailAlert.raiseAlert();
+        uint16_t seqNum = mp::alertSummary.getSequenceNumber();
+        mp::remoteSensorFailAlert.raiseAlert();
+        minWaitOnModelPointSeqNumChange<Ajax::Dm::MpAlertSummary>( mp::alertSummary, 10, seqNum, &seqNum );
+        bool valid = mp::alertSummary.read( summaryInfo );
+        REQUIRE( valid );
+        REQUIRE( summaryInfo.count == 2 );
+        REQUIRE( summaryInfo.activeAlerts[0] == +Ajax::Type::Alert::eONBOARD_SENSOR_FAILED );
+        REQUIRE( summaryInfo.activeAlerts[1] == +Ajax::Type::Alert::eREMOTE_SENSOR_FAILED );
+
+        uut.close();
     }
 
     // Shutdown threads
