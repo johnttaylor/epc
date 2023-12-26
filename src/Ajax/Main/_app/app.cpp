@@ -67,10 +67,10 @@ void Ajax::Main::appvariant_initializeModelPoints0()
 void Ajax::Main::appvariant_open0()
 {
     // Check for Errors that can occurred during start-up
-    if ( mp::notProvisionedAlert.isNotValid() == false || mp::postFailedAlert.isNotValid() == false )
+    if ( !mp::notProvisionedAlert.isNotValid() || !mp::postFailedAlert.isNotValid()  )
     {
         mp::errorScrPtr.write( &Ajax::Main::g_errorScreen_ );   // Trigger Error/UI-Halt screen
-        mp::heatingMode.setInvalid();                           // Force the heating mode to be OFF
+        mp::heatingMode.write( false );                         // Force the heating mode to be OFF
     }
 
     // Start-up the application

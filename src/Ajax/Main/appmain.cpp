@@ -146,12 +146,14 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
 {
     /// DELETE-ME.  For debugging during development
     CPL_SYSTEM_TRACE_ENABLE();
-    CPL_SYSTEM_TRACE_ENABLE_SECTION( "CRITICAL" );  // Enable trace for the log statements
+    CPL_SYSTEM_TRACE_ENABLE_SECTION( "CRITICAL" );  // Enable trace for the log statements`
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "WARNING" );
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "ALERT" );
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "EVENT" );
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "INFO" );
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "METRICS" );
+    CPL_SYSTEM_TRACE_ENABLE_SECTION( "*Ajax::Ui" );
+    
 
     /*
     ** STARTING UP...

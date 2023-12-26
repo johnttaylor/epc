@@ -39,7 +39,7 @@ bool Ajax::Main::platform_runPOST()
 {
     // External EEPROM test -->can I communicate with it?
     uint8_t buffer;
-    auto result = i2cDriver_.readFromDevice( BSP_I2C_ADDRESS_EEPROM, 1, buffer );
+    auto result = i2cDriver_.readFromDevice( BSP_I2C_ADDRESS_EEPROM, 1, &buffer );
     return result == Driver::I2C::Master::eSUCCESS;
 }
 
