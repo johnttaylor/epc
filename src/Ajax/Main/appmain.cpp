@@ -32,6 +32,7 @@
 #include "Ajax/Ui/Splash/Screen.h"
 #include "Ajax/Ui/Shutdown/Screen.h"
 #include "Ajax/Ui/Home/Screen.h"
+#include "Ajax/Ui/Error/Screen.h"
 #include "Ajax/Ui/LogicalButtons.h"
 #include "Ajax/Logging/Api.h"
 #include "Ajax/TShell/Provision.h"
@@ -49,6 +50,7 @@
 #include "Driver/Crypto/TShell/Random.h"
 #include "Driver/Crypto/Orlp/Sha512.h"
 #include "Driver/NV/_tshell/Cmd.h"
+#include "screens.h"
 
 using namespace Ajax::Main;
 
@@ -144,13 +146,14 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
 {
     /// DELETE-ME.  For debugging during development
     CPL_SYSTEM_TRACE_ENABLE();
-    CPL_SYSTEM_TRACE_ENABLE_SECTION( "CRITICAL" );  // Enable trace for the log statements
+    CPL_SYSTEM_TRACE_ENABLE_SECTION( "CRITICAL" );  // Enable trace for the log statements`
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "WARNING" );
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "ALERT" );
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "EVENT" );
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "INFO" );
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "METRICS" );
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "*Ajax::Ui" );
+    
 
     /*
     ** STARTING UP...
@@ -163,6 +166,12 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     platform_initialize0();
     appvariant_initialize0();
     Driver::Crypto::initialize();
+
+    // Run Power On Self Test(s)
+    if ( !platform_runPOST() )
+    {
+        mp::postFailedAlert.raiseAlert();
+    }
 
     // Turn off the RGB LED (and set the default brightness)
     Driver::PicoDisplay::Api::setLCDBrightness( 0 );

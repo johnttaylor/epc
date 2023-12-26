@@ -128,6 +128,10 @@ protected:
     void timerExpired( void );
 
 protected:
+    /// Helper method
+    void transitionToHaltScreen() noexcept;
+
+protected:
     /// Subscriber
     Cpl::Dm::SubscriberComposer<Api, MpScreenApiPtr>        m_obHomeScreenMP;
 
@@ -178,6 +182,12 @@ protected:
 
     /// Timer marker of last Tick call
     uint32_t                m_timerMarker;
+
+    /// Pending transition to the error screen
+    StaticScreenApi*        m_pendingHaltScr;
+
+    /// The UI is halted (due to an application error)
+    bool                    m_halted;
 
     /// Shutdown flag
     bool                    m_shuttingDown;

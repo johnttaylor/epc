@@ -83,10 +83,12 @@ void Api::request( OpenMsg& msg )
     }
 
     // Housekeeping
-    m_opened        = true;
-    m_shuttingDown  = false;
-    m_homeScreenHdl = nullptr;
-    m_curScreenHdl  = nullptr;
+    m_opened         = true;
+    m_halted         = false;
+    m_shuttingDown   = false;
+    m_homeScreenHdl  = nullptr;
+    m_curScreenHdl   = nullptr;
+    m_pendingHaltScr = nullptr;
 
     // Enable my 'events'
     m_mpHomeScreen.attach( m_obHomeScreenMP );
@@ -137,8 +139,15 @@ void Api::request( CloseMsg& msg )
 void Api::homeScreenMp_changed( MpScreenApiPtr& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept
 {
     ScreenApi* homePtr;
-    if ( mp.readAndSync( homePtr, clientObserver ) && homePtr != nullptr )
+    if ( mp.readAndSync( homePtr, clientObserver ) && homePtr != nullptr && !m_halted )
     {
+        // Check for a pending transition to the halt screen
+        if ( m_pendingHaltScr )
+        {
+            transitionToHaltScreen();
+            return;
+        }
+
         bool firstHome  = m_homeScreenHdl == nullptr;
         m_homeScreenHdl = homePtr;
 
@@ -169,18 +178,29 @@ void Api::haltUiMp_changed( MpStaticScreenApiPtr& mp, Cpl::Dm::SubscriberApi& cl
     StaticScreenApi* haltPtr;
     if ( mp.readAndSync( haltPtr, clientObserver ) && haltPtr != nullptr )
     {
-        // Transition to the shutting down screen
-        Cpl::System::ElapsedTime::Precision_T now = Cpl::System::ElapsedTime::precision();
-        if ( m_curScreenHdl )
+        m_pendingHaltScr = haltPtr;
+        
+        // If NOT on the Splash screen -->transition immediately to the Halt/Error Screen
+        if ( m_curScreenHdl != nullptr )
         {
-            m_curScreenHdl->exit( now );
+            transitionToHaltScreen();
         }
-        haltPtr->paint( now );
-        m_curScreenHdl = nullptr;
-        if ( !m_display.update() )
-        {
-            Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "PicoDisplay update() failed" );
-        }
+    }
+}
+void Api::transitionToHaltScreen() noexcept
+{
+    // Transition to the Halt screen
+    Cpl::System::ElapsedTime::Precision_T now = Cpl::System::ElapsedTime::precision();
+    if ( m_curScreenHdl )
+    {
+        m_curScreenHdl->exit( now );
+    }
+    m_pendingHaltScr->paint( now );
+    m_halted       = true;
+    m_curScreenHdl = nullptr;
+    if ( !m_display.update() )
+    {
+        Ajax::Logging::logf( Ajax::Logging::CriticalMsg::DRIVER, "PicoDisplay update() failed" );
     }
 }
 

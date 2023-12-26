@@ -18,6 +18,7 @@
 #include "TShellSecurity.h"
 #include "Ajax/Heating/Supervisor/Api.h"
 #include "Ajax/Ui/StatusIndicator/Api.h"
+#include "Ajax/Alerts/Summary.h"
 #include <stdio.h>
 
 using namespace Ajax::Main;
@@ -31,10 +32,21 @@ static Cpl::TShell::Cmd::User userCmd_( g_cmdlist, security_ );
 // Algorithm
 static Ajax::Heating::Supervisor::Api  heatingAlgo_( g_appMbox );
 
+// Alert summary
+static Ajax::Dm::MpAlert* alerts_[Ajax::Type::Alert::NUM_ALERTS] ={
+    &mp::failedSafeAlert,
+    &mp::sensorFailAlert,
+    &mp::remoteSensorFailAlert,
+    &mp::postFailedAlert,
+    &mp::notProvisionedAlert
+};
+Ajax::Alerts::Summary       alertSummary_( g_appMbox, alerts_ );
+
 // Screens...
 Ajax::Ui::Home::Screen      Ajax::Main::g_homeScreen_( Ajax::Main::g_screenNav, g_graphics, Ajax::Main::g_uiMbox, mp::onBoardIdt );
 Ajax::Ui::EditSetpt::Screen Ajax::Main::g_editSetptScreen_( Ajax::Main::g_screenNav, g_graphics );
 Ajax::Ui::About::Screen     Ajax::Main::g_aboutScreen_( Ajax::Main::g_screenNav, g_graphics );
+Ajax::Ui::Error::Screen     Ajax::Main::g_errorScreen_( g_graphics );
 
 static Ajax::Ui::StatusIndicator::Api  statusIndicator_( Ajax::Main::g_uiMbox, Driver::PicoDisplay::Api::rgbLED() );
 
@@ -54,6 +66,15 @@ void Ajax::Main::appvariant_initializeModelPoints0()
 
 void Ajax::Main::appvariant_open0()
 {
+    // Check for Errors that can occurred during start-up
+    if ( !mp::notProvisionedAlert.isNotValid() || !mp::postFailedAlert.isNotValid()  )
+    {
+        mp::errorScrPtr.write( &Ajax::Main::g_errorScreen_ );   // Trigger Error/UI-Halt screen
+        mp::heatingMode.write( false );                         // Force the heating mode to be OFF
+    }
+
+    // Start-up the application
+    alertSummary_.open();
     statusIndicator_.open();
     heatingAlgo_.open();
 }
@@ -67,4 +88,5 @@ void Ajax::Main::appvariant_close0()
 {
     heatingAlgo_.close();
     statusIndicator_.close();
+    alertSummary_.close();
 }

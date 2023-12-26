@@ -15,7 +15,7 @@
 #include "colony_config.h"
 #include "Cpl/Dm/Persistent/Record.h"
 #include "mp/ModelPoints.h"
-
+#include "Cpl/System/Trace.h"
 
 /// Major Schema index for my record
 #ifndef OPTION_AJAX_MAIN_PERSONALITY_RECORD_MAJOR
@@ -65,10 +65,11 @@ public:
     /// See Cpl::Dm::Persistent::Record
     bool resetData() noexcept
     {
-        // TODO: There are NO defaults -->throw an unrecoverable error
-        //return false;
-        return true;
+        // There are NO defaults -->throw an error and trigger the Error UI screen
+        mp::notProvisionedAlert.raiseAlert();
 
+        // Do NOT update/reset flash, i.e. trigger the error again on the next reboot until I get provisioned
+        return false;
     }
 
 };

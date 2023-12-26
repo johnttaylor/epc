@@ -35,6 +35,14 @@ void Ajax::Main::platform_initialize0()
     appvariant_platform_initialize0();
 }
 
+bool Ajax::Main::platform_runPOST()
+{
+    // External EEPROM test -->can I communicate with it?
+    uint8_t buffer;
+    auto result = i2cDriver_.readFromDevice( BSP_I2C_ADDRESS_EEPROM, 1, &buffer );
+    return result == Driver::I2C::Master::eSUCCESS;
+}
+
 void Ajax::Main::platform_initializeModelPoints0()
 {
     // Platform init...
