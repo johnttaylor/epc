@@ -46,6 +46,7 @@ Ajax::Alerts::Summary       alertSummary_( g_appMbox, alerts_ );
 Ajax::Ui::Home::Screen      Ajax::Main::g_homeScreen_( Ajax::Main::g_screenNav, g_graphics, Ajax::Main::g_uiMbox, mp::onBoardIdt );
 Ajax::Ui::EditSetpt::Screen Ajax::Main::g_editSetptScreen_( Ajax::Main::g_screenNav, g_graphics );
 Ajax::Ui::About::Screen     Ajax::Main::g_aboutScreen_( Ajax::Main::g_screenNav, g_graphics );
+Ajax::Ui::Error::Screen     Ajax::Main::g_errorScreen_( g_graphics );
 
 static Ajax::Ui::StatusIndicator::Api  statusIndicator_( Ajax::Main::g_uiMbox, Driver::PicoDisplay::Api::rgbLED() );
 
@@ -65,6 +66,17 @@ void Ajax::Main::appvariant_initializeModelPoints0()
 
 void Ajax::Main::appvariant_open0()
 {
+    // Check for Errors that can occurred during start-up
+    if ( mp::notProvisionedAlert.isNotValid() == false || mp::postFailedAlert.isNotValid() == false )
+    {
+        mp::errorScrPtr.write( &Ajax::Main::g_errorScreen_ );   // Trigger Error/UI-Halt screen
+    }
+    if ( mp::postFailedAlert.isNotValid() == false )
+    {
+        mp::heatingMode.write( false );                         // Force the heating mode to be OFF
+    }
+
+    // Start-up the application
     alertSummary_.open();
     statusIndicator_.open();
     heatingAlgo_.open();

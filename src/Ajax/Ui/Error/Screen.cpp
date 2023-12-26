@@ -11,6 +11,7 @@
 /** @file */
 
 #include "Screen.h"
+#include "error_.h"
 #include "mp/ModelPoints.h"
 #include "Cpl/Text/FString.h"
 #include "Ajax/Alerts/Summary.h"
@@ -83,13 +84,10 @@ const char* getErrorCode() noexcept
     // Only 'fatal' alerts will trigger the Error screen - so we 'ignore' the non-fatal alerts
     switch ( getError() )
     {
-    case Ajax::Type::Alert::eNOT_PROVISIONED:
-        return "Error Code: 01";
-    case Ajax::Type::Alert::ePOST_FAILURE:
-        return "Error Code: 02";
-        break;
+    case Ajax::Type::Alert::eNOT_PROVISIONED: return Ajax::Ui::Error::errCode_NOT_PROVISIONED;
+    case Ajax::Type::Alert::ePOST_FAILURE: Ajax::Ui::Error::errCode_POST_FAILURE;
     default:
-        return "Error Code: 99";
+        return Ajax::Ui::Error::errCode_OTHER_FAILURES;
     }
 }
 
@@ -98,13 +96,10 @@ const char* getErrorMessage() noexcept
     // Only 'fatal' alerts will trigger the Error screen - so we 'ignore' the non-fatal alerts
     switch ( getError() )
     {
-    case Ajax::Type::Alert::eNOT_PROVISIONED:
-        return "Mfg error";
-    case Ajax::Type::Alert::ePOST_FAILURE:
-        return "Hardware error";
-        break;
+    case Ajax::Type::Alert::eNOT_PROVISIONED: return Ajax::Ui::Error::errMsg_NOT_PROVISIONED;
+    case Ajax::Type::Alert::ePOST_FAILURE: return Ajax::Ui::Error::errMsg_POST_FAILURE;
     default:
-        return "Software error";
+        return Ajax::Ui::Error::errMsg_OTHER_FAILURES;
     }
 }
 
