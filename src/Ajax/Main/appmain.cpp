@@ -50,6 +50,7 @@
 #include "Driver/Crypto/TShell/Random.h"
 #include "Driver/Crypto/Orlp/Sha512.h"
 #include "Driver/NV/_tshell/Cmd.h"
+#include "screens.h"
 
 using namespace Ajax::Main;
 
@@ -190,9 +191,13 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
 
     recordServer_.open();               // Start the Persistent server as soon as possible AND before the splash screen
     metricsRec_.flush( recordServer_ ); // Immediate flush the metrics record so the new boot counter value is updated (see MetricsRecord for where the counter gets incremented)
+    if ( mp::notProvisionedAlert.isNotValid() == false )
+    {
+        mp::errorScrPtr.write( &g_errorScreen_ );   // Trigger the Error/UI-Halt screen if I am not provisioned
+    }
     if ( wasPOSTError )
     {
-        mp::heatingMode.write( false ); // Force the heater OFF when there is POST error (must be AFTER reading/loading the user persistent storage recorded)
+        mp::heatingMode.write( false );             // Force the heater OFF when there is POST error (must be AFTER reading/loading the user persistent storage recorded)
     }
 
     // Display the splash screen

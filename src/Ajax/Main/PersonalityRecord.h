@@ -15,7 +15,6 @@
 #include "colony_config.h"
 #include "Cpl/Dm/Persistent/Record.h"
 #include "mp/ModelPoints.h"
-#include "Ajax/Main/screens.h"
 #include "Cpl/System/Trace.h"
 
 /// Major Schema index for my record
@@ -68,7 +67,6 @@ public:
     {
         // There are NO defaults -->throw an error and trigger the Error UI screen
         mp::notProvisionedAlert.raiseAlert();
-        mp::errorScrPtr.write( &Ajax::Main::g_errorScreen_ );
 
         // Do NOT update/reset flash, i.e. trigger the error again on the next reboot until I get provisioned
         return false;

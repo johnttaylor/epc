@@ -13,7 +13,6 @@
 /** @file */
 
 #include "colony_config.h"
-#include "pimoroni/libraries/pico_graphics/pico_graphics.hpp"   // Not directly used, but because of a naming-collision in the pimoroni header file -->i must ensure that this header file get included first!
 #include "Cpl/TShell/Cmd/Command.h"
 #include "Cpl/Persistent/RecordServer.h"
 #include "Ajax/Main/PersonalityRecord.h"
