@@ -85,7 +85,7 @@ const char* getErrorCode() noexcept
     switch ( getError() )
     {
     case Ajax::Type::Alert::eNOT_PROVISIONED: return Ajax::Ui::Error::errCode_NOT_PROVISIONED;
-    case Ajax::Type::Alert::ePOST_FAILURE: Ajax::Ui::Error::errCode_POST_FAILURE;
+    case Ajax::Type::Alert::ePOST_FAILURE: return Ajax::Ui::Error::errCode_POST_FAILURE;
     default:
         return Ajax::Ui::Error::errCode_OTHER_FAILURES;
     }

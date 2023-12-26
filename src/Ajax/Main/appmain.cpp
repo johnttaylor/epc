@@ -152,7 +152,6 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "EVENT" );
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "INFO" );
     CPL_SYSTEM_TRACE_ENABLE_SECTION( "METRICS" );
-    CPL_SYSTEM_TRACE_ENABLE_SECTION( "*Ajax::Ui" );
 
     /*
     ** STARTING UP...

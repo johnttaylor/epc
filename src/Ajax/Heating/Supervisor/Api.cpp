@@ -128,7 +128,7 @@ void Api::intervalExpired() noexcept
 void Api::hwSafetyChanged( Cpl::Dm::Mp::Bool& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept
 {
     bool safetyTripped;
-    if ( mp.readAndSync( safetyTripped, m_obHwSafety ) )
+    if ( mp.readAndSync( safetyTripped, clientObserver ) )
     {
         if ( safetyTripped )
         {
@@ -148,7 +148,7 @@ void Api::hwSafetyChanged( Cpl::Dm::Mp::Bool& mp, Cpl::Dm::SubscriberApi& client
 void Api::heatingEnabledChanged( Cpl::Dm::Mp::Bool& mp, Cpl::Dm::SubscriberApi& clientObserver ) noexcept
 {
     bool enabled;
-    if ( mp.readAndSync( enabled, m_obHeatingEnabled ) )
+    if ( mp.readAndSync( enabled, clientObserver ) )
     {
         if ( enabled )
         {

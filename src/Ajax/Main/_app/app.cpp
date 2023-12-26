@@ -70,10 +70,7 @@ void Ajax::Main::appvariant_open0()
     if ( mp::notProvisionedAlert.isNotValid() == false || mp::postFailedAlert.isNotValid() == false )
     {
         mp::errorScrPtr.write( &Ajax::Main::g_errorScreen_ );   // Trigger Error/UI-Halt screen
-    }
-    if ( mp::postFailedAlert.isNotValid() == false )
-    {
-        mp::heatingMode.write( false );                         // Force the heating mode to be OFF
+        mp::heatingMode.setInvalid();                           // Force the heating mode to be OFF
     }
 
     // Start-up the application
