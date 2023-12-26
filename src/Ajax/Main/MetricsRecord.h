@@ -45,17 +45,16 @@ public:
         : Cpl::Dm::Persistent::Record( m_modelPoints, chunkHandler, OPTION_AJAX_MAIN_METRICS_RECORD_MAJOR, OPTION_AJAX_MAIN_METRICS_RECORD_MINOR )
     {
         m_modelPoints[0] = { &mp::metricBootCounter, CPL_DM_PERISTENCE_RECORD_NO_SUBSCRIBER };
-        m_modelPoints[1] = { &mp::metricRunningTime, CPL_DM_PERISTENCE_RECORD_USE_SUBSCRIBER };
-        m_modelPoints[2] = { &mp::metricHeaterOnTime, CPL_DM_PERISTENCE_RECORD_USE_SUBSCRIBER };
-        m_modelPoints[3] = { &mp::metricFanOnTime, CPL_DM_PERISTENCE_RECORD_USE_SUBSCRIBER };
-        m_modelPoints[4] = { &mp::metricFaultTempSensor, CPL_DM_PERISTENCE_RECORD_USE_SUBSCRIBER };
-        m_modelPoints[5] = { &mp::metricFaultHeaterSafety, CPL_DM_PERISTENCE_RECORD_USE_SUBSCRIBER };
-        m_modelPoints[6] = { 0,0 };
+        m_modelPoints[1] = { &mp::metricRunningTime, CPL_DM_PERISTENCE_RECORD_NO_SUBSCRIBER };
+        m_modelPoints[2] = { &mp::metricHeaterOnTime, CPL_DM_PERISTENCE_RECORD_NO_SUBSCRIBER };
+        m_modelPoints[3] = { &mp::metricFanOnTime, CPL_DM_PERISTENCE_RECORD_NO_SUBSCRIBER };
+        m_modelPoints[4] = { &mp::metricFaultHeaterSafety, CPL_DM_PERISTENCE_RECORD_USE_SUBSCRIBER };
+        m_modelPoints[5] = { 0,0 };
     }                      
 
 protected:
     /// List of Model Points for the Record
-    Cpl::Dm::Persistent::Record::Item_T m_modelPoints[6 + 1];
+    Cpl::Dm::Persistent::Record::Item_T m_modelPoints[5 + 1];
 
 public:
     /// See Cpl::Dm::Persistent::Record
@@ -65,7 +64,6 @@ public:
         mp::metricRunningTime.write( 0 );
         mp::metricHeaterOnTime.write( 0 );
         mp::metricFanOnTime.write( 0 );
-        mp::metricFaultTempSensor.write( 0 );
         mp::metricFaultHeaterSafety.write( 0 );
         return true;
     }

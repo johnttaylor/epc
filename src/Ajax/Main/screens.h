@@ -18,6 +18,7 @@
 #include "Ajax/Ui/Home/Screen.h"
 #include "Ajax/Ui/About/Screen.h"
 #include "Ajax/Ui/EditSetpt/Screen.h"
+#include "Ajax/Ui/Error/Screen.h"
 
 ///
 namespace Ajax {
@@ -32,6 +33,9 @@ extern Ajax::Ui::EditSetpt::Screen  g_editSetptScreen_;
 
 /// About Screen
 extern Ajax::Ui::About::Screen      g_aboutScreen_;
+
+/// Error Screen
+extern Ajax::Ui::Error::Screen      g_errorScreen_;
 
 }       // end namespaces
 }

@@ -29,6 +29,7 @@ namespace Type {
     @param eREMOTE_SENSOR_FAILED            The remote temperature is not working (not supported in the initial release)
     @param eHITEMP_HEATER_FAILSAFE          The hardware high-temperature failsafe for the Heater has tripped
     @param ePOST_FAILURE                    At least one Power On Self Test failed
+    @param eNOT_PROVISIONED                 The unit is not provisioned (e.g. has no serial number)
     @param NUM_ALERTS                       The total number of alert instances
  */
 BETTER_ENUM( Alert, unsigned
@@ -36,6 +37,7 @@ BETTER_ENUM( Alert, unsigned
              , eREMOTE_SENSOR_FAILED
              , eHITEMP_HEATER_FAILSAFE
              , ePOST_FAILURE
+             , eNOT_PROVISIONED
              , NUM_ALERTS
 );
 

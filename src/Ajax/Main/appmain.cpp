@@ -32,6 +32,7 @@
 #include "Ajax/Ui/Splash/Screen.h"
 #include "Ajax/Ui/Shutdown/Screen.h"
 #include "Ajax/Ui/Home/Screen.h"
+#include "Ajax/Ui/Error/Screen.h"
 #include "Ajax/Ui/LogicalButtons.h"
 #include "Ajax/Logging/Api.h"
 #include "Ajax/TShell/Provision.h"
@@ -84,6 +85,7 @@ static Ajax::ScreenMgr::Api            screenMgr_( Ajax::Main::g_uiMbox,
 Ajax::ScreenMgr::Navigation&      Ajax::Main::g_screenNav = screenMgr_;
 static Ajax::Ui::Splash::Screen   splashScreen_( g_graphics );
 static Ajax::Ui::Shutdown::Screen shutdownScreen_( g_graphics );
+Ajax::Ui::Error::Screen           Ajax::Main::g_errorScreen_( g_graphics );
 
 
 #define LOG_BUFFER_SIZE (OPTION_AJAX_MAIN_MAX_LOGGING_BUFFER_ENTRIES+1)
@@ -164,6 +166,15 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     appvariant_initialize0();
     Driver::Crypto::initialize();
 
+    // Run Power On Self Test(s)
+    bool wasPOSTError = false;
+    if ( !platform_runPOST() )
+    {
+        mp::postFailedAlert.raiseAlert();
+        mp::errorScrPtr.write( &g_errorScreen_ );
+        wasPOSTError = true;
+    }
+
     // Turn off the RGB LED (and set the default brightness)
     Driver::PicoDisplay::Api::setLCDBrightness( 0 );
     Driver::PicoDisplay::Api::rgbLED().setOff();
@@ -179,6 +190,10 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
 
     recordServer_.open();               // Start the Persistent server as soon as possible AND before the splash screen
     metricsRec_.flush( recordServer_ ); // Immediate flush the metrics record so the new boot counter value is updated (see MetricsRecord for where the counter gets incremented)
+    if ( wasPOSTError )
+    {
+        mp::heatingMode.write( false ); // Force the heater OFF when there is POST error (must be AFTER reading/loading the user persistent storage recorded)
+    }
 
     // Display the splash screen
     screenMgr_.open( &splashScreen_ );

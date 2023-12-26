@@ -223,18 +223,6 @@ extern Cpl::Dm::Mp::Uint64  metricHeaterOnTime;
 */
 extern Cpl::Dm::Mp::Uint64  metricFanOnTime;
 
-/** This model point holds metrics counter: Temperature Sensor Fault counter.
-    Is incremented every time a temperature sensor fault is raised.
-
-    \b Units: free running counter
-
-    \b Range: n/a
-
-    \b Notes:
-        n/a
-*/
-extern Cpl::Dm::Mp::Uint32  metricFaultTempSensor;
-
 /** This model point holds metrics counter: Heater Safety Fault counter.
     Is incremented every time the HW based heater safety circuit 'tripped'
     input signal to the MCU is asserted.
@@ -395,6 +383,18 @@ extern Ajax::Dm::MpAlert     failedSafeAlert;
         No Alert is indicated by the MP being in the invalid state.
  */
 extern Ajax::Dm::MpAlert     postFailedAlert;
+
+/** This model point indicates that the unit has not been provisioned
+
+    \b Units : n/a
+
+    \b Range : n/a
+
+    \b Notes :
+        The Alert 'present' state is indicated by the MP being valid.
+        No Alert is indicated by the MP being in the invalid state.
+ */
+extern Ajax::Dm::MpAlert     notProvisionedAlert;
 
 /** This model point contains the FLC configuration parameters for the
     the heating algorithm.  The values are provisioned during

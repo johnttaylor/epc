@@ -11,10 +11,12 @@
 /** @file */
 
 #include "colony_config.h"
+#include "platform.h"
 #include "Ajax/Main/platform.h"
 #include "Ajax/Main/appmain.h"
 #include "app_platform.h"
 #include "Driver/NV/File/Cpl/Api.h"
+#include "Cpl/System/Trace.h"
 #include <stdlib.h>
 
 using namespace Ajax::Main;
@@ -38,6 +40,18 @@ void Ajax::Main::platform_initialize0()
     // Platform init...
     nvDriver_.start();
     appvariant_platform_initialize0();
+}
+
+bool Ajax::Main::platform_runPOST()
+{
+    // Generate a POST failure when requested via the command line
+    bool postFailed = false;
+    if ( Ajax::Main::g_args["-e"].isBool() )
+    {
+        postFailed = g_args["-e"].asBool();
+    }
+    CPL_SYSTEM_TRACE_MSG( "CRITICAL", ("isBool()=%d, asBool()=%d", Ajax::Main::g_args["-e"].isBool(), g_args["-e"].asBool()) );
+    return !postFailed;
 }
 
 void Ajax::Main::platform_initializeModelPoints0()

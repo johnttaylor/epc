@@ -9,4 +9,4 @@
 echo:Launching display simulator...
 start ..\..\..\..\..\pico-display-simulator\simulator\bin\Release\simulator.exe
 timeout /t 1
-_win32\ajax-sim.exe
+_win32\ajax-sim.exe %*

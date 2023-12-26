@@ -28,7 +28,8 @@ static Ajax::Dm::MpAlert* alerts_[Ajax::Type::Alert::NUM_ALERTS] ={
     &mp::failedSafeAlert ,
     &mp::sensorFailAlert,
     &mp::remoteSensorFailAlert,
-    &mp::postFailedAlert
+    &mp::postFailedAlert,
+    &mp::notProvisionedAlert
 };
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -62,9 +63,9 @@ TEST_CASE( "Summary" )
         uut.close();
     }
 
-    SECTION( "priority-all" )
+    SECTION( "priority-4" )
     {
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("SECTION: priority-all") );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("SECTION: priority-4") );
 
         uut.open();
         mp::postFailedAlert.raiseAlert();

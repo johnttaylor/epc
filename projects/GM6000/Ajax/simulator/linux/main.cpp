@@ -18,6 +18,7 @@ R"(Ajax Simulation.
     Options:
       -s HOST       Hostname for the Display Simulation. [Default: 127.0.0.1]
       -p PORT       The Display Simulation's Port number [Default: 5010]
+      -e            Generate a POST failure on start-up
       -v            Be verbose
       --help        Show this screen.
 
