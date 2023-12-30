@@ -41,13 +41,13 @@
 /** Threshold for max valid ADC reading (i.e. treated as a 'short')
  */
 #ifndef OPTION_DRIVER_AIO_AJAX_ADC_MAX_RAIL_BITS
-#define OPTION_DRIVER_AIO_AJAX_ADC_MAX_RAIL_BITS        (4096-25)
+#define OPTION_DRIVER_AIO_AJAX_ADC_MAX_RAIL_BITS        (4096-100)
 #endif
 
  /** Threshold for min valid ADC reading (i.e. treated as an 'open')
   */
 #ifndef OPTION_DRIVER_AIO_AJAX_ADC_MIN_RAIL_BITS
-#define OPTION_DRIVER_AIO_AJAX_ADC_MIN_RAIL_BITS        25
+#define OPTION_DRIVER_AIO_AJAX_ADC_MIN_RAIL_BITS        100
 #endif
 
 
