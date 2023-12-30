@@ -20,32 +20,27 @@
 #include "Cpl/System/Timer.h"
 #include "Cpl/Dm/Mp/Int32.h"
 
-/*** Sampling time, in milliseconds.
- */
+/// Sampling time, in milliseconds.
 #ifndef OPTION_DRIVER_AIO_AJAX_SAMPLE_TIME_MS
 #define OPTION_DRIVER_AIO_AJAX_SAMPLE_TIME_MS           1000 // 1 HZ
 #endif
 
-/** Number of consecutive sample to take when averaging raw readings
- */
+/// Number of consecutive sample to take when averaging raw readings
 #ifndef OPTION_DRIVER_AIO_AJAX_NUM_SAMPLES_TO_AVG
 #define OPTION_DRIVER_AIO_AJAX_NUM_SAMPLES_TO_AVG       3
 #endif
 
-/** Number of ADC Bits/resolution required
- */
+/// Number of ADC Bits/resolution required
 #ifndef OPTION_DRIVER_AIO_AJAX_ADC_BIT_RESOLUTION
 #define OPTION_DRIVER_AIO_AJAX_ADC_BIT_RESOLUTION       12
 #endif
 
-/** Threshold for max valid ADC reading (i.e. treated as a 'short')
- */
+/// Threshold for max valid ADC reading (i.e. treated as a 'short')
 #ifndef OPTION_DRIVER_AIO_AJAX_ADC_MAX_RAIL_BITS
 #define OPTION_DRIVER_AIO_AJAX_ADC_MAX_RAIL_BITS        (4096-100)
 #endif
 
- /** Threshold for min valid ADC reading (i.e. treated as an 'open')
-  */
+/// Threshold for min valid ADC reading (i.e. treated as an 'open')
 #ifndef OPTION_DRIVER_AIO_AJAX_ADC_MIN_RAIL_BITS
 #define OPTION_DRIVER_AIO_AJAX_ADC_MIN_RAIL_BITS        100
 #endif
