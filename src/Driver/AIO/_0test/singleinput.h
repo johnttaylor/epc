@@ -1,5 +1,5 @@
-#ifndef Driver_Button_0test_hw_h_
-#define Driver_Button_0test_hw_h_
+#ifndef Driver_AIO_HalSingleInput_h_
+#define Driver_AIO_HalSingleInput_h_
 /*-----------------------------------------------------------------------------
 * This file is part of the Colony.Core Project.  The Colony.Core Project is an
 * open source project with a BSD type of licensing agreement.  See the license
@@ -12,13 +12,10 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
-#include "Driver/Button/PolledDebounced.h"
+#include "Driver/AIO/HalSingleInput.h"
 
-/// This method NEVER returns
-extern void runtests( Driver_Button_Hal_T& hal1,
-                      unsigned             numConsecutiveCounts1,
-                      Driver_Button_Hal_T& hal2,
-                      unsigned             numConsecutiveCounts2 );
+/// This method NEVER returns. Note: The caller is expected to call Driver_AIO_HalSingle_setADCSize() before calling runtests()
+extern void runtests( DriverAIOHalSingleInput_T handleInput );
 
 
 /*--------------------------------------------------------------------------*/

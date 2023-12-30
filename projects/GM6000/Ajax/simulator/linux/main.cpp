@@ -19,6 +19,7 @@ R"(Ajax Simulation.
       -s HOST       Hostname for the Display Simulation. [Default: 127.0.0.1]
       -p PORT       The Display Simulation's Port number [Default: 5010]
       -e            Generate a POST failure on start-up
+      -t ADCBITS    Sets the initial mocked ADCBits value [Default: 2048]
       -v            Be verbose
       --help        Show this screen.
 

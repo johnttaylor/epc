@@ -1,5 +1,5 @@
-#ifndef Driver_Button_STM32_Hal_h_
-#define Driver_Button_STM32_Hal_h_
+#ifndef Driver_AIO_STM32_HALSingleIinput_h_
+#define Driver_AIO_STM32_HALSingleIinput_h_
 /*----------------------------------------------------------------------------- 
 * This file is part of the Colony.Core Project.  The Colony.Core Project is an   
 * open source project with a BSD type of licensing agreement.  See the license  
@@ -10,21 +10,19 @@
 *                                                                               
 * Redistributions of the source code must retain the above copyright notice.    
 *----------------------------------------------------------------------------*/ 
-/** @file 
-    
-    This file defines the concrete implementation for the Button HAL running on 
-    STM32 MCUs
+/** @file */
 
-*/
 
-#include "Driver/Button/Hal.h"
-
+/// ADC Bit Resolution (not runtime configurable)
+#ifmdef OPTION_DRIVEDR_AIO_STM32_SINGLE_INPUT_ADC_RESOLUTION
+#define OPTION_DRIVEDR_AIO_STM32_SINGLE_INPUT_ADC_RESOLUTION     12
+#endif
 
 /*-------------- PUBLIC API ------------------------------------------------*/
 /** This method is used to initialize the GPIO for the pin/configuration specified
-    by 'buttonHdl'
+    by 'analogInputPin'
  */
-void driverButtonHalSTM32_initialize( Driver_Button_Hal_T buttonHdl );
+void driverAIOHalSingleInputStm32_initialize( int tbd );
 
 
 /*--------------------------------------------------------------------------*/

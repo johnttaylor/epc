@@ -10,4 +10,4 @@
 // My BSP
 #include "Bsp/Initech/alpha1-atmel/Api.h"
 
-#include "Driver/Button/Arduino/mappings_.h"
+#include "Driver/AIO/Arduino/singleinput_mappings_.h"

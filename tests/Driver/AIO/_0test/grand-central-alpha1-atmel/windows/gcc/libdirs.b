@@ -1,7 +1,7 @@
 # UUT and tests
-src/Driver/Button/_0test/_hw
-src/Driver/Button/Arduino
-src/Driver/Button
+src/Driver/AIO/_0test
+src/Driver/AIO/Arduino < HalSingleInput.cpp
+
 
 # Core CPL
 src/Cpl/Container

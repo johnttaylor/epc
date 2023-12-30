@@ -10,18 +10,23 @@
 *----------------------------------------------------------------------------*/ 
 /** @file */
 
-#include "Driver/Button/Hal.h"
-#include "Hal.h"
+#include "Driver/AIO/HalSingleInput.h"
+#include "HalSingleInput.h"
 #include <stdint.h>
 
-void driverButtonHalArduino_initialize( DriverButtonPinHalArduino_T buttonHdl )
+void driverAIOHalSingleInputArduino_initialize( int analogInputPin )
 {
-    pinMode( buttonHdl.pin, buttonHdl.mode );
+    //analogReference( avref );
 }
 
-bool driverButtonHalArduino_getRawPressState( DriverButtonPinHalArduino_T pinHandle )
+bool driverAIOHalSingleInputArduino_sample( int inputPinToSampleHdl, uint32_t& dstADCBits )
 {
-    uint32_t phy = digitalRead( pinHandle.pin );
-    bool     log = phy == HIGH ? true : false;
-    return pinHandle.activeLow ? !log : log;
+    //
+    return true;
 }
+
+uint8_t driverAIOHalSingleInputArduino_setADCSize( int inputToSampleHdl, uint8_t numADCBits )
+{
+    return OPTION_DRIVEDR_AIO_STM32_SINGLE_INPUT_ADC_RESOLUTION;  // Fixed
+}
+

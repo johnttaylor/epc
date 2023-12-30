@@ -104,6 +104,9 @@ void Bsp_beginFileSystem();
 //////////////////////////////////////////////////////////
 
 /// Arduino Pin Number
+#define PIN_ONBOARD_IDT         67
+
+/// Arduino Pin Number
 #define PIN_BUTTON_A            12
 
 /// Arduino Pin Number

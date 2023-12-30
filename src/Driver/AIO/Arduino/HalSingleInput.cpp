@@ -10,23 +10,38 @@
 *----------------------------------------------------------------------------*/ 
 /** @file */
 
-#include "Driver/Button/Hal.h"
-#include "Hal.h"
+#include "Driver/AIO/HalSingleInput.h"
+#include "HalSingleInput.h"
+#include <stdint.h>
 
-
-void driverButtonHalSTM32_initialize( Driver_Button_Hal_T buttonHdl )
+void driverAIOHalSingleInputArduino_initialize( int analogInputPin, eAnalogReference avref )
 {
-    // TODO: Support configuring WITHOUT using MX tool
+    analogReference( avref );
 }
 
-bool driverButtonHalSTM32_getRawPressState( DriverButtonPinHalSTM32_T pinHandle )
+bool driverAIOHalSingleInputArduino_sample( int inputPinToSampleHdl, uint32_t& dstADCBits )
 {
-    if ( pinHandle.activeLow )
-    {
-        return HAL_GPIO_ReadPin( pinHandle.port, pinHandle.pin ) ? false : true;
-    }
-    else 
-    {
-        return HAL_GPIO_ReadPin( pinHandle.port, pinHandle.pin )? true: false;
-    }
+    dstADCBits = analogRead( inputPinToSampleHdl );
+    return true;
 }
+
+uint8_t driverAIOHalSingleInputArduino_setADCSize( int inputToSampleHdl, uint8_t numADCBits )
+{
+    if ( numADCBits == 12 && HAS_DRIVER_AIO_ARDUINO_HAL_SINGLE_INPUT_12ADC )
+    {
+        analogReadResolution( numADCBits );
+    }
+    else if ( numADCBits == 16 && HAS_DRIVER_AIO_ARDUINO_HAL_SINGLE_INPUT_16ADC )
+    {
+        analogReadResolution( numADCBits );
+    }
+    
+    // Arduino default is 10bit ADC
+    else
+    {
+        numADCBits = 10;
+    }
+
+    return numADCBits;
+}
+

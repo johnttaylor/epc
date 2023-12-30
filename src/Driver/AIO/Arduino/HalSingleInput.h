@@ -1,5 +1,5 @@
-#ifndef Driver_Button_Arduino_Hal_h_
-#define Driver_Button_Arduino_Hal_h_
+#ifndef Driver_AIO_Arduino_HALSingleIinput_h_
+#define Driver_AIO_Arduino_HALSingleIinput_h_
 /*----------------------------------------------------------------------------- 
 * This file is part of the Colony.Core Project.  The Colony.Core Project is an   
 * open source project with a BSD type of licensing agreement.  See the license  
@@ -10,21 +10,26 @@
 *                                                                               
 * Redistributions of the source code must retain the above copyright notice.    
 *----------------------------------------------------------------------------*/ 
-/** @file 
-    
-    This file defines the concrete implementation for the Button HAL running on 
-    the Arduino Framework
+/** @file */
 
-*/
+#include "colony_config.h"
+#include "wiring_analog.h"
 
-#include "Driver/Button/Hal.h"
+/// Target supports 12 bit ADC. Set 0 to disable 
+#ifndef HAS_DRIVER_AIO_ARDUINO_HAL_SINGLE_INPUT_12ADC
+#define HAS_DRIVER_AIO_ARDUINO_HAL_SINGLE_INPUT_12ADC       1 
+#endif
 
+/// Target supports 16 bit ADC. Set 0 to disable 
+#ifndef HAS_DRIVER_AIO_ARDUINO_HAL_SINGLE_INPUT_16ADC
+#define HAS_DRIVER_AIO_ARDUINO_HAL_SINGLE_INPUT_16ADC       0
+#endif
 
 /*-------------- PUBLIC API ------------------------------------------------*/
 /** This method is used to initialize the GPIO for the pin/configuration specified
-    by 'buttonHdl'
+    by 'analogInputPin'
  */
-void driverButtonHalArduino_initialize( Driver_Button_Hal_T buttonHdl );
+void driverAIOHalSingleInputArduino_initialize( int analogInputPin, eAnalogReference avref );
 
 
 /*--------------------------------------------------------------------------*/

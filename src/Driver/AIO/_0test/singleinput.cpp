@@ -14,73 +14,35 @@
 #include "Cpl/System/Trace.h"
 #include "Cpl/System/Api.h"
 #include "Cpl/System/ElapsedTime.h"
-#include "Driver/Button/PolledDebounced.h"
+#include "Driver/AIO/HalSingleInput.h"
 #include "Bsp/Api.h"
 
-using namespace Driver::Button;
 
 #ifndef OPTION_POLLING_INTERVAL_MS
-#define OPTION_POLLING_INTERVAL_MS      10
+#define OPTION_POLLING_INTERVAL_MS      500
 #endif
 
 #define SECT_   "_0test"
 
-
-void runtests( Driver_Button_Hal_T& hal1,
-               unsigned             numConsecutiveCounts1,
-               Driver_Button_Hal_T& hal2,
-               unsigned             numConsecutiveCounts2 )
-
+void runtests( DriverAIOHalSingleInput_T handleInput )
 {
-    CPL_SYSTEM_TRACE_MSG( SECT_, ("Polled Debounced Button Driver Test.  Press some buttons...") );
+    CPL_SYSTEM_TRACE_MSG( SECT_, ("AIO Single Input Driver Test...") );
 
-    // Create the button driver instances
-    PolledDebounced button1( hal1, numConsecutiveCounts1 );
-    PolledDebounced button2( hal2, numConsecutiveCounts2 );
+    // Loop forever
     Bsp_Api_turnOff_debug1();
-
-    bool button1WasPressed = false;
-    bool button2WasPressed = false;
     for ( ;;)
     {
-        button1.sample();
-        button2.sample();
         uint32_t now = Cpl::System::ElapsedTime::milliseconds();
-
-        if ( button1.isPressed() )
+        uint32_t bits;
+        if ( !Driver_AIO_HalSingleInput_sample( handleInput, bits ) )
         {
-            if ( !button1WasPressed )
-            {
-                button1WasPressed = true;
-                Bsp_Api_turnOn_debug1();
-                CPL_SYSTEM_TRACE_MSG( SECT_, ("BUTTON1 Pressed.  timeMark = %lu", now) );
-            }
+            CPL_SYSTEM_TRACE_MSG( SECT_, ("ERROR: Read of ADC failed!") );
+            for ( ;;);
         }
-        else if ( button1WasPressed )
-        {
-            button1WasPressed = false;
-            Bsp_Api_turnOff_debug1();
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("BUTTON1 released. timeMark = %lu", now));
-        }
-    
-        if ( button2.isPressed() )
-        {
-            if ( !button2WasPressed )
-            {
-                button2WasPressed = true;
-                CPL_SYSTEM_TRACE_MSG( SECT_, ("button2 Pressed.  timeMark = %lu", now) );
-            }
-        }
-        else if ( button2WasPressed )
-        {
-            button2WasPressed = false;
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("button2 released. timeMark = %lu", now));
-        }
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("ADC Bits = %u", bits) );
 
         uint32_t later = Cpl::System::ElapsedTime::milliseconds();
         Cpl::System::Api::sleep( OPTION_POLLING_INTERVAL_MS - (later - now) );
+        Bsp_Api_toggle_debug1();
     }
-
-
-    REQUIRE( Cpl::System::Shutdown_TS::getAndClearCounter() == 0u );
 }

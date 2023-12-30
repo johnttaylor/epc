@@ -4,15 +4,12 @@
 #include "Cpl/System/FreeRTOS/Thread.h"
 #include "Cpl/Io/InputOutput.h"
 #include "Cpl/System/Trace.h"
-#include "Driver/Button/_0test/_hw/test.h"
-#include "Driver/Button//Arduino/Hal.h"
+#include "Driver/AIO/_0test/singleinput.h"
+#include "Driver/AIO/Arduino/HalSingleInput.h"
 
 #define SECT_ "_0test"
 
 extern Cpl::Io::InputOutput& Bsp_Serial( void );
-
-static DriverButtonPinHalArduino_T button1_( PIN_BUTTON_A, INPUT_PULLUP, true );
-static DriverButtonPinHalArduino_T button2_( PIN_BUTTON_B, INPUT_PULLUP, true );
 
 
 // the setup function runs once when you press reset or power the board
@@ -38,7 +35,11 @@ void setup()
 // This function is called repeatedly forever
 void loop()
 {
+    driverAIOHalSingleInputArduino_initialize( PIN_ONBOARD_IDT, AR_DEFAULT ); // use the internal 3.3V reference voltage
+    driverAIOHalSingleInputArduino_setADCSize( PIN_ONBOARD_IDT, 12 );
+
     Cpl::System::Api::sleep( 5000 ); // Allow time to connect a serial terminal
-    CPL_SYSTEM_TRACE_MSG( SECT_, ("Hello - Starting BUTTON test(s)....") );
-    runtests( button1_, 2, button2_, 100 );   // This method never returns
+    CPL_SYSTEM_TRACE_MSG( SECT_, ("Hello - Starting AIO test(s)....") );
+    
+    runtests( PIN_ONBOARD_IDT );   // This method never returns
 }
