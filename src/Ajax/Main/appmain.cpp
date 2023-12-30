@@ -50,19 +50,21 @@
 #include "Driver/Crypto/TShell/Random.h"
 #include "Driver/Crypto/Orlp/Sha512.h"
 #include "Driver/NV/_tshell/Cmd.h"
+#include "Driver/AIO/Ajax/Thermistor.h"
 #include "screens.h"
 
 using namespace Ajax::Main;
 
-static Cpl::System::Semaphore       waitForShutdown_;
-static volatile int                 exitCode_;
+static Cpl::System::Semaphore           waitForShutdown_;
+static volatile int                     exitCode_;
 static int runShutdownHandlers() noexcept;
 
-Cpl::Dm::MailboxServer              Ajax::Main::g_appMbox;
+Cpl::Dm::MailboxServer                  Ajax::Main::g_appMbox;
 
-static Driver::Crypto::Orlp::SHA512 sha512_;
-Driver::Crypto::Hash*               Ajax::Main::g_sha512Ptr = &sha512_;
+static Driver::Crypto::Orlp::SHA512     sha512_;
+Driver::Crypto::Hash*                   Ajax::Main::g_sha512Ptr = &sha512_;
 
+static Driver::AIO::Ajax::Thermistor    thermistor_( g_appMbox, Ajax::Main::g_thermistorHdl, mp::onBoardIdt );
 
 // Graphics library: Use RGB332 mode (256 colours) on the Target to limit RAM usage canvas 
 Cpl::Dm::MailboxServer                          Ajax::Main::g_uiMbox;
@@ -196,6 +198,7 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
 
     // Complete "starting" the application
     platform_open0();
+    thermistor_.open();
 
     uint32_t bootCounter;
     mp::metricBootCounter.read( bootCounter );
@@ -238,6 +241,7 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
 
     logServer_.close();
 
+    thermistor_.close();
     platform_close0();
 
     // DELETE-ME: For testing to see the shutdown screen.

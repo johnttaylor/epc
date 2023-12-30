@@ -17,6 +17,7 @@
 #include "Driver/PicoDisplay/Arduino/Api.h"
 #include "Driver/NV/Onsemi/CAT24C512/Api.h"
 #include "Driver/I2C/Arduino/Master.h"
+#include "Driver/AIO/Arduino/HalSingleInput.h"
 #include <stdlib.h>
 
 using namespace Ajax::Main;
@@ -25,12 +26,16 @@ static Driver::I2C::Arduino::Master         i2cDriver_( I2C_BUS_DRIVER );
 static Driver::NV::Onsemi::CAT24C512::Api   nvDriver_( i2cDriver_, BSP_I2C_ADDRESS_EEPROM );
 Driver::NV::Api&                            Ajax::Main::g_nvramDriver = nvDriver_;
 
+int Ajax::Main::g_thermistorHdl = PIN_ONBOARD_IDT;
+
 /////////////////////////////
 void Ajax::Main::platform_initialize0()
 {
     // Platform init...
     i2cDriver_.start();
     Driver::PicoDisplay::Arduino::initialize();
+    driverAIOHalSingleInputArduino_initialize( PIN_ONBOARD_IDT, AR_DEFAULT );   // Use the internal VDDana 3.3V reference
+    Driver_AIO_HalSingle_setADCSize( PIN_ONBOARD_IDT, 12 );
 
     appvariant_platform_initialize0();
 }

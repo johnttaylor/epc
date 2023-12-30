@@ -3,7 +3,6 @@ src/Ajax/Main/_plat_alpha1_atmel
 src/Ajax/Main/_plat_alpha1_atmel/_app_platform
 
 # CPL - Board specific
-#src/Cpl/System/FreeRTOS
 src/Cpl/System/FreeRTOS/_fatalerror
 src/Cpl/System/_trace/_arduino
 src/Cpl/Io/Serial/Arduino

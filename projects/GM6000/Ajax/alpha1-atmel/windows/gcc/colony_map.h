@@ -1,5 +1,6 @@
 // Drivers
 #include "Driver/DIO/Arduino/mappings_.h"
+#include "Driver/AIO/Arduino/singleinput_mappings_.h"
 #include "Driver/Button/Arduino/mappings_.h"
 
 // OSAL mapping

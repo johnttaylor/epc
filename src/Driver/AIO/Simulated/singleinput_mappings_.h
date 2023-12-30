@@ -21,8 +21,6 @@
 /// Simulated Mapping
 #define DriverAIOHalSingleInput_T_MAP               Cpl::Dm::Mp::Uint32&
 
-#error Fail compile
-
 /// Simulated Mapping
 #define Driver_AIO_HalSingleInput_sample_MAP        driverAIOHalSingleInputSimulated_sample
 
