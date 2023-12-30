@@ -14,15 +14,10 @@
 
 
 /// ADC Bit Resolution (not runtime configurable)
-#ifmdef OPTION_DRIVEDR_AIO_STM32_SINGLE_INPUT_ADC_RESOLUTION
+#ifndef OPTION_DRIVEDR_AIO_STM32_SINGLE_INPUT_ADC_RESOLUTION
 #define OPTION_DRIVEDR_AIO_STM32_SINGLE_INPUT_ADC_RESOLUTION     12
 #endif
 
-/*-------------- PUBLIC API ------------------------------------------------*/
-/** This method is used to initialize the GPIO for the pin/configuration specified
-    by 'analogInputPin'
- */
-void driverAIOHalSingleInputStm32_initialize( int tbd );
 
 
 /*--------------------------------------------------------------------------*/

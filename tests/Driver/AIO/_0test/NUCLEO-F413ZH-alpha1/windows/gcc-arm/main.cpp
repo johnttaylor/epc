@@ -1,18 +1,10 @@
-#include "colony_config.h"
 #include "Bsp/Api.h"
+#include "Bsp/ST/NUCLEO-F413ZH/alpha1/console/Output.h"
 #include "Cpl/System/Api.h"
 #include "Cpl/System/Trace.h"
-#include "Driver/I2C/_0test/master_eeprom.h"
-#include "Driver/I2C/STM32/Master.h"
 #include "Cpl/System/FreeRTOS/Thread.h"
-
-
-
-#ifndef OPTION_I2C_DEV_ADDRESS
-#define OPTION_I2C_DEV_ADDRESS              (0x50)
-#endif
-
-static Driver::I2C::STM32::Master           uut_( &hi2c2 );
+#include "Driver/AIO/HalSingleInput.h"
+#include "Driver/AIO/_0test/singleinput.h"
 
 #define SECT_   "_0test"
 
@@ -26,7 +18,8 @@ protected:
     void appRun()
     {
         CPL_SYSTEM_TRACE_MSG( SECT_, ("**** DRIVER TEST APPLICATION STARTED ****") );
-        runtests( uut_, OPTION_I2C_DEV_ADDRESS );
+        Driver_AIO_HalSingle_setADCSize( &hadc1, 12 );
+        runtests( &hadc1 );   // This method never returns
     }
 };
 
@@ -39,16 +32,16 @@ static ThreadMain runnable_;
 /*-----------------------------------------------------------*/
 int main( void )
 {
-    // Initialize CPL
-    Cpl::System::Api::initialize();
-
     // Initialize the board
     Bsp_Api_initialize();
+
+    // Initialize CPL
+    Cpl::System::Api::initialize();
 
     CPL_SYSTEM_TRACE_ENABLE();
     CPL_SYSTEM_TRACE_ENABLE_SECTION( SECT_ );
 
-    //// Create the main thread
+    // Create the main thread
     Cpl::System::Thread* t1 = Cpl::System::FreeRTOS::Thread::create( runnable_, "main", CPL_SYSTEM_THREAD_PRIORITY_NORMAL );
     if ( t1 == nullptr )
     {

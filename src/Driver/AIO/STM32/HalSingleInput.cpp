@@ -14,18 +14,20 @@
 #include "HalSingleInput.h"
 #include <stdint.h>
 
-void driverAIOHalSingleInputArduino_initialize( int analogInputPin )
+bool driverAIOHalSingleInputStm32_sample( ADC_HandleTypeDef* inputPinToSampleHdl, uint32_t& dstADCBits )
 {
-    //analogReference( avref );
-}
+    HAL_ADC_Start( inputPinToSampleHdl );
+    HAL_StatusTypeDef status = HAL_ADC_PollForConversion( &hadc1, 1 ); // Wait at-most 1msec
+    if ( status != HAL_OK )
+    {
+        return false;
+    }
 
-bool driverAIOHalSingleInputArduino_sample( int inputPinToSampleHdl, uint32_t& dstADCBits )
-{
-    //
+    dstADCBits = HAL_ADC_GetValue( inputPinToSampleHdl );
     return true;
 }
 
-uint8_t driverAIOHalSingleInputArduino_setADCSize( int inputToSampleHdl, uint8_t numADCBits )
+uint8_t driverAIOHalSingleInputStm32_setADCSize( ADC_HandleTypeDef* inputToSampleHdl, uint8_t numADCBits )
 {
     return OPTION_DRIVEDR_AIO_STM32_SINGLE_INPUT_ADC_RESOLUTION;  // Fixed
 }
