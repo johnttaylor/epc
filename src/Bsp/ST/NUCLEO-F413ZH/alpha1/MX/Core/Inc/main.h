@@ -61,6 +61,8 @@ void SystemClock_Config(void);
 #define USER_Btn_GPIO_Port GPIOC
 #define MCO_Pin GPIO_PIN_0
 #define MCO_GPIO_Port GPIOH
+#define ain_thermistor_Pin GPIO_PIN_3
+#define ain_thermistor_GPIO_Port GPIOA
 #define GPOUT_Test_Pin_Pin GPIO_PIN_6
 #define GPOUT_Test_Pin_GPIO_Port GPIOA
 #define LD1_Pin GPIO_PIN_0

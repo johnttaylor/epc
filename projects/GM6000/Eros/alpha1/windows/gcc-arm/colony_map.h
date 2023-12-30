@@ -1,6 +1,7 @@
 // Drivers
 #include "Driver/DIO/STM32/mappings_.h"
 #include "Driver/Button/STM32/mappings_.h"
+#include "Driver/AIO/STM32/singleinput_mappings_.h"
 
 // OSAL mapping
 #include "Cpl/System/FreeRTOS/mappings_.h"

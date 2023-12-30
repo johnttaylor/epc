@@ -32,6 +32,7 @@
 #include "Bsp/Initech/alpha1/MX/Core/Inc/tim.h"  // Access the UART handles/instances
 #include "Bsp/Initech/alpha1/MX/Core/Inc/spi.h"  // Access the SPI handles/instances
 #include "Bsp/Initech/alpha1/MX/Core/Inc/i2c.h"  // Access the I2C handles/instances
+#include "Bsp/Initech/alpha1/MX/Core/Inc/adc.h"  // Access the AIN handles/instances
 
 //#include "Bsp/Initech/alpha1/MX/Core/Inc/stm32f4xx_hal_conf.h"  // SDK header files...
 

@@ -59,7 +59,6 @@ void Api::request( OpenMsg& msg )
         mp::hwSafetyLimit.attach( m_obHwSafety );
         mp::heatingMode.attach( m_obHeatingEnabled );
 
-        // TODO: Subscribe to Safety limit MP. -->add changeCb() -->generate evSafetyLimit event
         // Start processing
         expired();
     }

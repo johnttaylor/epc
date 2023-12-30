@@ -25,6 +25,7 @@ public:
 protected:
     void appRun()
     {
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("**** DRIVER TEST APPLICATION STARTED ****") );
         runtests( uut_, OPTION_I2C_DEV_ADDRESS );
     }
 };
@@ -46,7 +47,6 @@ int main( void )
 
     CPL_SYSTEM_TRACE_ENABLE();
     CPL_SYSTEM_TRACE_ENABLE_SECTION( SECT_ );
-    CPL_SYSTEM_TRACE_MSG( SECT_, ("**** DRIVER TEST APPLICATION STARTED ****") );
 
     //// Create the main thread
     Cpl::System::Thread* t1 = Cpl::System::FreeRTOS::Thread::create( runnable_, "main", CPL_SYSTEM_THREAD_PRIORITY_NORMAL );

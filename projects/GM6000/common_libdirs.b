@@ -15,6 +15,7 @@ src/Driver/Crypto/TShell
 src/Driver/Crypto/Orlp
 src/Driver/Crypto/PasswordHash
 xsrc/orlp/ed25519
+src/Driver/AIO/Ajax < Thermistor.cpp
 
 # persistent storage
 src/Cpl/Dm/Persistent
