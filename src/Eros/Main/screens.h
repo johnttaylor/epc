@@ -16,6 +16,7 @@
  */
 
 #include "Eros/Ui/Home/Screen.h"
+#include "Eros/Ui/LcdTest/Screen.h"
 
 ///
 namespace Eros {
@@ -23,7 +24,10 @@ namespace Eros {
 namespace Main {
 
 /// Home Screen
-extern Eros::Ui::Home::Screen g_homeScreen;
+extern Eros::Ui::Home::Screen    g_homeScreen;
+
+/// LCd TestScreen
+extern Eros::Ui::LcdTest::Screen g_lcdTextScreen;
 
 
 }       // end namespaces
