@@ -10,16 +10,29 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
+#include "Ajax/Main/appmain.h"  // Must be first because of naming-collisions in the Pimoroni Graphics library
 #include "Ajax/Main/_plat_simulator/app_platform.h"
+#include <stdio.h>
+#include "mp/ModelPoints.h"
+#include "Driver/AIO/Eros/Thermistor.h"
+#include "Ajax/Main/_plat_simulator/platform.h"
 #include <stdio.h>
 
 using namespace Ajax::Main;
 
+// The Ajax and Eros Applications have DIFFERENT Thermistor drivers
+static Cpl::Dm::Mp::Uint32              mockADCBits_( mp::g_modelDatabase, "mockedADCBits" );
+static Driver::AIO::Eros::Thermistor    thermistor_( g_appMbox, mockADCBits_, mp::onBoardIdt );
+
 /////////////////////////////
 void Ajax::Main::appvariant_platform_initialize0()
 {
-    printf( "\nEROS: simulator: appvariant_platform_initialize0()\n" );
-
+    // Set initial ADC bits
+    uint32_t bits = g_args["-t"].asLong();
+    if ( bits < 4096 && bits >= 0 )
+    {
+        mockADCBits_.write( bits );
+    }
 }
 
 void Ajax::Main::appvariant_platform_initializeModelPoints0()
@@ -29,10 +42,10 @@ void Ajax::Main::appvariant_platform_initializeModelPoints0()
 
 void Ajax::Main::appvariant_platform_open0()
 {
-    // Nothing currently needed
+    thermistor_.open();
 }
 
 void Ajax::Main::appvariant_platform_close0()
 {
-    // Nothing currently needed
+    thermistor_.close();
 }

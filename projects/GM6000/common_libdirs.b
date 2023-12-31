@@ -4,6 +4,7 @@ src/Ajax/Ui
 src/Ajax/Ui/Splash
 src/Ajax/Ui/Shutdown
 src/Driver/Button
+src/Driver/AIO/Ajax
 
 # application stuffs
 src/Ajax/Logging
@@ -15,7 +16,6 @@ src/Driver/Crypto/TShell
 src/Driver/Crypto/Orlp
 src/Driver/Crypto/PasswordHash
 xsrc/orlp/ed25519
-src/Driver/AIO/Ajax < Thermistor.cpp
 
 # persistent storage
 src/Cpl/Dm/Persistent

@@ -35,22 +35,12 @@ using namespace Ajax::Main;
 static Driver::NV::File::Cpl::Api nvDriver_( DRIVER_NV_NUM_PAGES, DRIVER_NV_BYTES_PER_PAGE, DRIVER_NV_FILE_NAME );
 Driver::NV::Api&                  Ajax::Main::g_nvramDriver = nvDriver_;
 
-static Cpl::Dm::Mp::Uint32 mockADCBits_( mp::g_modelDatabase, "mockedADCBits" );
-Cpl::Dm::Mp::Uint32&       Ajax::Main::g_thermistorHdl = mockADCBits_;
 
 /////////////////////////////
 void Ajax::Main::platform_initialize0()
 {
     // Platform init...
     nvDriver_.start();
-
-    // Set initial ADC bits
-    uint32_t bits = g_args["-t"].asLong();
-    if ( bits < 4096 && bits >= 0 )
-    {
-        mockADCBits_.write( bits );
-    }
-
     appvariant_platform_initialize0();
 }
 
