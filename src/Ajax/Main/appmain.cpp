@@ -238,7 +238,7 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     buttonEvents_.close();
 
     appvariant_close0();
-
+    metricsRec_.flush( recordServer_ ); // Ensure that the Metrics record gets updated before the shutdown is completed
     logServer_.close();
 
     thermistor_.close();
