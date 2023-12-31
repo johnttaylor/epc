@@ -5,6 +5,7 @@ src/Ajax/Heating/Flc
 src/Ajax/Heating/Supervisor
 src/mp
 src/Ajax/Alerts
+src/Ajax/Metrics
 
 # UI
 src/Ajax/Ui/Home

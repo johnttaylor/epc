@@ -19,6 +19,8 @@
 #include "Ajax/Heating/Supervisor/Api.h"
 #include "Ajax/Ui/StatusIndicator/Api.h"
 #include "Ajax/Alerts/Summary.h"
+#include "Ajax/Metrics/Api.h"
+
 #include <stdio.h>
 
 using namespace Ajax::Main;
@@ -41,6 +43,9 @@ static Ajax::Dm::MpAlert* alerts_[Ajax::Type::Alert::NUM_ALERTS] ={
     &mp::notProvisionedAlert
 };
 Ajax::Alerts::Summary       alertSummary_( g_appMbox, alerts_ );
+
+static Ajax::Metrics::Api   metrics_( g_appMbox );
+
 
 // Screens...
 Ajax::Ui::Home::Screen      Ajax::Main::g_homeScreen_( Ajax::Main::g_screenNav, g_graphics, Ajax::Main::g_uiMbox, mp::onBoardIdt );
@@ -74,6 +79,7 @@ void Ajax::Main::appvariant_open0()
     }
 
     // Start-up the application
+    metrics_.open();
     alertSummary_.open();
     statusIndicator_.open();
     heatingAlgo_.open();
@@ -86,6 +92,7 @@ void Ajax::Main::appvariant_launchHomeScreen()
 
 void Ajax::Main::appvariant_close0()
 {
+    metrics_.close();
     heatingAlgo_.close();
     statusIndicator_.close();
     alertSummary_.close();
