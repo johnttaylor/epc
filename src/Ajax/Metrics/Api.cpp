@@ -166,8 +166,7 @@ void Api::processFanMetric( uint32_t currentElapsedTimeMs, uint32_t pwm, uint32_
         {
             m_fanOn        = false;
             uint32_t delta = Cpl::System::ElapsedTime::deltaMilliseconds( m_fanMarker, currentElapsedTimeMs );
-            mp::metricFanOnTime.increment( delta );
-            mp::metricFaultHeaterSafety.touch();    // Indirectly trigger a save of the Metrics record
+            mp::metricFanOnTime.increment( delta );     // Updating the MP triggers a save of the storage record
         }
 
         // Running            
@@ -177,8 +176,7 @@ void Api::processFanMetric( uint32_t currentElapsedTimeMs, uint32_t pwm, uint32_
             if ( delta >= intervalTime )
             {
                 m_fanMarker = currentElapsedTimeMs;
-                mp::metricFanOnTime.increment( delta );
-                mp::metricFaultHeaterSafety.touch();    // Indirectly trigger a save of the Metrics record
+                mp::metricFanOnTime.increment( delta ); // Updating the MP triggers a save of the storage record
             }
         }
     }
@@ -200,8 +198,7 @@ void Api::processHeaterMetric( uint32_t currentElapsedTimeMs, uint32_t pwm, uint
         {
             m_heaterOn     = false;
             uint32_t delta = Cpl::System::ElapsedTime::deltaMilliseconds( m_heaterMarker, currentElapsedTimeMs );
-            mp::metricHeaterOnTime.increment( delta );
-            mp::metricFaultHeaterSafety.touch();    // Indirectly trigger a save of the Metrics record
+            mp::metricHeaterOnTime.increment( delta );      // Updating the MP triggers a save of the storage record
         }
 
         // Running            
@@ -211,8 +208,7 @@ void Api::processHeaterMetric( uint32_t currentElapsedTimeMs, uint32_t pwm, uint
             if ( delta >= intervalTime )
             {
                 m_heaterMarker = currentElapsedTimeMs;
-                mp::metricHeaterOnTime.increment( delta );
-                mp::metricFaultHeaterSafety.touch();    // Indirectly trigger a save of the Metrics record
+                mp::metricHeaterOnTime.increment( delta );  // Updating the MP triggers a save of the storage record
             }
         }
     }

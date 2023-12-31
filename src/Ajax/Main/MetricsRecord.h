@@ -45,9 +45,9 @@ public:
         : Cpl::Dm::Persistent::Record( m_modelPoints, chunkHandler, OPTION_AJAX_MAIN_METRICS_RECORD_MAJOR, OPTION_AJAX_MAIN_METRICS_RECORD_MINOR )
     {
         m_modelPoints[0] = { &mp::metricBootCounter, CPL_DM_PERISTENCE_RECORD_NO_SUBSCRIBER };
-        m_modelPoints[1] = { &mp::metricRunningTime, CPL_DM_PERISTENCE_RECORD_NO_SUBSCRIBER };
-        m_modelPoints[2] = { &mp::metricHeaterOnTime, CPL_DM_PERISTENCE_RECORD_NO_SUBSCRIBER };
-        m_modelPoints[3] = { &mp::metricFanOnTime, CPL_DM_PERISTENCE_RECORD_NO_SUBSCRIBER };
+        m_modelPoints[1] = { &mp::metricRunningTime, CPL_DM_PERISTENCE_RECORD_USE_SUBSCRIBER };
+        m_modelPoints[2] = { &mp::metricHeaterOnTime, CPL_DM_PERISTENCE_RECORD_USE_SUBSCRIBER };
+        m_modelPoints[3] = { &mp::metricFanOnTime, CPL_DM_PERISTENCE_RECORD_USE_SUBSCRIBER };
         m_modelPoints[4] = { &mp::metricFaultHeaterSafety, CPL_DM_PERISTENCE_RECORD_USE_SUBSCRIBER };
         m_modelPoints[5] = { 0,0 };
     }                      
