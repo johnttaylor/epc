@@ -6,7 +6,6 @@ src/Ajax/Heating/Supervisor
 src/mp
 src/Ajax/Alerts
 src/Ajax/Metrics
-src/Driver/AIO/Ajax < Thermistor.cpp
 
 # UI
 src/Ajax/Ui/Home
