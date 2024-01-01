@@ -4,7 +4,6 @@ src/Ajax/Ui
 src/Ajax/Ui/Splash
 src/Ajax/Ui/Shutdown
 src/Driver/Button
-src/Driver/AIO/Ajax
 
 # application stuffs
 src/Ajax/Logging
