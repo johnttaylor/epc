@@ -1,3 +1,5 @@
+#ifdef Driver_Aio_HalSingleInput_h_
+
 #ifndef Driver_AIO_Arduino_halsingleinput_mappings_x_h_
 #define Driver_AIO_Arduino_halsingleinput_mappings_x_h_
 /*-----------------------------------------------------------------------------
@@ -33,3 +35,4 @@ bool driverAIOHalSingleInputArduino_sample( int inputToSampleHdl, uint32_t& dstA
 uint8_t driverAIOHalSingleInputArduino_setADCSize( int inputPinToSampleHdl, uint8_t numADCBits );
 
 #endif  // end header latch
+#endif  // end interface latch

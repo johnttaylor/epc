@@ -153,7 +153,6 @@ void Thermistor::request( CloseMsg& msg )
 //////////////////////////////////
 void Thermistor::expired( void ) noexcept
 {
-
     // Take N raw samples
     uint32_t samples[OPTION_DRIVER_AIO_AJAX_NUM_SAMPLES_TO_AVG];
     uint32_t sum = 0;
@@ -182,6 +181,7 @@ void Thermistor::expired( void ) noexcept
     // Check for open/shorted conditions
     if ( avg > OPTION_DRIVER_AIO_AJAX_ADC_MAX_RAIL_BITS || avg < OPTION_DRIVER_AIO_AJAX_ADC_MIN_RAIL_BITS )
     {
+        hookAdcSample( avg );
         m_mpTempOut.setInvalid();
     }
 
@@ -191,6 +191,8 @@ void Thermistor::expired( void ) noexcept
         // Note: Table entries have a HIGHER precision than the MP which in is hundredths of degree
         int32_t base = bitsToF_[idx0];
         int32_t val  = base +  (r.rem * (bitsToF_[idx0 + 1] - base) / NUM_TABLE_ENTRIES);
+        int32_t idt  = (val + ROUNDING_OFFSET) / ROUNDING_DIVIDER;
+        hookAdcSample( avg, idt );
         m_mpTempOut.write( (val+ ROUNDING_OFFSET) / ROUNDING_DIVIDER );
     }
 

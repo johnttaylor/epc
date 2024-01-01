@@ -42,7 +42,7 @@
  */
 namespace mp {
 
-/** This method point is used to set the shutdown screen. A write to this MP
+/** This model point is used to set the shutdown screen. A write to this MP
     triggers a transition to the shutdown screen
 
     \b Units: n/a
@@ -54,7 +54,7 @@ namespace mp {
 */
 extern Ajax::ScreenMgr::MpStaticScreenApiPtr shutdownScrPtr;
 
-/** This method point is used to set the error/halt screen. A write to this MP
+/** This model point is used to set the error/halt screen. A write to this MP
     triggers a transition to the error/halt screen.  The UI effectively becomes
     inoperable once it transitions to the error/halt screen.
 

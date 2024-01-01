@@ -1,5 +1,3 @@
-#ifndef Eros_Main_screens_h
-#define Eros_Main_screens_h
 /*-----------------------------------------------------------------------------
 * This file is part of the Colony.Core Project.  The Colony.Core Project is an
 * open source project with a BSD type of licensing agreement.  See the license
@@ -10,26 +8,15 @@
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
-/** @file
+/** @file */
 
-    This file exposes handles to Screen instances for the Eros Application
- */
-
-#include "Eros/Ui/Home/Screen.h"
-#include "Eros/Ui/LcdTest/Screen.h"
-
-///
-namespace Eros {
-///
-namespace Main {
-
-/// Home Screen
-extern Eros::Ui::Home::Screen    g_homeScreen;
-
-/// LCd TestScreen
-extern Eros::Ui::LcdTest::Screen g_lcdTextScreen;
+#include "ModelPoints.h"
 
 
-}       // end namespaces
-}
-#endif  // end header latch
+// Helper macros to simplify the instantiation of the MP instances
+#define ALLOC_INVALID( t, n )               t mp::n(  mp::g_modelDatabase, (#n) )
+
+
+/*---------------------------------------------------------------------------*/
+ALLOC_INVALID( Cpl::Dm::Mp::ArrayInt32<2>, erosThermistorSample );
+

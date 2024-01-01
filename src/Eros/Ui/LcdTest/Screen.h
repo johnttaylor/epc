@@ -1,5 +1,5 @@
-#ifndef Eros_Ui_Home_Screen_h_
-#define Eros_Ui_Home_Screen_h_
+#ifndef Eros_Ui_LcdTest_Screen_h_
+#define Eros_Ui_LcdTest_Screen_h_
 /*-----------------------------------------------------------------------------
 * This file is part of the Colony.Core Project.  The Colony.Core Project is an
 * open source project with a BSD type of licensing agreement.  See the license
@@ -18,17 +18,12 @@
 #include "Cpl/Dm/Mp/Int32.h"
 #include "Cpl/Dm/MailboxServer.h"
 
-/// Polling rate, in milliseconds, for sampling the space temperature
-#ifndef OPTION_EROS_UI_HOME_SCREEN_POLLING_MS
-#define OPTION_EROS_UI_HOME_SCREEN_POLLING_MS       2000     // 2 second
-#endif
-
 /// 
 namespace Eros {
 /// 
 namespace Ui {
 /// 
-namespace Home {
+namespace LcdTest {
 
 
 /** This class implements the Home screen
@@ -38,7 +33,7 @@ class Screen : public Ajax::ScreenMgr::ScreenApi
 public:
     /// Constructor
     Screen( Ajax::ScreenMgr::Navigation&  screenMgr,
-            pimoroni::PicoGraphics&       graphics);
+            pimoroni::PicoGraphics&       graphics );
 
 public:
     /// See Ajax::ScreenMgr::ScreenApi
@@ -63,23 +58,30 @@ public:
     bool refresh( Cpl::System::ElapsedTime::Precision_T currentElapsedTime ) noexcept;
 
 protected:
+    /// Color state
+    enum ColorState_T
+    {
+        RED = 0,        //!< Background: Red
+        GREEN,          //!< Background: Green
+        BLUE,           //!< Background: Blue
+        BLACK,          //!< Background: Black
+        WHITE,          //!< Background: White
+        FIRST = RED,    //!< Marker to the first color
+        LAST  = WHITE   //!< Marker to the last color
+    };
+
+protected:
     /// Handle to the screen manager
     Ajax::ScreenMgr::Navigation&    m_screenMgr;
 
     /// Graphic library handle
     pimoroni::PicoGraphics&         m_graphics;
 
-    /// Last pressed button
-    AjaxScreenMgrEvent_T            m_lastButton;
+    /// Internal (color) state
+    ColorState_T                    m_color;
 
-    /// Time marker used to trigger 1second polling of the space temperature
-    uint32_t                        m_timerMarker;
-
-    /// Dirty flag (i.e. need the screen manager to call refresh())
+    /// My internal 'dirty' flag
     bool                            m_stale;
-
-
-
 };
 
 }       // end namespaces
