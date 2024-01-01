@@ -64,8 +64,6 @@ Cpl::Dm::MailboxServer                  Ajax::Main::g_appMbox;
 static Driver::Crypto::Orlp::SHA512     sha512_;
 Driver::Crypto::Hash*                   Ajax::Main::g_sha512Ptr = &sha512_;
 
-static Driver::AIO::Ajax::Thermistor    thermistor_( g_appMbox, Ajax::Main::g_thermistorHdl, mp::onBoardIdt );
-
 // Graphics library: Use RGB332 mode (256 colours) on the Target to limit RAM usage canvas 
 Cpl::Dm::MailboxServer                          Ajax::Main::g_uiMbox;
 pimoroni::PicoGraphics_PenRGB332                Ajax::Main::g_graphics( OPTION_DRIVER_PICO_DISPLAY_LCD_WIDTH, OPTION_DRIVER_PICO_DISPLAY_LCD_HEIGHT, nullptr );
@@ -198,7 +196,6 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
 
     // Complete "starting" the application
     platform_open0();
-    thermistor_.open();
 
     uint32_t bootCounter;
     mp::metricBootCounter.read( bootCounter );
@@ -241,7 +238,6 @@ int Ajax::Main::runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd 
     metricsRec_.flush( recordServer_ ); // Ensure that the Metrics record gets updated before the shutdown is completed
     logServer_.close();
 
-    thermistor_.close();
     platform_close0();
 
     // DELETE-ME: For testing to see the shutdown screen.

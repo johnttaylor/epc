@@ -25,7 +25,6 @@ static Driver::I2C::STM32::Master           i2cDriver_( BSP_I2C_HANDLE );
 static Driver::NV::Onsemi::CAT24C512::Api   nvDriver_( i2cDriver_, BSP_I2C_ADDRESS_EEPROM );
 Driver::NV::Api&                            Ajax::Main::g_nvramDriver = nvDriver_;
 
-ADC_HandleTypeDef* Ajax::Main::g_thermistorHdl = AIN_THERMISTOR_PTR;
 
 /////////////////////////////
 void Ajax::Main::platform_initialize0()

@@ -11,9 +11,16 @@
 /** @file */
 
 #include "Ajax/Main/_plat_alpha1/app_platform.h"
+#include "Ajax/Main/appmain.h"
+#include "Bsp/Api.h"
+#include "mp/ModelPoints.h"
+#include "Driver/AIO/Eros/Thermistor.h"
 #include <stdio.h>
 
 using namespace Ajax::Main;
+
+// The Ajax and Eros Applications have DIFFERENT Thermistor drivers
+static Driver::AIO::Eros::Thermistor    thermistor_( g_appMbox, AIN_THERMISTOR_PTR, mp::onBoardIdt );
 
 /////////////////////////////
 void Ajax::Main::appvariant_platform_initialize0()
@@ -28,10 +35,10 @@ void Ajax::Main::appvariant_platform_initializeModelPoints0()
 
 void Ajax::Main::appvariant_platform_open0()
 {
-    // Nothing currently needed
+    thermistor_.open();
 }
 
 void Ajax::Main::appvariant_platform_close0()
 {
-    // Nothing currently needed
+    thermistor_.close();
 }

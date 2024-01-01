@@ -80,6 +80,13 @@ protected:
     void expired( void ) noexcept;
 
 protected:
+    /** Hook method (for a child class) to capture the raw ADC bits for the 
+        temperature value.  A 'temperatureF' value of 0 indicates a invalid
+        temperature.
+     */
+    virtual void hookAdcSample( uint32_t adcBits, int32_t temperatureF = 0) {}
+
+protected:
     /// Output MP
     Cpl::Dm::Mp::Int32&         m_mpTempOut;
 

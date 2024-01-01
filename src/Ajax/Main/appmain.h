@@ -26,7 +26,6 @@
 #include "Driver/NV/Api.h"
 #include "Driver/Crypto/Hash.h"
 #include "Cpl/Dm/MailboxServer.h"
-#include "Driver/AIO/HalSingleInput.h"
 
 
 ///
@@ -75,8 +74,6 @@ extern Cpl::Dm::MailboxServer           g_appMbox;
 /// Expose the mailbox for the "UI" thread 
 extern Cpl::Dm::MailboxServer           g_uiMbox;
 
-/// Expose the low-level ADC driver/handle
-extern DriverAIOHalSingleInput_T        g_thermistorHdl;
 
 /*
 ** Thread Priorities

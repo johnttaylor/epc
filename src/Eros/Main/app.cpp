@@ -18,7 +18,8 @@
 
 using namespace Ajax::Main;
 
-Eros::Ui::Home::Screen Eros::Main::g_homeScreen( Ajax::Main::g_screenNav, g_graphics );
+Eros::Ui::Home::Screen      Eros::Main::g_homeScreen( Ajax::Main::g_screenNav, g_graphics );
+Eros::Ui::LcdTest::Screen   Eros::Main::g_lcdTextScreen( Ajax::Main::g_screenNav, g_graphics );
 
 /////////////////////////////
 void Ajax::Main::appvariant_initialize0()
