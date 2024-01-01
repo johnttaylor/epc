@@ -89,6 +89,10 @@ void SystemClock_Config(void);
 #define STLK_RX_GPIO_Port GPIOD
 #define STLK_TX_Pin GPIO_PIN_9
 #define STLK_TX_GPIO_Port GPIOD
+#define PWM_HEATER_Pin GPIO_PIN_12
+#define PWM_HEATER_GPIO_Port GPIOD
+#define PWM_FAN_Pin GPIO_PIN_13
+#define PWM_FAN_GPIO_Port GPIOD
 #define PWM_LED_GREEN_Pin GPIO_PIN_14
 #define PWM_LED_GREEN_GPIO_Port GPIOD
 #define PWM_LED_BLUE_Pin GPIO_PIN_15

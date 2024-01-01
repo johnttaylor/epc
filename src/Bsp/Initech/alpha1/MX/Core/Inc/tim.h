@@ -46,8 +46,14 @@ extern TIM_HandleTypeDef htim11;
 #define PWM_LED_GREEN_CHANNEL       TIM_CHANNEL_3
 #define PWM_LED_RED_BLOCK_PTR       (&htim11)
 #define PWM_LED_RED_CHANNEL         TIM_CHANNEL_1
+
 #define PWM_BACKLIGHT_BLOCK_PTR     (&htim10)
 #define PWM_BACKLIGHT_CHANNEL       TIM_CHANNEL_1
+
+#define PWM_HEATER_BLOCK_PTR        (&htim4)
+#define PWM_HEATER_CHANNEL          TIM_CHANNEL_1
+#define PWM_FAN_BLOCK_PTR           (&htim4)
+#define PWM_FAN_CHANNEL             TIM_CHANNEL_2
 
 /* USER CODE END Private defines */
 

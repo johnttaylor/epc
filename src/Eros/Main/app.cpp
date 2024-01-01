@@ -16,6 +16,7 @@
 #include "mp/ModelPoints.h"
 #include "Driver/AIO/Eros/ModelPoints.h"
 #include "Eros/TShell/Rgb.h"
+#include "Eros/TShell/Pwm.h"
 #include "Cpl/MApp/Manager.h"
 #include "Cpl/MApp/Cmd.h"
 #include "Eros/Test/Thermistor/Api.h"
@@ -28,6 +29,7 @@ Eros::Ui::Home::Screen      Eros::Main::g_homeScreen( Ajax::Main::g_screenNav, g
 Eros::Ui::LcdTest::Screen   Eros::Main::g_lcdTextScreen( Ajax::Main::g_screenNav, g_graphics );
 
 static Eros::TShell::Rgb    rgbCmd_( g_cmdlist, Driver::PicoDisplay::Api::rgbLED() );
+static Eros::TShell::Pwm    pwmCmd_( g_cmdlist, Ajax::Main::g_heaterPWMDriver, Ajax::Main::g_fanPWMDriver );
 
 static Cpl::Container::Map<Cpl::MApp::MAppApi>   mappList_;
 static Cpl::MApp::Manager                        mappManager_( g_appMbox, mappList_ );

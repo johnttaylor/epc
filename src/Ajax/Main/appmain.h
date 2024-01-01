@@ -25,6 +25,7 @@
 #include "Ajax/ScreenMgr/Navigation.h"
 #include "Driver/NV/Api.h"
 #include "Driver/Crypto/Hash.h"
+#include "Driver/DIO/Pwm.h"
 #include "Cpl/Dm/MailboxServer.h"
 
 
@@ -74,6 +75,11 @@ extern Cpl::Dm::MailboxServer           g_appMbox;
 /// Expose the mailbox for the "UI" thread 
 extern Cpl::Dm::MailboxServer           g_uiMbox;
 
+/// Expose the driver for the Heater PWM driver
+extern Driver::DIO::Pwm                 g_heaterPWMDriver;
+
+/// Expose the driver for the Fan PWM driver
+extern Driver::DIO::Pwm                 g_fanPWMDriver;
 
 /*
 ** Thread Priorities

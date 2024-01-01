@@ -25,12 +25,16 @@ static Driver::I2C::Arduino::Master         i2cDriver_( I2C_BUS_DRIVER );
 static Driver::NV::Onsemi::CAT24C512::Api   nvDriver_( i2cDriver_, BSP_I2C_ADDRESS_EEPROM );
 Driver::NV::Api&                            Ajax::Main::g_nvramDriver = nvDriver_;
 
+Driver::DIO::Pwm                            Ajax::Main::g_heaterPWMDriver( PIN_PWM_HEATER );
+Driver::DIO::Pwm                            Ajax::Main::g_fanPWMDriver( PIN_PWM_FAN );
 
 /////////////////////////////
 void Ajax::Main::platform_initialize0()
 {
     // Platform init...
     i2cDriver_.start();
+    g_heaterPWMDriver.start( 0 );
+    g_fanPWMDriver.start( 0 );
     Driver::PicoDisplay::Arduino::initialize();
 
     appvariant_platform_initialize0();
@@ -61,7 +65,7 @@ void Ajax::Main::platform_open0()
 void Ajax::Main::platform_close0()
 {
     appvariant_platform_close0();
- 
+
     // Platform close...
 }
 
