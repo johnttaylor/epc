@@ -14,7 +14,12 @@
 #include "Ajax/Main/application.h"
 #include "Eros/Main/screens.h"
 #include "mp/ModelPoints.h"
+#include "Driver/AIO/Eros/ModelPoints.h"
 #include "Eros/TShell/Rgb.h"
+#include "Cpl/MApp/Manager.h"
+#include "Cpl/MApp/Cmd.h"
+#include "Eros/Test/Thermistor/Api.h"
+#include "Cpl/System/Trace.h"
 #include <stdio.h>
 
 using namespace Ajax::Main;
@@ -24,10 +29,16 @@ Eros::Ui::LcdTest::Screen   Eros::Main::g_lcdTextScreen( Ajax::Main::g_screenNav
 
 static Eros::TShell::Rgb    rgbCmd_( g_cmdlist, Driver::PicoDisplay::Api::rgbLED() );
 
+static Cpl::Container::Map<Cpl::MApp::MAppApi>   mappList_;
+static Cpl::MApp::Manager                        mappManager_( g_appMbox, mappList_ );
+static Cpl::MApp::Cmd                            mappCmd_( g_cmdlist, mappManager_ );
+
+static Eros::Test::Thermistor::Api               thermistorTest_( mappList_, g_appMbox, mp::erosThermistorSample );
+
 /////////////////////////////
 void Ajax::Main::appvariant_initialize0()
 {
-    printf("\nEROS: appvariant_initialize0()\n" );
+    CPL_SYSTEM_TRACE_ENABLE_SECTION( OPTION_CPL_MAPP_TRACE_SECTION );
 }
 
 void Ajax::Main::appvariant_initializeModelPoints0()
@@ -40,7 +51,7 @@ void Ajax::Main::appvariant_initializeModelPoints0()
 
 void Ajax::Main::appvariant_open0()
 {
-    // Nothing currently needed
+    mappManager_.open();
 }
 
 void Ajax::Main::appvariant_launchHomeScreen()
@@ -50,5 +61,5 @@ void Ajax::Main::appvariant_launchHomeScreen()
 
 void Ajax::Main::appvariant_close0()
 {
-    // Nothing currently needed
+    mappManager_.close();
 }

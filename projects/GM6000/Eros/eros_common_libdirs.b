@@ -9,4 +9,6 @@ src/Eros/Ui/Home
 src/Eros/Ui/LcdTest
 
 # Tests
+src/Cpl/MApp
+src/Eros/Test/Thermistor
 src/Eros/TShell

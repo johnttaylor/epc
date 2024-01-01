@@ -8,6 +8,8 @@
 
 #define I_AM_EROS
 
+#define USE_CPL_SYSTEM_TRACE
+
 #define EROS_SEMANTIC_VERSION_STR                   "0.0.1"
 
 // No console password required!
