@@ -7,3 +7,6 @@ src/Driver/AIO/Eros < Thermistor.cpp ModelPoints.cpp
 # UI
 src/Eros/Ui/Home
 src/Eros/Ui/LcdTest
+
+# Tests
+src/Eros/TShell

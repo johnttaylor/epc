@@ -14,12 +14,15 @@
 #include "Ajax/Main/application.h"
 #include "Eros/Main/screens.h"
 #include "mp/ModelPoints.h"
+#include "Eros/TShell/Rgb.h"
 #include <stdio.h>
 
 using namespace Ajax::Main;
 
 Eros::Ui::Home::Screen      Eros::Main::g_homeScreen( Ajax::Main::g_screenNav, g_graphics );
 Eros::Ui::LcdTest::Screen   Eros::Main::g_lcdTextScreen( Ajax::Main::g_screenNav, g_graphics );
+
+static Eros::TShell::Rgb    rgbCmd_( g_cmdlist, Driver::PicoDisplay::Api::rgbLED() );
 
 /////////////////////////////
 void Ajax::Main::appvariant_initialize0()
