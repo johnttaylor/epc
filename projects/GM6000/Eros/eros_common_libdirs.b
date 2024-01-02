@@ -11,4 +11,5 @@ src/Eros/Ui/LcdTest
 # Tests
 src/Cpl/MApp
 src/Eros/Test/Thermistor
+src/Eros/Test/Cycle
 src/Eros/TShell

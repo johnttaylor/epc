@@ -20,6 +20,7 @@
 #include "Cpl/MApp/Manager.h"
 #include "Cpl/MApp/Cmd.h"
 #include "Eros/Test/Thermistor/Api.h"
+#include "Eros/Test/Cycle/Api.h"
 #include "Cpl/System/Trace.h"
 #include <stdio.h>
 
@@ -36,6 +37,7 @@ static Cpl::MApp::Manager                        mappManager_( g_appMbox, mappLi
 static Cpl::MApp::Cmd                            mappCmd_( g_cmdlist, mappManager_ );
 
 static Eros::Test::Thermistor::Api               thermistorTest_( mappList_, g_appMbox, mp::erosThermistorSample );
+static Eros::Test::Cycle::Api                    cycleTest_( mappList_, g_appMbox, Ajax::Main::g_heaterPWMDriver, Ajax::Main::g_fanPWMDriver );
 
 /////////////////////////////
 void Ajax::Main::appvariant_initialize0()
