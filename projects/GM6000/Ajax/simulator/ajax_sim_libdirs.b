@@ -7,3 +7,6 @@ src/Driver/TPipe
 src/Driver/PicoDisplay/TPipe
 src/Driver/Button/TPipe
 
+# Drivers
+src/Driver/DIO/Simulated
+

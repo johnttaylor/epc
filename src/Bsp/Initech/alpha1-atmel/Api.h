@@ -104,7 +104,7 @@ void Bsp_beginFileSystem();
 //////////////////////////////////////////////////////////
 
 /// Arduino Pin Number
-#define PIN_ONBOARD_IDT         67
+#define PIN_ONBOARD_IDT         PIN_A0
 
 /// Arduino Pin Number
 #define PIN_BUTTON_A            12
@@ -139,6 +139,11 @@ void Bsp_beginFileSystem();
 /// Arduino Pin Number
 #define PIN_LCD_CS              53
 
+/// Arduino Pin Number
+#define PIN_PWM_HEATER          18
+
+/// Arduino Pin Number
+#define PIN_PWM_FAN             19
 
 /// Arduino Pin Number (alias)
 #define PIN_LCD_SPI_CLK         PIN_SPI_SCK
