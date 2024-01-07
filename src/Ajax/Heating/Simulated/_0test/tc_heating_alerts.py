@@ -69,4 +69,7 @@ def run():
     # Advance 2 minute
     passcode = helper.advance_and_validate( passcode, 120000, "ON", 'eMEDIUM', 71, 0.48, 7, 80, "---", "---" )
 
+    # end test case
+    output.write_exit(__name__)
+    return passcode
 
