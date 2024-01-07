@@ -46,7 +46,7 @@
 #endif
 
 
-   ///
+///
 namespace Cpl {
 ///
 namespace Logging {

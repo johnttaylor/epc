@@ -27,6 +27,7 @@ static Cpl::Container::SList<Thread>  	threadList_( "StaticConstructor" );
 
 static void addThreadToActiveList_( Thread& thread );
 static void removeThreadFromActiveList_( Thread& thread );
+static bool isActiveThread( Thread* threadPtrToValidate );
 
 
 ////////////////////////////////////
@@ -222,7 +223,9 @@ Cpl::System::Thread* Cpl::System::Thread::tryGetCurrent() noexcept
         Cpl::System::FatalError::logRaw( "Win32::Thread::tryGetCurrent().  Have not yet created 'Tls Index'." );
     }
 
-    return (Thread*) TlsGetValue( dwTlsIndex_ );
+    Cpl::System::Win32::Thread* ptr = (Cpl::System::Win32::Thread*) TlsGetValue( dwTlsIndex_ );
+    return isActiveThread( ptr ) ? ptr : nullptr;
+
 }
 
 
@@ -278,6 +281,21 @@ void removeThreadFromActiveList_( Thread& thread )
 {
     Cpl::System::Mutex::ScopeBlock lock( Cpl::System::Locks_::sysLists() );
     threadList_.remove( thread );
+}
+
+bool isActiveThread( Thread* threadPtrToValidate )
+{
+    Cpl::System::Mutex::ScopeBlock lock( Cpl::System::Locks_::sysLists() );
+    Cpl::System::Win32::Thread* ptr = threadList_.first();
+    while ( ptr )
+    {
+        if ( ptr == threadPtrToValidate )
+        {
+            return true;
+        }
+        ptr = threadList_.next( *ptr );
+    }
+    return false;
 }
 
 
