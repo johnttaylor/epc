@@ -91,6 +91,11 @@ IF ERRORLEVEL 1 EXIT /b 1
 %_TOOLS%\chuck.py -v --match aa.py --dir vc12
 IF ERRORLEVEL 1 EXIT /b 1
 
+:: Run Smoke/sanity tests
+cd %_ROOT%\projects
+%_TOOLS%\chuck.py -v --match a.py --dir vc12
+IF ERRORLEVEL 1 EXIT /b 1
+
 ::
 :: Build STM32 Target projects
 ::

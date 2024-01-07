@@ -26,10 +26,10 @@ namespace Logging {
 
     @param InfoMsg                          Enum
 
-    @param PLACE_HOLDER                     Place holder till I have a warning log entry
+    @param HEATING_ALGO                     Event/condition will executing the heating algorithm
  */
 BETTER_ENUM( InfoMsg, uint16_t
-             , PLACE_HOLDER
+             , HEATING_ALGO
 );
 
 

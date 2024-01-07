@@ -94,19 +94,16 @@ void Api::setStatus() noexcept
         if ( alertSummary.count > 0 )
         {
             // At least one alert -->set to RED
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("RGB=Red") );
             m_ledDriver.setRgb( 255, 0, 0 );
         }
         else if ( heaterPWM > 0 )
         {
             // Heater is on -->set to Blue
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("RGB=Blue") );
             m_ledDriver.setRgb( 0, 0, 255 );
         }
         else 
         {
             // Heater is off -->set to Green
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("RGB=Green") );
             m_ledDriver.setRgb( 0, 255, 0 );
         }
     }
@@ -114,7 +111,6 @@ void Api::setStatus() noexcept
     // Cannot determine state -->set to White
     else
     {
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("RGB=White") );
         m_ledDriver.setRgb( 255, 255, 255 );
     }
 }

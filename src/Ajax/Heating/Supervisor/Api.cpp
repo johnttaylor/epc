@@ -202,64 +202,74 @@ void Api::heatOff() noexcept
 
 void Api::runHeatingAlgo() noexcept
 {
-    int32_t currentTemp;
-    if ( getTemperature( currentTemp ) )
+    // Ensure we are still in heating mode (e.g. the MP is set to true than immediately set to false)
+    bool heatingEnabled;
+    if ( mp::heatingMode.read( heatingEnabled ) && heatingEnabled )
     {
-        int32_t setpoint;
-        if ( mp::heatSetpoint.read( setpoint ) )
+        int32_t currentTemp;
+        if ( getTemperature( currentTemp ) )
         {
-            // Run the FLC, accumulate the capacity requests, and clamp at max capacity
-            int32_t delta         = m_flcController.calcChange( currentTemp, setpoint );
-            m_sumCapacityRequest += delta;
-            if ( m_sumCapacityRequest < 0 )
+            int32_t setpoint;
+            if ( mp::heatSetpoint.read( setpoint ) )
             {
-                m_sumCapacityRequest = 0;
-            }
-            else if ( m_sumCapacityRequest > ((int32_t)m_maxCapacity) )
-            {
-                m_sumCapacityRequest = m_maxCapacity;
+                // Run the FLC, accumulate the capacity requests, and clamp at max capacity
+                int32_t delta         = m_flcController.calcChange( currentTemp, setpoint );
+                m_sumCapacityRequest += delta;
+                if ( m_sumCapacityRequest < 0 )
+                {
+                    m_sumCapacityRequest = 0;
+                }
+                else if ( m_sumCapacityRequest > ( (int32_t) m_maxCapacity ) )
+                {
+                    m_sumCapacityRequest = m_maxCapacity;
+                }
+
+                // Convert Capacity request to PWM
+                uint32_t heaterPwm = (m_sumCapacityRequest * MAX_PWM) / m_maxCapacity;
+                mp::cmdHeaterPWM.write( heaterPwm );
+
+                // Set Fan speed (Note: Fan only runs when the heater is 'on')
+                uint32_t fanPWM = 0;
+                if ( heaterPwm > 0 )
+                {
+                    fanPWM = getFanPWM();
+                }
+                mp::cmdFanPWM.write( fanPWM );
+
+                CPL_SYSTEM_TRACE_MSG( SECT_, ("idt=%ld, setpt=%ld, err=%ld.  flc=%ld, capreq=%ld.  newHeaterPWM=%lu, newFanPWM=%lu",
+                                               currentTemp,
+                                               setpoint,
+                                               setpoint - currentTemp,
+                                               delta,
+                                               m_sumCapacityRequest,
+                                               heaterPwm,
+                                               fanPWM) );
             }
 
-            // Convert Capacity request to PWM
-            uint32_t heaterPwm = (m_sumCapacityRequest * MAX_PWM) / m_maxCapacity;
-            mp::cmdHeaterPWM.write( heaterPwm );
-
-            // Set Fan speed (Note: Fan only runs when the heater is 'on')
-            uint32_t fanPWM = 0;
-            if ( heaterPwm > 0 )
+            // No setpoint value for SOME reason 
+            else
             {
-                fanPWM = getFanPWM();
+                // This should NEVER happen -->give-up and reboot
+                Cpl::System::FatalError::log( "HeatingAlgo: Setpoint MP is invalid" );
             }
-            mp::cmdFanPWM.write( fanPWM );
-
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("idt=%ld, setpt=%ld, err=%ld.  flc=%ld, capreq=%ld.  newHeaterPWM=%lu, newFanPWM=%lu",
-                                           currentTemp,
-                                           setpoint,
-                                           setpoint - currentTemp,
-                                           delta,
-                                           m_sumCapacityRequest,
-                                           heaterPwm,
-                                           fanPWM) );
         }
 
-        // No setpoint value for SOME reason 
+        // No sensor available
         else
         {
-            // This should NEVER happen -->give-up and reboot
-            Cpl::System::FatalError::log( "HeatingAlgo: Setpoint MP is invalid" );
+            if ( m_temperatureSensorAvailable ) // Prevent 'double' raise
+            {
+                m_temperatureSensorAvailable = false;
+                Ajax::Logging::logf( Ajax::Logging::AlertMsg::NO_TEMPERATURE_SENSOR, "RAISED" );
+                mp::sensorFailAlert.raiseAlert();
+                generateEvent( Fsm_evNoTempSensor );
+            }
         }
     }
-
-    // No sensor available
     else
     {
-        if ( m_temperatureSensorAvailable ) // Prevent 'double' raise
-        {
-            m_temperatureSensorAvailable = false;
-            Ajax::Logging::logf( Ajax::Logging::AlertMsg::NO_TEMPERATURE_SENSOR, "RAISED" );
-            mp::sensorFailAlert.raiseAlert();
-            generateEvent( Fsm_evNoTempSensor );
-        }
+        Ajax::Logging::logf( Ajax::Logging::InfoMsg::HEATING_ALGO, "Heating mode unexpectedly disabled, generating Fsm_evDisabled event." );
+        generateEvent( Fsm_evDisabled );
     }
 }
 
