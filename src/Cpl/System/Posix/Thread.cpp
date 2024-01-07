@@ -31,6 +31,7 @@ static Cpl::Container::SList<Thread> threadList_( "StaticConstructor" );
 
 static void addThreadToActiveList_( Thread& thread );
 static void removeThreadFromActiveList_( Thread& thread );
+static bool isActiveThread( Thread* threadPtrToValidate );
 
 // 'ole basic min/max methods
 inline int myMin( int a, int b ) { return a < b ? a : b; }
@@ -262,9 +263,9 @@ Cpl::System::Thread* Cpl::System::Thread::tryGetCurrent() noexcept
         Cpl::System::FatalError::logRaw( "Posix::Thread::tryGetCurrent().  Have not yet created 'Tls Index'." );
     }
 
-    return (Thread*) pthread_getspecific( tsdKey_ );
+    Cpl::System::Posix::Thread* ptr = (Cpl::System::Posix::Thread*) pthread_getspecific( tsdKey_ );
+    return isActiveThread( ptr )? ptr: nullptr;
 }
-
 
 
 void Cpl::System::Thread::wait() noexcept
@@ -320,6 +321,22 @@ void removeThreadFromActiveList_( Thread& thread )
     Cpl::System::Mutex::ScopeBlock lock( Cpl::System::Locks_::sysLists() );
     threadList_.remove( thread );
 }
+
+bool isActiveThread( Thread* threadPtrToValidate )
+{
+    Cpl::System::Mutex::ScopeBlock lock( Cpl::System::Locks_::sysLists() );
+    Cpl::System::Posix::Thread* ptr = threadList_.first();
+    while ( ptr )
+    {
+        if ( ptr == threadPtrToValidate )
+        {
+            return true;
+        }
+        ptr = threadList_.next( *ptr );
+    }
+    return false;
+}
+
 
 
 //////////////////////////////
