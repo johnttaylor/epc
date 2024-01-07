@@ -31,7 +31,7 @@
 #define POSIX_TESTINPUT_TXT_FILE_LENGTH   101
 #define POSIX_TESTINPUT_TEXT_HELLO_OFFEST 0x58
 
- /// 
+/// 
 using namespace Cpl::Io::File;
 
 #define TEST_PATH1      "A:/hello/world.txt"
