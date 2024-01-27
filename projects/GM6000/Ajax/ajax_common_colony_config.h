@@ -8,7 +8,7 @@
 
 
 // Human readable Version Identifier
-#define AJAX_SEMANTIC_VERSION_STR                   "0.0.1"
+#define AJAX_SEMANTIC_VERSION_STR                   "1.0.0"
 
 
 // CLI
