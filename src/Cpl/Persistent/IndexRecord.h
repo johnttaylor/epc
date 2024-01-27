@@ -88,7 +88,7 @@ public:
     /// Default Payload method: payload is the 2 offset-index values
     bool putData( const void* src, size_t srcLen ) noexcept;
 
-protected:
+public:
     /// Default Method: Simply resets both the head/tail pointers to ZERO
     bool processNoValidData() noexcept;
 
@@ -102,6 +102,7 @@ protected:
 
     /// Flag that indicates the state of offsets
     bool      m_validLatest;
+
 };
 
 

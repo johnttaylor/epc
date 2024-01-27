@@ -32,6 +32,9 @@
 #include "SEGGER_SYSVIEW_FreeRTOS.h"
 #endif
  
+/// needed for newLib SBRK implementation
+#define configISR_STACK_SIZE_WORDS  128 // 512 Bytes  
+
 /* USER CODE END Header */
 
 #ifndef FREERTOS_CONFIG_H
@@ -99,6 +102,9 @@
 #define configTIMER_TASK_PRIORITY                ( 2 )
 #define configTIMER_QUEUE_LENGTH                 32
 #define configTIMER_TASK_STACK_DEPTH             1536
+
+/* The following flag must be enabled only when using newlib */
+#define configUSE_NEWLIB_REENTRANT          1
 
 /* Set the following definitions to 1 to include the API function, or zero
 to exclude the API function. */

@@ -7,7 +7,9 @@
 ////////////////////////////////////////////////
 
 
-// TODO: Add Version Identifiers
+// Human readable Version Identifier
+#define AJAX_SEMANTIC_VERSION_STR                   "0.0.1"
+
 
 // CLI
 #define OPTION_CPL_TSHELL_PROCESSOR_INPUT_SIZE      (4*1024)
@@ -17,5 +19,11 @@
 // Data Model
 #define OPTION_CPL_DM_MODEL_DATABASE_MAX_CAPACITY_JSON_DOC  (4*1024)
 #define OPTION_CPL_DM_MODEL_DATABASE_TEMP_STORAGE_SIZE      (4*1024)
+
+// Console password REQUIRED (except for debug builds)
+#ifndef DEBUG_BUILD
+#define OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL	Cpl::TShell::Security::eADMIN
+#define USE_CPL_TSHELL_PROCESSOR_SILENT_WHEN_PUBLIC
+#endif
 
 #endif

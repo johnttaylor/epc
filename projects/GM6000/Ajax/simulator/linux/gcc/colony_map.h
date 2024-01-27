@@ -1,9 +1,13 @@
-#ifndef COLONY_MAP_H_
-#define COLONY_MAP_H_
 
 #include "Cpl/System/Posix/mappings_.h"
 #include "Cpl/Text/_mappings/_posix/strapi.h"
 
+// HAL mappings
+#include "Driver/Button/TPipe/mappings_.h"
+#include "Driver/AIO/Simulated/singleinput_mappings_.h"
+#include "Driver/DIO/Simulated/mappings_.h"
 
-#endif
+#include "Ajax/Ui/Events.h"
+#define AjaxScreenMgrEvent_T_MAP        AjaxUiEvent_T
+
 

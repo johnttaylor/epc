@@ -77,7 +77,7 @@ class ToolChain( base.ToolChain ):
         self._optimized_release.linkflags = '/nologo /subsystem:console /pdb:{}.pdb /machine:X86'.format( os.path.splitext(exename)[0] )
         
         # Debug options, flags, etc.
-        self._debug_release.cflags    = '/FS /Zi /Od /D "_DEBUG" /RTCs'
+        self._debug_release.cflags    = '/FS /Zi /Od /D "_DEBUG" /RTCs /D "DEBUG_BUILD"'
         self._debug_release.linkflags = '/debug /NODEFAULTLIB:LIBCMT '
         self._debug_release.linklibs  = 'libcmtd.lib'
 

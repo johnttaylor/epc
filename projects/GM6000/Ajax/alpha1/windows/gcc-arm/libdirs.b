@@ -5,7 +5,7 @@ src/Ajax/Main/_plat_alpha1/_app_platform
 # BSP
 src/Cpl/Io/Serial/ST/M32F4
 src/Bsp/Initech/alpha1/trace
-src/Bsp/Initech/alpha1 
+src/Bsp/Initech/alpha1 > mini_cpp.cpp
 src/Bsp/Initech/alpha1/MX 
 src/Bsp/Initech/alpha1/MX/Core/Src > freertos.c
 src/Bsp/Initech/alpha1/console
@@ -18,7 +18,6 @@ xsrc/stm32F4-SDK/Drivers/STM32F4xx_HAL_Driver/Src > stm32f4xx_hal_timebase_rtc_a
 
 # FreeRTOS
 xsrc/freertos
-xsrc/freertos/portable/MemMang
 xsrc/freertos/portable/GCC/ARM_CM4F
 
 # Common stuffs
@@ -26,3 +25,4 @@ xsrc/freertos/portable/GCC/ARM_CM4F
 ../../../ajax_target_common_libdirs.b
 ../../../../common_libdirs.b
 ../../../../target_common_libdirs.b
+../../../../stm32_target_common_libdirs.b

@@ -14,6 +14,7 @@
 #include "Cpl/System/Trace.h"
 #include "Bsp/Initech/alpha1/console/Output.h"
 #include "Bsp/Initech/alpha1/MX/Core/Inc/gpio.h"
+#include "Bsp/Initech/alpha1/MX/Core/Inc/rng.h"
 
 
 #ifdef ENABLE_BSP_SEGGER_SYSVIEW   
@@ -34,7 +35,14 @@ void Bsp_Api_initialize( void )
     SystemClock_Config();
 
     /* Initialize all configured peripherals */
+    MX_RNG_Init();
     MX_GPIO_Init();
+    MX_ADC1_Init();
+    MX_SPI1_Init();
+    MX_I2C2_Init();
+    MX_TIM4_Init();   // PWM channels
+    MX_TIM10_Init();  // PWM channels
+    MX_TIM11_Init();  // PWM channels
     MX_USART3_UART_Init();
 
     // Initialize System View (asap after the basic board initialization has completed)

@@ -22,9 +22,11 @@ IF "/%NQBP2_DONOT_ADD_NINJA_TO_PATH%" == "/" set PATH=%NQBP_XPKGS_ROOT%\nqbp2\ni
 doskey t=cd %_HERE%
 doskey bob=%NQBP_BIN%\other\bob.py $*
 doskey chuck=%NQBP_BIN%\other\chuck.py $*
+doskey fixx=%NQBP_BIN%\other\fixx.py $*
 doskey ratt=%NQBP_XPKGS_ROOT%\ratt\bin\ratt.py $*
 doskey whatcc=echo:%PIM_ENV_COMPILER%
 doskey killpy=taskkill /F /IM python.exe
+doskey killb=taskkill /F /IM b.exe
 doskey gitchmodx=git update-index --chmod=+x $*
 doskey setexe=git update-index --chmod=+x $*
 doskey ports=reg query HKLM\HARDWARE\DEVICEMAP\SERIALCOMM

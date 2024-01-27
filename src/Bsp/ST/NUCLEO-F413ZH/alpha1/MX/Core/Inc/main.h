@@ -61,6 +61,10 @@ void SystemClock_Config(void);
 #define USER_Btn_GPIO_Port GPIOC
 #define MCO_Pin GPIO_PIN_0
 #define MCO_GPIO_Port GPIOH
+#define ain_thermistor_Pin GPIO_PIN_3
+#define ain_thermistor_GPIO_Port GPIOA
+#define GPOUT_Test_Pin_Pin GPIO_PIN_6
+#define GPOUT_Test_Pin_GPIO_Port GPIOA
 #define LD1_Pin GPIO_PIN_0
 #define LD1_GPIO_Port GPIOB
 #define LD3_Pin GPIO_PIN_14
@@ -91,6 +95,8 @@ void SystemClock_Config(void);
 #define SWO_GPIO_Port GPIOB
 #define LD2_Pin GPIO_PIN_7
 #define LD2_GPIO_Port GPIOB
+#define UUT_PWM_Pin GPIO_PIN_8
+#define UUT_PWM_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

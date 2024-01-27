@@ -61,14 +61,42 @@ void SystemClock_Config(void);
 #define USER_Btn_GPIO_Port GPIOC
 #define MCO_Pin GPIO_PIN_0
 #define MCO_GPIO_Port GPIOH
+#define ain_thermistor_Pin GPIO_PIN_3
+#define ain_thermistor_GPIO_Port GPIOA
+#define LCD_SCK_Pin GPIO_PIN_5
+#define LCD_SCK_GPIO_Port GPIOA
+#define LCD_CS_Pin GPIO_PIN_6
+#define LCD_CS_GPIO_Port GPIOA
+#define LCD_MOSI_Pin GPIO_PIN_7
+#define LCD_MOSI_GPIO_Port GPIOA
 #define LD1_Pin GPIO_PIN_0
 #define LD1_GPIO_Port GPIOB
+#define LCD_DC_Pin GPIO_PIN_12
+#define LCD_DC_GPIO_Port GPIOF
+#define BUTTON_A_Pin GPIO_PIN_13
+#define BUTTON_A_GPIO_Port GPIOF
+#define BUTTON_Y_Pin GPIO_PIN_14
+#define BUTTON_Y_GPIO_Port GPIOF
+#define LCD_RESET_Pin GPIO_PIN_15
+#define LCD_RESET_GPIO_Port GPIOF
+#define BUTTON_B_Pin GPIO_PIN_9
+#define BUTTON_B_GPIO_Port GPIOE
+#define BUTTON_X_Pin GPIO_PIN_11
+#define BUTTON_X_GPIO_Port GPIOE
 #define LD3_Pin GPIO_PIN_14
 #define LD3_GPIO_Port GPIOB
 #define STLK_RX_Pin GPIO_PIN_8
 #define STLK_RX_GPIO_Port GPIOD
 #define STLK_TX_Pin GPIO_PIN_9
 #define STLK_TX_GPIO_Port GPIOD
+#define PWM_HEATER_Pin GPIO_PIN_12
+#define PWM_HEATER_GPIO_Port GPIOD
+#define PWM_FAN_Pin GPIO_PIN_13
+#define PWM_FAN_GPIO_Port GPIOD
+#define PWM_LED_GREEN_Pin GPIO_PIN_14
+#define PWM_LED_GREEN_GPIO_Port GPIOD
+#define PWM_LED_BLUE_Pin GPIO_PIN_15
+#define PWM_LED_BLUE_GPIO_Port GPIOD
 #define USB_PowerSwitchOn_Pin GPIO_PIN_6
 #define USB_PowerSwitchOn_GPIO_Port GPIOG
 #define USB_OverCurrent_Pin GPIO_PIN_7
@@ -91,6 +119,10 @@ void SystemClock_Config(void);
 #define SWO_GPIO_Port GPIOB
 #define LD2_Pin GPIO_PIN_7
 #define LD2_GPIO_Port GPIOB
+#define PWM_Backlight_Pin GPIO_PIN_8
+#define PWM_Backlight_GPIO_Port GPIOB
+#define PWM_LED_RED_Pin GPIO_PIN_9
+#define PWM_LED_RED_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

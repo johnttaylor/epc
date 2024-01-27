@@ -14,6 +14,7 @@
 
     This file contains the interface(s) that are platform VARIANT specific
  */
+#include "Driver/PicoDisplay/Api.h"
 
 ///
 namespace Ajax {
@@ -24,6 +25,11 @@ namespace Main {
     initialization
  */
 void platform_initialize0();
+
+/** This method is used to execute platform specific POST test.  On error, the
+    method returns false; else true is returned.
+ */
+bool platform_runPOST();
 
 /** This method is used to initialize the model points to known state
  */
@@ -42,7 +48,6 @@ void platform_close0();
 /** This method is used to 'exit' the application'
  */
 int platform_exit( int exitCode );
-
 
 }       // end namespaces
 }

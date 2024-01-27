@@ -232,9 +232,21 @@ void Thread::entryPoint( void* data )
 //////////////////////////////
 Cpl::System::Thread& Cpl::System::Thread::getCurrent() noexcept
 {
-    return *( (Thread*) xTaskGetApplicationTaskTag( xTaskGetCurrentTaskHandle() ) );
+    Thread* curThread = tryGetCurrent();
+   
+    // Trap potential error
+    if ( !curThread )
+    {
+        Cpl::System::FatalError::logRaw( "FreeRTOS::Thread::getCurrent().  Current thread is NOT a 'Cpl::System::Thread'." );
+    }
+
+    return *curThread;
 }
 
+Cpl::System::Thread* Cpl::System::Thread::tryGetCurrent() noexcept
+{
+    return (Thread*) xTaskGetApplicationTaskTag( xTaskGetCurrentTaskHandle() );
+}
 
 void Cpl::System::Thread::wait() noexcept
 {

@@ -16,10 +16,17 @@
     for the Ajax application
  */
 
+#include "Ajax/Ui/PicoDisplay.h"        // FIXME: This header file (because it include pimoroni header files) MUST be first :(
+#include "colony_config.h"
 #include "Cpl/Io/Input.h"
 #include "Cpl/Io/Output.h"
 #include "Cpl/Container/Map.h"
 #include "Cpl/TShell/Command.h"
+#include "Ajax/ScreenMgr/Navigation.h"
+#include "Driver/NV/Api.h"
+#include "Driver/Crypto/Hash.h"
+#include "Driver/DIO/Pwm.h"
+#include "Cpl/Dm/MailboxServer.h"
 
 
 ///
@@ -50,18 +57,67 @@ int runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd );
  */
 extern Cpl::Container::Map<Cpl::TShell::Command>    g_cmdlist;
 
+/// Expose the Graphic library (to faciliate static screen creation)
+extern pimoroni::PicoGraphics_PenRGB332 g_graphics;
+
+/// Expose a handle to the global Screen Navigation instance
+extern Ajax::ScreenMgr::Navigation&     g_screenNav;
+
+/// Expose the handle to the NV driver
+extern Driver::NV::Api&                 g_nvramDriver;
+
+/// Expose the Console hash function
+extern Driver::Crypto::Hash*            g_sha512Ptr;
+
+/// Expose the mailbox for the "application" thread (for Ajax this is the Algorithm thread)
+extern Cpl::Dm::MailboxServer           g_appMbox;
+
+/// Expose the mailbox for the "UI" thread 
+extern Cpl::Dm::MailboxServer           g_uiMbox;
+
+/// Expose the driver for the Heater PWM driver
+extern Driver::DIO::Pwm                 g_heaterPWMDriver;
+
+/// Expose the driver for the Fan PWM driver
+extern Driver::DIO::Pwm                 g_fanPWMDriver;
 
 /*
 ** Thread Priorities
 */
 
 /// Thread priority
+#ifndef OPTION_AJAX_MAIN_THREAD_PRIORITY_UI
+#define OPTION_AJAX_MAIN_THREAD_PRIORITY_UI             (CPL_SYSTEM_THREAD_PRIORITY_NORMAL +  (CPL_SYSTEM_THREAD_PRIORITY_RAISE) )
+#endif
+
+/// Thread priority
+#ifndef OPTION_AJAX_MAIN_THREAD_PRIORITY_APPLICATION
+#define OPTION_AJAX_MAIN_THREAD_PRIORITY_APPLICATION   (CPL_SYSTEM_THREAD_PRIORITY_NORMAL)
+#endif
+
+/// Thread priority
+#ifndef OPTION_AJAX_MAIN_THREAD_PRIORITY_STORAGE
+#define OPTION_AJAX_MAIN_THREAD_PRIORITY_STORAGE       (CPL_SYSTEM_THREAD_PRIORITY_NORMAL + ( 2* CPL_SYSTEM_THREAD_PRIORITY_LOWER) )
+#endif
+
+/// Thread priority
 #ifndef OPTION_AJAX_MAIN_THREAD_PRIORITY_CONSOLE
-#define OPTION_AJAX_MAIN_THREAD_PRIORITY_CONSOLE       (CPL_SYSTEM_THREAD_PRIORITY_NORMAL + ( 2* CPL_SYSTEM_THREAD_PRIORITY_LOWER) )
+#define OPTION_AJAX_MAIN_THREAD_PRIORITY_CONSOLE       (CPL_SYSTEM_THREAD_PRIORITY_NORMAL + ( 3* CPL_SYSTEM_THREAD_PRIORITY_LOWER) )
 #endif
 
 
+/*
+** Magic values
+*/
+/// Minimum amount of time (in milliseconds) the splash screen is displayed
+#ifndef OPTION_AJAX_MAIN_MIN_SPLASH_TIME_MS
+#define OPTION_AJAX_MAIN_MIN_SPLASH_TIME_MS     (2*1000)
+#endif
 
+/// Number of entries for the in-RAM logging buffer
+#ifndef OPTION_AJAX_MAIN_MAX_LOGGING_BUFFER_ENTRIES
+#define OPTION_AJAX_MAIN_MAX_LOGGING_BUFFER_ENTRIES     20  // (20+1) * 159 = 3339 = 3.3K
+#endif
 };      // end namespaces
 };
 #endif  // end header latch

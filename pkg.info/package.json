@@ -68,6 +68,40 @@
           "type": "git",
           "origin": "https://github.com/johnttaylor"
         }
+      },
+      {
+        "pkgname": "pimoroni",
+        "pkgtype": "readonly",
+        "virtualAdoption": false,
+        "adoptedDate": "Mon Jul 24 22:08:57 2023",
+        "parentDir": "xsrc",
+        "version": {
+          "semanticVersion": "1.19.17-1",
+          "branch": null,
+          "tag": "OUTCAST2-main-1.19.7-1"
+        },
+        "repo": {
+          "name": "pimoroni",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      },
+      {
+        "pkgname": "colony.arduino",
+        "pkgtype": "overlay",
+        "virtualAdoption": false,
+        "adoptedDate": "Mon Oct 23 22:06:58 2023",
+        "parentDir": null,
+        "version": {
+          "semanticVersion": "1.0.8",
+          "branch": null,
+          "tag": "OUTCAST2-main-1.0.8"
+        },
+        "repo": {
+          "name": "colony.arduino",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
       }
     ],
     "weak": [
