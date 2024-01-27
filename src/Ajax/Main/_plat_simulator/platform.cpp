@@ -58,7 +58,6 @@ bool Ajax::Main::platform_runPOST()
     {
         postFailed = g_args["-e"].asBool();
     }
-    CPL_SYSTEM_TRACE_MSG( "CRITICAL", ("isBool()=%d, asBool()=%d", Ajax::Main::g_args["-e"].isBool(), g_args["-e"].asBool()) );
     return !postFailed;
 }
 

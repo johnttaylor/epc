@@ -31,6 +31,8 @@ def read_and_check_state( model_point, expected_state, database='dm', silent=Tru
         return False
     
     try:
+        startObj = r.index('{')
+        r = r[startObj:]
         o = json.loads(r)
     except Exception as e:
         output.writeline( f"ERROR: bad json object [{e}]" )
@@ -72,9 +74,11 @@ def read_and_compare( model_point, expected_value, compare='==', database='dm', 
         return False
     
     try:
+        startObj = r.index('{')
+        r = r[startObj:]
         o = json.loads(r)
     except Exception as e:
-        output.writeline( f"ERROR: bad json object [{e}]" )
+        output.writeline( f"ERROR: bad json object [{e}] [r={r}]" )
         return False
         
     try:
@@ -122,6 +126,8 @@ def read_and_compare_range( model_point, expected_value, upper_tolerance, lower_
         return False
     
     try:
+        startObj = r.index('{')
+        r = r[startObj:]
         o = json.loads(r)
     except Exception as e:
         output.writeline( f"ERROR: bad json object [{e}]" )
@@ -145,10 +151,10 @@ def read_and_compare_range( model_point, expected_value, upper_tolerance, lower_
     return True
     
 #------------------------------------------------------
-def readvalue_and_display( model_point, database='dm' ):
+def read_and_display( model_point, database='dm' ):
     """ Reads and outputs the specified model point's value
         
-        Returns true if the read action was succesfully; else
+        Returns true if the read action was successfully; else
         false is returned (i.e. the MP is invalid).
     """
     # Get the current value of the model point
@@ -158,6 +164,8 @@ def readvalue_and_display( model_point, database='dm' ):
         return False
     
     try:
+        startObj = r.index('{')
+        r = r[startObj:]
         o = json.loads(r)
     except Exception as e:
         output.writeline( f"ERROR: bad json object [{e}]" )
@@ -184,6 +192,8 @@ def get_value( model_point, database='dm' ):
         return False
     
     try:
+        startObj = r.index('{')
+        r = r[startObj:]
         o = json.loads(r)
     except Exception as e:
         output.writeline( f"ERROR: bad json object [{e}]" )
@@ -216,7 +226,19 @@ def write_bool( model_point, new_value, database='dm' ):
         false is returned.
     """
     val = 'true' if new_value else 'false'
-    r = uut.cli( f'{database} write {{name:"{model_point}",val:{val}}}', "$>" )
+    r = uut.cli( f'{database} write {{name:"{model_point}",val:{val}}}' )
+    if ( r == None ):
+        output.writeline("ERROR: The UUT is not responding")
+        return False
+    return True
+
+def write_string( model_point, new_value, database='dm' ):
+    """ Writes the specified string 'new_value' to 'model_point'.  
+         
+        Returns true if the write action was successfully issued; else
+        false is returned.
+    """
+    r = uut.cli( f'{database} write {{name:"{model_point}",val:"{new_value}"}}' )
     if ( r == None ):
         output.writeline("ERROR: The UUT is not responding")
         return False
@@ -243,8 +265,9 @@ def get_uut_elapsed_time( display_time=False ):
         When 'display_time' is True, the current time will be displayed
         on the console.
         
-        If succesful the method return elapsed time; else None is returned
+        If successful the method return elapsed time; else None is returned
     """
+    uut.clear()
     r = uut.cli( 'tprint' )
     if ( r == None ):
         output.writeline("ERROR: The UUT is not responding")

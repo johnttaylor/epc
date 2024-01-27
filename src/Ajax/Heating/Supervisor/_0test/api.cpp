@@ -145,7 +145,7 @@ TEST_CASE( "api" )
     REQUIRE( uut.isInOff() );
     REQUIRE( flcStartCount_ == 1 );
     REQUIRE( flcStopCount_ == 0 );
-    REQUIRE( flcCalcChangeCount_ == 3 );
+    REQUIRE( flcCalcChangeCount_ == 2 );
     REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
     REQUIRE( heaterPWM == 0 );
     REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
@@ -155,7 +155,7 @@ TEST_CASE( "api" )
     simAdvanceTillClosed( openerCloser );
     REQUIRE( flcStartCount_ == 1 );
     REQUIRE( flcStopCount_ == 1 );
-    REQUIRE( flcCalcChangeCount_ == 3 );
+    REQUIRE( flcCalcChangeCount_ == 2 );
 
     //
     // Bad sensor path

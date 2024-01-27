@@ -97,7 +97,7 @@ def run(argv):
         gcovr_root = f'--filter .*src/.* -r {pkg}'
 
     # setup excludes 
-    excludes = '--exclude=.*/Eros/.* --exclude=.*_0test.* --exclude=.*/xsrc/.* --exclude=.*src/Catch.*  --exclude=.*src/Cpl/Json/Ardunio.h --exclude=.*src/Cpl/Type/enum.h --exclude-unreachable-branches --exclude-lines-by-pattern .*CPL_SYSTEM_TRACE.* --exclude-lines-by-pattern .*CPL_SYSTEM_ASSERT.*'
+    excludes = '--exclude=.*/Eros/.* --exclude=.*_0test.* --exclude=.*/xsrc/.* --exclude=.*src/Catch.* --exclude=.*src/Cpl/Json/Arduino.h --exclude=.*src/Cpl/Json/ArduinoHelpers.cpp --exclude=.*src/Cpl/Type/enum.h --exclude-unreachable-branches --exclude-lines-by-pattern .*CPL_SYSTEM_TRACE.* --exclude-lines-by-pattern .*CPL_SYSTEM_ASSERT.*'
 
     # Setup 'arc' excludes for C++ code (see https://gcovr.com/en/stable/faq.html) 
     arcopt = ' --exclude-unreachable-branches --decisions '
