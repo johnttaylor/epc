@@ -15,6 +15,7 @@
 
 #include "Cpl/Dm/ModelDatabase.h"
 #include "Cpl/Dm/Mp/Uint32.h"
+#include "Cpl/Dm/Mp/Bool.h"
 
 /** Encapsulate all Model Points in the 'mp' namespace to prevent polluting
     the global name space
@@ -42,6 +43,20 @@ extern Cpl::Dm::Mp::Uint32 mockedHeaterPwmOut;
         n/a
 */
 extern Cpl::Dm::Mp::Uint32 mockedFanPwmOut;
+
+/** This model point holds 'source' value for the HW Safety Limit Tripped
+    input signal
+
+    \b Units: boolean
+
+    \b Range: 
+        true:=   Safety Limit asserted
+        false: = normal operation
+
+    \b Notes:
+        n/a
+*/
+extern Cpl::Dm::Mp::Bool mockedHwSafetyIn;
 
 
 /*---------------------------------------------------------------------------*/

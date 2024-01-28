@@ -1,4 +1,4 @@
-#if defined(Driver_DIO_Out_h_) || defined (Driver_DIO_Pwm_h_)
+#if defined(Driver_DIO_Out_h_) || defined(Driver_DIO_In_h_) || defined (Driver_DIO_Pwm_h_)
 
 #ifndef Driver_DIO_Simulated_mapping_h_
 #define Driver_DIO_Simulated_mapping_h_
@@ -20,6 +20,9 @@
 
 /// Platform mapping
 #define DriverDioOutPinConfig_T_MAP         Cpl::Dm::Mp::Bool&
+
+/// Platform mapping
+#define DriverDioInPinConfig_T_MAP          Cpl::Dm::Mp::Bool&
 
 /// Platform mapping
 #define DriverDioPwmConfig_T_MAP            Cpl::Dm::Mp::Uint32&

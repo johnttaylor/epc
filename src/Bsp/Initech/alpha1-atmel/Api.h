@@ -119,6 +119,9 @@ void Bsp_beginFileSystem();
 #define PIN_BUTTON_Y            9
 
 /// Arduino Pin Number
+#define PIN_HW_SAFETY           8
+
+/// Arduino Pin Number
 #define PIN_RESET_LCD           7
 
 /// Arduino Pin Number

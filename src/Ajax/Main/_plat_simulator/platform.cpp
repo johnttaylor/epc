@@ -39,7 +39,7 @@ Driver::NV::Api&                    Ajax::Main::g_nvramDriver = nvDriver_;
 
 Driver::DIO::Pwm                    Ajax::Main::g_heaterPWMDriver( mp::mockedHeaterPwmOut );
 Driver::DIO::Pwm                    Ajax::Main::g_fanPWMDriver( mp::mockedFanPwmOut );
-
+Driver::DIO::In                     Ajax::Main::g_hwSafetyDriver( mp::mockedHwSafetyIn );
 /////////////////////////////
 void Ajax::Main::platform_initialize0()
 {
