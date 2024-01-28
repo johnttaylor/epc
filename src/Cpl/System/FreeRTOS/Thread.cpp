@@ -245,7 +245,12 @@ Cpl::System::Thread& Cpl::System::Thread::getCurrent() noexcept
 
 Cpl::System::Thread* Cpl::System::Thread::tryGetCurrent() noexcept
 {
-    return (Thread*) xTaskGetApplicationTaskTag( xTaskGetCurrentTaskHandle() );
+    TaskHandle_t taskHdl = xTaskGetCurrentTaskHandle();
+    if ( taskHdl == 0 )
+    {
+        return nullptr;
+    }
+    return (Thread*) xTaskGetApplicationTaskTag( taskHdl );
 }
 
 void Cpl::System::Thread::wait() noexcept
