@@ -36,6 +36,7 @@ void Bsp_Api_initialize( void )
     pinMode( PIN_BUTTON_B, INPUT_PULLUP );
     pinMode( PIN_BUTTON_X, INPUT_PULLUP );
     pinMode( PIN_BUTTON_Y, INPUT_PULLUP );
+    pinMode( PIN_HW_SAFETY, INPUT_PULLUP );
 
     // Configure the LEDs as output pins 
     pinMode( OPTION_BSP_DEBUG_LED1_INDEX, OUTPUT );

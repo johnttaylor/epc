@@ -26,6 +26,7 @@
 #include "Driver/NV/Api.h"
 #include "Driver/Crypto/Hash.h"
 #include "Driver/DIO/Pwm.h"
+#include "Driver/DIO/In.h"
 #include "Cpl/Dm/MailboxServer.h"
 
 
@@ -80,6 +81,9 @@ extern Driver::DIO::Pwm                 g_heaterPWMDriver;
 
 /// Expose the driver for the Fan PWM driver
 extern Driver::DIO::Pwm                 g_fanPWMDriver;
+
+/// Expose the driver for the HW Safety Limit input driver
+extern Driver::DIO::In                  g_hwSafetyDriver;
 
 /*
 ** Thread Priorities
