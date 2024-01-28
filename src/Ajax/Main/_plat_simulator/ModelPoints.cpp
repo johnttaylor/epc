@@ -20,4 +20,4 @@
 /*---------------------------------------------------------------------------*/
 ALLOC_INVALID( Cpl::Dm::Mp::Uint32, mockedHeaterPwmOut );
 ALLOC_INVALID( Cpl::Dm::Mp::Uint32, mockedFanPwmOut );
-
+ALLOC_INVALID( Cpl::Dm::Mp::Bool, mockedHwSafetyIn );

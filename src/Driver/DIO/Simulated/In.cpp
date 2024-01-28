@@ -42,7 +42,7 @@ void In::stop()
     }
 }
 
-bool In::getInput() const
+bool In::sample() const
 {
     if ( m_started )
     {
