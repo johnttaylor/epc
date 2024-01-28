@@ -27,7 +27,7 @@ Driver::NV::Api&                            Ajax::Main::g_nvramDriver = nvDriver
 
 Driver::DIO::Pwm                            Ajax::Main::g_heaterPWMDriver( PIN_PWM_HEATER );
 Driver::DIO::Pwm                            Ajax::Main::g_fanPWMDriver( PIN_PWM_FAN );
-Driver::DIO::In                             Ajax::Main::g_hwSafetyDriver( PIN_HW_SAFETY );
+Driver::DIO::In                             Ajax::Main::g_hwSafetyDriver( PIN_HW_SAFETY, false );
 
 /////////////////////////////
 void Ajax::Main::platform_initialize0()

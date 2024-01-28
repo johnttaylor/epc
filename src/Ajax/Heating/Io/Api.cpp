@@ -46,6 +46,10 @@ void Api::request( OpenMsg& msg )
         m_opened         = true;
         m_firstExecution = true;
 
+        // Subscribe for change notifications
+        mp::cmdHeaterPWM.attach( m_obHeaterPWM );
+        mp::cmdFanPWM.attach( m_obFanPWM );
+
         // Start processing
         expired();
     }
@@ -60,7 +64,11 @@ void Api::request( CloseMsg& msg )
         // Housekeeping
         m_opened = false;
         Timer::stop();
-    
+        
+        // Cancel change notifications
+        mp::cmdHeaterPWM.detach( m_obHeaterPWM );
+        mp::cmdFanPWM.detach( m_obFanPWM );
+
         // Put the heating system into a 'safe' state
         m_driverHeaterPwm.setDutyCycle( 0 );
         m_driverFanPwm.setDutyCycle( 0 );

@@ -8,334 +8,68 @@
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
+/** @file */
 
-#include "Catch/catch.hpp"
-#include "Catch/helpers.h"
-#include "Ajax/Heating/Flc/Api.h"    
-#include "Ajax/Heating/Supervisor/Api.h"    
-#include "Cpl/System/_testsupport/Shutdown_TS.h"
+#include "colony_config.h"
+#include "api.h"
+#include "Ajax/Heating/Io/Api.h"
 #include "Cpl/System/Api.h"
-#include "Cpl/System/SimTick.h"
-#include "Cpl/Dm/ModelDatabase.h"
+#include "Cpl/System/Trace.h"
+#include "Cpl/System/Thread.h"
+#include "Cpl/Container/Map.h"
 #include "mp/ModelPoints.h"
+#include "Cpl/TShell/Cmd/Help.h"
+#include "Cpl/TShell/Cmd/Bye.h"
+#include "Cpl/TShell/Cmd/Trace.h"
+#include "Cpl/TShell/Cmd/TPrint.h"
+#include "Cpl/TShell/Cmd/Threads.h"
+#include "Cpl/Dm/TShell/Dm.h"
+#include "Cpl/TShell/Stdio.h"
+#include "Cpl/TShell/Maker.h"
 
-using namespace Ajax::Heating::Supervisor;
+///
+using namespace Ajax::Heating::Io;
 
-#define SECT_   "_0test"
+#define SECT_ "_0test"
 
-////////////////////////////////////////////////////////////////////////////////
-// MOCK FLC
-Ajax::Heating::Flc::Api::Api( Ajax::Dm::MpFlcConfig& mpCfg )
-    :m_mpCfg( mpCfg )
+
+static Cpl::Dm::MailboxServer mbox_;
+
+static Cpl::Container::Map<Cpl::TShell::Command>   cmdlist;
+static Cpl::TShell::Maker cmdProcessor_( cmdlist );
+static Cpl::TShell::Stdio shell_( cmdProcessor_ );
+
+static Cpl::TShell::Cmd::Help	    helpCmd_( cmdlist );
+static Cpl::TShell::Cmd::Trace	    traceCmd_( cmdlist );
+static Cpl::TShell::Cmd::TPrint	    tprintCmd_( cmdlist );
+static Cpl::TShell::Cmd::Threads    threadsCmd_( cmdlist );
+static Cpl::Dm::TShell::Dm          dmCmd_( cmdlist, mp::g_modelDatabase );
+
+///////////////////////////////////////////////////////////////////////
+void runtests( Driver::DIO::In&  hwSafetyInDriver,
+               Driver::DIO::Pwm& heaterPWMDriver,
+               Driver::DIO::Pwm& fanPWMDriver,
+               Cpl::Io::Input&    infd,
+               Cpl::Io::Output&   outfd )
 {
-}
+    CPL_SYSTEM_TRACE_MSG( SECT_, ("Starting test for the Ajax::Heating::Io component\nUse 'dm' command to read/write the model points") );
+    hwSafetyInDriver.start();
+    heaterPWMDriver.start( 0 );
+    fanPWMDriver.start( 0 );
 
-static bool flcStartResult_ = true;
-static int  flcStartCount_;
-bool Ajax::Heating::Flc::Api::start() noexcept
-{
-    flcStartCount_++;
-    return flcStartResult_;
-}
-
-static int32_t flcCalcChangeResult_;
-static int     flcCalcChangeCount_;
-int32_t Ajax::Heating::Flc::Api::calcChange( int32_t currentTemp, int32_t setpoint ) noexcept
-{
-    flcCalcChangeCount_++;
-    return flcCalcChangeResult_;
-}
-
-static int  flcStopCount_;
-void Ajax::Heating::Flc::Api::stop() noexcept
-{
-    flcStopCount_++;
-}
-
-void Ajax::Heating::Flc::Api::fuzzify( int32_t inValue, int32_t fuzzyOut[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS] ) noexcept
-{
-}
-
-void Ajax::Heating::Flc::Api::runInference( const int32_t m1Vector[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS],
-                                            const int32_t m2Vector[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS],
-                                            int32_t       outVector[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS] ) noexcept
-{
-}
-
-int32_t Ajax::Heating::Flc::Api::defuzz( const int32_t outVector[AJAX_HEATING_FLC_CONFIG_NUM_MEMBER_SETS] ) noexcept
-{
-    return 0;
-}
-
-static void resetState( int32_t calcResult )
-{
-    flcStartCount_       = 0;
-    flcStopCount_        = 0;
-    flcCalcChangeCount_  = 0;
-    flcCalcChangeResult_ = calcResult;
-    flcStartResult_      = true;
-
-    mp::heatingMode.setInvalid();
-    mp::hwSafetyLimit.setInvalid();
-    mp::onBoardIdt.setInvalid();
-    mp::remoteIdt.setInvalid();
-    mp::heatSetpoint.setInvalid();
-    mp::fanMode.setInvalid();
-    mp::cmdHeaterPWM.setInvalid();
-    mp::cmdFanPWM.setInvalid();
-    mp::fanHighPercentage.setInvalid();
-    mp::fanLowPercentage.setInvalid();
-    mp::fanMedPercentage.setInvalid();
-    mp::maxHeatingCapacity.setInvalid();
-}
-
-
-////////////////////////////////////////////////////////////////////////////////
-// NOTE: Simulated time and CATCH2 do NOT play well together, i.e simulated
-//       time only works with a single TEST_CASE with zero or one SECTIONS.
-
-TEST_CASE( "api" )
-{
-    Cpl::System::Shutdown_TS::clearAndUseCounter();
-    Cpl::Dm::MailboxServer mbox;
-    Api                    uut( mbox );
-    AsyncOpenClose         openerCloser( uut );
-    uint32_t               heaterPWM;
-    uint32_t               fanPWM;
-
-    Cpl::System::Thread* t1 = Cpl::System::Thread::create( mbox, "T1" );
-    REQUIRE( t1 );
-    Cpl::System::Thread* t2 = Cpl::System::Thread::create( openerCloser, "T2" );
-    REQUIRE( t2 );
-
-    //
-    // Happy path
-    //
-    resetState( 10 );
-    mp::onBoardIdt.write( 7500 );
-    mp::heatSetpoint.write( 7600 );
-    mp::fanMode.write( Ajax::Type::FanMode::eMEDIUM );
-    mp::fanMedPercentage.write( 666 ); // 66.6%
-    mp::maxHeatingCapacity.write( 1000 );
-
-    openerCloser.openSubject();
-    simAdvanceTillOpened( openerCloser );
-    REQUIRE( uut.isInOff() );
-    REQUIRE( flcStartCount_ == 1 );
-    REQUIRE( flcStopCount_ == 0 );
-    REQUIRE( flcCalcChangeCount_ == 0 );
-    REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
-    REQUIRE( heaterPWM == 0 );
-    REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 0 );
-
-    mp::heatingMode.write( true );
-    Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS * 2);
-    REQUIRE( uut.isInHeating() );
-    REQUIRE( flcStartCount_ == 1 );
-    REQUIRE( flcStopCount_ == 0 );
-    REQUIRE( flcCalcChangeCount_ == 2 );
-    REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
-    REQUIRE( heaterPWM == ((uint32_t)(0.02 * 0xFFFF)) );
-    REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 666 );
-
-    mp::heatingMode.write( false );
-    Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS );
-    REQUIRE( uut.isInOff() );
-    REQUIRE( flcStartCount_ == 1 );
-    REQUIRE( flcStopCount_ == 0 );
-    REQUIRE( flcCalcChangeCount_ == 2 );
-    REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
-    REQUIRE( heaterPWM == 0 );
-    REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 0 );
-
-    openerCloser.closeSubject();
-    simAdvanceTillClosed( openerCloser );
-    REQUIRE( flcStartCount_ == 1 );
-    REQUIRE( flcStopCount_ == 1 );
-    REQUIRE( flcCalcChangeCount_ == 2 );
-
-    //
-    // Bad sensor path
-    //
-    resetState( 10 );
-    //mp::onBoardIdt.write( 7500 );
-    mp::heatSetpoint.write( 7600 );
-    mp::fanMode.write( Ajax::Type::FanMode::eLOW );
-    mp::fanLowPercentage.write( 333 ); // 33.3%
-    mp::maxHeatingCapacity.write( 1000 );
-
-    openerCloser.openSubject();
-    simAdvanceTillOpened( openerCloser );
-    REQUIRE( uut.isInOff() );
-    REQUIRE( flcStartCount_ == 1 );
-    REQUIRE( flcStopCount_ == 0 );
-    REQUIRE( flcCalcChangeCount_ == 0 );
-    REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
-    REQUIRE( heaterPWM == 0 );
-    REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 0 );
-
-    mp::heatingMode.write( true );
-    Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS  );
-    REQUIRE( uut.isInWaitingForSensor() );
-    REQUIRE( flcStartCount_ == 1 );
-    REQUIRE( flcStopCount_ == 0 );
-    REQUIRE( flcCalcChangeCount_ == 0 );
-    REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
-    REQUIRE( heaterPWM == 0 );
-    REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 0 );
-
-    Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS );
-    REQUIRE( uut.isInWaitingForSensor() );
-    REQUIRE( flcStartCount_ == 1 );
-    REQUIRE( flcStopCount_ == 0 );
-    REQUIRE( flcCalcChangeCount_ == 0 );
-    REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
-    REQUIRE( heaterPWM == 0 );
-    REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 0 );
-
-    mp::onBoardIdt.write( 7500 );
-    Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS*2 );
-    REQUIRE( uut.isInHeating() );
-    REQUIRE( flcStartCount_ == 1 );
-    REQUIRE( flcStopCount_ == 0 );
-    REQUIRE( flcCalcChangeCount_ == 1 );
-    REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
-    REQUIRE( heaterPWM == ((uint32_t) (0.01 * 0xFFFF)) );
-    REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 333 );
-
-    mp::onBoardIdt.setInvalid();
-    Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS );
-    REQUIRE( uut.isInWaitingForSensor() );
-    REQUIRE( flcStartCount_ == 1 );
-    REQUIRE( flcStopCount_ == 0 );
-    REQUIRE( flcCalcChangeCount_ == 1 );
-    REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
-    REQUIRE( heaterPWM == 0 );
-    REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 0 );
-
-    openerCloser.closeSubject();
-    simAdvanceTillClosed( openerCloser );
-    REQUIRE( flcStartCount_ == 1 );
-    REQUIRE( flcStopCount_ == 1 );
-    REQUIRE( flcCalcChangeCount_ == 1 );
-
-    //
-    // Safety limit paths
-    //
-    resetState( 10 );
-    mp::onBoardIdt.write( 7500 );
-    mp::heatSetpoint.write( 7600 );
-    mp::fanMode.write( Ajax::Type::FanMode::eHIGH );
-    mp::fanHighPercentage.write( 1000 ); // 100%
-    mp::hwSafetyLimit.write( true );
-    mp::maxHeatingCapacity.write( 1000 );
-
-    openerCloser.openSubject();
-    simAdvanceTillOpened( openerCloser );
-    REQUIRE( uut.isInFailedSafeOff() );
-    REQUIRE( flcStartCount_ == 1 );
-    REQUIRE( flcStopCount_ == 0 );
-    REQUIRE( flcCalcChangeCount_ == 0 );
-    REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
-    REQUIRE( heaterPWM == 0 );
-    REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 1000 );
-
-    mp::hwSafetyLimit.write( false );
-    Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS  );
-    REQUIRE( uut.isInOff() );
-    REQUIRE( flcStartCount_ == 1 );
-    REQUIRE( flcStopCount_ == 0 );
-    REQUIRE( flcCalcChangeCount_ == 0 );
-    REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
-    REQUIRE( heaterPWM == 0 );
-    REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 0 );
-
-    mp::heatingMode.write( true );
-    Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS * 2 );
-    REQUIRE( uut.isInHeating() );
-    REQUIRE( flcStartCount_ == 1 );
-    REQUIRE( flcStopCount_ == 0 );
-    REQUIRE( flcCalcChangeCount_ == 2 );
-    REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
-    REQUIRE( heaterPWM == ((uint32_t) (0.02 * 0xFFFF)) );
-    REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 1000 );
-
-    mp::hwSafetyLimit.write( true );
-    Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS );
-    REQUIRE( uut.isInFailedSafeOn() );
-    REQUIRE( flcStartCount_ == 1 );
-    REQUIRE( flcStopCount_ == 0 );
-    REQUIRE( flcCalcChangeCount_ == 3 );
-    REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
-    REQUIRE( heaterPWM == 0 );
-    REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 1000 );
-
-    mp::heatingMode.write( false );
-    Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS );
-    REQUIRE( uut.isInFailedSafeOff() );
-    REQUIRE( flcStartCount_ == 1 );
-    REQUIRE( flcStopCount_ == 0 );
-    REQUIRE( flcCalcChangeCount_ == 3 );
-    REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
-    REQUIRE( heaterPWM == 0 );
-    REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 1000 );
-
-    mp::heatingMode.write( true );
-    Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS );
-    REQUIRE( uut.isInFailedSafeOn() );
-    REQUIRE( flcStartCount_ == 1 );
-    REQUIRE( flcStopCount_ == 0 );
-    REQUIRE( flcCalcChangeCount_ == 3 );
-    REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
-    REQUIRE( heaterPWM == 0 );
-    REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 1000 );
-
-    mp::hwSafetyLimit.write( false );
-    Cpl::System::SimTick::advance( OPTION_AJAX_HEATING_SUPERVISOR_ALGO_INTERVAL_MS );
-    REQUIRE( uut.isInHeating() );
-    REQUIRE( flcStartCount_ == 1 );
-    REQUIRE( flcStopCount_ == 0 );
-    REQUIRE( flcCalcChangeCount_ == 4 );
-    REQUIRE( mp::cmdHeaterPWM.read( heaterPWM ) );
-    REQUIRE( heaterPWM == ((uint32_t) (0.04 * 0xFFFF)) );
-    REQUIRE( mp::cmdFanPWM.read( fanPWM ) );
-    REQUIRE( fanPWM == 1000 );
-
-    openerCloser.closeSubject( true );  // Exit the Async helper to that its thread self terminates
-    simAdvanceTillClosed( openerCloser );
-    REQUIRE( flcStartCount_ == 1 );
-    REQUIRE( flcStopCount_ == 1 );
-    REQUIRE( flcCalcChangeCount_ == 4 );
-
-
-    // 
-    // Shutdown the test threads
-    //
-    
-    // Attempt to politely self-terminated the test thread
-    mbox.pleaseStop();
-    for ( int i=0; i < 5; i++ )
+    Ajax::Heating::Io::Api* uut = new(std::nothrow) Ajax::Heating::Io::Api( mbox_, heaterPWMDriver, fanPWMDriver, hwSafetyInDriver );
+    if ( uut == nullptr )
     {
-        Cpl::System::SimTick::advance( 2 );
-        Cpl::System::Api::sleep( 100 );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("Failed to create UUT") );
+        for ( ;;);
     }
-    
-    // Delete the thread object (and brute force kill the threads if they are still running)
-    Cpl::System::Thread::destroy( *t1 );
-    Cpl::System::Thread::destroy( *t2 );
-    REQUIRE( Cpl::System::Shutdown_TS::getAndClearCounter() == 0u );
+    Cpl::System::Thread::create( mbox_, "TEST" );
+
+    shell_.launch( infd, outfd );
+
+    uut->open();
+    for ( ;;)
+    {
+        Cpl::System::Api::sleep( 1000 );
+    }
 }
