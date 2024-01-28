@@ -17,6 +17,7 @@
 #include "Cpl/TShell/Cmd/User.h"
 #include "TShellSecurity.h"
 #include "Ajax/Heating/Supervisor/Api.h"
+#include "Ajax/Heating/Io/Api.h"
 #include "Ajax/Ui/StatusIndicator/Api.h"
 #include "Ajax/Alerts/Summary.h"
 #include "Ajax/Metrics/Api.h"
@@ -33,6 +34,7 @@ static Cpl::TShell::Cmd::User userCmd_( g_cmdlist, security_ );
 
 // Algorithm
 static Ajax::Heating::Supervisor::Api  heatingAlgo_( g_appMbox );
+static Ajax::Heating::Io::Api          heatingIo_( g_appMbox, g_heaterPWMDriver, g_fanPWMDriver, g_hwSafetyDriver );
 
 // Alert summary
 static Ajax::Dm::MpAlert* alerts_[Ajax::Type::Alert::NUM_ALERTS] ={
@@ -82,6 +84,7 @@ void Ajax::Main::appvariant_open0()
     metrics_.open();
     alertSummary_.open();
     statusIndicator_.open();
+    heatingIo_.open();
     heatingAlgo_.open();
 }
 
@@ -92,8 +95,9 @@ void Ajax::Main::appvariant_launchHomeScreen()
 
 void Ajax::Main::appvariant_close0()
 {
-    metrics_.close();
     heatingAlgo_.close();
+    heatingIo_.close();
     statusIndicator_.close();
     alertSummary_.close();
+    metrics_.close();
 }
