@@ -3,6 +3,7 @@ src/Ajax/Main
 src/Ajax/Main/_app 
 src/Ajax/Heating/Flc
 src/Ajax/Heating/Supervisor
+src/Ajax/Heating/Io
 src/mp
 src/Ajax/Alerts
 src/Ajax/Metrics

@@ -30,7 +30,7 @@ Driver::DIO::Pwm                            Ajax::Main::g_heaterPWMDriver( heate
 static DriverDioPwmSTM32Config_T            fanPWMCfg_( PWM_FAN_BLOCK_PTR, PWM_FAN_CHANNEL );
 Driver::DIO::Pwm                            Ajax::Main::g_fanPWMDriver( fanPWMCfg_ );
 static DriverDioInSTM32PinConfig_T          hwSafetyCfg_( HW_SAFETY_GPIO_Port, HW_SAFETY_Pin );
-Driver::DIO::In                             Ajax::Main::g_hwSafetyDriver( hwSafetyCfg_ );
+Driver::DIO::In                             Ajax::Main::g_hwSafetyDriver( hwSafetyCfg_, false );
 
 /////////////////////////////
 void Ajax::Main::platform_initialize0()

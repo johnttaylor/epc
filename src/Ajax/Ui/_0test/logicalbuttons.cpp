@@ -112,9 +112,9 @@ TEST_CASE( "LogicalButtons" )
         // Press A button
         REQUIRE( mp_eventBuffferCount.isNotValid() );
         rawButtonStates_[BUTTON_IDX_A] = true;
-        Cpl::System::SimTick::advance( OPTION_AJAX_UI_LOGICAL_BUTTON_POLLING_RATE_MS*2 );
+        Cpl::System::SimTick::advance( OPTION_AJAX_UI_LOGICAL_BUTTON_POLLING_RATE_MS*3 );
         rawButtonStates_[BUTTON_IDX_A] = false;
-        Cpl::System::SimTick::advance( OPTION_AJAX_UI_LOGICAL_BUTTON_POLLING_RATE_MS * 2 );
+        Cpl::System::SimTick::advance( OPTION_AJAX_UI_LOGICAL_BUTTON_POLLING_RATE_MS * 3 );
         REQUIRE( mp_eventBuffferCount.read( eventCount ) );
         REQUIRE( eventCount == 1 );
         REQUIRE( eventRingBuffer_.remove( event ) );
