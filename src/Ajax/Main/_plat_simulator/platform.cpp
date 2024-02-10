@@ -47,6 +47,7 @@ void Ajax::Main::platform_initialize0()
     nvDriver_.start();
     g_heaterPWMDriver.start( 0 );
     g_fanPWMDriver.start( 0 );
+    g_hwSafetyDriver.start();
     appvariant_platform_initialize0();
 }
 

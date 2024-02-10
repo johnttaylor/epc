@@ -112,7 +112,7 @@ void Api::expired() noexcept
     // Has the interval expired?
     if ( Cpl::System::ElapsedTime::expiredMilliseconds( m_timeMarker, OPTION_AJAX_HEATING_IO_ALGO_INTERVAL_MS, now ) )
     {
-        // Execute the algorithm
+        // Set the marker to the next interval
         m_timeMarker += OPTION_AJAX_HEATING_IO_ALGO_INTERVAL_MS;
 
         // Read INPUT(s)

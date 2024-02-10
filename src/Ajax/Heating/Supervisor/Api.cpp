@@ -26,8 +26,8 @@ Api::Api( Cpl::Dm::MailboxServer&  myMbox ) noexcept
     : Cpl::Itc::CloseSync( myMbox )
     , Cpl::System::Timer( myMbox )
     , m_flcController( mp::flcConfig )
-    , m_obHwSafety( *((Cpl::Dm::EventLoop*) &myMbox), *this, &Api::hwSafetyChanged )
-    , m_obHeatingEnabled( *((Cpl::Dm::EventLoop*) &myMbox), *this, &Api::heatingEnabledChanged )
+    , m_obHwSafety( myMbox, *this, &Api::hwSafetyChanged )
+    , m_obHeatingEnabled( myMbox, *this, &Api::heatingEnabledChanged )
     , m_opened( false )
 {
 }
