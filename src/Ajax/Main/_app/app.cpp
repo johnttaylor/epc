@@ -16,7 +16,6 @@
 #include "mp/ModelPoints.h"
 #include "Cpl/TShell/Cmd/User.h"
 #include "TShellSecurity.h"
-#include "Ajax/Heating/Supervisor/Api.h"
 #include "Ajax/Heating/Io/Api.h"
 #include "Ajax/Ui/StatusIndicator/Api.h"
 #include "Ajax/Alerts/Summary.h"
@@ -32,9 +31,8 @@ static TShellSecurity         security_( *g_sha512Ptr );
 static Cpl::TShell::Cmd::User userCmd_( g_cmdlist, security_ );
 //#endif
 
-// Algorithm
-static Ajax::Heating::Supervisor::Api  heatingAlgo_( g_appMbox );
-static Ajax::Heating::Io::Api          heatingIo_( g_appMbox, g_heaterPWMDriver, g_fanPWMDriver, g_hwSafetyDriver );
+// Algorithm support
+static Ajax::Heating::Io::Api  heatingIo_( g_appMbox, g_heaterPWMDriver, g_fanPWMDriver, g_hwSafetyDriver );
 
 // Alert summary
 static Ajax::Dm::MpAlert* alerts_[Ajax::Type::Alert::NUM_ALERTS] ={
@@ -85,7 +83,6 @@ void Ajax::Main::appvariant_open0()
     alertSummary_.open();
     statusIndicator_.open();
     heatingIo_.open();
-    heatingAlgo_.open();
 }
 
 void Ajax::Main::appvariant_launchHomeScreen()
@@ -95,7 +92,6 @@ void Ajax::Main::appvariant_launchHomeScreen()
 
 void Ajax::Main::appvariant_close0()
 {
-    heatingAlgo_.close();
     heatingIo_.close();
     statusIndicator_.close();
     alertSummary_.close();
