@@ -12,6 +12,7 @@
 
 #include "Ajax/Main/_plat_alpha1/app_platform.h"
 #include "Ajax/Main/appmain.h"
+#include "Ajax/Heating/Supervisor/Api.h"
 #include "Bsp/Api.h"
 #include "mp/ModelPoints.h"
 #include "Driver/AIO/Ajax/Thermistor.h"
@@ -19,14 +20,15 @@
 
 using namespace Ajax::Main;
 
+// Core heating Algorithm 
+static Ajax::Heating::Supervisor::Api  heatingAlgo_( g_appMbox );
+
 // The Ajax and Eros Applications have DIFFERENT Thermistor drivers
 static Driver::AIO::Ajax::Thermistor    thermistor_( g_appMbox, AIN_THERMISTOR_PTR, mp::onBoardIdt );
 
 /////////////////////////////
 void Ajax::Main::appvariant_platform_initialize0()
 {
-    printf( "\nAJAX: alpha1: appvariant_platform_initialize0()\n" );
-
     // Nothing currently needed
 }
 
@@ -38,9 +40,11 @@ void Ajax::Main::appvariant_platform_initializeModelPoints0()
 void Ajax::Main::appvariant_platform_open0()
 {
     thermistor_.open();
+    heatingAlgo_.open();
 }
 
 void Ajax::Main::appvariant_platform_close0()
 {
+    heatingAlgo_.close();
     thermistor_.close();
 }

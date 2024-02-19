@@ -21,13 +21,16 @@ R"(Ajax Simulation.
       -s HOST       Hostname for the Display Simulation. [Default: 127.0.0.1]
       -p PORT       The Display Simulation's Port number [Default: 5010]
       -e            Generate a POST failure on start-up
-      -t ADCBITS    Sets the initial mocked ADCBits value [Default: 2048]
+      -t ADCBITS    Sets the initial mocked ADCBits value (only valid when the 
+                    House Simulator is NOT compiled) [Default: 2048]
+      -o ODT        Sets the initial Outdoor Temp value (only valid when the 
+                    House Simulator is compiled) [Default: 70]
       -v            Be verbose
       --help        Show this screen.
 
     Note: No 'Display simulation' is required.
 
-)"; 
+)";
 
 using namespace Ajax::Main;
 
