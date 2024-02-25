@@ -53,7 +53,7 @@ Ajax::Ui::EditSetpt::Screen Ajax::Main::g_editSetptScreen_( Ajax::Main::g_screen
 Ajax::Ui::About::Screen     Ajax::Main::g_aboutScreen_( Ajax::Main::g_screenNav, g_graphics );
 Ajax::Ui::Error::Screen     Ajax::Main::g_errorScreen_( g_graphics );
 
-static Ajax::Ui::StatusIndicator::Api  statusIndicator_( Ajax::Main::g_uiMbox, Driver::PicoDisplay::Api::rgbLED() );
+static Ajax::Ui::StatusIndicator::Api  statusIndicator_( Ajax::Main::g_uiMbox, Driver::PicoDisplay::Api::rgbLED(), Ajax::Main::g_screenNav );
 
 /////////////////////////////
 void Ajax::Main::appvariant_initialize0()

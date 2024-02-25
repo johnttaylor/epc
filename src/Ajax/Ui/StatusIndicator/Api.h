@@ -16,8 +16,10 @@
 #include "Cpl/Dm/MailboxServer.h"
 #include "Cpl/Itc/CloseSync.h"
 #include "Ajax/Dm/MpAlertSummary.h"
+#include "Ajax/ScreenMgr/Navigation.h"
 #include "Cpl/Dm/Mp/Uint32.h"
 #include "Cpl/Dm/SubscriberComposer.h"
+#include "Cpl/System/Timer.h"
 
 
 /// 
@@ -33,12 +35,13 @@ namespace StatusIndicator
 
 /** This class manages the what color/on-off-state of the RGB LED
  */
-class Api : public Cpl::Itc::CloseSync
+class Api : public Cpl::Itc::CloseSync, public Cpl::System::Timer
 {
 public:
     /// Constructor
-    Api( Cpl::Dm::MailboxServer&    myMbox,
-         Driver::LED::RedGreenBlue& statusLED );
+    Api( Cpl::Dm::MailboxServer&        myMbox,
+         Driver::LED::RedGreenBlue&     statusLED,
+         Ajax::ScreenMgr::Navigation&   scrMgr );
 
 public:
     /// Starts the component
@@ -54,6 +57,9 @@ protected:
     /// Change notification: Commanded Heater PWM
     void heaterPWMChanged( Cpl::Dm::Mp::Uint32& mpThatChanged, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
 
+    /// Software timer expired
+    void expired() noexcept;
+
 protected:
     /// Helper method that set the actual LED state
     void setStatus() noexcept;
@@ -62,14 +68,26 @@ protected:
     /// Handle to the RGD LED driver
     Driver::LED::RedGreenBlue&    m_ledDriver;
 
+    /// Handle to the screen manager
+    Ajax::ScreenMgr::Navigation&  m_scrMgr;
+
     /// Observer for change notifications
     Cpl::Dm::SubscriberComposer<Api, Ajax::Dm::MpAlertSummary> m_obAlertSummary;
 
     /// Observer for change notifications
     Cpl::Dm::SubscriberComposer<Api, Cpl::Dm::Mp::Uint32> m_obHeaterPWM;
 
+    /// Period time marker
+    uint32_t    m_timeMarker2Hz;
+
+    /// Current 'flash edge'
+    bool        m_2HzOnCycle;
+
+    /// Flag for initial execution pass
+    bool        m_firstExecution;
+    
     /// open/close state
-    bool    m_opened;
+    bool        m_opened;
 };
 
 }       // end namespaces
