@@ -51,18 +51,15 @@ public:
     void request( CloseMsg& msg );
 
 protected:
-    /// Change notification: Alert Summary
-    void alertSummaryChanged( Ajax::Dm::MpAlertSummary& mpThatChanged, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
-
-    /// Change notification: Commanded Heater PWM
-    void heaterPWMChanged( Cpl::Dm::Mp::Uint32& mpThatChanged, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
-
     /// Software timer expired
     void expired() noexcept;
 
 protected:
+    /// Helper method that set the actual LED state (return true when the error condition is present)
+    bool setHaltError( uint32_t now ) noexcept;
+
     /// Helper method that set the actual LED state
-    void setStatus() noexcept;
+    void setStatus( uint32_t now ) noexcept;
 
 protected:
     /// Handle to the RGD LED driver
@@ -71,17 +68,26 @@ protected:
     /// Handle to the screen manager
     Ajax::ScreenMgr::Navigation&  m_scrMgr;
 
-    /// Observer for change notifications
-    Cpl::Dm::SubscriberComposer<Api, Ajax::Dm::MpAlertSummary> m_obAlertSummary;
-
-    /// Observer for change notifications
-    Cpl::Dm::SubscriberComposer<Api, Cpl::Dm::Mp::Uint32> m_obHeaterPWM;
-
     /// Period time marker
     uint32_t    m_timeMarker2Hz;
 
+    /// Period time marker
+    uint32_t    m_timeMarker1Hz;
+
+    /// Period time marker
+    uint32_t    m_timeMarkerQuarterHz;
+
+    /// Current indicator state (when NOT in a 'hard-error')
+    unsigned    m_state;
+
     /// Current 'flash edge'
     bool        m_2HzOnCycle;
+
+    /// Current 'flash edge'
+    bool        m_1HzOnCycle;
+
+    /// Current 'flash edge'
+    bool        m_quarterHzOnCycle;
 
     /// Flag for initial execution pass
     bool        m_firstExecution;
