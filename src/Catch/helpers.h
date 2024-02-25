@@ -24,10 +24,11 @@
 #include "Cpl/Dm/MailboxServer.h"
 #include "Cpl/Itc/MailboxServer.h"
 #include "Cpl/Itc/CloseSync.h"
+#include "Cpl/Io/Input.h"
 
 
- /** Default Trace section used by/for the Helper methods
-  */
+/** Default Trace section used by/for the Helper methods
+ */
 #ifndef OPTION_CPL_CATCH_HELPERS_TRACE_SECT
 #define OPTION_CPL_CATCH_HELPERS_TRACE_SECT     "_0test"
 #endif
@@ -352,6 +353,27 @@ protected:
         Cpl::System::Mutex::ScopeBlock criticalSection( m_lock );
         m_opened = opened;
     }
+};
+
+
+/*----------------------------------------------------------------------------*/
+/** This function performs a blocking wait by monitoring an input stream for
+    available data. The method waits a specified amount of time BEFORE
+    checking for available data. The method returns true if there is data
+    available; else the method will eventually time out and return false.
+ */
+bool minWaitOnStreamData( Cpl::Io::Input& stream, unsigned long minWait=10, unsigned long maxWaitMs=10000, unsigned long waitDelayMs=10 )
+{
+    Cpl::System::Api::sleep( minWait );
+
+    bool avail = false;
+    while ( maxWaitMs && !avail )
+    {
+        Cpl::System::Api::sleep( waitDelayMs );
+        maxWaitMs -= waitDelayMs;
+        avail = stream.available();
+    }
+    return avail;
 };
 
 #ifdef USE_CPL_SYSTEM_SIM_TICK
