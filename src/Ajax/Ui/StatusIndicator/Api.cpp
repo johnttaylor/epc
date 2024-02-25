@@ -19,12 +19,17 @@
 
 using namespace Ajax::Ui::StatusIndicator;
 
+#define BASE_FLASH_INTERVAL     50              // 50ms
+#define FLASH_2HZ_INTERVAL      (1000/2/2)      // 2Hz flash rate -->edges @4Hz      
 
 ///////////////////////////
-Api::Api( Cpl::Dm::MailboxServer&    myMbox,
-          Driver::LED::RedGreenBlue& statusLED )
+Api::Api( Cpl::Dm::MailboxServer&        myMbox,
+          Driver::LED::RedGreenBlue&     statusLED,
+          Ajax::ScreenMgr::Navigation&   scrMgr )
     : Cpl::Itc::CloseSync( myMbox )
+    , Cpl::System::Timer( myMbox )
     , m_ledDriver( statusLED )
+    , m_scrMgr( scrMgr )
     , m_obAlertSummary( *((Cpl::Dm::EventLoop*) &myMbox), *this, &Api::alertSummaryChanged )
     , m_obHeaterPWM( *((Cpl::Dm::EventLoop*) &myMbox), *this, &Api::heaterPWMChanged )
 {
@@ -44,6 +49,7 @@ void Api::request( OpenMsg& msg )
     mp::alertSummary.attach( m_obAlertSummary );
     mp::cmdHeaterPWM.attach( m_obHeaterPWM );
     m_ledDriver.setOff();
+    expired();
 
     msg.returnToSender();
 }
@@ -59,7 +65,8 @@ void Api::request( CloseMsg& msg )
     }
 
     // Housekeeping
-    m_opened = false;
+    m_opened         = false;
+    m_firstExecution = true;
     mp::alertSummary.detach( m_obAlertSummary );
     mp::cmdHeaterPWM.detach( m_obHeaterPWM );
     m_ledDriver.setOff();
@@ -82,6 +89,46 @@ void Api::heaterPWMChanged( Cpl::Dm::Mp::Uint32& mp, Cpl::Dm::SubscriberApi& cli
     {
         setStatus();
     }
+}
+
+void Api::expired() noexcept
+{
+    uint32_t now = Cpl::System::ElapsedTime::milliseconds();
+
+    // Initialize the interval (but only once)
+    if ( m_firstExecution )
+    {
+        // Round down to the nearest interval boundary
+        m_firstExecution = false;
+        m_timeMarker2Hz  = (now / FLASH_2HZ_INTERVAL) * FLASH_2HZ_INTERVAL;
+        m_2HzOnCycle     = false;
+    }
+
+    // Has the 2Hz interval expired?
+    if ( Cpl::System::ElapsedTime::expiredMilliseconds( m_timeMarker2Hz, FLASH_2HZ_INTERVAL, now ) )
+    {
+        // Set the marker to the next interval
+        m_timeMarker2Hz += FLASH_2HZ_INTERVAL;
+
+        // Is there a 'hard-error'
+        if ( m_scrMgr.isCurrentScreenHaltError() )
+        {
+            // Transition to off
+            if ( m_2HzOnCycle )
+            {
+                m_ledDriver.setRgb( 0, 0, 0 );
+            }
+            // Transition to on
+            else
+            {
+                m_ledDriver.setRgb( 255, 0, 0 );
+            }
+            m_2HzOnCycle = !m_2HzOnCycle;
+        }
+    }
+
+    // Restart my interval timer
+    Timer::start( BASE_FLASH_INTERVAL );
 }
 
 ///////////////////////////

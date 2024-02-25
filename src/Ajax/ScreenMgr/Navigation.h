@@ -66,6 +66,10 @@ public:
      */
     virtual ScreenApi* getCurrentScreen() noexcept = 0;
 
+    /** This method returns true ONLY when the 'Halt-Error-Screen' is displayed
+     */
+    virtual bool isCurrentScreenHaltError() noexcept = 0;
+
 public:
     /// Virtual destructor
     virtual ~Navigation(){}

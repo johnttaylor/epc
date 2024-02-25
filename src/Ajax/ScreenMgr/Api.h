@@ -108,6 +108,9 @@ public:
     /// See Ajax::ScreenMgr::Navigation
     ScreenApi* getCurrentScreen() noexcept;
 
+    /// See Ajax::ScreenMgr::Navigation
+    bool isCurrentScreenHaltError() noexcept;
+
 protected:
     /// MP Change notification
     void homeScreenMp_changed( MpScreenApiPtr& modelPointThatChanged, Cpl::Dm::SubscriberApi& clientObserver ) noexcept;
