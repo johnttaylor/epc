@@ -16,6 +16,9 @@
 #define DriverDioOutPinConfig_T_MAP         int
 
 /// Platform mapping - for Arduino this is the PIN number
+#define DriverDioInPinConfig_T_MAP          int
+
+/// Platform mapping - for Arduino this is the PIN number
 #define DriverDioPwmConfig_T_MAP            int
 
 

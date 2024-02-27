@@ -17,7 +17,6 @@
 #include "Driver/PicoDisplay/STM32/Api.h"
 #include "Driver/NV/Onsemi/CAT24C512/Api.h"
 #include "Driver/I2C/STM32/Master.h"
-#include "Driver/DIO/Pwm.h"
 #include <stdlib.h>
 
 using namespace Ajax::Main;
@@ -30,6 +29,8 @@ static DriverDioPwmSTM32Config_T            heaterPWMCfg_( PWM_HEATER_BLOCK_PTR,
 Driver::DIO::Pwm                            Ajax::Main::g_heaterPWMDriver( heaterPWMCfg_ );
 static DriverDioPwmSTM32Config_T            fanPWMCfg_( PWM_FAN_BLOCK_PTR, PWM_FAN_CHANNEL );
 Driver::DIO::Pwm                            Ajax::Main::g_fanPWMDriver( fanPWMCfg_ );
+static DriverDioInSTM32PinConfig_T          hwSafetyCfg_( HW_SAFETY_GPIO_Port, HW_SAFETY_Pin );
+Driver::DIO::In                             Ajax::Main::g_hwSafetyDriver( hwSafetyCfg_, false );
 
 /////////////////////////////
 void Ajax::Main::platform_initialize0()
@@ -38,6 +39,7 @@ void Ajax::Main::platform_initialize0()
     i2cDriver_.start();
     g_heaterPWMDriver.start( 0 );
     g_fanPWMDriver.start( 0 );
+    g_hwSafetyDriver.start();
     Driver::PicoDisplay::STM32::initialize();
 
     appvariant_platform_initialize0();

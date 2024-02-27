@@ -17,6 +17,7 @@
 #include "Driver/AIO/Eros/ModelPoints.h"
 #include "Eros/TShell/Rgb.h"
 #include "Eros/TShell/Pwm.h"
+#include "Eros/TShell/HwSafety.h"
 #include "Cpl/MApp/Manager.h"
 #include "Cpl/MApp/Cmd.h"
 #include "Eros/Test/Thermistor/Api.h"
@@ -26,11 +27,12 @@
 
 using namespace Ajax::Main;
 
-Eros::Ui::Home::Screen      Eros::Main::g_homeScreen( Ajax::Main::g_screenNav, g_graphics );
-Eros::Ui::LcdTest::Screen   Eros::Main::g_lcdTextScreen( Ajax::Main::g_screenNav, g_graphics );
+Eros::Ui::Home::Screen          Eros::Main::g_homeScreen( Ajax::Main::g_screenNav, g_graphics );
+Eros::Ui::LcdTest::Screen       Eros::Main::g_lcdTextScreen( Ajax::Main::g_screenNav, g_graphics );
 
-static Eros::TShell::Rgb    rgbCmd_( g_cmdlist, Driver::PicoDisplay::Api::rgbLED() );
-static Eros::TShell::Pwm    pwmCmd_( g_cmdlist, Ajax::Main::g_heaterPWMDriver, Ajax::Main::g_fanPWMDriver );
+static Eros::TShell::Rgb        rgbCmd_( g_cmdlist, Driver::PicoDisplay::Api::rgbLED() );
+static Eros::TShell::Pwm        pwmCmd_( g_cmdlist, Ajax::Main::g_heaterPWMDriver, Ajax::Main::g_fanPWMDriver );
+static Eros::TShell::HwSafety   hwSafetyCmd_( g_cmdlist, Ajax::Main::g_hwSafetyDriver );
 
 static Cpl::Container::Map<Cpl::MApp::MAppApi>   mappList_;
 static Cpl::MApp::Manager                        mappManager_( g_appMbox, mappList_ );

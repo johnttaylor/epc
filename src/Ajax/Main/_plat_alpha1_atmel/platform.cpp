@@ -27,6 +27,7 @@ Driver::NV::Api&                            Ajax::Main::g_nvramDriver = nvDriver
 
 Driver::DIO::Pwm                            Ajax::Main::g_heaterPWMDriver( PIN_PWM_HEATER );
 Driver::DIO::Pwm                            Ajax::Main::g_fanPWMDriver( PIN_PWM_FAN );
+Driver::DIO::In                             Ajax::Main::g_hwSafetyDriver( PIN_HW_SAFETY, false );
 
 /////////////////////////////
 void Ajax::Main::platform_initialize0()
@@ -35,6 +36,7 @@ void Ajax::Main::platform_initialize0()
     i2cDriver_.start();
     g_heaterPWMDriver.start( 0 );
     g_fanPWMDriver.start( 0 );
+    g_hwSafetyDriver.start();
     Driver::PicoDisplay::Arduino::initialize();
 
     appvariant_platform_initialize0();

@@ -16,7 +16,7 @@
 #include "mp/ModelPoints.h"
 #include "Cpl/TShell/Cmd/User.h"
 #include "TShellSecurity.h"
-#include "Ajax/Heating/Supervisor/Api.h"
+#include "Ajax/Heating/Io/Api.h"
 #include "Ajax/Ui/StatusIndicator/Api.h"
 #include "Ajax/Alerts/Summary.h"
 #include "Ajax/Metrics/Api.h"
@@ -31,8 +31,8 @@ static TShellSecurity         security_( *g_sha512Ptr );
 static Cpl::TShell::Cmd::User userCmd_( g_cmdlist, security_ );
 //#endif
 
-// Algorithm
-static Ajax::Heating::Supervisor::Api  heatingAlgo_( g_appMbox );
+// Algorithm support
+static Ajax::Heating::Io::Api  heatingIo_( g_appMbox, g_heaterPWMDriver, g_fanPWMDriver, g_hwSafetyDriver );
 
 // Alert summary
 static Ajax::Dm::MpAlert* alerts_[Ajax::Type::Alert::NUM_ALERTS] ={
@@ -53,7 +53,7 @@ Ajax::Ui::EditSetpt::Screen Ajax::Main::g_editSetptScreen_( Ajax::Main::g_screen
 Ajax::Ui::About::Screen     Ajax::Main::g_aboutScreen_( Ajax::Main::g_screenNav, g_graphics );
 Ajax::Ui::Error::Screen     Ajax::Main::g_errorScreen_( g_graphics );
 
-static Ajax::Ui::StatusIndicator::Api  statusIndicator_( Ajax::Main::g_uiMbox, Driver::PicoDisplay::Api::rgbLED() );
+static Ajax::Ui::StatusIndicator::Api  statusIndicator_( Ajax::Main::g_uiMbox, Driver::PicoDisplay::Api::rgbLED(), Ajax::Main::g_screenNav );
 
 /////////////////////////////
 void Ajax::Main::appvariant_initialize0()
@@ -82,7 +82,7 @@ void Ajax::Main::appvariant_open0()
     metrics_.open();
     alertSummary_.open();
     statusIndicator_.open();
-    heatingAlgo_.open();
+    heatingIo_.open();
 }
 
 void Ajax::Main::appvariant_launchHomeScreen()
@@ -92,8 +92,8 @@ void Ajax::Main::appvariant_launchHomeScreen()
 
 void Ajax::Main::appvariant_close0()
 {
-    metrics_.close();
-    heatingAlgo_.close();
+    heatingIo_.close();
     statusIndicator_.close();
     alertSummary_.close();
+    metrics_.close();
 }

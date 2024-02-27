@@ -1,4 +1,4 @@
-#if defined(Driver_DIO_Out_h_) || defined (Driver_DIO_Pwm_h_)
+#if defined(Driver_DIO_Out_h_) || defined(Driver_DIO_In_h_) || defined (Driver_DIO_Pwm_h_)
 
 
 #ifndef Driver_DIO_STM32_mapping_h_
@@ -44,6 +44,32 @@ struct DriverDioOutSTM32PinConfig_T
     }
 };
 
+/** Structure that defines an Input Pin.
+    Currently only supports a Input pin that has been previously configured,
+    i.e. using the ST's MX Cube/IDE to configure the output pin.
+    TODO: Add support for configuring the pin WITHOUT using the ST's HAL/MX layer
+ */
+struct DriverDioInSTM32PinConfig_T
+{
+    GPIO_TypeDef*   port;       //!< Port structure for the Pin
+    uint16_t        pin;        //!< Pin number (within the port)
+
+    /// Constructor
+    DriverDioInSTM32PinConfig_T( GPIO_TypeDef*   portStruct,
+                                 uint16_t        pinNum )
+        : port( portStruct )
+        , pin( pinNum )
+    {
+    }
+
+    /// Constructor
+    DriverDioInSTM32PinConfig_T( const DriverDioInSTM32PinConfig_T& other )
+        : port( other.port )
+        , pin( other.pin )
+    {
+    }
+};
+
 /** Structure that defines an PWM signal & Pin
     Currently only supports a Output pin that has been previously configured,
     i.e. using the ST's MX Cube/IDE to configure the output pin.
@@ -71,6 +97,10 @@ struct DriverDioPwmSTM32Config_T
 
 /// Platform mapping
 #define DriverDioOutPinConfig_T_MAP         DriverDioOutSTM32PinConfig_T
+
+/// Platform mapping
+#define DriverDioInPinConfig_T_MAP          DriverDioInSTM32PinConfig_T
+
 
 /// Platform mapping
 #define DriverDioPwmConfig_T_MAP            DriverDioPwmSTM32Config_T

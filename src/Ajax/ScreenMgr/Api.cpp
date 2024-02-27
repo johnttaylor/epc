@@ -325,6 +325,11 @@ ScreenApi* Api::getCurrentScreen() noexcept
     return m_curScreenHdl;
 }
 
+bool Api::isCurrentScreenHaltError() noexcept
+{
+    return m_halted;
+}
+
 void Api::push( ScreenApi & newScreen ) noexcept
 {
     // Do nothing if the splash/shutdown/error screen is active
