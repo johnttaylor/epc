@@ -41,7 +41,7 @@
     is greater than the maximum write/erase cycle time.
  */
 #ifndef OPTION_DRIVER_NV_ONSEMI_CAT24C512_MAX_WAIT_RETRIES
-#define OPTION_DRIVER_NV_ONSEMI_CAT24C512_MAX_WAIT_RETRIES          6
+#define OPTION_DRIVER_NV_ONSEMI_CAT24C512_MAX_WAIT_RETRIES          10
 #endif
 
 
