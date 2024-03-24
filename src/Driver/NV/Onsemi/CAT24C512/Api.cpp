@@ -96,9 +96,19 @@ bool Api::read( size_t srcOffset, void* dstData, size_t numBytesToRead ) noexcep
         return false;
     }
 
-    // Read the data
-    auto result = m_i2cDriver.readFromDevice( m_devAddress, numBytesToRead, dstData );
-    return result == Driver::I2C::Master::eSUCCESS;
+    // Retry the transaction if there is write-cycle-in-progress
+    unsigned retryCount = OPTION_DRIVER_NV_ONSEMI_CAT24C512_MAX_WAIT_RETRIES;
+    do
+    {
+        // Read the data
+        auto result = m_i2cDriver.readFromDevice( m_devAddress, numBytesToRead, dstData );
+        if ( result == Driver::I2C::Master::eSUCCESS )
+        {
+            return true;
+        }
+        Cpl::System::Api::sleep( OPTION_DRIVER_NV_ONSEMI_CAT24C512_MAX_WAIT_RETRIES );
+    } while ( retryCount-- );
+    return false;
 }
 
 bool Api::setReadOffsetPointer( size_t newOffset )
@@ -108,7 +118,7 @@ bool Api::setReadOffsetPointer( size_t newOffset )
     address[0] = (uint8_t) ((newOffset >> 8) & 0xff);
     address[1] = (uint8_t) ((newOffset & 0xFF));
 
-    // Retry the transaction if there write-cycle-in-progress
+    // Retry the transaction if there is write-cycle-in-progress
     do
     {
         auto result = m_i2cDriver.writeToDevice( m_devAddress, 2, address );
@@ -139,7 +149,7 @@ bool Api::writePage( size_t offset, const uint8_t* srcBuffer, size_t numBytesToW
         {
             return true;
         }
-        Cpl::System::Api::sleep( OPTION_DRIVER_NV_ONSEMI_CAT24C512_MAX_WAIT_RETRIES );
+        Cpl::System::Api::sleep( OPTION_DRIVER_NV_ONSEMI_CAT24C512_WAIT_WRITE_COMPLETE_MS );
     } while ( retryCount-- );
 
     return false;
