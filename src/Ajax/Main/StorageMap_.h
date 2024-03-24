@@ -33,7 +33,7 @@
 #endif
 
 /// USER Record/Region
-#define AJAX_MAIN_USER_REGION_DATA_LEN                  64
+#define AJAX_MAIN_USER_REGION_DATA_LEN                  14
 /// USER Record/Region
 #define AJAX_MAIN_USER_REGION_RESERVED                  64
 /// USER Record/Region
@@ -60,7 +60,7 @@
 #define AJAX_MAIN_PERSONALITY_REGION_NEXT_OFFSET        (AJAX_MAIN_PERSONALITY_REGION_B_START_ADDRESS+AJAX_MAIN_PERSONALITY_REGION_LENGTH)
 
 /// METRICS Record/Region
-#define AJAX_MAIN_METRICS_REGION_DATA_LEN               64
+#define AJAX_MAIN_METRICS_REGION_DATA_LEN               39
 /// METRICS Record/Region
 #define AJAX_MAIN_METRICS_REGION_RESERVED               64
 /// METRICS Record/Region
