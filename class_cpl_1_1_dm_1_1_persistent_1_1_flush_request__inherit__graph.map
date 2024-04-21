@@ -1,0 +1,11 @@
+<map id="Cpl::Dm::Persistent::FlushRequest" name="Cpl::Dm::Persistent::FlushRequest">
+<area shape="rect" id="Node000001" title="This abstract class define ITC message type and payload for the application to request flushing the R..." alt="" coords="230,5,362,46"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_dm_1_1_persistent_1_1_record.html" title="This mostly concrete class implements the Cpl::Persistent::Record interface where a Record instance c..." alt="" coords="230,94,362,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="299,62,299,94,293,94,293,62"/>
+<area shape="rect" id="Node000003" href="$class_ajax_1_1_main_1_1_metrics_record.html" title="This concrete class implements the &quot;Record&quot; class for storing user settings." alt="" coords="5,183,176,208"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="231,143,123,185,121,180,230,138"/>
+<area shape="rect" id="Node000004" href="$class_ajax_1_1_main_1_1_personality_record.html" title="This concrete class implements the &quot;Record&quot; class for storing the &#39;Personality&#39; settings." alt="" coords="200,183,392,208"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="299,150,299,182,293,182,293,150"/>
+<area shape="rect" id="Node000005" href="$class_ajax_1_1_main_1_1_user_record.html" title="This concrete class implements the &quot;Record&quot; class for storing user settings." alt="" coords="416,183,571,208"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="360,138,464,180,462,185,358,143"/>
+</map>

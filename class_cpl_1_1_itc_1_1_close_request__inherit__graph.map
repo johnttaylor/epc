@@ -1,0 +1,36 @@
+<map id="Cpl::Itc::CloseRequest" name="Cpl::Itc::CloseRequest">
+<area shape="rect" id="Node000001" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="5,325,154,351"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_close_sync.html" title="This partially concrete class implements the synchronous ITC close call for the CloseApi." alt="" coords="203,325,332,351"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,335,203,335,203,340,169,340"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_persistent_1_1_indexed_entry_server.html" title=" " alt="" coords="793,409,963,464"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="280,364,294,399,316,440,345,479,363,495,383,509,439,531,499,541,560,540,621,532,679,518,734,500,822,462,824,467,735,505,681,523,622,537,560,546,498,546,438,536,380,513,360,500,341,483,311,443,289,402,275,366"/>
+<area shape="rect" id="Node000004" href="$class_ajax_1_1_alerts_1_1_summary.html" title="This class manages the content of the Alert Summary model point." alt="" coords="403,62,551,88"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="272,309,283,263,304,205,336,147,356,120,380,97,401,84,404,89,383,101,360,124,340,150,309,207,289,264,277,310"/>
+<area shape="rect" id="Node000005" href="$class_ajax_1_1_heating_1_1_io_1_1_api.html" title="This class is responsible for &#39;translating&#39; physical hardware signal to/from model point values." alt="" coords="407,112,547,137"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="276,309,290,272,312,229,342,185,380,148,406,134,408,138,383,152,346,188,317,231,295,274,280,311"/>
+<area shape="rect" id="Node000006" href="$class_ajax_1_1_heating_1_1_supervisor_1_1_api.html" title="This class implements the Heating Algorithm Supervisor." alt="" coords="382,13,572,39"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="269,309,277,253,296,182,310,145,329,109,352,76,380,48,397,37,400,41,383,52,356,80,333,112,315,147,301,184,282,254,274,310"/>
+<area shape="rect" id="Node000008" href="$class_ajax_1_1_metrics_1_1_api.html" title="This class manages the collection of Metrics and triggering their updates to persistent storage." alt="" coords="417,226,537,252"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="295,313,334,286,381,261,416,248,417,253,383,265,337,290,298,318"/>
+<area shape="rect" id="Node000009" href="$class_ajax_1_1_screen_mgr_1_1_api.html" title="This class implements the Screen Manager." alt="" coords="407,276,547,301"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="340,318,419,299,420,304,341,323"/>
+<area shape="rect" id="Node000010" href="$class_ajax_1_1_ui_1_1_logical_buttons.html" title="This concrete class translates physical button actions into logical UI Button events." alt="" coords="398,325,556,351"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="348,335,397,335,397,340,348,340"/>
+<area shape="rect" id="Node000011" href="$class_ajax_1_1_ui_1_1_status_indicator_1_1_api.html" title="This class manages the what color/on&#45;off&#45;state of the RGB LED." alt="" coords="385,374,569,400"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="341,352,420,371,419,376,340,357"/>
+<area shape="rect" id="Node000012" href="$class_cpl_1_1_logging_1_1_log_sink.html" title="This class is responsible for consuming the application&#39;s Log buffer and &#39;dispatching&#39; log entries." alt="" coords="404,424,550,449"/>
+<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="298,358,337,385,383,410,412,420,410,425,381,415,334,389,295,362"/>
+<area shape="rect" id="Node000013" href="$class_cpl_1_1_m_app_1_1_manager.html" title="This concrete class implements the MApp Manager." alt="" coords="409,473,545,499"/>
+<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="287,362,327,412,354,438,383,459,410,471,407,476,380,464,350,442,323,416,283,365"/>
+<area shape="rect" id="Node000014" href="$class_cpl_1_1_persistent_1_1_indexed_entry_server.html" title="This concrete template class implements the ITC messaging (and Model Point monitoring) needed to prov..." alt="" coords="399,161,555,202"/>
+<area shape="poly" id="edge13_Node000002_Node000014" title=" " alt="" coords="284,310,324,260,351,234,380,211,401,200,403,205,383,216,354,238,328,264,288,314"/>
+<area shape="rect" id="Node000015" href="$class_cpl_1_1_persistent_1_1_record_server.html" title="This concrete class provides an Event driven Runnable object for executing the read/write operation t..." alt="" coords="382,574,572,600"/>
+<area shape="poly" id="edge15_Node000002_Node000015" title=" " alt="" coords="275,365,283,407,298,458,322,509,339,533,358,553,389,571,387,576,355,557,335,536,318,512,293,460,278,408,270,366"/>
+<area shape="rect" id="Node000016" href="$class_driver_1_1_a_i_o_1_1_ajax_1_1_thermistor.html" title="This class is responsible for sampling the on&#45;board temperature sensor every N milliseconds and popul..." alt="" coords="416,624,538,665"/>
+<area shape="poly" id="edge16_Node000002_Node000016" title=" " alt="" coords="275,365,285,418,304,484,336,552,358,583,383,610,417,629,414,634,380,614,354,587,332,555,299,486,280,419,270,366"/>
+<area shape="rect" id="Node000007" href="$class_ajax_1_1_heating_1_1_simulated_1_1_house.html" title="This class glues the House Simulation into the Heater Application." alt="" coords="798,5,959,46"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="588,23,797,23,797,28,588,28"/>
+<area shape="poly" id="edge14_Node000014_Node000003" title=" " alt="" coords="563,206,573,211,654,259,731,313,847,406,844,410,728,317,651,264,571,216,560,211"/>
+<area shape="rect" id="Node000017" href="$class_driver_1_1_a_i_o_1_1_eros_1_1_thermistor.html" title="This class is an Eros specific extension of the Driver::AIO::Ajax::Thermistor driver." alt="" coords="817,624,939,665"/>
+<area shape="poly" id="edge17_Node000016_Node000017" title=" " alt="" coords="553,642,817,642,817,647,553,647"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Cpl::Checksum::Api32" name="Cpl::Checksum::Api32">
+<area shape="rect" id="Node000001" title="This class provides an interface for calculate a 32 bit wide Checksum." alt="" coords="43,5,190,31"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_checksum_1_1_crc32_ethernet_fast.html" title="This class provides an implementation for the 32 Bit &quot;Ethernet&quot; standard." alt="" coords="5,79,228,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,46,119,79,114,79,114,46"/>
+</map>

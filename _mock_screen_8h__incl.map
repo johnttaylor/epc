@@ -1,0 +1,20 @@
+<map id="Ajax/ScreenMgr/MockScreen.h" name="Ajax/ScreenMgr/MockScreen.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="169,5,370,31"/>
+<area shape="rect" id="Node000002" href="$_screen_api_8h.html" title=" " alt="" coords="69,87,256,112"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="255,34,193,79,189,75,252,29"/>
+<area shape="rect" id="Node000009" href="$_static_screen_api_8h.html" title=" " alt="" coords="280,79,472,120"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="287,29,339,68,336,72,284,34"/>
+<area shape="rect" id="Node000003" href="$_event_8h.html" title=" " alt="" coords="83,168,243,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="165,113,165,152,160,152,160,113"/>
+<area shape="rect" id="Node000006" href="$_elapsed_time_8h.html" title=" " alt="" coords="277,168,454,193"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="195,110,321,159,319,164,193,115"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,241,115,267"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="147,196,91,234,88,230,144,192"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="139,241,240,267"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="170,193,182,226,177,228,165,194"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="307,241,370,267"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="363,194,351,228,346,226,358,193"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="395,241,472,267"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="378,192,414,228,410,232,375,195"/>
+<area shape="poly" id="edge9_Node000009_Node000006" title=" " alt="" coords="376,120,372,152,366,152,371,120"/>
+</map>

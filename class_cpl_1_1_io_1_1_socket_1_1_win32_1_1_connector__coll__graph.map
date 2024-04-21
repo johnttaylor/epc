@@ -1,0 +1,5 @@
+<map id="Cpl::Io::Socket::Win32::Connector" name="Cpl::Io::Socket::Win32::Connector">
+<area shape="rect" id="Node000001" title="This concrete class implements the Cpl::Io::Socket::Connector interface using IPv4/IPv6 addressing fo..." alt="" coords="17,79,163,120"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_socket_1_1_connector.html" title="This abstract class defines the interface for establishing/requesting a SIMPLE socket connection,..." alt="" coords="5,5,175,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,46,93,79,87,79,87,46"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Cpl::Itc::NullReturnHandler" name="Cpl::Itc::NullReturnHandler">
+<area shape="rect" id="Node000001" title="This class implements a Null ReturnHandler." alt="" coords="5,79,179,105"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_return_handler.html" title="This abstract class represents the action that is executed by a server thread in response to the serv..." alt="" coords="17,5,167,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,46,95,79,89,79,89,46"/>
+</map>

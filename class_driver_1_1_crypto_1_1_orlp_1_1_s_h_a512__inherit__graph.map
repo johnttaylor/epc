@@ -1,0 +1,5 @@
+<map id="Driver::Crypto::Orlp::SHA512" name="Driver::Crypto::Orlp::SHA512">
+<area shape="rect" id="Node000001" title="This class implements the Hash interface using Orson Peter&#39;s SHA512 algorithm." alt="" coords="9,79,137,120"/>
+<area shape="rect" id="Node000002" href="$class_driver_1_1_crypto_1_1_hash.html" title="This class defines an abstract interface for a Hashing Algorithms." alt="" coords="5,5,141,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,46,76,79,70,79,70,46"/>
+</map>

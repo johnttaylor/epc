@@ -1,0 +1,5 @@
+<map id="Cpl::Dm::ModelPoint" name="Cpl::Dm::ModelPoint">
+<area shape="rect" id="Node000001" title="This mostly abstract class defines the interface for a Model Point." alt="" coords="5,79,143,105"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="7,5,141,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,46,77,79,71,79,71,46"/>
+</map>

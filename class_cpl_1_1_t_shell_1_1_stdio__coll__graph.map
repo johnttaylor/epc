@@ -1,0 +1,13 @@
+<map id="Cpl::TShell::Stdio" name="Cpl::TShell::Stdio">
+<area shape="rect" id="Node000001" title="This concrete class provides the &#39;threading wrapper&#39; for running a TShell Command Processor." alt="" coords="205,244,325,270"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_t_shell_1_1_processor_api.html" title="This class defines the interface a TShell Command Processor." alt="" coords="5,155,173,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,186,241,241,239,246,126,191"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_system_1_1_thread.html" title="This abstract class defines the operations that can be performed on a thread." alt="" coords="197,155,333,181"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="268,197,268,244,262,244,262,197"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_system_1_1_signable.html" title="This abstract class defines the interface by which a client can cause an object that is waiting&#45;on&#45;a&#45;..." alt="" coords="192,80,338,106"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="268,121,268,155,262,155,262,121"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="198,5,332,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="268,46,268,80,262,80,262,46"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_system_1_1_runnable.html" title="This is an abstract class defines the interface for an object that is &quot;executed&quot; when a Thread object..." alt="" coords="358,155,508,181"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="402,191,346,222,295,246,293,241,344,218,399,187"/>
+</map>

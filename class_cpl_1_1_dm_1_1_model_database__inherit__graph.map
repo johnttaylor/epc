@@ -1,0 +1,5 @@
+<map id="Cpl::Dm::ModelDatabase" name="Cpl::Dm::ModelDatabase">
+<area shape="rect" id="Node000001" title="This concrete class implements a simple Model Database." alt="" coords="15,79,177,105"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_dm_1_1_model_database_api.html" title="This class defines the basic operations that can be performed on a Model Base." alt="" coords="5,5,187,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,46,99,79,93,79,93,46"/>
+</map>

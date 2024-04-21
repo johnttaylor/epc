@@ -1,0 +1,7 @@
+<map id="Cpl::Container::RingBufferMT&lt; ITEM &gt;" name="Cpl::Container::RingBufferMT&lt; ITEM &gt;">
+<area shape="rect" id="Node000001" title="This template class implements a THREAD SAFE Ring Buffer." alt="" coords="92,109,259,150"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_ring_buffer.html" title="This template class implements a Ring Buffer." alt="" coords="5,5,173,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,56,161,107,157,110,113,60"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_system_1_1_mutex.html" title="This mutex class defines the interface for a mutex that has &quot;recursive&quot; semantics." alt="" coords="197,13,328,39"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,52,194,110,190,107,240,49"/>
+</map>

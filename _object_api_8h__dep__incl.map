@@ -1,0 +1,18 @@
+<map id="Cpl/Io/File/ObjectApi.h" name="Cpl/Io/File/ObjectApi.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="166,5,317,31"/>
+<area shape="rect" id="Node000002" href="$_input_api_8h.html" title=" " alt="" coords="85,79,228,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,43,172,81,169,77,214,39"/>
+<area shape="rect" id="Node000007" href="$_output_api_8h.html" title=" " alt="" coords="252,79,405,105"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="270,39,316,77,312,81,266,43"/>
+<area shape="rect" id="Node000003" href="$_file_2_input_8h.html" title=" " alt="" coords="5,153,129,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="131,116,84,154,80,150,128,112"/>
+<area shape="rect" id="Node000004" href="$_input_output_api_8h.html" title=" " alt="" coords="152,153,334,178"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="184,113,230,150,227,154,181,117"/>
+<area shape="rect" id="Node000005" href="$_file_2_input_output_8h.html" title=" " alt="" coords="81,226,243,252"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="220,191,177,228,174,224,216,187"/>
+<area shape="rect" id="Node000006" href="$_cpl_2_io_2_file_2_null_8h.html" title=" " alt="" coords="267,226,384,252"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="270,187,314,224,310,228,267,191"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="304,117,259,154,256,150,301,113"/>
+<area shape="rect" id="Node000008" href="$_file_2_output_8h.html" title=" " alt="" coords="358,153,491,178"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="358,112,410,150,407,154,355,116"/>
+</map>

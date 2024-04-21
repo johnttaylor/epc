@@ -1,0 +1,5 @@
+<map id="Driver::RHTemp::Api" name="Driver::RHTemp::Api">
+<area shape="rect" id="Node000001" title="This class defines an interface for reading and managing a combined RH and Temperature sensor." alt="" coords="37,5,176,31"/>
+<area shape="rect" id="Node000002" href="$class_driver_1_1_r_h_temp_1_1_simulated_1_1_api.html" title="This class implements the RH/Temperature driver interface using model points as the physical signals." alt="" coords="5,79,208,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,46,109,79,104,79,104,46"/>
+</map>

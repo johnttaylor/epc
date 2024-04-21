@@ -1,0 +1,13 @@
+<map id="Cpl::MApp::LookupMAppRequest::Payload" name="Cpl::MApp::LookupMAppRequest::Payload">
+<area shape="rect" id="Node000001" title="Payload for Message:" alt="" coords="5,394,217,435"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_m_app_1_1_m_app_api.html" title="This abstract class defines the interface for a Micro Application (MApp)." alt="" coords="41,305,181,331"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,346,114,393,108,393,108,346"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_map_item.html" title="This abstract class represents a item that can be contained in an Map (aka a sorted list implemented ..." alt="" coords="32,230,190,256"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="114,271,114,305,108,305,108,271"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_dict_item.html" title="This abstract class represents a item that can be contained in Dictionary." alt="" coords="33,155,189,181"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="114,196,114,230,108,230,108,196"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="18,80,204,106"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="114,121,114,155,108,155,108,121"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="44,5,178,31"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="114,46,114,80,108,80,108,46"/>
+</map>

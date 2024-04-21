@@ -1,0 +1,5 @@
+<map id="Ajax::ScreenMgr::Navigation" name="Ajax::ScreenMgr::Navigation">
+<area shape="rect" id="Node000001" title="This class defines the interface &#45; used by ScreenApi instances &#45; to navigate to other screen instance..." alt="" coords="5,5,189,31"/>
+<area shape="rect" id="Node000002" href="$class_ajax_1_1_screen_mgr_1_1_api.html" title="This class implements the Screen Manager." alt="" coords="27,79,167,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,46,100,79,94,79,94,46"/>
+</map>

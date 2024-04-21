@@ -1,0 +1,7 @@
+<map id="Cpl::System::PeriodicScheduler" name="Cpl::System::PeriodicScheduler">
+<area shape="rect" id="Node000001" title="This concrete class is a &#39;policy&#39; object that is used to add polled based, cooperative monotonic sche..." alt="" coords="92,5,293,31"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_dm_1_1_periodic_scheduler.html" title="This class extends the Cpl::Dm::MailboxServer class to add periodic scheduling to an event based &#39;thr..." alt="" coords="5,79,183,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,43,112,81,109,76,162,38"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_periodic_scheduler.html" title="This class extends the Cpl::Itc::MailboxServer class to add periodic scheduling to an event based &#39;th..." alt="" coords="207,79,379,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="224,38,277,76,274,81,220,42"/>
+</map>

@@ -1,0 +1,27 @@
+<map id="Cpl::System::EventLoop" name="Cpl::System::EventLoop">
+<area shape="rect" id="Node000001" title="This concrete class is a Runnable object that provides a event driven execution model for a thread." alt="" coords="1088,156,1247,182"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_system_1_1_runnable.html" title="This is an abstract class defines the interface for an object that is &quot;executed&quot; when a Thread object..." alt="" coords="778,5,928,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="943,27,1005,42,1066,68,1095,88,1121,111,1158,154,1154,157,1117,115,1092,92,1063,73,1003,47,942,32"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_system_1_1_event_flag.html" title="This abstract class defines the interface to generated a &#39;Event Flag&#39;." alt="" coords="776,55,930,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="946,70,1006,79,1065,97,1115,124,1153,154,1150,158,1112,129,1063,102,1004,85,945,75"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_system_1_1_signable.html" title="This abstract class defines the interface by which a client can cause an object that is waiting&#45;on&#45;a&#45;..." alt="" coords="431,156,577,182"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="592,153,638,148,758,136,851,132,945,134,1065,146,1106,153,1105,158,1064,151,945,140,851,137,758,142,638,153,593,158"/>
+<area shape="rect" id="Node000010" href="$class_cpl_1_1_system_1_1_thread.html" title="This abstract class defines the operations that can be performed on a thread." alt="" coords="785,156,921,182"/>
+<area shape="poly" id="edge10_Node000010_Node000004" title=" " alt="" coords="592,166,784,166,784,172,592,172"/>
+<area shape="rect" id="Node000012" href="$class_cpl_1_1_system_1_1_semaphore.html" title="This semaphore class defines the interface for a Counting Semaphore." alt="" coords="772,205,934,231"/>
+<area shape="poly" id="edge13_Node000012_Node000004" title=" " alt="" coords="593,179,772,204,771,209,592,184"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="8,156,141,182"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="157,166,430,166,430,172,157,172"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_system_1_1_timer_manager.html" title="This mostly concrete class implements manages a list of Software Timers." alt="" coords="763,255,942,280"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="917,248,942,241,1003,225,1063,208,1135,180,1137,185,1065,213,1004,231,943,246,919,253"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_system_1_1_counter_source__.html" title="This abstract class defines the interface for registering for an Counter object with the Timer Manage..." alt="" coords="409,247,599,272"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="614,259,762,263,762,268,614,265"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_container_1_1_d_list.html" title=" " alt="" coords="394,297,614,337"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="629,311,738,298,762,290,803,278,805,283,764,295,740,303,629,316"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_container_1_1_d_list.html" title="This template class implements a Doubly linked list which maintains the ordering imposed on it by the..." alt="" coords="5,297,144,337"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="159,314,393,314,393,320,159,320"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="936,166,1088,166,1088,172,936,172"/>
+<area shape="rect" id="Node000011" href="$class_cpl_1_1_system_1_1_shared_event_handler_api.html" title="This abstract class defines the interface for a Shared Event Handler." alt="" coords="768,305,938,345"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="952,300,1008,280,1063,255,1115,217,1152,180,1156,184,1118,221,1066,259,1010,285,953,305"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="949,204,1064,187,1101,180,1102,185,1065,192,950,209"/>
+</map>

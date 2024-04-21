@@ -1,0 +1,20 @@
+<map id="Cpl::Io::File::Input" name="Cpl::Io::File::Input">
+<area shape="rect" id="Node000001" title="This concrete class provides a platform independent &#39;standard&#39; implementation of a Cpl::Io::File::Inp..." alt="" coords="174,333,293,358"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_file_1_1_input_api.html" title="This abstract class defines the interface for a Random Access Input File." alt="" coords="245,244,384,270"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="295,283,246,334,242,330,291,279"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_io_1_1_input.html" title="This partially abstract class defines a interface for operating on an input stream (example of a stre..." alt="" coords="152,155,245,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="228,188,300,241,297,246,225,193"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_io_1_1_stdio_1_1_input__.html" title="This concrete class implements a Input stream using the underlying platform&#39;s native OS &#39;file interfa..." alt="" coords="86,244,221,270"/>
+<area shape="poly" id="edge8_Node000008_Node000003" title=" " alt="" coords="188,196,162,245,157,242,183,194"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_io_1_1_close.html" title="This abstract class defines a close operation that is intended to be used Input and Output streams/fi..." alt="" coords="69,80,165,106"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="143,114,187,153,184,157,140,118"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="51,5,184,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="120,46,120,80,115,80,115,46"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_io_1_1_is_eos.html" title="This abstract class defines a isEos() operation that is intended to be used Input and Output streams." alt="" coords="189,80,285,106"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="226,121,207,156,202,154,221,119"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_io_1_1_file_1_1_object_api.html" title="This abstract class defines the basic additional functionality, beyond that of a stream,..." alt="" coords="269,155,416,181"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="336,197,321,244,316,243,331,195"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="176,279,224,330,220,334,172,283"/>
+<area shape="rect" id="Node000009" href="$union_cpl_1_1_io_1_1_descriptor.html" title="This union defines a &#39;IO descriptor&#39; in terms of a an integer and/or a void*." alt="" coords="5,155,128,181"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="91,190,143,242,139,246,87,194"/>
+</map>

@@ -1,0 +1,20 @@
+<map id="Cpl::Memory::Allocator" name="Cpl::Memory::Allocator">
+<area shape="rect" id="Node000001" title="This abstract class defines the interface for a Memory Allocator." alt="" coords="188,121,337,147"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_memory_1_1_s_pool.html" title=" " alt="" coords="752,41,969,82"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="337,115,386,106,579,82,751,66,752,72,580,87,387,111,338,120"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_memory_1_1_contiguous_allocator.html" title="This abstract class is used &#39;extend&#39; the Memory Allocator to have contiguous semantics." alt="" coords="387,220,601,245"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="296,154,338,181,388,206,420,216,418,221,386,211,335,186,293,158"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_memory_1_1_h_pool.html" title="This template class defines a concrete Allocator that allocates its block memory from the HEAP." alt="" coords="412,121,576,147"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="353,131,411,131,411,136,353,136"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_memory_1_1_pool__.html" title="This private concrete class implements a Memory Allocator using a pool of fixed size blocks." alt="" coords="428,170,560,196"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="342,148,431,167,430,172,341,153"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_memory_1_1_s_pool.html" title="This template class defines a concrete Allocator that STATICALLY allocates all of its Memory and can ..." alt="" coords="427,5,561,46"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="289,109,322,85,360,62,426,38,427,43,362,67,325,89,292,113"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,121,139,147"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,131,188,131,188,136,154,136"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_io_1_1_socket_1_1_stream_pool.html" title="This concrete template class implement a socket factory that is capable of creating N concurrently op..." alt="" coords="1019,49,1229,75"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="985,59,1018,59,1018,64,985,64"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_memory_1_1_lean_heap.html" title="This class manages an allocate&#45;only&#45;heap." alt="" coords="782,220,940,245"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="617,230,781,230,781,235,617,235"/>
+<area shape="poly" id="edge9_Node000009_Node000003" title=" " alt="" coords="576,31,752,48,751,54,576,36"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="Cpl::Itc::ResponseMessage&lt; CLIENT, SERVER, PAYLOAD &gt;" name="Cpl::Itc::ResponseMessage&lt; CLIENT, SERVER, PAYLOAD &gt;">
+<area shape="rect" id="Node000001" title="This template class represents a client response message, which is posted to the client&#39;s mailbox aft..." alt="" coords="5,226,225,267"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_message.html" title="This abstract class defines the operations for an ITC message." alt="" coords="55,153,175,178"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,194,118,226,112,226,112,194"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="22,79,208,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="118,120,118,152,112,152,112,120"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="48,5,182,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="118,46,118,79,112,79,112,46"/>
+</map>

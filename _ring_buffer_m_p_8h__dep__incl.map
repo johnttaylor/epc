@@ -1,0 +1,27 @@
+<map id="Cpl/Container/RingBufferMP.h" name="Cpl/Container/RingBufferMP.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="579,5,772,31"/>
+<area shape="rect" id="Node000002" href="$_ajax_2_screen_mgr_2_api_8h.html" title=" " alt="" coords="200,87,346,112"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="593,37,359,82,327,88,325,83,358,76,592,32"/>
+<area shape="rect" id="Node000007" href="$_ui_8h.html" title=" " alt="" coords="370,87,485,112"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="624,39,467,88,465,83,622,34"/>
+<area shape="rect" id="Node000008" href="$_logical_buttons_8h.html" title=" " alt="" coords="509,87,674,112"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="654,43,606,88,603,84,650,40"/>
+<area shape="rect" id="Node000009" href="$_cpl_2_logging_2_api_8h.html" title=" " alt="" coords="698,87,821,112"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="701,40,748,84,745,88,697,43"/>
+<area shape="rect" id="Node000010" href="$_log_sink_8h.html" title=" " alt="" coords="845,87,997,112"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="728,34,884,83,882,88,727,39"/>
+<area shape="rect" id="Node000011" href="$_indexed_entry_server_8h.html" title=" " alt="" coords="1021,79,1202,120"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="759,32,1009,76,1021,78,1020,84,1008,82,758,37"/>
+<area shape="rect" id="Node000003" href="$_ajax_2_ui_2_about_2_screen_8h.html" title=" " alt="" coords="5,175,162,201"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="233,121,111,177,109,172,231,117"/>
+<area shape="rect" id="Node000005" href="$_ajax_2_ui_2_edit_setpt_2_screen_8h.html" title=" " alt="" coords="185,175,361,201"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="276,128,276,175,270,175,270,128"/>
+<area shape="rect" id="Node000006" href="$_ajax_2_ui_2_home_2_screen_8h.html" title=" " alt="" coords="385,175,542,201"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="315,117,438,172,436,177,312,121"/>
+<area shape="rect" id="Node000004" href="$_ajax_2_main_2screens_8h.html" title="This file exposes handles to Screen instances for the Ajax Application." alt="" coords="204,256,342,282"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="128,205,245,253,243,258,126,210"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="276,217,276,256,270,256,270,217"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="421,210,303,258,301,253,419,205"/>
+<area shape="rect" id="Node000012" href="$_log_8h.html" title=" " alt="" coords="1046,168,1177,208"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="1114,135,1114,167,1109,167,1109,135"/>
+</map>

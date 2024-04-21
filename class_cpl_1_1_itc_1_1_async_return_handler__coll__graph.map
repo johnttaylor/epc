@@ -1,0 +1,13 @@
+<map id="Cpl::Itc::AsyncReturnHandler" name="Cpl::Itc::AsyncReturnHandler">
+<area shape="rect" id="Node000001" title="This class implements an asynchronous ReturnHandler." alt="" coords="143,244,330,270"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_return_handler.html" title="This abstract class represents the action that is executed by a server thread in response to the serv..." alt="" coords="5,155,156,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,187,216,241,213,246,115,191"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_post_api.html" title="This abstract class represents the interface used to send messages to a mailbox." alt="" coords="180,155,293,181"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="239,197,239,244,234,244,234,197"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_message.html" title="This abstract class defines the operations for an ITC message." alt="" coords="318,155,438,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="347,192,258,246,255,241,344,187"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="285,80,471,106"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="381,121,381,155,375,155,375,121"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="311,5,445,31"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="381,46,381,80,375,80,375,46"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="Fsm" name="Fsm">
+<area shape="rect" id="Node000001" title="Here is the graph that shows the state machine this class implements." alt="" coords="77,5,124,31"/>
+<area shape="rect" id="Node000002" href="$class_ajax_1_1_heating_1_1_supervisor_1_1_fsm_event_queue__.html" title="Event Queue for FSM events." alt="" coords="18,79,183,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,46,103,79,98,79,98,46"/>
+<area shape="rect" id="Node000003" href="$class_ajax_1_1_heating_1_1_supervisor_1_1_api.html" title="This class implements the Heating Algorithm Supervisor." alt="" coords="5,168,196,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="103,135,103,167,98,167,98,135"/>
+<area shape="rect" id="Node000004" href="$class_ajax_1_1_heating_1_1_simulated_1_1_house.html" title="This class glues the House Simulation into the Heater Application." alt="" coords="20,241,181,282"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="103,209,103,241,98,241,98,209"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="Ajax::Heating::Supervisor::FsmEventQueue_" name="Ajax::Heating::Supervisor::FsmEventQueue_">
+<area shape="rect" id="Node000001" title="Event Queue for FSM events." alt="" coords="18,199,183,240"/>
+<area shape="rect" id="Node000005" href="$class_ajax_1_1_heating_1_1_supervisor_1_1_api.html" title="This class implements the Heating Algorithm Supervisor." alt="" coords="5,289,196,315"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="103,255,103,289,98,289,98,255"/>
+<area shape="rect" id="Node000002" href="$class_ajax_1_1_heating_1_1_supervisor_1_1_fsm.html" title="Here is the graph that shows the state machine this class implements." alt="" coords="61,117,108,142"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,157,100,198,94,199,87,158"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_ring_buffer.html" title=" " alt="" coords="133,109,300,150"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="180,161,128,201,125,196,177,157"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_ring_buffer.html" title="This template class implements a Ring Buffer." alt="" coords="133,5,300,46"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="219,62,219,109,214,109,214,62"/>
+<area shape="rect" id="Node000006" href="$class_ajax_1_1_heating_1_1_simulated_1_1_house.html" title="This class glues the House Simulation into the Heater Application." alt="" coords="20,364,181,405"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="103,330,103,364,98,364,98,330"/>
+</map>

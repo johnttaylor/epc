@@ -1,0 +1,21 @@
+<map id="Ajax::Main::PersonalityRecord" name="Ajax::Main::PersonalityRecord">
+<area shape="rect" id="Node000001" title="This concrete class implements the &quot;Record&quot; class for storing the &#39;Personality&#39; settings." alt="" coords="1052,112,1243,138"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_dm_1_1_persistent_1_1_record.html" title="This mostly concrete class implements the Cpl::Persistent::Record interface where a Record instance c..." alt="" coords="873,105,1004,145"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1020,122,1051,122,1051,128,1020,128"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_persistent_1_1_record.html" title="This abstract class defines the public interface for a Record instance." alt="" coords="670,5,822,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="814,35,826,40,875,70,915,102,912,106,872,75,823,45,812,39"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_persistent_1_1_payload.html" title="This abstract class defines the interface accessing the &#39;data payload&#39; of an individual Record instan..." alt="" coords="667,55,825,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="807,83,873,103,872,108,806,88"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_dm_1_1_persistent_1_1_flush_request.html" title="This abstract class define ITC message type and payload for the application to request flushing the R..." alt="" coords="680,105,812,145"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="827,122,873,122,873,128,827,128"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_dm_1_1_persistent_1_1_erase_request.html" title="This abstract class define ITC message type and payload for the application to request invalidating/c..." alt="" coords="680,170,812,211"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="821,162,876,143,877,148,823,167"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_system_1_1_timer.html" title="This mostly concrete interface defines the operations that can be performed on a software timer." alt="" coords="681,235,811,260"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="811,226,823,220,875,182,916,144,920,148,879,186,826,224,813,231"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_system_1_1_counter_callback__.html" title="This abstract class defines the call&#45;back interface for a Counter object." alt="" coords="421,235,619,260"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="635,245,681,245,681,250,635,250"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="187,235,373,260"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="389,245,420,245,420,250,389,250"/>
+<area shape="rect" id="Node000010" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,235,139,260"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="154,245,186,245,186,250,154,250"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="Cpl::Text::Frame::StreamEncoder" name="Cpl::Text::Frame::StreamEncoder">
+<area shape="rect" id="Node000001" title="This concrete class implements the Encoder API where the Output destination is a Cpl::Io::Output stre..." alt="" coords="24,153,187,193"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_text_1_1_frame_1_1_block_encoder.html" title="This concrete class implements extends the StreamDecoder implementation to be more efficient with res..." alt="" coords="5,241,206,267"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="108,209,108,241,103,241,103,209"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_text_1_1_frame_1_1_encoder__.html" title="This Private Namespace partially concrete class implements common/helper method for supporting the En..." alt="" coords="18,79,193,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,120,108,152,103,152,103,120"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_text_1_1_frame_1_1_encoder.html" title="This class defines an interface for &#39;transmitted&#39; (encoding) a frame." alt="" coords="22,5,189,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="108,46,108,79,103,79,103,46"/>
+</map>

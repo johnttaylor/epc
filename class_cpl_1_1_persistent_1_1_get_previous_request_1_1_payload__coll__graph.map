@@ -1,0 +1,7 @@
+<map id="Cpl::Persistent::GetPreviousRequest::Payload" name="Cpl::Persistent::GetPreviousRequest::Payload">
+<area shape="rect" id="Node000001" title="Payload for Message: GetPrevious." alt="" coords="100,124,284,165"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_persistent_1_1_indexed_entry_reader.html#struct_cpl_1_1_persistent_1_1_indexed_entry_reader_1_1_entry_marker___t" title="This structure define an &#39;marker&#39; that identifies an entry&#39;s location in persistent media." alt="" coords="5,5,187,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,60,110,80,120,98,148,121,144,125,116,102,105,82,98,62"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_persistent_1_1_payload.html" title="This abstract class defines the interface accessing the &#39;data payload&#39; of an individual Record instan..." alt="" coords="211,13,368,39"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="286,54,276,78,262,102,234,126,230,121,258,98,272,76,281,53"/>
+</map>

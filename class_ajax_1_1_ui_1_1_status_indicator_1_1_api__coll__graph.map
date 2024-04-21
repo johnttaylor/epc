@@ -1,0 +1,37 @@
+<map id="Ajax::Ui::StatusIndicator::Api" name="Ajax::Ui::StatusIndicator::Api">
+<area shape="rect" id="Node000001" title="This class manages the what color/on&#45;off&#45;state of the RGB LED." alt="" coords="1410,235,1594,260"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_close_sync.html" title="This partially concrete class implements the synchronous ITC close call for the CloseApi." alt="" coords="1133,123,1263,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1250,152,1465,232,1463,237,1248,157"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_open_sync.html" title="This partially concrete class implements the synchronous ITC open call for the OpenApi." alt="" coords="799,55,926,80"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="942,79,1083,106,1142,119,1140,125,1082,111,941,84"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_open_api.html" title="This abstract class defines an open interface." alt="" coords="445,5,563,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="578,25,739,46,799,55,798,60,739,51,578,30"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_itc_1_1_open_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="431,55,577,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="593,65,798,65,798,70,593,70"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_itc_1_1_post_api.html" title="This abstract class represents the interface used to send messages to a mailbox." alt="" coords="447,104,561,130"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="576,106,739,85,798,76,799,81,739,90,576,111"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_itc_1_1_close_api.html" title="This abstract class defines an close interface." alt="" coords="803,104,922,130"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="938,118,1133,129,1133,135,937,124"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_itc_1_1_close_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="788,153,936,179"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="952,155,1132,139,1133,144,952,161"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_system_1_1_timer.html" title="This mostly concrete interface defines the operations that can be performed on a software timer." alt="" coords="1133,203,1263,228"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1278,221,1410,235,1409,240,1278,227"/>
+<area shape="rect" id="Node000010" href="$class_cpl_1_1_system_1_1_counter_callback__.html" title="This abstract class defines the call&#45;back interface for a Counter object." alt="" coords="763,203,961,228"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="977,213,1133,213,1133,218,977,218"/>
+<area shape="rect" id="Node000011" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="411,203,597,228"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="612,213,763,213,763,218,612,218"/>
+<area shape="rect" id="Node000012" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="8,203,141,228"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="157,213,410,213,410,218,157,218"/>
+<area shape="rect" id="Node000013" href="$class_cpl_1_1_system_1_1_timer_manager.html" title="This mostly concrete class implements manages a list of Software Timers." alt="" coords="773,252,952,278"/>
+<area shape="poly" id="edge12_Node000009_Node000013" title=" " alt="" coords="966,249,1082,233,1133,225,1134,230,1083,238,967,255"/>
+<area shape="rect" id="Node000014" href="$class_cpl_1_1_system_1_1_counter_source__.html" title="This abstract class defines the interface for registering for an Counter object with the Timer Manage..." alt="" coords="409,252,599,278"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="614,262,772,262,772,268,614,268"/>
+<area shape="rect" id="Node000015" href="$class_cpl_1_1_container_1_1_d_list.html" title=" " alt="" coords="394,302,614,343"/>
+<area shape="poly" id="edge14_Node000013_Node000015" title=" " alt="" coords="629,312,738,298,821,276,822,281,740,303,630,317"/>
+<area shape="rect" id="Node000016" href="$class_cpl_1_1_container_1_1_d_list.html" title="This template class implements a Doubly linked list which maintains the ordering imposed on it by the..." alt="" coords="5,302,144,343"/>
+<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="159,320,393,320,393,325,159,325"/>
+<area shape="rect" id="Node000017" href="$class_driver_1_1_l_e_d_1_1_red_green_blue.html" title="This abstract class defines a basic interface for a single Red&#45;Green&#45;Blue LED where the application c..." alt="" coords="1110,252,1286,278"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="1302,259,1386,255,1409,253,1409,258,1386,260,1302,264"/>
+<area shape="rect" id="Node000018" href="$class_ajax_1_1_screen_mgr_1_1_navigation.html" title="This class defines the interface &#45; used by ScreenApi instances &#45; to navigate to other screen instance..." alt="" coords="1106,301,1290,327"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="1305,296,1385,280,1460,258,1462,263,1386,285,1306,301"/>
+</map>

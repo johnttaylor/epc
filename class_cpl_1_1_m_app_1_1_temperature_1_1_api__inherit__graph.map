@@ -1,0 +1,20 @@
+<map id="Cpl::MApp::Temperature::Api" name="Cpl::MApp::Temperature::Api">
+<area shape="rect" id="Node000001" title="This concrete class implements MApp the polls a model point for a temperature value and periodically ..." alt="" coords="102,447,286,473"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_m_app_1_1_m_app__.html" title="This partial concrete class provide common infrastructure that is common to all MApp instances." alt="" coords="80,374,207,399"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,410,188,445,183,448,158,413"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_m_app_1_1_m_app_api.html" title="This abstract class defines the interface for a Micro Application (MApp)." alt="" coords="46,300,185,326"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="128,339,141,372,136,374,123,341"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_map_item.html" title="This abstract class represents a item that can be contained in an Map (aka a sorted list implemented ..." alt="" coords="26,226,184,252"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="111,267,116,299,111,300,106,268"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_dict_item.html" title="This abstract class represents a item that can be contained in Dictionary." alt="" coords="5,153,162,178"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,192,104,225,99,227,89,194"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="90,79,277,105"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="156,116,102,154,99,150,153,112"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_system_1_1_counter_callback__.html" title="This abstract class defines the call&#45;back interface for a Counter object." alt="" coords="186,153,384,178"/>
+<area shape="poly" id="edge9_Node000009_Node000006" title=" " alt="" coords="215,112,269,150,266,154,212,116"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="117,5,250,31"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="186,46,186,79,181,79,181,46"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_system_1_1_timer.html" title="This mostly concrete interface defines the operations that can be performed on a software timer." alt="" coords="215,300,344,326"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="267,340,204,448,199,445,262,338"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="286,194,283,300,277,299,281,194"/>
+</map>

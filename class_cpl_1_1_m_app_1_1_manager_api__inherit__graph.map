@@ -1,0 +1,5 @@
+<map id="Cpl::MApp::ManagerApi" name="Cpl::MApp::ManagerApi">
+<area shape="rect" id="Node000001" title="This abstract class defines the &quot;manager&quot; interface to for starting, stopping, etc." alt="" coords="5,5,161,31"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_m_app_1_1_manager.html" title="This concrete class implements the MApp Manager." alt="" coords="15,79,151,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,46,86,79,80,79,80,46"/>
+</map>

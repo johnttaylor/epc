@@ -1,0 +1,7 @@
+<map id="Cpl::Memory::Pool_" name="Cpl::Memory::Pool_">
+<area shape="rect" id="Node000001" title="This private concrete class implements a Memory Allocator using a pool of fixed size blocks." alt="" coords="14,153,146,178"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_memory_1_1_allocator.html" title="This abstract class defines the interface for a Memory Allocator." alt="" coords="5,79,155,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,120,83,152,77,152,77,120"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="13,5,147,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="83,46,83,79,77,79,77,46"/>
+</map>

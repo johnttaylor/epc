@@ -1,0 +1,19 @@
+<map id="Cpl::Io::Socket::InputOutput" name="Cpl::Io::Socket::InputOutput">
+<area shape="rect" id="Node000001" title="This concrete class provides a platform independent &#39;standard&#39; implementation of an InputOutput strea..." alt="" coords="155,319,333,345"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_input_output.html" title="This abstract class defines a interface for operating on an input&#45;output stream (example of a stream ..." alt="" coords="66,230,198,256"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,263,230,316,227,320,158,268"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_io_1_1_input.html" title="This partially abstract class defines a interface for operating on an input stream (example of a stre..." alt="" coords="26,155,118,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,192,124,228,120,232,90,195"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_io_1_1_close.html" title="This abstract class defines a close operation that is intended to be used Input and Output streams/fi..." alt="" coords="24,80,120,106"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="75,121,75,155,69,155,69,121"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_io_1_1_output.html" title="This partially abstract class defines a interface for operating on an output stream (example of a str..." alt="" coords="142,155,245,181"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="106,112,175,153,172,157,103,116"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,5,139,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="75,46,75,80,69,80,69,46"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_io_1_1_is_eos.html" title="This abstract class defines a isEos() operation that is intended to be used Input and Output streams." alt="" coords="144,80,240,106"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="160,117,93,157,90,153,158,112"/>
+<area shape="poly" id="edge8_Node000007_Node000006" title=" " alt="" coords="195,121,196,155,190,155,190,121"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="176,195,144,232,140,228,171,191"/>
+<area shape="rect" id="Node000008" href="$union_cpl_1_1_io_1_1_descriptor.html" title="This union defines a &#39;IO descriptor&#39; in terms of a an integer and/or a void*." alt="" coords="222,230,344,256"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="273,271,252,320,247,318,269,269"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="Cpl/Itc/SyncReturnHandler.h" name="Cpl/Itc/SyncReturnHandler.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="53,5,238,31"/>
+<area shape="rect" id="Node000002" href="$_atomic_request_8h.html" title=" " alt="" coords="5,79,168,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,45,98,80,94,77,124,41"/>
+<area shape="rect" id="Node000003" href="$_atomic_sync_8h.html" title=" " alt="" coords="74,153,217,178"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="166,43,182,78,184,100,178,121,158,154,153,151,173,119,178,99,177,80,161,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="108,115,137,150,133,154,104,118"/>
+</map>

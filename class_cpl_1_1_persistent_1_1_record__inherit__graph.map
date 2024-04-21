@@ -1,0 +1,17 @@
+<map id="Cpl::Persistent::Record" name="Cpl::Persistent::Record">
+<area shape="rect" id="Node000001" title="This abstract class defines the public interface for a Record instance." alt="" coords="5,125,158,151"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_dm_1_1_persistent_1_1_record.html" title="This mostly concrete class implements the Cpl::Persistent::Record interface where a Record instance c..." alt="" coords="230,69,361,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,119,229,101,230,107,156,124"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_persistent_1_1_data_record.html" title="This mostly concrete class implements the Cpl::Persistent::DataRecord interface where a DataRecord in..." alt="" coords="206,153,385,179"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="173,147,205,152,205,157,172,153"/>
+<area shape="rect" id="Node000003" href="$class_ajax_1_1_main_1_1_metrics_record.html" title="This concrete class implements the &quot;Record&quot; class for storing user settings." alt="" coords="444,5,614,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="367,61,432,40,471,29,472,34,434,45,369,66"/>
+<area shape="rect" id="Node000004" href="$class_ajax_1_1_main_1_1_personality_record.html" title="This concrete class implements the &quot;Record&quot; class for storing the &#39;Personality&#39; settings." alt="" coords="433,55,624,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="376,79,432,74,433,79,377,84"/>
+<area shape="rect" id="Node000005" href="$class_ajax_1_1_main_1_1_user_record.html" title="This concrete class implements the &quot;Record&quot; class for storing user settings." alt="" coords="451,104,606,130"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="377,96,451,105,450,110,376,101"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_persistent_1_1_index_record.html" title="This concrete class extends the Cpl::Persistent::DataRecord interface to store a latest/oldest &#39;recor..." alt="" coords="437,153,620,179"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="400,164,436,164,436,169,400,169"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_persistent_1_1_indexed_entry_record.html" title="This concrete class implements the Cpl::Persistent::Record interface to store a collection &#39;entries&#39;." alt="" coords="451,203,607,244"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="366,181,451,202,449,207,365,186"/>
+</map>

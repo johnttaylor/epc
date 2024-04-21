@@ -1,0 +1,9 @@
+<map id="Cpl/Io/File/Api.h" name="Cpl/Io/File/Api.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="186,5,300,31"/>
+<area shape="rect" id="Node000002" href="$_arduino_2__sd_fat_2__api_2_dir_list___8h.html" title=" " alt="" coords="5,79,158,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,41,123,81,121,76,203,36"/>
+<area shape="rect" id="Node000003" href="$__posix_2__api_2_dir_list___8h.html" title=" " alt="" coords="182,79,304,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="246,46,246,79,240,79,240,46"/>
+<area shape="rect" id="Node000004" href="$__win32_2__api_2_dir_list___8h.html" title=" " alt="" coords="328,79,454,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="280,36,356,76,353,81,277,41"/>
+</map>

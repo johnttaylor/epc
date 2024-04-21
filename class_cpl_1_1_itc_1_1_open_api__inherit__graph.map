@@ -1,0 +1,38 @@
+<map id="Cpl::Itc::OpenApi" name="Cpl::Itc::OpenApi">
+<area shape="rect" id="Node000001" title="This abstract class defines an open interface." alt="" coords="5,325,123,351"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_open_sync.html" title="This partially concrete class implements the synchronous ITC open call for the OpenApi." alt="" coords="172,325,299,351"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,335,172,335,172,340,138,340"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_close_sync.html" title="This partially concrete class implements the synchronous ITC close call for the CloseApi." alt="" coords="349,325,478,351"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="315,335,349,335,349,340,315,340"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_persistent_1_1_indexed_entry_server.html" title=" " alt="" coords="939,409,1109,464"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="426,364,440,399,461,440,491,479,509,495,529,509,585,531,644,541,705,540,766,532,825,518,879,500,968,462,970,467,881,505,826,523,767,537,706,546,644,546,583,536,526,513,505,500,487,483,457,443,435,402,421,366"/>
+<area shape="rect" id="Node000005" href="$class_ajax_1_1_alerts_1_1_summary.html" title="This class manages the content of the Alert Summary model point." alt="" coords="549,62,696,88"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="417,309,429,263,450,205,481,147,502,120,526,97,547,84,550,89,529,101,506,124,486,150,455,207,434,264,422,310"/>
+<area shape="rect" id="Node000006" href="$class_ajax_1_1_heating_1_1_io_1_1_api.html" title="This class is responsible for &#39;translating&#39; physical hardware signal to/from model point values." alt="" coords="553,112,692,137"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="421,309,436,272,458,229,488,185,526,148,551,134,554,138,529,152,492,188,463,231,441,274,426,311"/>
+<area shape="rect" id="Node000007" href="$class_ajax_1_1_heating_1_1_supervisor_1_1_api.html" title="This class implements the Heating Algorithm Supervisor." alt="" coords="527,13,718,39"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="414,309,423,253,442,182,456,145,475,109,498,76,526,48,543,37,545,41,529,52,502,80,479,112,461,147,447,184,428,254,420,310"/>
+<area shape="rect" id="Node000009" href="$class_ajax_1_1_metrics_1_1_api.html" title="This class manages the collection of Metrics and triggering their updates to persistent storage." alt="" coords="562,226,683,252"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="441,313,480,286,526,261,561,248,563,253,528,265,483,290,444,318"/>
+<area shape="rect" id="Node000010" href="$class_ajax_1_1_screen_mgr_1_1_api.html" title="This class implements the Screen Manager." alt="" coords="552,276,693,301"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="485,318,564,299,565,304,487,323"/>
+<area shape="rect" id="Node000011" href="$class_ajax_1_1_ui_1_1_logical_buttons.html" title="This concrete class translates physical button actions into logical UI Button events." alt="" coords="543,325,702,351"/>
+<area shape="poly" id="edge10_Node000003_Node000011" title=" " alt="" coords="493,335,543,335,543,340,493,340"/>
+<area shape="rect" id="Node000012" href="$class_ajax_1_1_ui_1_1_status_indicator_1_1_api.html" title="This class manages the what color/on&#45;off&#45;state of the RGB LED." alt="" coords="530,374,715,400"/>
+<area shape="poly" id="edge11_Node000003_Node000012" title=" " alt="" coords="487,352,565,371,564,376,485,357"/>
+<area shape="rect" id="Node000013" href="$class_cpl_1_1_logging_1_1_log_sink.html" title="This class is responsible for consuming the application&#39;s Log buffer and &#39;dispatching&#39; log entries." alt="" coords="549,424,696,449"/>
+<area shape="poly" id="edge12_Node000003_Node000013" title=" " alt="" coords="444,358,483,385,528,410,557,420,556,425,526,415,480,389,441,362"/>
+<area shape="rect" id="Node000014" href="$class_cpl_1_1_m_app_1_1_manager.html" title="This concrete class implements the MApp Manager." alt="" coords="554,473,691,499"/>
+<area shape="poly" id="edge13_Node000003_Node000014" title=" " alt="" coords="433,362,473,412,499,438,529,459,555,471,553,476,526,464,496,442,469,416,429,365"/>
+<area shape="rect" id="Node000015" href="$class_cpl_1_1_persistent_1_1_indexed_entry_server.html" title="This concrete template class implements the ITC messaging (and Model Point monitoring) needed to prov..." alt="" coords="544,161,701,202"/>
+<area shape="poly" id="edge14_Node000003_Node000015" title=" " alt="" coords="430,310,470,260,497,234,526,211,546,200,549,205,529,216,500,238,474,264,434,314"/>
+<area shape="rect" id="Node000016" href="$class_cpl_1_1_persistent_1_1_record_server.html" title="This concrete class provides an Event driven Runnable object for executing the read/write operation t..." alt="" coords="527,574,718,600"/>
+<area shape="poly" id="edge16_Node000003_Node000016" title=" " alt="" coords="420,365,429,407,444,458,468,509,484,533,504,553,535,571,532,576,500,557,480,536,464,512,439,460,423,408,415,366"/>
+<area shape="rect" id="Node000017" href="$class_driver_1_1_a_i_o_1_1_ajax_1_1_thermistor.html" title="This class is responsible for sampling the on&#45;board temperature sensor every N milliseconds and popul..." alt="" coords="562,624,683,665"/>
+<area shape="poly" id="edge17_Node000003_Node000017" title=" " alt="" coords="421,365,430,418,450,484,482,552,503,583,529,610,563,629,560,634,526,614,499,587,477,555,445,486,425,419,415,366"/>
+<area shape="rect" id="Node000008" href="$class_ajax_1_1_heating_1_1_simulated_1_1_house.html" title="This class glues the House Simulation into the Heater Application." alt="" coords="943,5,1105,46"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="733,23,943,23,943,28,733,28"/>
+<area shape="poly" id="edge15_Node000015_Node000004" title=" " alt="" coords="708,206,719,211,800,259,876,313,993,406,989,410,873,317,797,264,716,216,706,211"/>
+<area shape="rect" id="Node000018" href="$class_driver_1_1_a_i_o_1_1_eros_1_1_thermistor.html" title="This class is an Eros specific extension of the Driver::AIO::Ajax::Thermistor driver." alt="" coords="963,624,1085,665"/>
+<area shape="poly" id="edge18_Node000017_Node000018" title=" " alt="" coords="699,642,962,642,962,647,699,647"/>
+</map>

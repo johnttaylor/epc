@@ -1,0 +1,7 @@
+<map id="Cpl::Checksum::Api16" name="Cpl::Checksum::Api16">
+<area shape="rect" id="Node000001" title="This class provides an interface for calculate a 16 bit wide Checksum." alt="" coords="138,5,285,31"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_checksum_1_1_crc16_ccitt_fast.html" title="This class provides an implementation for the 16 Bit CRC&#45;CCITT standard." alt="" coords="5,79,207,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,42,125,81,122,76,179,38"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_checksum_1_1_fletcher16.html" title="This class provides an implementation for the 16 Bit wide Fletcher Checksum." alt="" coords="230,79,406,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,38,301,76,298,81,241,42"/>
+</map>

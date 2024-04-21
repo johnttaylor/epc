@@ -1,0 +1,5 @@
+<map id="CplContainerSList_T" name="CplContainerSList_T">
+<area shape="rect" id="Node000001" title="This structure define the internal structure of a Singly Linked List." alt="" coords="41,109,183,135"/>
+<area shape="rect" id="Node000002" href="$citem_8h.html#struct_cpl_container_item_s_list_linkage___t" title="Type definition for a singly linked item." alt="" coords="5,5,219,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,47,115,109,109,109,109,47"/>
+</map>

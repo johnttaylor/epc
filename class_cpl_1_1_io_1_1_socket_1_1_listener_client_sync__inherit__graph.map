@@ -1,0 +1,7 @@
+<map id="Cpl::Io::Socket::ListenerClientSync" name="Cpl::Io::Socket::ListenerClientSync">
+<area shape="rect" id="Node000001" title="This partially concrete class implements the synchronous ITC open call for the OpenApi." alt="" coords="96,94,253,135"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_socket_1_1_listener_1_1_client.html" title="This class defines the callback mechanism used for accepting incoming socket connections." alt="" coords="5,5,163,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,55,156,92,152,95,113,59"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_io_1_1_socket_1_1_listener_client_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="187,5,344,46"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="236,59,197,95,193,92,232,55"/>
+</map>

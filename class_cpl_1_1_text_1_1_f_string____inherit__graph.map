@@ -1,0 +1,28 @@
+<map id="Cpl::Text::FString_" name="Cpl::Text::FString_">
+<area shape="rect" id="Node000001" title="This mostly concrete class implements a &quot;fixed storage&quot; String Type." alt="" coords="512,282,639,308"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_text_1_1_f_string.html" title=" " alt="" coords="1094,103,1301,143"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="594,269,637,221,699,162,775,106,817,82,862,64,916,51,960,48,1005,53,1061,64,1112,80,1158,100,1156,105,1111,85,1060,70,1004,59,960,53,917,56,863,70,820,87,778,110,702,166,641,225,598,272"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_text_1_1_f_string.html" title=" " alt="" coords="1138,5,1257,46"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="584,266,599,230,621,187,650,143,686,105,739,69,797,43,859,25,922,14,984,9,1042,8,1137,15,1137,20,1042,14,984,14,923,19,860,30,799,48,742,74,690,109,654,147,626,190,604,233,589,268"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_text_1_1_f_string.html" title=" " alt="" coords="1084,247,1311,287"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="618,312,701,345,754,362,812,376,874,386,937,389,999,383,1059,367,1071,358,1083,346,1164,286,1167,290,1086,350,1075,362,1061,372,1000,389,937,394,873,391,811,381,753,367,699,350,616,317"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_text_1_1_f_string.html" title=" " alt="" coords="1088,361,1307,416"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="599,318,638,355,663,372,689,386,739,402,791,413,844,419,897,422,998,419,1087,408,1088,413,999,424,897,427,843,425,790,418,737,407,687,391,660,377,635,359,595,322"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_text_1_1_f_string.html" title=" " alt="" coords="1095,167,1300,223"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="654,296,758,299,876,298,985,288,1028,279,1059,267,1067,260,1070,252,1074,243,1083,233,1101,221,1104,226,1086,237,1079,245,1075,254,1071,264,1062,272,1029,285,985,293,877,303,758,304,654,302"/>
+<area shape="rect" id="Node000010" href="$class_cpl_1_1_text_1_1_d_f_string.html" title="This concrete class is a mix of FString and a DString &#45; the initial memory is dynamically allocated &#45;..." alt="" coords="699,469,827,495"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="588,322,615,385,637,419,664,448,700,467,697,471,661,452,633,422,611,388,583,324"/>
+<area shape="rect" id="Node000011" href="$class_cpl_1_1_text_1_1_f_string.html" title="This template class represents a NULL terminated string of a specific length." alt="" coords="688,205,838,231"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="622,273,729,229,731,233,624,278"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_text_1_1_string__.html" title="This partially concrete class implements the portions of the String Api that is independent of the in..." alt="" coords="345,282,463,308"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="478,292,512,292,512,298,478,298"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_text_1_1_string.html" title="This abstract class defines the operations that can be before on a NULL terminated string." alt="" coords="184,282,295,308"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="311,292,344,292,344,298,311,298"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_key.html" title="This abstract class defines the interface that a contained object must support if it has comparable k..." alt="" coords="5,282,135,308"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="150,292,184,292,184,298,150,298"/>
+<area shape="poly" id="edge11_Node000011_Node000005" title=" " alt="" coords="797,194,827,178,861,164,920,149,981,138,1093,125,1094,130,982,143,921,154,863,170,830,183,799,199"/>
+<area shape="poly" id="edge12_Node000011_Node000006" title=" " alt="" coords="780,190,814,149,836,128,861,110,931,76,1006,53,1077,37,1137,28,1138,33,1078,42,1007,58,933,81,864,115,840,132,818,153,784,194"/>
+<area shape="poly" id="edge13_Node000011_Node000007" title=" " alt="" coords="818,233,863,244,976,258,1084,264,1084,269,976,263,862,249,817,238"/>
+<area shape="poly" id="edge14_Node000011_Node000008" title=" " alt="" coords="789,239,822,270,864,297,919,322,977,342,1088,369,1087,374,975,347,917,327,861,302,819,274,785,243"/>
+<area shape="poly" id="edge15_Node000011_Node000009" title=" " alt="" coords="854,210,1094,198,1094,203,854,216"/>
+</map>

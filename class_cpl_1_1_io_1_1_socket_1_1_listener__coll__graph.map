@@ -1,0 +1,5 @@
+<map id="Cpl::Io::Socket::Listener" name="Cpl::Io::Socket::Listener">
+<area shape="rect" id="Node000001" title="This abstract class defines the interface for a SIMPLE socket listener." alt="" coords="5,79,163,105"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_system_1_1_runnable.html" title="This is an abstract class defines the interface for an object that is &quot;executed&quot; when a Thread object..." alt="" coords="9,5,159,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,46,87,79,81,79,81,46"/>
+</map>

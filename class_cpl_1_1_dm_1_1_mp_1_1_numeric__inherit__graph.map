@@ -1,0 +1,69 @@
+<map id="Cpl::Dm::Mp::Numeric&lt; ELEMTYPE, MPTYPE &gt;" name="Cpl::Dm::Mp::Numeric&lt; ELEMTYPE, MPTYPE &gt;">
+<area shape="rect" id="Node000001" title="This template class provides a mostly concrete implementation for a Model Point who&#39;s data is a C num..." alt="" coords="620,553,794,593"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_dm_1_1_mp_1_1_bit_array__.html" title=" " alt="" coords="1628,93,1791,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="709,537,720,437,740,310,755,247,772,190,792,145,816,115,865,81,918,54,974,33,1032,18,1091,9,1151,4,1272,7,1387,21,1493,43,1583,67,1653,90,1651,95,1581,72,1491,48,1386,26,1271,12,1152,10,1092,14,1033,24,975,38,920,59,868,85,819,119,797,148,777,192,760,248,746,311,725,438,714,537"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_dm_1_1_mp_1_1_pointer__.html" title=" " alt="" coords="1637,191,1782,232"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="707,537,713,477,730,402,744,364,763,328,787,295,816,267,845,250,881,236,972,214,1083,201,1204,194,1328,193,1447,195,1636,204,1636,209,1447,200,1328,198,1204,200,1083,206,973,219,883,241,847,255,819,271,791,298,767,331,749,366,735,404,719,478,712,538"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_dm_1_1_mp_1_1_pointer__.html" title=" " alt="" coords="1620,279,1799,320"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="721,537,758,475,784,443,816,417,864,395,905,388,949,388,1003,385,1299,370,1595,353,1637,338,1674,318,1676,323,1639,343,1596,358,1299,375,1003,390,949,393,906,393,866,400,819,422,788,447,762,478,725,540"/>
+<area shape="rect" id="Node000011" href="$class_cpl_1_1_dm_1_1_mp_1_1_pointer__.html" title=" " alt="" coords="1641,373,1778,413"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="728,538,765,494,790,473,816,456,848,443,886,432,981,414,1093,401,1214,393,1455,387,1640,389,1640,394,1455,393,1215,399,1093,407,981,419,887,437,849,448,819,461,793,477,769,498,732,542"/>
+<area shape="rect" id="Node000013" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title=" " alt="" coords="1006,445,1185,485"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="751,542,783,525,817,511,913,485,1005,470,1005,476,914,490,819,516,785,530,754,547"/>
+<area shape="rect" id="Node000014" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title=" " alt="" coords="1003,509,1188,565"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="809,561,1002,543,1003,548,809,566"/>
+<area shape="rect" id="Node000015" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title=" " alt="" coords="1017,589,1174,629"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="809,580,1017,599,1016,604,809,585"/>
+<area shape="rect" id="Node000016" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title=" " alt="" coords="1009,127,1182,168"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="711,537,725,452,748,346,778,248,796,210,816,184,860,157,909,141,960,135,1009,134,1009,140,961,140,910,146,862,162,819,188,801,213,783,250,753,348,730,453,716,538"/>
+<area shape="rect" id="Node000018" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title=" " alt="" coords="1023,654,1168,695"/>
+<area shape="poly" id="edge18_Node000001_Node000018" title=" " alt="" coords="769,597,818,615,925,642,1023,661,1022,666,924,647,817,620,768,602"/>
+<area shape="rect" id="Node000020" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title=" " alt="" coords="1023,719,1168,760"/>
+<area shape="poly" id="edge20_Node000001_Node000020" title=" " alt="" coords="737,603,773,640,819,672,870,695,923,711,1023,730,1022,736,922,716,868,700,816,677,770,644,733,607"/>
+<area shape="rect" id="Node000022" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title=" " alt="" coords="1023,785,1168,825"/>
+<area shape="poly" id="edge22_Node000001_Node000022" title=" " alt="" coords="723,607,738,640,759,677,786,713,819,743,854,759,906,773,1023,793,1022,799,905,778,853,764,816,748,782,717,755,680,733,642,718,609"/>
+<area shape="rect" id="Node000024" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title=" " alt="" coords="1023,850,1168,891"/>
+<area shape="poly" id="edge24_Node000001_Node000024" title=" " alt="" coords="717,608,729,654,749,708,779,761,797,785,819,806,867,835,920,853,973,864,1023,868,1022,874,973,869,918,859,864,840,816,810,794,789,774,764,744,710,724,655,712,609"/>
+<area shape="rect" id="Node000026" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title=" " alt="" coords="1023,273,1168,313"/>
+<area shape="poly" id="edge26_Node000001_Node000026" title=" " alt="" coords="712,537,723,490,743,435,773,381,793,357,816,336,865,309,919,293,973,286,1022,285,1022,290,973,291,920,298,867,314,819,341,797,361,778,384,748,438,728,492,717,538"/>
+<area shape="rect" id="Node000028" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title=" " alt="" coords="1023,915,1168,956"/>
+<area shape="poly" id="edge31_Node000001_Node000028" title=" " alt="" coords="712,608,719,669,737,744,750,783,768,820,791,854,819,883,842,899,866,912,919,929,973,937,1022,939,1022,944,972,942,917,934,864,917,839,904,816,887,787,857,764,823,745,785,731,746,714,670,707,609"/>
+<area shape="rect" id="Node000030" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title=" " alt="" coords="1023,981,1168,1021"/>
+<area shape="poly" id="edge33_Node000001_Node000030" title=" " alt="" coords="716,608,730,693,753,799,783,897,801,934,820,958,841,974,865,987,918,1002,972,1008,1022,1008,1022,1013,972,1014,917,1008,863,992,838,979,816,962,796,936,778,898,748,800,725,694,711,609"/>
+<area shape="rect" id="Node000032" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title=" " alt="" coords="1023,1046,1168,1087"/>
+<area shape="poly" id="edge35_Node000001_Node000032" title=" " alt="" coords="714,608,726,707,747,834,762,897,778,954,798,999,820,1029,841,1045,865,1057,918,1072,972,1077,1022,1075,1023,1080,972,1082,917,1077,863,1062,838,1049,816,1033,793,1002,773,955,756,899,742,835,721,708,709,609"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_dm_1_1_model_point_common__.html" title="This concrete class provide common infrastructure for a Model Point." alt="" coords="375,560,571,586"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="587,570,620,570,620,576,587,576"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_dm_1_1_model_point.html" title="This mostly abstract class defines the interface for a Model Point." alt="" coords="188,560,325,586"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="341,570,374,570,374,576,341,576"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,560,139,586"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="154,570,188,570,188,576,154,576"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_dm_1_1_mp_1_1_bit_array16.html" title="This template class provides a concrete implementation for a Point who&#39;s data is a a bit array of N b..." alt="" coords="1860,100,2017,126"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1806,110,1860,110,1860,116,1806,116"/>
+<area shape="rect" id="Node000008" href="$class_ajax_1_1_screen_mgr_1_1_mp_screen_api_ptr.html" title="This class provides a concrete implementation for a Point who&#39;s data is a ScreenApi pointer." alt="" coords="1848,191,2029,232"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1797,209,1848,209,1848,214,1797,214"/>
+<area shape="rect" id="Node000010" href="$class_ajax_1_1_screen_mgr_1_1_mp_static_screen_api_ptr.html" title="This class provides a concrete implementation for a Point who&#39;s data is a StaticScreenApi pointer." alt="" coords="1852,279,2025,320"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="1815,297,1852,297,1852,302,1815,302"/>
+<area shape="rect" id="Node000012" href="$class_cpl_1_1_dm_1_1_mp_1_1_void.html" title="This class provides a concrete implementation for a Point who&#39;s data is a void pointer." alt="" coords="1877,380,2000,406"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="1794,390,1877,390,1877,396,1794,396"/>
+<area shape="rect" id="Node000017" href="$class_cpl_1_1_dm_1_1_mp_1_1_bit_array__.html" title="This template class extends the Numeric&lt;&gt; class to provide bit operation on the numeric value." alt="" coords="1237,127,1418,168"/>
+<area shape="poly" id="edge16_Node000016_Node000017" title=" " alt="" coords="1197,145,1237,145,1237,150,1197,150"/>
+<area shape="poly" id="edge17_Node000017_Node000005" title=" " alt="" coords="1433,136,1595,121,1627,118,1627,124,1596,127,1433,141"/>
+<area shape="rect" id="Node000019" href="$class_cpl_1_1_dm_1_1_mp_1_1_double.html" title="This class provides a concrete implementation for a Point who&#39;s data is a double." alt="" coords="1259,662,1396,687"/>
+<area shape="poly" id="edge19_Node000018_Node000019" title=" " alt="" coords="1184,672,1259,672,1259,677,1184,677"/>
+<area shape="rect" id="Node000021" href="$class_cpl_1_1_dm_1_1_mp_1_1_float.html" title="This class provides a concrete implementation for a Point who&#39;s data is a float." alt="" coords="1265,727,1390,753"/>
+<area shape="poly" id="edge21_Node000020_Node000021" title=" " alt="" coords="1184,737,1264,737,1264,742,1184,742"/>
+<area shape="rect" id="Node000023" href="$class_cpl_1_1_dm_1_1_mp_1_1_int32.html" title="This class provides a concrete implementation for a Point who&#39;s data is a int32_t." alt="" coords="1265,792,1390,818"/>
+<area shape="poly" id="edge23_Node000022_Node000023" title=" " alt="" coords="1184,802,1264,802,1264,808,1184,808"/>
+<area shape="rect" id="Node000025" href="$class_cpl_1_1_dm_1_1_mp_1_1_int64.html" title="This class provides a concrete implementation for a Point who&#39;s data is a int64_t." alt="" coords="1265,858,1390,883"/>
+<area shape="poly" id="edge25_Node000024_Node000025" title=" " alt="" coords="1184,868,1264,868,1264,873,1184,873"/>
+<area shape="rect" id="Node000027" href="$class_cpl_1_1_dm_1_1_mp_1_1_pointer__.html" title="This template class extends the implementation of Numeric&lt;&gt; class to support the pointers instead of ..." alt="" coords="1259,267,1396,308"/>
+<area shape="poly" id="edge27_Node000026_Node000027" title=" " alt="" coords="1184,288,1258,287,1258,292,1184,294"/>
+<area shape="poly" id="edge28_Node000027_Node000007" title=" " alt="" coords="1411,271,1595,236,1636,227,1637,232,1596,241,1412,276"/>
+<area shape="poly" id="edge29_Node000027_Node000009" title=" " alt="" coords="1412,288,1619,294,1619,300,1412,293"/>
+<area shape="poly" id="edge30_Node000027_Node000011" title=" " alt="" coords="1412,308,1641,372,1639,377,1411,313"/>
+<area shape="rect" id="Node000029" href="$class_cpl_1_1_dm_1_1_mp_1_1_uint32.html" title="This class provides a concrete implementation for a Point who&#39;s data is a uint32_t." alt="" coords="1260,923,1395,949"/>
+<area shape="poly" id="edge32_Node000028_Node000029" title=" " alt="" coords="1184,933,1260,933,1260,938,1184,938"/>
+<area shape="rect" id="Node000031" href="$class_cpl_1_1_dm_1_1_mp_1_1_uint64.html" title="This class provides a concrete implementation for a Point who&#39;s data is a uint64_t." alt="" coords="1260,988,1395,1014"/>
+<area shape="poly" id="edge34_Node000030_Node000031" title=" " alt="" coords="1184,998,1260,998,1260,1004,1184,1004"/>
+</map>

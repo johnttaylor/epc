@@ -1,0 +1,15 @@
+<map id="Cpl::Logging::LogSink" name="Cpl::Logging::LogSink">
+<area shape="rect" id="Node000001" title="This class is responsible for consuming the application&#39;s Log buffer and &#39;dispatching&#39; log entries." alt="" coords="216,226,363,252"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_close_sync.html" title="This partially concrete class implements the synchronous ITC close call for the CloseApi." alt="" coords="225,153,354,178"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="292,194,292,226,287,226,287,194"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_open_sync.html" title="This partially concrete class implements the synchronous ITC open call for the OpenApi." alt="" coords="78,79,205,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="181,109,265,150,263,154,179,114"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_open_api.html" title="This abstract class defines an open interface." alt="" coords="5,5,123,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="90,40,130,77,127,81,87,44"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_itc_1_1_open_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="147,5,293,31"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="197,43,156,81,153,77,194,40"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_itc_1_1_close_api.html" title="This abstract class defines an close interface." alt="" coords="230,79,349,105"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="292,120,292,152,287,152,287,120"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_itc_1_1_close_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="373,79,521,105"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="407,114,317,154,315,150,405,109"/>
+</map>

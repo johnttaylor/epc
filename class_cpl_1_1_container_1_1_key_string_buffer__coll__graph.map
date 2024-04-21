@@ -1,0 +1,5 @@
+<map id="Cpl::Container::KeyStringBuffer" name="Cpl::Container::KeyStringBuffer">
+<area shape="rect" id="Node000001" title="This class provides a &#39;Key&#39; wrapper for a array of Character of length N, i.e." alt="" coords="5,79,169,120"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_key.html" title="This abstract class defines the interface that a contained object must support if it has comparable k..." alt="" coords="22,5,152,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,46,90,79,84,79,84,46"/>
+</map>

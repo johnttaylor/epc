@@ -1,0 +1,28 @@
+<map id="Cpl::Io::Ram::InputOutput" name="Cpl::Io::Ram::InputOutput">
+<area shape="rect" id="Node000001" title="This concrete class implements an InputOutput stream using a Ring Buffer." alt="" coords="1053,123,1217,148"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_input_output.html" title="This abstract class defines a interface for operating on an input&#45;output stream (example of a stream ..." alt="" coords="779,31,911,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="916,58,1030,92,1103,120,1101,125,1028,97,915,63"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_io_1_1_input.html" title="This partially abstract class defines a interface for operating on an input stream (example of a stre..." alt="" coords="421,5,514,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="529,20,779,36,779,42,529,25"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_io_1_1_close.html" title="This abstract class defines a close operation that is intended to be used Input and Output streams/fi..." alt="" coords="213,105,309,131"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="291,94,333,66,383,40,420,26,422,31,385,45,336,71,294,98"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_io_1_1_output.html" title="This partially abstract class defines a interface for operating on an output stream (example of a str..." alt="" coords="416,55,519,80"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="324,105,359,97,422,78,424,84,360,102,325,110"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,137,139,163"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="154,134,212,124,213,129,155,139"/>
+<area shape="rect" id="Node000012" href="$class_cpl_1_1_system_1_1_signable.html" title="This abstract class defines the interface by which a client can cause an object that is waiting&#45;on&#45;a&#45;..." alt="" coords="188,161,334,187"/>
+<area shape="poly" id="edge14_Node000012_Node000005" title=" " alt="" coords="154,158,188,162,187,168,154,163"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_io_1_1_is_eos.html" title="This abstract class defines a isEos() operation that is intended to be used Input and Output streams." alt="" coords="213,23,309,48"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="325,28,421,19,421,25,325,33"/>
+<area shape="poly" id="edge8_Node000007_Node000006" title=" " alt="" coords="325,43,416,57,415,62,324,48"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="534,61,779,45,779,50,534,66"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_container_1_1_ring_buffer.html" title=" " alt="" coords="761,81,929,121"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="944,110,1053,123,1052,128,944,115"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_container_1_1_ring_buffer.html" title="This template class implements a Ring Buffer." alt="" coords="384,105,551,145"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="566,116,761,103,761,109,567,121"/>
+<area shape="rect" id="Node000010" href="$class_cpl_1_1_system_1_1_mutex.html" title="This mutex class defines the interface for a mutex that has &quot;recursive&quot; semantics." alt="" coords="779,145,911,171"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="926,155,1028,149,1053,146,1054,152,1029,154,926,160"/>
+<area shape="rect" id="Node000011" href="$class_cpl_1_1_system_1_1_semaphore.html" title="This semaphore class defines the interface for a Counting Semaphore." alt="" coords="575,193,737,219"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="753,211,761,211,846,217,882,217,928,211,979,198,1028,181,1107,146,1109,151,1030,186,981,203,929,216,882,222,845,222,761,216,753,216"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="350,179,575,197,574,202,350,184"/>
+</map>

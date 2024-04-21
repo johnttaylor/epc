@@ -1,0 +1,26 @@
+<map id="Ajax/ScreenMgr/Navigation.h" name="Ajax/ScreenMgr/Navigation.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="353,5,542,31"/>
+<area shape="rect" id="Node000002" href="$appmain_8h.html" title="This file defines the hardware/platform independent start&#45;up interface(s) for the Ajax application." alt="" coords="34,87,176,112"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="380,38,188,82,158,89,157,83,187,76,379,32"/>
+<area shape="rect" id="Node000003" href="$_ajax_2_screen_mgr_2_api_8h.html" title=" " alt="" coords="200,87,346,112"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="408,40,301,88,298,84,406,35"/>
+<area shape="rect" id="Node000008" href="$_ajax_2_ui_2_status_indicator_2_api_8h.html" title=" " alt="" coords="370,79,525,120"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="450,46,450,79,445,79,445,46"/>
+<area shape="rect" id="Node000009" href="$_eros_2_ui_2_home_2_screen_8h.html" title=" " alt="" coords="550,87,708,112"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="490,35,602,84,600,88,488,40"/>
+<area shape="rect" id="Node000011" href="$_eros_2_ui_2_lcd_test_2_screen_8h.html" title=" " alt="" coords="733,87,904,112"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="520,32,762,83,760,89,519,37"/>
+<area shape="rect" id="Node000004" href="$_ajax_2_ui_2_about_2_screen_8h.html" title=" " alt="" coords="5,168,162,193"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="231,121,113,170,111,165,229,116"/>
+<area shape="rect" id="Node000006" href="$_ajax_2_ui_2_edit_setpt_2_screen_8h.html" title=" " alt="" coords="185,168,361,193"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="276,128,276,167,270,167,270,128"/>
+<area shape="rect" id="Node000007" href="$_ajax_2_ui_2_home_2_screen_8h.html" title=" " alt="" coords="385,168,542,193"/>
+<area shape="poly" id="edge7_Node000003_Node000007" title=" " alt="" coords="317,116,435,165,433,170,315,121"/>
+<area shape="rect" id="Node000005" href="$_ajax_2_main_2screens_8h.html" title="This file exposes handles to Screen instances for the Ajax Application." alt="" coords="204,241,342,267"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="130,197,241,238,240,243,129,202"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="276,209,276,241,270,241,270,209"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="418,202,306,243,304,238,416,197"/>
+<area shape="rect" id="Node000010" href="$_eros_2_main_2screens_8h.html" title="This file exposes handles to Screen instances for the Eros Application." alt="" coords="658,168,797,193"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="657,120,714,165,711,169,654,124"/>
+<area shape="poly" id="edge13_Node000011_Node000010" title=" " alt="" coords="795,124,743,169,740,165,791,120"/>
+</map>

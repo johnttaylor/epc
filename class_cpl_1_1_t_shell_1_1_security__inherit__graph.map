@@ -1,0 +1,7 @@
+<map id="Cpl::TShell::Security" name="Cpl::TShell::Security">
+<area shape="rect" id="Node000001" title="This abstract defines the interface for validating a &#39;user login&#39; for TShell." alt="" coords="117,5,253,31"/>
+<area shape="rect" id="Node000002" href="$class_ajax_1_1_main_1_1_t_shell_security.html" title="Validates the TShell login password." alt="" coords="5,79,176,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,43,108,81,105,77,155,39"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_t_shell_1_1_security_null.html" title="This concrete class dummy/null implementation of the Security interface." alt="" coords="200,79,360,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,39,266,77,262,81,212,43"/>
+</map>

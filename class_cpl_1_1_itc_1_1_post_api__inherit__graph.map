@@ -1,0 +1,17 @@
+<map id="Cpl::Itc::PostApi" name="Cpl::Itc::PostApi">
+<area shape="rect" id="Node000001" title="This abstract class represents the interface used to send messages to a mailbox." alt="" coords="5,104,119,130"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_mailbox.html" title="This mailbox class implements an Inter Thread Communications message queue." alt="" coords="195,79,307,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,105,195,96,195,102,135,110"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_itc_1_1_s_a_p.html" title="This concrete template class represents the interface to a ITC Service Access Point (SAP)." alt="" coords="167,128,335,154"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="134,123,166,127,166,133,134,129"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_dm_1_1_mailbox_server.html" title="This class extends the Cpl::Dm::EventLoop and Cpl::Itc:Mailbox classes to support the asynchronous ch..." alt="" coords="383,55,537,80"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="322,81,382,74,383,79,322,86"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_itc_1_1_mailbox_server.html" title="This class collects the common functions of a generic server providing a mailbox and Event loop." alt="" coords="386,104,535,130"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="322,97,385,105,385,110,322,103"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_dm_1_1_periodic_scheduler.html" title="This class extends the Cpl::Dm::MailboxServer class to add periodic scheduling to an event based &#39;thr..." alt="" coords="592,5,769,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="535,48,619,29,620,34,536,53"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_persistent_1_1_record_server.html" title="This concrete class provides an Event driven Runnable object for executing the read/write operation t..." alt="" coords="585,55,776,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="553,65,585,65,585,70,553,70"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_itc_1_1_periodic_scheduler.html" title="This class extends the Cpl::Itc::MailboxServer class to add periodic scheduling to an event based &#39;th..." alt="" coords="594,104,767,130"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="551,114,594,114,594,120,551,120"/>
+</map>

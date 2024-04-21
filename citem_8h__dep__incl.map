@@ -1,0 +1,7 @@
+<map id="Cpl/Container/citem.h" name="Cpl/Container/citem.h">
+<area shape="rect" id="Node000001" title="This file provides the definitions for creating a data structures that can be contained in a linked l..." alt="" coords="89,5,234,31"/>
+<area shape="rect" id="Node000002" href="$cdlist_8h.html" title="This file defines a C&#45;based interfaces for Doubly linked lists that do not use/require dynamic memory..." alt="" coords="5,79,150,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,43,93,81,90,77,134,39"/>
+<area shape="rect" id="Node000003" href="$cslist_8h.html" title="This file defines a C&#45;based interfaces for Singly lists that do not use or require dynamic memory all..." alt="" coords="173,79,318,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="189,39,233,77,230,81,185,43"/>
+</map>

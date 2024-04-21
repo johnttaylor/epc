@@ -1,0 +1,9 @@
+<map id="Cpl::Text::DString" name="Cpl::Text::DString">
+<area shape="rect" id="Node000001" title="This concrete class implements a simple &quot;dynamic storage&quot; String Type." alt="" coords="10,226,130,252"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_text_1_1_string__.html" title="This partially concrete class implements the portions of the String Api that is independent of the in..." alt="" coords="11,153,129,178"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,194,73,226,67,226,67,194"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_text_1_1_string.html" title="This abstract class defines the operations that can be before on a NULL terminated string." alt="" coords="14,79,126,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="73,120,73,152,67,152,67,120"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_key.html" title="This abstract class defines the interface that a contained object must support if it has comparable k..." alt="" coords="5,5,135,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="73,46,73,79,67,79,67,46"/>
+</map>

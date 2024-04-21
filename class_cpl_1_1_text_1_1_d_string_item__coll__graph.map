@@ -1,0 +1,22 @@
+<map id="Cpl::Text::DStringItem" name="Cpl::Text::DStringItem">
+<area shape="rect" id="Node000001" title="This concrete class implements the StringItem class for a &#39;String&#39; using a &#39;DString&#39; as the internal ..." alt="" coords="228,394,374,420"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_text_1_1_string_item.html" title="This partially concrete provides a wrapper class that allows a String object to be stored directly in..." alt="" coords="157,305,294,331"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="248,341,293,392,289,395,244,345"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_map_item.html" title="This abstract class represents a item that can be contained in an Map (aka a sorted list implemented ..." alt="" coords="19,230,178,256"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="134,262,206,303,203,307,131,266"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_dict_item.html" title="This abstract class represents a item that can be contained in Dictionary." alt="" coords="20,155,177,181"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="101,196,101,230,96,230,96,196"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="5,80,192,106"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="101,121,101,155,96,155,96,121"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="32,5,165,31"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="101,46,101,80,96,80,96,46"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_text_1_1_string.html" title="This abstract class defines the operations that can be before on a NULL terminated string." alt="" coords="274,155,385,181"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="287,190,261,208,239,232,231,250,227,270,227,305,221,305,222,270,226,249,235,229,257,204,284,186"/>
+<area shape="rect" id="Node000010" href="$class_cpl_1_1_text_1_1_string__.html" title="This partially concrete class implements the portions of the String Api that is independent of the in..." alt="" coords="321,230,439,256"/>
+<area shape="poly" id="edge10_Node000010_Node000007" title=" " alt="" coords="348,192,374,229,369,232,344,195"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_container_1_1_key.html" title="This abstract class defines the interface that a contained object must support if it has comparable k..." alt="" coords="265,80,394,106"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="332,121,332,155,327,155,327,121"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_text_1_1_d_string.html" title="This concrete class implements a simple &quot;dynamic storage&quot; String Type." alt="" coords="318,305,439,331"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="359,345,314,395,310,392,356,341"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="382,271,381,305,376,305,377,271"/>
+</map>

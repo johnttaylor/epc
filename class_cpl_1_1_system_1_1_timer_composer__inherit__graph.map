@@ -1,0 +1,13 @@
+<map id="Cpl::System::TimerComposer&lt; CONTEXT &gt;" name="Cpl::System::TimerComposer&lt; CONTEXT &gt;">
+<area shape="rect" id="Node000001" title="This template class implements a Software Timer that is context independent and allows for a single c..." alt="" coords="10,305,199,346"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_system_1_1_timer_composer.html" title=" " alt="" coords="10,424,199,465"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="107,361,107,423,102,423,102,361"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_system_1_1_timer.html" title="This mostly concrete interface defines the operations that can be performed on a software timer." alt="" coords="40,230,169,256"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,272,107,305,102,305,102,272"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_system_1_1_counter_callback__.html" title="This abstract class defines the call&#45;back interface for a Counter object." alt="" coords="5,155,204,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="107,196,107,230,102,230,102,196"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="11,80,198,106"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="107,121,107,155,102,155,102,121"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="38,5,171,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="107,46,107,80,102,80,102,46"/>
+</map>

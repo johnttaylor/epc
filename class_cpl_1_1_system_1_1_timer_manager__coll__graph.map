@@ -1,0 +1,9 @@
+<map id="Cpl::System::TimerManager" name="Cpl::System::TimerManager">
+<area shape="rect" id="Node000001" title="This mostly concrete class implements manages a list of Software Timers." alt="" coords="763,33,942,59"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_system_1_1_counter_source__.html" title="This abstract class defines the interface for registering for an Counter object with the Timer Manage..." alt="" coords="409,5,599,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="614,24,739,34,763,36,762,41,739,39,614,29"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_d_list.html" title=" " alt="" coords="394,55,614,96"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="629,76,739,70,803,57,804,62,739,75,630,81"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_d_list.html" title="This template class implements a Doubly linked list which maintains the ordering imposed on it by the..." alt="" coords="5,55,144,96"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="159,73,393,73,393,78,159,78"/>
+</map>

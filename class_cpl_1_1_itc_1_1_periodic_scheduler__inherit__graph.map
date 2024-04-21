@@ -1,0 +1,29 @@
+<map id="Cpl::Itc::PeriodicScheduler" name="Cpl::Itc::PeriodicScheduler">
+<area shape="rect" id="Node000001" title="This class extends the Cpl::Itc::MailboxServer class to add periodic scheduling to an event based &#39;th..." alt="" coords="1008,140,1180,166"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_mailbox_server.html" title="This class collects the common functions of a generic server providing a mailbox and Event loop." alt="" coords="783,107,932,132"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="948,130,1008,138,1007,143,947,135"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_mailbox.html" title="This mailbox class implements an Inter Thread Communications message queue." alt="" coords="573,63,684,88"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="700,86,787,103,786,109,699,92"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_post_api.html" title="This abstract class represents the interface used to send messages to a mailbox." alt="" coords="354,5,467,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="478,33,577,59,576,65,476,38"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_s_list.html" title=" " alt="" coords="341,55,480,96"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="495,73,572,73,572,78,495,78"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_container_1_1_s_list.html" title="This template class implements a singly linked list which maintains the ordering imposed on it by the..." alt="" coords="31,55,169,96"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="184,73,341,73,341,78,184,78"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_system_1_1_event_loop.html" title="This concrete class is a Runnable object that provides a event driven execution model for a thread." alt="" coords="549,169,708,195"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="685,162,756,141,798,130,799,135,758,146,687,167"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_system_1_1_runnable.html" title="This is an abstract class defines the interface for an object that is &quot;executed&quot; when a Thread object..." alt="" coords="335,120,486,146"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="486,147,569,166,568,171,485,152"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_system_1_1_event_flag.html" title="This abstract class defines the interface to generated a &#39;Event Flag&#39;." alt="" coords="333,169,488,195"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="503,180,549,180,549,185,503,185"/>
+<area shape="rect" id="Node000010" href="$class_cpl_1_1_system_1_1_signable.html" title="This abstract class defines the interface by which a client can cause an object that is waiting&#45;on&#45;a&#45;..." alt="" coords="337,219,484,244"/>
+<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="485,212,568,193,569,198,486,217"/>
+<area shape="rect" id="Node000011" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="33,219,167,244"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="182,229,337,229,337,234,182,234"/>
+<area shape="rect" id="Node000012" href="$class_cpl_1_1_system_1_1_timer_manager.html" title="This mostly concrete class implements manages a list of Software Timers." alt="" coords="321,268,500,294"/>
+<area shape="poly" id="edge11_Node000007_Node000012" title=" " alt="" coords="483,260,499,254,559,224,607,193,610,198,562,228,501,259,485,265"/>
+<area shape="rect" id="Node000013" href="$class_cpl_1_1_system_1_1_counter_source__.html" title="This abstract class defines the interface for registering for an Counter object with the Timer Manage..." alt="" coords="5,268,195,294"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="210,278,320,278,320,284,210,284"/>
+<area shape="rect" id="Node000014" href="$class_cpl_1_1_system_1_1_periodic_scheduler.html" title="This concrete class is a &#39;policy&#39; object that is used to add polled based, cooperative monotonic sche..." alt="" coords="757,156,958,182"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="974,158,1007,156,1007,161,974,164"/>
+</map>

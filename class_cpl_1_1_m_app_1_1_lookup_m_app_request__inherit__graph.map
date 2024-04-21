@@ -1,0 +1,5 @@
+<map id="Cpl::MApp::LookupMAppRequest" name="Cpl::MApp::LookupMAppRequest">
+<area shape="rect" id="Node000001" title="This abstract class define ITC message type and payload for the application to look&#45;up a MApp by name..." alt="" coords="5,5,217,31"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_m_app_1_1_manager.html" title="This concrete class implements the MApp Manager." alt="" coords="43,79,179,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,46,114,79,108,79,108,46"/>
+</map>

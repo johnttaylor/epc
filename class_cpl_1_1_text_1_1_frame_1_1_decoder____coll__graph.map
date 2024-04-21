@@ -1,0 +1,5 @@
+<map id="Cpl::Text::Frame::Decoder_" name="Cpl::Text::Frame::Decoder_">
+<area shape="rect" id="Node000001" title="This private partially concrete class implements the basic/common logic for a frame decoder." alt="" coords="5,79,181,105"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_text_1_1_frame_1_1_decoder.html" title="This class defines an interface for &#39;receiving&#39; (decode) a frame." alt="" coords="9,5,177,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,46,96,79,90,79,90,46"/>
+</map>

@@ -1,0 +1,16 @@
+<map id="Cpl::Io::Serial::ST::M32F4::StreamDriver::HalMapping_T" name="Cpl::Io::Serial::ST::M32F4::StreamDriver::HalMapping_T">
+<area shape="rect" id="Node000001" title="Used to map a HAL UART Handle to an instance of this class." alt="" coords="5,184,155,240"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_serial_1_1_s_t_1_1_m32_f4_1_1_stream_driver.html" title="This concrete class implements a non&#45;busy&#45;wait blocking Transmit/Receive Stream UART driver with a SO..." alt="" coords="143,318,292,358"/>
+<area shape="poly" id="edge7_Node000002_Node000001" title=" " alt="" coords="69,255,69,275,76,292,89,306,105,316,143,330,141,335,103,321,86,310,71,295,64,276,64,255"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,307,154,266,124,242,127,238,158,262,196,304"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_system_1_1_thread.html" title="This abstract class defines the operations that can be performed on a thread." alt="" coords="180,199,316,225"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="244,240,225,318,220,317,239,239"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_system_1_1_signable.html" title="This abstract class defines the interface by which a client can cause an object that is waiting&#45;on&#45;a&#45;..." alt="" coords="172,88,319,114"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="249,129,250,199,245,199,243,129"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="179,5,312,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="248,47,248,88,243,88,243,47"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_container_1_1_ring_buffer.html" title=" " alt="" coords="342,192,509,232"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="396,245,364,271,328,296,278,320,276,315,325,291,361,267,392,241"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_container_1_1_ring_buffer.html" title="This template class implements a Ring Buffer." alt="" coords="343,80,510,121"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="429,137,428,191,423,191,424,137"/>
+</map>
