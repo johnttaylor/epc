@@ -1,7 +1,6 @@
-/** @namespace Driver::NV
+/** @namespace Driver::SPI
 
-The 'NV' namespace defines a platform independent interface for reading and 
-writing from/to non-volatile storage.
+The 'SPI' namespace defines a platform independent interface SPI drivers.
 
 */ 
 
