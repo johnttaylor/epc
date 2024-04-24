@@ -1,0 +1,10 @@
+<map id="Bsp/ST/NUCLEO&#45;F767ZI/alpha1/MX/Core/Inc/main.h" name="Bsp/ST/NUCLEO&#45;F767ZI/alpha1/MX/Core/Inc/main.h">
+<area shape="rect" id="Node000001" title=": Header for main.c file." alt="" coords="22,5,205,46"/>
+<area shape="rect" id="Node000002" href="$_bsp_2_s_t_2_n_u_c_l_e_o-_f767_z_i_2alpha1_2_api_8h.html" title="This BSP is developed/build with a &#39;just&#45;in&#45;time&#39; approach." alt="" coords="68,183,237,223"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,56,32,73,15,95,8,115,15,133,41,161,76,180,73,184,38,165,10,136,3,115,10,93,28,70,51,52"/>
+<area shape="rect" id="Node000003" href="$_s_t_2_n_u_c_l_e_o-_f767_z_i_2alpha1_2_m_x_2_core_2_inc_2gpio_8h.html" title="This file contains all the function prototypes for the gpio.c file." alt="" coords="24,94,203,135"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="116,62,116,94,111,94,111,62"/>
+<area shape="rect" id="Node000004" href="$_s_t_2_n_u_c_l_e_o-_f767_z_i_2alpha1_2_m_x_2_core_2_inc_2usart_8h.html" title="This file contains all the function prototypes for the usart.c file." alt="" coords="227,94,411,135"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="175,50,273,91,271,96,173,55"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="269,144,191,185,189,180,267,140"/>
+</map>

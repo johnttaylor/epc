@@ -1,0 +1,21 @@
+<map id="Bsp/ST/NUCLEO&#45;F413ZH/alpha1/Api.h" name="Bsp/ST/NUCLEO&#45;F413ZH/alpha1/Api.h">
+<area shape="rect" id="Node000001" title="This BSP is developed/build with a &#39;just&#45;in&#45;time&#39; approach." alt="" coords="295,5,470,46"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,102,115,127"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="310,49,121,100,119,94,308,44"/>
+<area shape="rect" id="Node000003" href="$_s_t_2_n_u_c_l_e_o-_f413_z_h_2alpha1_2_m_x_2_core_2_inc_2main_8h.html" title=": Header for main.c file." alt="" coords="394,183,577,223"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="295,44,241,58,195,78,180,90,171,103,171,117,179,133,192,144,209,153,259,169,318,181,379,190,378,195,317,187,257,174,207,158,188,148,175,136,166,118,166,101,176,86,193,73,239,53,294,39"/>
+<area shape="rect" id="Node000005" href="$_s_t_2_n_u_c_l_e_o-_f413_z_h_2alpha1_2_m_x_2_core_2_inc_2usart_8h.html" title="This file contains all the function prototypes for the usart.c file." alt="" coords="190,94,373,135"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="361,49,318,86,314,82,358,44"/>
+<area shape="rect" id="Node000006" href="$_s_t_2_n_u_c_l_e_o-_f413_z_h_2alpha1_2_m_x_2_core_2_inc_2tim_8h.html" title="This file contains all the function prototypes for the tim.c file." alt="" coords="398,94,573,135"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="408,44,452,82,449,86,404,49"/>
+<area shape="rect" id="Node000007" href="$_s_t_2_n_u_c_l_e_o-_f413_z_h_2alpha1_2_m_x_2_core_2_inc_2i2c_8h.html" title="This file contains all the function prototypes for the i2c.c file." alt="" coords="598,94,773,135"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="452,44,603,87,602,92,451,49"/>
+<area shape="rect" id="Node000008" href="$_s_t_2_n_u_c_l_e_o-_f413_z_h_2alpha1_2_m_x_2_core_2_inc_2adc_8h.html" title="This file contains all the function prototypes for the adc.c file." alt="" coords="798,94,973,135"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="471,38,783,91,782,96,470,44"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="428,271,543,297"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="488,224,488,256,483,256,483,224"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="329,133,426,174,424,179,327,138"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="488,135,488,167,483,167,483,135"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="641,138,546,179,544,174,639,133"/>
+<area shape="poly" id="edge11_Node000008_Node000003" title=" " alt="" coords="798,137,592,182,591,176,796,132"/>
+</map>

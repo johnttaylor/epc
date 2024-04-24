@@ -1,0 +1,13 @@
+<map id="EventGroup" name="EventGroup">
+<area shape="rect" id="Node000001" title="An event group is a collection of bits to which an application can assign a meaning." alt="" coords="5,228,95,254"/>
+<area shape="rect" id="Node000002" href="$group___event_group_handle__t.html" title="event_groups.h" alt="" coords="172,5,314,31"/>
+<area shape="rect" id="Node000005" href="$group__x_event_group_clear_bits.html" title="event_groups.h" alt="" coords="169,55,317,80"/>
+<area shape="rect" id="Node000006" href="$group__x_event_group_clear_bits_from_i_s_r.html" title="event_groups.h" alt="" coords="143,104,343,130"/>
+<area shape="rect" id="Node000003" href="$group__x_event_group_create.html" title="event_groups.h" alt="" coords="176,153,310,179"/>
+<area shape="rect" id="Node000010" href="$group__x_event_group_get_bits.html" title="event_groups.h" alt="" coords="173,203,313,228"/>
+<area shape="rect" id="Node000011" href="$group__x_event_group_get_bits_from_i_s_r.html" title="event_groups.h" alt="" coords="147,252,339,278"/>
+<area shape="rect" id="Node000007" href="$group__x_event_group_set_bits.html" title="event_groups.h" alt="" coords="174,301,312,327"/>
+<area shape="rect" id="Node000008" href="$group__x_event_group_set_bits_from_i_s_r.html" title="event_groups.h" alt="" coords="148,351,338,376"/>
+<area shape="rect" id="Node000009" href="$group__x_event_group_sync.html" title="event_groups.h" alt="" coords="181,400,305,426"/>
+<area shape="rect" id="Node000004" href="$group__x_event_group_wait_bits.html" title="event_groups.h" alt="" coords="171,449,315,475"/>
+</map>

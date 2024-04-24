@@ -11,10 +11,10 @@
 <!-- Node0 -->
 <g id="Node000000" class="node">
 <title>Node0</title>
-<g id="a_Node000000"><a xlink:href="class_cpl_1_1_container_1_1_s_list.html" target="_top" xlink:title="This template class implements a singly linked list which maintains the ordering imposed on it by the...">
+<g id="a_Node000000"><a xlink:href="class_cpl_1_1_container_1_1_s_list.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="103.75,-30.5 0,-30.5 0,0 103.75,0 103.75,-30.5"/>
 <text text-anchor="start" x="8" y="-17" font-family="Helvetica,sans-Serif" font-size="10.00">Cpl::Container::SList</text>
-<text text-anchor="middle" x="51.88" y="-5.75" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ITEM &gt;</text>
+<text text-anchor="middle" x="51.88" y="-5.75" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; Cpl::Io::Output &gt;</text>
 </a>
 </g>
 </g>

@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="255,5,426,31"/>
 <area shape="rect" id="Node000002" href="$_encoder___8h.html" title=" " alt="" coords="251,79,430,105"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="343,46,343,79,338,79,338,46"/>
-<area shape="rect" id="Node000003" href="$_encoding_2_base64_8h.html" title=" " alt="" coords="26,153,210,178"/>
+<area shape="rect" id="Node000003" href="$_base64_8h.html" title=" " alt="" coords="26,153,210,178"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="289,112,156,155,155,150,288,107"/>
 <area shape="rect" id="Node000004" href="$_stream_encoder_8h.html" title=" " alt="" coords="234,153,447,178"/>
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="343,120,343,152,338,152,338,120"/>

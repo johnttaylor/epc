@@ -1,0 +1,12 @@
+<map id="Bsp/ST/NUCLEO&#45;F767ZI/alpha1/Api.h" name="Bsp/ST/NUCLEO&#45;F767ZI/alpha1/Api.h">
+<area shape="rect" id="Node000001" title="This BSP is developed/build with a &#39;just&#45;in&#45;time&#39; approach." alt="" coords="67,5,237,46"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,102,115,127"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,48,86,93,82,89,129,45"/>
+<area shape="rect" id="Node000003" href="$_s_t_2_n_u_c_l_e_o-_f767_z_i_2alpha1_2_m_x_2_core_2_inc_2main_8h.html" title=": Header for main.c file." alt="" coords="125,183,307,223"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,46,166,87,180,134,197,169,193,171,175,136,160,88,152,47"/>
+<area shape="rect" id="Node000005" href="$_s_t_2_n_u_c_l_e_o-_f767_z_i_2alpha1_2_m_x_2_core_2_inc_2usart_8h.html" title="This file contains all the function prototypes for the usart.c file." alt="" coords="190,94,373,135"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="183,44,241,83,238,87,180,49"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="159,271,273,297"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="219,224,219,256,213,256,213,224"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="269,137,242,172,238,169,264,134"/>
+</map>

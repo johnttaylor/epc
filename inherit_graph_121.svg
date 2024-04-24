@@ -11,10 +11,10 @@
 <!-- Node0 -->
 <g id="Node000000" class="node">
 <title>Node0</title>
-<g id="a_Node000000"><a xlink:href="class_cpl_1_1_text_1_1_tokenizer_1_1_text_block.html" target="_top" xlink:title="This concrete class tokenizes a Text Block that has the following format:">
+<g id="a_Node000000"><a xlink:href="class_cpl_1_1_text_1_1_tokenizer_1_1_basic.html" target="_top" xlink:title="This concrete class performs basic tokenizing/parse functions on a string.">
 <polygon fill="white" stroke="#666666" points="100,-30.5 0,-30.5 0,0 100,0 100,-30.5"/>
 <text text-anchor="start" x="8" y="-17" font-family="Helvetica,sans-Serif" font-size="10.00">Cpl::Text::Tokenizer</text>
-<text text-anchor="middle" x="50" y="-5.75" font-family="Helvetica,sans-Serif" font-size="10.00">::TextBlock</text>
+<text text-anchor="middle" x="50" y="-5.75" font-family="Helvetica,sans-Serif" font-size="10.00">::Basic</text>
 </a>
 </g>
 </g>

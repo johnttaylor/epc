@@ -47,7 +47,7 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespace_driver.html">Driver</a></li><li class="navelem"><b>SPI</b></li><li class="navelem"><a class="el" href="class_driver_1_1_s_p_i_1_1_master.html">Master</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespace_driver.html">Driver</a></li><li class="navelem"><a class="el" href="namespace_driver_1_1_s_p_i.html">SPI</a></li><li class="navelem"><a class="el" href="class_driver_1_1_s_p_i_1_1_master.html">Master</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -58,11 +58,11 @@
 </div><!--header-->
 <div class="contents">
 
-<p>This class defines a non-platform specific interface for an SPI master device driver.  
+<p>This class defines a non-platform specific interface for an <a class="el" href="namespace_driver_1_1_s_p_i.html" title="The &#39;SPI&#39; namespace defines a platform independent interface SPI drivers.">SPI</a> master device driver.  
  <a href="class_driver_1_1_s_p_i_1_1_master.html#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class defines a non-platform specific interface for an SPI master device driver. </p>
-<p>The intended usage is to create ONE driver per physical SPI bus, i.e. the driver instance can be shared with multiple clients. <br  />
+<div class="textblock"><p>This class defines a non-platform specific interface for an <a class="el" href="namespace_driver_1_1_s_p_i.html" title="The &#39;SPI&#39; namespace defines a platform independent interface SPI drivers.">SPI</a> master device driver. </p>
+<p>The intended usage is to create ONE driver per physical <a class="el" href="namespace_driver_1_1_s_p_i.html" title="The &#39;SPI&#39; namespace defines a platform independent interface SPI drivers.">SPI</a> bus, i.e. the driver instance can be shared with multiple clients. <br  />
 </p>
 <p>The class does NOT manage the chip/slave select signal, i.e. the client is responsible for asserting and de-asserting the chip/slave select before and after a transaction.</p>
 <p>The driver is NOT thread safe. It is the responsibility of the Application to ensure thread safety when driver is used and/or shared with multiple clients. </p>
@@ -144,7 +144,7 @@ Public Member Functions</h2></td></tr>
 
 <p>This method is used initialize/start the driver. </p>
 <p>To 'restart' the driver, the application must call <a class="el" href="class_driver_1_1_s_p_i_1_1_master.html#a69f9439b61665dd61ebc1187fa5b73e8" title="This method is used to stop/shutdown the driver.">stop()</a>, then <a class="el" href="class_driver_1_1_s_p_i_1_1_master.html#a4f4107270579ccc912600924e9b4aab6" title="This method is used initialize/start the driver.">start()</a>.</p>
-<p>When 'newBaudRateHz' is non-zero, the SPI's transfer frequency is updated (from what was provided in the constructor). When the driver is stopped and restarted, the default baudrate on restart will be the value provided in the constructor.</p>
+<p>When 'newBaudRateHz' is non-zero, the <a class="el" href="namespace_driver_1_1_s_p_i.html" title="The &#39;SPI&#39; namespace defines a platform independent interface SPI drivers.">SPI</a>'s transfer frequency is updated (from what was provided in the constructor). When the driver is stopped and restarted, the default baudrate on restart will be the value provided in the constructor.</p>
 <p>The method returns true if successful; else false is returned when an error occurred. If false is returned, future read/write calls will always return a failure. </p>
 
 <p>Implemented in <a class="el" href="class_driver_1_1_s_p_i_1_1_arduino_1_1_master.html#a2c6fc568194da3582e813eff82356922">Driver::SPI::Arduino::Master</a>, and <a class="el" href="class_driver_1_1_s_p_i_1_1_s_t_m32_1_1_master.html#ae7a531937f8c7b23f01e4db85276e4e9">Driver::SPI::STM32::Master</a>.</p>
@@ -234,7 +234,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 21 2024 20:40:11 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Apr 24 2024 13:49:15 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

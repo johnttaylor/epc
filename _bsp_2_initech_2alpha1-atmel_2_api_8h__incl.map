@@ -1,0 +1,29 @@
+<map id="Bsp/Initech/alpha1&#45;atmel/Api.h" name="Bsp/Initech/alpha1&#45;atmel/Api.h">
+<area shape="rect" id="Node000001" title="This BSP is developed/build with a &#39;just&#45;in&#45;time&#39; approach." alt="" coords="296,5,425,46"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="68,94,178,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="302,49,175,91,173,86,300,44"/>
+<area shape="rect" id="Node000003" href="$_free_r_t_o_s_8h_source.html" title=" " alt="" coords="202,94,295,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="334,49,280,87,277,82,331,44"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="320,94,401,120"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="363,46,363,78,358,78,358,46"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="426,94,546,120"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="393,44,455,83,452,88,390,49"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="571,94,641,120"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="422,44,556,87,555,92,421,49"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,168,73,193"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="214,123,89,165,87,160,212,118"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="97,168,160,193"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="229,123,163,162,160,157,227,118"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="184,168,313,193"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="251,120,251,152,246,152,246,120"/>
+<area shape="rect" id="Node000007" href="$projdefs_8h_source.html" title=" " alt="" coords="338,168,415,193"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="271,118,343,157,340,162,269,123"/>
+<area shape="rect" id="Node000008" href="$portable_8h_source.html" title=" " alt="" coords="439,168,516,193"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="288,118,425,160,424,165,286,123"/>
+<area shape="rect" id="Node000009" href="$deprecated__definitions_8h_source.html" title=" " alt="" coords="248,241,409,267"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="453,196,369,237,366,232,451,191"/>
+<area shape="rect" id="Node000010" href="$portmacro_8h_source.html" title=" " alt="" coords="433,241,522,267"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="480,194,480,226,475,226,475,194"/>
+<area shape="rect" id="Node000011" href="$mpu__wrappers_8h_source.html" title=" " alt="" coords="546,241,663,267"/>
+<area shape="poly" id="edge10_Node000008_Node000011" title=" " alt="" coords="500,192,571,231,568,236,498,196"/>
+</map>

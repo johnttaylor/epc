@@ -1,9 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$class_cpl_1_1_io_1_1_socket_1_1_listener_1_1_client.html" title="This class defines the callback mechanism used for accepting incoming socket connections." alt="" coords="5,71,163,111"/>
-<area shape="rect" id="Node000001" href="$class_cpl_1_1_io_1_1_socket_1_1_listener_client_sync.html" title="This partially concrete class implements the synchronous ITC open call for the OpenApi." alt="" coords="211,9,368,50"/>
-<area shape="poly" id="edge47_Node000000_Node000001" title=" " alt="" coords="168,63,218,48,220,53,170,68"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_t_shell_1_1_socket.html" title="This concrete class provides a socket listener/server and &#39;threading wrapper&#39; for running a TShell Co..." alt="" coords="224,78,355,104"/>
-<area shape="poly" id="edge48_Node000000_Node000003" title=" " alt="" coords="178,88,224,88,224,94,178,94"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_socket_1_1_listener_client_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="5,5,163,46"/>
-<area shape="poly" id="edge49_Node000002_Node000001" title=" " alt="" coords="178,25,210,25,210,31,178,30"/>
+<area shape="rect" id="Node000000" href="$class_cpl_1_1_io_1_1_socket_1_1_connector.html" title="This abstract class defines the interface for establishing/requesting a SIMPLE socket connection,..." alt="" coords="5,46,175,72"/>
+<area shape="rect" id="Node000001" href="$class_cpl_1_1_io_1_1_socket_1_1_posix_1_1_connector.html" title="This concrete class implements the Cpl::Io::Socket::Connector interface using IPv4/IPv6 addressing fo..." alt="" coords="225,5,367,46"/>
+<area shape="poly" id="edge45_Node000000_Node000001" title=" " alt="" coords="188,40,224,35,225,40,189,46"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_socket_1_1_win32_1_1_connector.html" title="This concrete class implements the Cpl::Io::Socket::Connector interface using IPv4/IPv6 addressing fo..." alt="" coords="223,71,369,111"/>
+<area shape="poly" id="edge46_Node000000_Node000002" title=" " alt="" coords="190,72,223,77,222,82,190,77"/>
 </map>

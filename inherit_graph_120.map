@@ -1,3 +1,11 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$class_cpl_1_1_text_1_1_tokenizer_1_1_basic.html" title="This concrete class performs basic tokenizing/parse functions on a string." alt="" coords="5,5,139,46"/>
+<area shape="rect" id="Node000000" href="$class_cpl_1_1_text_1_1_frame_1_1_encoder.html" title="This class defines an interface for &#39;transmitted&#39; (encoding) a frame." alt="" coords="5,46,173,72"/>
+<area shape="rect" id="Node000001" href="$class_cpl_1_1_text_1_1_frame_1_1_encoder__.html" title="This Private Namespace partially concrete class implements common/helper method for supporting the En..." alt="" coords="221,46,395,72"/>
+<area shape="poly" id="edge367_Node000000_Node000001" title=" " alt="" coords="189,56,220,56,220,62,189,62"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_text_1_1_frame_1_1_stream_encoder.html" title="This concrete class implements the Encoder API where the Output destination is a Cpl::Io::Output stre..." alt="" coords="443,5,605,46"/>
+<area shape="poly" id="edge368_Node000001_Node000002" title=" " alt="" coords="410,41,442,36,443,41,411,46"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_text_1_1_frame_1_1_string_encoder.html" title="This concrete class implements the Encoder API where the Output destination is a Cpl::Text::String." alt="" coords="447,71,601,111"/>
+<area shape="poly" id="edge370_Node000001_Node000004" title=" " alt="" coords="411,72,447,77,446,82,410,77"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_text_1_1_frame_1_1_block_encoder.html" title="This concrete class implements extends the StreamDecoder implementation to be more efficient with res..." alt="" coords="653,13,854,39"/>
+<area shape="poly" id="edge369_Node000002_Node000003" title=" " alt="" coords="621,23,653,23,653,28,621,28"/>
 </map>

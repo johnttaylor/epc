@@ -11,9 +11,9 @@
 <!-- Node0 -->
 <g id="Node000000" class="node">
 <title>Node0</title>
-<g id="a_Node000000"><a xlink:href="citem_8h.html#struct_cpl_container_item_s_list_linkage___t" target="_top" xlink:title="Type definition for a singly linked item.">
+<g id="a_Node000000"><a xlink:href="citem_8h.html#struct_cpl_container_item_d_list_linkage___t" target="_top" xlink:title="Type definition for a Doubly linked item.">
 <polygon fill="white" stroke="#666666" points="160,-19.25 0,-19.25 0,0 160,0 160,-19.25"/>
-<text text-anchor="middle" x="80" y="-5.75" font-family="Helvetica,sans-Serif" font-size="10.00">CplContainerItemSListLinkage_T</text>
+<text text-anchor="middle" x="80" y="-5.75" font-family="Helvetica,sans-Serif" font-size="10.00">CplContainerItemDListLinkage_T</text>
 </a>
 </g>
 </g>

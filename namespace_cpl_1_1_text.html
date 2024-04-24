@@ -140,18 +140,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a365931bdae91b7355a26372e042889f4" id="r_a365931bdae91b7355a26372e042889f4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_cpl_1_1_text.html#a365931bdae91b7355a26372e042889f4">parsePrecisionTimeStamp</a> (const char *timeStampToParse, <a class="el" href="struct_cpl_1_1_system_1_1_elapsed_time_1_1_precision___t.html">Cpl::System::ElapsedTime::Precision_T</a> &amp;convertedValue)</td></tr>
 <tr class="memdesc:a365931bdae91b7355a26372e042889f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method parses a 'timestamp' with the following format: [DD ]HH:MM:SS[.sss] The method returns true if the parse was successful.  <br /></td></tr>
 <tr class="separator:a365931bdae91b7355a26372e042889f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98d84d21eb4aa74e11b51a9cc3601a4b" id="r_a98d84d21eb4aa74e11b51a9cc3601a4b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_cpl_1_1_text.html#a98d84d21eb4aa74e11b51a9cc3601a4b">base64Encode</a> (char *output, int outputLen, const void *input, int inputLen)</td></tr>
-<tr class="memdesc:a98d84d21eb4aa74e11b51a9cc3601a4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode a string of characters as base64 to a null terminated string.  <br /></td></tr>
-<tr class="separator:a98d84d21eb4aa74e11b51a9cc3601a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e3531bd1647ad357576c6c195be479a" id="r_a5e3531bd1647ad357576c6c195be479a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_cpl_1_1_text.html#a5e3531bd1647ad357576c6c195be479a">base64Decode</a> (void *output, int outputLen, const char *input, int inputLen)</td></tr>
-<tr class="memdesc:a5e3531bd1647ad357576c6c195be479a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode a base64 encoded string into bytes.  <br /></td></tr>
-<tr class="separator:a5e3531bd1647ad357576c6c195be479a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14c155528d583e768d20e362948d503d" id="r_a14c155528d583e768d20e362948d503d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_cpl_1_1_text.html#a14c155528d583e768d20e362948d503d">base64EncodeLen</a> (int inputLen)</td></tr>
-<tr class="memdesc:a14c155528d583e768d20e362948d503d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the length of a base64 encoded string whose decoded form is inputLen bytes long.  <br /></td></tr>
-<tr class="separator:a14c155528d583e768d20e362948d503d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26502324912a3702179e911587785280" id="r_a26502324912a3702179e911587785280"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_cpl_1_1_text.html#a26502324912a3702179e911587785280">base64DecodeLen</a> (const char *input, int inputLen)</td></tr>
-<tr class="memdesc:a26502324912a3702179e911587785280"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the length of the decoded form of a base64 encoded string.  <br /></td></tr>
-<tr class="separator:a26502324912a3702179e911587785280"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3c0120748c5f361021e6032eea64eeb" id="r_aa3c0120748c5f361021e6032eea64eeb"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_cpl_1_1_text.html#aa3c0120748c5f361021e6032eea64eeb">longToStr</a> (long num, char *dstString, size_t maxChars, unsigned base=10, char padChar=' ')</td></tr>
 <tr class="memdesc:aa3c0120748c5f361021e6032eea64eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method converts a long to a string.  <br /></td></tr>
 <tr class="separator:aa3c0120748c5f361021e6032eea64eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -679,168 +667,6 @@ Functions</h2></td></tr>
 
 <p>This method will convert an 'ASCII HEX' string to an equivalent binary buffer, i.e. </p>
 <p>the reverse of <a class="el" href="namespace_cpl_1_1_text.html#af5e325a101f50cf33c571e320d826304" title="This method will convert a binary buffer to &#39;ASCII HEX&#39;, e.g.">bufferToAsciiHex()</a> in <a class="el" href="format_8h.html" title="This file contains some general purpose string formatting functions.">format.h</a>. If the entire string was not able to be converted then -1 is returned, else the number of converted bytes are returned. </p>
-
-</div>
-</div>
-<a id="a5e3531bd1647ad357576c6c195be479a" name="a5e3531bd1647ad357576c6c195be479a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e3531bd1647ad357576c6c195be479a">&#9670;&#160;</a></span>base64Decode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Cpl::Text::base64Decode </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>output</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>outputLen</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>input</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>inputLen</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Decode a base64 encoded string into bytes. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">output</td><td>The output buffer for the decoding, stores the decoded binary </td></tr>
-    <tr><td class="paramname">outputLen</td><td>Length, in bytes, of the output buffer </td></tr>
-    <tr><td class="paramname">input</td><td>The input buffer for the decoding, stores the base64 string to be decoded </td></tr>
-    <tr><td class="paramname">inputLen</td><td>The length of the input buffer, in bytes</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the length, in bytes, of the decoded data. </dd>
-<dd>
--1 if an error occurred, e.g. size of 'output' buffer is too small to hold the result </dd></dl>
-
-</div>
-</div>
-<a id="a26502324912a3702179e911587785280" name="a26502324912a3702179e911587785280"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26502324912a3702179e911587785280">&#9670;&#160;</a></span>base64DecodeLen()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Cpl::Text::base64DecodeLen </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>input</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>inputLen</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the length of the decoded form of a base64 encoded string. </p>
-<p>Parameters: input: the base64 encoded string to be measured inputLen: the length of the base64 encoded string</p>
-<p>Return value: Returns the length of the decoded form of a base64 encoded string </p>
-
-</div>
-</div>
-<a id="a98d84d21eb4aa74e11b51a9cc3601a4b" name="a98d84d21eb4aa74e11b51a9cc3601a4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98d84d21eb4aa74e11b51a9cc3601a4b">&#9670;&#160;</a></span>base64Encode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Cpl::Text::base64Encode </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>output</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>outputLen</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const void *&#160;</td>
-          <td class="paramname"><em>input</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>inputLen</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Encode a string of characters as base64 to a null terminated string. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">output</td><td>The output buffer for the encoding, stores the encoded string the string is null terminated. </td></tr>
-    <tr><td class="paramname">outputLen</td><td>Length, in bytes, of the output buffer </td></tr>
-    <tr><td class="paramname">input</td><td>The input buffer for the encoding, stores the binary to be encoded </td></tr>
-    <tr><td class="paramname">inputLen</td><td>The length of the input buffer, in bytes</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the length of the encoded string (not including the null terminator) </dd>
-<dd>
--1 an error occurred, e.g. size of 'output' buffer is too small to hold the result </dd></dl>
-
-</div>
-</div>
-<a id="a14c155528d583e768d20e362948d503d" name="a14c155528d583e768d20e362948d503d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14c155528d583e768d20e362948d503d">&#9670;&#160;</a></span>base64EncodeLen()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Cpl::Text::base64EncodeLen </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>inputLen</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the length of a base64 encoded string whose decoded form is inputLen bytes long. </p>
-<p>Parameters: inputLen: the length of the decoded string</p>
-<p>Return value: The length of a base64 encoded string whose decoded form is inputLen bytes long </p>
 
 </div>
 </div>
@@ -1691,7 +1517,7 @@ o If the entire string is whitespace, a pointer to the start of
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 21 2024 20:40:10 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Apr 24 2024 13:49:15 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

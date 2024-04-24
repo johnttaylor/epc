@@ -1,0 +1,19 @@
+<map id="Bsp/ST/NUCLEO&#45;F413ZH/alpha1/MX/Core/Inc/main.h" name="Bsp/ST/NUCLEO&#45;F413ZH/alpha1/MX/Core/Inc/main.h">
+<area shape="rect" id="Node000001" title=": Header for main.c file." alt="" coords="324,5,507,46"/>
+<area shape="rect" id="Node000002" href="$_bsp_2_s_t_2_n_u_c_l_e_o-_f413_z_h_2alpha1_2_api_8h.html" title="This BSP is developed/build with a &#39;just&#45;in&#45;time&#39; approach." alt="" coords="429,183,605,223"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="309,32,224,39,136,50,62,69,35,81,16,96,8,115,10,123,16,133,35,143,72,153,181,171,311,184,429,194,429,199,310,190,180,176,71,158,33,148,12,137,5,126,3,114,12,92,32,77,60,64,135,45,223,33,309,27"/>
+<area shape="rect" id="Node000003" href="$_s_t_2_n_u_c_l_e_o-_f413_z_h_2alpha1_2_m_x_2_core_2_inc_2adc_8h.html" title="This file contains all the function prototypes for the adc.c file." alt="" coords="27,94,202,135"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="333,53,183,96,182,91,332,48"/>
+<area shape="rect" id="Node000004" href="$_s_t_2_n_u_c_l_e_o-_f413_z_h_2alpha1_2_m_x_2_core_2_inc_2gpio_8h.html" title="This file contains all the function prototypes for the gpio.c file." alt="" coords="226,94,405,135"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="383,58,340,96,336,92,380,54"/>
+<area shape="rect" id="Node000005" href="$_s_t_2_n_u_c_l_e_o-_f413_z_h_2alpha1_2_m_x_2_core_2_inc_2i2c_8h.html" title="This file contains all the function prototypes for the i2c.c file." alt="" coords="429,94,605,135"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="452,54,496,92,492,96,448,58"/>
+<area shape="rect" id="Node000006" href="$_s_t_2_n_u_c_l_e_o-_f413_z_h_2alpha1_2_m_x_2_core_2_inc_2tim_8h.html" title="This file contains all the function prototypes for the tim.c file." alt="" coords="629,94,805,135"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="499,48,649,91,648,96,498,53"/>
+<area shape="rect" id="Node000007" href="$_s_t_2_n_u_c_l_e_o-_f413_z_h_2alpha1_2_m_x_2_core_2_inc_2usart_8h.html" title="This file contains all the function prototypes for the usart.c file." alt="" coords="829,94,1013,135"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="522,42,817,91,829,94,829,99,816,97,522,47"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="218,135,429,180,428,185,216,140"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="520,150,520,182,514,182,514,150"/>
+<area shape="poly" id="edge8_Node000006_Node000002" title=" " alt="" coords="659,144,563,185,561,180,656,139"/>
+<area shape="poly" id="edge10_Node000007_Node000002" title=" " alt="" coords="814,141,606,185,605,180,813,136"/>
+</map>

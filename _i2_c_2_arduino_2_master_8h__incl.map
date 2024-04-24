@@ -1,13 +1,17 @@
 <map id="Driver/I2C/Arduino/Master.h" name="Driver/I2C/Arduino/Master.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="145,5,273,46"/>
-<area shape="rect" id="Node000002" href="$_i2_c_2_master_8h.html" title=" " alt="" coords="13,94,146,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,49,114,88,111,83,176,44"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="170,94,248,120"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="212,46,212,78,206,78,206,46"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="272,94,330,120"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="233,44,277,82,274,86,230,48"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="184,5,311,46"/>
+<area shape="rect" id="Node000002" href="$_i2_c_2_master_8h.html" title=" " alt="" coords="52,94,185,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,49,152,88,150,83,214,44"/>
+<area shape="rect" id="Node000005" href="$_bsp_2_api_8h.html" title="This file defines the common/generic interfaces that all Colony." alt="" coords="209,94,286,120"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="250,46,250,78,245,78,245,46"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="311,94,368,120"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="272,44,316,82,312,86,269,48"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="5,168,69,193"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="75,121,54,156,50,153,70,119"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="106,122,64,159,60,155,103,118"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="93,168,155,193"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="89,118,110,153,106,156,85,121"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="122,120,124,152,119,152,117,120"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="188,168,297,193"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="249,120,247,152,242,152,244,120"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="322,168,422,193"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="270,118,339,157,336,162,267,123"/>
 </map>
