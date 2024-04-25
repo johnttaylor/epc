@@ -55,12 +55,11 @@
   <div class="headertitle"><div class="title">Base64.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="_encoder___8h_source.html">Cpl/Text/Frame/Encoder_.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_text_2_string_8h_source.html">Cpl/Text/String.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_text_2_string_8h_source.html">Cpl/Text/String.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Base64.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="_base64_8h__incl.svg" width="595" height="331"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="_base64_8h__incl.svg" width="468" height="331"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="_base64_8h_source.html">Go to the source code of this file.</a></p>
@@ -73,130 +72,23 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespace_cpl_1_1_text" id="r_namespace_cpl_1_1_text"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_cpl_1_1_text.html">Cpl::Text</a></td></tr>
 <tr class="memdesc:namespace_cpl_1_1_text"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="namespace_cpl_1_1_text.html" title="The Text namespace provides yet-another String class and additional string and/or text processing uti...">Text</a> namespace provides yet-another <a class="el" href="class_cpl_1_1_text_1_1_string.html" title="This abstract class defines the operations that can be before on a NULL terminated string.">String</a> class and additional string and/or text processing utilities. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespace_cpl_1_1_text_1_1_encoding" id="r_namespace_cpl_1_1_text_1_1_encoding"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_cpl_1_1_text_1_1_encoding.html">Cpl::Text::Encoding</a></td></tr>
+<tr class="memdesc:namespace_cpl_1_1_text_1_1_encoding"><td class="mdescLeft">&#160;</td><td class="mdescRight">The '<a class="el" href="namespace_cpl_1_1_text_1_1_encoding.html" title="The &#39;Encoding&#39; namespace provides various encoding algorithms for converting binary data to (and from...">Encoding</a>' namespace provides various encoding algorithms for converting binary data to (and from) ASCII text to facilitate transport of the binary data using text based protocols. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a58f300ae69e083abf40a22c8e1242410" id="r_a58f300ae69e083abf40a22c8e1242410"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_base64_8h.html#a58f300ae69e083abf40a22c8e1242410">Cpl::Text::Encoding::base64Encode</a> (const void *binarySrc, size_t binarySrcLen, char *dstEncodedText, size_t dstSize, size_t &amp;encodedOutputStringLen, bool insertMIMELineFeeds=false)</td></tr>
+<tr class="memitem:a58f300ae69e083abf40a22c8e1242410" id="r_a58f300ae69e083abf40a22c8e1242410"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_cpl_1_1_text_1_1_encoding.html#a58f300ae69e083abf40a22c8e1242410">Cpl::Text::Encoding::base64Encode</a> (const void *binarySrc, size_t binarySrcLen, char *dstEncodedText, size_t dstSize, size_t &amp;encodedOutputStringLen, bool insertMIMELineFeeds=false)</td></tr>
 <tr class="memdesc:a58f300ae69e083abf40a22c8e1242410"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method encodes the specified binary data as Base64 (standard, with padding).  <br /></td></tr>
 <tr class="separator:a58f300ae69e083abf40a22c8e1242410"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0da672f0e37694d62b7a7c55bebd2526" id="r_a0da672f0e37694d62b7a7c55bebd2526"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_base64_8h.html#a0da672f0e37694d62b7a7c55bebd2526">Cpl::Text::Encoding::base64Decode</a> (const char *encodedTextSrc, size_t encodedTextSrcLen, void *dstBinary, size_t dstSize, size_t &amp;dstBinaryLen)</td></tr>
+<tr class="memitem:a0da672f0e37694d62b7a7c55bebd2526" id="r_a0da672f0e37694d62b7a7c55bebd2526"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_cpl_1_1_text_1_1_encoding.html#a0da672f0e37694d62b7a7c55bebd2526">Cpl::Text::Encoding::base64Decode</a> (const char *encodedTextSrc, size_t encodedTextSrcLen, void *dstBinary, size_t dstSize, size_t &amp;dstBinaryLen)</td></tr>
 <tr class="memdesc:a0da672f0e37694d62b7a7c55bebd2526"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method decodes a Base64 string to its binary representation.  <br /></td></tr>
 <tr class="separator:a0da672f0e37694d62b7a7c55bebd2526"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a0da672f0e37694d62b7a7c55bebd2526" name="a0da672f0e37694d62b7a7c55bebd2526"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0da672f0e37694d62b7a7c55bebd2526">&#9670;&#160;</a></span>base64Decode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Cpl::Text::Encoding::base64Decode </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>encodedTextSrc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>encodedTextSrcLen</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>dstBinary</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>dstSize</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t &amp;&#160;</td>
-          <td class="paramname"><em>dstBinaryLen</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This method decodes a Base64 string to its binary representation. </p>
-<p>The caller is required to provide the memory to hold the encoded output.</p>
-<p>The method returns true if the decoding succeeded; else false is returned (e.g. insufficient output memory) </p>
-
-</div>
-</div>
-<a id="a58f300ae69e083abf40a22c8e1242410" name="a58f300ae69e083abf40a22c8e1242410"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58f300ae69e083abf40a22c8e1242410">&#9670;&#160;</a></span>base64Encode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Cpl::Text::Encoding::base64Encode </td>
-          <td>(</td>
-          <td class="paramtype">const void *&#160;</td>
-          <td class="paramname"><em>binarySrc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>binarySrcLen</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>dstEncodedText</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>dstSize</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t &amp;&#160;</td>
-          <td class="paramname"><em>encodedOutputStringLen</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>insertMIMELineFeeds</em> = <code>false</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This method encodes the specified binary data as Base64 (standard, with padding). </p>
-<p>See <a href="https://datatracker.ietf.org/doc/html/rfc4648#section-4">https://datatracker.ietf.org/doc/html/rfc4648#section-4</a></p>
-<p>The caller is required to provide the memory to hold the encoded output.</p>
-<p>'dstSize' is ASSUMED to include space for the null terminator.</p>
-<p>When 'insertMIMELineFeeds' is true, the output has non-encoded line feeds added to the output string to restrict the output line length to 76 characters.</p>
-<p>The method returns true if the encoding succeeded; else false is returned (e.g. insufficient output memory) </p>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2024 13:49:13 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Apr 25 2024 14:55:23 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
