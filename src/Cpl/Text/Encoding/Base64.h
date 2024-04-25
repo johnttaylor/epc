@@ -12,7 +12,6 @@
 /** @file */
 
 
-#include "Cpl/Text/Frame/Encoder_.h"
 #include "Cpl/Text/String.h"
 
 
