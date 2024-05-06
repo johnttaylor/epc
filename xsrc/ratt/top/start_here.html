@@ -5326,7 +5326,7 @@ html .solidborders td {  border: 1px solid black; }</pre>
 <div modified="20141230012524223" title="$:/state/toc/Contents-Overview--242358753">
 <pre>open</pre>
 </div>
-<div list="[[Test Scripts]] [[System Requirements]] [[Recommended Conventions]] rattlib [[Command Line Usage]] Caveats Licensing Acknowledgments Overview" title="$:/StoryList">
+<div list="rattlib [[Test Scripts]] [[System Requirements]] [[Recommended Conventions]] Overview [[Command Line Usage]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20141011164829984" modified="20141020024516096" title="$:/temp/advancedsearch">
@@ -5466,8 +5466,8 @@ html .solidborders td {  border: 1px solid black; }</pre>
 ** ''end-of-line''.  The short version is use  ``\r\n`` to match for newline.  For a detailed explanation click [[here|https://pexpect.readthedocs.io/en/stable/overview.html#find-the-end-of-line-cr-lf-conventions]]
 * The pexpect package was original implemented on a Linux platform and its support for Windows is good, but not as good as on Linux.  Under Windows, pexpect does not spawn applications in a //terminal// and many Windows application only supports interactive behavior when they detects they are running in a //terminal//, i.e. they do ''not'' work with RATT/pexpect.</pre>
 </div>
-<div created="20181110164921105" modified="20230430172333135" tags="Overview" title="Command Line Usage">
-<pre>The following is snapshot of ratty.py script's command usage.  Note: this page may/can-be out of date.  To get the current supported usage, type ``ratt.py -h``
+<div created="20181110164921105" modified="20240505194205804" tags="Overview" title="Command Line Usage">
+<pre>The following is snapshot of ratt.py script's command usage.  Note: this page may/can-be out of date.  To get the current supported usage, type ``ratt.py -h``
 
 ```
 Test Tool that automates issuing actions to a Under-Under-Test (UUT)
@@ -5509,10 +5509,10 @@ Options:
 
 Examples:
     ; UUT is the executable 'my_uut.exe'
-    ratt.py --win mypath\my_utt.exe
+    ratt.py --input mysuite.py --win mypath\my_utt.exe
 
     ; UUT is a physical device connected to a Windows PC on COM4
-    ratt.py --win &quot;C:\Program Files\PuTTY\plink.exe&quot; -serial COM4 -sercfg 115200,8,1,N,N
+    ratt.py --input mysuite.py --win &quot;C:\Program Files\PuTTY\plink.exe&quot; -serial COM4 -sercfg 115200,8,1,N,N
 
     ; Run mysuite.py script with a UUT connected via TCP (on the same PC on
     ; port 5002) using Putty's plink
@@ -5574,7 +5574,7 @@ Interactive help is available for all modules in the rattlib, e.g. when running 
 
 </pre>
 </div>
-<div created="20181110180950003" modified="20230430201129398" tags="Overview" title="Recommended Conventions">
+<div created="20181110180950003" modified="20240505210646244" tags="Overview" title="Recommended Conventions">
 <pre>Other than the requirements for the top level input script (aka ``--input TSFILE``) the RATT tool does not impose any requirements/conventions of the content of the test scripts.  That said below are recommended conventions for your test scripts.
 
 //''Note:'' the rattlib.man() module assumes these conventions are followed//
@@ -5582,7 +5582,7 @@ Interactive help is available for all modules in the rattlib, e.g. when running 
 ''Test Suites''
 
 * Test Suite files (``i.e. the TSFILE``) shall contain a method named ``main()`` that returns a positive integer where zero indicates pass; greater than 0 indicates failure.  Note: the ``main()`` method can ''not'' take any arguments
-* Have a naming convention for Test Suite files that identify the file as a Test Suite
+* Have a naming convention for Test Suite files that identify the file as a Test Suite 
 * Test Suite files should be limited to running one or more Test Case files.  For example:
 &lt;&lt;&lt;
 ```
@@ -5662,7 +5662,7 @@ def run():
 * Script output
 ** Use the ``rattlib.output.writeline()`` method for outputting errors.
 ** Use the ``rattlib.output.write_entry()`` and ``rattlib.output.write_exit()``methods to //record// the entry and exit of the ``main()`` and ``run()`` methods in all of the script files.
-** Use the ``ratllib.output.writeline_verbose()`` and ``ratllib.output.write_verbose()`` methods to output status/trace information.
+** Use the ``rattlib.output.writeline_verbose()`` and ``rattlib.output.write_verbose()`` methods to output status/trace information.
 ** Use the ``ratllib.output.writeline_debug()`` and ``ratllib.output.write_debug()`` methods to output detailed debugging information.
 
 * Comments/Documentation
