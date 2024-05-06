@@ -28,15 +28,9 @@ def main():
         passcode = config.g_failed
 
 
-    # Test Basic Heating
-    if ( passcode == config.g_passed ):
-         tc = std.load("tc_basic_heating")
-         passcode = config.g_failed if tc == None else tc.run()
-
-    ## Test Heating Alerts
-    #if ( passcode == config.g_passed ):
-    #     tc = std.load("tc_heating_alerts")
-    #     passcode = config.g_failed if tc == None else tc.run()
+    # Tests...
+    passcode = std.run("tc_basic_heating", passcode )
+    #passcode = std.run("tc_heating_alerts", passcode )  # TODO: Implement this test case
 
     # Cleanly Exit the UUT
     uut.cli("bye app")

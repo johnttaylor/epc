@@ -4,7 +4,7 @@ from __future__ import absolute_import
 from __future__ import print_function
 import os
 import sys
-import imp
+import importlib
 from time import strftime
 import config
 import subprocess
@@ -55,7 +55,8 @@ def import_code(code, name):
 
     # Load the 'code' into the memory
     try:
-        module = imp.new_module(name)
+        spec   = importlib.machinery.ModuleSpec(name, None)
+        module = importlib.util.module_from_spec(spec)
         config.g_utils_import_dictionary[name] = module
         exec(code, module.__dict__)
         return module
