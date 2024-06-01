@@ -23,7 +23,7 @@ MpAlert::MpAlert( Cpl::Dm::ModelDatabase& myModelBase,
                   Ajax::Type::Alert       alertIdentifer,
                   uint8_t                 priority )
     : ModelPointCommon_( myModelBase, symbolicName, &m_data, sizeof( m_data ), false )
-    , m_data( { alertIdentifer, priority } )
+    , m_data( alertIdentifer, priority )
 {
 }
 
