@@ -16,7 +16,9 @@
 #include "Cpl/Dm/SubscriberComposer.h"
 #include "Cpl/Itc/CloseSync.h"
 #include "Cpl/Text/FString.h"
+#include "Cpl/Text/format.h"
 #include "Cpl/Math/real.h"
+#include "Cpl/System/Trace.h"
 
 template< class MPTYPE, class ELEMTYPE>
 class Viewer : public Cpl::Itc::CloseSync
@@ -65,10 +67,19 @@ public:
         {
             ELEMTYPE elem;
             REQUIRE( modelPointThatChanged.readAndSync( elem, clientObserver ) );
+            displayElement( "new", elem );
+            displayElement( "exp", m_elemValue );
             REQUIRE( memcmp( &elem, &m_elemValue, sizeof(ELEMTYPE) ) == 0 );
 
             m_masterThread.signal();
         }
+    }
+
+    void displayElement( const char* label, ELEMTYPE& elem )
+    {
+        Cpl::Text::FString<256> tmp;
+        Cpl::Text::bufferToAsciiHex( &elem, sizeof(ELEMTYPE), tmp );
+        CPL_SYSTEM_TRACE_MSG( "_0test", ("%s:%s", label, tmp.getString()) );
     }
 };
 
