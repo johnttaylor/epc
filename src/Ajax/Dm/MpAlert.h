@@ -74,6 +74,12 @@ public:
             this->name     = alertName;
             this->priority = priority;
         }
+
+        /// Constructor (to ensure any pad bytes get zero'd)
+        Data( Data& other )
+        {
+            memcpy( (void*) this, &other, sizeof( Data ) );
+        }
     };
 
 protected:
