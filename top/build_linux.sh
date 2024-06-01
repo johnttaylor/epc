@@ -12,9 +12,8 @@ set -e
 source ./env.sh default
 
 # Build all test linux projects (only 64bit versions)
-# TODO: Currently building debug versions -->For non-debug builds - warnings are generated when using gcc 12 -->FIXME!
 pushd tests
-$NQBP_BIN/other/bob.py -v4 linux  -gb posix64 --bldtime --bldnum $1
+$NQBP_BIN/other/bob.py -v4 linux  -b posix64 --bldtime --bldnum $1
 
 # Run unit tests 
 $NQBP_BIN/other/chuck.py -v --match a.out --dir _posix64
@@ -26,5 +25,5 @@ $NQBP_BIN/other/chuck.py -v --match aa.py --dir _posix64
 # TODO: See above issue with GCC 12 -->FIXME!
 popd
 pushd projects
-$NQBP_BIN/other/bob.py -v4 linux  -gb posix64 --bldtime --bldnum $1
+$NQBP_BIN/other/bob.py -v4 linux  -b posix64 --bldtime --bldnum $1
 
