@@ -1,6 +1,6 @@
 """ Test Case: 
 
-    TBD
+    Executes a simplified heating algorithm and sensor failure tests
 
     Pre-Conditions:  The Mocked UUT must be running and provisioned and user settings have been defaulted
 

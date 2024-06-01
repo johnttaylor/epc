@@ -1,6 +1,6 @@
 """ Test Case: 
 
-    TBD
+    Exercises the heating algorithm and validates the FLC is reacting as expected
 
     Pre-Conditions:  The Mocked UUT must be running and provisioned
 

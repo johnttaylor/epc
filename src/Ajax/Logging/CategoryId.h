@@ -14,7 +14,7 @@
 
 
 #include "Cpl/Type/enum.h"
-
+#include <stdint.h>
 
 
 
