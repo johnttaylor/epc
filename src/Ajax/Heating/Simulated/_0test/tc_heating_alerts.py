@@ -1,6 +1,6 @@
 """ Test Case: 
 
-    TBD
+    Exercises the IDT and Safety Limit Alerts
 
     Pre-Conditions:  The Mocked UUT must be running and provisioned
 
