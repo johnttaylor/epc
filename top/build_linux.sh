@@ -6,7 +6,7 @@ set -e
 # The script ASSUMES that the working directory is the package root
 #
 # usage: build_linux.sh <bldnum>
-#
+# 
 
 # setup the environment
 source ./env.sh default
