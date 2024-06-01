@@ -48,9 +48,9 @@ void dump( Cpl::Text::String& dst, const JsonVariant &variant, int nesting )
     {
         dump( dst, variant.as<double>(), nesting );
     }
-    else if ( variant.is<char *>() )
+    else if ( variant.is<const char *>() )
     {
-        dump( dst, variant.as<char *>(), nesting );
+        dump( dst, variant.as<const char *>(), nesting );
     }
     else if ( variant.is<JsonObject>() )
     {

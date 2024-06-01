@@ -23,7 +23,7 @@ DriverCryptoStatus_T Driver::Crypto::generateRandom( void* dstBuffer, size_t num
         return 1;
     }
 
-    fread( dstBuffer, 1, numBytesToGenerate, f );
+    size_t written = fread( dstBuffer, 1, numBytesToGenerate, f );
     fclose( f );
-    return DRIVER_CRYPTO_SUCCESS;
+    return written == numBytesToGenerate? DRIVER_CRYPTO_SUCCESS: 1;
 }
