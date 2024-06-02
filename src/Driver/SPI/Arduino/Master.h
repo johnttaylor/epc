@@ -18,8 +18,7 @@
 #include "SPI.h"        // Arduino SPI module
 #include <stdint.h>
 
-/** Maximum buffer size for an output only transfer.  The buffer 
-    is allocated on the stack - so be CAREFUL on its size
+/** Maximum buffer size for an output only transfer. 
  */
 #ifndef OPTION_DRIVER_SPI_ARDUINO_OUTPUT_ONLY_BUF_SIZE
 #define OPTION_DRIVER_SPI_ARDUINO_OUTPUT_ONLY_BUF_SIZE   16
