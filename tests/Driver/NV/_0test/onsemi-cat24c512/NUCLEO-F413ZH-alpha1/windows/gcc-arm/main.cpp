@@ -39,7 +39,7 @@ protected:
 
 /* NOTE: The way FreeRTOS start the 'first' task - corrupts the raw main
          stack -->this means we cannot allocate anything on the raw main
-         stack and expect it to stay in scope for duration of the applicatoin
+         stack and expect it to stay in scope for duration of the application
 */
 static ThreadMain runnable_;
 
