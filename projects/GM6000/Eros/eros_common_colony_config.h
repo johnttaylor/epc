@@ -24,4 +24,7 @@
 #define OPTION_CPL_DM_MODEL_DATABASE_MAX_CAPACITY_JSON_DOC  (4*1024)
 #define OPTION_CPL_DM_MODEL_DATABASE_TEMP_STORAGE_SIZE      (4*1024)
 
+// Because this is a test application -->make the debug console the highest 
+// priority (so we can 'cheat' on threading issues with the Eros TShell commands)
+#define OPTION_AJAX_MAIN_THREAD_PRIORITY_CONSOLE     CPL_SYSTEM_THREAD_PRIORITY_HIGHEST
 #endif
