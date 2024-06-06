@@ -30,6 +30,15 @@ namespace STM32 {
 
     NOTE: Currently (8/2023) the 'noStop' semantics of the write/read methods
           is NOT supported.
+
+    NOTE: The driver is not thread safe.  The application must ensure that
+          only one thread is accessing the driver at a time.
+
+    TODO: The driver intermittently fails when the application is writing large 
+          amounts of data (>16K ish) and a thread switch occurs (and no it is
+          not because other thread attempts to access the driver).  The 
+          recommendation is to re-factor the driver to be interrupt based 
+          instead of using the STM32 HAL 'polling' model.
  */
 class Master : public Driver::I2C::Master
 {

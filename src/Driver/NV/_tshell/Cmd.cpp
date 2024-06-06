@@ -86,8 +86,16 @@ Cpl::TShell::Command::Result_T Cmd::execute( Cpl::TShell::Context_& context, cha
             return Command::eERROR_INVALID_ARGS;
         }
 
+        // Get a temporary buffer for the binary data (and make sure it is not too big to convert to ASCII HEX)
         int   bufLen;
         char* tmpBuf = context.getTokenBuffer().getBuffer( bufLen );
+        int   maxBufLen = outtext.maxLength() / 3;
+        if ( bufLen > maxBufLen )
+        {
+            bufLen = maxBufLen;
+        }
+
+        // Read the request bytes (in chunks)
         while ( numBytes )
         {
             unsigned bytesToRead = numBytes > (unsigned) bufLen ? (unsigned) bufLen : numBytes;

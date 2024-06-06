@@ -16,6 +16,7 @@
 #include "Cpl/Text/Tokenizer/Basic.h"
 #include "Cpl/Text/FString.h"
 #include "Cpl/System/Mutex.h"
+#include "Cpl/System/Assert.h"
 #include <memory.h>
 
 
@@ -97,6 +98,7 @@ static ButtonFrameHandler* rxFrameHandler_;
 
 void driverButtonHalTPipe_initialize( Cpl::Container::Map<Driver::TPipe::RxFrameHandlerApi>& tpipeRxFrameHandlerList )
 {
+    CPL_SYSTEM_ASSERT( rxFrameHandler_ == nullptr ); // Only call this function once
     rxFrameHandler_ = new(std::nothrow) ButtonFrameHandler( tpipeRxFrameHandlerList );
 }
 
