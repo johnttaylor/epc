@@ -1,7 +1,9 @@
 <map id="Ajax/Logging/AlertMsg.h" name="Ajax/Logging/AlertMsg.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,168,31"/>
-<area shape="rect" id="Node000002" href="$enum_8h_source.html" title=" " alt="" coords="27,79,146,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,31,89,63,84,63,84,31"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="32,153,141,178"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,105,89,137,84,137,84,105"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="41,5,203,31"/>
+<area shape="rect" id="Node000002" href="$enum_8h_source.html" title=" " alt="" coords="5,79,124,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,33,86,68,82,65,110,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="148,79,211,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="133,30,162,65,158,68,129,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="10,153,119,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="67,105,67,137,62,137,62,105"/>
 </map>

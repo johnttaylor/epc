@@ -63,7 +63,9 @@
  <a href="class_driver_1_1_i2_c_1_1_s_t_m32_1_1_master.html#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class implements the <a class="el" href="namespace_driver_1_1_i2_c.html" title="The &#39;I2C&#39; namespace defines a platform independent interface for a I2C bus.">I2C</a> interface for the <a class="el" href="namespace_driver_1_1_i2_c_1_1_s_t_m32.html" title="The &#39;STM32&#39; namespace implements the I2C interfaces for the STM32 family of microcontrollers.">STM32</a> family of micro-controller using the ST's MX Cube/IDE to configure the <a class="el" href="namespace_driver_1_1_s_p_i.html" title="The &#39;SPI&#39; namespace defines a platform independent interface SPI drivers.">SPI</a> peripherals and IO pins. </p>
-<p>NOTE: Currently (8/2023) the 'noStop' semantics of the write/read methods is NOT supported. </p>
+<p>NOTE: Currently (8/2023) the 'noStop' semantics of the write/read methods is NOT supported.</p>
+<p>NOTE: The driver is not thread safe. The application must ensure that only one thread is accessing the driver at a time.</p>
+<p>TODO: The driver intermittently fails when the application is writing large amounts of data (&gt;16K ish) and a thread switch occurs (and no it is not because other thread attempts to access the driver). The recommendation is to re-factor the driver to be interrupt based instead of using the <a class="el" href="namespace_driver_1_1_i2_c_1_1_s_t_m32.html" title="The &#39;STM32&#39; namespace implements the I2C interfaces for the STM32 family of microcontrollers.">STM32</a> HAL 'polling' model. </p>
 </div>
 <p><code>#include &lt;<a class="el" href="_i2_c_2_s_t_m32_2_master_8h_source.html">Master.h</a>&gt;</code></p>
 <div class="dynheader">
@@ -474,7 +476,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 25 2024 14:55:25 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Jun 6 2024 12:58:27 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

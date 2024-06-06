@@ -67,37 +67,38 @@
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">/** @file */</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;Cpl/Type/enum.h&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"></span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">///</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_ajax.html">Ajax</a> {<span class="comment"></span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">///</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"></span><span class="keyword">namespace </span>Logging {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"></span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">/** This enumeration defines Logging message code for the METRICS category</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"></span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">        Note: Each error code symbol must be less than 32 characters</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">           123456789 123456789 12345678 12</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"></span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">    @param MetricsMsg                       Enum</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"></span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">    @param POWER_ON                         The MCU was powered and/or was reset</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">    @param SHUTDOWN                         An orderly shutdown of the application was initiated</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="namespace_ajax_1_1_logging.html#add45071486afeb4caa0327716ec906e9">   32</a></span><a class="code hl_function" href="namespace_ajax_1_1_logging.html#a7ff7a87340b6b449f8f80521fae8b1a2">BETTER_ENUM</a>( MetricsMsg, uint16_t</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>             , POWER_ON</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>             , SHUTDOWN</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"></span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">///</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_ajax.html">Ajax</a> {<span class="comment"></span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">///</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"></span><span class="keyword">namespace </span>Logging {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"></span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/** This enumeration defines Logging message code for the METRICS category</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"></span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">        Note: Each error code symbol must be less than 32 characters</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">           123456789 123456789 12345678 12</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"></span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">    @param MetricsMsg                       Enum</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"></span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">    @param POWER_ON                         The MCU was powered and/or was reset</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">    @param SHUTDOWN                         An orderly shutdown of the application was initiated</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="namespace_ajax_1_1_logging.html#add45071486afeb4caa0327716ec906e9">   33</a></span><a class="code hl_function" href="namespace_ajax_1_1_logging.html#a7ff7a87340b6b449f8f80521fae8b1a2">BETTER_ENUM</a>( MetricsMsg, uint16_t</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>             , POWER_ON</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>             , SHUTDOWN</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>);</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};      <span class="comment">// end namespaces</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#endif  </span><span class="comment">// end header latch</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};      <span class="comment">// end namespaces</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#endif  </span><span class="comment">// end header latch</span></div>
 <div class="ttc" id="anamespace_ajax_1_1_logging_html_a7ff7a87340b6b449f8f80521fae8b1a2"><div class="ttname"><a href="namespace_ajax_1_1_logging.html#a7ff7a87340b6b449f8f80521fae8b1a2">Ajax::Logging::BETTER_ENUM</a></div><div class="ttdeci">BETTER_ENUM(AlertMsg, uint16_t, FAILED_SAFE, NO_TEMPERATURE_SENSOR)</div><div class="ttdoc">This enumeration defines Logging message code for the Alert category.</div></div>
 <div class="ttc" id="anamespace_ajax_html"><div class="ttname"><a href="namespace_ajax.html">Ajax</a></div><div class="ttdoc">The 'Ajax' namespace is the root name space all GM6000 application specific source code.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 25 2024 14:55:21 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Jun 6 2024 12:58:24 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
