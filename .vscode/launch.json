@@ -1,0 +1,23 @@
+{
+  "configurations": [
+    {
+      "name": "NQBP2: C:\\_workspaces\\zoe\\epc\\tests\\Cpl\\Checksum\\_0test\\windows\\mingw_w64\\_win32\\a.exe",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "C:\\_workspaces\\zoe\\epc\\tests\\Cpl\\Checksum\\_0test\\windows\\mingw_w64\\_win32\\a.exe",
+      "args": [],
+      "environment": [],
+      "stopAtEntry": false,
+      "cwd": "C:\\_workspaces\\zoe\\epc\\tests\\Cpl\\Checksum\\_0test\\windows\\mingw_w64",
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

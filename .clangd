@@ -1,0 +1,22 @@
+CompileFlags:
+    Add:
+        [
+            -Wno-c99-designator,
+            -Wno-c++98-compat,
+            -Wno-c++98-compat-pedantic,
+            -Wno-c++20-compat,
+            -Wno-c++20-designator,
+            -Wno-covered-switch-default,
+            -Wno-newline-eof,
+            -Wno-padded
+        ]
+Hover:
+    ShowAKA: true
+InlayHints:
+    Enabled: true
+    ParameterNames: true
+    DeducedTypes: true
+Diagnostics:
+    UnusedIncludes: Strict
+
+

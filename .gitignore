@@ -1,3 +1,6 @@
+# execlude VSCode project specific compiler flags
+compile_flags.txt
+
 # Compiled Object files
 *.slo
 *.lo
