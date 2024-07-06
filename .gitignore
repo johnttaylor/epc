@@ -1,5 +1,6 @@
 # execlude VSCode project specific compiler flags
 compile_flags.txt
+.vscode/
 
 # Compiled Object files
 *.slo
@@ -39,17 +40,6 @@ compile_flags.txt
 # e2studio junk
 .metadata
 
-# more stuff
-make.log
-*.gcda
-*.gcno
-*.idb
-*.pdb
-*.ilk
-*.lst
-*.map
-*.jdebug.user
-*.nvram
 
 myMediaFile
 _compiler_.txt

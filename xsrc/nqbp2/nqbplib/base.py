@@ -603,7 +603,25 @@ class ToolChain:
     
     #--------------------------------------------------------------------------
     def _create_vs_gdbentry(self):
-        launchf = os.path.join( NQBP_PKG_ROOT(), ".vscode", "launch.json" )
+        vsdir   = os.path.join( NQBP_PKG_ROOT(), ".vscode" )
+        launchf = os.path.join( vsdir, "launch.json" )
+        
+        # Create .vscode directory if it does not exist
+        if ( not os.path.exists(vsdir) ):
+            try:
+                os.makedirs(vsdir)
+            except:
+                pass
+            
+        # Create launch.json file if it does not exist
+        if ( not os.path.isfile(launchf) ):
+            launchjson = {}
+            launchjson['configurations'] = []
+            with open(launchf,'w') as fd:
+                json.dump(launchjson,fd, indent=2)
+            self._printer.output( f"Created empty {launchf} file")
+            
+        # Load the launch.json file
         try:
             jsondict = self._load_json_file( launchf )
         except Exception as e:                    

@@ -102,26 +102,26 @@
           "type": "git",
           "origin": "https://github.com/johnttaylor"
         }
-      }
-    ],
-    "weak": [
+      },
       {
         "pkgname": "catch",
         "pkgtype": "overlay",
         "virtualAdoption": false,
-        "adoptedDate": "Sat Jun 17 22:07:10 2023",
+        "adoptedDate": "Sat Jul  6 17:00:43 2024",
         "parentDir": null,
         "version": {
-          "semanticVersion": "2.13.7c",
+          "semanticVersion": "2.13.7e",
           "branch": null,
-          "tag": "OUTCAST2-main-2.13.7c"
+          "tag": "OUTCAST2-main-2.13.7e"
         },
         "repo": {
           "name": "catch",
           "type": "git",
           "origin": "https://github.com/johnttaylor"
         }
-      },
+      }
+    ],
+    "weak": [
       {
         "pkgname": "nqbp2",
         "pkgtype": "readonly",
