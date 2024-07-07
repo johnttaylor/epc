@@ -84,6 +84,17 @@ class ToolChain( base.ToolChain ):
         self._debug_release.linklibs  = 'libcmtd.lib'
 
     #-----------------------------------------------------
+    def _translate_cc_for_clang(self, ccopts):
+        # Convert /D to -D
+        newopts = []
+        for o in ccopts:
+            if o.startswith("/D"):
+                o = o.replace("/D", "-D", 1)
+            newopts.append(o)
+
+        return newopts
+
+    #-----------------------------------------------------
     def _build_compile_rule( self ):
         self._vs_build_compile_rule()
 

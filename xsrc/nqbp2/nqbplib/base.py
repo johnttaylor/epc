@@ -152,7 +152,7 @@ class ToolChain:
         #self._clean_ext_dirs = []
         #self._clean_abs_dirs = []
         # Retain cleaning NQBP classic derived directories -->help cleaning up when transition from classic to NQBP2
-        self._clean_pkg_dirs = [ 'src' ]
+        self._clean_pkg_dirs = [ 'src', '__pycache__' ]
         self._clean_ext_dirs = [ NQBP_WRKPKGS_DIRNAME() ]
         self._clean_abs_dirs = [ '__abs' ]
 
@@ -547,6 +547,9 @@ class ToolChain:
     #==========================================================================
     
     #--------------------------------------------------------------------------
+    def _translate_cc_for_clang(self, l):
+        return l # Default is GCC compiler -->nothing needed
+    
     def _create_clangd_file( self ):
         inclist = self._tokenize_includes( self._all_opts.inc )
         optlist = self._tokenize_copts( self._all_opts.cflags + ' ' + self._all_opts.cppflags + self._all_opts.c_only_flags)
@@ -587,6 +590,9 @@ class ToolChain:
             e = self._compiler_option_delimiter + i.strip()
             l.append(e)               
 
+        # Hook to 'convert' non-gcc-like args to something clang understand
+        l = self._translate_cc_for_clang(l)
+        
         # Add clang specific options
         l.extend(self._all_opts.include_clangd)
         

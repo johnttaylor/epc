@@ -102,7 +102,6 @@ protected:
 
     /// Flag that indicates the state of offsets
     bool      m_validLatest;
-
 };
 
 

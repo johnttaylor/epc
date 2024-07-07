@@ -23,13 +23,27 @@
   },
   "publish": {
     "current": {
-      "comment": "1. Update genfsm to the sinelabore 6.02. 2. Update the test coverage script to filter out conditional compiled items such as TRACE and ASSERT",
-      "version": "0.1.5",
-      "date": "Sat Jun 17 19:58:44 2023",
-      "timestamp": 1687031924,
+      "comment": "Add initial support for VSCode clang-intellisense and GDB debugging",
+      "version": "0.1.7",
+      "date": "Sun Jul  7 22:30:31 2024",
+      "timestamp": 1720391431,
       "changes": null
     },
     "history": [
+      {
+        "comment": "Updates from work done in the epc repo/book",
+        "version": "0.1.5",
+        "date": "Thu Jun  6 19:43:11 2024",
+        "timestamp": 1717702991,
+        "changes": null
+      },
+      {
+        "comment": "1. Update genfsm to the sinelabore 6.02. 2. Update the test coverage script to filter out conditional compiled items such as TRACE and ASSERT",
+        "version": "0.1.5",
+        "date": "Sat Jun 17 19:58:44 2023",
+        "timestamp": 1687031924,
+        "changes": null
+      },
       {
         "comment": "Add some support the 'ratt' test tool",
         "version": "0.1.4",

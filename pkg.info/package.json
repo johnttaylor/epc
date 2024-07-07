@@ -53,23 +53,6 @@
         }
       },
       {
-        "pkgname": "colony.core",
-        "pkgtype": "overlay",
-        "virtualAdoption": false,
-        "adoptedDate": "Sun Jun 18 20:08:37 2023",
-        "parentDir": null,
-        "version": {
-          "semanticVersion": "4.4.0",
-          "branch": null,
-          "tag": "OUTCAST2-main-4.4.1"
-        },
-        "repo": {
-          "name": "colony.core",
-          "type": "git",
-          "origin": "https://github.com/johnttaylor"
-        }
-      },
-      {
         "pkgname": "pimoroni",
         "pkgtype": "readonly",
         "virtualAdoption": false,
@@ -107,7 +90,7 @@
         "pkgname": "catch",
         "pkgtype": "overlay",
         "virtualAdoption": false,
-        "adoptedDate": "Sat Jul  6 17:00:43 2024",
+        "adoptedDate": "Sat Jul  6 17:39:45 2024",
         "parentDir": null,
         "version": {
           "semanticVersion": "2.13.7e",
@@ -119,26 +102,26 @@
           "type": "git",
           "origin": "https://github.com/johnttaylor"
         }
-      }
-    ],
-    "weak": [
+      },
       {
-        "pkgname": "nqbp2",
-        "pkgtype": "readonly",
+        "pkgname": "colony.core",
+        "pkgtype": "overlay",
         "virtualAdoption": false,
-        "adoptedDate": "Sat Jun 17 22:15:22 2023",
-        "parentDir": "xsrc",
+        "adoptedDate": "Sun Jul  7 22:44:18 2024",
+        "parentDir": null,
         "version": {
-          "semanticVersion": "0.1.5",
+          "semanticVersion": "4.4.3",
           "branch": null,
-          "tag": "OUTCAST2-main-0.1.5"
+          "tag": "OUTCAST2-main-4.4.2"
         },
         "repo": {
-          "name": "nqbp2",
+          "name": "colony.core",
           "type": "git",
           "origin": "https://github.com/johnttaylor"
         }
-      },
+      }
+    ],
+    "weak": [
       {
         "pkgname": "stm32-gcc-arm",
         "pkgtype": "readonly",
@@ -169,6 +152,23 @@
         },
         "repo": {
           "name": "ratt",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      },
+      {
+        "pkgname": "nqbp2",
+        "pkgtype": "readonly",
+        "virtualAdoption": false,
+        "adoptedDate": "Sun Jul  7 22:42:20 2024",
+        "parentDir": "xsrc",
+        "version": {
+          "semanticVersion": "0.1.7",
+          "branch": null,
+          "tag": "OUTCAST2-main-0.1.7"
+        },
+        "repo": {
+          "name": "nqbp2",
           "type": "git",
           "origin": "https://github.com/johnttaylor"
         }

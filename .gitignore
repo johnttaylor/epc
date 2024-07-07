@@ -1,5 +1,3 @@
-# execlude VSCode project specific compiler flags
-compile_flags.txt
 .vscode/
 
 # Compiled Object files
@@ -40,9 +38,18 @@ compile_flags.txt
 # e2studio junk
 .metadata
 
-
 myMediaFile
 _compiler_.txt
+
+# ignore Visual Studio stuffs
+.vscode
+compile_flags.txt
+.cmake
+.vs
+Debug
+x64
+Release
 *.vcxproj.user
 .vs/
+
 _artifacts/
