@@ -1,14 +1,6 @@
 CompileFlags:
     Add:
         [
-            -Wno-c99-designator,
-            -Wno-c++98-compat,
-            -Wno-c++98-compat-pedantic,
-            -Wno-c++20-compat,
-            -Wno-c++20-designator,
-            -Wno-covered-switch-default,
-            -Wno-newline-eof,
-            -Wno-padded
         ]
 Hover:
     ShowAKA: true
@@ -17,6 +9,15 @@ InlayHints:
     ParameterNames: true
     DeducedTypes: true
 Diagnostics:
-    UnusedIncludes: Strict
+    Suppress: [
+        member_function_call_bad_type, 
+        ovl_no_viable_subscript, 
+        typecheck_field_variable_size, 
+        lvalue_reference_bind_to_unrelated, 
+        ovl_no_viable_function_in_call,
+        init_conversion_failed
+        ]
+    
+    
 
 
