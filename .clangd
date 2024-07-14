@@ -1,0 +1,23 @@
+CompileFlags:
+    Add:
+        [
+        ]
+Hover:
+    ShowAKA: true
+InlayHints:
+    Enabled: true
+    ParameterNames: true
+    DeducedTypes: true
+Diagnostics:
+    Suppress: [
+        member_function_call_bad_type, 
+        ovl_no_viable_subscript, 
+        typecheck_field_variable_size, 
+        lvalue_reference_bind_to_unrelated, 
+        ovl_no_viable_function_in_call,
+        init_conversion_failed
+        ]
+    
+    
+
+

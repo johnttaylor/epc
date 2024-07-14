@@ -10,6 +10,16 @@ _stm32/
 _arduino/
 ratt.log*
 
+# more stuff
+make.log
+*.gcda
+*.gcno
+*.idb
+*.pdb
+*.ilk
+*.lst
+*.map
+
 # visual studio
 *.exe
 *.ilk

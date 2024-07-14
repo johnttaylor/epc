@@ -1,0 +1,23 @@
+{
+  "configurations": [
+    {
+      "name": "NQBP2: C:\\_workspaces\\zoe\\epc\\projects\\GM6000\\Ajax\\simulator\\windows\\mingw_w64\\_win32\\ajax-sim.exe",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "C:\\_workspaces\\zoe\\epc\\projects\\GM6000\\Ajax\\simulator\\windows\\mingw_w64\\_win32\\ajax-sim.exe",
+      "args": [],
+      "environment": [],
+      "stopAtEntry": false,
+      "cwd": "C:\\_workspaces\\zoe\\epc\\projects\\GM6000\\Ajax\\simulator\\windows\\mingw_w64",
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
