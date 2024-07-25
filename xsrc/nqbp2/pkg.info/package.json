@@ -23,13 +23,20 @@
   },
   "publish": {
     "current": {
-      "comment": "Add initial support for VSCode clang-intellisense and GDB debugging",
-      "version": "0.1.7",
-      "date": "Sun Jul  7 22:30:31 2024",
-      "timestamp": 1720391431,
+      "comment": "Add more VSCode support",
+      "version": "0.1.8",
+      "date": "Thu Jul 25 21:14:17 2024",
+      "timestamp": 1721942057,
       "changes": null
     },
     "history": [
+      {
+        "comment": "Add initial support for VSCode clang-intellisense and GDB debugging",
+        "version": "0.1.7",
+        "date": "Sun Jul  7 22:30:31 2024",
+        "timestamp": 1720391431,
+        "changes": null
+      },
       {
         "comment": "Updates from work done in the epc repo/book",
         "version": "0.1.5",

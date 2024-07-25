@@ -198,7 +198,9 @@ def do_build( printer, toolchain, arguments, variant ):
         toolchain.pre_build( variant, arguments )
 
         # Output start banner
-        if ( arguments['--qry-dirs'] == False ):
+        if ( arguments['--qry-dirs'] == False 
+            and arguments['--qry-dirs2'] == False 
+            and arguments['--vsjson'] == False ):
             start_banner(printer, toolchain)
          
         # Spit out handy-dandy debug info
@@ -257,10 +259,11 @@ def do_build( printer, toolchain, arguments, variant ):
         ninja_file.close()
         
         if ( arguments['--vsjson'] ):
-            ncmd   = f"ninja -t compdb > {os.path.join(NQBP_PKG_ROOT(),"compile_commands.json")}"
-            vardir = "_" + arguments['-b']
+            ofile  = os.path.join(NQBP_PKG_ROOT(),'compile_commands.json')
+            ncmd   = f"ninja -t compdb > {ofile}"
             utils.run_shell2( ncmd, True, "ERROR: Generation of the compile_command.sjon failed." )
-            sys.exit()
+            printer.output(f"File: {ofile} generated.")
+            return
 
         # Run ninja
         ninja_opts = ''
