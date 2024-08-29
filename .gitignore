@@ -1,5 +1,6 @@
 .__remote_snapshot__/
 .vscode/
+.cache/
 
 # Compiled Object files
 *.slo
