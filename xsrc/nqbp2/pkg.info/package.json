@@ -23,13 +23,20 @@
   },
   "publish": {
     "current": {
-      "comment": "Add more VSCode support",
-      "version": "0.1.8",
-      "date": "Thu Jul 25 21:14:17 2024",
-      "timestamp": 1721942057,
+      "comment": "Minor tweaks to vscode support",
+      "version": "0.1.9",
+      "date": "Mon Sep  2 20:55:47 2024",
+      "timestamp": 1725310547,
       "changes": null
     },
     "history": [
+      {
+        "comment": "Add more VSCode support",
+        "version": "0.1.8",
+        "date": "Thu Jul 25 21:14:17 2024",
+        "timestamp": 1721942057,
+        "changes": null
+      },
       {
         "comment": "Add initial support for VSCode clang-intellisense and GDB debugging",
         "version": "0.1.7",
