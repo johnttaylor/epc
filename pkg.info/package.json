@@ -53,23 +53,6 @@
         }
       },
       {
-        "pkgname": "colony.core",
-        "pkgtype": "overlay",
-        "virtualAdoption": false,
-        "adoptedDate": "Sun Jun 18 20:08:37 2023",
-        "parentDir": null,
-        "version": {
-          "semanticVersion": "4.4.0",
-          "branch": null,
-          "tag": "OUTCAST2-main-4.4.1"
-        },
-        "repo": {
-          "name": "colony.core",
-          "type": "git",
-          "origin": "https://github.com/johnttaylor"
-        }
-      },
-      {
         "pkgname": "pimoroni",
         "pkgtype": "readonly",
         "virtualAdoption": false,
@@ -102,19 +85,17 @@
           "type": "git",
           "origin": "https://github.com/johnttaylor"
         }
-      }
-    ],
-    "weak": [
+      },
       {
         "pkgname": "catch",
         "pkgtype": "overlay",
         "virtualAdoption": false,
-        "adoptedDate": "Sat Jun 17 22:07:10 2023",
+        "adoptedDate": "Sat Jul  6 17:39:45 2024",
         "parentDir": null,
         "version": {
-          "semanticVersion": "2.13.7c",
+          "semanticVersion": "2.13.7e",
           "branch": null,
-          "tag": "OUTCAST2-main-2.13.7c"
+          "tag": "OUTCAST2-main-2.13.7e"
         },
         "repo": {
           "name": "catch",
@@ -123,22 +104,24 @@
         }
       },
       {
-        "pkgname": "nqbp2",
-        "pkgtype": "readonly",
+        "pkgname": "colony.core",
+        "pkgtype": "overlay",
         "virtualAdoption": false,
-        "adoptedDate": "Sat Jun 17 22:15:22 2023",
-        "parentDir": "xsrc",
+        "adoptedDate": "Sun Sep  8 15:31:00 2024",
+        "parentDir": null,
         "version": {
-          "semanticVersion": "0.1.5",
+          "semanticVersion": "4.4.3",
           "branch": null,
-          "tag": "OUTCAST2-main-0.1.5"
+          "tag": "OUTCAST2-main-4.4.3"
         },
         "repo": {
-          "name": "nqbp2",
+          "name": "colony.core",
           "type": "git",
           "origin": "https://github.com/johnttaylor"
         }
-      },
+      }
+    ],
+    "weak": [
       {
         "pkgname": "stm32-gcc-arm",
         "pkgtype": "readonly",
@@ -160,15 +143,32 @@
         "pkgname": "ratt",
         "pkgtype": "readonly",
         "virtualAdoption": false,
-        "adoptedDate": "Mon Jun 19 12:05:27 2023",
+        "adoptedDate": "Sat Jul 20 17:53:09 2024",
         "parentDir": "xsrc",
         "version": {
-          "semanticVersion": "2.0.0",
+          "semanticVersion": "2.0.2",
           "branch": null,
-          "tag": "OUTCAST2-main-2.0.0"
+          "tag": "OUTCAST2-main-2.0.2"
         },
         "repo": {
           "name": "ratt",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      },
+      {
+        "pkgname": "nqbp2",
+        "pkgtype": "readonly",
+        "virtualAdoption": false,
+        "adoptedDate": "Sun Sep  8 15:38:02 2024",
+        "parentDir": "xsrc",
+        "version": {
+          "semanticVersion": "0.1.9",
+          "branch": null,
+          "tag": "OUTCAST2-main-0.1.9"
+        },
+        "repo": {
+          "name": "nqbp2",
           "type": "git",
           "origin": "https://github.com/johnttaylor"
         }

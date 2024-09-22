@@ -3,22 +3,6 @@
     "strong": [],
     "weak": [
       {
-        "pkgname": "catch",
-        "pkgtype": "overlay",
-        "adoptedDate": "Sun May 29 16:57:56 2022",
-        "parentDir": null,
-        "version": {
-          "semanticVersion": "2.13.7b",
-          "branch": null,
-          "tag": "OUTCAST2-main-2.13.7b"
-        },
-        "repo": {
-          "name": "catch",
-          "type": "git",
-          "origin": "https://github.com/johnttaylor"
-        }
-      },
-      {
         "pkgname": "stm32F4-sdk",
         "pkgtype": "readonly",
         "virtualAdoption": false,
@@ -90,12 +74,12 @@
         "pkgname": "ratt",
         "pkgtype": "readonly",
         "virtualAdoption": false,
-        "adoptedDate": "Sun Apr 30 22:45:38 2023",
+        "adoptedDate": "Fri Jun  7 00:01:58 2024",
         "parentDir": "xsrc",
         "version": {
-          "semanticVersion": "2.0.0",
+          "semanticVersion": "2.0.1",
           "branch": null,
-          "tag": "OUTCAST2-main-2.0.0"
+          "tag": "OUTCAST2-main-2.0.1"
         },
         "repo": {
           "name": "ratt",
@@ -104,15 +88,32 @@
         }
       },
       {
+        "pkgname": "catch",
+        "pkgtype": "overlay",
+        "virtualAdoption": false,
+        "adoptedDate": "Sun Jul  7 21:51:54 2024",
+        "parentDir": null,
+        "version": {
+          "semanticVersion": "2.13.7e",
+          "branch": null,
+          "tag": "OUTCAST2-main-2.13.7e"
+        },
+        "repo": {
+          "name": "catch",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      },
+      {
         "pkgname": "nqbp2",
         "pkgtype": "readonly",
         "virtualAdoption": false,
-        "adoptedDate": "Sun Apr 30 22:54:09 2023",
+        "adoptedDate": "Sun Jul  7 22:31:13 2024",
         "parentDir": "xsrc",
         "version": {
-          "semanticVersion": "0.1.4",
+          "semanticVersion": "0.1.7",
           "branch": null,
-          "tag": "OUTCAST2-main-0.1.4"
+          "tag": "OUTCAST2-main-0.1.7"
         },
         "repo": {
           "name": "nqbp2",
@@ -125,7 +126,7 @@
   "directories": {
     "primary": [
       "src",
-        "tests",
+      "tests",
       "scripts",
       "top"
     ],
@@ -147,13 +148,27 @@
   },
   "publish": {
     "current": {
-      "comment": "Migrate to STM32 as the default target platform",
-      "version": "4.4.0",
-      "date": "Thu Apr 27 00:10:33 2023",
-      "timestamp": 1682554233,
-      "changes": "\"- Updated to newer version of NQBP2 for STM32 toolchains\\n- Added STM32F413ZH as the 'default' target platform\\n- Added stream IO/driver for the STM32F MCU (works with/for other STM32x MCUs)\\n- Adopted the gcc toolchain for STM32 MCUs\\n- Adopted stm32 SDKs for the F4 and F7 families of MCU\\n- Deprecated the RX62N platform\\n- Move the BSP Package into the colony core (i.e. the BSP package has been deprecated)\\n- Added the 'Micro Application' framework (Cpl::MApp)\\n- Updated the freertos package to 10.4.3-LTS-Patch-1 (and added support for Seggers' SystemView)\""
+      "comment": "minor updates to the tca scripts",
+      "version": "4.4.3",
+      "date": "Sun Sep  8 15:25:28 2024",
+      "timestamp": 1725809128,
+      "changes": null
     },
     "history": [
+      {
+        "comment": "Updates from the EPC repo",
+        "version": "4.4.2",
+        "date": "Tue Jun 18 18:02:50 2024",
+        "timestamp": 1718733770,
+        "changes": null
+      },
+      {
+        "comment": "Migrate to STM32 as the default target platform",
+        "version": "4.4.0",
+        "date": "Thu Apr 27 00:10:33 2023",
+        "timestamp": 1682554233,
+        "changes": "\"- Updated to newer version of NQBP2 for STM32 toolchains\\n- Added STM32F413ZH as the 'default' target platform\\n- Added stream IO/driver for the STM32F MCU (works with/for other STM32x MCUs)\\n- Adopted the gcc toolchain for STM32 MCUs\\n- Adopted stm32 SDKs for the F4 and F7 families of MCU\\n- Deprecated the RX62N platform\\n- Move the BSP Package into the colony core (i.e. the BSP package has been deprecated)\\n- Added the 'Micro Application' framework (Cpl::MApp)\\n- Updated the freertos package to 10.4.3-LTS-Patch-1 (and added support for Seggers' SystemView)\""
+      },
       {
         "comment": "Switch to NQBP GEN2 build engine",
         "version": "4.3.4",

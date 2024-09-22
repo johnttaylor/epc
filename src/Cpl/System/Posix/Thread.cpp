@@ -151,6 +151,7 @@ Thread::Thread( Cpl::System::Runnable&   runnable,
 
     // Create the thread
     pthread_create( &m_threadHandle, &thread_attr, &entryPoint, this );
+    pthread_attr_destroy( &thread_attr );
 }
 
 Thread::~Thread()

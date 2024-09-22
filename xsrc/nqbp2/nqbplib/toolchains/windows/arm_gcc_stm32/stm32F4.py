@@ -58,6 +58,13 @@ class ToolChain( base.ToolChain ):
 
         self._base_release.asmflags     = self._base_release.cflags + ' -x assembler-with-cpp'
         self._base_release.asminc       = self._base_release.asminc + self._base_release.inc
+        self._base_release.exclude_clangd.extend(['-std=gnu11', 
+                                                  '--param max-inline-insns-single=500',
+                                                  '-mcpu=cortex-m4',
+                                                  '-mfpu=fpv4-sp-d16',
+                                                  '-mfloat-abi=hard',
+                                                  '-mthumb',
+                                                  '--specs=nano.specs'])
         
         linker_script                   = os.path.join( bsp_mx_root, linker_script )
         self._base_release.linkflags    = f' {common_flags} -T{linker_script}  -Wl,-Map={exename}.map -Wl,--gc-sections' 

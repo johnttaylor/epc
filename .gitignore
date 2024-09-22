@@ -1,3 +1,7 @@
+.__remote_snapshot__/
+.vscode/
+.cache/
+
 # Compiled Object files
 *.slo
 *.lo
@@ -36,20 +40,19 @@
 # e2studio junk
 .metadata
 
-# more stuff
-make.log
-*.gcda
-*.gcno
-*.idb
-*.pdb
-*.ilk
-*.lst
-*.map
-*.jdebug.user
-*.nvram
-
 myMediaFile
 _compiler_.txt
+
+# ignore Visual Studio stuffs
+.vscode
+compile_flags.txt
+compile_commands.json
+.cmake
+.vs
+Debug
+x64
+Release
 *.vcxproj.user
 .vs/
+
 _artifacts/
