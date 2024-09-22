@@ -107,12 +107,12 @@
         "pkgname": "colony.core",
         "pkgtype": "overlay",
         "virtualAdoption": false,
-        "adoptedDate": "Sun Jul  7 22:44:18 2024",
+        "adoptedDate": "Sun Sep  8 15:31:00 2024",
         "parentDir": null,
         "version": {
           "semanticVersion": "4.4.3",
           "branch": null,
-          "tag": "OUTCAST2-main-4.4.2"
+          "tag": "OUTCAST2-main-4.4.3"
         },
         "repo": {
           "name": "colony.core",
@@ -143,12 +143,12 @@
         "pkgname": "ratt",
         "pkgtype": "readonly",
         "virtualAdoption": false,
-        "adoptedDate": "Mon Jun 19 12:05:27 2023",
+        "adoptedDate": "Sat Jul 20 17:53:09 2024",
         "parentDir": "xsrc",
         "version": {
-          "semanticVersion": "2.0.0",
+          "semanticVersion": "2.0.2",
           "branch": null,
-          "tag": "OUTCAST2-main-2.0.0"
+          "tag": "OUTCAST2-main-2.0.2"
         },
         "repo": {
           "name": "ratt",
@@ -160,12 +160,12 @@
         "pkgname": "nqbp2",
         "pkgtype": "readonly",
         "virtualAdoption": false,
-        "adoptedDate": "Sun Jul  7 22:42:20 2024",
+        "adoptedDate": "Sun Sep  8 15:38:02 2024",
         "parentDir": "xsrc",
         "version": {
-          "semanticVersion": "0.1.7",
+          "semanticVersion": "0.1.9",
           "branch": null,
-          "tag": "OUTCAST2-main-0.1.7"
+          "tag": "OUTCAST2-main-0.1.9"
         },
         "repo": {
           "name": "nqbp2",

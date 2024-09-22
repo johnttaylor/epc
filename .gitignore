@@ -1,5 +1,6 @@
 .__remote_snapshot__/
 .vscode/
+.cache/
 
 # Compiled Object files
 *.slo
@@ -45,6 +46,7 @@ _compiler_.txt
 # ignore Visual Studio stuffs
 .vscode
 compile_flags.txt
+compile_commands.json
 .cmake
 .vs
 Debug

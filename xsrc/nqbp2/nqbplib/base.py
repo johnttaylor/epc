@@ -567,6 +567,9 @@ class ToolChain:
         self._printer.output(f"Succesfuly generated {ofile}")  
           
     def _tokenize_includes( self, inc ):
+        # Convert any -isystem to just -I
+        inc = inc.replace("-isystem ", "-I")
+
         inclist = inc.strip().split(' ')
         inclist = list(set(inclist))  # remove duplicates
         exclude = ['', '-I.', '/I.']

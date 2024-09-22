@@ -148,10 +148,10 @@
   },
   "publish": {
     "current": {
-      "comment": "Update to latest nqbp and catch packages",
+      "comment": "minor updates to the tca scripts",
       "version": "4.4.3",
-      "date": "Sun Jul  7 21:59:44 2024",
-      "timestamp": 1720389584,
+      "date": "Sun Sep  8 15:25:28 2024",
+      "timestamp": 1725809128,
       "changes": null
     },
     "history": [

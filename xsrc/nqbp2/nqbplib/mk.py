@@ -90,6 +90,9 @@ Arguments:
   --vs             VSCode: Generates a compiler_flags.txt file in the package 
                    root with the compiler arguments for intellisense (NOT 
                    building from within VSCode).
+  --vsjson         VSCode: Generates a compile_commands.json file in the package
+                   root with the all of the compile commands for all files in
+                   the project.                    
   --vsgdb          VSCode: Adds an entry in the .vscode/launch.json file for 
                    launching the GDB debugger for the project's executable.
   -h,--help        Display help.
@@ -195,7 +198,9 @@ def do_build( printer, toolchain, arguments, variant ):
         toolchain.pre_build( variant, arguments )
 
         # Output start banner
-        if ( arguments['--qry-dirs'] == False ):
+        if ( arguments['--qry-dirs'] == False 
+            and arguments['--qry-dirs2'] == False 
+            and arguments['--vsjson'] == False ):
             start_banner(printer, toolchain)
          
         # Spit out handy-dandy debug info
@@ -253,6 +258,13 @@ def do_build( printer, toolchain, arguments, variant ):
         toolchain.finalize(  arguments, builtlibs, objfiles, 'local', linkout )
         ninja_file.close()
         
+        if ( arguments['--vsjson'] ):
+            ofile  = os.path.join(NQBP_PKG_ROOT(),'compile_commands.json')
+            ncmd   = f"ninja -t compdb > {ofile}"
+            utils.run_shell2( ncmd, True, "ERROR: Generation of the compile_command.sjon failed." )
+            printer.output(f"File: {ofile} generated.")
+            return
+
         # Run ninja
         ninja_opts = ''
         if ( arguments['-v'] ):
