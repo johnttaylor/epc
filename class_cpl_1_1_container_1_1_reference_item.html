@@ -62,7 +62,7 @@
 <p>This template class defines wrapper class - that is makes a reference 'listable'.  
  <a href="class_cpl_1_1_container_1_1_reference_item.html#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">REFITEM</a>, <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> ITEMTYPE&gt;<br />
+<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">REFITEM</a>, <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> ITEMTYPE&gt;<br />
 class Cpl::Container::ReferenceItem&lt; REFITEM, ITEMTYPE &gt;</div><p>This template class defines wrapper class - that is makes a reference 'listable'. </p>
 <p>This class is useful when the Application needs to put a single entity into multiple containers.</p>
 <p>Template Arguments: REFITEM - The type of the Reference being wrapped. ITEMTYPE - The Item/Container type </p>
@@ -81,16 +81,16 @@ Collaboration diagram for Cpl::Container::ReferenceItem&lt; REFITEM, ITEMTYPE &g
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a64f80220dbb15e4f5f78c11d1720d3aa" id="r_a64f80220dbb15e4f5f78c11d1720d3aa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_reference_item.html#a64f80220dbb15e4f5f78c11d1720d3aa">ReferenceItem</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">REFITEM</a> &amp;item)</td></tr>
+<tr class="memitem:a64f80220dbb15e4f5f78c11d1720d3aa" id="r_a64f80220dbb15e4f5f78c11d1720d3aa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_reference_item.html#a64f80220dbb15e4f5f78c11d1720d3aa">ReferenceItem</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">REFITEM</a> &amp;item)</td></tr>
 <tr class="memdesc:a64f80220dbb15e4f5f78c11d1720d3aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
 <tr class="separator:a64f80220dbb15e4f5f78c11d1720d3aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedea30f8618c2e22c9d529f589b7eaf4" id="r_aedea30f8618c2e22c9d529f589b7eaf4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_reference_item.html#aedea30f8618c2e22c9d529f589b7eaf4">ReferenceItem</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">REFITEM</a> &amp;item, <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">char</a> *<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ignoreThisParameter_usedToCreateAUniqueConstructor</a>)</td></tr>
+<tr class="memitem:aedea30f8618c2e22c9d529f589b7eaf4" id="r_aedea30f8618c2e22c9d529f589b7eaf4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_reference_item.html#aedea30f8618c2e22c9d529f589b7eaf4">ReferenceItem</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">REFITEM</a> &amp;item, <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">char</a> *<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ignoreThisParameter_usedToCreateAUniqueConstructor</a>)</td></tr>
 <tr class="memdesc:aedea30f8618c2e22c9d529f589b7eaf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor used ONLY with the child class <a class="el" href="class_cpl_1_1_container_1_1_map_item.html" title="This abstract class represents a item that can be contained in an Map (aka a sorted list implemented ...">MapItem</a>: --&gt;special constructor to allow a <a class="el" href="class_cpl_1_1_container_1_1_map.html" title="This template class implements an Map using an AVL Binary tree (i.e.">Map</a> to be statically allocated.  <br /></td></tr>
 <tr class="separator:aedea30f8618c2e22c9d529f589b7eaf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a271fd7dd85595a2589ad366e6e5e6063" id="r_a271fd7dd85595a2589ad366e6e5e6063"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">REFITEM</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_reference_item.html#a271fd7dd85595a2589ad366e6e5e6063">m_reference</a></td></tr>
+<tr class="memitem:a271fd7dd85595a2589ad366e6e5e6063" id="r_a271fd7dd85595a2589ad366e6e5e6063"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">REFITEM</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_reference_item.html#a271fd7dd85595a2589ad366e6e5e6063">m_reference</a></td></tr>
 <tr class="memdesc:a271fd7dd85595a2589ad366e6e5e6063"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the item that is being 'containerized'.  <br /></td></tr>
 <tr class="separator:a271fd7dd85595a2589ad366e6e5e6063"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -101,15 +101,15 @@ Public Attributes</h2></td></tr>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">REFITEM</a> , <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> ITEMTYPE &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">REFITEM</a> , <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> ITEMTYPE &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_reference_item.html">Cpl::Container::ReferenceItem</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">REFITEM</a>, ITEMTYPE &gt;::ReferenceItem </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_reference_item.html">Cpl::Container::ReferenceItem</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">REFITEM</a>, ITEMTYPE &gt;::ReferenceItem </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">REFITEM</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">REFITEM</a> &amp;&#160;</td>
           <td class="paramname"><em>item</em></td><td>)</td>
           <td></td>
         </tr>
@@ -131,21 +131,21 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">REFITEM</a> , <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> ITEMTYPE &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">REFITEM</a> , <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> ITEMTYPE &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_reference_item.html">Cpl::Container::ReferenceItem</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">REFITEM</a>, ITEMTYPE &gt;::ReferenceItem </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_reference_item.html">Cpl::Container::ReferenceItem</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">REFITEM</a>, ITEMTYPE &gt;::ReferenceItem </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">REFITEM</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">REFITEM</a> &amp;&#160;</td>
           <td class="paramname"><em>item</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">char</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">char</a> *&#160;</td>
           <td class="paramname"><em>ignoreThisParameter_usedToCreateAUniqueConstructor</em>&#160;</td>
         </tr>
         <tr>
@@ -173,10 +173,10 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">REFITEM</a> , <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> ITEMTYPE &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">REFITEM</a> , <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> ITEMTYPE &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">REFITEM</a>&amp; <a class="el" href="class_cpl_1_1_container_1_1_reference_item.html">Cpl::Container::ReferenceItem</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">REFITEM</a>, ITEMTYPE &gt;::m_reference</td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">REFITEM</a>&amp; <a class="el" href="class_cpl_1_1_container_1_1_reference_item.html">Cpl::Container::ReferenceItem</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">REFITEM</a>, ITEMTYPE &gt;::m_reference</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -191,7 +191,7 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 6 2024 12:58:26 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sun Sep 22 2024 15:39:55 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

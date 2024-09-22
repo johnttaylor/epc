@@ -61,7 +61,7 @@
 <p>This template class implements an <a class="el" href="class_cpl_1_1_container_1_1_map.html" title="This template class implements an Map using an AVL Binary tree (i.e.">Map</a> using an AVL Binary tree (i.e.  
  <a href="class_cpl_1_1_container_1_1_map.html#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a>&gt;<br />
+<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a>&gt;<br />
 class Cpl::Container::Map&lt; ITEM &gt;</div><p>This template class implements an <a class="el" href="class_cpl_1_1_container_1_1_map.html" title="This template class implements an Map using an AVL Binary tree (i.e.">Map</a> using an AVL Binary tree (i.e. </p>
 <p>a sorted list with fast searches, inserts, and deletes).</p>
 <p>Template ARGS: ITEM - Data type of the object stored in the <a class="el" href="class_cpl_1_1_container_1_1_map.html" title="This template class implements an Map using an AVL Binary tree (i.e.">Map</a>. 'ITEM' must be a sub-class of the <a class="el" href="class_cpl_1_1_container_1_1_map_item.html" title="This abstract class represents a item that can be contained in an Map (aka a sorted list implemented ...">Cpl::Container::MapItem</a> base class. </p>
@@ -75,51 +75,51 @@ Inheritance diagram for Cpl::Container::Map&lt; ITEM &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abd00e3466ab8823f314fa5d34dfdfed9" id="r_abd00e3466ab8823f314fa5d34dfdfed9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#abd00e3466ab8823f314fa5d34dfdfed9">Map</a> () <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:abd00e3466ab8823f314fa5d34dfdfed9" id="r_abd00e3466ab8823f314fa5d34dfdfed9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#abd00e3466ab8823f314fa5d34dfdfed9">Map</a> () <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:abd00e3466ab8823f314fa5d34dfdfed9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
 <tr class="separator:abd00e3466ab8823f314fa5d34dfdfed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a543e6458934ddf7a01d855c3d9a02cad" id="r_a543e6458934ddf7a01d855c3d9a02cad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#a543e6458934ddf7a01d855c3d9a02cad">Map</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">char</a> *<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ignoreThisParameter_usedToCreateAUniqueConstructor</a>)</td></tr>
+<tr class="memitem:a543e6458934ddf7a01d855c3d9a02cad" id="r_a543e6458934ddf7a01d855c3d9a02cad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#a543e6458934ddf7a01d855c3d9a02cad">Map</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">char</a> *<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ignoreThisParameter_usedToCreateAUniqueConstructor</a>)</td></tr>
 <tr class="memdesc:a543e6458934ddf7a01d855c3d9a02cad"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a special constructor for when the <a class="el" href="class_cpl_1_1_container_1_1_map.html" title="This template class implements an Map using an AVL Binary tree (i.e.">Map</a> is statically declared (i.e.  <br /></td></tr>
 <tr class="separator:a543e6458934ddf7a01d855c3d9a02cad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Operations to manage items in the Map</div></td></tr>
-<tr class="memitem:ab23035dd8ba5479aa268bf45862cb0a4" id="r_ab23035dd8ba5479aa268bf45862cb0a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#ab23035dd8ba5479aa268bf45862cb0a4">insert</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;node)</td></tr>
+<tr class="memitem:ab23035dd8ba5479aa268bf45862cb0a4" id="r_ab23035dd8ba5479aa268bf45862cb0a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#ab23035dd8ba5479aa268bf45862cb0a4">insert</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;node)</td></tr>
 <tr class="memdesc:ab23035dd8ba5479aa268bf45862cb0a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts an item into the tree.  <br /></td></tr>
 <tr class="separator:ab23035dd8ba5479aa268bf45862cb0a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a556a99133896fde3c7405ed320fceda9" id="r_a556a99133896fde3c7405ed320fceda9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#a556a99133896fde3c7405ed320fceda9">remove</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_key.html">Key</a> &amp;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">keyOfItemToDelete</a>)</td></tr>
+<tr class="memitem:a556a99133896fde3c7405ed320fceda9" id="r_a556a99133896fde3c7405ed320fceda9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#a556a99133896fde3c7405ed320fceda9">remove</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_key.html">Key</a> &amp;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">keyOfItemToDelete</a>)</td></tr>
 <tr class="memdesc:a556a99133896fde3c7405ed320fceda9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the node (if it exists) that has the matching key.  <br /></td></tr>
 <tr class="separator:a556a99133896fde3c7405ed320fceda9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10990412ccaff639791b595a71efb3f6" id="r_a10990412ccaff639791b595a71efb3f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#a10990412ccaff639791b595a71efb3f6">removeItem</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;node)</td></tr>
+<tr class="memitem:a10990412ccaff639791b595a71efb3f6" id="r_a10990412ccaff639791b595a71efb3f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#a10990412ccaff639791b595a71efb3f6">removeItem</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;node)</td></tr>
 <tr class="memdesc:a10990412ccaff639791b595a71efb3f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the specified item from the tree.  <br /></td></tr>
 <tr class="separator:a10990412ccaff639791b595a71efb3f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadcc0facb667fb8fdc12cf14b6b4936e" id="r_aadcc0facb667fb8fdc12cf14b6b4936e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#aadcc0facb667fb8fdc12cf14b6b4936e">find</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_key.html">Key</a> &amp;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">keyToFind</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a></td></tr>
+<tr class="memitem:aadcc0facb667fb8fdc12cf14b6b4936e" id="r_aadcc0facb667fb8fdc12cf14b6b4936e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#aadcc0facb667fb8fdc12cf14b6b4936e">find</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_key.html">Key</a> &amp;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">keyToFind</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a></td></tr>
 <tr class="memdesc:aadcc0facb667fb8fdc12cf14b6b4936e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for a item with a matching key.  <br /></td></tr>
 <tr class="separator:aadcc0facb667fb8fdc12cf14b6b4936e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f48264029ca26c0967628c50b1abefd" id="r_a5f48264029ca26c0967628c50b1abefd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#a5f48264029ca26c0967628c50b1abefd">isInMap</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;node) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a></td></tr>
+<tr class="memitem:a5f48264029ca26c0967628c50b1abefd" id="r_a5f48264029ca26c0967628c50b1abefd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#a5f48264029ca26c0967628c50b1abefd">isInMap</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;node) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a></td></tr>
 <tr class="memdesc:a5f48264029ca26c0967628c50b1abefd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the specified item is in the map; else false is returned.  <br /></td></tr>
 <tr class="separator:a5f48264029ca26c0967628c50b1abefd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af76aaf3e39552a236759b3d923a4ac81" id="r_af76aaf3e39552a236759b3d923a4ac81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#af76aaf3e39552a236759b3d923a4ac81">first</a> () <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a></td></tr>
+<tr class="memitem:af76aaf3e39552a236759b3d923a4ac81" id="r_af76aaf3e39552a236759b3d923a4ac81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#af76aaf3e39552a236759b3d923a4ac81">first</a> () <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a></td></tr>
 <tr class="memdesc:af76aaf3e39552a236759b3d923a4ac81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the first item in the tree. Returns 0 if tree is empty.  <br /></td></tr>
 <tr class="separator:af76aaf3e39552a236759b3d923a4ac81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8da611a9e32453541523c9f073bdc871" id="r_a8da611a9e32453541523c9f073bdc871"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#a8da611a9e32453541523c9f073bdc871">last</a> () <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a></td></tr>
+<tr class="memitem:a8da611a9e32453541523c9f073bdc871" id="r_a8da611a9e32453541523c9f073bdc871"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#a8da611a9e32453541523c9f073bdc871">last</a> () <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a></td></tr>
 <tr class="memdesc:a8da611a9e32453541523c9f073bdc871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last item in the tree. Returns 0 if tree is empty.  <br /></td></tr>
 <tr class="separator:a8da611a9e32453541523c9f073bdc871"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a569fc1b1b41e8c5f351b2d5d5d9302ce" id="r_a569fc1b1b41e8c5f351b2d5d5d9302ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#a569fc1b1b41e8c5f351b2d5d5d9302ce">next</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;current) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a></td></tr>
+<tr class="memitem:a569fc1b1b41e8c5f351b2d5d5d9302ce" id="r_a569fc1b1b41e8c5f351b2d5d5d9302ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#a569fc1b1b41e8c5f351b2d5d5d9302ce">next</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;current) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a></td></tr>
 <tr class="memdesc:a569fc1b1b41e8c5f351b2d5d5d9302ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next item in the tree. Returns 0 if at the end-of-tree.  <br /></td></tr>
 <tr class="separator:a569fc1b1b41e8c5f351b2d5d5d9302ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6ba8499d40df449c9a9119fd86ca682" id="r_ac6ba8499d40df449c9a9119fd86ca682"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#ac6ba8499d40df449c9a9119fd86ca682">previous</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;current) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a></td></tr>
+<tr class="memitem:ac6ba8499d40df449c9a9119fd86ca682" id="r_ac6ba8499d40df449c9a9119fd86ca682"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#ac6ba8499d40df449c9a9119fd86ca682">previous</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;current) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a></td></tr>
 <tr class="memdesc:ac6ba8499d40df449c9a9119fd86ca682"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the previous item in the tree. Returns 0 if at the start-of-tree.  <br /></td></tr>
 <tr class="separator:ac6ba8499d40df449c9a9119fd86ca682"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad89831dd2925f3bbfd4a6d2fecfce6fa" id="r_ad89831dd2925f3bbfd4a6d2fecfce6fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#ad89831dd2925f3bbfd4a6d2fecfce6fa">getFirst</a> ()</td></tr>
+<tr class="memitem:ad89831dd2925f3bbfd4a6d2fecfce6fa" id="r_ad89831dd2925f3bbfd4a6d2fecfce6fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#ad89831dd2925f3bbfd4a6d2fecfce6fa">getFirst</a> ()</td></tr>
 <tr class="memdesc:ad89831dd2925f3bbfd4a6d2fecfce6fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the first item in the list.  <br /></td></tr>
 <tr class="separator:ad89831dd2925f3bbfd4a6d2fecfce6fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a091b6fcf51cc33a7bf07a213e9cf8619" id="r_a091b6fcf51cc33a7bf07a213e9cf8619"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#a091b6fcf51cc33a7bf07a213e9cf8619">getLast</a> ()</td></tr>
+<tr class="memitem:a091b6fcf51cc33a7bf07a213e9cf8619" id="r_a091b6fcf51cc33a7bf07a213e9cf8619"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#a091b6fcf51cc33a7bf07a213e9cf8619">getLast</a> ()</td></tr>
 <tr class="memdesc:a091b6fcf51cc33a7bf07a213e9cf8619"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the last item in the list.  <br /></td></tr>
 <tr class="separator:a091b6fcf51cc33a7bf07a213e9cf8619"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Operations on the Map itself</div></td></tr>
-<tr class="memitem:a54784dda0147129201bb86697abc5452" id="r_a54784dda0147129201bb86697abc5452"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#a54784dda0147129201bb86697abc5452">move</a> (<a class="el" href="class_cpl_1_1_container_1_1_map.html">Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; &amp;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">dst</a>)</td></tr>
+<tr class="memitem:a54784dda0147129201bb86697abc5452" id="r_a54784dda0147129201bb86697abc5452"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#a54784dda0147129201bb86697abc5452">move</a> (<a class="el" href="class_cpl_1_1_container_1_1_map.html">Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; &amp;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">dst</a>)</td></tr>
 <tr class="memdesc:a54784dda0147129201bb86697abc5452"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the content of the this <a class="el" href="class_cpl_1_1_container_1_1_map.html" title="This template class implements an Map using an AVL Binary tree (i.e.">Map</a> to the specified <a class="el" href="class_cpl_1_1_container_1_1_map.html" title="This template class implements an Map using an AVL Binary tree (i.e.">Map</a>.  <br /></td></tr>
 <tr class="separator:a54784dda0147129201bb86697abc5452"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af55d2eecc5afff2f209085b0f448fdff" id="r_af55d2eecc5afff2f209085b0f448fdff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#af55d2eecc5afff2f209085b0f448fdff">clearTheMap</a> ()</td></tr>
+<tr class="memitem:af55d2eecc5afff2f209085b0f448fdff" id="r_af55d2eecc5afff2f209085b0f448fdff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_map.html#af55d2eecc5afff2f209085b0f448fdff">clearTheMap</a> ()</td></tr>
 <tr class="memdesc:af55d2eecc5afff2f209085b0f448fdff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empties the <a class="el" href="class_cpl_1_1_container_1_1_map.html" title="This template class implements an Map using an AVL Binary tree (i.e.">Map</a>.  <br /></td></tr>
 <tr class="separator:af55d2eecc5afff2f209085b0f448fdff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -130,13 +130,13 @@ Public Member Functions</h2></td></tr>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::Map </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::Map </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -159,12 +159,12 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::Map </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::Map </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">char</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">char</a> *&#160;</td>
           <td class="paramname"><em>ignoreThisParameter_usedToCreateAUniqueConstructor</em></td><td>)</td>
           <td></td>
         </tr>
@@ -183,10 +183,10 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::clearTheMap </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::clearTheMap </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -205,12 +205,12 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::find </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::find </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_key.html">Key</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_key.html">Key</a> &amp;&#160;</td>
           <td class="paramname"><em>keyToFind</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -228,10 +228,10 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::first </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::first </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -249,10 +249,10 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::getFirst </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::getFirst </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -271,10 +271,10 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::getLast </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::getLast </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -293,12 +293,12 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">bool</a> <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::insert </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">bool</a> <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::insert </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;&#160;</td>
           <td class="paramname"><em>node</em></td><td>)</td>
           <td></td>
         </tr>
@@ -316,12 +316,12 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">bool</a> <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::isInMap </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">bool</a> <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::isInMap </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;&#160;</td>
           <td class="paramname"><em>node</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -338,10 +338,10 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::last </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::last </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -359,12 +359,12 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::move </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::move </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_map.html">Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_map.html">Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>dst</em></td><td>)</td>
           <td></td>
         </tr>
@@ -381,12 +381,12 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::next </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::next </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;&#160;</td>
           <td class="paramname"><em>current</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -403,12 +403,12 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::previous </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::previous </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;&#160;</td>
           <td class="paramname"><em>current</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -425,12 +425,12 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::remove </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::remove </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_key.html">Key</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_key.html">Key</a> &amp;&#160;</td>
           <td class="paramname"><em>keyOfItemToDelete</em></td><td>)</td>
           <td></td>
         </tr>
@@ -448,12 +448,12 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">bool</a> <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::removeItem </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">bool</a> <a class="el" href="class_cpl_1_1_container_1_1_map.html">Cpl::Container::Map</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::removeItem </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;&#160;</td>
           <td class="paramname"><em>node</em></td><td>)</td>
           <td></td>
         </tr>
@@ -471,7 +471,7 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 6 2024 12:58:26 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sun Sep 22 2024 15:39:55 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

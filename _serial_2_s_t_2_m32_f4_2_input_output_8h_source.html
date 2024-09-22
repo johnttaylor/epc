@@ -102,8 +102,8 @@
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">public</span>:<span class="comment"></span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">    /// Constructor</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="class_cpl_1_1_io_1_1_serial_1_1_s_t_1_1_m32_f4_1_1_input_output.html#adf3b7f80deba2577107a78d6af69117f">   51</a></span><span class="comment"></span>    <a class="code hl_function" href="class_cpl_1_1_io_1_1_serial_1_1_s_t_1_1_m32_f4_1_1_input_output.html#adf3b7f80deba2577107a78d6af69117f">InputOutput</a>( <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">Cpl::Container::RingBuffer&lt;uint8_t&gt;</a>&amp; txBuffer,</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                 <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">Cpl::Container::RingBuffer&lt;uint8_t&gt;</a>&amp; rxBuffer );</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="class_cpl_1_1_io_1_1_serial_1_1_s_t_1_1_m32_f4_1_1_input_output.html#adf3b7f80deba2577107a78d6af69117f">   51</a></span><span class="comment"></span>    <a class="code hl_function" href="class_cpl_1_1_io_1_1_serial_1_1_s_t_1_1_m32_f4_1_1_input_output.html#adf3b7f80deba2577107a78d6af69117f">InputOutput</a>( <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer.html">Cpl::Container::RingBuffer&lt;uint8_t&gt;</a>&amp; txBuffer,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                 <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer.html">Cpl::Container::RingBuffer&lt;uint8_t&gt;</a>&amp; rxBuffer );</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"></span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">    /// Destructor</span></div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="class_cpl_1_1_io_1_1_serial_1_1_s_t_1_1_m32_f4_1_1_input_output.html#aa08ae5dea5643594269f06409ec96d24">   55</a></span><span class="comment"></span>    <a class="code hl_function" href="class_cpl_1_1_io_1_1_serial_1_1_s_t_1_1_m32_f4_1_1_input_output.html#aa08ae5dea5643594269f06409ec96d24">~InputOutput</a>( <span class="keywordtype">void</span> );</div>
@@ -160,7 +160,7 @@
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#endif  </span><span class="comment">// end header latch</span></div>
 <div class="ttc" id="a_input_output_8h_html"><div class="ttname"><a href="_input_output_8h.html">InputOutput.h</a></div></div>
 <div class="ttc" id="a_stream_driver_8h_html"><div class="ttname"><a href="_stream_driver_8h.html">StreamDriver.h</a></div></div>
-<div class="ttc" id="aclass_cpl_1_1_container_1_1_ring_buffer_m_t_html"><div class="ttname"><a href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">Cpl::Container::RingBufferMT</a></div><div class="ttdoc">This template class implements a THREAD SAFE Ring Buffer.</div><div class="ttdef"><b>Definition</b> RingBufferMT.h:33</div></div>
+<div class="ttc" id="aclass_cpl_1_1_container_1_1_ring_buffer_html"><div class="ttname"><a href="class_cpl_1_1_container_1_1_ring_buffer.html">Cpl::Container::RingBuffer</a></div><div class="ttdoc">This template class implements a Ring Buffer.</div><div class="ttdef"><b>Definition</b> RingBuffer.h:46</div></div>
 <div class="ttc" id="aclass_cpl_1_1_io_1_1_input_html_a3b76bc179fe90b6256fbab56e87c1cc0"><div class="ttname"><a href="class_cpl_1_1_io_1_1_input.html#a3b76bc179fe90b6256fbab56e87c1cc0">Cpl::Io::Input::read</a></div><div class="ttdeci">virtual bool read(char &amp;c)</div><div class="ttdoc">Reads a single byte from the stream.</div></div>
 <div class="ttc" id="aclass_cpl_1_1_io_1_1_input_output_html"><div class="ttname"><a href="class_cpl_1_1_io_1_1_input_output.html">Cpl::Io::InputOutput</a></div><div class="ttdoc">This abstract class defines a interface for operating on an input-output stream (example of a stream ...</div><div class="ttdef"><b>Definition</b> InputOutput.h:30</div></div>
 <div class="ttc" id="aclass_cpl_1_1_io_1_1_serial_1_1_s_t_1_1_m32_f4_1_1_input_output_html"><div class="ttname"><a href="class_cpl_1_1_io_1_1_serial_1_1_s_t_1_1_m32_f4_1_1_input_output.html">Cpl::Io::Serial::ST::M32F4::InputOutput</a></div><div class="ttdoc">This concrete class implements the InputOutput stream interface built on top of ST HAL Layer/SDK.</div><div class="ttdef"><b>Definition</b> InputOutput.h:43</div></div>
@@ -180,7 +180,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 6 2024 12:58:24 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sun Sep 22 2024 15:39:53 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

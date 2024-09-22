@@ -61,7 +61,7 @@
 <p>This template class implements a Doubly linked list which maintains the ordering imposed on it by the application.  
  <a href="class_cpl_1_1_container_1_1_d_list.html#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a>&gt;<br />
+<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a>&gt;<br />
 class Cpl::Container::DList&lt; ITEM &gt;</div><p>This template class implements a Doubly linked list which maintains the ordering imposed on it by the application. </p>
 <p>NOTE: ITEM must be a subclass of <a class="el" href="class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers.">ExtendedItem</a>. </p>
 </div>
@@ -74,77 +74,77 @@ Inheritance diagram for Cpl::Container::DList&lt; ITEM &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad6f7951f77cb8e33cdb0e515a5b4a287" id="r_ad6f7951f77cb8e33cdb0e515a5b4a287"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#ad6f7951f77cb8e33cdb0e515a5b4a287">DList</a> () <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:ad6f7951f77cb8e33cdb0e515a5b4a287" id="r_ad6f7951f77cb8e33cdb0e515a5b4a287"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#ad6f7951f77cb8e33cdb0e515a5b4a287">DList</a> () <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:ad6f7951f77cb8e33cdb0e515a5b4a287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constructor initializes head and tail pointers.  <br /></td></tr>
 <tr class="separator:ad6f7951f77cb8e33cdb0e515a5b4a287"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d3b83ba422ec313c22c4da5aa8af090" id="r_a6d3b83ba422ec313c22c4da5aa8af090"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a6d3b83ba422ec313c22c4da5aa8af090">DList</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">char</a> *<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ignoreThisParameter_usedToCreateAUniqueConstructor</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:a6d3b83ba422ec313c22c4da5aa8af090" id="r_a6d3b83ba422ec313c22c4da5aa8af090"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a6d3b83ba422ec313c22c4da5aa8af090">DList</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">char</a> *<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ignoreThisParameter_usedToCreateAUniqueConstructor</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:a6d3b83ba422ec313c22c4da5aa8af090"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a special constructor for when the list is statically declared (i.e.  <br /></td></tr>
 <tr class="separator:a6d3b83ba422ec313c22c4da5aa8af090"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Operations on the List itself</div></td></tr>
-<tr class="memitem:a56d7920cc2ba7cf1e90fa08f3fe8cbba" id="r_a56d7920cc2ba7cf1e90fa08f3fe8cbba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a56d7920cc2ba7cf1e90fa08f3fe8cbba">move</a> (<a class="el" href="class_cpl_1_1_container_1_1_d_list.html">DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; &amp;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">dst</a>)</td></tr>
+<tr class="memitem:a56d7920cc2ba7cf1e90fa08f3fe8cbba" id="r_a56d7920cc2ba7cf1e90fa08f3fe8cbba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a56d7920cc2ba7cf1e90fa08f3fe8cbba">move</a> (<a class="el" href="class_cpl_1_1_container_1_1_d_list.html">DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; &amp;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">dst</a>)</td></tr>
 <tr class="memdesc:a56d7920cc2ba7cf1e90fa08f3fe8cbba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the content of the this List to the specified List.  <br /></td></tr>
 <tr class="separator:a56d7920cc2ba7cf1e90fa08f3fe8cbba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba83cee96ec6214750e3a678d851573d" id="r_aba83cee96ec6214750e3a678d851573d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#aba83cee96ec6214750e3a678d851573d">clearTheList</a> ()</td></tr>
+<tr class="memitem:aba83cee96ec6214750e3a678d851573d" id="r_aba83cee96ec6214750e3a678d851573d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#aba83cee96ec6214750e3a678d851573d">clearTheList</a> ()</td></tr>
 <tr class="memdesc:aba83cee96ec6214750e3a678d851573d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empties the list.  <br /></td></tr>
 <tr class="separator:aba83cee96ec6214750e3a678d851573d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">View as a FIFO</div></td></tr>
-<tr class="memitem:a3ce141250df0f048bbc4f21ab32b2c96" id="r_a3ce141250df0f048bbc4f21ab32b2c96"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a3ce141250df0f048bbc4f21ab32b2c96">get</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:a3ce141250df0f048bbc4f21ab32b2c96" id="r_a3ce141250df0f048bbc4f21ab32b2c96"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a3ce141250df0f048bbc4f21ab32b2c96">get</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:a3ce141250df0f048bbc4f21ab32b2c96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the first item in the list.  <br /></td></tr>
 <tr class="separator:a3ce141250df0f048bbc4f21ab32b2c96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad88395f455c6a2080075cff361be4858" id="r_ad88395f455c6a2080075cff361be4858"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#ad88395f455c6a2080075cff361be4858">put</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;item) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:ad88395f455c6a2080075cff361be4858" id="r_ad88395f455c6a2080075cff361be4858"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#ad88395f455c6a2080075cff361be4858">put</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;item) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:ad88395f455c6a2080075cff361be4858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the item as the last item in the list.  <br /></td></tr>
 <tr class="separator:ad88395f455c6a2080075cff361be4858"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a058230c9a891e76a33d52814290ada5b" id="r_a058230c9a891e76a33d52814290ada5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a058230c9a891e76a33d52814290ada5b">head</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:a058230c9a891e76a33d52814290ada5b" id="r_a058230c9a891e76a33d52814290ada5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a058230c9a891e76a33d52814290ada5b">head</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:a058230c9a891e76a33d52814290ada5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a pointer to the first item in the list.  <br /></td></tr>
 <tr class="separator:a058230c9a891e76a33d52814290ada5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2f7138aa2e83cc6c1da360ffa4107c9" id="r_af2f7138aa2e83cc6c1da360ffa4107c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#af2f7138aa2e83cc6c1da360ffa4107c9">tail</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:af2f7138aa2e83cc6c1da360ffa4107c9" id="r_af2f7138aa2e83cc6c1da360ffa4107c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#af2f7138aa2e83cc6c1da360ffa4107c9">tail</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:af2f7138aa2e83cc6c1da360ffa4107c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a pointer to the last item in the list.  <br /></td></tr>
 <tr class="separator:af2f7138aa2e83cc6c1da360ffa4107c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">View as a STACK</div></td></tr>
-<tr class="memitem:aef323094a496278dfe04dff667cf2e65" id="r_aef323094a496278dfe04dff667cf2e65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#aef323094a496278dfe04dff667cf2e65">pop</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:aef323094a496278dfe04dff667cf2e65" id="r_aef323094a496278dfe04dff667cf2e65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#aef323094a496278dfe04dff667cf2e65">pop</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:aef323094a496278dfe04dff667cf2e65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the top element from stack and return a pointer to it as a result.  <br /></td></tr>
 <tr class="separator:aef323094a496278dfe04dff667cf2e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2575e09bdfa78e132b915eb5d5035c7" id="r_af2575e09bdfa78e132b915eb5d5035c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#af2575e09bdfa78e132b915eb5d5035c7">push</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;item) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:af2575e09bdfa78e132b915eb5d5035c7" id="r_af2575e09bdfa78e132b915eb5d5035c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#af2575e09bdfa78e132b915eb5d5035c7">push</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;item) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:af2575e09bdfa78e132b915eb5d5035c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the ITEM item to top of the stack.  <br /></td></tr>
 <tr class="separator:af2575e09bdfa78e132b915eb5d5035c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3db38d4b647dec7b95b22a7dcf50ce7" id="r_ab3db38d4b647dec7b95b22a7dcf50ce7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#ab3db38d4b647dec7b95b22a7dcf50ce7">top</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:ab3db38d4b647dec7b95b22a7dcf50ce7" id="r_ab3db38d4b647dec7b95b22a7dcf50ce7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#ab3db38d4b647dec7b95b22a7dcf50ce7">top</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:ab3db38d4b647dec7b95b22a7dcf50ce7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a pointer to the top ITEM item in the stack.  <br /></td></tr>
 <tr class="separator:ab3db38d4b647dec7b95b22a7dcf50ce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">View as Ordered List</div></td></tr>
-<tr class="memitem:a6ca3a577b3bb4a34977de11e4bd2abe2" id="r_a6ca3a577b3bb4a34977de11e4bd2abe2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a6ca3a577b3bb4a34977de11e4bd2abe2">getFirst</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:a6ca3a577b3bb4a34977de11e4bd2abe2" id="r_a6ca3a577b3bb4a34977de11e4bd2abe2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a6ca3a577b3bb4a34977de11e4bd2abe2">getFirst</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:a6ca3a577b3bb4a34977de11e4bd2abe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the first item in the list.  <br /></td></tr>
 <tr class="separator:a6ca3a577b3bb4a34977de11e4bd2abe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae78895721b91fb8111140ae49cb6d8fb" id="r_ae78895721b91fb8111140ae49cb6d8fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#ae78895721b91fb8111140ae49cb6d8fb">getLast</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:ae78895721b91fb8111140ae49cb6d8fb" id="r_ae78895721b91fb8111140ae49cb6d8fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#ae78895721b91fb8111140ae49cb6d8fb">getLast</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:ae78895721b91fb8111140ae49cb6d8fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the last item in the list.  <br /></td></tr>
 <tr class="separator:ae78895721b91fb8111140ae49cb6d8fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa18e3a7a5e237fa162c87503f90d4ef9" id="r_aa18e3a7a5e237fa162c87503f90d4ef9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#aa18e3a7a5e237fa162c87503f90d4ef9">putFirst</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;item) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:aa18e3a7a5e237fa162c87503f90d4ef9" id="r_aa18e3a7a5e237fa162c87503f90d4ef9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#aa18e3a7a5e237fa162c87503f90d4ef9">putFirst</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;item) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:aa18e3a7a5e237fa162c87503f90d4ef9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the item as the first item in the list.  <br /></td></tr>
 <tr class="separator:aa18e3a7a5e237fa162c87503f90d4ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adccf4a4e52eea1a767f4e916806f0754" id="r_adccf4a4e52eea1a767f4e916806f0754"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#adccf4a4e52eea1a767f4e916806f0754">putLast</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;item) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:adccf4a4e52eea1a767f4e916806f0754" id="r_adccf4a4e52eea1a767f4e916806f0754"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#adccf4a4e52eea1a767f4e916806f0754">putLast</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;item) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:adccf4a4e52eea1a767f4e916806f0754"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the item as the last item in the list.  <br /></td></tr>
 <tr class="separator:adccf4a4e52eea1a767f4e916806f0754"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b97966357d84fa097111cc0607fbc4b" id="r_a0b97966357d84fa097111cc0607fbc4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a0b97966357d84fa097111cc0607fbc4b">remove</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;item) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:a0b97966357d84fa097111cc0607fbc4b" id="r_a0b97966357d84fa097111cc0607fbc4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a0b97966357d84fa097111cc0607fbc4b">remove</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;item) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:a0b97966357d84fa097111cc0607fbc4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove specified ITEM element from the list.  <br /></td></tr>
 <tr class="separator:a0b97966357d84fa097111cc0607fbc4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d1852b5d3bf4702f9aa33192ff59dcd" id="r_a2d1852b5d3bf4702f9aa33192ff59dcd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a2d1852b5d3bf4702f9aa33192ff59dcd">insertAfter</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">after</a>, <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;item) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:a2d1852b5d3bf4702f9aa33192ff59dcd" id="r_a2d1852b5d3bf4702f9aa33192ff59dcd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a2d1852b5d3bf4702f9aa33192ff59dcd">insertAfter</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">after</a>, <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;item) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:a2d1852b5d3bf4702f9aa33192ff59dcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert the "item" ITEM into the list behind the "after" ITEM element.  <br /></td></tr>
 <tr class="separator:a2d1852b5d3bf4702f9aa33192ff59dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9de9a98f2dc5f576f1290c760fe34d74" id="r_a9de9a98f2dc5f576f1290c760fe34d74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a9de9a98f2dc5f576f1290c760fe34d74">insertBefore</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">before</a>, <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;item) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:a9de9a98f2dc5f576f1290c760fe34d74" id="r_a9de9a98f2dc5f576f1290c760fe34d74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a9de9a98f2dc5f576f1290c760fe34d74">insertBefore</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">before</a>, <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;item) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:a9de9a98f2dc5f576f1290c760fe34d74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert the "item" ITEM into the list ahead of the "before" ITEM element.  <br /></td></tr>
 <tr class="separator:a9de9a98f2dc5f576f1290c760fe34d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec2db44202ddbf9c52412a3dd31e96c4" id="r_aec2db44202ddbf9c52412a3dd31e96c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#aec2db44202ddbf9c52412a3dd31e96c4">find</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;item) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:aec2db44202ddbf9c52412a3dd31e96c4" id="r_aec2db44202ddbf9c52412a3dd31e96c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#aec2db44202ddbf9c52412a3dd31e96c4">find</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;item) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:aec2db44202ddbf9c52412a3dd31e96c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true of the specified item/pointer is already in the list, else false.  <br /></td></tr>
 <tr class="separator:aec2db44202ddbf9c52412a3dd31e96c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c514acbd06cb00e8bdab50b653abea9" id="r_a2c514acbd06cb00e8bdab50b653abea9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a2c514acbd06cb00e8bdab50b653abea9">first</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:a2c514acbd06cb00e8bdab50b653abea9" id="r_a2c514acbd06cb00e8bdab50b653abea9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a2c514acbd06cb00e8bdab50b653abea9">first</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:a2c514acbd06cb00e8bdab50b653abea9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a pointer to the first item in the list.  <br /></td></tr>
 <tr class="separator:a2c514acbd06cb00e8bdab50b653abea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77cf06d7c2bc10f66cde0b849a68d677" id="r_a77cf06d7c2bc10f66cde0b849a68d677"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a77cf06d7c2bc10f66cde0b849a68d677">last</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:a77cf06d7c2bc10f66cde0b849a68d677" id="r_a77cf06d7c2bc10f66cde0b849a68d677"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a77cf06d7c2bc10f66cde0b849a68d677">last</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:a77cf06d7c2bc10f66cde0b849a68d677"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a pointer to the last item in the list.  <br /></td></tr>
 <tr class="separator:a77cf06d7c2bc10f66cde0b849a68d677"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af14ebf2f17f23b409a2b6389030ac980" id="r_af14ebf2f17f23b409a2b6389030ac980"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#af14ebf2f17f23b409a2b6389030ac980">next</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;current) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:af14ebf2f17f23b409a2b6389030ac980" id="r_af14ebf2f17f23b409a2b6389030ac980"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#af14ebf2f17f23b409a2b6389030ac980">next</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;current) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:af14ebf2f17f23b409a2b6389030ac980"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a pointer to the item after the item "current".  <br /></td></tr>
 <tr class="separator:af14ebf2f17f23b409a2b6389030ac980"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ba549868b455a2b4fe87a5cb9762f4b" id="r_a3ba549868b455a2b4fe87a5cb9762f4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a3ba549868b455a2b4fe87a5cb9762f4b">previous</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;current) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></td></tr>
+<tr class="memitem:a3ba549868b455a2b4fe87a5cb9762f4b" id="r_a3ba549868b455a2b4fe87a5cb9762f4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html#a3ba549868b455a2b4fe87a5cb9762f4b">previous</a> (<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;current) <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">noexcept</a></td></tr>
 <tr class="memdesc:a3ba549868b455a2b4fe87a5cb9762f4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a pointer to the item before the item "current".  <br /></td></tr>
 <tr class="separator:a3ba549868b455a2b4fe87a5cb9762f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -155,15 +155,15 @@ Public Member Functions</h2></td></tr>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::DList </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::DList </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -185,15 +185,15 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::DList </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::DList </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">char</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">char</a> *&#160;</td>
           <td class="paramname"><em>ignoreThisParameter_usedToCreateAUniqueConstructor</em></td><td>)</td>
           <td></td>
         </tr>
@@ -217,13 +217,13 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::clearTheList </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::clearTheList </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -247,15 +247,15 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">bool</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::find </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">bool</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::find </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">const</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;&#160;</td>
           <td class="paramname"><em>item</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -277,15 +277,15 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::first </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::first </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
@@ -308,15 +308,15 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::get </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::get </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -339,15 +339,15 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::getFirst </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::getFirst </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -370,15 +370,15 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::getLast </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::getLast </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -401,15 +401,15 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::head </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::head </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
@@ -432,21 +432,21 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::insertAfter </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::insertAfter </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;&#160;</td>
           <td class="paramname"><em>after</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;&#160;</td>
           <td class="paramname"><em>item</em>&#160;</td>
         </tr>
         <tr>
@@ -473,21 +473,21 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::insertBefore </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::insertBefore </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;&#160;</td>
           <td class="paramname"><em>before</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;&#160;</td>
           <td class="paramname"><em>item</em>&#160;</td>
         </tr>
         <tr>
@@ -514,15 +514,15 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::last </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::last </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
@@ -545,15 +545,15 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::move </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::move </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html">DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_d_list.html">DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>dst</em></td><td>)</td>
           <td></td>
         </tr>
@@ -575,15 +575,15 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::next </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::next </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;&#160;</td>
           <td class="paramname"><em>current</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -606,15 +606,15 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::pop </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::pop </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -637,15 +637,15 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::previous </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::previous </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;&#160;</td>
           <td class="paramname"><em>current</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -668,15 +668,15 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::push </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::push </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;&#160;</td>
           <td class="paramname"><em>item</em></td><td>)</td>
           <td></td>
         </tr>
@@ -698,15 +698,15 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::put </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::put </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;&#160;</td>
           <td class="paramname"><em>item</em></td><td>)</td>
           <td></td>
         </tr>
@@ -728,15 +728,15 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::putFirst </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::putFirst </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;&#160;</td>
           <td class="paramname"><em>item</em></td><td>)</td>
           <td></td>
         </tr>
@@ -758,15 +758,15 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::putLast </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::putLast </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;&#160;</td>
           <td class="paramname"><em>item</em></td><td>)</td>
           <td></td>
         </tr>
@@ -788,15 +788,15 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">bool</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::remove </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">bool</a> <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::remove </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &amp;&#160;</td>
           <td class="paramname"><em>item</em></td><td>)</td>
           <td></td>
         </tr>
@@ -819,15 +819,15 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::tail </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::tail </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
@@ -850,15 +850,15 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt; </div>
+template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">class</a> <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> &gt;::top </td>
+          <td class="memname"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> * <a class="el" href="class_cpl_1_1_container_1_1_d_list.html">Cpl::Container::DList</a>&lt; <a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">ITEM</a> &gt;::top </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">void</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_cpl_1_1_container_1_1_ring_buffer.html">void</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
@@ -881,7 +881,7 @@ template&lt;<a class="el" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 6 2024 12:58:25 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sun Sep 22 2024 15:39:55 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
