@@ -2,8 +2,19 @@
 ---
 BasedOnStyle: Microsoft
 AccessModifierOffset: -4
-AlignConsecutiveAssignments: Consecutive
-AlignConsecutiveDeclarations: Consecutive
+AlignConsecutiveAssignments:
+  Enabled: true
+  AcrossEmptyLines: true
+  AcrossComments: false
+  AlignCompound : true
+AlignConsecutiveDeclarations:
+  Enabled: true
+  AcrossEmptyLines: true
+  AcrossComments: false
+AlignConsecutiveMacros:
+  Enabled: true
+  AcrossEmptyLines: true
+  AcrossComments: false
 AllowAllArgumentsOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: false
 AllowShortFunctionsOnASingleLine: InlineOnly
@@ -33,3 +44,4 @@ SpacesBeforeTrailingComments: 2
 SpacesInConditionalStatement: true
 SpacesInParentheses: true
 ...
+

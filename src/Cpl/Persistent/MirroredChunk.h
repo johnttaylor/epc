@@ -31,6 +31,20 @@ namespace Persistent {
 class MirroredChunk: public Chunk
 {
 public:
+    /// Length of the data
+    constexpr static size_t FRAME_OFFSET_DATA_LEN = sizeof(uint64_t);
+    
+    /// Start of data (aka overhead length)
+    constexpr static size_t FRAME_OFFSET_DATA = sizeof( size_t ) + FRAME_OFFSET_DATA_LEN;
+
+    /// The size of the CRC
+    constexpr static size_t CRC_SIZE = sizeof( uint32_t );
+
+    /// Total overhead size
+    constexpr static size_t FRAME_OVERHEAD = FRAME_OFFSET_DATA + CRC_SIZE;
+
+
+public:
     /// Constructor
     MirroredChunk( RegionMedia& regionA, RegionMedia& regionB );
 

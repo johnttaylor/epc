@@ -18,14 +18,6 @@
 
 #define SECT_ "Cpl::Persistent"
 
-#define FRAME_OFFSET_TRANS_ID   0
-#define FRAME_OFFSET_DATA_LEN   (sizeof(uint64_t))
-#define FRAME_OFFSET_DATA       (FRAME_OFFSET_DATA_LEN+sizeof(size_t))
-
-#define CRC_SIZE                (sizeof(uint32_t))
-
-#define FRAME_OVERHEAD          (FRAME_OFFSET_DATA+CRC_SIZE)
-
 ///
 using namespace Cpl::Persistent;
 
