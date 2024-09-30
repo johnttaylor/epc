@@ -54,6 +54,7 @@
   <div class="summary">
 <a href="class_cpl_1_1_persistent_1_1_crc_chunk-members.html">List of all members</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle"><div class="title">Cpl::Persistent::CrcChunk Class Reference</div></div>
@@ -101,6 +102,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a14ca13bb77f72bcfd8c52c7f50889170 inherit pub_methods_class_cpl_1_1_persistent_1_1_chunk" id="r_a14ca13bb77f72bcfd8c52c7f50889170"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_persistent_1_1_chunk.html#a14ca13bb77f72bcfd8c52c7f50889170">~Chunk</a> ()</td></tr>
 <tr class="memdesc:a14ca13bb77f72bcfd8c52c7f50889170 inherit pub_methods_class_cpl_1_1_persistent_1_1_chunk"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <br /></td></tr>
 <tr class="separator:a14ca13bb77f72bcfd8c52c7f50889170 inherit pub_methods_class_cpl_1_1_persistent_1_1_chunk"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a59dc478ea3fddbea150fa302d806805a" id="r_a59dc478ea3fddbea150fa302d806805a"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_persistent_1_1_crc_chunk.html#a59dc478ea3fddbea150fa302d806805a">FRAME_OFFSET_DATA</a> = sizeof( size_t )</td></tr>
+<tr class="memdesc:a59dc478ea3fddbea150fa302d806805a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start of data (aka overhead length)  <br /></td></tr>
+<tr class="separator:a59dc478ea3fddbea150fa302d806805a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59439e1735e29cc4cd655023515edb4f" id="r_a59439e1735e29cc4cd655023515edb4f"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_persistent_1_1_crc_chunk.html#a59439e1735e29cc4cd655023515edb4f">CRC_SIZE</a> = sizeof( uint32_t )</td></tr>
+<tr class="memdesc:a59439e1735e29cc4cd655023515edb4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size of the CRC.  <br /></td></tr>
+<tr class="separator:a59439e1735e29cc4cd655023515edb4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac719b35612e540c54e3e38ed29d8072" id="r_aac719b35612e540c54e3e38ed29d8072"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_persistent_1_1_crc_chunk.html#aac719b35612e540c54e3e38ed29d8072">FRAME_OVERHEAD</a> = <a class="el" href="class_cpl_1_1_persistent_1_1_crc_chunk.html#a59dc478ea3fddbea150fa302d806805a">FRAME_OFFSET_DATA</a> + <a class="el" href="class_cpl_1_1_persistent_1_1_crc_chunk.html#a59439e1735e29cc4cd655023515edb4f">CRC_SIZE</a></td></tr>
+<tr class="memdesc:aac719b35612e540c54e3e38ed29d8072"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total overhead size.  <br /></td></tr>
+<tr class="separator:aac719b35612e540c54e3e38ed29d8072"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -403,6 +416,78 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a59439e1735e29cc4cd655023515edb4f" name="a59439e1735e29cc4cd655023515edb4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59439e1735e29cc4cd655023515edb4f">&#9670;&#160;</a></span>CRC_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t Cpl::Persistent::CrcChunk::CRC_SIZE = sizeof( uint32_t )</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The size of the CRC. </p>
+
+</div>
+</div>
+<a id="a59dc478ea3fddbea150fa302d806805a" name="a59dc478ea3fddbea150fa302d806805a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59dc478ea3fddbea150fa302d806805a">&#9670;&#160;</a></span>FRAME_OFFSET_DATA</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t Cpl::Persistent::CrcChunk::FRAME_OFFSET_DATA = sizeof( size_t )</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Start of data (aka overhead length) </p>
+
+</div>
+</div>
+<a id="aac719b35612e540c54e3e38ed29d8072" name="aac719b35612e540c54e3e38ed29d8072"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac719b35612e540c54e3e38ed29d8072">&#9670;&#160;</a></span>FRAME_OVERHEAD</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t Cpl::Persistent::CrcChunk::FRAME_OVERHEAD = <a class="el" href="class_cpl_1_1_persistent_1_1_crc_chunk.html#a59dc478ea3fddbea150fa302d806805a">FRAME_OFFSET_DATA</a> + <a class="el" href="class_cpl_1_1_persistent_1_1_crc_chunk.html#a59439e1735e29cc4cd655023515edb4f">CRC_SIZE</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Total overhead size. </p>
+
+</div>
+</div>
 <a id="a82e11e689e46444eba0de977de935000" name="a82e11e689e46444eba0de977de935000"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a82e11e689e46444eba0de977de935000">&#9670;&#160;</a></span>m_dataLen</h2>
 
@@ -457,7 +542,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 22 2024 15:39:56 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Sep 30 2024 17:32:57 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

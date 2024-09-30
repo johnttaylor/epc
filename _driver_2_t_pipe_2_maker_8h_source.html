@@ -102,7 +102,7 @@
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">        @param endOfFrame       Framing: End-of-Frame character</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">        @param escapeChar       Framing: Escape character</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="class_driver_1_1_t_pipe_1_1_maker.html#ada1b239d051891ce4ab06dbfb978ad7c">   51</a></span>    <a class="code hl_function" href="class_driver_1_1_t_pipe_1_1_maker.html#ada1b239d051891ce4ab06dbfb978ad7c">Maker</a>( <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer.html">Cpl::Container::Map&lt;RxFrameHandlerApi&gt;</a>&amp; frameHandlerList,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="class_driver_1_1_t_pipe_1_1_maker.html#ada1b239d051891ce4ab06dbfb978ad7c">   51</a></span>    <a class="code hl_function" href="class_driver_1_1_t_pipe_1_1_maker.html#ada1b239d051891ce4ab06dbfb978ad7c">Maker</a>( <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">Cpl::Container::Map&lt;RxFrameHandlerApi&gt;</a>&amp; frameHandlerList,</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>           <span class="keywordtype">size_t</span>                                  maxRxFrameSize,</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>           <span class="keyword">const</span> <span class="keywordtype">char</span>*                             verbDelimiters = <span class="stringliteral">&quot; &quot;</span>,</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>           <span class="keywordtype">char</span>                                    startOfFrame   = <span class="charliteral">&#39;^&#39;</span>,</div>
@@ -157,7 +157,7 @@
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">#endif  </span><span class="comment">// end header latch</span></div>
 <div class="ttc" id="a_driver_2_t_pipe_2_maker_8h_html_a06308bb449ae5ff085ba2c78ce7226bc"><div class="ttname"><a href="_driver_2_t_pipe_2_maker_8h.html#a06308bb449ae5ff085ba2c78ce7226bc">OPTION_DRIVER_TPIPE_RAW_INPUT_SIZE</a></div><div class="ttdeci">#define OPTION_DRIVER_TPIPE_RAW_INPUT_SIZE</div><div class="ttdoc">The size, in bytes, of the work buffer used to read from the input stream.</div><div class="ttdef"><b>Definition</b> Maker.h:23</div></div>
 <div class="ttc" id="a_pipe_8h_html"><div class="ttname"><a href="_pipe_8h.html">Pipe.h</a></div></div>
-<div class="ttc" id="aclass_cpl_1_1_container_1_1_ring_buffer_html"><div class="ttname"><a href="class_cpl_1_1_container_1_1_ring_buffer.html">Cpl::Container::RingBuffer</a></div><div class="ttdoc">This template class implements a Ring Buffer.</div><div class="ttdef"><b>Definition</b> RingBuffer.h:46</div></div>
+<div class="ttc" id="aclass_cpl_1_1_container_1_1_ring_buffer_m_t_html"><div class="ttname"><a href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">Cpl::Container::RingBufferMT</a></div><div class="ttdoc">This template class implements a THREAD SAFE Ring Buffer.</div><div class="ttdef"><b>Definition</b> RingBufferMT.h:33</div></div>
 <div class="ttc" id="aclass_cpl_1_1_text_1_1_frame_1_1_stream_decoder_html"><div class="ttname"><a href="class_cpl_1_1_text_1_1_frame_1_1_stream_decoder.html">Cpl::Text::Frame::StreamDecoder</a></div><div class="ttdoc">This partially concrete class defines an interface a Text &quot;Decoder&quot; that has a Cpl::Io::Input stream ...</div><div class="ttdef"><b>Definition</b> StreamDecoder.h:34</div></div>
 <div class="ttc" id="aclass_driver_1_1_t_pipe_1_1_maker_html"><div class="ttname"><a href="class_driver_1_1_t_pipe_1_1_maker.html">Driver::TPipe::Maker</a></div><div class="ttdoc">This concrete class is a &quot;Maker&quot; that assembles the objects needed for TPipe.</div><div class="ttdef"><b>Definition</b> Maker.h:36</div></div>
 <div class="ttc" id="aclass_driver_1_1_t_pipe_1_1_maker_html_a071a21962f84d04931c9bd7d3a447e42"><div class="ttname"><a href="class_driver_1_1_t_pipe_1_1_maker.html#a071a21962f84d04931c9bd7d3a447e42">Driver::TPipe::Maker::getPipeProcessor</a></div><div class="ttdeci">Pipe &amp; getPipeProcessor(void) noexcept</div><div class="ttdoc">Returns a reference to the TPipe processor.</div><div class="ttdef"><b>Definition</b> Maker.h:61</div></div>
@@ -178,7 +178,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 22 2024 15:39:54 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Sep 30 2024 17:32:55 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

@@ -108,7 +108,7 @@
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">protected</span>:<span class="comment"></span></div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">    /// Constructor</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_cpl_1_1_t_shell_1_1_cmd_1_1_command.html#a38b3839fcfc6d247c83058d24db59b8a">   57</a></span><span class="comment"></span>    <a class="code hl_function" href="class_cpl_1_1_t_shell_1_1_cmd_1_1_command.html#a38b3839fcfc6d247c83058d24db59b8a">Command</a>( <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer.html">Cpl::Container::Map&lt;Cpl::TShell::Command&gt;</a>&amp; commandList, </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_cpl_1_1_t_shell_1_1_cmd_1_1_command.html#a38b3839fcfc6d247c83058d24db59b8a">   57</a></span><span class="comment"></span>    <a class="code hl_function" href="class_cpl_1_1_t_shell_1_1_cmd_1_1_command.html#a38b3839fcfc6d247c83058d24db59b8a">Command</a>( <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">Cpl::Container::Map&lt;Cpl::TShell::Command&gt;</a>&amp; commandList, </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>             <span class="keyword">const</span> <span class="keywordtype">char</span>*                                verb, </div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>             <a class="code hl_enumeration" href="class_cpl_1_1_t_shell_1_1_security.html#a1fabb709bfb743af129f25a3223a356f">Security::Permission_T</a>                     minPermLevel=<a class="code hl_define" href="_cmd_2_command_8h.html#ab80cf34c55bd6aec5bd8188cff9d7c58">OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL</a> ) <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
@@ -138,7 +138,7 @@
 <div class="ttc" id="a_map_8h_html"><div class="ttname"><a href="_map_8h.html">Map.h</a></div></div>
 <div class="ttc" id="a_text_2_string_8h_html"><div class="ttname"><a href="_text_2_string_8h.html">String.h</a></div></div>
 <div class="ttc" id="aclass_cpl_1_1_container_1_1_key_literal_string_html"><div class="ttname"><a href="class_cpl_1_1_container_1_1_key_literal_string.html">Cpl::Container::KeyLiteralString</a></div><div class="ttdoc">This class provides a 'Key' wrapper for a C string literal.</div><div class="ttdef"><b>Definition</b> Key.h:177</div></div>
-<div class="ttc" id="aclass_cpl_1_1_container_1_1_ring_buffer_html"><div class="ttname"><a href="class_cpl_1_1_container_1_1_ring_buffer.html">Cpl::Container::RingBuffer</a></div><div class="ttdoc">This template class implements a Ring Buffer.</div><div class="ttdef"><b>Definition</b> RingBuffer.h:46</div></div>
+<div class="ttc" id="aclass_cpl_1_1_container_1_1_ring_buffer_m_t_html"><div class="ttname"><a href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">Cpl::Container::RingBufferMT</a></div><div class="ttdoc">This template class implements a THREAD SAFE Ring Buffer.</div><div class="ttdef"><b>Definition</b> RingBufferMT.h:33</div></div>
 <div class="ttc" id="aclass_cpl_1_1_t_shell_1_1_cmd_1_1_command_html"><div class="ttname"><a href="class_cpl_1_1_t_shell_1_1_cmd_1_1_command.html">Cpl::TShell::Cmd::Command</a></div><div class="ttdoc">This partially concrete class implements infrastructure and/or common functionality for a Shell comma...</div><div class="ttdef"><b>Definition</b> Command.h:39</div></div>
 <div class="ttc" id="aclass_cpl_1_1_t_shell_1_1_cmd_1_1_command_html_a01fa1140e666b267b7473432c3febcbd"><div class="ttname"><a href="class_cpl_1_1_t_shell_1_1_cmd_1_1_command.html#a01fa1140e666b267b7473432c3febcbd">Cpl::TShell::Cmd::Command::m_mapKey</a></div><div class="ttdeci">Cpl::Container::KeyLiteralString m_mapKey</div><div class="ttdoc">Command.</div><div class="ttdef"><b>Definition</b> Command.h:50</div></div>
 <div class="ttc" id="aclass_cpl_1_1_t_shell_1_1_cmd_1_1_command_html_a02a045e29e9ad2d9698e0fce1b9f0459"><div class="ttname"><a href="class_cpl_1_1_t_shell_1_1_cmd_1_1_command.html#a02a045e29e9ad2d9698e0fce1b9f0459">Cpl::TShell::Cmd::Command::getMinPermissionRequired</a></div><div class="ttdeci">Security::Permission_T getMinPermissionRequired() const noexcept</div><div class="ttdoc">See Cpl::TShell::Command.</div></div>
@@ -157,7 +157,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 22 2024 15:39:54 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Sep 30 2024 17:32:55 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

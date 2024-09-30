@@ -97,7 +97,7 @@
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">    /** Constructor.  The application is responsible for supplying the set of commands and the mutex to ensure atomic</span></div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">        output.</span></div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_cpl_1_1_t_shell_1_1_polled_maker.html#a08b8691413e78c5f9a4939e64af26570">   46</a></span>    <a class="code hl_function" href="class_cpl_1_1_t_shell_1_1_polled_maker.html#a08b8691413e78c5f9a4939e64af26570">PolledMaker</a>( <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer.html">Cpl::Container::Map&lt;Command&gt;</a>&amp; cmdlist, <a class="code hl_class" href="class_cpl_1_1_system_1_1_mutex.html">Cpl::System::Mutex</a>&amp; lock=<a class="code hl_function" href="class_cpl_1_1_system_1_1_locks__.html#a438986aabfc4289a82755c7ce46ebe4d">Cpl::System::Locks_::tracingOutput</a>() );</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_cpl_1_1_t_shell_1_1_polled_maker.html#a08b8691413e78c5f9a4939e64af26570">   46</a></span>    <a class="code hl_function" href="class_cpl_1_1_t_shell_1_1_polled_maker.html#a08b8691413e78c5f9a4939e64af26570">PolledMaker</a>( <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">Cpl::Container::Map&lt;Command&gt;</a>&amp; cmdlist, <a class="code hl_class" href="class_cpl_1_1_system_1_1_mutex.html">Cpl::System::Mutex</a>&amp; lock=<a class="code hl_function" href="class_cpl_1_1_system_1_1_locks__.html#a438986aabfc4289a82755c7ce46ebe4d">Cpl::System::Locks_::tracingOutput</a>() );</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">public</span>:<span class="comment"></span></div>
@@ -116,7 +116,7 @@
 <div class="ttc" id="a_line_decoder_8h_html"><div class="ttname"><a href="_line_decoder_8h.html">LineDecoder.h</a></div></div>
 <div class="ttc" id="a_polled_processor_8h_html"><div class="ttname"><a href="_polled_processor_8h.html">PolledProcessor.h</a></div></div>
 <div class="ttc" id="a_system_2_private___8h_html"><div class="ttname"><a href="_system_2_private___8h.html">Private_.h</a></div><div class="ttdoc">This file contains a collection of classes, interfaces, etc.</div></div>
-<div class="ttc" id="aclass_cpl_1_1_container_1_1_ring_buffer_html"><div class="ttname"><a href="class_cpl_1_1_container_1_1_ring_buffer.html">Cpl::Container::RingBuffer</a></div><div class="ttdoc">This template class implements a Ring Buffer.</div><div class="ttdef"><b>Definition</b> RingBuffer.h:46</div></div>
+<div class="ttc" id="aclass_cpl_1_1_container_1_1_ring_buffer_m_t_html"><div class="ttname"><a href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">Cpl::Container::RingBufferMT</a></div><div class="ttdoc">This template class implements a THREAD SAFE Ring Buffer.</div><div class="ttdef"><b>Definition</b> RingBufferMT.h:33</div></div>
 <div class="ttc" id="aclass_cpl_1_1_system_1_1_locks___html_a438986aabfc4289a82755c7ce46ebe4d"><div class="ttname"><a href="class_cpl_1_1_system_1_1_locks__.html#a438986aabfc4289a82755c7ce46ebe4d">Cpl::System::Locks_::tracingOutput</a></div><div class="ttdeci">static Mutex &amp; tracingOutput(void)</div><div class="ttdoc">Global mutex for use for the tracing sub-system OUTPUT (see above for more details)</div></div>
 <div class="ttc" id="aclass_cpl_1_1_system_1_1_mutex_html"><div class="ttname"><a href="class_cpl_1_1_system_1_1_mutex.html">Cpl::System::Mutex</a></div><div class="ttdoc">This mutex class defines the interface for a mutex that has &quot;recursive&quot; semantics.</div><div class="ttdef"><b>Definition</b> Mutex.h:33</div></div>
 <div class="ttc" id="aclass_cpl_1_1_t_shell_1_1_polled_maker_html"><div class="ttname"><a href="class_cpl_1_1_t_shell_1_1_polled_maker.html">Cpl::TShell::PolledMaker</a></div><div class="ttdoc">This concrete class is a &quot;Maker&quot; that assembles the objects needed for a 'basic' TShell Processor eng...</div><div class="ttdef"><b>Definition</b> PolledMaker.h:29</div></div>
@@ -133,7 +133,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 22 2024 15:39:54 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Sep 30 2024 17:32:55 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

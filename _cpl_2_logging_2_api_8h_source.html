@@ -95,7 +95,7 @@
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">    MUST be called BEFORE any &#39;logf&#39; calls are made (i.e. call this method</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">    as early as possible in the application&#39;s startup-sequence).</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="namespace_cpl_1_1_logging.html#ae653a942aa430fe24cf4a644cc8ab699">   44</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespace_cpl_1_1_logging.html#ae653a942aa430fe24cf4a644cc8ab699">initialize</a>( <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer.html">Cpl::Container::RingBufferMP&lt;EntryData_T&gt;</a>&amp; logEntryFIFO,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="namespace_cpl_1_1_logging.html#ae653a942aa430fe24cf4a644cc8ab699">   44</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespace_cpl_1_1_logging.html#ae653a942aa430fe24cf4a644cc8ab699">initialize</a>( <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">Cpl::Container::RingBufferMP&lt;EntryData_T&gt;</a>&amp; logEntryFIFO,</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                 uint32_t                                   categoryIdForQueueOverflow,</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                 <span class="keyword">const</span> <span class="keywordtype">char</span>*                                categoryQueueOverflowText,</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                 uint16_t                                   messageIdForQueueOverflow,</div>
@@ -221,7 +221,7 @@
 <div class="ttc" id="a_ring_buffer_m_p_8h_html"><div class="ttname"><a href="_ring_buffer_m_p_8h.html">RingBufferMP.h</a></div></div>
 <div class="ttc" id="a_time_api_8h_html"><div class="ttname"><a href="_time_api_8h.html">TimeApi.h</a></div></div>
 <div class="ttc" id="a_uint32_8h_html"><div class="ttname"><a href="_uint32_8h.html">Uint32.h</a></div></div>
-<div class="ttc" id="aclass_cpl_1_1_container_1_1_ring_buffer_html"><div class="ttname"><a href="class_cpl_1_1_container_1_1_ring_buffer.html">Cpl::Container::RingBuffer</a></div><div class="ttdoc">This template class implements a Ring Buffer.</div><div class="ttdef"><b>Definition</b> RingBuffer.h:46</div></div>
+<div class="ttc" id="aclass_cpl_1_1_container_1_1_ring_buffer_m_t_html"><div class="ttname"><a href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">Cpl::Container::RingBufferMT</a></div><div class="ttdoc">This template class implements a THREAD SAFE Ring Buffer.</div><div class="ttdef"><b>Definition</b> RingBufferMT.h:33</div></div>
 <div class="ttc" id="aclass_cpl_1_1_text_1_1_string_html"><div class="ttname"><a href="class_cpl_1_1_text_1_1_string.html">Cpl::Text::String</a></div><div class="ttdoc">This abstract class defines the operations that can be before on a NULL terminated string.</div><div class="ttdef"><b>Definition</b> String.h:40</div></div>
 <div class="ttc" id="anamespace_cpl_1_1_logging_html_a03c4f60c1aa507183921aebe082ddd5c"><div class="ttname"><a href="namespace_cpl_1_1_logging.html#a03c4f60c1aa507183921aebe082ddd5c">Cpl::Logging::getIDStrings</a></div><div class="ttdeci">bool getIDStrings(uint32_t categoryNumericValue, uint16_t messageIdNumericValue, Cpl::Text::String &amp;dstCategoryString, Cpl::Text::String &amp;dstMessageString) noexcept</div><div class="ttdoc">This method is implemented the application - it converts numeric values for the Category and Message ...</div></div>
 <div class="ttc" id="anamespace_cpl_1_1_logging_html_a83283096b7be87752b1bd2e6ced6bacb"><div class="ttname"><a href="namespace_cpl_1_1_logging.html#a83283096b7be87752b1bd2e6ced6bacb">Cpl::Logging::setCategoryMask</a></div><div class="ttdeci">void setCategoryMask(uint32_t newMask) noexcept</div><div class="ttdoc">This method is used to explicit set the category mask (i.e.</div></div>
@@ -236,7 +236,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 22 2024 15:39:53 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Sep 30 2024 17:32:54 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

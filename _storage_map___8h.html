@@ -57,10 +57,12 @@
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains the magic values for how data is laid out in the off-board EEPROM. </p>
 </div><div class="textblock"><code>#include &quot;colony_config.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_crc_chunk_8h_source.html">Cpl/Persistent/CrcChunk.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_mirrored_chunk_8h_source.html">Cpl/Persistent/MirroredChunk.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for StorageMap_.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="_storage_map___8h__incl.svg" width="180" height="111"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="_storage_map___8h__incl.svg" width="1838" height="626"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="_storage_map___8h_source.html">Go to the source code of this file.</a></p>
@@ -70,11 +72,11 @@ Macros</h2></td></tr>
 <tr class="memitem:ad022f8bda6e0aebe80215d6d7ba626c7" id="r_ad022f8bda6e0aebe80215d6d7ba626c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#ad022f8bda6e0aebe80215d6d7ba626c7">AJAX_MAIN_APPLICATION_RECORDS_START_OFFSET</a>&#160;&#160;&#160;0</td></tr>
 <tr class="memdesc:ad022f8bda6e0aebe80215d6d7ba626c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starting offset for Application Records.  <br /></td></tr>
 <tr class="separator:ad022f8bda6e0aebe80215d6d7ba626c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae25c005c3495aa567533141e6aeb2853" id="r_ae25c005c3495aa567533141e6aeb2853"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#ae25c005c3495aa567533141e6aeb2853">AJAX_MAIN_MIRRORED_CHUNK_META_LEN</a>&#160;&#160;&#160;16</td></tr>
-<tr class="memdesc:ae25c005c3495aa567533141e6aeb2853"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metadata length for a Mirrored Chunck.  <br /></td></tr>
+<tr class="memitem:ae25c005c3495aa567533141e6aeb2853" id="r_ae25c005c3495aa567533141e6aeb2853"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#ae25c005c3495aa567533141e6aeb2853">AJAX_MAIN_MIRRORED_CHUNK_META_LEN</a>&#160;&#160;&#160;<a class="el" href="class_cpl_1_1_persistent_1_1_mirrored_chunk.html#a4c195073719a0181da0ae0d4bc586983">Cpl::Persistent::MirroredChunk::FRAME_OVERHEAD</a></td></tr>
+<tr class="memdesc:ae25c005c3495aa567533141e6aeb2853"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metadata length for a Mirrored Chunk.  <br /></td></tr>
 <tr class="separator:ae25c005c3495aa567533141e6aeb2853"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85aac685ff9883c82311a309797db6f5" id="r_a85aac685ff9883c82311a309797db6f5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a85aac685ff9883c82311a309797db6f5">AJAX_MAIN_CRC_CHUNK_META_LEN</a>&#160;&#160;&#160;8</td></tr>
-<tr class="memdesc:a85aac685ff9883c82311a309797db6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metadata length for a CRC Chunck.  <br /></td></tr>
+<tr class="memitem:a85aac685ff9883c82311a309797db6f5" id="r_a85aac685ff9883c82311a309797db6f5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a85aac685ff9883c82311a309797db6f5">AJAX_MAIN_CRC_CHUNK_META_LEN</a>&#160;&#160;&#160;<a class="el" href="class_cpl_1_1_persistent_1_1_crc_chunk.html#aac719b35612e540c54e3e38ed29d8072">Cpl::Persistent::CrcChunk::FRAME_OVERHEAD</a></td></tr>
+<tr class="memdesc:a85aac685ff9883c82311a309797db6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metadata length for a CRC Chunk.  <br /></td></tr>
 <tr class="separator:a85aac685ff9883c82311a309797db6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac50f6820458e9d2013ad27d38a092834" id="r_ac50f6820458e9d2013ad27d38a092834"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#ac50f6820458e9d2013ad27d38a092834">OPTION_AJAX_MAIN_MAX_LOG_ENTRIES</a>&#160;&#160;&#160;256</td></tr>
 <tr class="memdesc:ac50f6820458e9d2013ad27d38a092834"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of log entries.  <br /></td></tr>
@@ -83,87 +85,93 @@ Macros</h2></td></tr>
 <tr class="memdesc:afd54336cfcd3a6bd75a525463800b44f"><td class="mdescLeft">&#160;</td><td class="mdescRight">USER Record/Region.  <br /></td></tr>
 <tr class="separator:afd54336cfcd3a6bd75a525463800b44f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96a4c5aa5d177aa6a52d159c8e80c0bf" id="r_a96a4c5aa5d177aa6a52d159c8e80c0bf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a96a4c5aa5d177aa6a52d159c8e80c0bf">AJAX_MAIN_USER_REGION_RESERVED</a>&#160;&#160;&#160;64</td></tr>
-<tr class="memdesc:a96a4c5aa5d177aa6a52d159c8e80c0bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">USER Record/Region.  <br /></td></tr>
+<tr class="memdesc:a96a4c5aa5d177aa6a52d159c8e80c0bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">USER Record/Region <br  />
+  <br /></td></tr>
 <tr class="separator:a96a4c5aa5d177aa6a52d159c8e80c0bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02b87bb33b7b63d357f83e7471edf290" id="r_a02b87bb33b7b63d357f83e7471edf290"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a02b87bb33b7b63d357f83e7471edf290">AJAX_MAIN_USER_REGION_LENGTH</a>&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#afd54336cfcd3a6bd75a525463800b44f">AJAX_MAIN_USER_REGION_DATA_LEN</a>+<a class="el" href="_storage_map___8h.html#a96a4c5aa5d177aa6a52d159c8e80c0bf">AJAX_MAIN_USER_REGION_RESERVED</a>+<a class="el" href="_storage_map___8h.html#ae25c005c3495aa567533141e6aeb2853">AJAX_MAIN_MIRRORED_CHUNK_META_LEN</a>)</td></tr>
+<tr class="memitem:a02b87bb33b7b63d357f83e7471edf290" id="r_a02b87bb33b7b63d357f83e7471edf290"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a02b87bb33b7b63d357f83e7471edf290">AJAX_MAIN_USER_REGION_LENGTH</a>&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#afd54336cfcd3a6bd75a525463800b44f">AJAX_MAIN_USER_REGION_DATA_LEN</a> + <a class="el" href="_storage_map___8h.html#a96a4c5aa5d177aa6a52d159c8e80c0bf">AJAX_MAIN_USER_REGION_RESERVED</a> + <a class="el" href="_storage_map___8h.html#ae25c005c3495aa567533141e6aeb2853">AJAX_MAIN_MIRRORED_CHUNK_META_LEN</a> )</td></tr>
 <tr class="memdesc:a02b87bb33b7b63d357f83e7471edf290"><td class="mdescLeft">&#160;</td><td class="mdescRight">USER Record/Region.  <br /></td></tr>
 <tr class="separator:a02b87bb33b7b63d357f83e7471edf290"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabd9ded568818ae09b06291248c9c502" id="r_aabd9ded568818ae09b06291248c9c502"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#aabd9ded568818ae09b06291248c9c502">AJAX_MAIN_USER_REGION_A_START_ADDRESS</a>&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#ad022f8bda6e0aebe80215d6d7ba626c7">AJAX_MAIN_APPLICATION_RECORDS_START_OFFSET</a>)</td></tr>
+<tr class="memitem:aabd9ded568818ae09b06291248c9c502" id="r_aabd9ded568818ae09b06291248c9c502"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#aabd9ded568818ae09b06291248c9c502">AJAX_MAIN_USER_REGION_A_START_ADDRESS</a>&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#ad022f8bda6e0aebe80215d6d7ba626c7">AJAX_MAIN_APPLICATION_RECORDS_START_OFFSET</a> )</td></tr>
 <tr class="memdesc:aabd9ded568818ae09b06291248c9c502"><td class="mdescLeft">&#160;</td><td class="mdescRight">USER Record/Region.  <br /></td></tr>
 <tr class="separator:aabd9ded568818ae09b06291248c9c502"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4fe09768ee3a2882fdd878c941ef658" id="r_aa4fe09768ee3a2882fdd878c941ef658"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#aa4fe09768ee3a2882fdd878c941ef658">AJAX_MAIN_USER_REGION_B_START_ADDRESS</a>&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#aabd9ded568818ae09b06291248c9c502">AJAX_MAIN_USER_REGION_A_START_ADDRESS</a>+<a class="el" href="_storage_map___8h.html#a02b87bb33b7b63d357f83e7471edf290">AJAX_MAIN_USER_REGION_LENGTH</a>)</td></tr>
-<tr class="memdesc:aa4fe09768ee3a2882fdd878c941ef658"><td class="mdescLeft">&#160;</td><td class="mdescRight">USER Record/Region.  <br /></td></tr>
+<tr class="memitem:aa4fe09768ee3a2882fdd878c941ef658" id="r_aa4fe09768ee3a2882fdd878c941ef658"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#aa4fe09768ee3a2882fdd878c941ef658">AJAX_MAIN_USER_REGION_B_START_ADDRESS</a>&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#aabd9ded568818ae09b06291248c9c502">AJAX_MAIN_USER_REGION_A_START_ADDRESS</a> + <a class="el" href="_storage_map___8h.html#a02b87bb33b7b63d357f83e7471edf290">AJAX_MAIN_USER_REGION_LENGTH</a> )</td></tr>
+<tr class="memdesc:aa4fe09768ee3a2882fdd878c941ef658"><td class="mdescLeft">&#160;</td><td class="mdescRight">USER Record/Region <br  />
+  <br /></td></tr>
 <tr class="separator:aa4fe09768ee3a2882fdd878c941ef658"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b118de10507e0badb2e9ef66c1e410b" id="r_a2b118de10507e0badb2e9ef66c1e410b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a2b118de10507e0badb2e9ef66c1e410b">AJAX_MAIN_USER_REGION_NEXT_OFFSET</a>&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#aa4fe09768ee3a2882fdd878c941ef658">AJAX_MAIN_USER_REGION_B_START_ADDRESS</a>+<a class="el" href="_storage_map___8h.html#a02b87bb33b7b63d357f83e7471edf290">AJAX_MAIN_USER_REGION_LENGTH</a>)</td></tr>
+<tr class="memitem:a2b118de10507e0badb2e9ef66c1e410b" id="r_a2b118de10507e0badb2e9ef66c1e410b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a2b118de10507e0badb2e9ef66c1e410b">AJAX_MAIN_USER_REGION_NEXT_OFFSET</a>&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#aa4fe09768ee3a2882fdd878c941ef658">AJAX_MAIN_USER_REGION_B_START_ADDRESS</a> + <a class="el" href="_storage_map___8h.html#a02b87bb33b7b63d357f83e7471edf290">AJAX_MAIN_USER_REGION_LENGTH</a> )</td></tr>
 <tr class="memdesc:a2b118de10507e0badb2e9ef66c1e410b"><td class="mdescLeft">&#160;</td><td class="mdescRight">USER Record/Region.  <br /></td></tr>
 <tr class="separator:a2b118de10507e0badb2e9ef66c1e410b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0be8c6d1cdd56b4d126079665f12c6b3" id="r_a0be8c6d1cdd56b4d126079665f12c6b3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a0be8c6d1cdd56b4d126079665f12c6b3">AJAX_MAIN_PERSONALITY_REGION_DATA_LEN</a>&#160;&#160;&#160;193</td></tr>
 <tr class="memdesc:a0be8c6d1cdd56b4d126079665f12c6b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">PERSONALITY Record/Region.  <br /></td></tr>
 <tr class="separator:a0be8c6d1cdd56b4d126079665f12c6b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1080241847bc584a7a1dc5a58d3fc4b" id="r_ac1080241847bc584a7a1dc5a58d3fc4b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#ac1080241847bc584a7a1dc5a58d3fc4b">AJAX_MAIN_PERSONALITY_REGION_RESERVED</a>&#160;&#160;&#160;64</td></tr>
-<tr class="memdesc:ac1080241847bc584a7a1dc5a58d3fc4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">PERSONALITY Record/Region.  <br /></td></tr>
+<tr class="memdesc:ac1080241847bc584a7a1dc5a58d3fc4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">PERSONALITY Record/Region <br  />
+  <br /></td></tr>
 <tr class="separator:ac1080241847bc584a7a1dc5a58d3fc4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a3a58a01149bb66f216d3fb0a7d3076" id="r_a1a3a58a01149bb66f216d3fb0a7d3076"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a1a3a58a01149bb66f216d3fb0a7d3076">AJAX_MAIN_PERSONALITY_REGION_LENGTH</a>&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#ac1080241847bc584a7a1dc5a58d3fc4b">AJAX_MAIN_PERSONALITY_REGION_RESERVED</a>+<a class="el" href="_storage_map___8h.html#a0be8c6d1cdd56b4d126079665f12c6b3">AJAX_MAIN_PERSONALITY_REGION_DATA_LEN</a>+<a class="el" href="_storage_map___8h.html#ae25c005c3495aa567533141e6aeb2853">AJAX_MAIN_MIRRORED_CHUNK_META_LEN</a>)</td></tr>
+<tr class="memitem:a1a3a58a01149bb66f216d3fb0a7d3076" id="r_a1a3a58a01149bb66f216d3fb0a7d3076"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a1a3a58a01149bb66f216d3fb0a7d3076">AJAX_MAIN_PERSONALITY_REGION_LENGTH</a>&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#ac1080241847bc584a7a1dc5a58d3fc4b">AJAX_MAIN_PERSONALITY_REGION_RESERVED</a> + <a class="el" href="_storage_map___8h.html#a0be8c6d1cdd56b4d126079665f12c6b3">AJAX_MAIN_PERSONALITY_REGION_DATA_LEN</a> + <a class="el" href="_storage_map___8h.html#ae25c005c3495aa567533141e6aeb2853">AJAX_MAIN_MIRRORED_CHUNK_META_LEN</a> )</td></tr>
 <tr class="memdesc:a1a3a58a01149bb66f216d3fb0a7d3076"><td class="mdescLeft">&#160;</td><td class="mdescRight">PERSONALITY Record/Region.  <br /></td></tr>
 <tr class="separator:a1a3a58a01149bb66f216d3fb0a7d3076"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5078b26bb0d0a91eec986015df21900" id="r_af5078b26bb0d0a91eec986015df21900"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#af5078b26bb0d0a91eec986015df21900">AJAX_MAIN_PERSONALITY_REGION_A_START_ADDRESS</a>&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#a2b118de10507e0badb2e9ef66c1e410b">AJAX_MAIN_USER_REGION_NEXT_OFFSET</a>)</td></tr>
+<tr class="memitem:af5078b26bb0d0a91eec986015df21900" id="r_af5078b26bb0d0a91eec986015df21900"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#af5078b26bb0d0a91eec986015df21900">AJAX_MAIN_PERSONALITY_REGION_A_START_ADDRESS</a>&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#a2b118de10507e0badb2e9ef66c1e410b">AJAX_MAIN_USER_REGION_NEXT_OFFSET</a> )</td></tr>
 <tr class="memdesc:af5078b26bb0d0a91eec986015df21900"><td class="mdescLeft">&#160;</td><td class="mdescRight">PERSONALITY Record/Region.  <br /></td></tr>
 <tr class="separator:af5078b26bb0d0a91eec986015df21900"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e2c2c9e2fff7ce348598ba68552da39" id="r_a5e2c2c9e2fff7ce348598ba68552da39"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a5e2c2c9e2fff7ce348598ba68552da39">AJAX_MAIN_PERSONALITY_REGION_B_START_ADDRESS</a>&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#af5078b26bb0d0a91eec986015df21900">AJAX_MAIN_PERSONALITY_REGION_A_START_ADDRESS</a>+<a class="el" href="_storage_map___8h.html#a1a3a58a01149bb66f216d3fb0a7d3076">AJAX_MAIN_PERSONALITY_REGION_LENGTH</a>)</td></tr>
+<tr class="memitem:a5e2c2c9e2fff7ce348598ba68552da39" id="r_a5e2c2c9e2fff7ce348598ba68552da39"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a5e2c2c9e2fff7ce348598ba68552da39">AJAX_MAIN_PERSONALITY_REGION_B_START_ADDRESS</a>&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#af5078b26bb0d0a91eec986015df21900">AJAX_MAIN_PERSONALITY_REGION_A_START_ADDRESS</a> + <a class="el" href="_storage_map___8h.html#a1a3a58a01149bb66f216d3fb0a7d3076">AJAX_MAIN_PERSONALITY_REGION_LENGTH</a> )</td></tr>
 <tr class="memdesc:a5e2c2c9e2fff7ce348598ba68552da39"><td class="mdescLeft">&#160;</td><td class="mdescRight">PERSONALITY Record/Region.  <br /></td></tr>
 <tr class="separator:a5e2c2c9e2fff7ce348598ba68552da39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2b0d5a92ba1b1089e76e1f4a5f101be" id="r_ad2b0d5a92ba1b1089e76e1f4a5f101be"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#ad2b0d5a92ba1b1089e76e1f4a5f101be">AJAX_MAIN_PERSONALITY_REGION_NEXT_OFFSET</a>&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#a5e2c2c9e2fff7ce348598ba68552da39">AJAX_MAIN_PERSONALITY_REGION_B_START_ADDRESS</a>+<a class="el" href="_storage_map___8h.html#a1a3a58a01149bb66f216d3fb0a7d3076">AJAX_MAIN_PERSONALITY_REGION_LENGTH</a>)</td></tr>
+<tr class="memitem:ad2b0d5a92ba1b1089e76e1f4a5f101be" id="r_ad2b0d5a92ba1b1089e76e1f4a5f101be"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#ad2b0d5a92ba1b1089e76e1f4a5f101be">AJAX_MAIN_PERSONALITY_REGION_NEXT_OFFSET</a>&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#a5e2c2c9e2fff7ce348598ba68552da39">AJAX_MAIN_PERSONALITY_REGION_B_START_ADDRESS</a> + <a class="el" href="_storage_map___8h.html#a1a3a58a01149bb66f216d3fb0a7d3076">AJAX_MAIN_PERSONALITY_REGION_LENGTH</a> )</td></tr>
 <tr class="memdesc:ad2b0d5a92ba1b1089e76e1f4a5f101be"><td class="mdescLeft">&#160;</td><td class="mdescRight">PERSONALITY Record/Region.  <br /></td></tr>
 <tr class="separator:ad2b0d5a92ba1b1089e76e1f4a5f101be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8175f167448c0b110d489a9852d29caa" id="r_a8175f167448c0b110d489a9852d29caa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a8175f167448c0b110d489a9852d29caa">AJAX_MAIN_METRICS_REGION_DATA_LEN</a>&#160;&#160;&#160;64</td></tr>
 <tr class="memdesc:a8175f167448c0b110d489a9852d29caa"><td class="mdescLeft">&#160;</td><td class="mdescRight">METRICS Record/Region.  <br /></td></tr>
 <tr class="separator:a8175f167448c0b110d489a9852d29caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a024003802a6da62dc31b4b4c066ff74f" id="r_a024003802a6da62dc31b4b4c066ff74f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a024003802a6da62dc31b4b4c066ff74f">AJAX_MAIN_METRICS_REGION_RESERVED</a>&#160;&#160;&#160;64</td></tr>
-<tr class="memdesc:a024003802a6da62dc31b4b4c066ff74f"><td class="mdescLeft">&#160;</td><td class="mdescRight">METRICS Record/Region.  <br /></td></tr>
+<tr class="memdesc:a024003802a6da62dc31b4b4c066ff74f"><td class="mdescLeft">&#160;</td><td class="mdescRight">METRICS Record/Region <br  />
+  <br /></td></tr>
 <tr class="separator:a024003802a6da62dc31b4b4c066ff74f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2b31b0fe0450f7541e623543d301376" id="r_ac2b31b0fe0450f7541e623543d301376"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#ac2b31b0fe0450f7541e623543d301376">AJAX_MAIN_METRICS_REGION_LENGTH</a>&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#a024003802a6da62dc31b4b4c066ff74f">AJAX_MAIN_METRICS_REGION_RESERVED</a>+<a class="el" href="_storage_map___8h.html#a8175f167448c0b110d489a9852d29caa">AJAX_MAIN_METRICS_REGION_DATA_LEN</a>+<a class="el" href="_storage_map___8h.html#ae25c005c3495aa567533141e6aeb2853">AJAX_MAIN_MIRRORED_CHUNK_META_LEN</a>)</td></tr>
+<tr class="memitem:ac2b31b0fe0450f7541e623543d301376" id="r_ac2b31b0fe0450f7541e623543d301376"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#ac2b31b0fe0450f7541e623543d301376">AJAX_MAIN_METRICS_REGION_LENGTH</a>&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#a024003802a6da62dc31b4b4c066ff74f">AJAX_MAIN_METRICS_REGION_RESERVED</a> + <a class="el" href="_storage_map___8h.html#a8175f167448c0b110d489a9852d29caa">AJAX_MAIN_METRICS_REGION_DATA_LEN</a> + <a class="el" href="_storage_map___8h.html#ae25c005c3495aa567533141e6aeb2853">AJAX_MAIN_MIRRORED_CHUNK_META_LEN</a> )</td></tr>
 <tr class="memdesc:ac2b31b0fe0450f7541e623543d301376"><td class="mdescLeft">&#160;</td><td class="mdescRight">METRICS Record/Region.  <br /></td></tr>
 <tr class="separator:ac2b31b0fe0450f7541e623543d301376"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1b9d1001171c30aff266fc8a0550abc" id="r_ab1b9d1001171c30aff266fc8a0550abc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#ab1b9d1001171c30aff266fc8a0550abc">AJAX_MAIN_METRICS_REGION_A_START_ADDRESS</a>&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#ad2b0d5a92ba1b1089e76e1f4a5f101be">AJAX_MAIN_PERSONALITY_REGION_NEXT_OFFSET</a>)</td></tr>
+<tr class="memitem:ab1b9d1001171c30aff266fc8a0550abc" id="r_ab1b9d1001171c30aff266fc8a0550abc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#ab1b9d1001171c30aff266fc8a0550abc">AJAX_MAIN_METRICS_REGION_A_START_ADDRESS</a>&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#ad2b0d5a92ba1b1089e76e1f4a5f101be">AJAX_MAIN_PERSONALITY_REGION_NEXT_OFFSET</a> )</td></tr>
 <tr class="memdesc:ab1b9d1001171c30aff266fc8a0550abc"><td class="mdescLeft">&#160;</td><td class="mdescRight">METRICS Record/Region.  <br /></td></tr>
 <tr class="separator:ab1b9d1001171c30aff266fc8a0550abc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b7d7d7aacd6be06660751439396229d" id="r_a8b7d7d7aacd6be06660751439396229d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a8b7d7d7aacd6be06660751439396229d">AJAX_MAIN_METRICS_REGION_B_START_ADDRESS</a>&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#ab1b9d1001171c30aff266fc8a0550abc">AJAX_MAIN_METRICS_REGION_A_START_ADDRESS</a>+<a class="el" href="_storage_map___8h.html#ac2b31b0fe0450f7541e623543d301376">AJAX_MAIN_METRICS_REGION_LENGTH</a>)</td></tr>
+<tr class="memitem:a8b7d7d7aacd6be06660751439396229d" id="r_a8b7d7d7aacd6be06660751439396229d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a8b7d7d7aacd6be06660751439396229d">AJAX_MAIN_METRICS_REGION_B_START_ADDRESS</a>&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#ab1b9d1001171c30aff266fc8a0550abc">AJAX_MAIN_METRICS_REGION_A_START_ADDRESS</a> + <a class="el" href="_storage_map___8h.html#ac2b31b0fe0450f7541e623543d301376">AJAX_MAIN_METRICS_REGION_LENGTH</a> )</td></tr>
 <tr class="memdesc:a8b7d7d7aacd6be06660751439396229d"><td class="mdescLeft">&#160;</td><td class="mdescRight">METRICS Record/Region.  <br /></td></tr>
 <tr class="separator:a8b7d7d7aacd6be06660751439396229d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32450dd13ce796b9a4b51abe95eb811d" id="r_a32450dd13ce796b9a4b51abe95eb811d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a32450dd13ce796b9a4b51abe95eb811d">AJAX_MAIN_METRICS_REGION_NEXT_OFFSET</a>&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#a8b7d7d7aacd6be06660751439396229d">AJAX_MAIN_METRICS_REGION_B_START_ADDRESS</a>+<a class="el" href="_storage_map___8h.html#ac2b31b0fe0450f7541e623543d301376">AJAX_MAIN_METRICS_REGION_LENGTH</a>)</td></tr>
+<tr class="memitem:a32450dd13ce796b9a4b51abe95eb811d" id="r_a32450dd13ce796b9a4b51abe95eb811d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a32450dd13ce796b9a4b51abe95eb811d">AJAX_MAIN_METRICS_REGION_NEXT_OFFSET</a>&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#a8b7d7d7aacd6be06660751439396229d">AJAX_MAIN_METRICS_REGION_B_START_ADDRESS</a> + <a class="el" href="_storage_map___8h.html#ac2b31b0fe0450f7541e623543d301376">AJAX_MAIN_METRICS_REGION_LENGTH</a> )</td></tr>
 <tr class="memdesc:a32450dd13ce796b9a4b51abe95eb811d"><td class="mdescLeft">&#160;</td><td class="mdescRight">METRICS Record/Region.  <br /></td></tr>
 <tr class="separator:a32450dd13ce796b9a4b51abe95eb811d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a026bd5831076f5d2070254b4c9e3c499" id="r_a026bd5831076f5d2070254b4c9e3c499"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a026bd5831076f5d2070254b4c9e3c499">AJAX_MAIN_LOGINDEX_REGION_DATA_LEN</a>&#160;&#160;&#160;12</td></tr>
 <tr class="memdesc:a026bd5831076f5d2070254b4c9e3c499"><td class="mdescLeft">&#160;</td><td class="mdescRight">LOGGING - Index Record/Region.  <br /></td></tr>
 <tr class="separator:a026bd5831076f5d2070254b4c9e3c499"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7f40a478cb7a55e7c8b48dcfa879b29" id="r_aa7f40a478cb7a55e7c8b48dcfa879b29"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#aa7f40a478cb7a55e7c8b48dcfa879b29">AJAX_MAIN_LOGINDEX_REGION_RESERVED</a>&#160;&#160;&#160;32</td></tr>
-<tr class="memdesc:aa7f40a478cb7a55e7c8b48dcfa879b29"><td class="mdescLeft">&#160;</td><td class="mdescRight">METRICS Record/Region.  <br /></td></tr>
+<tr class="memdesc:aa7f40a478cb7a55e7c8b48dcfa879b29"><td class="mdescLeft">&#160;</td><td class="mdescRight">METRICS Record/Region <br  />
+  <br /></td></tr>
 <tr class="separator:aa7f40a478cb7a55e7c8b48dcfa879b29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25b99615c1f54a29a21f7e42ecf3ec7a" id="r_a25b99615c1f54a29a21f7e42ecf3ec7a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a25b99615c1f54a29a21f7e42ecf3ec7a">AJAX_MAIN_LOGINDEX_REGION_LENGTH</a>&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#aa7f40a478cb7a55e7c8b48dcfa879b29">AJAX_MAIN_LOGINDEX_REGION_RESERVED</a>+<a class="el" href="_storage_map___8h.html#a026bd5831076f5d2070254b4c9e3c499">AJAX_MAIN_LOGINDEX_REGION_DATA_LEN</a>+<a class="el" href="_storage_map___8h.html#ae25c005c3495aa567533141e6aeb2853">AJAX_MAIN_MIRRORED_CHUNK_META_LEN</a>)</td></tr>
+<tr class="memitem:a25b99615c1f54a29a21f7e42ecf3ec7a" id="r_a25b99615c1f54a29a21f7e42ecf3ec7a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a25b99615c1f54a29a21f7e42ecf3ec7a">AJAX_MAIN_LOGINDEX_REGION_LENGTH</a>&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#aa7f40a478cb7a55e7c8b48dcfa879b29">AJAX_MAIN_LOGINDEX_REGION_RESERVED</a> + <a class="el" href="_storage_map___8h.html#a026bd5831076f5d2070254b4c9e3c499">AJAX_MAIN_LOGINDEX_REGION_DATA_LEN</a> + <a class="el" href="_storage_map___8h.html#ae25c005c3495aa567533141e6aeb2853">AJAX_MAIN_MIRRORED_CHUNK_META_LEN</a> )</td></tr>
 <tr class="memdesc:a25b99615c1f54a29a21f7e42ecf3ec7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">METRICS Record/Region.  <br /></td></tr>
 <tr class="separator:a25b99615c1f54a29a21f7e42ecf3ec7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99d0dda953c36d194c565879fc01541b" id="r_a99d0dda953c36d194c565879fc01541b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a99d0dda953c36d194c565879fc01541b">AJAX_MAIN_LOGINDEX_REGION_A_START_ADDRESS</a>&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#a32450dd13ce796b9a4b51abe95eb811d">AJAX_MAIN_METRICS_REGION_NEXT_OFFSET</a>)</td></tr>
+<tr class="memitem:a99d0dda953c36d194c565879fc01541b" id="r_a99d0dda953c36d194c565879fc01541b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a99d0dda953c36d194c565879fc01541b">AJAX_MAIN_LOGINDEX_REGION_A_START_ADDRESS</a>&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#a32450dd13ce796b9a4b51abe95eb811d">AJAX_MAIN_METRICS_REGION_NEXT_OFFSET</a> )</td></tr>
 <tr class="memdesc:a99d0dda953c36d194c565879fc01541b"><td class="mdescLeft">&#160;</td><td class="mdescRight">METRICS Record/Region.  <br /></td></tr>
 <tr class="separator:a99d0dda953c36d194c565879fc01541b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c8e1f47118989f225cae5e49dcdc277" id="r_a6c8e1f47118989f225cae5e49dcdc277"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a6c8e1f47118989f225cae5e49dcdc277">AJAX_MAIN_LOGINDEX_REGION_B_START_ADDRESS</a>&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#a99d0dda953c36d194c565879fc01541b">AJAX_MAIN_LOGINDEX_REGION_A_START_ADDRESS</a>+<a class="el" href="_storage_map___8h.html#a25b99615c1f54a29a21f7e42ecf3ec7a">AJAX_MAIN_LOGINDEX_REGION_LENGTH</a>)</td></tr>
-<tr class="memdesc:a6c8e1f47118989f225cae5e49dcdc277"><td class="mdescLeft">&#160;</td><td class="mdescRight">METRICS Record/Region.  <br /></td></tr>
+<tr class="memitem:a6c8e1f47118989f225cae5e49dcdc277" id="r_a6c8e1f47118989f225cae5e49dcdc277"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a6c8e1f47118989f225cae5e49dcdc277">AJAX_MAIN_LOGINDEX_REGION_B_START_ADDRESS</a>&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#a99d0dda953c36d194c565879fc01541b">AJAX_MAIN_LOGINDEX_REGION_A_START_ADDRESS</a> + <a class="el" href="_storage_map___8h.html#a25b99615c1f54a29a21f7e42ecf3ec7a">AJAX_MAIN_LOGINDEX_REGION_LENGTH</a> )</td></tr>
+<tr class="memdesc:a6c8e1f47118989f225cae5e49dcdc277"><td class="mdescLeft">&#160;</td><td class="mdescRight">METRICS Record/Region <br  />
+  <br /></td></tr>
 <tr class="separator:a6c8e1f47118989f225cae5e49dcdc277"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa30108eadba2c54dea63c575cd87b431" id="r_aa30108eadba2c54dea63c575cd87b431"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#aa30108eadba2c54dea63c575cd87b431">AJAX_MAIN_LOGINDEX_REGION_NEXT_OFFSET</a>&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#a6c8e1f47118989f225cae5e49dcdc277">AJAX_MAIN_LOGINDEX_REGION_B_START_ADDRESS</a>+<a class="el" href="_storage_map___8h.html#a25b99615c1f54a29a21f7e42ecf3ec7a">AJAX_MAIN_LOGINDEX_REGION_LENGTH</a>)</td></tr>
+<tr class="memitem:aa30108eadba2c54dea63c575cd87b431" id="r_aa30108eadba2c54dea63c575cd87b431"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#aa30108eadba2c54dea63c575cd87b431">AJAX_MAIN_LOGINDEX_REGION_NEXT_OFFSET</a>&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#a6c8e1f47118989f225cae5e49dcdc277">AJAX_MAIN_LOGINDEX_REGION_B_START_ADDRESS</a> + <a class="el" href="_storage_map___8h.html#a25b99615c1f54a29a21f7e42ecf3ec7a">AJAX_MAIN_LOGINDEX_REGION_LENGTH</a> )</td></tr>
 <tr class="memdesc:aa30108eadba2c54dea63c575cd87b431"><td class="mdescLeft">&#160;</td><td class="mdescRight">METRICS Record/Region.  <br /></td></tr>
 <tr class="separator:aa30108eadba2c54dea63c575cd87b431"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfd55d890faf82cb258802886138a8a2" id="r_abfd55d890faf82cb258802886138a8a2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#abfd55d890faf82cb258802886138a8a2">AJAX_MAIN_LOGENTRIES_REGION_DATA_LEN</a>&#160;&#160;&#160;(159* <a class="el" href="_storage_map___8h.html#ac50f6820458e9d2013ad27d38a092834">OPTION_AJAX_MAIN_MAX_LOG_ENTRIES</a>)</td></tr>
+<tr class="memitem:abfd55d890faf82cb258802886138a8a2" id="r_abfd55d890faf82cb258802886138a8a2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#abfd55d890faf82cb258802886138a8a2">AJAX_MAIN_LOGENTRIES_REGION_DATA_LEN</a>&#160;&#160;&#160;( 159 * <a class="el" href="_storage_map___8h.html#ac50f6820458e9d2013ad27d38a092834">OPTION_AJAX_MAIN_MAX_LOG_ENTRIES</a> )</td></tr>
 <tr class="memdesc:abfd55d890faf82cb258802886138a8a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">LOGGING - Entries Record/Region.  <br /></td></tr>
 <tr class="separator:abfd55d890faf82cb258802886138a8a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f96374aa224179e6ee40c5326abe0e3" id="r_a9f96374aa224179e6ee40c5326abe0e3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a9f96374aa224179e6ee40c5326abe0e3">AJAX_MAIN_LOGENTRIES_REGION_RESERVED</a>&#160;&#160;&#160;0</td></tr>
 <tr class="memdesc:a9f96374aa224179e6ee40c5326abe0e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">METRICS Record/Region.  <br /></td></tr>
 <tr class="separator:a9f96374aa224179e6ee40c5326abe0e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa78531dac02b71703953fc7c3a14e235" id="r_aa78531dac02b71703953fc7c3a14e235"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#aa78531dac02b71703953fc7c3a14e235">AJAX_MAIN_LOGENTRIES_REGION_LENGTH</a>&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#a9f96374aa224179e6ee40c5326abe0e3">AJAX_MAIN_LOGENTRIES_REGION_RESERVED</a>+<a class="el" href="_storage_map___8h.html#abfd55d890faf82cb258802886138a8a2">AJAX_MAIN_LOGENTRIES_REGION_DATA_LEN</a>)</td></tr>
+<tr class="memitem:aa78531dac02b71703953fc7c3a14e235" id="r_aa78531dac02b71703953fc7c3a14e235"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#aa78531dac02b71703953fc7c3a14e235">AJAX_MAIN_LOGENTRIES_REGION_LENGTH</a>&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#a9f96374aa224179e6ee40c5326abe0e3">AJAX_MAIN_LOGENTRIES_REGION_RESERVED</a> + <a class="el" href="_storage_map___8h.html#abfd55d890faf82cb258802886138a8a2">AJAX_MAIN_LOGENTRIES_REGION_DATA_LEN</a> )</td></tr>
 <tr class="memdesc:aa78531dac02b71703953fc7c3a14e235"><td class="mdescLeft">&#160;</td><td class="mdescRight">METRICS Record/Region.  <br /></td></tr>
 <tr class="separator:aa78531dac02b71703953fc7c3a14e235"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a830653f1b8fc08c4ce22117fdf396a34" id="r_a830653f1b8fc08c4ce22117fdf396a34"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a830653f1b8fc08c4ce22117fdf396a34">AJAX_MAIN_LOGENTRIES_REGION_START_ADDRESS</a>&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#aa30108eadba2c54dea63c575cd87b431">AJAX_MAIN_LOGINDEX_REGION_NEXT_OFFSET</a>)</td></tr>
+<tr class="memitem:a830653f1b8fc08c4ce22117fdf396a34" id="r_a830653f1b8fc08c4ce22117fdf396a34"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a830653f1b8fc08c4ce22117fdf396a34">AJAX_MAIN_LOGENTRIES_REGION_START_ADDRESS</a>&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#aa30108eadba2c54dea63c575cd87b431">AJAX_MAIN_LOGINDEX_REGION_NEXT_OFFSET</a> )</td></tr>
 <tr class="memdesc:a830653f1b8fc08c4ce22117fdf396a34"><td class="mdescLeft">&#160;</td><td class="mdescRight">METRICS Record/Region.  <br /></td></tr>
 <tr class="separator:a830653f1b8fc08c4ce22117fdf396a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dd033a2d4de03274e1677be97ed4539" id="r_a7dd033a2d4de03274e1677be97ed4539"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a7dd033a2d4de03274e1677be97ed4539">AJAX_MAIN_LOGENTRIES_REGION_NEXT_OFFSET</a>&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#a830653f1b8fc08c4ce22117fdf396a34">AJAX_MAIN_LOGENTRIES_REGION_START_ADDRESS</a>+<a class="el" href="_storage_map___8h.html#aa78531dac02b71703953fc7c3a14e235">AJAX_MAIN_LOGENTRIES_REGION_LENGTH</a>)</td></tr>
+<tr class="memitem:a7dd033a2d4de03274e1677be97ed4539" id="r_a7dd033a2d4de03274e1677be97ed4539"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_storage_map___8h.html#a7dd033a2d4de03274e1677be97ed4539">AJAX_MAIN_LOGENTRIES_REGION_NEXT_OFFSET</a>&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#a830653f1b8fc08c4ce22117fdf396a34">AJAX_MAIN_LOGENTRIES_REGION_START_ADDRESS</a> + <a class="el" href="_storage_map___8h.html#aa78531dac02b71703953fc7c3a14e235">AJAX_MAIN_LOGENTRIES_REGION_LENGTH</a> )</td></tr>
 <tr class="memdesc:a7dd033a2d4de03274e1677be97ed4539"><td class="mdescLeft">&#160;</td><td class="mdescRight">METRICS Record/Region.  <br /></td></tr>
 <tr class="separator:a7dd033a2d4de03274e1677be97ed4539"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -191,12 +199,12 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_CRC_CHUNK_META_LEN&#160;&#160;&#160;8</td>
+          <td class="memname">#define AJAX_MAIN_CRC_CHUNK_META_LEN&#160;&#160;&#160;<a class="el" href="class_cpl_1_1_persistent_1_1_crc_chunk.html#aac719b35612e540c54e3e38ed29d8072">Cpl::Persistent::CrcChunk::FRAME_OVERHEAD</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Metadata length for a CRC Chunck. </p>
+<p>Metadata length for a CRC Chunk. </p>
 
 </div>
 </div>
@@ -207,7 +215,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_LOGENTRIES_REGION_DATA_LEN&#160;&#160;&#160;(159* <a class="el" href="_storage_map___8h.html#ac50f6820458e9d2013ad27d38a092834">OPTION_AJAX_MAIN_MAX_LOG_ENTRIES</a>)</td>
+          <td class="memname">#define AJAX_MAIN_LOGENTRIES_REGION_DATA_LEN&#160;&#160;&#160;( 159 * <a class="el" href="_storage_map___8h.html#ac50f6820458e9d2013ad27d38a092834">OPTION_AJAX_MAIN_MAX_LOG_ENTRIES</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -223,7 +231,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_LOGENTRIES_REGION_LENGTH&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#a9f96374aa224179e6ee40c5326abe0e3">AJAX_MAIN_LOGENTRIES_REGION_RESERVED</a>+<a class="el" href="_storage_map___8h.html#abfd55d890faf82cb258802886138a8a2">AJAX_MAIN_LOGENTRIES_REGION_DATA_LEN</a>)</td>
+          <td class="memname">#define AJAX_MAIN_LOGENTRIES_REGION_LENGTH&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#a9f96374aa224179e6ee40c5326abe0e3">AJAX_MAIN_LOGENTRIES_REGION_RESERVED</a> + <a class="el" href="_storage_map___8h.html#abfd55d890faf82cb258802886138a8a2">AJAX_MAIN_LOGENTRIES_REGION_DATA_LEN</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -239,7 +247,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_LOGENTRIES_REGION_NEXT_OFFSET&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#a830653f1b8fc08c4ce22117fdf396a34">AJAX_MAIN_LOGENTRIES_REGION_START_ADDRESS</a>+<a class="el" href="_storage_map___8h.html#aa78531dac02b71703953fc7c3a14e235">AJAX_MAIN_LOGENTRIES_REGION_LENGTH</a>)</td>
+          <td class="memname">#define AJAX_MAIN_LOGENTRIES_REGION_NEXT_OFFSET&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#a830653f1b8fc08c4ce22117fdf396a34">AJAX_MAIN_LOGENTRIES_REGION_START_ADDRESS</a> + <a class="el" href="_storage_map___8h.html#aa78531dac02b71703953fc7c3a14e235">AJAX_MAIN_LOGENTRIES_REGION_LENGTH</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -271,7 +279,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_LOGENTRIES_REGION_START_ADDRESS&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#aa30108eadba2c54dea63c575cd87b431">AJAX_MAIN_LOGINDEX_REGION_NEXT_OFFSET</a>)</td>
+          <td class="memname">#define AJAX_MAIN_LOGENTRIES_REGION_START_ADDRESS&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#aa30108eadba2c54dea63c575cd87b431">AJAX_MAIN_LOGINDEX_REGION_NEXT_OFFSET</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -287,7 +295,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_LOGINDEX_REGION_A_START_ADDRESS&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#a32450dd13ce796b9a4b51abe95eb811d">AJAX_MAIN_METRICS_REGION_NEXT_OFFSET</a>)</td>
+          <td class="memname">#define AJAX_MAIN_LOGINDEX_REGION_A_START_ADDRESS&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#a32450dd13ce796b9a4b51abe95eb811d">AJAX_MAIN_METRICS_REGION_NEXT_OFFSET</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -303,12 +311,13 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_LOGINDEX_REGION_B_START_ADDRESS&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#a99d0dda953c36d194c565879fc01541b">AJAX_MAIN_LOGINDEX_REGION_A_START_ADDRESS</a>+<a class="el" href="_storage_map___8h.html#a25b99615c1f54a29a21f7e42ecf3ec7a">AJAX_MAIN_LOGINDEX_REGION_LENGTH</a>)</td>
+          <td class="memname">#define AJAX_MAIN_LOGINDEX_REGION_B_START_ADDRESS&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#a99d0dda953c36d194c565879fc01541b">AJAX_MAIN_LOGINDEX_REGION_A_START_ADDRESS</a> + <a class="el" href="_storage_map___8h.html#a25b99615c1f54a29a21f7e42ecf3ec7a">AJAX_MAIN_LOGINDEX_REGION_LENGTH</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>METRICS Record/Region. </p>
+<p>METRICS Record/Region <br  />
+ </p>
 
 </div>
 </div>
@@ -335,7 +344,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_LOGINDEX_REGION_LENGTH&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#aa7f40a478cb7a55e7c8b48dcfa879b29">AJAX_MAIN_LOGINDEX_REGION_RESERVED</a>+<a class="el" href="_storage_map___8h.html#a026bd5831076f5d2070254b4c9e3c499">AJAX_MAIN_LOGINDEX_REGION_DATA_LEN</a>+<a class="el" href="_storage_map___8h.html#ae25c005c3495aa567533141e6aeb2853">AJAX_MAIN_MIRRORED_CHUNK_META_LEN</a>)</td>
+          <td class="memname">#define AJAX_MAIN_LOGINDEX_REGION_LENGTH&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#aa7f40a478cb7a55e7c8b48dcfa879b29">AJAX_MAIN_LOGINDEX_REGION_RESERVED</a> + <a class="el" href="_storage_map___8h.html#a026bd5831076f5d2070254b4c9e3c499">AJAX_MAIN_LOGINDEX_REGION_DATA_LEN</a> + <a class="el" href="_storage_map___8h.html#ae25c005c3495aa567533141e6aeb2853">AJAX_MAIN_MIRRORED_CHUNK_META_LEN</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -351,7 +360,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_LOGINDEX_REGION_NEXT_OFFSET&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#a6c8e1f47118989f225cae5e49dcdc277">AJAX_MAIN_LOGINDEX_REGION_B_START_ADDRESS</a>+<a class="el" href="_storage_map___8h.html#a25b99615c1f54a29a21f7e42ecf3ec7a">AJAX_MAIN_LOGINDEX_REGION_LENGTH</a>)</td>
+          <td class="memname">#define AJAX_MAIN_LOGINDEX_REGION_NEXT_OFFSET&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#a6c8e1f47118989f225cae5e49dcdc277">AJAX_MAIN_LOGINDEX_REGION_B_START_ADDRESS</a> + <a class="el" href="_storage_map___8h.html#a25b99615c1f54a29a21f7e42ecf3ec7a">AJAX_MAIN_LOGINDEX_REGION_LENGTH</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -372,7 +381,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>METRICS Record/Region. </p>
+<p>METRICS Record/Region <br  />
+ </p>
 
 </div>
 </div>
@@ -383,7 +393,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_METRICS_REGION_A_START_ADDRESS&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#ad2b0d5a92ba1b1089e76e1f4a5f101be">AJAX_MAIN_PERSONALITY_REGION_NEXT_OFFSET</a>)</td>
+          <td class="memname">#define AJAX_MAIN_METRICS_REGION_A_START_ADDRESS&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#ad2b0d5a92ba1b1089e76e1f4a5f101be">AJAX_MAIN_PERSONALITY_REGION_NEXT_OFFSET</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -399,7 +409,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_METRICS_REGION_B_START_ADDRESS&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#ab1b9d1001171c30aff266fc8a0550abc">AJAX_MAIN_METRICS_REGION_A_START_ADDRESS</a>+<a class="el" href="_storage_map___8h.html#ac2b31b0fe0450f7541e623543d301376">AJAX_MAIN_METRICS_REGION_LENGTH</a>)</td>
+          <td class="memname">#define AJAX_MAIN_METRICS_REGION_B_START_ADDRESS&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#ab1b9d1001171c30aff266fc8a0550abc">AJAX_MAIN_METRICS_REGION_A_START_ADDRESS</a> + <a class="el" href="_storage_map___8h.html#ac2b31b0fe0450f7541e623543d301376">AJAX_MAIN_METRICS_REGION_LENGTH</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -431,7 +441,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_METRICS_REGION_LENGTH&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#a024003802a6da62dc31b4b4c066ff74f">AJAX_MAIN_METRICS_REGION_RESERVED</a>+<a class="el" href="_storage_map___8h.html#a8175f167448c0b110d489a9852d29caa">AJAX_MAIN_METRICS_REGION_DATA_LEN</a>+<a class="el" href="_storage_map___8h.html#ae25c005c3495aa567533141e6aeb2853">AJAX_MAIN_MIRRORED_CHUNK_META_LEN</a>)</td>
+          <td class="memname">#define AJAX_MAIN_METRICS_REGION_LENGTH&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#a024003802a6da62dc31b4b4c066ff74f">AJAX_MAIN_METRICS_REGION_RESERVED</a> + <a class="el" href="_storage_map___8h.html#a8175f167448c0b110d489a9852d29caa">AJAX_MAIN_METRICS_REGION_DATA_LEN</a> + <a class="el" href="_storage_map___8h.html#ae25c005c3495aa567533141e6aeb2853">AJAX_MAIN_MIRRORED_CHUNK_META_LEN</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -447,7 +457,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_METRICS_REGION_NEXT_OFFSET&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#a8b7d7d7aacd6be06660751439396229d">AJAX_MAIN_METRICS_REGION_B_START_ADDRESS</a>+<a class="el" href="_storage_map___8h.html#ac2b31b0fe0450f7541e623543d301376">AJAX_MAIN_METRICS_REGION_LENGTH</a>)</td>
+          <td class="memname">#define AJAX_MAIN_METRICS_REGION_NEXT_OFFSET&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#a8b7d7d7aacd6be06660751439396229d">AJAX_MAIN_METRICS_REGION_B_START_ADDRESS</a> + <a class="el" href="_storage_map___8h.html#ac2b31b0fe0450f7541e623543d301376">AJAX_MAIN_METRICS_REGION_LENGTH</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -468,7 +478,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>METRICS Record/Region. </p>
+<p>METRICS Record/Region <br  />
+ </p>
 
 </div>
 </div>
@@ -479,12 +490,12 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_MIRRORED_CHUNK_META_LEN&#160;&#160;&#160;16</td>
+          <td class="memname">#define AJAX_MAIN_MIRRORED_CHUNK_META_LEN&#160;&#160;&#160;<a class="el" href="class_cpl_1_1_persistent_1_1_mirrored_chunk.html#a4c195073719a0181da0ae0d4bc586983">Cpl::Persistent::MirroredChunk::FRAME_OVERHEAD</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Metadata length for a Mirrored Chunck. </p>
+<p>Metadata length for a Mirrored Chunk. </p>
 
 </div>
 </div>
@@ -495,7 +506,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_PERSONALITY_REGION_A_START_ADDRESS&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#a2b118de10507e0badb2e9ef66c1e410b">AJAX_MAIN_USER_REGION_NEXT_OFFSET</a>)</td>
+          <td class="memname">#define AJAX_MAIN_PERSONALITY_REGION_A_START_ADDRESS&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#a2b118de10507e0badb2e9ef66c1e410b">AJAX_MAIN_USER_REGION_NEXT_OFFSET</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -511,7 +522,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_PERSONALITY_REGION_B_START_ADDRESS&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#af5078b26bb0d0a91eec986015df21900">AJAX_MAIN_PERSONALITY_REGION_A_START_ADDRESS</a>+<a class="el" href="_storage_map___8h.html#a1a3a58a01149bb66f216d3fb0a7d3076">AJAX_MAIN_PERSONALITY_REGION_LENGTH</a>)</td>
+          <td class="memname">#define AJAX_MAIN_PERSONALITY_REGION_B_START_ADDRESS&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#af5078b26bb0d0a91eec986015df21900">AJAX_MAIN_PERSONALITY_REGION_A_START_ADDRESS</a> + <a class="el" href="_storage_map___8h.html#a1a3a58a01149bb66f216d3fb0a7d3076">AJAX_MAIN_PERSONALITY_REGION_LENGTH</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -543,7 +554,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_PERSONALITY_REGION_LENGTH&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#ac1080241847bc584a7a1dc5a58d3fc4b">AJAX_MAIN_PERSONALITY_REGION_RESERVED</a>+<a class="el" href="_storage_map___8h.html#a0be8c6d1cdd56b4d126079665f12c6b3">AJAX_MAIN_PERSONALITY_REGION_DATA_LEN</a>+<a class="el" href="_storage_map___8h.html#ae25c005c3495aa567533141e6aeb2853">AJAX_MAIN_MIRRORED_CHUNK_META_LEN</a>)</td>
+          <td class="memname">#define AJAX_MAIN_PERSONALITY_REGION_LENGTH&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#ac1080241847bc584a7a1dc5a58d3fc4b">AJAX_MAIN_PERSONALITY_REGION_RESERVED</a> + <a class="el" href="_storage_map___8h.html#a0be8c6d1cdd56b4d126079665f12c6b3">AJAX_MAIN_PERSONALITY_REGION_DATA_LEN</a> + <a class="el" href="_storage_map___8h.html#ae25c005c3495aa567533141e6aeb2853">AJAX_MAIN_MIRRORED_CHUNK_META_LEN</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -559,7 +570,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_PERSONALITY_REGION_NEXT_OFFSET&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#a5e2c2c9e2fff7ce348598ba68552da39">AJAX_MAIN_PERSONALITY_REGION_B_START_ADDRESS</a>+<a class="el" href="_storage_map___8h.html#a1a3a58a01149bb66f216d3fb0a7d3076">AJAX_MAIN_PERSONALITY_REGION_LENGTH</a>)</td>
+          <td class="memname">#define AJAX_MAIN_PERSONALITY_REGION_NEXT_OFFSET&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#a5e2c2c9e2fff7ce348598ba68552da39">AJAX_MAIN_PERSONALITY_REGION_B_START_ADDRESS</a> + <a class="el" href="_storage_map___8h.html#a1a3a58a01149bb66f216d3fb0a7d3076">AJAX_MAIN_PERSONALITY_REGION_LENGTH</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -580,7 +591,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>PERSONALITY Record/Region. </p>
+<p>PERSONALITY Record/Region <br  />
+ </p>
 
 </div>
 </div>
@@ -591,7 +603,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_USER_REGION_A_START_ADDRESS&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#ad022f8bda6e0aebe80215d6d7ba626c7">AJAX_MAIN_APPLICATION_RECORDS_START_OFFSET</a>)</td>
+          <td class="memname">#define AJAX_MAIN_USER_REGION_A_START_ADDRESS&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#ad022f8bda6e0aebe80215d6d7ba626c7">AJAX_MAIN_APPLICATION_RECORDS_START_OFFSET</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -607,12 +619,13 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_USER_REGION_B_START_ADDRESS&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#aabd9ded568818ae09b06291248c9c502">AJAX_MAIN_USER_REGION_A_START_ADDRESS</a>+<a class="el" href="_storage_map___8h.html#a02b87bb33b7b63d357f83e7471edf290">AJAX_MAIN_USER_REGION_LENGTH</a>)</td>
+          <td class="memname">#define AJAX_MAIN_USER_REGION_B_START_ADDRESS&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#aabd9ded568818ae09b06291248c9c502">AJAX_MAIN_USER_REGION_A_START_ADDRESS</a> + <a class="el" href="_storage_map___8h.html#a02b87bb33b7b63d357f83e7471edf290">AJAX_MAIN_USER_REGION_LENGTH</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>USER Record/Region. </p>
+<p>USER Record/Region <br  />
+ </p>
 
 </div>
 </div>
@@ -639,7 +652,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_USER_REGION_LENGTH&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#afd54336cfcd3a6bd75a525463800b44f">AJAX_MAIN_USER_REGION_DATA_LEN</a>+<a class="el" href="_storage_map___8h.html#a96a4c5aa5d177aa6a52d159c8e80c0bf">AJAX_MAIN_USER_REGION_RESERVED</a>+<a class="el" href="_storage_map___8h.html#ae25c005c3495aa567533141e6aeb2853">AJAX_MAIN_MIRRORED_CHUNK_META_LEN</a>)</td>
+          <td class="memname">#define AJAX_MAIN_USER_REGION_LENGTH&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#afd54336cfcd3a6bd75a525463800b44f">AJAX_MAIN_USER_REGION_DATA_LEN</a> + <a class="el" href="_storage_map___8h.html#a96a4c5aa5d177aa6a52d159c8e80c0bf">AJAX_MAIN_USER_REGION_RESERVED</a> + <a class="el" href="_storage_map___8h.html#ae25c005c3495aa567533141e6aeb2853">AJAX_MAIN_MIRRORED_CHUNK_META_LEN</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -655,7 +668,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AJAX_MAIN_USER_REGION_NEXT_OFFSET&#160;&#160;&#160;(<a class="el" href="_storage_map___8h.html#aa4fe09768ee3a2882fdd878c941ef658">AJAX_MAIN_USER_REGION_B_START_ADDRESS</a>+<a class="el" href="_storage_map___8h.html#a02b87bb33b7b63d357f83e7471edf290">AJAX_MAIN_USER_REGION_LENGTH</a>)</td>
+          <td class="memname">#define AJAX_MAIN_USER_REGION_NEXT_OFFSET&#160;&#160;&#160;( <a class="el" href="_storage_map___8h.html#aa4fe09768ee3a2882fdd878c941ef658">AJAX_MAIN_USER_REGION_B_START_ADDRESS</a> + <a class="el" href="_storage_map___8h.html#a02b87bb33b7b63d357f83e7471edf290">AJAX_MAIN_USER_REGION_LENGTH</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -676,7 +689,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>USER Record/Region. </p>
+<p>USER Record/Region <br  />
+ </p>
 
 </div>
 </div>
@@ -699,7 +713,7 @@ Macros</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 22 2024 15:39:54 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Sep 30 2024 17:32:55 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

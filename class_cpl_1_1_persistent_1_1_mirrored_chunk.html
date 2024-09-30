@@ -54,6 +54,7 @@
   <div class="summary">
 <a href="class_cpl_1_1_persistent_1_1_mirrored_chunk-members.html">List of all members</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle"><div class="title">Cpl::Persistent::MirroredChunk Class Reference</div></div>
@@ -102,6 +103,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a14ca13bb77f72bcfd8c52c7f50889170 inherit pub_methods_class_cpl_1_1_persistent_1_1_chunk" id="r_a14ca13bb77f72bcfd8c52c7f50889170"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_persistent_1_1_chunk.html#a14ca13bb77f72bcfd8c52c7f50889170">~Chunk</a> ()</td></tr>
 <tr class="memdesc:a14ca13bb77f72bcfd8c52c7f50889170 inherit pub_methods_class_cpl_1_1_persistent_1_1_chunk"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <br /></td></tr>
 <tr class="separator:a14ca13bb77f72bcfd8c52c7f50889170 inherit pub_methods_class_cpl_1_1_persistent_1_1_chunk"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a88f182ff3a17cc17ddb36abd9350fe2a" id="r_a88f182ff3a17cc17ddb36abd9350fe2a"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_persistent_1_1_mirrored_chunk.html#a88f182ff3a17cc17ddb36abd9350fe2a">FRAME_OFFSET_DATA_LEN</a> = sizeof(uint64_t)</td></tr>
+<tr class="memdesc:a88f182ff3a17cc17ddb36abd9350fe2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length of the data.  <br /></td></tr>
+<tr class="separator:a88f182ff3a17cc17ddb36abd9350fe2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab57d09a5b05ab5a7efd71d3cf7c54f4b" id="r_ab57d09a5b05ab5a7efd71d3cf7c54f4b"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_persistent_1_1_mirrored_chunk.html#ab57d09a5b05ab5a7efd71d3cf7c54f4b">FRAME_OFFSET_DATA</a> = sizeof( size_t ) + <a class="el" href="class_cpl_1_1_persistent_1_1_mirrored_chunk.html#a88f182ff3a17cc17ddb36abd9350fe2a">FRAME_OFFSET_DATA_LEN</a></td></tr>
+<tr class="memdesc:ab57d09a5b05ab5a7efd71d3cf7c54f4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start of data (aka overhead length)  <br /></td></tr>
+<tr class="separator:ab57d09a5b05ab5a7efd71d3cf7c54f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add0efe3e0f5dc656a92ada3ae28b1211" id="r_add0efe3e0f5dc656a92ada3ae28b1211"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_persistent_1_1_mirrored_chunk.html#add0efe3e0f5dc656a92ada3ae28b1211">CRC_SIZE</a> = sizeof( uint32_t )</td></tr>
+<tr class="memdesc:add0efe3e0f5dc656a92ada3ae28b1211"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size of the CRC.  <br /></td></tr>
+<tr class="separator:add0efe3e0f5dc656a92ada3ae28b1211"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c195073719a0181da0ae0d4bc586983" id="r_a4c195073719a0181da0ae0d4bc586983"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpl_1_1_persistent_1_1_mirrored_chunk.html#a4c195073719a0181da0ae0d4bc586983">FRAME_OVERHEAD</a> = <a class="el" href="class_cpl_1_1_persistent_1_1_mirrored_chunk.html#ab57d09a5b05ab5a7efd71d3cf7c54f4b">FRAME_OFFSET_DATA</a> + <a class="el" href="class_cpl_1_1_persistent_1_1_mirrored_chunk.html#add0efe3e0f5dc656a92ada3ae28b1211">CRC_SIZE</a></td></tr>
+<tr class="memdesc:a4c195073719a0181da0ae0d4bc586983"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total overhead size.  <br /></td></tr>
+<tr class="separator:a4c195073719a0181da0ae0d4bc586983"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -470,6 +486,102 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="add0efe3e0f5dc656a92ada3ae28b1211" name="add0efe3e0f5dc656a92ada3ae28b1211"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add0efe3e0f5dc656a92ada3ae28b1211">&#9670;&#160;</a></span>CRC_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t Cpl::Persistent::MirroredChunk::CRC_SIZE = sizeof( uint32_t )</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The size of the CRC. </p>
+
+</div>
+</div>
+<a id="ab57d09a5b05ab5a7efd71d3cf7c54f4b" name="ab57d09a5b05ab5a7efd71d3cf7c54f4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab57d09a5b05ab5a7efd71d3cf7c54f4b">&#9670;&#160;</a></span>FRAME_OFFSET_DATA</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t Cpl::Persistent::MirroredChunk::FRAME_OFFSET_DATA = sizeof( size_t ) + <a class="el" href="class_cpl_1_1_persistent_1_1_mirrored_chunk.html#a88f182ff3a17cc17ddb36abd9350fe2a">FRAME_OFFSET_DATA_LEN</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Start of data (aka overhead length) </p>
+
+</div>
+</div>
+<a id="a88f182ff3a17cc17ddb36abd9350fe2a" name="a88f182ff3a17cc17ddb36abd9350fe2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88f182ff3a17cc17ddb36abd9350fe2a">&#9670;&#160;</a></span>FRAME_OFFSET_DATA_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t Cpl::Persistent::MirroredChunk::FRAME_OFFSET_DATA_LEN = sizeof(uint64_t)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Length of the data. </p>
+
+</div>
+</div>
+<a id="a4c195073719a0181da0ae0d4bc586983" name="a4c195073719a0181da0ae0d4bc586983"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c195073719a0181da0ae0d4bc586983">&#9670;&#160;</a></span>FRAME_OVERHEAD</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t Cpl::Persistent::MirroredChunk::FRAME_OVERHEAD = <a class="el" href="class_cpl_1_1_persistent_1_1_mirrored_chunk.html#ab57d09a5b05ab5a7efd71d3cf7c54f4b">FRAME_OFFSET_DATA</a> + <a class="el" href="class_cpl_1_1_persistent_1_1_mirrored_chunk.html#add0efe3e0f5dc656a92ada3ae28b1211">CRC_SIZE</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Total overhead size. </p>
+
+</div>
+</div>
 <a id="af63f33f18137c336cc9edabffa522822" name="af63f33f18137c336cc9edabffa522822"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af63f33f18137c336cc9edabffa522822">&#9670;&#160;</a></span>m_currentRegion</h2>
 
@@ -596,7 +708,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 22 2024 15:39:56 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Sep 30 2024 17:32:57 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

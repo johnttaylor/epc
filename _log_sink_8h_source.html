@@ -100,7 +100,7 @@
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">public</span>:<span class="comment"></span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">    /// Constructor</span></div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_cpl_1_1_logging_1_1_log_sink.html#ab55bf447b46ec6af99dea6687c1fbadd">   48</a></span><span class="comment"></span>    <a class="code hl_function" href="class_cpl_1_1_logging_1_1_log_sink.html#ab55bf447b46ec6af99dea6687c1fbadd">LogSink</a>( <a class="code hl_class" href="class_cpl_1_1_dm_1_1_mailbox_server.html">Cpl::Dm::MailboxServer</a>&amp;                                    myMbox,</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>             <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer.html">Cpl::Container::RingBufferMP&lt;Cpl::Logging::EntryData_T&gt;</a>&amp;   incomingEntriesBuffer ) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>             <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">Cpl::Container::RingBufferMP&lt;Cpl::Logging::EntryData_T&gt;</a>&amp;   incomingEntriesBuffer ) <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">public</span>:<span class="comment"></span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">    /// This method starts the sink (See Cpl::Itc::OpenSync)</span></div>
@@ -125,7 +125,7 @@
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="class_cpl_1_1_logging_1_1_log_sink.html#af676e9d299e2d70f7f958ec866efd4e1">   71</a></span><span class="comment"></span>    <a class="code hl_class" href="class_cpl_1_1_dm_1_1_subscriber_composer.html">Cpl::Dm::SubscriberComposer&lt;LogSink, Cpl::Dm::Mp::Uint32&gt;</a>   <a class="code hl_variable" href="class_cpl_1_1_logging_1_1_log_sink.html#af676e9d299e2d70f7f958ec866efd4e1">m_observerElementCount</a>;</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"></span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">    /// The Log Ring Buffer</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="class_cpl_1_1_logging_1_1_log_sink.html#ace1650a1c93eadf78abadf46b40f8b9f">   74</a></span><span class="comment"></span>    <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer.html">Cpl::Container::RingBufferMP&lt;Cpl::Logging::EntryData_T&gt;</a>&amp;    <a class="code hl_variable" href="class_cpl_1_1_logging_1_1_log_sink.html#ace1650a1c93eadf78abadf46b40f8b9f">m_logBuffer</a>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="class_cpl_1_1_logging_1_1_log_sink.html#ace1650a1c93eadf78abadf46b40f8b9f">   74</a></span><span class="comment"></span>    <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">Cpl::Container::RingBufferMP&lt;Cpl::Logging::EntryData_T&gt;</a>&amp;    <a class="code hl_variable" href="class_cpl_1_1_logging_1_1_log_sink.html#ace1650a1c93eadf78abadf46b40f8b9f">m_logBuffer</a>;</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"></span> </div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">    /// Track my open state</span></div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="class_cpl_1_1_logging_1_1_log_sink.html#afe9361ad1dc1c140be59382657f7e19d">   77</a></span><span class="comment"></span>    <span class="keywordtype">bool</span>                                                        <a class="code hl_variable" href="class_cpl_1_1_logging_1_1_log_sink.html#afe9361ad1dc1c140be59382657f7e19d">m_opened</a>;</div>
@@ -140,7 +140,7 @@
 <div class="ttc" id="a_entry_data___t_8h_html"><div class="ttname"><a href="_entry_data___t_8h.html">EntryData_T.h</a></div></div>
 <div class="ttc" id="a_ring_buffer_m_p_8h_html"><div class="ttname"><a href="_ring_buffer_m_p_8h.html">RingBufferMP.h</a></div></div>
 <div class="ttc" id="a_subscriber_composer_8h_html"><div class="ttname"><a href="_subscriber_composer_8h.html">SubscriberComposer.h</a></div></div>
-<div class="ttc" id="aclass_cpl_1_1_container_1_1_ring_buffer_html"><div class="ttname"><a href="class_cpl_1_1_container_1_1_ring_buffer.html">Cpl::Container::RingBuffer</a></div><div class="ttdoc">This template class implements a Ring Buffer.</div><div class="ttdef"><b>Definition</b> RingBuffer.h:46</div></div>
+<div class="ttc" id="aclass_cpl_1_1_container_1_1_ring_buffer_m_t_html"><div class="ttname"><a href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">Cpl::Container::RingBufferMT</a></div><div class="ttdoc">This template class implements a THREAD SAFE Ring Buffer.</div><div class="ttdef"><b>Definition</b> RingBufferMT.h:33</div></div>
 <div class="ttc" id="aclass_cpl_1_1_dm_1_1_mailbox_server_html"><div class="ttname"><a href="class_cpl_1_1_dm_1_1_mailbox_server.html">Cpl::Dm::MailboxServer</a></div><div class="ttdoc">This class extends the Cpl::Dm::EventLoop and Cpl::Itc:Mailbox classes to support the asynchronous ch...</div><div class="ttdef"><b>Definition</b> MailboxServer.h:43</div></div>
 <div class="ttc" id="aclass_cpl_1_1_dm_1_1_mp_1_1_uint32_html"><div class="ttname"><a href="class_cpl_1_1_dm_1_1_mp_1_1_uint32.html">Cpl::Dm::Mp::Uint32</a></div><div class="ttdoc">This class provides a concrete implementation for a Point who's data is a uint32_t.</div><div class="ttdef"><b>Definition</b> Uint32.h:43</div></div>
 <div class="ttc" id="aclass_cpl_1_1_dm_1_1_subscriber_api_html"><div class="ttname"><a href="class_cpl_1_1_dm_1_1_subscriber_api.html">Cpl::Dm::SubscriberApi</a></div><div class="ttdoc">This abstract class defines the Subscriber interface - for change notifications - to a Model Points d...</div><div class="ttdef"><b>Definition</b> SubscriberApi.h:34</div></div>
@@ -162,7 +162,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 22 2024 15:39:53 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Sep 30 2024 17:32:54 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
