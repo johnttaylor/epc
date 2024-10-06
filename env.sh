@@ -37,6 +37,10 @@ export NQBP_BIN=$NQBP_XPKGS_ROOT/nqbp2
 # Add ninja to the command path
 export PATH=$PATH:$NQBP_BIN/ninja
 
+# Set Sinelabore path
+if [ -z "$SINELABORE_PATH" ]; then
+    export SINELABORE_PATH=~/sinelabore/bin
+fi
 
 alias t="cd $HERE"
 alias bob="$NQBP_BIN/other/bob.py"
