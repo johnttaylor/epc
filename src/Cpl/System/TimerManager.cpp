@@ -17,12 +17,12 @@
 ///
 using namespace Cpl::System;
 
-#define SECT_   "Cpl::System"
+#define SECT_ "Cpl::System"
 
 
 ///////////////////////////
 TimerManager::TimerManager()
-    :m_timeMark( 0 )
+    : m_timeMark( 0 )
     , m_timeNow( 0 )
     , m_inTickCall( false )
 {
@@ -30,7 +30,7 @@ TimerManager::TimerManager()
 
 void TimerManager::startManager( void ) noexcept
 {
-    m_timeMark = Cpl::System::ElapsedTime::milliseconds();
+    m_timeNow = m_timeMark = Cpl::System::ElapsedTime::milliseconds();
 }
 
 bool TimerManager::areActiveTimers( void ) noexcept
@@ -45,10 +45,10 @@ void TimerManager::processTimers( void ) noexcept
     unsigned long deltaTime = Cpl::System::ElapsedTime::deltaMilliseconds( m_timeMark, m_timeNow );
 
     // Update my timers
-    CPL_SYSTEM_TRACE_MSG( SECT_, (" @@ START TICK: %lu, now=%lu, [m_timeMark=%lu]", deltaTime, m_timeNow, m_timeMark) );
+    CPL_SYSTEM_TRACE_MSG( SECT_, ( " @@ START TICK: %lu, now=%lu, [m_timeMark=%lu]", deltaTime, m_timeNow, m_timeMark ) );
     tick( deltaTime );
     m_timeMark = m_timeNow;
-    CPL_SYSTEM_TRACE_MSG( SECT_, (" @@ TICK COMPLETE..., m_timeMark=%lu", m_timeMark) );
+    CPL_SYSTEM_TRACE_MSG( SECT_, ( " @@ TICK COMPLETE..., m_timeMark=%lu", m_timeMark ) );
     tickComplete();
 }
 
@@ -56,7 +56,7 @@ void TimerManager::processTimers( void ) noexcept
 /////////////////////////
 void TimerManager::tick( unsigned long msec ) noexcept
 {
-    // Set my state to: PROCESSING TICK(S)    
+    // Set my state to: PROCESSING TICK(S)
     m_inTickCall = true;
 
     while ( msec )
@@ -85,9 +85,9 @@ void TimerManager::tick( unsigned long msec ) noexcept
             // Process ALL local Timers that have a ZERO countdown value
             while ( counterPtr && counterPtr->count() == 0 )
             {
-                m_counters.get();                // Remove the expired counter from the list
-                counterPtr->expired();           // Expire the counter
-                counterPtr = m_counters.first(); // Get next counter
+                m_counters.get();                 // Remove the expired counter from the list
+                counterPtr->expired();            // Expire the counter
+                counterPtr = m_counters.first();  // Get next counter
             }
         }
     }
@@ -131,8 +131,8 @@ void TimerManager::addToActiveList( CounterCallback_& clientToCallback ) noexcep
     // Insert the counter wisely into the list.  The counters are
     // stored in the list in the order they will expire and have their
     // raw counter value adjusted to be relative to any/all preceding list
-    // elements.  This allows me to only decrement the first counter in 
-    // the list - instead of all counters every tick.  
+    // elements.  This allows me to only decrement the first counter in
+    // the list - instead of all counters every tick.
     CounterCallback_* counterPtr = m_counters.first();
     while ( counterPtr )
     {
@@ -141,7 +141,7 @@ void TimerManager::addToActiveList( CounterCallback_& clientToCallback ) noexcep
         {
             counterPtr->decrement( clientToCallback.count() );
             m_counters.insertBefore( *counterPtr, clientToCallback );
-            CPL_SYSTEM_TRACE_MSG( SECT_, (">> INSERT: %p, count=%lu, : BEFORE %p (%lu)", &clientToCallback, clientToCallback.count(), counterPtr, counterPtr->count()) );
+            CPL_SYSTEM_TRACE_MSG( SECT_, ( ">> INSERT: %p, count=%lu, : BEFORE %p (%lu)", &clientToCallback, clientToCallback.count(), counterPtr, counterPtr->count() ) );
             return;
         }
 
@@ -150,7 +150,7 @@ void TimerManager::addToActiveList( CounterCallback_& clientToCallback ) noexcep
         if ( clientToCallback.count() == 0 )
         {
             m_counters.insertAfter( *counterPtr, clientToCallback );
-            CPL_SYSTEM_TRACE_MSG( SECT_, (">> INSERT:: %p, count=%lu, AFTER %p (%lu)", &clientToCallback, clientToCallback.count(), counterPtr, counterPtr->count()) );
+            CPL_SYSTEM_TRACE_MSG( SECT_, ( ">> INSERT:: %p, count=%lu, AFTER %p (%lu)", &clientToCallback, clientToCallback.count(), counterPtr, counterPtr->count() ) );
             return;
         }
 
@@ -158,7 +158,7 @@ void TimerManager::addToActiveList( CounterCallback_& clientToCallback ) noexcep
     }
 
     // Insert at the tail (list is empty or largest counter value)
-    CPL_SYSTEM_TRACE_MSG( SECT_, (">> INSERT @ end: %p, count=%lu", &clientToCallback, clientToCallback.count()) );
+    CPL_SYSTEM_TRACE_MSG( SECT_, ( ">> INSERT @ end: %p, count=%lu", &clientToCallback, clientToCallback.count() ) );
     m_counters.putLast( clientToCallback );
 }
 
@@ -171,7 +171,7 @@ bool TimerManager::detach( CounterCallback_& clientToCallback ) noexcept
         return true;
     }
 
-    // If I have the counter/timer -->it will be in the active list.  
+    // If I have the counter/timer -->it will be in the active list.
     if ( m_counters.find( clientToCallback ) )
     {
         // Add the remaining time of the counter being remove to the next counter in the list
@@ -194,6 +194,6 @@ bool TimerManager::detach( CounterCallback_& clientToCallback ) noexcept
 unsigned long TimerManager::msecToCounts( unsigned long milliseconds ) noexcept
 {
     unsigned long delta = Cpl::System::ElapsedTime::deltaMilliseconds( m_timeNow );
-    CPL_SYSTEM_TRACE_MSG( SECT_, ("milliseconds IN=%lu, count out=%lu", milliseconds, milliseconds + delta) );
+    CPL_SYSTEM_TRACE_MSG( SECT_, ( "milliseconds IN=%lu, count out=%lu", milliseconds, milliseconds + delta ) );
     return milliseconds + delta;
 }
