@@ -25,6 +25,8 @@ The directories in this repository are laid out as follows:
 |------------------|--------------------------------------------------------|
 |<root>/epc        |Root of the epc repository                              |
 |+-- arduino/      |External colony.aruduino repo (using Outcast)           |
+|+-- docs/GM6000 Example Docs/
+         |Contains<br>- example docments for requirements, architecture, and design documents <br>- sample spreadsheets for requirements tracing<br> - tools for generating unique identifiers                            |
 |+-- docs/         |Contains the Doxygen output                             |
 |+-- pkg.info/     |Stores the Outcast 'mapping' information                |
 |+-- pkgs.overlaid/|Additional Outcast information (for 'overlay' repos)    |
