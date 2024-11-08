@@ -1,6 +1,47 @@
 # The Embedded Project Cookbook (EPC)
-Source code for the book: _The Embedded Project Cookbook: A Step-By-Stegp Guide for Microcontroller Projects_. 
+
+This repository contains the following resources that are referenced in the [ _The Embedded Project Cookbook: A Step-By-Stegp Guide for Microcontroller Projects_](https://amzn.to/3YgrCWc):
+-	Source code for the GM6000 example application
+-	Source code for automated tests
+-	Installation and configuration instructions for framework components and tools
+-	Requirements tracing spreadsheets
+-	Githup Projects example for use as lighweight planning and tracking tool
+-	NQBP2 build tool
+-	3rd party tools
+-	[Sample Doxygen Output](https://johnttaylor.github.io/epc/namespaces.html)
+
+You can freely use any of the material in this repository under the terms of the BSD-3 license.
+
+# Documentation
+
+The best and most thorough documentation for the source code and tools in this repository is the book [ _The Embedded Project Cookbook_](https://amzn.to/3YgrCWc). However, to limit the length of the book, most of the project and tool configuration documentation was move to the [Wiki page](https://github.com/johnttaylor/epc/wiki) for this project. That is where you will find the detailed instructions on how to build the framework or software described in the book.
+
+Catch2
+Where are code review artifacts
+
+## GM6000 Source Code
+|Directory         |Description                            |
+|------------------|--------------------------------------------------------|
+|<root>/epc        |Root of the epc repository                              |
+|+-- arduino/      |External colony.aruduino repo (using Outcast)           |
+|+-- docs/         |Contains the Doxygen output                             |
+|+-- pkg.info/     |Stores the Outcast 'mapping' information                |
+|+-- pkgs.overlaid/|Additional Outcast information (for 'overlay' repos)    |
+|+-- projects/     |Application build directory tree                        |
+|+-- scripts/      |Collection of utility scripts (e.g. common RATT scripts)|
+|+-- src/          |The principal source code tree                          |
+|+-- tests/        |Unit test build directory tree                          |
+|+-- top/          |Contains scripts related to the build/CI environments   |
+|\-- xsrc/         |External code/repos (using Outcast)                     |
+
+Catch2
+Where are code review artifacts
+
+[Link to Wiki](https://github.com/johnttaylor/epc/wiki)
+
 
 The book is available [here](https://amzn.to/3YgrCWc) on Amazon 
+
+<img align="right" width="300" height="275" src="https://github.com/johnttaylor/epc/blob/main/top/book-cover.jpg "Book Cover">
 
 ![alt text](https://github.com/johnttaylor/epc/blob/main/top/book-cover.jpg "Book Cover")
