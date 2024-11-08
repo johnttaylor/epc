@@ -1,6 +1,6 @@
 # The Embedded Project Cookbook (EPC)
 
-This repository contains the following resources that are referenced in the [ _The Embedded Project Cookbook: A Step-By-Stegp Guide for Microcontroller Projects_](https://amzn.to/3YgrCWc):
+This repository contains the following resources that are referenced in the [ _The Embedded Project Cookbook: A Step-By-Step Guide for Microcontroller Projects_](https://amzn.to/3YgrCWc):
 -	Source code for the GM6000 example application
 -	Source code for automated tests
 -	Installation and configuration instructions for framework components and tools
@@ -14,10 +14,11 @@ You can freely use any of the material in this repository under the terms of the
 
 # Documentation
 
-The best and most thorough documentation for the source code and tools in this repository is the book [ _The Embedded Project Cookbook_](https://amzn.to/3YgrCWc). However, to limit the length of the book, most of the project and tool configuration documentation was move to the [Wiki page](https://github.com/johnttaylor/epc/wiki) for this project. That is where you will find the detailed instructions on how to build the framework or software described in the book.
+The best and most thorough documentation for the source code and tools in this repository is the book [ _The Embedded Project Cookbook_](https://amzn.to/3YgrCWc). However, to limit the length of the book, most of the project and tool configuration documentation was move to the [Wiki page](https://github.com/johnttaylor/epc/wiki) for this project. That is where you will find the detailed instructions on how to build the framework and software described in the book.
 
-Catch2
-Where are code review artifacts
+# Directory Structure for Repository
+
+The directories in this repository are laid out as follows:
 
 ## GM6000 Source Code
 |Directory         |Description                            |
@@ -34,14 +35,15 @@ Where are code review artifacts
 |+-- top/          |Contains scripts related to the build/CI environments   |
 |\-- xsrc/         |External code/repos (using Outcast)                     |
 
-Catch2
-Where are code review artifacts
-
-[Link to Wiki](https://github.com/johnttaylor/epc/wiki)
 
 
-The book is available [here](https://amzn.to/3YgrCWc) on Amazon 
 
-<img align="right" width="300" height="275" src="https://github.com/johnttaylor/epc/blob/main/top/book-cover.jpg "Book Cover">
+
+
+
+
+<img src="https://github.com/johnttaylor/epc/blob/main/top/book-cover.jpg "Book Cover" alt="Embedded Project Cookook" align="right" width="300" height="275">
 
 ![alt text](https://github.com/johnttaylor/epc/blob/main/top/book-cover.jpg "Book Cover")
+
+[![Alt text](https://github.com/johnttaylor/epc/blob/main/top/book-cover.jpg "Book Cover")](https://amzn.to/3YgrCWc)
