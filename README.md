@@ -26,8 +26,8 @@ The directories in this repository are laid out as follows:
 |<root>/epc        |Root of the epc repository                              |
 |+-- arduino/      |External colony.aruduino repo (using Outcast)           |
 |+-- docs/GM6000 Example Docs/
-         |Contains<br>- example docments for requirements, architecture, and design documents <br>- sample spreadsheets for requirements tracing<br> - tools for generating unique identifiers                            |
-|+-- docs/         |Contains the Doxygen output                             |
+         |Contains<br>• example docments for requirements, architecture, and design documents <br>• sample spreadsheets for requirements tracing<br>• tools for generating unique identifiers   |
+|+-- docs/         |Contains the Doxygen output. See [Doxygen output for GM6000 Name Spaces](https://johnttaylor.github.io/epc/namespaces.html)                            |
 |+-- pkg.info/     |Stores the Outcast 'mapping' information                |
 |+-- pkgs.overlaid/|Additional Outcast information (for 'overlay' repos)    |
 |+-- projects/     |Application build directory tree                        |
@@ -36,11 +36,6 @@ The directories in this repository are laid out as follows:
 |+-- tests/        |Unit test build directory tree                          |
 |+-- top/          |Contains scripts related to the build/CI environments   |
 |\-- xsrc/         |External code/repos (using Outcast)                     |
-
-
-
-
-
 
 
 
