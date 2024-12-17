@@ -158,7 +158,7 @@ protected:
     /// The maximum offset value that can be used to store entry without exceeded the allocate entry space
     size_t                  m_maxOffset;
 
-    /// Offset of the latest record;
+    /// Offset of the latest record
     size_t                  m_latestOffset;
 };
 

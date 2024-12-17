@@ -28,7 +28,7 @@ DataRecord::DataRecord( Cpl::Persistent::Chunk& chunkHandler ) noexcept
 DataRecord::~DataRecord()
 {
     // Make sure the Chunk handler gets/is stopped 
-    stop();
+    DataRecord::stop(); // Explicitly call 'my' stop method since stop() is a virtual method
 }
 
 void DataRecord::start( Cpl::Dm::MailboxServer& myMbox ) noexcept

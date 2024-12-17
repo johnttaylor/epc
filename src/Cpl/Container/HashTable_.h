@@ -13,88 +13,66 @@
 /** @file */
 
 #include "Cpl/Container/DictItem.h"
-#include "Cpl/Container/HashFunction.h"
+#include "Cpl/Container/Hash.h"
 #include "Cpl/Container/DList.h"
 
 
-/// 
+///
 namespace Cpl {
-/// 
+///
 namespace Container {
 
 
-/** This concrete class implements the core functionality for a Dictionary
-    and/or Hash Table. Key collisions are handled by a simple link list for
-    each 'hash bucket'. A default hashing algorithm is used, but the application
-    can supply a different/better algorithm. Clients should NOT USE THIS CLASS
-    DIRECTLY, but via the Dictionary class.  The Map class is a wrapper
-    that makes the Hash Table type safe.
+/** This concrete provides a collection of functions used by the 'Hash Table'
+    classes.  This class is not intended to be used directly by clients.
 
+    Key collisions are handled by a simple link list for each 'hash bucket'. 
+    
     NOTE: This is no checking for duplicate keys. You can insert multiple
           items with duplicates keys, but there is no guaranty on how
           those items are found in searches or removed from the table.
  */
-class HashTable_ : public HashFunction
+class HashTable_
 {
-public:
-    /// Used to return Usage/Stats information about the table
-    struct Stats
-    {
-        ///
-        unsigned long m_numItems;
-        ///
-        unsigned int  m_numBuckets;
-        ///
-        unsigned int  m_numEmptyBuckets;
-        ///
-        double        m_average_itemsPerBucket;
-        ///
-        unsigned long m_max_itemsPerBucket;
-    };
-
-
-private:
-    /// Array of hash buckets
-    DList<DictItem>*    m_buckets;
-
-    /// Number of hash buckets
-    unsigned int        m_numBuckets;
-
-    /// Reference to the hashing function
-    HashFunction&       m_hashFunc;
-
-    /// Number of items in the table
-    unsigned long       m_numItems;
-
-public:
-    /// Constructor
-    HashTable_( DList<DictItem> buckets[], unsigned int numBuckets );
-
-    /// Constructor
-    HashTable_( DList<DictItem> buckets[], unsigned int numBuckets, HashFunction& userSuppliedHashFunction );
-
-
 public:
     /** Inserts an item into the table.
      */
-    void insert( DictItem& node );
+    static void insert( DictItem&        node,
+                        DList<DictItem>* buckets,
+                        unsigned int     numBuckets,
+                        HashFunc         hashFunc,
+                        unsigned long&   numItems ) noexcept;
+
 
     /** Removes the specified item from the table.  Returns the
         node removed.  If the remove fails (i.e. node does
         not exist in the table), then 0 is returned.
      */
-    DictItem* removeItem( DictItem& nodeToDelete );
+    static DictItem* removeItem( DictItem&        nodeToDelete,
+                                 DList<DictItem>* buckets,
+                                 unsigned int     numBuckets,
+                                 HashFunc         hashFunc,
+                                 unsigned long&   numItems ) noexcept;
 
     /** Searches for a item with a matching key.  Returns the node that
         matches, else 0.
      */
-    DictItem* find( const Key& keyToFind ) const;
+    static DictItem* find( const Key&       keyToFind,
+                           DList<DictItem>* buckets,
+                           unsigned int     numBuckets,
+                           HashFunc         hashFunc ) noexcept;
 
     /// Returns the first item in the table. Returns 0 if table is empty
-    DictItem* first() const;
+    static DictItem* first( DList<DictItem>* buckets,
+                            unsigned int     numBuckets,
+                            HashFunc         hashFunc,
+                            unsigned long    numItems ) noexcept;
 
     /// Returns the next item in the table.  Returns 0 if at the end-of-table
-    DictItem* next( DictItem& current ) const;
+    static DictItem* next( DictItem&        current,
+                           DList<DictItem>* buckets,
+                           unsigned int     numBuckets,
+                           HashFunc         hashFunc ) noexcept;
 
 
 public:
@@ -104,19 +82,14 @@ public:
               The duration of this call is directly related to the number of
               items in the hash table.
      */
-    void tableStats( Stats& tableInfo ) const;
-
-
-private: // HashFunction 
-    /** Default hash function.
-        This one comes from 'Compiler Design in C', by Allen I. Holub,
-        PRENTICE HALL, ISBN 0-13-155045-4
-     */
-    unsigned int hashKey( const void* keystart, unsigned keylen, unsigned int maxBuckets ) const noexcept;
-
+    static void tableStats( HashTableStats&  tableInfo,
+                            DList<DictItem>* buckets,
+                            unsigned int     numBuckets,
+                            HashFunc         hashFunc,
+                            unsigned long    numItems ) noexcept;
 };
 
 
-};      // end namespaces
+};  // end namespaces
 };
 #endif  // end header latch

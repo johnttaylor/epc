@@ -137,6 +137,7 @@ void Input_::close()
     {
         FatFile* fileHandle = (FatFile*) m_inFd.m_handlePtr;
         fileHandle->close();
+        delete fileHandle;
         m_inFd.m_handlePtr = 0;
     }
 }
