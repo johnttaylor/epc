@@ -18,7 +18,7 @@ using namespace Cpl::Text;
 ////////////////////////////
 bool Cpl::Text::bufferToString( const void* buffer, int len, String& destString, bool appendToString )
 {
-	if ( !buffer || len == 0 )
+	if ( !buffer || len <= 0 )
 	{
 		return false; // Do nothing!
 	}
@@ -44,7 +44,7 @@ bool Cpl::Text::bufferToString( const void* buffer, int len, String& destString,
 
 bool Cpl::Text::bufferToAsciiHex( const void* binaryData, int len, String& destString, bool upperCase, bool appendToString, char separator )
 {
-	if ( !binaryData || len == 0 )
+	if ( !binaryData || len <= 0 )
 	{
 		return false; // Do nothing!
 	}
@@ -83,7 +83,7 @@ bool Cpl::Text::bufferToAsciiBinary( const void* binaryData, int len, Cpl::Text:
     static const char *bitRep[16] = { "0000", "0001", "0010", "0011", "0100", "0101", "0110", "0111",
                                       "1000", "1001", "1010", "1011", "1100", "1101", "1110", "1111" };
 
-    if ( !binaryData || len == 0 )
+    if ( !binaryData || len <= 0 )
     {
         return false; // Do nothing!
     }

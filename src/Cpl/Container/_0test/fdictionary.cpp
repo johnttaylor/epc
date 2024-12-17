@@ -13,7 +13,7 @@
 #include "Cpl/Container/DictItem.h"
 #include "Cpl/Container/SList.h"
 #include "Cpl/Container/DList.h"
-#include "Cpl/Container/Dictionary.h"
+#include "Cpl/Container/FDictionary.h"
 #include "Cpl/System/_testsupport/Shutdown_TS.h"
 #include <string.h>
 
@@ -68,38 +68,43 @@ public:
 };
 
 
-/// Generates a Hash Index (0 to maxBuckets-1) based on the specified key
-unsigned int stupidHashFunc( const void* keystart, unsigned keylen, unsigned int maxBuckets ) noexcept
+class MyItem2 : public MyItem
 {
-    return 0;
-}
-
+public:
+    ///
+    MyItem2( const char* name, FDictionary<MyItem2, 3>& table )
+        : MyItem( name )
+    {
+        table.insert( *this );
+    }
+};
 
 }  // end namespace
 
-////////////////////////////////////////////////////////////////////////////////
-static DList<DictItem> buckets_10[10];
-static DList<DictItem> buckets_3[3];
-static DList<DictItem> buckets_5[5];
 
 ////////////////////////////////////////////////////////////////////////////////
-TEST_CASE( "DICTIONARY: Validate member functions", "[dict]" )
+static FDictionary<MyItem2, 3> dict2_( "static-constructor" );
+static MyItem2                 apple2_( "apple2_", dict2_ );
+static MyItem2                 orange2_( "orange2_", dict2_ );
+static MyItem2                 cherry2_( "cherry2_", dict2_ );
+
+TEST_CASE( "FDICTIONARY: Validate member functions" )
 {
-    Dictionary<MyItem> dict( buckets_3, 3 );
-    MyItem             apple( "apple" );
-    MyItem             orange( "orange" );
-    MyItem             cherry( "cherry" );
-    MyItem             pear( "pear" );
-    MyItem             plum( "plum" );
-    MyItem             bob( "Bob's your uncle with a very long key and lots of unnecessary stuff goes from here." );
-    MyItem*            ptr1;
+    FDictionary<MyItem, 3> dict;
+    MyItem                 apple( "apple" );
+    MyItem                 orange( "orange" );
+    MyItem                 cherry( "cherry" );
+    MyItem                 pear( "pear" );
+    MyItem                 plum( "plum" );
+    MyItem                 bob( "Bob's your uncle with a very long key and lots of unnecessary stuff goes from here." );
+    MyItem*                ptr1;
 
     Shutdown_TS::clearAndUseCounter();
 
     SECTION( "Validate that an 'item' can be only in one Container" )
     {
-        Dictionary<ItemIntKey> foo( buckets_10, 10 );
-        Dictionary<ItemIntKey> bar( buckets_5, 5 );
+        FDictionary<ItemIntKey, 10> foo;
+        FDictionary<ItemIntKey, 5>  bar;
 
         ItemIntKey item( "bob" );
 
@@ -107,34 +112,6 @@ TEST_CASE( "DICTIONARY: Validate member functions", "[dict]" )
         bar.insert( item );
 
         REQUIRE( Shutdown_TS::getAndClearCounter() == 1u );
-    }
-
-    SECTION( "User supplied hash function" )
-    {
-        DList<DictItem>    buckets_5[5];
-        HashTableStats     info;
-        Dictionary<MyItem> dict( buckets_5, 5, stupidHashFunc  );
-
-        dict.insert( orange );
-        dict.insert( plum );
-        dict.insert( pear );
-        dict.insert( cherry );
-        dict.insert( apple );
-
-        dict.stats( info );
-        printf( "TableStats: items=%lu, buckets=%u, emptyBuckets=%u, averagePerBucket=%f, maxItemPerBucket=%lu\n",
-                info.m_numItems,
-                info.m_numBuckets,
-                info.m_numEmptyBuckets,
-                info.m_average_itemsPerBucket,
-                info.m_max_itemsPerBucket );
-        REQUIRE( info.m_numItems == 5 );
-        REQUIRE( info.m_numBuckets == 5 );
-        REQUIRE( info.m_numEmptyBuckets == 4 );
-        REQUIRE( info.m_max_itemsPerBucket == 5 );
-
-        // Clear the dictionary so I can re-use my fruit :)
-        dict.clearTheDictionary();
     }
 
     SECTION( "Basic" )
@@ -277,8 +254,7 @@ TEST_CASE( "DICTIONARY: Validate member functions", "[dict]" )
         REQUIRE( STRING_EQ( ptr1->m_stringKeyPtr, "orange" ) );
         REQUIRE( dict.remove( bob ) != 0 );
 
-        DList<DictItem>    buckets_5[5];
-        Dictionary<MyItem> dst( buckets_5, 5 );
+        FDictionary<MyItem, 3> dst;
         REQUIRE( dst.first() == 0 );
         dict.move( dst );
         dict.stats( info );
@@ -405,6 +381,47 @@ TEST_CASE( "DICTIONARY: Validate member functions", "[dict]" )
         REQUIRE( dict.tail() == 0 );
     }
 
+    SECTION( "statically allocated dictionary and elements" )
+    {
+        REQUIRE( dict2_.first() != 0 );
+        HashTableStats info;
+        dict2_.stats(info);
+        REQUIRE( info.m_numItems == 3 );
+        REQUIRE( info.m_numBuckets == 3 );
+
+        int not_found    = 0;
+        int found_apple  = 0;
+        int found_orange = 0;
+        int found_cherry = 0;
+        ptr1             = dict2_.getFirst();
+        REQUIRE( ptr1 != 0 );
+        while ( ptr1 )
+        {
+            if ( STRING_EQ( ptr1->m_stringKeyPtr, "apple2_" ) )
+            {
+                found_apple++;
+            }
+            else if ( STRING_EQ( ptr1->m_stringKeyPtr, "orange2_" ) )
+            {
+                found_orange++;
+            }
+            else if ( STRING_EQ( ptr1->m_stringKeyPtr, "cherry2_" ) )
+            {
+                found_cherry++;
+            }
+            else
+            {
+                not_found++;
+            }
+
+            ptr1 = dict2_.getFirst();
+        }
+        REQUIRE( found_apple == 1 );
+        REQUIRE( found_orange == 1 );
+        REQUIRE( found_cherry == 1 );
+        REQUIRE( not_found == 0 );
+        REQUIRE( dict2_.first() == 0 );
+    }
 
     REQUIRE( Shutdown_TS::getAndClearCounter() == 0u );
 }

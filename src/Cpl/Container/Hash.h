@@ -1,5 +1,5 @@
-#ifndef Cpl_Container_HashFunction_h_
-#define Cpl_Container_HashFunction_h_
+#ifndef Cpl_Container_Hash_h_
+#define Cpl_Container_Hash_h_
 /*-----------------------------------------------------------------------------
 * This file is part of the Colony.Core Project.  The Colony.Core Project is an
 * open source project with a BSD type of licensing agreement.  See the license
@@ -12,30 +12,33 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
-
-/// 
+///
 namespace Cpl {
-/// 
+///
 namespace Container {
 
-/** This class defines the interface for a hashing function that operates
+/** This type defines the function signature for the hashing function that operates
     on a key stored in contiguous RAM.
  */
-class HashFunction
+typedef unsigned int ( *HashFunc )( const void* keystart, unsigned keylen, unsigned int maxBuckets );
+
+
+/** This struct defines what usage/stats can be retrieved from a Hash table
+ */
+struct HashTableStats
 {
-public:
-    /// Generates a Hash Index (0 to maxBuckets-1) based on the specified key
-    virtual unsigned int hashKey( const void* keystart, unsigned keylen, unsigned int maxBuckets ) const noexcept = 0;
-
-
-public:
-    /// Ensure a Virtual destructor
-    virtual ~HashFunction() {}
-
+    ///
+    unsigned long m_numItems;
+    ///
+    unsigned int m_numBuckets;
+    ///
+    unsigned int m_numEmptyBuckets;
+    ///
+    double m_average_itemsPerBucket;
+    ///
+    unsigned long m_max_itemsPerBucket;
 };
 
-
-};      // end namespaces
+};  // end namespaces
 };
 #endif  // end header latch
-

@@ -23,7 +23,6 @@ char FString_::m_noMemory[1] = { '\0' };
 
 // 'ole basic min/max methods
 inline static int my_min( int a, int b ) { return a < b ? a : b; }
-//inline static int max(int a, int b) { return a>b? a:b;}
 
 
 ///////////////////////////////

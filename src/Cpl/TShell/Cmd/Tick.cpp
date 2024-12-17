@@ -33,7 +33,6 @@ Tick::Tick( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
 Cpl::TShell::Command::Result_T Tick::execute( Cpl::TShell::Context_& context, char* cmdString, Cpl::Io::Output& outfd ) noexcept
 {
     Cpl::Text::Tokenizer::TextBlock tokens( cmdString, context.getDelimiterChar(), context.getTerminatorChar(), context.getQuoteChar(), context.getEscapeChar() );
-    //Cpl::Text::String&              token    = context.getTokenBuffer();
     Cpl::Text::String&              outtext  = context.getOutputBuffer();
     unsigned                        numParms = tokens.numParameters();
     bool                            io       = true;

@@ -44,7 +44,7 @@ private:
 	/// Pointer to the start of the original string
 	char*       m_base;
 
-	/// Number of tokens parsed to date;
+	/// Number of tokens parsed to date
 	unsigned    m_count;
 
 public:

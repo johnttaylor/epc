@@ -268,8 +268,8 @@ DString::insertAt( int insertOffset, const char* stringToInsert )
 			int   newsize = calcMemSize( curlen + insertlen );
 			char* ptr     = new( std::nothrow ) char[newsize];
 
-			// Failed to get more memory
-			if ( !ptr )
+            // Failed to get more memory (or the was an integer overflow in the size calculation)
+			if ( !ptr || newsize <= 0 )
 			{
 				// Insert WITHOUT allocating extra memory
 				int avail        = maxStrLen() - insertOffset;      // Amount left in the buffer starting with from insertOffset
