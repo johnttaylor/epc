@@ -31,8 +31,8 @@ from nqbplib.base import BuildValues
 # Set the name for the final output item
 FINAL_OUTPUT_NAME = 'b.exe'
 
-# Link unittest directory by object module so that Catch's self-registration mechanism 'works'
-unit_test_objects = '_BUILT_DIR_.src/Cpl/Checksum/_0test/_aladdin'
+# Main is in the source tree
+main_object = '_BUILT_DIR_.src/Cpl/Checksum/_0test/_aladdin'
 
 #
 # For build config/variant: "Release" (aka C++11 threading)
@@ -40,13 +40,12 @@ unit_test_objects = '_BUILT_DIR_.src/Cpl/Checksum/_0test/_aladdin'
 
 # Set project specific 'base' (i.e always used) options
 base_release = BuildValues()        # Do NOT comment out this line
-base_release.cflags     = '/W3 /WX /EHsc'  # /EHsc enables exceptions
-base_release.firstobjs  = unit_test_objects
-
+base_release.cflags    = '/W3 /WX /EHsc'  # /EHsc enables exceptions
+base_release.firstobjs = main_object
 
 # Set project specific 'optimized' options
-optimzed_release = BuildValues()    # Do NOT comment out this line
-optimzed_release.cflags = '/O2'
+optimized_release = BuildValues()    # Do NOT comment out this line
+optimized_release.cflags = '/O2'
 
 # Set project specific 'debug' options
 debug_release = BuildValues()       # Do NOT comment out this line
@@ -59,17 +58,17 @@ debug_release.cflags = '/D "_MY_APP_DEBUG_SWITCH_"'
 #
 
 # Construct option structs
-base_cpp11     = BuildValues()  
-optimzed_cpp11 = BuildValues()
-debug_cpp11    = BuildValues()
+base_cpp11      = BuildValues()  
+optimized_cpp11 = BuildValues()
+debug_cpp11     = BuildValues()
 
 
 # Set 'base' options
-base_cpp11.cflags     = '/W3 /WX /EHsc'  # /EHsc enables exceptions
-base_cpp11.firstobjs  = unit_test_objects
+base_cpp11.cflags    = '/W3 /WX /EHsc'  # /EHsc enables exceptions
+base_cpp11.firstobjs = main_object
 
 # Set 'Optimized' options
-optimzed_cpp11.cflags = '/O2'
+optimized_cpp11.cflags = '/O2'
 
 # Set project specific 'debug' options
 debug_cpp11.cflags = '/D "_MY_APP_DEBUG_SWITCH_"'
@@ -82,20 +81,20 @@ debug_cpp11.cflags = '/D "_MY_APP_DEBUG_SWITCH_"'
 #-------------------------------------------------
 
 release_opts = { 'user_base':base_release, 
-                 'user_optimized':optimzed_release, 
+                 'user_optimized':optimized_release, 
                  'user_debug':debug_release
                }
                
                
 # Add new dictionary of for new build configuration options
 cpp11_opts = { 'user_base':base_cpp11, 
-               'user_optimized':optimzed_cpp11, 
+               'user_optimized':optimized_cpp11, 
                'user_debug':debug_cpp11
              }
   
         
 # Add new variant option dictionary to # dictionary of 
-# build varaints
+# build variants
 build_variants = { 'win32':release_opts,
                    'cpp11':cpp11_opts,
                  }    

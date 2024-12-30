@@ -73,6 +73,14 @@ public:
      */
     bool peekTop( ITEM& dst ) const noexcept;
 
+    /** Returns a POINTER to the top item of the Stack. If the stack is empty, 
+        the method returns a null pointer. The pointer is valid until the next
+        push or pop operation.
+
+        NOTE: The application CAN modify the item in place on the Stack.  Use
+              this power wisely!
+     */
+    ITEM* peekTop() noexcept;
 
 public:
     /** This method returns true if the Stack is empty
@@ -178,6 +186,17 @@ inline bool Stack<ITEM>::peekTop( ITEM& dst ) const noexcept
 
     dst  = m_elements[m_count - 1];
     return true;
+}
+
+template <class ITEM>
+inline ITEM* Stack<ITEM>::peekTop() noexcept
+{
+    if ( isEmpty() )
+    {
+        return nullptr;
+    }
+
+    return &(m_elements[m_count - 1]);
 }
 
 

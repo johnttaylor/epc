@@ -23,13 +23,20 @@
   },
   "publish": {
     "current": {
-      "comment": "Add 'Fakeit' for mocking classes and 'FFF' for mocking c functions",
-      "version": "2.13.7e",
-      "date": "Thu May 16 20:15:54 2024",
-      "timestamp": 1715890554,
+      "comment": "This release 'deprecates 2.x of Catch2 and is now only a 'stub' to rediect the header include to use v3.x in xsrc/Catch2",
+      "version": "3.0.0",
+      "date": "Sun Dec 29 20:33:53 2024",
+      "timestamp": 1735504433,
       "changes": null
     },
     "history": [
+      {
+        "comment": "Add 'Fakeit' for mocking classes and 'FFF' for mocking c functions",
+        "version": "2.13.7e",
+        "date": "Thu May 16 20:15:54 2024",
+        "timestamp": 1715890554,
+        "changes": null
+      },
       {
         "comment": "Add more helper functions",
         "version": "2.13.7d",
