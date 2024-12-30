@@ -90,7 +90,7 @@
         "pkgname": "colony.core",
         "pkgtype": "overlay",
         "virtualAdoption": false,
-        "adoptedDate": "Mon Dec 30 16:39:55 2024",
+        "adoptedDate": "Mon Dec 30 16:42:22 2024",
         "parentDir": null,
         "version": {
           "semanticVersion": "4.5.1",
