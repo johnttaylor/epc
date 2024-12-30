@@ -159,9 +159,10 @@
   },
   "directories": {
     "primary": [
+      "projects",
+      "scripts",
       "src",
       "tests",
-      "scripts",
       "top"
     ],
     "adoptedExtras": [

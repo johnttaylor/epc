@@ -1,3 +1,12 @@
+projects
+projects/xsrc/catch2
+projects/xsrc/catch2/lib
+projects/xsrc/catch2/lib/linux/gcc
+projects/xsrc/catch2/lib/windows/mingw_w64
+projects/xsrc/catch2/lib/windows/vc12
+scripts/colony.core
+scripts/colony.core/docopt
+scripts/colony.core/ratt
 src/Bsp
 src/Bsp/ST/NUCLEO-F413ZH
 src/Bsp/ST/NUCLEO-F413ZH/alpha1
@@ -499,8 +508,5 @@ tests/Driver/TPipe/_0test/linux/gcc
 tests/Driver/TPipe/_0test/windows
 tests/Driver/TPipe/_0test/windows/mingw_w64
 tests/Driver/TPipe/_0test/windows/vc12
-scripts/colony.core
-scripts/colony.core/docopt
-scripts/colony.core/ratt
 top/compilers
 top/libdirs

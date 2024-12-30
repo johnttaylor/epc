@@ -23,26 +23,18 @@
 # get definition of the Options structure
 from nqbplib.base import BuildValues
 from nqbplib.my_globals import NQBP_PKG_ROOT
-from nqbplib.my_globals import NQBP_PRE_PROCESS_SCRIPT
-from nqbplib.my_globals import NQBP_PRE_PROCESS_SCRIPT_ARGS
 import os, copy
+
 
 #===================================================
 # BEGIN EDITS/CUSTOMIZATIONS
 #---------------------------------------------------
 
 # Set the name for the final output item
-FINAL_OUTPUT_NAME = 'a.exe'
+FINAL_OUTPUT_NAME = 'catch2'
 
-# Link unittest directory by object module so that Catch's self-registration mechanism 'works'
-unit_test_objects = '_BUILT_DIR_.src/Ajax/Metrics/_0test'
-
-# Use Catch2 as a static library
 catch2_inc  = f'-I{os.path.join( NQBP_PKG_ROOT(), "xsrc", "catch2", "src" )}'
-catch2_lib  = f'{os.path.join( NQBP_PKG_ROOT(), "projects", "xsrc", "catch2", "lib", "windows", "vc12", "_BUILD_VARIANT_DIR_", "catch2.lib" )}'
 
-NQBP_PRE_PROCESS_SCRIPT( 'preprocess.py' )
-NQBP_PRE_PROCESS_SCRIPT_ARGS( r'windows\vc12' )
 
 #
 # For build config/variant: "win32" 
@@ -50,10 +42,9 @@ NQBP_PRE_PROCESS_SCRIPT_ARGS( r'windows\vc12' )
 
 # Set project specific 'base' (i.e always used) options
 base_win32           = BuildValues()        # Do NOT comment out this line
-base_win32.cflags    = '/W3 /WX /EHsc '  # /EHsc enables exceptions /std:c++17
-base_win32.firstobjs = unit_test_objects
+base_win32.cflags    = '/W3 /WX /EHsc '
 base_win32.inc       = catch2_inc
-base_win32.linklibs  = catch2_lib
+
 
 # Set project specific 'optimized' options
 optimized_win32          = BuildValues()    # Do NOT comment out this line
@@ -65,13 +56,13 @@ debug_win32.cflags   = '/D "_MY_APP_DEBUG_SWITCH_"'
 
 
 #
-# For build config/variant: "cpp11" 
+# For build config/variant: "cpp11"
 #
 
 # same options as win32 (but uses different libdirs entries)
-base_cpp11     = copy.deepcopy(base_win32)
-optimzed_cpp11 = copy.deepcopy(optimized_win32)
-debug_cpp11    = copy.deepcopy(debug_win32)
+base_cpp11      = copy.deepcopy(base_win32)
+optimized_cpp11 = copy.deepcopy(optimized_win32)
+debug_cpp11     = copy.deepcopy(debug_win32)
 
 #-------------------------------------------------
 # ONLY edit this section if you are ADDING options
@@ -79,19 +70,20 @@ debug_cpp11    = copy.deepcopy(debug_win32)
 # 'release' build
 #-------------------------------------------------
 
-win32_build_opts = { 'user_base':base_win32, 
-                       'user_optimized':optimized_win32, 
-                       'user_debug':debug_win32
-                     }
-cpp11_build_opts = { 'user_base':base_cpp11,
-                     'user_optimized':optimzed_cpp11,
-                     'user_debug':debug_cpp11
-                   }               
+win32_opts = { 'user_base':base_win32, 
+               'user_optimized':optimized_win32, 
+               'user_debug':debug_win32
+             }
                
-# Add new variant option dictionary to # dictionary of 
+               
+cpp11_opts = { 'user_base':base_cpp11,
+               'user_optimized':optimized_cpp11,
+               'user_debug':debug_cpp11
+             }
+        
 # build variants
-build_variants = { 'win32':win32_build_opts,
-                   'cpp11':cpp11_build_opts
+build_variants = { 'win32':win32_opts,
+                   'cpp11':cpp11_opts
                  }    
 
 #---------------------------------------------------
@@ -106,7 +98,7 @@ prjdir = os.path.dirname(os.path.abspath(__file__))
 
 
 # Select Module that contains the desired toolchain
-from nqbplib.toolchains.windows.vc12.console_exe import ToolChain
+from nqbplib.toolchains.windows.vc12.static_lib import ToolChain
 
 
 # Function that instantiates an instance of the toolchain

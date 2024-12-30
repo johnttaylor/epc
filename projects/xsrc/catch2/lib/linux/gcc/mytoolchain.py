@@ -16,62 +16,73 @@
 #            .cppflags
 #            .asmflags
 #            .linkflags
-#            .linklibs
+#            .linklibs 
 #           
 #---------------------------------------------------------------------------
 
 # get definition of the Options structure
 from nqbplib.base import BuildValues
 from nqbplib.my_globals import NQBP_PKG_ROOT
-from nqbplib.my_globals import NQBP_PRE_PROCESS_SCRIPT
-from nqbplib.my_globals import NQBP_PRE_PROCESS_SCRIPT_ARGS
 import os, copy
+
 
 #===================================================
 # BEGIN EDITS/CUSTOMIZATIONS
 #---------------------------------------------------
 
 # Set the name for the final output item
-FINAL_OUTPUT_NAME = 'a.exe'
+FINAL_OUTPUT_NAME = 'catch2'
 
-# Link unittest directory by object module so that Catch's self-registration mechanism 'works'
-unit_test_objects = '_BUILT_DIR_.src/Ajax/Metrics/_0test'
-
-# Use Catch2 as a static library
 catch2_inc  = f'-I{os.path.join( NQBP_PKG_ROOT(), "xsrc", "catch2", "src" )}'
-catch2_lib  = f'{os.path.join( NQBP_PKG_ROOT(), "projects", "xsrc", "catch2", "lib", "windows", "vc12", "_BUILD_VARIANT_DIR_", "catch2.lib" )}'
 
-NQBP_PRE_PROCESS_SCRIPT( 'preprocess.py' )
-NQBP_PRE_PROCESS_SCRIPT_ARGS( r'windows\vc12' )
+
 
 #
-# For build config/variant: "win32" 
+# For build config/variant: "posix32"
 #
 
 # Set project specific 'base' (i.e always used) options
-base_win32           = BuildValues()        # Do NOT comment out this line
-base_win32.cflags    = '/W3 /WX /EHsc '  # /EHsc enables exceptions /std:c++17
-base_win32.firstobjs = unit_test_objects
-base_win32.inc       = catch2_inc
-base_win32.linklibs  = catch2_lib
+base_posix32           = BuildValues()        # Do NOT comment out this line
+base_posix32.cflags    = '-m32 -std=c++17 -Wall -Werror -x c++'
+base_posix32.inc       = catch2_inc
+
 
 # Set project specific 'optimized' options
-optimized_win32          = BuildValues()    # Do NOT comment out this line
-optimized_win32.cflags   = '/O2'
+optimized_posix32           = BuildValues()    # Do NOT comment out this line
+optimized_posix32.cflags    = '-O3'
 
 # Set project specific 'debug' options
-debug_win32          = BuildValues()       # Do NOT comment out this line
-debug_win32.cflags   = '/D "_MY_APP_DEBUG_SWITCH_"'
+debug_posix32           = BuildValues()       # Do NOT comment out this line
+
+
+# 
+# For build config/variant: "posix64" 
+#
+
+# Construct option structs
+base_posix64     = BuildValues()
+optimized_posix64 = BuildValues()
+debug_posix64    = BuildValues()
+
+# Set project specific 'base' (i.e always used) options
+base_posix64.cflags    = '-m64 -std=c++17 -Wall -Werror -x c++'
+base_posix64.inc       = catch2_inc
+
+# Set project specific 'optimized' options
+optimized_posix64.cflags    = '-O3'
+
+# Set project specific 'debug' options
 
 
 #
-# For build config/variant: "cpp11" 
+# For build config/variant: "cpp11"
 #
 
-# same options as win32 (but uses different libdirs entries)
-base_cpp11     = copy.deepcopy(base_win32)
-optimzed_cpp11 = copy.deepcopy(optimized_win32)
-debug_cpp11    = copy.deepcopy(debug_win32)
+# same options as posix64 (but uses different libdirs entries)
+base_cpp11      = copy.deepcopy(base_posix64)
+optimized_cpp11 = copy.deepcopy(optimized_posix64)
+debug_cpp11     = copy.deepcopy(debug_posix64)
+
 
 #-------------------------------------------------
 # ONLY edit this section if you are ADDING options
@@ -79,19 +90,29 @@ debug_cpp11    = copy.deepcopy(debug_win32)
 # 'release' build
 #-------------------------------------------------
 
-win32_build_opts = { 'user_base':base_win32, 
-                       'user_optimized':optimized_win32, 
-                       'user_debug':debug_win32
-                     }
-cpp11_build_opts = { 'user_base':base_cpp11,
-                     'user_optimized':optimzed_cpp11,
-                     'user_debug':debug_cpp11
-                   }               
+posix32_opts = { 'user_base':base_posix32, 
+                 'user_optimized':optimized_posix32, 
+                 'user_debug':debug_posix32
+               }
                
+               
+# Add new dictionary of for new build configuration options
+cpp11_opts = { 'user_base':base_cpp11, 
+               'user_optimized':optimized_cpp11, 
+               'user_debug':debug_cpp11
+             }
+  
+posix64_opts = { 'user_base':base_posix64, 
+                 'user_optimized':optimized_posix64, 
+                 'user_debug':debug_posix64
+               }
+  
+        
 # Add new variant option dictionary to # dictionary of 
 # build variants
-build_variants = { 'win32':win32_build_opts,
-                   'cpp11':cpp11_build_opts
+build_variants = { 'posix':posix32_opts,
+                   'posix64':posix64_opts,
+                   'cpp11':cpp11_opts,
                  }    
 
 #---------------------------------------------------
@@ -106,10 +127,10 @@ prjdir = os.path.dirname(os.path.abspath(__file__))
 
 
 # Select Module that contains the desired toolchain
-from nqbplib.toolchains.windows.vc12.console_exe import ToolChain
+from nqbplib.toolchains.linux.gcc.static_lib import ToolChain
 
 
 # Function that instantiates an instance of the toolchain
 def create():
-    tc = ToolChain( FINAL_OUTPUT_NAME, prjdir, build_variants, 'win32' )
+    tc = ToolChain( FINAL_OUTPUT_NAME, prjdir, build_variants, "posix64" )
     return tc 
