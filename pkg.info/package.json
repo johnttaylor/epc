@@ -160,12 +160,12 @@
         "pkgname": "nqbp2",
         "pkgtype": "readonly",
         "virtualAdoption": false,
-        "adoptedDate": "Sun Sep  8 15:38:02 2024",
+        "adoptedDate": "Mon Dec 30 13:55:47 2024",
         "parentDir": "xsrc",
         "version": {
-          "semanticVersion": "0.1.9",
+          "semanticVersion": "1.0.0",
           "branch": null,
-          "tag": "OUTCAST2-main-0.1.9"
+          "tag": "OUTCAST2-main-1.0.0"
         },
         "repo": {
           "name": "nqbp2",

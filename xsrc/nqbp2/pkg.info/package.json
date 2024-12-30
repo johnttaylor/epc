@@ -23,13 +23,20 @@
   },
   "publish": {
     "current": {
-      "comment": "Minor tweaks to vscode support",
-      "version": "0.1.9",
-      "date": "Mon Sep  2 20:55:47 2024",
-      "timestamp": 1725310547,
+      "comment": "Add support for building the Catch2 static library.  NOTE: This is breaking change to the 'preprocess' build script (new/different args)",
+      "version": "1.0.0",
+      "date": "Sun Dec 29 17:40:55 2024",
+      "timestamp": 1735494055,
       "changes": null
     },
     "history": [
+      {
+        "comment": "Minor tweaks to vscode support",
+        "version": "0.1.9",
+        "date": "Mon Sep  2 20:55:47 2024",
+        "timestamp": 1725310547,
+        "changes": null
+      },
       {
         "comment": "Add more VSCode support",
         "version": "0.1.8",

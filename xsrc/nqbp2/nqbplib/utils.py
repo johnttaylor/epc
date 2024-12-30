@@ -269,7 +269,7 @@ def find_libdir_entry( libdirs, dir_path, entry_type=None ):
     return (False, (dir_path, None, None), entry_type)
 
 #-----------------------------------------------------------------------------
-def run_pre_processing_script( printer, current_dir, work_root, pkg_root, prj_dirname, preprocess_script, preprocess_args, build_clean="build", verbose=False ):
+def run_pre_processing_script( printer, current_dir, work_root, pkg_root, prj_dirname, preprocess_script, preprocess_args, variant, debug_opt, build_clean="build", verbose=False ):
     # Do nothing if feature not enabled
     if ( preprocess_script != None ):
         script = os.path.join( current_dir, preprocess_script )
@@ -278,13 +278,13 @@ def run_pre_processing_script( printer, current_dir, work_root, pkg_root, prj_di
         if ( os.path.isfile( script) ):
             verbose_opt = "verbose" if verbose else "terse"
             printer.output( "= Running Pre-Process script: " + preprocess_script )
-            cmd = "{} {} {} {} {} {} {} {}".format( script, build_clean, verbose_opt, work_root, pkg_root, prj_dirname, current_dir, preprocess_args)
+            cmd = "{} {} {} {} {} {} {} {} {} {}".format( script, build_clean, verbose_opt, work_root, pkg_root, prj_dirname, current_dir, variant, debug_opt, preprocess_args)
             printer.debug( "# PreProcessing cmd = " + cmd )
             run_shell2( cmd, stdout=True, on_err_msg="Running PreProcess Script Failed!")
 
 
 #
-def run_clean_pre_processing( printer, libdirs, clean_pkg=False, clean_local=False, clean_xpkgs=False, clean_absolute=False ):
+def run_clean_pre_processing( printer, libdirs, variant, debug_opt, clean_pkg=False, clean_local=False, clean_xpkgs=False, clean_absolute=False ):
     # Do nothing if no pre-processing script is defined
     if ( NQBP_PRE_PROCESS_SCRIPT() != None and len(libdirs) > 0 ):
         
@@ -295,19 +295,19 @@ def run_clean_pre_processing( printer, libdirs, clean_pkg=False, clean_local=Fal
             # Clean Local and PKG dirs
             if ( (clean_pkg and e == 'local') or (clean_local and e == 'pkg') ):
                 dir = os.path.join( NQBP_PKG_ROOT(), line )
-                run_clean_dir_pre_processing( dir, printer )
+                run_clean_dir_pre_processing( dir, printer, variant, debug_opt )
 
             # Clean External Packages
             if ( clean_xpkgs and e == 'xpkg' ):
                 dir = os.path.join( NQBP_WORK_ROOT(), NQBP_WRKPKGS_DIRNAME(), line )
-                run_clean_dir_pre_processing( dir, printer )
+                run_clean_dir_pre_processing( dir, printer, variant, debug_opt )
 
             # Clean Absolute directories
             if ( clean_absolute and e == 'absolute' ):
-                run_clean_dir_pre_processing( line, printer )
+                run_clean_dir_pre_processing( line, printer, variant, debug_opt )
 
 #
-def run_clean_dir_pre_processing( dir, printer ):
+def run_clean_dir_pre_processing( dir, printer, variant, debug_opt ):
     # Do nothing if no pre-processing script is defined
     if ( NQBP_PRE_PROCESS_SCRIPT() != None ):
         printer.debug( "# Clean pre_processing dir= " + dir )
@@ -318,8 +318,8 @@ def run_clean_dir_pre_processing( dir, printer ):
         # Run script if it exists
         script = os.path.join( dir, NQBP_PRE_PROCESS_SCRIPT() )
         if ( os.path.isfile( script) ):
-            printer.output( "= Cleaning Pre-Process script: " + NQBP_PRE_PROCESS_SCRIPT() )
-            cmd = "{} {} {} {} {} {} {} {}".format( script, "clean", verbose_opt, NQBP_WORK_ROOT(), NQBP_PKG_ROOT(), NQBP_PRJ_DIR (), dir, NQBP_PRE_PROCESS_SCRIPT_ARGS())
+            printer.output( f"= Cleaning Pre-Process script: {NQBP_PRE_PROCESS_SCRIPT()}" )
+            cmd = "{} {} {} {} {} {} {} {} {} {}".format( script, "clean", verbose_opt, NQBP_WORK_ROOT(), NQBP_PKG_ROOT(), NQBP_PRJ_DIR (), dir, variant, debug_opt, NQBP_PRE_PROCESS_SCRIPT_ARGS())
             printer.debug( "# Clean PreProcessing cmd = " + cmd )
             run_shell2( cmd, stdout=True, on_err_msg="Cleaning PreProcess Script Failed!")
 
@@ -605,6 +605,13 @@ def replace_build_dir_symbols( toolchain, objects_string, builtlibs, new_root ):
         source = tokens[1]
         if ( not '_BUILT_DIR_.' in source ):
             return final + ' ' + source
+
+def replace_build_variant_dir_symbols( toolchain, source_string ):
+    # Do nothing if no symbol(s) to expand
+    if ( not '_BUILD_VARIANT_DIR_' in source_string ):
+        return source_string
+
+    return source_string.replace( '_BUILD_VARIANT_DIR_', "_" + toolchain.get_build_variant() )
 
 #-----------------------------------------------------------------------------
 def list_libdirs( printer, libs ):

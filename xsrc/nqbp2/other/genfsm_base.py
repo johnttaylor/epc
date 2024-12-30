@@ -72,7 +72,6 @@ copyright_header = """* This file is part of the Colony.Core Project.  The Colon
 import subprocess
 import re
 import sys
-import platform
 
 #------------------------------------------------------------------------------
 # Parse command line
@@ -83,19 +82,10 @@ def run( argv, copyright=None ):
     args  = docopt(usage, version="0.0.1", options_first=True )
     sargs = ' '.join( args['<sinelabore>'] )
 
-    # OS specific thingys
-    cp_path_ext = '*.jar'
-    cp_sep      = ''
-    if 'Windows' in platform.platform():
-        cp_path_ext = '*'
-        cp_sep      = ';'
-        
     # Check the environment variables 
     sinpath = os.environ.get( "SINELABORE_PATH" )
     if ( sinpath == None ):
         exit( "ERROR: The SINELABORE_PATH environment variable is not set." )
-    sinpath = os.path.join( sinpath, cp_path_ext)
-    
     
     # Set copyright header (if specified)
     if ( copyright != None ):
@@ -131,7 +121,7 @@ def run( argv, copyright=None ):
     geneatedCodegenConfig( cfg, base, names )
         
     # Build Sinelabore command
-    cmd = f'java -cp {sinpath}{cp_sep} codegen.Main {sargs} -p CADIFRA -doxygen -o {fsm} -l cppx -Trace {fsmdiag}'
+    cmd = 'java -cp {}\*; codegen.Main {} -p CADIFRA -doxygen -o {} -l cppx -Trace {}'.format( sinpath, sargs, fsm, fsmdiag )
     cmd = utils.standardize_dir_sep( cmd )
   
     # Invoke Sinelabore command
@@ -139,7 +129,7 @@ def run( argv, copyright=None ):
     p = subprocess.Popen( cmd, shell=True )
     r = p.communicate()
     if ( p.returncode != 0 ):
-        exit("ERROR: Sinelabore encountered an error or failed to run." )
+        exit("ERROR: Sinelabore encounterd an error or failed to run." )
     
     # Clean-up config file (don't want it being checked into version control)
     os.remove( cfg )
@@ -292,7 +282,7 @@ def cleanup_for_doxygen( headerfile, classname='<not-used>' ):
                 if ( line.find( 'Here is the graph that shows the state machine' ) == -1 ):
                     outf.write( line )
                 else:
-                    outf.write( "/** \\class {}\n\nHere is the graph that shows the state machine this class implements\n\n\\dot\n".format( classname ) )
+                    outf.write( "/** \class {}\n\nHere is the graph that shows the state machine this class implements\n\n\dot\n".format( classname ) )
     
     os.remove( headerfile )
     os.rename( tmpfile, headerfile )
