@@ -8,6 +8,11 @@
 #include "lfs.h"
 #include "lfs_util.h"
 
+// EDIT: JTT - Added this to suppress warning when using the Visual Studio compiler
+#ifdef _MSC_VER
+#pragma warning( disable : 4244 4804 )
+#endif
+
 
 // some constants used throughout the code
 #define LFS_BLOCK_NULL ((lfs_block_t)-1)

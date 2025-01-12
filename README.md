@@ -23,12 +23,11 @@ The following changes have be made to the repository since the book was original
 
 1. Migrated the Catch2 framework from v2.x to v3.x.  The change impacted how the unit test projects are build since Catch2 v3.x is static library based (vs v2.x which was a single header file).
 2. Maintenance updates to the CPL C++ framework (aka newer version of the [colony.core](https://github.com/johnttaylor/colony.core) repo)
+   - The update includes support for the [littlefs file system](https://github.com/littlefs-project/littlefs)
 
 ## Directory Structure for Repository
 
 The directories in this repository are laid out as follows:
-
-## GM6000 Source Code
 
 |Directory         |Description                                             |
 |------------------|--------------------------------------------------------|

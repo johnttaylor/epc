@@ -8,6 +8,11 @@
 #ifndef LFS_UTIL_H
 #define LFS_UTIL_H
 
+// EDIT: JTT - Added this to suppress warning when using the Visual Studio compiler
+#ifdef _MSC_VER
+#pragma warning( disable : 4146 )
+#endif
+
 #define LFS_STRINGIZE(x) LFS_STRINGIZE2(x)
 #define LFS_STRINGIZE2(x) #x
 
