@@ -44,11 +44,14 @@ src/Cpl/Dm/_0test/_baremetal
 src/Cpl/Io
 src/Cpl/Io/File
 src/Cpl/Io/File/Littlefs
+src/Cpl/Io/File/Littlefs/TShell
+src/Cpl/Io/File/Littlefs/TShell/_0test
 src/Cpl/Io/File/Littlefs/_0test
 src/Cpl/Io/File/Littlefs/_0test/_multiplevol
 src/Cpl/Io/File/Littlefs/_api
 src/Cpl/Io/File/Littlefs/_bdfile
 src/Cpl/Io/File/Littlefs/_bdfile/_0test
+src/Cpl/Io/File/Littlefs/_bdspi
 src/Cpl/Io/File/_0test
 src/Cpl/Io/File/_ansi
 src/Cpl/Io/File/_ansi/_nullapi
@@ -59,6 +62,7 @@ src/Cpl/Io/File/_win32/_api
 src/Cpl/Io/Ram
 src/Cpl/Io/Ram/_0test
 src/Cpl/Io/Serial
+src/Cpl/Io/Serial/PhonyStdio
 src/Cpl/Io/Serial/ST
 src/Cpl/Io/Serial/ST/M32F4
 src/Cpl/Io/Serial/_0test/_hw_echo
@@ -262,6 +266,10 @@ tests/Cpl/Dm/_0test/realtime/linux/gcc
 tests/Cpl/Dm/_0test/realtime/windows
 tests/Cpl/Dm/_0test/realtime/windows/mingw_w64
 tests/Cpl/Dm/_0test/realtime/windows/vc12
+tests/Cpl/Io/File/Littlefs
+tests/Cpl/Io/File/Littlefs/TShell/_0test
+tests/Cpl/Io/File/Littlefs/TShell/_0test/windows
+tests/Cpl/Io/File/Littlefs/TShell/_0test/windows/vc12
 tests/Cpl/Io/File/Littlefs/_0test/multiplevolumes
 tests/Cpl/Io/File/Littlefs/_0test/multiplevolumes/linux
 tests/Cpl/Io/File/Littlefs/_0test/multiplevolumes/linux/gcc
@@ -280,6 +288,7 @@ tests/Cpl/Io/File/Littlefs/_bdfile/_0test/linux/gcc
 tests/Cpl/Io/File/Littlefs/_bdfile/_0test/windows
 tests/Cpl/Io/File/Littlefs/_bdfile/_0test/windows/mingw_w64
 tests/Cpl/Io/File/Littlefs/_bdfile/_0test/windows/vc12
+tests/Cpl/Io/File/Littlefs/_bdspi/NUCLEO-F413ZH-alpha1/windows/gcc-arm
 tests/Cpl/Io/File/_0test
 tests/Cpl/Io/File/_0test/ansi
 tests/Cpl/Io/File/_0test/ansi/linux
@@ -443,6 +452,10 @@ tests/Cpl/TShell/_0test/test1/linux/gcc
 tests/Cpl/TShell/_0test/test1/windows
 tests/Cpl/TShell/_0test/test1/windows/mingw_w64
 tests/Cpl/TShell/_0test/test1/windows/vc12
+tests/Cpl/TShell/_0test/test1-phonystdio/linux/gcc
+tests/Cpl/TShell/_0test/test1-phonystdio/windows
+tests/Cpl/TShell/_0test/test1-phonystdio/windows/mingw_w64
+tests/Cpl/TShell/_0test/test1-phonystdio/windows/vc12
 tests/Cpl/TShell/_0test/test2
 tests/Cpl/TShell/_0test/test2/linux
 tests/Cpl/TShell/_0test/test2/linux/gcc
@@ -502,6 +515,10 @@ tests/Driver/NV/_0test/gang/file-cpl/win32/windows/mingw_w64
 tests/Driver/NV/_0test/gang/file-cpl/win32/windows/vc12
 tests/Driver/NV/_0test/onsemi-cat24c512/NUCLEO-F413ZH-alpha1/windows/gcc-arm
 tests/Driver/SPI/_0test/adxl345
+tests/Driver/SPI/_0test/master_eeprom
+tests/Driver/SPI/_0test/master_eeprom/NUCLEO-F413ZH-alpha1/windows/gcc-arm
+tests/Driver/SPI/_0test/master_hd_eeprom
+tests/Driver/SPI/_0test/master_hd_eeprom/NUCLEO-F413ZH-alpha1/windows/gcc-arm
 tests/Driver/TPipe/_0test
 tests/Driver/TPipe/_0test/linux
 tests/Driver/TPipe/_0test/linux/gcc

@@ -17,7 +17,7 @@
 */
 
 #include "Driver/SPI/Master.h"
-#include "Driver/DIO//Out.h"
+#include "Driver/DIO/Out.h"
 
 /// This method NEVER returns
 void runtests( Driver::SPI::Master& uut, Driver::DIO::Out& cs );

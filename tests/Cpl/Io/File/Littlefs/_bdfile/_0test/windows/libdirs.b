@@ -1,15 +1,30 @@
 # Unit under test
 xsrc/littlefs
 src/Cpl/Io/File/Littlefs/_bdfile
+src/Cpl/Io/File/Littlefs
 
 # tests
 src/Cpl/Io/File/Littlefs/_bdfile/_0test
 
 
-# Platforms
-src/Cpl/Io/Stdio/_win32
-[cpp11] /top/libdirs/platform_cpp11_default_for_test_libdirs.b
-[cpp11] /top/libdirs/platform_cpp11_default_realtime_libdirs.b
-[win32|win64] /top/libdirs/platform_win32_default_for_test_libdirs.b
-[win32|win64] /top/libdirs/platform_win32_default_realtime_libdirs.b
 
+# Middleware
+src\Cpl\Io\Serial\PhonyStdio
+src\Cpl\Container
+src\Cpl\System
+src\Cpl\Text
+src\Cpl\Text\Tokenizer
+src\Cpl\Memory
+src\Cpl\Itc
+src\Cpl\Dm
+src\Cpl\Dm\Mp
+src\Cpl\Type
+src\Cpl\System\_ansi
+src\Cpl\System\_testsupport
+src\Cpl\Io
+
+# Platform
+[win32|win64]src\Cpl\System\Win32
+[win32|win64]src\Cpl\System\Win32\_fatalerror
+[win32|win64]src\Cpl\System\_trace
+[win32|win64]src\Cpl\System\Win32\_realtime

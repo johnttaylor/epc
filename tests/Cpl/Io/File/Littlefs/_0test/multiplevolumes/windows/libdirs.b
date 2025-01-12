@@ -9,6 +9,7 @@ src/Cpl/Io/File/Littlefs/_0test/_multiplevol
 
 
 # Platforms
+src/Cpl/Io/Serial/PhonyStdio
 src/Cpl/Io/File
 src/Cpl/Container
 src/Cpl/System

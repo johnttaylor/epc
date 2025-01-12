@@ -18,7 +18,7 @@
 #include "Cpl/Io/File/Littlefs/Api.h"
 
 
-#define SECT_ "_0test"
+#define SECT_   "_0test"
 
 #define REQUIRE CPL_SYSTEM_ASSERT
 
@@ -29,7 +29,7 @@ using namespace Cpl::Io::File;
 #define TESTINPUT_TXT_FILE_LENGTH   101
 #define TESTINPUT_TEXT_HELLO_OFFEST 0x58
 
-#define FILENAME "tinput.txt"
+#define FILENAME                    "tinput.txt"
 
 #define FILE_CONTENTS                                                     \
     "line 1\n"                                                            \
@@ -73,7 +73,7 @@ public:
 
             else if ( m_depth > 2 )
             {
-                if ( m_workName != "d1.txt" && m_workName != "d2.txt" && m_workName != "d3.txt" )
+                if ( m_workName != "d1.txt" && m_workName != "d2.txt" && m_workName != "d3.txt" && m_workName != "d22.txt" )
                 {
                     m_contentCheck = false;
                 }
@@ -102,14 +102,14 @@ public:
 
             else if ( m_depth >= 2 )
             {
-                if ( m_workName != "d2" && m_workName != "d3" && m_workName != "d22")
+                if ( m_workName != "d2" && m_workName != "d3" && m_workName != "d22" )
                 {
                     m_contentCheck = false;
                 }
             }
             else if ( m_depth >= 1 )
             {
-                if ( m_workName != "d2" && m_workName != "d22" && m_workName != "d3"  ) 
+                if ( m_workName != "d2" && m_workName != "d22" && m_workName != "d3" )
                 {
                     m_contentCheck = false;
                 }
@@ -210,7 +210,7 @@ void run_api_tests( Cpl::Io::File::Littlefs::Api::Volume_T& uut )
 
     ///
     printf( "\nWalk directories..." );
-    Api::remove( "output1.txt" );       // Clean up any previous test
+    Api::remove( "output1.txt" );  // Clean up any previous test
     Api::remove( "output2.txt" );
     Api::remove( "output3.txt" );
     Api::remove( "output4.txt" );
@@ -218,11 +218,12 @@ void run_api_tests( Cpl::Io::File::Littlefs::Api::Volume_T& uut )
     Api::remove( "d1/d2/d3/d4/d5/d5a.txt" );
     Api::remove( "d1/d2/d3/d4/d5" );
     Api::remove( "d1/d2/d3/d4/d4a.txt" );
-    Api::remove( "d1/d2/d3/d4" );       
+    Api::remove( "d1/d2/d3/d4" );
     Api::remove( "d1/d2/d3/d3.txt" );
     Api::remove( "d1/d2/d3/d3a.txt" );
     Api::remove( "d1/d2/d3" );
     Api::remove( "d1/d2/d2.txt" );
+    Api::remove( "d1/d22/d22.txt" );
     Api::remove( "d1/d22" );
     Api::remove( "d1/d2" );
     Api::remove( "d1/d1.txt" );
@@ -233,6 +234,7 @@ void run_api_tests( Cpl::Io::File::Littlefs::Api::Volume_T& uut )
     REQUIRE( Api::createDirectory( "d1/d2" ) );
     REQUIRE( Api::createDirectory( "d1/d22" ) );
     REQUIRE( Api::createFile( "d1/d2/d2.txt" ) );
+    REQUIRE( Api::createFile( "d1/d22/d22.txt" ) );
     REQUIRE( Api::createDirectory( "d1/d2/d3" ) );
     REQUIRE( Api::createFile( "d1/d2/d3/d3.txt" ) );
 
@@ -326,6 +328,7 @@ void run_api_tests( Cpl::Io::File::Littlefs::Api::Volume_T& uut )
     REQUIRE( Api::remove( "d1/d2/d3" ) );
     REQUIRE( Api::remove( "d1/d2/d2.txt" ) );
     REQUIRE( Api::remove( "d1/d2" ) );
+    REQUIRE( Api::remove( "d1/d22/d22.txt" ) );
     REQUIRE( Api::remove( "d1/d22" ) );
     REQUIRE( Api::remove( "d1/d1.txt" ) );
     REQUIRE( Api::remove( "d1" ) );

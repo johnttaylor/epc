@@ -21,7 +21,7 @@ DirList_::DirList_( lfs* lfs, const char* rootDir, unsigned depth, bool filesOnl
     : m_depth( depth )
     , m_filesOnly( filesOnly )
     , m_dirsOnly( dirsOnly )
-    , m_name( rootDir )
+    , m_curDir( rootDir )
     , m_lfs( lfs )
     , m_stack( OPTION_CPL_IO_FILE_DIRLIST_MAX_DEPTH, m_stackMemory )
 {
@@ -37,17 +37,17 @@ DirList_::~DirList_()
 bool DirList_::traverse( Api::DirectoryWalker& callback )
 {
     // NOTE: Purposely not using recursion to avoid stack overflow
-    unsigned curDepth = 1;
-    m_stack.push( m_name );
+    m_stack.push( m_curDir );
     while ( !m_stack.isEmpty() )
     {
         bool newDirLevel = false;
-        m_stack.pop( m_name );
-        printf( "\ncurDir=%s, curDepth=%d", m_name.getString(), curDepth );
+        m_stack.pop( m_curDir );
+        unsigned curDepth = m_curDir.m_depth;
+        //printf( "\nPOP curDir=%s, curDepth=%d (%d)", m_curDir.m_name.getString(), curDepth, m_curDir.m_depth );
 
         // Open the current directory
         lfs_dir_t dir;
-        if ( lfs_dir_open( m_lfs, &dir, m_name() ) != LFS_ERR_OK )
+        if ( lfs_dir_open( m_lfs, &dir, m_curDir.m_name() ) != LFS_ERR_OK )
         {
             return false;
         }
@@ -73,7 +73,7 @@ bool DirList_::traverse( Api::DirectoryWalker& callback )
                     // Callback the client
                     if ( ( !m_filesOnly && !m_dirsOnly ) || m_dirsOnly )
                     {
-                        if ( callback.item( m_name, info.name, cbInfo ) == Cpl::Type::Traverser::eABORT )
+                        if ( callback.item( m_curDir.m_name, info.name, cbInfo ) == Cpl::Type::Traverser::eABORT )
                         {
                             lfs_dir_close( m_lfs, &dir );
                             return false;
@@ -81,25 +81,26 @@ bool DirList_::traverse( Api::DirectoryWalker& callback )
                     }
 
                     // Track my depth
-                    if ( !newDirLevel && m_name != "/" )
+                    if ( !newDirLevel && m_curDir.m_name != "/" && m_curDir.m_name != "." )
                     {
                         curDepth++;
                     }
 
                     // Limit the depth of the traversal
-                    if ( curDepth <= m_depth )
+                    if ( curDepth < m_depth )
                     {
                         newDirLevel = true;
 
                         // Push the found directory name onto the stack
-                        m_stack.push( m_name );
-                        Cpl::Text::String& pushedItem = *(m_stack.peekTop());   // Cheat here and use the memory on the stack instead of allocating a local variable
-                        if ( pushedItem != "/" )
+                        m_curDir.m_depth = curDepth;
+                        m_stack.push( m_curDir );
+                        DirEntry_T& pushedItem = *( m_stack.peekTop() );  // Cheat here and use the memory on the stack instead of allocating a local variable
+                        if ( pushedItem.m_name != "/" )
                         {
-                            pushedItem += "/" ;
+                            pushedItem.m_name += "/";
                         }
-                        pushedItem += info.name;
-                        printf( "\nPUSHED dir=%s (parent=%s), curDepth=%d", pushedItem.getString(), m_name.getString(), curDepth );
+                        pushedItem.m_name += info.name;
+                        //printf( "\nPUSHED dir=%s (parent=%s), curDepth=%d (%d)", pushedItem.m_name.getString(), m_curDir.m_name.getString(), curDepth, m_curDir.m_depth );
                     }
                 }
             }
@@ -109,7 +110,7 @@ bool DirList_::traverse( Api::DirectoryWalker& callback )
             {
                 if ( ( !m_filesOnly && !m_dirsOnly ) || m_filesOnly )
                 {
-                    if ( callback.item( m_name, info.name, cbInfo ) == Cpl::Type::Traverser::eABORT )
+                    if ( callback.item( m_curDir.m_name, info.name, cbInfo ) == Cpl::Type::Traverser::eABORT )
                     {
                         lfs_dir_close( m_lfs, &dir );
                         return false;
