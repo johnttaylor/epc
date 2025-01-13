@@ -23,7 +23,9 @@
 # get definition of the Options structure
 from nqbplib.base import BuildValues
 from nqbplib.my_globals import NQBP_PKG_ROOT
-import os
+from nqbplib.my_globals import NQBP_PRE_PROCESS_SCRIPT
+from nqbplib.my_globals import NQBP_PRE_PROCESS_SCRIPT_ARGS
+import os, copy
 
 #===================================================
 # BEGIN EDITS/CUSTOMIZATIONS
@@ -32,7 +34,13 @@ import os
 # Set the name for the final output item
 FINAL_OUTPUT_NAME = 'a.exe'
 
-# Additional Header paths for PIMORONI supplied code
+# Link unittest directory by object module so that Catch's self-registration mechanism 'works'
+unit_test_objects = '_BUILT_DIR_.src/Ajax/Ui/_0test'
+
+# Use Catch2 as a static library
+catch2_inc  = f'-I{os.path.join( NQBP_PKG_ROOT(), "xsrc", "catch2", "src" )}'
+catch2_lib  = f'{os.path.join( NQBP_PKG_ROOT(), "projects", "xsrc", "catch2", "lib", "windows", "vc12", "_BUILD_VARIANT_DIR_", "catch2.lib" )}'
+
 pimoroni_src_path = os.path.join( NQBP_PKG_ROOT(), 'xsrc', 'pimoroni' )
 pimoroni_inc      = f' -I{pimoroni_src_path}' + \
                     f' -I{os.path.join(pimoroni_src_path,"common")}' +\
@@ -41,53 +49,37 @@ pimoroni_inc      = f' -I{pimoroni_src_path}' + \
                     f' -I{os.path.join(pimoroni_src_path,"libraries","pico_bitmap_fonts")}' +\
                     f' -I{os.path.join(pimoroni_src_path,"libraries","pico_hershey_fonts")}' 
 
-# Link unittest directory by object module so that Catch's self-registration mechanism 'works'
-unit_test_objects = '_BUILT_DIR_.src/Ajax/Ui/_0test'
+NQBP_PRE_PROCESS_SCRIPT( 'preprocess.py' )
+NQBP_PRE_PROCESS_SCRIPT_ARGS( r'windows\vc12' )
 
 #
-# For build config/variant: "Release" 
+# For build config/variant: "win32" 
 #
 
 # Set project specific 'base' (i.e always used) options
-base_release           = BuildValues()        # Do NOT comment out this line
-base_release.cflags    = '/W3 /WX /EHsc /D CATCH_CONFIG_FAST_COMPILE /std:c++20'  # /EHsc enables exceptions
-base_release.inc       = f'{pimoroni_inc}'
-base_release.firstobjs = unit_test_objects
-
+base_win32           = BuildValues()        # Do NOT comment out this line
+base_win32.cflags    = '/W3 /WX /EHsc /std:c++20'  # /EHsc enables exceptions /std:c++17
+base_win32.firstobjs = unit_test_objects
+base_win32.inc       = f'{pimoroni_inc} {catch2_inc}'
+base_win32.linklibs  = catch2_lib
 
 # Set project specific 'optimized' options
-optimzed_release          = BuildValues()    # Do NOT comment out this line
-optimzed_release.cflags   = '/O2'
-optimzed_release.linklibs = ''
+optimized_win32          = BuildValues()    # Do NOT comment out this line
+optimized_win32.cflags   = '/O2'
 
 # Set project specific 'debug' options
-debug_release          = BuildValues()       # Do NOT comment out this line
-debug_release.cflags   = '/D "_MY_APP_DEBUG_SWITCH_"'
-debug_release.linklibs = ''
+debug_win32          = BuildValues()       # Do NOT comment out this line
+debug_win32.cflags   = '/D "_MY_APP_DEBUG_SWITCH_"'
+
 
 #
-# For build config/variant: "cpp11"
-# (note: uses same internal toolchain options as the 'Release' variant, 
-#        only the 'User' options will/are different)
+# For build config/variant: "cpp11" 
 #
 
-# Construct option structs
-base_cpp11     = BuildValues()  
-optimzed_cpp11 = BuildValues()
-debug_cpp11    = BuildValues()
-
-
-# Set 'base' options
-base_cpp11.cflags     = '/W3 /WX /EHsc /D CATCH_CONFIG_FAST_COMPILE'  # /EHsc enables exceptions
-base_cpp11.firstobjs  = unit_test_objects
-
-# Set 'Optimized' options
-optimzed_cpp11.cflags   = '/O2'
-optimzed_cpp11.linklibs = ''
-
-# Set project specific 'debug' options
-debug_cpp11.linklibs = ''
-
+# same options as win32 (but uses different libdirs entries)
+base_cpp11     = copy.deepcopy(base_win32)
+optimzed_cpp11 = copy.deepcopy(optimized_win32)
+debug_cpp11    = copy.deepcopy(debug_win32)
 
 #-------------------------------------------------
 # ONLY edit this section if you are ADDING options
@@ -95,23 +87,19 @@ debug_cpp11.linklibs = ''
 # 'release' build
 #-------------------------------------------------
 
-release_opts = { 'user_base':base_release, 
-                 'user_optimized':optimzed_release, 
-                 'user_debug':debug_release
-               }
+win32_build_opts = { 'user_base':base_win32, 
+                       'user_optimized':optimized_win32, 
+                       'user_debug':debug_win32
+                     }
+cpp11_build_opts = { 'user_base':base_cpp11,
+                     'user_optimized':optimzed_cpp11,
+                     'user_debug':debug_cpp11
+                   }               
                
-               
-# Add new dictionary of for new build configuration options
-cpp11_opts = { 'user_base':base_cpp11, 
-               'user_optimized':optimzed_cpp11, 
-               'user_debug':debug_cpp11
-             }
-  
-        
 # Add new variant option dictionary to # dictionary of 
 # build variants
-build_variants = { 'win32':release_opts,
-                   'cpp11':cpp11_opts,
+build_variants = { 'win32':win32_build_opts,
+                   'cpp11':cpp11_build_opts
                  }    
 
 #---------------------------------------------------

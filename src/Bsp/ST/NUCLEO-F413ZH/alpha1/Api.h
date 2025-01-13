@@ -32,6 +32,7 @@
 #include "Bsp/ST/NUCLEO-F413ZH/alpha1/MX/Core/Inc/tim.h"    // Access the PWMs/Timers
 #include "Bsp/ST/NUCLEO-F413ZH/alpha1/MX/Core/Inc/i2c.h"    // Access the I2C handles/instances
 #include "Bsp/ST/NUCLEO-F413ZH/alpha1/MX/Core/Inc/adc.h"    // Access the AIN handles/instances
+#include "Bsp/ST/NUCLEO-F413ZH/alpha1/MX/Core/Inc/spi.h"    // Access the SPI handles/instances
 
 
 

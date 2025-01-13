@@ -9,8 +9,6 @@
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
 
-#include "Catch/catch.hpp"
-#include "Cpl/System/_testsupport/Shutdown_TS.h"
 #include "Cpl/System/Trace.h"
 #include "Cpl/System/Api.h"
 #include "Cpl/System/ElapsedTime.h"

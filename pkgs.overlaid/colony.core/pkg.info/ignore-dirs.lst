@@ -1,18 +1,30 @@
 # Ignore the final output directories from the builds
 __pycache__/
 projects/**/_win32/
+projects/**/_win32/**
 projects/**/_win64/
+projects/**/_win64/**
 projects/**/_posix/
+projects/**/_posix/**
 projects/**/_posix64/
+projects/**/_posix64/**
 projects/**/_cpp11/
+projects/**/_cpp11/**
 projects/**/_stm32/
+projects/**/_stm32/**
 
 tests/**/_win32/
+tests/**/_win32/**
 tests/**/_win64/
+tests/**/_win64/**
 tests/**/_posix/
+tests/**/_posix/**
 tests/**/_posix64/
+tests/**/_posix64/**
 tests/**/_cpp11/
+tests/**/_cpp11/**
 tests/**/_stm32/
+tests/**/_stm32/**
 
 
 # Ignore most of the top/

@@ -22,7 +22,11 @@
 
 # get definition of the Options structure
 from nqbplib.base import BuildValues
-from nqbplib.my_globals import NQBP_WORK_ROOT
+from nqbplib.my_globals import NQBP_PKG_ROOT
+from nqbplib.my_globals import NQBP_PRE_PROCESS_SCRIPT
+from nqbplib.my_globals import NQBP_PRE_PROCESS_SCRIPT_ARGS
+import os, copy
+
 
 #===================================================
 # BEGIN EDITS/CUSTOMIZATIONS
@@ -34,75 +38,65 @@ FINAL_OUTPUT_NAME = 'a.exe'
 # Link unittest directory by object module so that Catch's self-registration mechanism 'works'
 unit_test_objects = '_BUILT_DIR_.src/Cpl/Type/_0test'
 
+# Use Catch2 as a static library
+catch2_inc  = f'-I{os.path.join( NQBP_PKG_ROOT(), "xsrc", "catch2", "src" )}'
+catch2_lib  = f'{os.path.join( NQBP_PKG_ROOT(), "projects", "xsrc", "catch2", "lib", "windows", "mingw_w64", "_BUILD_VARIANT_DIR_", "catch2.a" )}'
+
+NQBP_PRE_PROCESS_SCRIPT( 'preprocess.py' )
+NQBP_PRE_PROCESS_SCRIPT_ARGS( r'windows\mingw_w64' )
+
 
 #
-# For build config/variant: "Release"
+# For build config/variant: "win32"
 #
 
 # Set project specific 'base' (i.e always used) options
-base_release           = BuildValues()        # Do NOT comment out this line
-base_release.cflags    = '-m32 -std=c++11 -Wall -Werror -x c++  -fprofile-arcs -ftest-coverage -DCATCH_CONFIG_FAST_COMPILE'
-base_release.linkflags = '-m32 -fprofile-arcs'
-base_release.linklibs  = '-lgcov'
-base_release.firstobjs = unit_test_objects
+base_win32           = BuildValues()        # Do NOT comment out this line
+base_win32.cflags    = '-m32 -std=c++17 -Wall -Werror -x c++  -fprofile-arcs -ftest-coverage'
+base_win32.inc       = catch2_inc
+base_win32.linkflags = '-m32 -fprofile-arcs'
+base_win32.linklibs  = f'-lgcov {catch2_lib}'
+base_win32.firstobjs = unit_test_objects
 
 # Set project specific 'optimized' options
-optimzed_release           = BuildValues()    # Do NOT comment out this line
-optimzed_release.cflags    = '-O3'
-optimzed_release.linklibs  = '-lstdc++'
+optimized_win32           = BuildValues()    # Do NOT comment out this line
+optimized_win32.cflags    = '-O3'
 
 # Set project specific 'debug' options
-debug_release           = BuildValues()       # Do NOT comment out this line
-debug_release.linklibs  = '-lstdc++'
+debug_win32           = BuildValues()       # Do NOT comment out this line
 
-
-
-# 
-# For build config/variant: "cpp11"
-# (note: uses same internal toolchain options as the 'Release' variant, 
-#        only the 'User' options will/are different)
-#
-
-# Construct option structs
-base_cpp11     = BuildValues()  
-optimzed_cpp11 = BuildValues()
-debug_cpp11    = BuildValues()
-
-# Set 'base' options
-base_cpp11.cflags     = '-m64 -std=c++11 -Wall -Werror -x c++ -DCATCH_CONFIG_FAST_COMPILE'
-base_cpp11.linkflags  = '-m64'
-base_cpp11.firstobjs  = unit_test_objects
-
-# Set 'Optimized' options
-optimzed_cpp11.cflags    = '-O3'
-optimzed_cpp11.linklibs  = '-lstdc++'
-
-# Set 'debug' options
-debug_cpp11.linklibs  = '-lstdc++'
 
 
 #
 # For build config/variant: "win64"
-# (note: uses same internal toolchain options as the 'Release' variant,
-#        only the 'User' options will/are different)
 #
 
 # Construct option structs
-base_win64     = BuildValues()
-optimzed_win64 = BuildValues()
-debug_win64    = BuildValues()
+base_win64      = BuildValues()
+optimized_win64 = BuildValues()
+debug_win64     = BuildValues()
 
 # Set 'base' options
-base_win64.cflags     = '-m64 -std=c++11 -Wall -Werror -x c++  -DCATCH_CONFIG_FAST_COMPILE'
+base_win64.cflags     = '-m64 -std=c++17 -Wall -Werror -x c++ -fprofile-arcs -ftest-coverage'
+base_win64.inc        = catch2_inc
 base_win64.linkflags  = '-m64'
 base_win64.firstobjs  = unit_test_objects
+base_win64.linklibs   = f'-lgcov {catch2_lib}'
 
 # Set 'Optimized' options
-optimzed_win64.cflags    = '-O3'
-optimzed_win64.linklibs  = '-lstdc++'
+optimized_win64.cflags    = '-O3'
 
 # Set 'debug' options
-debug_win64.linklibs  = '-lstdc++'
+
+
+#
+# For build config/variant: "cpp11"
+#
+
+# same options as win64 (but uses different libdirs entries)
+base_cpp11      = copy.deepcopy(base_win64)
+optimized_cpp11 = copy.deepcopy(optimized_win64)
+debug_cpp11     = copy.deepcopy(debug_win64)
 
 #-------------------------------------------------
 # ONLY edit this section if you are ADDING options
@@ -110,27 +104,26 @@ debug_win64.linklibs  = '-lstdc++'
 # 'release' build
 #-------------------------------------------------
 
-release_opts = { 'user_base':base_release, 
-                 'user_optimized':optimzed_release, 
-                 'user_debug':debug_release
-               }
+win32_opts = { 'user_base':base_win32, 
+               'user_optimized':optimized_win32, 
+               'user_debug':debug_win32
+             }
                
 # Add new dictionary of for new build configuration options
-cpp11_opts = { 'user_base':base_cpp11, 
-               'user_optimized':optimzed_cpp11, 
-               'user_debug':debug_cpp11
-             }
-  
-# Add new dictionary of for new build configuration options
 win64_opts = { 'user_base':base_win64,
-               'user_optimized':optimzed_win64,
+               'user_optimized':optimized_win64,
                'user_debug':debug_win64
              }
                
+# Add new dictionary of for new build configuration options
+cpp11_opts = { 'user_base':base_win64,
+               'user_optimized':optimized_win64,
+               'user_debug':debug_win64
+             }
         
 # Add new variant option dictionary to # dictionary of 
 # build variants
-build_variants = { 'win32':release_opts,
+build_variants = { 'win32':win32_opts,
                    'win64':win64_opts,
                    'cpp11':cpp11_opts,
                  }    

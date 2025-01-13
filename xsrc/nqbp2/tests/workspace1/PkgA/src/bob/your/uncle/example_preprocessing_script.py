@@ -10,15 +10,17 @@
 #   from nqbplib.my_globals import NQBP_PRE_PROCESS_SCRIPT
 #   from nqbplib.my_globals import NQBP_PRE_PROCESS_SCRIPT_ARGS
 #   NQBP_PRE_PROCESS_SCRIPT( "<preprocess-script.py>" )  # i.e the name of this script
-#   NQBP_PRE_PROCESS_SCRIPT_ARGS("<arg7> <arg8> ...")    # project specific arguments pass to the script
+#   NQBP_PRE_PROCESS_SCRIPT_ARGS("<arg9> <arg10> ...")    # project specific arguments pass to the script
 #
-# NOTE: The script is ALWAYS passed <arg1> ... <arg5> where:
+# NOTE: The script is ALWAYS passed <arg1> ... <arg8> where:
 #             <arg1>: build|clean         
 #             <arg2>: verbose|terse
 #             <arg3>: <workspace-dir>
 #             <arg4>: <package-dir> 
 #             <arg5>: <project-dir> 
 #             <arg6>: <current-dir> 
+#             <arg7>: <build-variant> 
+#             <arg8>: <debug-build>   // debug|release|clean 
 #
 # Since the <preprocess-script.py> script MUST be in every (desired) source 
 # directory, users are encouraged that the <preprocess-script.py> ONLY be a 
