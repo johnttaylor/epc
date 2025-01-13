@@ -1,4 +1,4 @@
-# The Embedded Project Cookbook (EPC)
+# The Embedded Project Cookbook (EPC) 
 
 This repository contains the following resources that are referenced in the [*The Embedded Project Cookbook: A Step-By-Step Guide for Microcontroller Projects*](https://amzn.to/3YgrCWc):
 -	Source code for the GM6000 example application
