@@ -1,21 +1,17 @@
 <map id="Driver/SPI/Arduino/Master.h" name="Driver/SPI/Arduino/Master.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="227,5,356,46"/>
-<area shape="rect" id="Node000002" href="$_s_p_i_2_master_8h.html" title=" " alt="" coords="22,94,158,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="242,49,136,90,134,85,240,44"/>
-<area shape="rect" id="Node000004" href="$_bsp_2_api_8h.html" title="This file defines the common/generic interfaces that all Colony." alt="" coords="209,94,286,120"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="283,48,264,82,259,79,278,45"/>
-<area shape="rect" id="Node000007" href="$spi_8h.html" title="This file contains all the function prototypes for the spi.c file." alt="" coords="310,94,363,120"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="305,45,324,79,320,82,300,48"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="388,94,451,120"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="324,44,388,83,385,88,321,49"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,168,68,193"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="83,121,57,157,53,153,79,118"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="91,168,201,193"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="232,122,177,160,174,156,228,118"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="225,168,325,193"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="254,119,267,152,262,154,249,121"/>
-<area shape="rect" id="Node000008" href="$_initech_2alpha1_2_m_x_2_core_2_inc_2main_8h.html" title=": Header for main.c file." alt="" coords="350,168,409,193"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="346,119,366,153,362,156,341,121"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="322,241,436,267"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="382,194,382,226,377,226,377,194"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="183,5,312,46"/>
+<area shape="rect" id="Node000002" href="$_s_p_i_2_master_8h.html" title=" " alt="" coords="5,94,141,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,49,115,90,112,85,203,44"/>
+<area shape="rect" id="Node000004" href="$_bsp_2_api_8h.html" title="This file defines the common/generic interfaces that all Colony." alt="" coords="165,94,242,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="239,48,220,82,215,79,234,45"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="266,94,320,120"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="261,45,281,79,276,82,257,48"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="344,94,407,120"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="281,44,345,83,342,88,278,49"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="42,168,104,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="76,120,76,152,70,152,70,120"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="138,168,248,193"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="205,120,200,153,194,152,199,119"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="272,168,373,193"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="225,118,291,157,288,162,222,122"/>
 </map>

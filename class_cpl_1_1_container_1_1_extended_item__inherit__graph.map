@@ -4,14 +4,14 @@
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="311,826,362,791,422,754,445,743,448,748,425,759,365,795,314,830"/>
 <area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_dict_item.html" title="This abstract class represents a item that can be contained in Dictionary." alt="" coords="424,769,580,795"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="339,830,457,793,458,798,341,835"/>
-<area shape="rect" id="Node000045" href="$class_cpl_1_1_dm_1_1_subscriber_api.html" title="This abstract class defines the Subscriber interface &#45; for change notifications &#45; to a Model Points d..." alt="" coords="425,871,579,896"/>
-<area shape="poly" id="edge17_Node000001_Node000045" title=" " alt="" coords="386,863,425,869,424,875,385,869"/>
-<area shape="rect" id="Node000075" href="$class_cpl_1_1_itc_1_1_message.html" title="This abstract class defines the operations for an ITC message." alt="" coords="442,920,562,946"/>
-<area shape="poly" id="edge43_Node000001_Node000075" title=" " alt="" coords="327,867,425,906,456,917,454,922,423,911,325,872"/>
-<area shape="rect" id="Node000079" href="$class_cpl_1_1_memory_1_1_pool___1_1_block_info__.html" title="Helper class so I can put my blocks into to my standard containers." alt="" coords="436,970,568,1011"/>
-<area shape="poly" id="edge47_Node000001_Node000079" title=" " alt="" coords="310,871,362,913,425,956,447,967,444,972,422,960,359,917,307,875"/>
-<area shape="rect" id="Node000080" href="$class_cpl_1_1_system_1_1_counter_callback__.html" title="This abstract class defines the call&#45;back interface for a Counter object." alt="" coords="604,692,802,718"/>
-<area shape="poly" id="edge48_Node000001_Node000080" title=" " alt="" coords="390,846,484,834,533,822,579,805,613,786,644,761,689,716,693,720,647,765,616,790,581,810,534,827,485,839,391,852"/>
+<area shape="rect" id="Node000046" href="$class_cpl_1_1_dm_1_1_subscriber_api.html" title="This abstract class defines the Subscriber interface &#45; for change notifications &#45; to a Model Points d..." alt="" coords="425,871,579,896"/>
+<area shape="poly" id="edge17_Node000001_Node000046" title=" " alt="" coords="386,863,425,869,424,875,385,869"/>
+<area shape="rect" id="Node000076" href="$class_cpl_1_1_itc_1_1_message.html" title="This abstract class defines the operations for an ITC message." alt="" coords="442,920,562,946"/>
+<area shape="poly" id="edge43_Node000001_Node000076" title=" " alt="" coords="327,867,425,906,456,917,454,922,423,911,325,872"/>
+<area shape="rect" id="Node000080" href="$class_cpl_1_1_memory_1_1_pool___1_1_block_info__.html" title="Helper class so I can put my blocks into to my standard containers." alt="" coords="436,970,568,1011"/>
+<area shape="poly" id="edge47_Node000001_Node000080" title=" " alt="" coords="310,871,362,913,425,956,447,967,444,972,422,960,359,917,307,875"/>
+<area shape="rect" id="Node000081" href="$class_cpl_1_1_system_1_1_counter_callback__.html" title="This abstract class defines the call&#45;back interface for a Counter object." alt="" coords="604,692,802,718"/>
+<area shape="poly" id="edge48_Node000001_Node000081" title=" " alt="" coords="390,846,484,834,533,822,579,805,613,786,644,761,689,716,693,720,647,765,616,790,581,810,534,827,485,839,391,852"/>
 <area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,837,139,863"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,848,187,848,187,853,154,853"/>
 <area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_map_item.html" title="This abstract class represents a item that can be contained in an Map (aka a sorted list implemented ..." alt="" coords="857,203,1015,228"/>
@@ -20,10 +20,10 @@
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1025,229,1134,249,1133,255,1024,234"/>
 <area shape="rect" id="Node000011" href="$class_cpl_1_1_t_shell_1_1_command.html" title="This class defines the interface for a TShell command." alt="" coords="1130,43,1278,68"/>
 <area shape="poly" id="edge9_Node000005_Node000011" title=" " alt="" coords="970,192,1094,115,1177,67,1180,71,1096,119,972,196"/>
-<area shape="rect" id="Node000039" href="$class_cpl_1_1_text_1_1_string_item.html" title="This partially concrete provides a wrapper class that allows a String object to be stored directly in..." alt="" coords="1135,129,1272,155"/>
-<area shape="poly" id="edge11_Node000005_Node000039" title=" " alt="" coords="1000,195,1153,153,1154,158,1001,201"/>
-<area shape="rect" id="Node000043" href="$class_driver_1_1_t_pipe_1_1_rx_frame_handler_api.html" title="This abstract class defines the &#39;Received Frame Handler&#39; interface for the TPipe." alt="" coords="1095,203,1312,228"/>
-<area shape="poly" id="edge15_Node000005_Node000043" title=" " alt="" coords="1031,213,1095,213,1095,218,1031,218"/>
+<area shape="rect" id="Node000040" href="$class_cpl_1_1_text_1_1_string_item.html" title="This partially concrete provides a wrapper class that allows a String object to be stored directly in..." alt="" coords="1135,129,1272,155"/>
+<area shape="poly" id="edge11_Node000005_Node000040" title=" " alt="" coords="1000,195,1153,153,1154,158,1001,201"/>
+<area shape="rect" id="Node000044" href="$class_driver_1_1_t_pipe_1_1_rx_frame_handler_api.html" title="This abstract class defines the &#39;Received Frame Handler&#39; interface for the TPipe." alt="" coords="1095,203,1312,228"/>
+<area shape="poly" id="edge15_Node000005_Node000044" title=" " alt="" coords="1031,213,1095,213,1095,218,1031,218"/>
 <area shape="rect" id="Node000007" href="$class_cpl_1_1_m_app_1_1_m_app__.html" title="This partial concrete class provide common infrastructure that is common to all MApp instances." alt="" coords="1579,252,1706,278"/>
 <area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1289,262,1578,262,1578,268,1289,268"/>
 <area shape="rect" id="Node000008" href="$class_cpl_1_1_m_app_1_1_temperature_1_1_api.html" title="This concrete class implements MApp the polls a model point for a temperature value and periodically ..." alt="" coords="1795,219,1979,244"/>
@@ -32,81 +32,81 @@
 <area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="1722,267,1816,274,1815,279,1722,273"/>
 <area shape="rect" id="Node000012" href="$class_cpl_1_1_t_shell_1_1_cmd_1_1_command.html" title="This partially concrete class implements infrastructure and/or common functionality for a Shell comma..." alt="" coords="1552,5,1733,31"/>
 <area shape="poly" id="edge10_Node000011_Node000012" title=" " alt="" coords="1293,45,1551,23,1552,28,1294,51"/>
-<area shape="rect" id="Node000040" href="$class_cpl_1_1_text_1_1_d_f_string_item.html" title="This concrete class implements the StringItem class for a &#39;String&#39; using a &#39;DFString&#39; as the internal..." alt="" coords="1565,104,1720,130"/>
-<area shape="poly" id="edge12_Node000039_Node000040" title=" " alt="" coords="1287,135,1565,119,1565,124,1288,140"/>
-<area shape="rect" id="Node000041" href="$class_cpl_1_1_text_1_1_d_string_item.html" title="This concrete class implements the StringItem class for a &#39;String&#39; using a &#39;DString&#39; as the internal ..." alt="" coords="1569,153,1716,179"/>
-<area shape="poly" id="edge13_Node000039_Node000041" title=" " alt="" coords="1288,144,1569,160,1569,165,1288,149"/>
-<area shape="rect" id="Node000042" href="$class_cpl_1_1_text_1_1_f_string_item.html" title="This template class implements the StringItem class for a &#39;String&#39; using a &#39;FString&#39; as the internal ..." alt="" coords="1554,55,1731,80"/>
-<area shape="poly" id="edge14_Node000039_Node000042" title=" " alt="" coords="1272,123,1336,109,1554,75,1555,81,1337,114,1273,128"/>
-<area shape="rect" id="Node000044" href="$class_driver_1_1_t_pipe_1_1_rx_frame_handler.html" title="This partially concrete class provides functionality that is common to all Frame handlers." alt="" coords="1543,203,1742,228"/>
-<area shape="poly" id="edge16_Node000043_Node000044" title=" " alt="" coords="1328,213,1543,213,1543,218,1328,218"/>
-<area shape="rect" id="Node000046" href="$class_cpl_1_1_dm_1_1_subscriber_base.html" title="This mostly concrete class defines the Subscriber interface &#45; for change notifications &#45; to a Model P..." alt="" coords="854,871,1018,896"/>
-<area shape="poly" id="edge18_Node000045_Node000046" title=" " alt="" coords="594,881,853,881,853,886,594,886"/>
-<area shape="rect" id="Node000047" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1564,1178,1721,1219"/>
-<area shape="poly" id="edge19_Node000046_Node000047" title=" " alt="" coords="1034,895,1048,906,1059,923,1066,949,1074,1011,1081,1072,1088,1097,1097,1114,1120,1136,1146,1156,1203,1186,1265,1206,1329,1217,1394,1222,1457,1221,1564,1211,1564,1216,1457,1227,1394,1227,1329,1223,1263,1211,1201,1191,1143,1160,1117,1140,1093,1117,1083,1099,1076,1073,1068,1011,1061,950,1054,926,1044,909,1030,899"/>
-<area shape="rect" id="Node000048" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1570,805,1715,845"/>
-<area shape="poly" id="edge20_Node000046_Node000048" title=" " alt="" coords="1033,869,1336,838,1570,825,1570,830,1337,843,1034,874"/>
-<area shape="rect" id="Node000049" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1570,1111,1715,1152"/>
-<area shape="poly" id="edge21_Node000046_Node000049" title=" " alt="" coords="1034,897,1047,905,1066,926,1074,948,1081,970,1097,992,1155,1042,1206,1073,1263,1095,1337,1116,1397,1128,1459,1134,1570,1134,1570,1140,1459,1139,1396,1133,1336,1121,1261,1100,1203,1078,1151,1047,1093,996,1076,973,1069,950,1062,929,1044,910,1031,902"/>
-<area shape="rect" id="Node000050" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1547,573,1738,629"/>
-<area shape="poly" id="edge22_Node000046_Node000050" title=" " alt="" coords="952,856,1010,777,1049,731,1093,690,1154,639,1205,604,1261,577,1336,554,1386,544,1427,541,1468,545,1519,554,1575,570,1574,575,1518,559,1467,551,1427,547,1387,549,1337,559,1263,582,1208,609,1157,644,1097,693,1053,735,1014,780,956,859"/>
-<area shape="rect" id="Node000051" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1550,493,1735,549"/>
-<area shape="poly" id="edge23_Node000046_Node000051" title=" " alt="" coords="943,855,962,803,994,736,1037,668,1063,636,1093,608,1146,573,1204,546,1264,527,1327,515,1388,508,1447,505,1550,508,1550,513,1447,510,1389,513,1328,520,1266,533,1205,551,1148,578,1097,612,1067,640,1041,671,998,739,967,805,948,857"/>
-<area shape="rect" id="Node000052" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1556,1245,1729,1285"/>
-<area shape="poly" id="edge24_Node000046_Node000052" title=" " alt="" coords="1033,894,1048,906,1056,927,1063,964,1073,1065,1083,1165,1089,1202,1097,1221,1144,1262,1190,1287,1236,1299,1284,1301,1335,1296,1390,1287,1451,1279,1518,1273,1556,1271,1556,1276,1519,1278,1451,1284,1391,1293,1336,1301,1284,1306,1236,1305,1188,1292,1141,1267,1093,1224,1084,1203,1078,1166,1068,1065,1058,964,1051,928,1044,909,1030,898"/>
-<area shape="rect" id="Node000053" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1569,1313,1716,1353"/>
-<area shape="poly" id="edge25_Node000046_Node000053" title=" " alt="" coords="1034,894,1048,906,1058,932,1064,979,1073,1108,1081,1237,1088,1283,1097,1307,1121,1330,1148,1348,1177,1363,1208,1374,1274,1388,1342,1392,1409,1387,1473,1377,1579,1351,1581,1356,1474,1383,1410,1393,1342,1397,1273,1393,1207,1380,1175,1368,1146,1353,1118,1334,1093,1310,1083,1284,1076,1237,1067,1109,1059,980,1053,934,1043,909,1031,899"/>
-<area shape="rect" id="Node000054" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1542,1385,1743,1425"/>
-<area shape="poly" id="edge26_Node000046_Node000054" title=" " alt="" coords="1034,894,1048,906,1059,938,1066,996,1072,1153,1078,1309,1085,1365,1091,1383,1097,1394,1128,1411,1172,1423,1227,1430,1290,1432,1422,1427,1542,1415,1542,1421,1422,1432,1290,1437,1227,1435,1171,1428,1125,1416,1093,1397,1086,1385,1080,1366,1073,1310,1066,1153,1060,996,1054,939,1043,909,1031,898"/>
-<area shape="rect" id="Node000055" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1563,735,1722,776"/>
-<area shape="poly" id="edge27_Node000046_Node000055" title=" " alt="" coords="978,861,1045,833,1133,799,1233,767,1336,744,1387,737,1427,737,1518,744,1563,746,1562,751,1518,749,1427,743,1387,743,1337,749,1234,772,1135,804,1047,838,980,866"/>
-<area shape="rect" id="Node000056" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1559,654,1726,710"/>
-<area shape="poly" id="edge28_Node000046_Node000056" title=" " alt="" coords="962,858,1024,809,1112,747,1164,717,1219,689,1277,666,1336,649,1387,640,1427,639,1519,649,1560,656,1559,661,1518,654,1427,644,1387,645,1337,654,1279,671,1222,694,1167,722,1115,752,1027,813,965,862"/>
-<area shape="rect" id="Node000057" href="$class_cpl_1_1_dm_1_1_subscriber.html" title="This template class defines a type safe Subscriber." alt="" coords="1137,942,1271,983"/>
-<area shape="poly" id="edge29_Node000046_Node000057" title=" " alt="" coords="1019,898,1046,905,1148,939,1147,944,1045,910,1018,903"/>
-<area shape="poly" id="edge33_Node000057_Node000047" title=" " alt="" coords="1231,993,1278,1044,1306,1070,1338,1092,1385,1115,1426,1125,1468,1133,1519,1149,1543,1161,1579,1175,1577,1180,1541,1166,1517,1154,1466,1138,1424,1130,1383,1120,1335,1097,1303,1074,1274,1048,1227,996"/>
-<area shape="poly" id="edge34_Node000057_Node000048" title=" " alt="" coords="1286,940,1336,929,1389,924,1432,925,1472,921,1493,913,1517,899,1525,890,1528,880,1532,869,1541,858,1568,841,1571,845,1544,861,1536,871,1533,882,1529,893,1520,903,1496,918,1473,926,1432,931,1389,929,1337,934,1287,945"/>
-<area shape="poly" id="edge35_Node000057_Node000049" title=" " alt="" coords="1243,990,1286,1021,1337,1047,1364,1055,1387,1058,1428,1058,1470,1059,1493,1064,1520,1075,1532,1086,1544,1097,1570,1110,1568,1115,1541,1102,1529,1090,1517,1079,1492,1069,1469,1064,1428,1063,1386,1064,1362,1060,1335,1052,1284,1025,1240,995"/>
-<area shape="poly" id="edge36_Node000057_Node000050" title=" " alt="" coords="1212,926,1228,878,1254,820,1289,762,1310,735,1335,711,1358,693,1380,681,1421,668,1464,660,1518,646,1568,627,1569,632,1519,651,1466,666,1422,673,1382,686,1361,697,1338,715,1314,738,1293,765,1259,823,1233,880,1217,928"/>
-<area shape="poly" id="edge37_Node000057_Node000051" title=" " alt="" coords="1206,926,1217,860,1239,777,1256,734,1277,691,1303,651,1335,616,1364,601,1417,582,1549,543,1551,548,1419,588,1366,606,1338,620,1307,655,1282,694,1261,736,1244,779,1222,861,1211,927"/>
-<area shape="poly" id="edge38_Node000057_Node000052" title=" " alt="" coords="1220,996,1238,1036,1264,1083,1297,1130,1338,1170,1424,1199,1569,1241,1567,1246,1422,1204,1335,1174,1293,1133,1259,1086,1233,1038,1215,998"/>
-<area shape="poly" id="edge39_Node000057_Node000053" title=" " alt="" coords="1214,997,1228,1053,1252,1120,1288,1188,1311,1219,1338,1246,1369,1260,1428,1277,1569,1313,1568,1318,1427,1283,1367,1265,1335,1250,1307,1222,1283,1191,1247,1122,1223,1054,1209,999"/>
-<area shape="poly" id="edge40_Node000057_Node000054" title=" " alt="" coords="1210,998,1220,1066,1241,1154,1258,1199,1279,1243,1306,1285,1338,1320,1371,1340,1422,1358,1542,1386,1541,1391,1421,1363,1369,1345,1335,1325,1301,1288,1274,1246,1253,1201,1236,1155,1214,1067,1205,998"/>
-<area shape="poly" id="edge41_Node000057_Node000055" title=" " alt="" coords="1249,931,1335,884,1387,865,1430,857,1470,846,1517,820,1528,806,1541,791,1570,774,1573,779,1544,795,1532,809,1520,825,1472,851,1431,862,1388,871,1337,889,1251,936"/>
-<area shape="poly" id="edge42_Node000057_Node000056" title=" " alt="" coords="1223,927,1270,866,1300,833,1335,805,1360,790,1383,780,1425,770,1467,761,1517,741,1541,721,1565,708,1568,713,1544,726,1520,745,1469,766,1426,775,1385,785,1363,795,1338,810,1304,837,1274,869,1228,930"/>
-<area shape="rect" id="Node000058" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1546,872,1739,927"/>
-<area shape="poly" id="edge30_Node000057_Node000058" title=" " alt="" coords="1286,953,1397,942,1518,925,1545,920,1546,925,1519,930,1397,947,1287,958"/>
-<area shape="rect" id="Node000059" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1546,952,1739,1007"/>
-<area shape="poly" id="edge31_Node000057_Node000059" title=" " alt="" coords="1286,963,1546,973,1545,978,1286,968"/>
-<area shape="rect" id="Node000060" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1546,1032,1739,1087"/>
-<area shape="poly" id="edge32_Node000057_Node000060" title=" " alt="" coords="1286,977,1519,1029,1546,1035,1545,1040,1518,1034,1285,982"/>
-<area shape="rect" id="Node000076" href="$class_cpl_1_1_itc_1_1_response_message.html" title="This template class represents a client response message, which is posted to the client&#39;s mailbox aft..." alt="" coords="826,970,1046,1011"/>
-<area shape="poly" id="edge44_Node000075_Node000076" title=" " alt="" coords="578,940,826,973,825,978,577,945"/>
-<area shape="rect" id="Node000077" href="$class_cpl_1_1_itc_1_1_service_message.html" title="This class represents a defined message, which is posted to a mailbox&#45;server as a request." alt="" coords="854,920,1018,946"/>
-<area shape="poly" id="edge45_Node000075_Node000077" title=" " alt="" coords="578,930,854,930,854,936,578,936"/>
-<area shape="rect" id="Node000078" href="$class_cpl_1_1_itc_1_1_request_message.html" title="This template class represents a service request message to a particular server." alt="" coords="1120,1451,1288,1492"/>
-<area shape="poly" id="edge46_Node000077_Node000078" title=" " alt="" coords="1034,944,1048,956,1059,975,1066,998,1071,1055,1068,1122,1061,1195,1054,1268,1050,1335,1055,1391,1062,1414,1072,1431,1093,1450,1120,1461,1118,1466,1090,1454,1068,1435,1057,1416,1050,1392,1045,1335,1048,1267,1056,1195,1063,1122,1066,1055,1061,999,1054,977,1044,960,1030,948"/>
-<area shape="rect" id="Node000081" href="$class_cpl_1_1_system_1_1_timer.html" title="This mostly concrete interface defines the operations that can be performed on a software timer." alt="" coords="1578,443,1707,468"/>
-<area shape="poly" id="edge49_Node000080_Node000081" title=" " alt="" coords="794,685,801,682,885,648,948,614,1010,580,1094,545,1161,524,1214,512,1336,492,1464,472,1577,459,1578,465,1465,478,1337,497,1215,517,1162,529,1096,550,1012,585,950,619,888,653,803,687,795,690"/>
-<area shape="poly" id="edge57_Node000081_Node000008" title=" " alt="" coords="1654,428,1675,389,1705,341,1744,294,1791,253,1811,243,1814,247,1793,258,1748,297,1709,344,1679,391,1658,430"/>
-<area shape="poly" id="edge61_Node000081_Node000009" title=" " alt="" coords="1660,428,1714,366,1750,332,1791,304,1818,292,1820,297,1793,308,1754,336,1718,369,1664,431"/>
-<area shape="rect" id="Node000082" href="$class_cpl_1_1_system_1_1_timer_composer.html" title=" " alt="" coords="2144,667,2333,708"/>
-<area shape="poly" id="edge50_Node000081_Node000082" title=" " alt="" coords="1723,465,1744,479,1760,498,1767,519,1769,559,1771,597,1778,615,1793,632,1835,642,1926,654,2144,676,2143,682,1925,659,1834,647,1791,636,1774,618,1766,598,1764,559,1762,520,1755,501,1741,483,1720,469"/>
-<area shape="rect" id="Node000083" href="$class_ajax_1_1_heating_1_1_io_1_1_api.html" title="This class is responsible for &#39;translating&#39; physical hardware signal to/from model point values." alt="" coords="1818,761,1957,787"/>
-<area shape="poly" id="edge51_Node000081_Node000083" title=" " alt="" coords="1723,463,1745,479,1754,497,1760,520,1764,578,1765,638,1769,683,1776,719,1782,733,1794,747,1818,761,1815,766,1790,751,1777,735,1771,720,1764,684,1760,638,1759,579,1755,521,1749,499,1741,483,1720,468"/>
-<area shape="rect" id="Node000084" href="$class_ajax_1_1_heating_1_1_supervisor_1_1_api.html" title="This class implements the Heating Algorithm Supervisor." alt="" coords="1792,319,1982,344"/>
-<area shape="poly" id="edge52_Node000081_Node000084" title=" " alt="" coords="1670,430,1724,391,1791,353,1820,342,1822,347,1793,358,1727,395,1673,435"/>
-<area shape="rect" id="Node000086" href="$class_ajax_1_1_metrics_1_1_api.html" title="This class manages the collection of Metrics and triggering their updates to persistent storage." alt="" coords="1827,368,1947,394"/>
-<area shape="poly" id="edge53_Node000081_Node000086" title=" " alt="" coords="1693,435,1791,402,1829,392,1831,397,1793,407,1695,440"/>
-<area shape="rect" id="Node000087" href="$class_ajax_1_1_ui_1_1_logical_buttons.html" title="This concrete class translates physical button actions into logical UI Button events." alt="" coords="1808,417,1966,443"/>
-<area shape="poly" id="edge54_Node000081_Node000087" title=" " alt="" coords="1722,445,1807,436,1808,441,1723,450"/>
-<area shape="rect" id="Node000088" href="$class_ajax_1_1_ui_1_1_status_indicator_1_1_api.html" title="This class manages the what color/on&#45;off&#45;state of the RGB LED." alt="" coords="1795,467,1979,492"/>
-<area shape="poly" id="edge55_Node000081_Node000088" title=" " alt="" coords="1722,461,1795,468,1794,473,1722,466"/>
-<area shape="rect" id="Node000089" href="$class_cpl_1_1_dm_1_1_persistent_1_1_record.html" title="This mostly concrete class implements the Cpl::Persistent::Record interface where a Record instance c..." alt="" coords="1822,517,1953,557"/>
-<area shape="poly" id="edge56_Node000081_Node000089" title=" " alt="" coords="1720,471,1744,478,1793,502,1822,514,1820,519,1791,507,1742,483,1718,476"/>
-<area shape="rect" id="Node000093" href="$class_cpl_1_1_system_1_1_timer_composer.html" title="This template class implements a Software Timer that is context independent and allows for a single c..." alt="" coords="1793,697,1981,737"/>
-<area shape="poly" id="edge58_Node000081_Node000093" title=" " alt="" coords="1723,463,1745,479,1761,505,1766,530,1764,555,1758,579,1752,604,1750,628,1754,652,1769,676,1794,697,1791,701,1765,680,1749,654,1745,628,1747,603,1753,578,1758,554,1760,530,1756,507,1741,483,1720,468"/>
-<area shape="rect" id="Node000094" href="$class_driver_1_1_a_i_o_1_1_ajax_1_1_thermistor.html" title="This class is responsible for sampling the on&#45;board temperature sensor every N milliseconds and popul..." alt="" coords="1827,582,1948,623"/>
-<area shape="poly" id="edge60_Node000081_Node000094" title=" " alt="" coords="1723,466,1744,479,1763,501,1770,523,1777,545,1794,567,1828,586,1825,591,1790,571,1772,548,1765,525,1758,503,1741,483,1720,471"/>
-<area shape="poly" id="edge59_Node000093_Node000082" title=" " alt="" coords="1997,713,2120,706,2144,702,2145,708,2121,711,1997,719"/>
+<area shape="rect" id="Node000041" href="$class_cpl_1_1_text_1_1_d_f_string_item.html" title="This concrete class implements the StringItem class for a &#39;String&#39; using a &#39;DFString&#39; as the internal..." alt="" coords="1565,104,1720,130"/>
+<area shape="poly" id="edge12_Node000040_Node000041" title=" " alt="" coords="1287,135,1565,119,1565,124,1288,140"/>
+<area shape="rect" id="Node000042" href="$class_cpl_1_1_text_1_1_d_string_item.html" title="This concrete class implements the StringItem class for a &#39;String&#39; using a &#39;DString&#39; as the internal ..." alt="" coords="1569,153,1716,179"/>
+<area shape="poly" id="edge13_Node000040_Node000042" title=" " alt="" coords="1288,144,1569,160,1569,165,1288,149"/>
+<area shape="rect" id="Node000043" href="$class_cpl_1_1_text_1_1_f_string_item.html" title="This template class implements the StringItem class for a &#39;String&#39; using a &#39;FString&#39; as the internal ..." alt="" coords="1554,55,1731,80"/>
+<area shape="poly" id="edge14_Node000040_Node000043" title=" " alt="" coords="1272,123,1336,109,1554,75,1555,81,1337,114,1273,128"/>
+<area shape="rect" id="Node000045" href="$class_driver_1_1_t_pipe_1_1_rx_frame_handler.html" title="This partially concrete class provides functionality that is common to all Frame handlers." alt="" coords="1543,203,1742,228"/>
+<area shape="poly" id="edge16_Node000044_Node000045" title=" " alt="" coords="1328,213,1543,213,1543,218,1328,218"/>
+<area shape="rect" id="Node000047" href="$class_cpl_1_1_dm_1_1_subscriber_base.html" title="This mostly concrete class defines the Subscriber interface &#45; for change notifications &#45; to a Model P..." alt="" coords="854,871,1018,896"/>
+<area shape="poly" id="edge18_Node000046_Node000047" title=" " alt="" coords="594,881,853,881,853,886,594,886"/>
+<area shape="rect" id="Node000048" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1564,1178,1721,1219"/>
+<area shape="poly" id="edge19_Node000047_Node000048" title=" " alt="" coords="1034,895,1048,906,1059,923,1066,949,1074,1011,1081,1072,1088,1097,1097,1114,1120,1136,1146,1156,1203,1186,1265,1206,1329,1217,1394,1222,1457,1221,1564,1211,1564,1216,1457,1227,1394,1227,1329,1223,1263,1211,1201,1191,1143,1160,1117,1140,1093,1117,1083,1099,1076,1073,1068,1011,1061,950,1054,926,1044,909,1030,899"/>
+<area shape="rect" id="Node000049" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1570,805,1715,845"/>
+<area shape="poly" id="edge20_Node000047_Node000049" title=" " alt="" coords="1033,869,1336,838,1570,825,1570,830,1337,843,1034,874"/>
+<area shape="rect" id="Node000050" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1570,1111,1715,1152"/>
+<area shape="poly" id="edge21_Node000047_Node000050" title=" " alt="" coords="1034,897,1047,905,1066,926,1074,948,1081,970,1097,992,1155,1042,1206,1073,1263,1095,1337,1116,1397,1128,1459,1134,1570,1134,1570,1140,1459,1139,1396,1133,1336,1121,1261,1100,1203,1078,1151,1047,1093,996,1076,973,1069,950,1062,929,1044,910,1031,902"/>
+<area shape="rect" id="Node000051" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1547,573,1738,629"/>
+<area shape="poly" id="edge22_Node000047_Node000051" title=" " alt="" coords="952,856,1010,777,1049,731,1093,690,1154,639,1205,604,1261,577,1336,554,1386,544,1427,541,1468,545,1519,554,1575,570,1574,575,1518,559,1467,551,1427,547,1387,549,1337,559,1263,582,1208,609,1157,644,1097,693,1053,735,1014,780,956,859"/>
+<area shape="rect" id="Node000052" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1550,493,1735,549"/>
+<area shape="poly" id="edge23_Node000047_Node000052" title=" " alt="" coords="943,855,962,803,994,736,1037,668,1063,636,1093,608,1146,573,1204,546,1264,527,1327,515,1388,508,1447,505,1550,508,1550,513,1447,510,1389,513,1328,520,1266,533,1205,551,1148,578,1097,612,1067,640,1041,671,998,739,967,805,948,857"/>
+<area shape="rect" id="Node000053" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1556,1245,1729,1285"/>
+<area shape="poly" id="edge24_Node000047_Node000053" title=" " alt="" coords="1033,894,1048,906,1056,927,1063,964,1073,1065,1083,1165,1089,1202,1097,1221,1144,1262,1190,1287,1236,1299,1284,1301,1335,1296,1390,1287,1451,1279,1518,1273,1556,1271,1556,1276,1519,1278,1451,1284,1391,1293,1336,1301,1284,1306,1236,1305,1188,1292,1141,1267,1093,1224,1084,1203,1078,1166,1068,1065,1058,964,1051,928,1044,909,1030,898"/>
+<area shape="rect" id="Node000054" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1569,1313,1716,1353"/>
+<area shape="poly" id="edge25_Node000047_Node000054" title=" " alt="" coords="1034,894,1048,906,1058,932,1064,979,1073,1108,1081,1237,1088,1283,1097,1307,1121,1330,1148,1348,1177,1363,1208,1374,1274,1388,1342,1392,1409,1387,1473,1377,1579,1351,1581,1356,1474,1383,1410,1393,1342,1397,1273,1393,1207,1380,1175,1368,1146,1353,1118,1334,1093,1310,1083,1284,1076,1237,1067,1109,1059,980,1053,934,1043,909,1031,899"/>
+<area shape="rect" id="Node000055" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1542,1385,1743,1425"/>
+<area shape="poly" id="edge26_Node000047_Node000055" title=" " alt="" coords="1034,894,1048,906,1059,938,1066,996,1072,1153,1078,1309,1085,1365,1091,1383,1097,1394,1128,1411,1172,1423,1227,1430,1290,1432,1422,1427,1542,1415,1542,1421,1422,1432,1290,1437,1227,1435,1171,1428,1125,1416,1093,1397,1086,1385,1080,1366,1073,1310,1066,1153,1060,996,1054,939,1043,909,1031,898"/>
+<area shape="rect" id="Node000056" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1563,735,1722,776"/>
+<area shape="poly" id="edge27_Node000047_Node000056" title=" " alt="" coords="978,861,1045,833,1133,799,1233,767,1336,744,1387,737,1427,737,1518,744,1563,746,1562,751,1518,749,1427,743,1387,743,1337,749,1234,772,1135,804,1047,838,980,866"/>
+<area shape="rect" id="Node000057" href="$class_cpl_1_1_dm_1_1_subscriber.html" title=" " alt="" coords="1559,654,1726,710"/>
+<area shape="poly" id="edge28_Node000047_Node000057" title=" " alt="" coords="962,858,1024,809,1112,747,1164,717,1219,689,1277,666,1336,649,1387,640,1427,639,1519,649,1560,656,1559,661,1518,654,1427,644,1387,645,1337,654,1279,671,1222,694,1167,722,1115,752,1027,813,965,862"/>
+<area shape="rect" id="Node000058" href="$class_cpl_1_1_dm_1_1_subscriber.html" title="This template class defines a type safe Subscriber." alt="" coords="1137,942,1271,983"/>
+<area shape="poly" id="edge29_Node000047_Node000058" title=" " alt="" coords="1019,898,1046,905,1148,939,1147,944,1045,910,1018,903"/>
+<area shape="poly" id="edge33_Node000058_Node000048" title=" " alt="" coords="1231,993,1278,1044,1306,1070,1338,1092,1385,1115,1426,1125,1468,1133,1519,1149,1543,1161,1579,1175,1577,1180,1541,1166,1517,1154,1466,1138,1424,1130,1383,1120,1335,1097,1303,1074,1274,1048,1227,996"/>
+<area shape="poly" id="edge34_Node000058_Node000049" title=" " alt="" coords="1286,940,1336,929,1389,924,1432,925,1472,921,1493,913,1517,899,1525,890,1528,880,1532,869,1541,858,1568,841,1571,845,1544,861,1536,871,1533,882,1529,893,1520,903,1496,918,1473,926,1432,931,1389,929,1337,934,1287,945"/>
+<area shape="poly" id="edge35_Node000058_Node000050" title=" " alt="" coords="1243,990,1286,1021,1337,1047,1364,1055,1387,1058,1428,1058,1470,1059,1493,1064,1520,1075,1532,1086,1544,1097,1570,1110,1568,1115,1541,1102,1529,1090,1517,1079,1492,1069,1469,1064,1428,1063,1386,1064,1362,1060,1335,1052,1284,1025,1240,995"/>
+<area shape="poly" id="edge36_Node000058_Node000051" title=" " alt="" coords="1212,926,1228,878,1254,820,1289,762,1310,735,1335,711,1358,693,1380,681,1421,668,1464,660,1518,646,1568,627,1569,632,1519,651,1466,666,1422,673,1382,686,1361,697,1338,715,1314,738,1293,765,1259,823,1233,880,1217,928"/>
+<area shape="poly" id="edge37_Node000058_Node000052" title=" " alt="" coords="1206,926,1217,860,1239,777,1256,734,1277,691,1303,651,1335,616,1364,601,1417,582,1549,543,1551,548,1419,588,1366,606,1338,620,1307,655,1282,694,1261,736,1244,779,1222,861,1211,927"/>
+<area shape="poly" id="edge38_Node000058_Node000053" title=" " alt="" coords="1220,996,1238,1036,1264,1083,1297,1130,1338,1170,1424,1199,1569,1241,1567,1246,1422,1204,1335,1174,1293,1133,1259,1086,1233,1038,1215,998"/>
+<area shape="poly" id="edge39_Node000058_Node000054" title=" " alt="" coords="1214,997,1228,1053,1252,1120,1288,1188,1311,1219,1338,1246,1369,1260,1428,1277,1569,1313,1568,1318,1427,1283,1367,1265,1335,1250,1307,1222,1283,1191,1247,1122,1223,1054,1209,999"/>
+<area shape="poly" id="edge40_Node000058_Node000055" title=" " alt="" coords="1210,998,1220,1066,1241,1154,1258,1199,1279,1243,1306,1285,1338,1320,1371,1340,1422,1358,1542,1386,1541,1391,1421,1363,1369,1345,1335,1325,1301,1288,1274,1246,1253,1201,1236,1155,1214,1067,1205,998"/>
+<area shape="poly" id="edge41_Node000058_Node000056" title=" " alt="" coords="1249,931,1335,884,1387,865,1430,857,1470,846,1517,820,1528,806,1541,791,1570,774,1573,779,1544,795,1532,809,1520,825,1472,851,1431,862,1388,871,1337,889,1251,936"/>
+<area shape="poly" id="edge42_Node000058_Node000057" title=" " alt="" coords="1223,927,1270,866,1300,833,1335,805,1360,790,1383,780,1425,770,1467,761,1517,741,1541,721,1565,708,1568,713,1544,726,1520,745,1469,766,1426,775,1385,785,1363,795,1338,810,1304,837,1274,869,1228,930"/>
+<area shape="rect" id="Node000059" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1546,872,1739,927"/>
+<area shape="poly" id="edge30_Node000058_Node000059" title=" " alt="" coords="1286,953,1397,942,1518,925,1545,920,1546,925,1519,930,1397,947,1287,958"/>
+<area shape="rect" id="Node000060" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1546,952,1739,1007"/>
+<area shape="poly" id="edge31_Node000058_Node000060" title=" " alt="" coords="1286,963,1546,973,1545,978,1286,968"/>
+<area shape="rect" id="Node000061" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1546,1032,1739,1087"/>
+<area shape="poly" id="edge32_Node000058_Node000061" title=" " alt="" coords="1286,977,1519,1029,1546,1035,1545,1040,1518,1034,1285,982"/>
+<area shape="rect" id="Node000077" href="$class_cpl_1_1_itc_1_1_response_message.html" title="This template class represents a client response message, which is posted to the client&#39;s mailbox aft..." alt="" coords="826,970,1046,1011"/>
+<area shape="poly" id="edge44_Node000076_Node000077" title=" " alt="" coords="578,940,826,973,825,978,577,945"/>
+<area shape="rect" id="Node000078" href="$class_cpl_1_1_itc_1_1_service_message.html" title="This class represents a defined message, which is posted to a mailbox&#45;server as a request." alt="" coords="854,920,1018,946"/>
+<area shape="poly" id="edge45_Node000076_Node000078" title=" " alt="" coords="578,930,854,930,854,936,578,936"/>
+<area shape="rect" id="Node000079" href="$class_cpl_1_1_itc_1_1_request_message.html" title="This template class represents a service request message to a particular server." alt="" coords="1120,1451,1288,1492"/>
+<area shape="poly" id="edge46_Node000078_Node000079" title=" " alt="" coords="1034,944,1048,956,1059,975,1066,998,1071,1055,1068,1122,1061,1195,1054,1268,1050,1335,1055,1391,1062,1414,1072,1431,1093,1450,1120,1461,1118,1466,1090,1454,1068,1435,1057,1416,1050,1392,1045,1335,1048,1267,1056,1195,1063,1122,1066,1055,1061,999,1054,977,1044,960,1030,948"/>
+<area shape="rect" id="Node000082" href="$class_cpl_1_1_system_1_1_timer.html" title="This mostly concrete interface defines the operations that can be performed on a software timer." alt="" coords="1578,443,1707,468"/>
+<area shape="poly" id="edge49_Node000081_Node000082" title=" " alt="" coords="794,685,801,682,885,648,948,614,1010,580,1094,545,1161,524,1214,512,1336,492,1464,472,1577,459,1578,465,1465,478,1337,497,1215,517,1162,529,1096,550,1012,585,950,619,888,653,803,687,795,690"/>
+<area shape="poly" id="edge57_Node000082_Node000008" title=" " alt="" coords="1654,428,1675,389,1705,341,1744,294,1791,253,1811,243,1814,247,1793,258,1748,297,1709,344,1679,391,1658,430"/>
+<area shape="poly" id="edge61_Node000082_Node000009" title=" " alt="" coords="1660,428,1714,366,1750,332,1791,304,1818,292,1820,297,1793,308,1754,336,1718,369,1664,431"/>
+<area shape="rect" id="Node000083" href="$class_cpl_1_1_system_1_1_timer_composer.html" title=" " alt="" coords="2144,667,2333,708"/>
+<area shape="poly" id="edge50_Node000082_Node000083" title=" " alt="" coords="1723,465,1744,479,1760,498,1767,519,1769,559,1771,597,1778,615,1793,632,1835,642,1926,654,2144,676,2143,682,1925,659,1834,647,1791,636,1774,618,1766,598,1764,559,1762,520,1755,501,1741,483,1720,469"/>
+<area shape="rect" id="Node000084" href="$class_ajax_1_1_heating_1_1_io_1_1_api.html" title="This class is responsible for &#39;translating&#39; physical hardware signal to/from model point values." alt="" coords="1818,761,1957,787"/>
+<area shape="poly" id="edge51_Node000082_Node000084" title=" " alt="" coords="1723,463,1745,479,1754,497,1760,520,1764,578,1765,638,1769,683,1776,719,1782,733,1794,747,1818,761,1815,766,1790,751,1777,735,1771,720,1764,684,1760,638,1759,579,1755,521,1749,499,1741,483,1720,468"/>
+<area shape="rect" id="Node000085" href="$class_ajax_1_1_heating_1_1_supervisor_1_1_api.html" title="This class implements the Heating Algorithm Supervisor." alt="" coords="1792,319,1982,344"/>
+<area shape="poly" id="edge52_Node000082_Node000085" title=" " alt="" coords="1670,430,1724,391,1791,353,1820,342,1822,347,1793,358,1727,395,1673,435"/>
+<area shape="rect" id="Node000087" href="$class_ajax_1_1_metrics_1_1_api.html" title="This class manages the collection of Metrics and triggering their updates to persistent storage." alt="" coords="1827,368,1947,394"/>
+<area shape="poly" id="edge53_Node000082_Node000087" title=" " alt="" coords="1693,435,1791,402,1829,392,1831,397,1793,407,1695,440"/>
+<area shape="rect" id="Node000088" href="$class_ajax_1_1_ui_1_1_logical_buttons.html" title="This concrete class translates physical button actions into logical UI Button events." alt="" coords="1808,417,1966,443"/>
+<area shape="poly" id="edge54_Node000082_Node000088" title=" " alt="" coords="1722,445,1807,436,1808,441,1723,450"/>
+<area shape="rect" id="Node000089" href="$class_ajax_1_1_ui_1_1_status_indicator_1_1_api.html" title="This class manages the what color/on&#45;off&#45;state of the RGB LED." alt="" coords="1795,467,1979,492"/>
+<area shape="poly" id="edge55_Node000082_Node000089" title=" " alt="" coords="1722,461,1795,468,1794,473,1722,466"/>
+<area shape="rect" id="Node000090" href="$class_cpl_1_1_dm_1_1_persistent_1_1_record.html" title="This mostly concrete class implements the Cpl::Persistent::Record interface where a Record instance c..." alt="" coords="1822,517,1953,557"/>
+<area shape="poly" id="edge56_Node000082_Node000090" title=" " alt="" coords="1720,471,1744,478,1793,502,1822,514,1820,519,1791,507,1742,483,1718,476"/>
+<area shape="rect" id="Node000094" href="$class_cpl_1_1_system_1_1_timer_composer.html" title="This template class implements a Software Timer that is context independent and allows for a single c..." alt="" coords="1793,697,1981,737"/>
+<area shape="poly" id="edge58_Node000082_Node000094" title=" " alt="" coords="1723,463,1745,479,1761,505,1766,530,1764,555,1758,579,1752,604,1750,628,1754,652,1769,676,1794,697,1791,701,1765,680,1749,654,1745,628,1747,603,1753,578,1758,554,1760,530,1756,507,1741,483,1720,468"/>
+<area shape="rect" id="Node000095" href="$class_driver_1_1_a_i_o_1_1_ajax_1_1_thermistor.html" title="This class is responsible for sampling the on&#45;board temperature sensor every N milliseconds and popul..." alt="" coords="1827,582,1948,623"/>
+<area shape="poly" id="edge60_Node000082_Node000095" title=" " alt="" coords="1723,466,1744,479,1763,501,1770,523,1777,545,1794,567,1828,586,1825,591,1790,571,1772,548,1765,525,1758,503,1741,483,1720,471"/>
+<area shape="poly" id="edge59_Node000094_Node000083" title=" " alt="" coords="1997,713,2120,706,2144,702,2145,708,2121,711,1997,719"/>
 </map>

@@ -4,6 +4,8 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,43,91,81,87,77,130,39"/>
 <area shape="rect" id="Node000003" href="$_s_pool_8h.html" title=" " alt="" coords="170,79,309,105"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="184,39,227,77,224,81,181,44"/>
-<area shape="rect" id="Node000004" href="$_stream_pool_8h.html" title=" " alt="" coords="148,153,331,178"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="242,120,242,152,237,152,237,120"/>
+<area shape="rect" id="Node000004" href="$_io_2_file_2_littlefs_2_private___8h.html" title=" " alt="" coords="88,153,212,193"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="216,117,174,154,170,150,213,113"/>
+<area shape="rect" id="Node000005" href="$_stream_pool_8h.html" title=" " alt="" coords="236,160,419,186"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="266,113,316,158,312,162,262,117"/>
 </map>

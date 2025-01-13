@@ -1,5 +1,7 @@
 <map id="Cpl::Container::Stack&lt; ITEM &gt;" name="Cpl::Container::Stack&lt; ITEM &gt;">
-<area shape="rect" id="Node000001" title="This template class implements a Stack that has a fixed depth and stores copies of the data items." alt="" coords="5,5,147,46"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_stack.html" title=" " alt="" coords="5,109,147,150"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,62,79,109,73,109,73,62"/>
+<area shape="rect" id="Node000001" title="This template class implements a Stack that has a fixed depth and stores copies of the data items." alt="" coords="5,49,147,90"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_stack.html" title=" " alt="" coords="316,5,457,61"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,57,315,39,316,44,163,62"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_stack.html" title=" " alt="" coords="316,85,457,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="163,76,316,94,315,100,162,82"/>
 </map>

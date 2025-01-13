@@ -1,0 +1,30 @@
+<map id="Cpl::Io::File::Littlefs::FileMemoryPool" name="Cpl::Io::File::Littlefs::FileMemoryPool">
+<area shape="rect" id="Node000001" title="Memory pool for opened files." alt="" coords="1868,165,1998,206"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_memory_1_1_s_pool.html" title=" " alt="" coords="1495,143,1775,229"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1790,183,1867,183,1867,188,1790,188"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_memory_1_1_allocator.html" title="This abstract class defines the interface for a Memory Allocator." alt="" coords="327,150,477,176"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="467,177,548,196,638,210,754,219,873,224,1108,223,1322,212,1494,198,1494,203,1322,217,1108,228,873,229,754,224,638,215,547,201,466,183"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_memory_1_1_pool__.html" title="This private concrete class implements a Memory Allocator using a pool of fixed size blocks." alt="" coords="675,174,806,200"/>
+<area shape="poly" id="edge10_Node000009_Node000003" title=" " alt="" coords="492,167,674,180,674,185,492,172"/>
+<area shape="rect" id="Node000012" href="$class_cpl_1_1_memory_1_1_s_pool.html" title="This template class defines a concrete Allocator that STATICALLY allocates all of its Memory and can ..." alt="" coords="1034,97,1167,138"/>
+<area shape="poly" id="edge14_Node000012_Node000003" title=" " alt="" coords="492,154,866,130,1033,119,1034,124,867,135,492,160"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="8,122,141,148"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="157,139,327,154,327,159,156,145"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="309,69,495,95"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="156,119,318,92,319,98,157,124"/>
+<area shape="rect" id="Node000005" href="$namespace_cpl_1_1_memory.html#namespace_cpl_1_1_memory" title=" " alt="" coords="1013,285,1188,340"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="1203,313,1332,306,1402,295,1470,278,1524,255,1573,227,1575,231,1526,260,1472,283,1403,300,1333,311,1203,318"/>
+<area shape="rect" id="Node000006" href="$namespace_cpl_1_1_memory.html#union_cpl_1_1_memory_1_1_aligned_class" title="This type is used to create a memory block that is large enough to hold the memory footprint of ONE i..." alt="" coords="638,300,842,325"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="857,310,1013,310,1013,315,857,315"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_memory_1_1_pool___1_1_block_info__.html" title="Helper class so I can put my blocks into to my standard containers." alt="" coords="675,36,806,77"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="821,40,949,25,1113,17,1202,19,1294,27,1384,42,1472,66,1505,80,1537,99,1591,140,1588,144,1534,103,1503,85,1470,71,1383,47,1293,32,1202,24,1113,22,949,30,822,45"/>
+<area shape="poly" id="edge15_Node000012_Node000007" title=" " alt="" coords="822,67,1034,104,1033,109,821,73"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="510,71,674,59,674,64,511,76"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="821,184,1494,183,1494,189,821,190"/>
+<area shape="poly" id="edge16_Node000012_Node000009" title=" " alt="" coords="820,174,989,145,1033,134,1034,139,990,150,821,179"/>
+<area shape="rect" id="Node000010" href="$class_cpl_1_1_container_1_1_d_list.html" title=" " alt="" coords="331,270,473,326"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="487,267,697,198,699,203,489,272"/>
+<area shape="rect" id="Node000011" href="$class_cpl_1_1_container_1_1_d_list.html" title="This template class implements a Doubly linked list which maintains the ordering imposed on it by the..." alt="" coords="5,277,144,318"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="160,295,330,295,330,300,160,300"/>
+<area shape="poly" id="edge13_Node000002_Node000012" title=" " alt="" coords="1183,125,1495,165,1494,171,1182,131"/>
+</map>

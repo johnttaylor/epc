@@ -250,18 +250,18 @@
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment"></span> </div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>template &lt;class ITEM&gt;</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="class_cpl_1_1_container_1_1_ring_buffer.html#a22c3eb84b56435c986b0c1daddb94e01">  199</a></span><a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer.html">RingBuffer</a>&lt;<a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a>&gt;::<a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer.html">RingBuffer</a>( <span class="keywordtype">unsigned</span> <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">maxElements</a>, <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ITEM</a> <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">memoryForElements</a>[] ) <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    : m_headPtr( <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">memoryForElements</a> )</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    , m_tailPtr( <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">memoryForElements</a> )</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    , m_memoryNumElements( <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">maxElements</a> )</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    , m_endOfMemPtr( <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">memoryForElements</a> + <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">maxElements</a> )</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    , m_elements( <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">memoryForElements</a> )</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="class_cpl_1_1_container_1_1_ring_buffer.html#a22c3eb84b56435c986b0c1daddb94e01">  199</a></span><a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer.html">RingBuffer</a>&lt;ITEM&gt;::<a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer.html">RingBuffer</a>( <span class="keywordtype">unsigned</span> maxElements, ITEM memoryForElements[] ) noexcept</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    : m_headPtr( memoryForElements )</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    , m_tailPtr( memoryForElements )</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    , m_memoryNumElements( maxElements )</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    , m_endOfMemPtr( memoryForElements + maxElements )</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    , m_elements( memoryForElements )</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>{</div>
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>}</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> ITEM&gt;</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="class_cpl_1_1_container_1_1_ring_buffer.html#a7bb0fbf58563344ecb9afcc3424c6e4d">  210</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_cpl_1_1_container_1_1_ring_buffer.html#a7bb0fbf58563344ecb9afcc3424c6e4d">RingBuffer&lt;ITEM&gt;::clearTheBuffer</a>() <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">noexcept</a></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="class_cpl_1_1_container_1_1_ring_buffer.html#a7bb0fbf58563344ecb9afcc3424c6e4d">  210</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_cpl_1_1_container_1_1_ring_buffer.html#a7bb0fbf58563344ecb9afcc3424c6e4d">RingBuffer&lt;ITEM&gt;::clearTheBuffer</a>() noexcept</div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>{</div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    m_headPtr = m_tailPtr = m_elements;</div>
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>}</div>
@@ -449,7 +449,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 6 2024 18:28:17 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Jan 13 2025 01:46:49 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

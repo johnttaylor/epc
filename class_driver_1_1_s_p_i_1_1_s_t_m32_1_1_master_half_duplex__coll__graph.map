@@ -1,0 +1,5 @@
+<map id="Driver::SPI::STM32::MasterHalfDuplex" name="Driver::SPI::STM32::MasterHalfDuplex">
+<area shape="rect" id="Node000001" title="This class implements the SPI Half&#45;duplex interface for the STM32 family of micro&#45;controller using th..." alt="" coords="36,79,167,120"/>
+<area shape="rect" id="Node000002" href="$class_driver_1_1_s_p_i_1_1_master_half_duplex.html" title="This class defines a non&#45;platform specific interface for an SPI master device driver using HALF&#45;DUPLE..." alt="" coords="5,5,198,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,46,104,79,99,79,99,46"/>
+</map>

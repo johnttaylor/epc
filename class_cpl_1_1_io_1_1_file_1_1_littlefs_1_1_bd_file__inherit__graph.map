@@ -1,0 +1,5 @@
+<map id="Cpl::Io::File::Littlefs::BdFile" name="Cpl::Io::File::Littlefs::BdFile">
+<area shape="rect" id="Node000001" title="Concrete Block Driver that uses the Host&#39;s file system for the persistent storage media." alt="" coords="5,94,136,135"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_file_1_1_littlefs_1_1_block_driver_api.html" title="This partial abstract class defines the interface for block drivers." alt="" coords="5,5,136,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,62,73,94,68,94,68,62"/>
+</map>

@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="416,5,545,31"/>
 <area shape="rect" id="Node000002" href="$_e_d25519_8h.html" title=" " alt="" coords="223,79,385,105"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="437,40,335,81,333,76,436,35"/>
-<area shape="rect" id="Node000003" href="$_hash_8h.html" title=" " alt="" coords="410,79,551,105"/>
+<area shape="rect" id="Node000003" href="$_driver_2_crypto_2_hash_8h.html" title=" " alt="" coords="410,79,551,105"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="483,46,483,79,478,79,478,46"/>
 <area shape="rect" id="Node000009" href="$_random_8h.html" title=" " alt="" coords="574,79,733,105"/>
 <area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="525,35,625,76,623,81,523,40"/>

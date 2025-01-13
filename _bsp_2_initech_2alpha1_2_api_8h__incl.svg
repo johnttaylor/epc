@@ -96,7 +96,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="spi_8h.html" target="_top" xlink:title="This file contains all the function prototypes for the spi.c file.">
+<g id="a_Node000007"><a xlink:href="_initech_2alpha1_2_m_x_2_core_2_inc_2spi_8h.html" target="_top" xlink:title="This file contains all the function prototypes for the spi.c file.">
 <polygon fill="white" stroke="#666666" points="474.5,-152.25 377.5,-152.25 377.5,-121.75 474.5,-121.75 474.5,-152.25"/>
 <text text-anchor="start" x="385.5" y="-138.75" font-family="Helvetica,sans-Serif" font-size="10.00">Bsp/Initech/alpha1</text>
 <text text-anchor="middle" x="426" y="-127.5" font-family="Helvetica,sans-Serif" font-size="10.00">/MX/Core/Inc/spi.h</text>

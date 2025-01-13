@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$struct_s_e_g_g_e_r___s_y_s_v_i_e_w___m_o_d_u_l_e___s_t_r_u_c_t.html" title=" " alt="" coords="5,5,211,46"/>
+<area shape="rect" id="Node000000" href="$class_driver_1_1_s_p_i_1_1_master_half_duplex.html" title="This class defines a non&#45;platform specific interface for an SPI master device driver using HALF&#45;DUPLE..." alt="" coords="5,13,198,39"/>
+<area shape="rect" id="Node000001" href="$class_driver_1_1_s_p_i_1_1_s_t_m32_1_1_master_half_duplex.html" title="This class implements the SPI Half&#45;duplex interface for the STM32 family of micro&#45;controller using th..." alt="" coords="246,5,377,46"/>
+<area shape="poly" id="edge394_Node000000_Node000001" title=" " alt="" coords="213,23,245,23,245,28,213,28"/>
 </map>

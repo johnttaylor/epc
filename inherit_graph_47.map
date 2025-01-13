@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$class_cpl_1_1_dm_1_1_persistent_1_1_record.html#struct_cpl_1_1_dm_1_1_persistent_1_1_record_1_1_item___t" title="This data structure associates a Data Model subscriber instance with a Model Point instance." alt="" coords="5,5,137,46"/>
+<area shape="rect" id="Node000000" href="$class_cpl_1_1_dm_1_1_model_database_api.html" title="This class defines the basic operations that can be performed on a Model Base." alt="" coords="5,5,187,31"/>
+<area shape="rect" id="Node000001" href="$class_cpl_1_1_dm_1_1_model_database.html" title="This concrete class implements a simple Model Database." alt="" coords="235,5,397,31"/>
+<area shape="poly" id="edge43_Node000000_Node000001" title=" " alt="" coords="202,16,234,16,234,21,202,21"/>
 </map>

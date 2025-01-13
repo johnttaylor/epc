@@ -1,0 +1,9 @@
+<map id="Cpl::Io::File::Littlefs::BdSpi" name="Cpl::Io::File::Littlefs::BdSpi">
+<area shape="rect" id="Node000001" title="Concrete Block Driver for a &#39;traditional&#39; SPI based NOR flash." alt="" coords="284,63,414,103"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_file_1_1_littlefs_1_1_block_driver_api.html" title="This partial abstract class defines the interface for block drivers." alt="" coords="36,5,167,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,42,284,65,283,71,181,47"/>
+<area shape="rect" id="Node000003" href="$class_driver_1_1_s_p_i_1_1_master_half_duplex.html" title="This class defines a non&#45;platform specific interface for an SPI master device driver using HALF&#45;DUPLE..." alt="" coords="5,70,198,96"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,80,283,80,283,86,213,86"/>
+<area shape="rect" id="Node000004" href="$class_driver_1_1_d_i_o_1_1_out.html" title="This class defines a generic interface for controlling a single Digital output signal." alt="" coords="46,120,157,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="172,117,259,101,283,96,284,101,260,106,173,123"/>
+</map>

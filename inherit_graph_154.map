@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$class_driver_1_1_wifi_1_1_station_1_1_connection.html" title="This class defines an asynchronous interface for a Station device to connect to a WIFI network." alt="" coords="5,5,135,46"/>
+<area shape="rect" id="Node000000" href="$class_driver_1_1_crypto_1_1_hash.html" title="This class defines an abstract interface for a Hashing Algorithms." alt="" coords="5,13,141,39"/>
+<area shape="rect" id="Node000001" href="$class_driver_1_1_crypto_1_1_orlp_1_1_s_h_a512.html" title="This class implements the Hash interface using Orson Peter&#39;s SHA512 algorithm." alt="" coords="189,5,317,46"/>
+<area shape="poly" id="edge381_Node000000_Node000001" title=" " alt="" coords="156,23,189,23,189,28,156,28"/>
 </map>

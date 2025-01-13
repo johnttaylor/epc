@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$class_cpl_1_1_persistent_1_1_indexed_entry_writer.html" title="This abstract class defines interface for appending a single &#39;entry&#39; to a a collection of entries (i...." alt="" coords="5,5,162,46"/>
+<area shape="rect" id="Node000000" href="$class_cpl_1_1_persistent_1_1_chunk.html" title="This abstract class defines the interface for a Chunk." alt="" coords="5,35,154,60"/>
+<area shape="rect" id="Node000001" href="$class_cpl_1_1_persistent_1_1_crc_chunk.html" title="This concrete class implements the Chunk interface by using a 32Bit CRC for ensuring data integrity." alt="" coords="202,5,370,31"/>
+<area shape="poly" id="edge56_Node000000_Node000001" title=" " alt="" coords="168,32,201,28,202,33,169,37"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_persistent_1_1_mirrored_chunk.html" title="This concrete class implements the Chunk interface by storing two copies of the Record&#39;s data." alt="" coords="207,55,365,96"/>
+<area shape="poly" id="edge57_Node000000_Node000002" title=" " alt="" coords="169,57,207,62,206,67,168,62"/>
 </map>

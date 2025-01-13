@@ -1,9 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$class_cpl_1_1_t_shell_1_1_processor_api.html" title="This class defines the interface a TShell Command Processor." alt="" coords="5,5,173,31"/>
-<area shape="rect" id="Node000001" href="$class_cpl_1_1_t_shell_1_1_context__.html" title="This Private Namespace class defines a &quot;Context&quot; for a TShell command." alt="" coords="221,5,361,31"/>
-<area shape="poly" id="edge371_Node000000_Node000001" title=" " alt="" coords="188,16,221,16,221,21,188,21"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_t_shell_1_1_processor.html" title="This concrete class provides the implementation of Command Processor for a TShell engine." alt="" coords="409,5,557,31"/>
-<area shape="poly" id="edge372_Node000001_Node000002" title=" " alt="" coords="376,16,409,16,409,21,376,21"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_t_shell_1_1_polled_processor.html" title="This concrete class provides a non&#45;blocking implementation of Command PolledProcessor for a TShell en..." alt="" coords="605,5,790,31"/>
-<area shape="poly" id="edge373_Node000002_Node000003" title=" " alt="" coords="573,16,605,16,605,21,573,21"/>
+<area shape="rect" id="Node000000" href="$class_cpl_1_1_system_1_1_shared_event_handler_api.html" title="This abstract class defines the interface for a Shared Event Handler." alt="" coords="5,5,176,46"/>
+<area shape="rect" id="Node000001" href="$class_cpl_1_1_system_1_1_shared_event_handler.html" title="This template concrete class is a &#39;strategy class&#39; in that in provides most of work needed for a Runn..." alt="" coords="224,5,394,46"/>
+<area shape="poly" id="edge363_Node000000_Node000001" title=" " alt="" coords="191,23,223,23,223,28,191,28"/>
 </map>
