@@ -11,6 +11,9 @@ set _ROOT=%_TOPDIR%..
 set _TARGET=alpha1
 set _TARGET2=alpha1-atmel
 
+:: Set the CI build flag
+set NQBP_CI_BUILD= 1
+
 :: Set Build info (and force build number to zero for "non-official" builds)
 set BUILD_NUMBER=%1
 set BUILD_BRANCH=none
@@ -41,13 +44,18 @@ call %_ROOT%\env.bat 3
 
 :: Build NON-unit-test projects
 cd %_ROOT%\projects
-%_TOOLS%\bob.py -v4 mingw_w64 -c --bldtime -b win32 --bldnum %BUILD_NUMBER%
+%_TOOLS%\bob.py -v4 --exclude catch2 mingw_w64 -c --bldtime -b win32 --bldnum %BUILD_NUMBER%
 IF ERRORLEVEL 1 EXIT /b 1
+
+:: Build the Catch2 static library
+cd %_ROOT%\projects\xsrc\catch2
+%_ROOT%\xsrc\nqbp2\other\bob.py -v4 mingw_w64 -cg --bld-all
 
 :: Build unit test projects (debug builds for more accurate code coverage)
 cd %_ROOT%\tests
 %_TOOLS%\bob.py -v4 mingw_w64 -cg --bldtime -b win32  --bldnum %BUILD_NUMBER%
 IF ERRORLEVEL 1 EXIT /b 1
+
 
 :: Run unit tests
 cd %_ROOT%\tests
@@ -72,8 +80,12 @@ call %_ROOT%\env.bat 1
 
 :: Build NON-unit-test projects (debug builds)
 cd %_ROOT%\projects      
-%_TOOLS%\bob.py -v4 vc12 -cg --bldtime -b win32 --bldnum %BUILD_NUMBER%
+%_TOOLS%\bob.py -v4 --exclude catch2 vc12 -cg --bldtime -b win32 --bldnum %BUILD_NUMBER%
 IF ERRORLEVEL 1 EXIT /b 1
+
+:: Build the Catch2 static library
+cd %_ROOT%\projects\xsrc\catch2
+%_ROOT%\xsrc\nqbp2\other\bob.py -v4 vc12 -c --bld-all
 
 :: Build unit test projects
 cd %_ROOT%\tests

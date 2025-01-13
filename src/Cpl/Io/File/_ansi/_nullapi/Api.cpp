@@ -1,13 +1,13 @@
 /*-----------------------------------------------------------------------------
-* This file is part of the Shift-Right Open Repository.  The Repository is an
-* open source project with a BSD type of licensing agreement.  See the license
-* agreement (license.txt) in the root directory or on the Internet at
-* http://www.shift-right.com/openrepo/license.htm
-*
-* Copyright (c) 2014-2022  John T. Taylor
-*
-* Redistributions of the source code must retain the above copyright notice.
-*----------------------------------------------------------------------------*/
+* This file is part of the Colony.Core Project.  The Colony.Core Project is an
+ * open source project with a BSD type of licensing agreement.  See the license
+ * agreement (license.txt) in the top/ directory or on the Internet at
+ * http://integerfox.com/colony.core/license.txt
+ *
+ * Copyright (c) 2014-2024  John T. Taylor
+ *
+ * Redistributions of the source code must retain the above copyright notice.
+**----------------------------------------------------------------------------*/
 
 #include "Cpl/Io/File/Api.h"
 #include <stdio.h>

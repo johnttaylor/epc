@@ -229,12 +229,13 @@ def do_build( printer, toolchain, arguments, variant ):
         
                             
         # Generate ninja content for each libdirs.b directory
+        dbgOpt = 'debug' if arguments['-g'] else 'release'
         builtlibs = []
         for d in toolchain.libdirs:
-            builtlibs.append( build_single_directory( printer, arguments, toolchain, d[0], d[1], NQBP_PKG_ROOT(), NQBP_WORK_ROOT(), NQBP_WRKPKGS_DIRNAME(), NQBP_PRJ_DIR(), NQBP_PRE_PROCESS_SCRIPT(), NQBP_PRE_PROCESS_SCRIPT_ARGS() ) )
+            builtlibs.append( build_single_directory( printer, arguments, toolchain, d[0], d[1], NQBP_PKG_ROOT(), NQBP_WORK_ROOT(), NQBP_WRKPKGS_DIRNAME(), NQBP_PRJ_DIR(), NQBP_PRE_PROCESS_SCRIPT(), variant, dbgOpt, NQBP_PRE_PROCESS_SCRIPT_ARGS() ) )
 
         # Generate ninja content for the Build project dir
-        utils.run_pre_processing_script( printer, NQBP_PRJ_DIR(), NQBP_WORK_ROOT(), NQBP_PKG_ROOT(), NQBP_PRJ_DIR(), NQBP_PRE_PROCESS_SCRIPT(), NQBP_PRE_PROCESS_SCRIPT_ARGS(),  verbose=arguments['-v'] )
+        utils.run_pre_processing_script( printer, NQBP_PRJ_DIR(), NQBP_WORK_ROOT(), NQBP_PKG_ROOT(), NQBP_PRJ_DIR(), NQBP_PRE_PROCESS_SCRIPT(), NQBP_PRE_PROCESS_SCRIPT_ARGS(), variant, dbgOpt, verbose=arguments['-v'] )
         files = utils.get_files_to_build( printer, toolchain, '..', NQBP_NAME_SOURCES() )
         toolchain._ninja_writer.newline()
         toolchain._ninja_writer.comment( "Project Directory:" )
@@ -329,7 +330,7 @@ def end_banner(printer, toolchain):
 
     
 #-----------------------------------------------------------------------------
-def build_single_directory( printer, arguments, toolchain, dir, entry, pkg_root, work_root, pkgs_dirname, prj_dirname, preprocess_script, preprocess_args ):
+def build_single_directory( printer, arguments, toolchain, dir, entry, pkg_root, work_root, pkgs_dirname, prj_dirname, preprocess_script, variant, dbg_opt, preprocess_args ):
    
     srcpath, display, dir = utils.derive_src_path( pkg_root, work_root, pkgs_dirname, entry, dir )
 
@@ -347,7 +348,7 @@ def build_single_directory( printer, arguments, toolchain, dir, entry, pkg_root,
         sys.exit(1)
         
     # Check/run the PreProcessing script
-    utils.run_pre_processing_script( printer, srcpath, work_root, pkg_root, prj_dirname, preprocess_script, preprocess_args, verbose=arguments['-v'] )
+    utils.run_pre_processing_script( printer, srcpath, work_root, pkg_root, prj_dirname, preprocess_script, preprocess_args, variant, dbg_opt, verbose=arguments['-v'] )
 
     # Get/Construct the source file list and filter it (if needed) for the specified directory
     files = utils.get_and_filter_files_to_build( printer, toolchain, dir, srcpath, NQBP_NAME_SOURCES() )

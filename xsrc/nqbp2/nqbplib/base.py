@@ -27,6 +27,10 @@ _BUILT_DIR_         - The build fields .firstobjs and .lastobjs, can be set (in
                             command shell does NOT process wildcards like a 
                             *nix shell.  
 
+_BUILD_VARIANT_DIR_ - This symbol be used in the mytoolchain.py file to specify 
+                      the yet to determined build variant directory name.  HOWEVER
+                      it usage is currently restricted to:
+                        - .linklibs field
 """
 
 #
@@ -244,8 +248,8 @@ class ToolChain:
         if ( not silent ):
             self._printer.output( "= Cleaning Project and local Package derived objects..." )
         self._printer.debug( '# Cleaning file extensions: {}'.format( self._clean_list ) )
-        utils.run_clean_dir_pre_processing( NQBP_PRJ_DIR(), self._printer )
-        utils.run_clean_pre_processing( self._printer, self.libdirs, clean_pkg=True, clean_local=True )
+        utils.run_clean_dir_pre_processing( NQBP_PRJ_DIR(), self._printer, self._bld, "clean" )
+        utils.run_clean_pre_processing( self._printer, self.libdirs,  self._bld, "clean", clean_pkg=True, clean_local=True )
         utils.del_files_by_ext( NQBP_PRJ_DIR(), self._clean_list )
 
         self._printer.debug( '# Cleaning directories: {}'.format( self._clean_pkg_dirs ) )
@@ -256,7 +260,7 @@ class ToolChain:
         if ( not silent ):
             self._printer.output( "= Cleaning External Package derived objects..." )
         self._printer.debug( '# Cleaning directories: {}'.format( self._clean_ext_dirs ) )
-        utils.run_clean_pre_processing( self._printer, self.libdirs, clean_xpkgs=True )
+        utils.run_clean_pre_processing( self._printer, self.libdirs,  self._bld, "clean", clean_xpkgs=True )
         for d in self._clean_ext_dirs:
             if ( os.path.exists(d) ):
                 shutil.rmtree( d, True )
@@ -264,7 +268,7 @@ class ToolChain:
         if ( not silent ):
             self._printer.output( "= Cleaning Absolute Path derived objects..." )
         self._printer.debug( '# Cleaning directories: {}'.format( self._clean_abs_dirs ) )
-        utils.run_clean_pre_processing( self._printer, self.libdirs, clean_absolute=True )
+        utils.run_clean_pre_processing( self._printer, self.libdirs,  self._bld, "clean", clean_absolute=True )
         for d in self._clean_abs_dirs:
             if ( os.path.exists(d) ):
                 shutil.rmtree( d, True )
@@ -499,7 +503,7 @@ class ToolChain:
 
         libs = []
         for item in builtlibs:
-            libs.append(item[0])
+            libs.append( item[0] )
 
         startgroup = self._linker_libgroup_start if len(libs) > 0 else ''
         endgroup   = self._linker_libgroup_end   if len(libs) > 0 else ''
@@ -510,7 +514,7 @@ class ToolChain:
                                             startgroup,
                                             " ".join(libs),
                                             endgroup,
-                                            self._all_opts.linklibs,
+                                            utils.replace_build_variant_dir_symbols( self, self._all_opts.linklibs),
                                             self._all_opts.lastobjs
                                             )
         link_inputs = objfiles
@@ -725,6 +729,8 @@ class ToolChain:
         self._ninja_writer.newline()
         self._build_ar_rule()
         self._ninja_writer.newline()
+        self._build_arlibs_rule()
+        self._ninja_writer.newline()
         self._build_link_rule()
         self._ninja_writer.newline()
         self._build_objcpy_rule()
@@ -787,6 +793,20 @@ class ToolChain:
             rspfile = '$out.rsp',
             rspfile_content = '$in',
             description = "Archiving Directory: $out" )
+
+    def _build_arlibs_rule( self ):
+        self._ninja_writer.rule( 
+            name = 'arlibs', 
+            command = "$rm $out && $ar $aropts ${arout}${out} $in", 
+            description = "Creating Library: $out" )
+        
+    def _build_withrspfile_arlibs_rule( self ):
+        self._ninja_writer.rule( 
+            name = 'arlibs', 
+            command = "$rm $out && $ar $aropts ${arout}${out} @$out.rsp", 
+            rspfile = '$out.rsp',
+            rspfile_content = '$in',
+            description = "Creating Library: $out" )
 
     def _build_link_rule( self ):
          self._ninja_writer.rule( 
@@ -880,6 +900,22 @@ class ToolChain:
             name = 'ar', 
             command = 'cmd.exe /C "$rm $out 1>nul 2>nul && $ar $aropts ${arout}${out} $in"', 
             description = "Archiving Directory: $out" )
+        self._ninja_writer.newline()
+
+    def _win32_withrspfile_build_arlibs_rule( self ):
+        self._ninja_writer.rule( 
+            name = 'arlibs', 
+            command = 'cmd.exe /C "$rm $out 1>nul 2>nul && $ar $aropts ${arout}${out} @$out.rsp"', 
+            rspfile = '$out.rsp',
+            rspfile_content = '$in',
+            description = "Creating Library: $out" )
+        self._ninja_writer.newline()
+
+    def _win32_build_arlibs_rule( self ):
+        self._ninja_writer.rule( 
+            name = 'arlibs', 
+            command = 'cmd.exe /C "$rm $out 1>nul 2>nul && $ar $aropts ${arout}${out} $in"', 
+            description = "Creating Library: $out" )
         self._ninja_writer.newline()
 
     #--------------------------------------------------------------------------

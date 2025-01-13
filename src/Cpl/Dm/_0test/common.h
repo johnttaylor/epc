@@ -18,6 +18,7 @@
 #include "Cpl/Itc/CloseSync.h"
 #include "Cpl/System/Thread.h"
 #include "Cpl/System/Trace.h"
+#include "Cpl/System/Api.h"
 #include "Cpl/Itc/CloseSync.h"
 #include "Cpl/System/Timer.h"
 
@@ -119,7 +120,9 @@ public:
         m_mpNotificationCount1++;
         m_lastValid     = modelPointThatChanged.readAndSync( m_lastValue, clientObsever );
         m_lastSeqNumber = m_observerMp1.getSequenceNumber_();
-        REQUIRE( m_observerMp1.getSequenceNumber_() == modelPointThatChanged.getSequenceNumber() );
+        
+        // The following test is NOT APPLICABLE anymore when using the xxxAndSync() methods
+        //REQUIRE( m_observerMp1.getSequenceNumber_() == modelPointThatChanged.getSequenceNumber() );
 
         //CPL_SYSTEM_TRACE_MSG( SECT_, ("VIEWER(%p): mp changed (%s), notify count=%d, valid=%d, value=%d",
         //                               this,
@@ -235,6 +238,7 @@ public:
         {
             m_writeCount++;
             m_mp1.write( m_currentValue );
+            Cpl::System::Api::sleep( 20 ); // Add a delay because Catch2 is not thread safe
 
             if ( m_currentValue >= m_endValue )
             {

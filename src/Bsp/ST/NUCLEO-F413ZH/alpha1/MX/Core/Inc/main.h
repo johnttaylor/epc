@@ -75,6 +75,8 @@ void SystemClock_Config(void);
 #define STLK_TX_GPIO_Port GPIOD
 #define GPIN_TEST_PIN_Pin GPIO_PIN_11
 #define GPIN_TEST_PIN_GPIO_Port GPIOD
+#define CS_SPI_Flash_Pin GPIO_PIN_14
+#define CS_SPI_Flash_GPIO_Port GPIOD
 #define USB_PowerSwitchOn_Pin GPIO_PIN_6
 #define USB_PowerSwitchOn_GPIO_Port GPIOG
 #define USB_OverCurrent_Pin GPIO_PIN_7

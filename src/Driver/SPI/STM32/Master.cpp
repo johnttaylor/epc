@@ -58,7 +58,7 @@ bool Master::transfer( size_t      numBytes,
 {
     CPL_SYSTEM_ASSERT( numBytes <= UINT16_MAX )
 
-    if ( m_started )
+    if ( m_started && srcData )
     {
         HAL_StatusTypeDef r = HAL_ERROR;
         if ( dstData == nullptr )
