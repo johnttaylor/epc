@@ -279,14 +279,14 @@
 <div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    DATATYPE* ptr = (DATATYPE*) key.<a class="code hl_function" href="class_cpl_1_1_container_1_1_key.html#a1759cff01af98b66519d2bef8dbd0538">getRawKey</a>( &amp;len );</div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="keywordflow">if</span> ( len != <span class="keyword">sizeof</span>( DATATYPE ) )</div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    {</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        <a class="code hl_function" href="class_cpl_1_1_system_1_1_fatal_error.html#a3877746163ef39e87358ec77907845a8">Cpl::System::FatalError::logf</a>( <span class="stringliteral">&quot;KeyPlainType::compare(): mismatch in key lengths. this=%p, my len=%u != %u&quot;</span>, <span class="keyword">this</span>, <span class="keyword">sizeof</span>( <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">DATATYPE</a> ), <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">len</a> );</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        <a class="code hl_function" href="class_cpl_1_1_system_1_1_fatal_error.html#a3877746163ef39e87358ec77907845a8">Cpl::System::FatalError::logf</a>( <span class="stringliteral">&quot;KeyPlainType::compare(): mismatch in key lengths. this=%p, my len=%u != %u&quot;</span>, <span class="keyword">this</span>, <span class="keyword">sizeof</span>( DATATYPE ), len );</div>
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    }</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keywordflow">if</span> ( m_keyData &lt; *<a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ptr</a> )</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keywordflow">if</span> ( m_keyData &lt; *ptr )</div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    {</div>
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    }</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( m_keyData &gt; *<a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">ptr</a> )</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( m_keyData &gt; *ptr )</div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    {</div>
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    }</div>
@@ -295,11 +295,11 @@
 <div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>}</div>
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="keyword">template</span>&lt;<span class="keyword">class</span> DATATYPE&gt;</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="class_cpl_1_1_container_1_1_key_plain_type.html#a3b67c9d7a21ff924a80852e9de0524ed">  244</a></span><span class="keyword">const</span> <span class="keywordtype">void</span>*  <a class="code hl_function" href="class_cpl_1_1_container_1_1_key_plain_type.html#a3b67c9d7a21ff924a80852e9de0524ed">Cpl::Container::KeyPlainType&lt;DATATYPE&gt;::getRawKey</a>( <span class="keywordtype">unsigned</span>* <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">returnRawKeyLenPtr</a> )<span class="keyword"> const</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="class_cpl_1_1_container_1_1_key_plain_type.html#a3b67c9d7a21ff924a80852e9de0524ed">  244</a></span><span class="keyword">const</span> <span class="keywordtype">void</span>*  <a class="code hl_function" href="class_cpl_1_1_container_1_1_key_plain_type.html#a3b67c9d7a21ff924a80852e9de0524ed">Cpl::Container::KeyPlainType&lt;DATATYPE&gt;::getRawKey</a>( <span class="keywordtype">unsigned</span>* returnRawKeyLenPtr )<span class="keyword"> const</span></div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="keywordflow">if</span> ( <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">returnRawKeyLenPtr</a> != 0 )</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="keywordflow">if</span> ( returnRawKeyLenPtr != 0 )</div>
 <div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    {</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        *<a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">returnRawKeyLenPtr</a> = <span class="keyword">sizeof</span>( <a class="code hl_class" href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">DATATYPE</a> );</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        *returnRawKeyLenPtr = <span class="keyword">sizeof</span>( DATATYPE );</div>
 <div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    }</div>
 <div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
 <div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="keywordflow">return</span> &amp;m_keyData;</div>
@@ -335,7 +335,6 @@
 <div class="ttc" id="aclass_cpl_1_1_container_1_1_key_string_buffer_html_a7157ca31400fe24a6b60ab86f1526a75"><div class="ttname"><a href="class_cpl_1_1_container_1_1_key_string_buffer.html#a7157ca31400fe24a6b60ab86f1526a75">Cpl::Container::KeyStringBuffer::getKeyValue</a></div><div class="ttdeci">const char * getKeyValue(size_t &amp;lenOfStringInBytes) const noexcept</div><div class="ttdoc">Returns the Key's content value.</div><div class="ttdef"><b>Definition</b> Key.h:156</div></div>
 <div class="ttc" id="aclass_cpl_1_1_container_1_1_key_string_buffer_html_a7266f8b44536e7160f489b84b50da98f"><div class="ttname"><a href="class_cpl_1_1_container_1_1_key_string_buffer.html#a7266f8b44536e7160f489b84b50da98f">Cpl::Container::KeyStringBuffer::m_len</a></div><div class="ttdeci">size_t m_len</div><div class="ttdoc">Number of bytes in the buffer.</div><div class="ttdef"><b>Definition</b> Key.h:145</div></div>
 <div class="ttc" id="aclass_cpl_1_1_container_1_1_key_string_buffer_html_ab1703afc49052b87127b21fd38ba87de"><div class="ttname"><a href="class_cpl_1_1_container_1_1_key_string_buffer.html#ab1703afc49052b87127b21fd38ba87de">Cpl::Container::KeyStringBuffer::compareKey</a></div><div class="ttdeci">int compareKey(const Key &amp;key) const</div><div class="ttdoc">Key Compare function.</div></div>
-<div class="ttc" id="aclass_cpl_1_1_container_1_1_ring_buffer_m_t_html"><div class="ttname"><a href="class_cpl_1_1_container_1_1_ring_buffer_m_t.html">Cpl::Container::RingBufferMT</a></div><div class="ttdoc">This template class implements a THREAD SAFE Ring Buffer.</div><div class="ttdef"><b>Definition</b> RingBufferMT.h:33</div></div>
 <div class="ttc" id="aclass_cpl_1_1_system_1_1_fatal_error_html_a3877746163ef39e87358ec77907845a8"><div class="ttname"><a href="class_cpl_1_1_system_1_1_fatal_error.html#a3877746163ef39e87358ec77907845a8">Cpl::System::FatalError::logf</a></div><div class="ttdeci">static void logf(const char *format,...)</div><div class="ttdoc">Printf style formatted message.</div></div>
 <div class="ttc" id="anamespace_cpl_1_1_container_html_a102cf0a6648d37d76671da4a8664c0cc"><div class="ttname"><a href="namespace_cpl_1_1_container.html#a102cf0a6648d37d76671da4a8664c0cc">Cpl::Container::KeyInteger16_T</a></div><div class="ttdeci">KeyPlainType&lt; int16_t &gt; KeyInteger16_T</div><div class="ttdoc">Pre-defined key.</div><div class="ttdef"><b>Definition</b> Key.h:115</div></div>
 <div class="ttc" id="anamespace_cpl_1_1_container_html_a2030622dca616636a9684cb8160dc10b"><div class="ttname"><a href="namespace_cpl_1_1_container.html#a2030622dca616636a9684cb8160dc10b">Cpl::Container::KeyUinteger16_T</a></div><div class="ttdeci">KeyPlainType&lt; uint16_t &gt; KeyUinteger16_T</div><div class="ttdoc">Pre-defined key.</div><div class="ttdef"><b>Definition</b> Key.h:118</div></div>
@@ -354,7 +353,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 13 2025 01:46:49 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sat Jan 18 2025 22:23:55 for GM6000 Digital Heater Controller by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
