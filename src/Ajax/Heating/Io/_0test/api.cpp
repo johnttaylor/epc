@@ -16,7 +16,6 @@
 #include "Cpl/System/Api.h"
 #include "Cpl/System/Trace.h"
 #include "Cpl/System/Thread.h"
-#include "Cpl/Container/Map.h"
 #include "mp/ModelPoints.h"
 #include "Cpl/TShell/Cmd/Help.h"
 #include "Cpl/TShell/Cmd/Bye.h"

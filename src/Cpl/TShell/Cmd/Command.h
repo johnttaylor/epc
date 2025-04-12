@@ -15,8 +15,6 @@
 #include "colony_config.h"
 #include "Cpl/TShell/Command.h"
 #include "Cpl/TShell/Context_.h"
-#include "Cpl/Container/Map.h"
-#include "Cpl/Text/String.h"
 
 /** Default Permission level for all commands
  */
