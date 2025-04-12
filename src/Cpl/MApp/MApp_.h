@@ -7,7 +7,7 @@
 
 
 #include "Cpl/MApp/MAppApi.h"
-#include "Cpl/Container/Map.h"
+#include "Cpl/Container/SList.h"
 
 /*----------------------------------------------------------------------------*/
 ///
@@ -22,11 +22,11 @@ namespace MApp {
 class MApp_ : public MAppApi
 {
 protected:
-    /// Constructor.  
-    MApp_( Cpl::Container::Map<MAppApi>&  mappList,
-           const char*                    mappName,
-           const char*                    description,
-           const char*                    usage );
+    /// Constructor.
+    MApp_( Cpl::Container::SList<MAppApi>& mappList,
+           const char*                     mappName,
+           const char*                     description,
+           const char*                     usage );
 
 public:
     /// See Cpl::MApp::Api
@@ -39,12 +39,8 @@ public:
     const char* getUsage() const noexcept;
 
 protected:
-    /// See Cpl::Container::Key
-    const Cpl::Container::Key& getKey() const noexcept;
-
-protected:
     /// Command name
-    Cpl::Container::KeyLiteralString    m_name;
+    const char* m_name;
 
     /// Description
     const char* m_description;
@@ -53,9 +49,9 @@ protected:
     const char* m_usage;
 
     /// Started state
-    bool        m_started;
+    bool m_started;
 };
 
-};      // end namespaces
+};  // end namespaces
 };
 #endif  // end header latch

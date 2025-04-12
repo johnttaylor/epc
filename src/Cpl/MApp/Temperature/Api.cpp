@@ -12,7 +12,7 @@
 using namespace Cpl::MApp::Temperature;
 
 /////////////////////////////////////////////////////
-Api::Api( Cpl::Container::Map<MAppApi>&    mappList,
+Api::Api( Cpl::Container::SList<MAppApi>&    mappList,
           Cpl::Dm::MailboxServer&          myMbox,
           Cpl::Dm::Mp::Float&              srcTemperatureMp,
           const char*                      name )
