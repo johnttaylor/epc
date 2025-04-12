@@ -66,7 +66,7 @@ protected:
 
 public:
 	/// Constructor
-	Threads( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+	Threads( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
 			 Security::Permission_T                     minPermLevel=OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;
 
 public:

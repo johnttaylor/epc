@@ -56,7 +56,7 @@ int runTheApplication( Cpl::Io::Input& infd, Cpl::Io::Output& outfd );
 /** Expose the TShell command list to facilitate creating platform specific
     TShell commands.
  */
-extern Cpl::Container::Map<Cpl::TShell::Command>    g_cmdlist;
+extern Cpl::Container::SList<Cpl::TShell::Command>    g_cmdlist;
 
 /// Expose the Graphic library (to faciliate static screen creation)
 extern pimoroni::PicoGraphics_PenRGB332 g_graphics;

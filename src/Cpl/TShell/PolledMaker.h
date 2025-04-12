@@ -43,7 +43,7 @@ public:
 	/** Constructor.  The application is responsible for supplying the set of commands and the mutex to ensure atomic
 		output.
 	 */
-	PolledMaker( Cpl::Container::Map<Command>& cmdlist, Cpl::System::Mutex& lock=Cpl::System::Locks_::tracingOutput() );
+	PolledMaker( Cpl::Container::SList<Command>& cmdlist, Cpl::System::Mutex& lock=Cpl::System::Locks_::tracingOutput() );
 
 
 public:

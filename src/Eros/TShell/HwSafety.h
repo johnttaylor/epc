@@ -50,7 +50,7 @@ public:
 
 public:
     /// Constructor
-    HwSafety( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+    HwSafety( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
               Driver::DIO::In&                           hwSafetyInDriver,
               Cpl::TShell::Security::Permission_T        minPermLevel=OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;
 

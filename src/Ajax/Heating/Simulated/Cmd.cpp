@@ -20,7 +20,7 @@ using namespace Ajax::Heating::Simulated;
 
 
 ///////////////////////////
-Cmd::Cmd( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+Cmd::Cmd( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
           Cpl::Dm::Mp::Bool&                   mpSimEnabled,
           Cpl::Dm::Mp::Int32&                  mpIndoorTemperature,
           Cpl::Dm::Mp::Double&                 mpOutdoorTemperatur ) noexcept

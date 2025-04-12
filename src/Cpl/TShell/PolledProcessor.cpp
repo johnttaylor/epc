@@ -17,7 +17,7 @@ using namespace Cpl::TShell;
 
 
 ///////////////////////////////////
-PolledProcessor::PolledProcessor( Cpl::Container::Map<Command>&     commands,
+PolledProcessor::PolledProcessor( Cpl::Container::SList<Command>&     commands,
 	Cpl::Text::Frame::StreamDecoder&  deframer,
 	Cpl::Text::Frame::StreamEncoder&  framer,
 	Cpl::System::Mutex&               outputLock,

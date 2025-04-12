@@ -68,7 +68,7 @@ public:
 
 public:
     /// Constructor
-    Dm( Cpl::Container::Map<Cpl::TShell::Command>&  commandList, 
+    Dm( Cpl::Container::SList<Cpl::TShell::Command>&  commandList, 
         Cpl::Dm::ModelDatabaseApi&                  modelDatabase, 
         const char*                                 cmdNameAndDatabaseNumber="dm",
         Cpl::TShell::Security::Permission_T         minPermLevel=OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;

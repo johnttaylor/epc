@@ -29,7 +29,7 @@ using namespace Cpl::MApp;
 extern void runtest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd );
 
 
-extern Cpl::Container::Map<Cpl::TShell::Command>   cmdlist;
+extern Cpl::Container::SList<Cpl::TShell::Command>   cmdlist;
 
 static Cpl::TShell::Maker       cmdProcessor_( cmdlist );
 static Cpl::TShell::Stdio       shell_( cmdProcessor_ );

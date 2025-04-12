@@ -102,7 +102,7 @@ public:
 
 //////////////////////////////////////////////
 // Create the Command/Debug Console and populate with commands
-static Cpl::Container::Map<Cpl::TShell::Command>    cmdlist_( "ignoreThisParameter_usedToInvokeTheStaticConstructor" );
+static Cpl::Container::SList<Cpl::TShell::Command>    cmdlist_( "ignoreThisParameter_usedToInvokeTheStaticConstructor" );
 static Cpl::TShell::PolledMaker                     cmdProcessor_( cmdlist_ );
 static Cpl::TShell::Cmd::Help	                    helpCmd_( cmdlist_ );
 static Cpl::TShell::Cmd::Bye	                    byeCmd_( cmdlist_ );

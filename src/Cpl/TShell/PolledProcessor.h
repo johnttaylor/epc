@@ -50,7 +50,7 @@ public:
 		@param initialPermissionLevel   The initial minimum permission level that a user needs to issue command(s)
 
 	 */
-	PolledProcessor( Cpl::Container::Map<Command>&     commands,
+	PolledProcessor( Cpl::Container::SList<Command>&     commands,
 					 Cpl::Text::Frame::StreamDecoder&  deframer,
 					 Cpl::Text::Frame::StreamEncoder&  framer,
 					 Cpl::System::Mutex&               outputLock,

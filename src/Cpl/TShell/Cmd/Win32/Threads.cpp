@@ -19,7 +19,7 @@ using namespace Cpl::TShell::Cmd::Win32;
 
 
 ///////////////////////////
-Threads::Threads( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+Threads::Threads( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
 				  Security::Permission_T                     minPermLevel ) noexcept
 	:Cpl::TShell::Cmd::Threads( commandList, minPermLevel )
 {

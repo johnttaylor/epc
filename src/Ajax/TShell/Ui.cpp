@@ -22,7 +22,7 @@ using namespace Ajax::TShell;
 
 
 ///////////////////////////
-Ui::Ui( Cpl::Container::Map<Cpl::TShell::Command>&          commandList,
+Ui::Ui( Cpl::Container::SList<Cpl::TShell::Command>&          commandList,
         Cpl::Container::RingBufferMP<AjaxScreenMgrEvent_T>& uiEventRingBuffer,
         Cpl::TShell::Security::Permission_T                 minPermLevel ) noexcept
     : Cpl::TShell::Cmd::Command( commandList, verb, minPermLevel )

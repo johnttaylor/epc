@@ -9,7 +9,7 @@
 extern void shell_test4( Cpl::Io::Input& infd, Cpl::Io::Output& outfd );
 
 
-Cpl::Container::Map<Cpl::TShell::Command>  cmdlist( "ignore_this_parameter-used to invoke the static constructor" );
+Cpl::Container::SList<Cpl::TShell::Command>  cmdlist( "ignore_this_parameter-used to invoke the static constructor" );
 Cpl::TShell::Cmd::Threads                  threadsCmd_( cmdlist );
 static Cpl::Io::Stdio::StdIn  infd_;
 static Cpl::Io::Stdio::StdOut outfd_;

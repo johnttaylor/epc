@@ -20,7 +20,7 @@ using namespace Cpl::TShell::Cmd::Arduino;
 
 
 ///////////////////////////
-Dbg::Dbg( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+Dbg::Dbg( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
           Security::Permission_T                     minPermLevel ) noexcept
 :Cpl::TShell::Cmd::Command(commandList, verb, minPermLevel )
     {

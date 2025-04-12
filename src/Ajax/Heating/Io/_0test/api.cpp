@@ -35,7 +35,7 @@ using namespace Ajax::Heating::Io;
 
 static Cpl::Dm::MailboxServer mbox_;
 
-static Cpl::Container::Map<Cpl::TShell::Command>   cmdlist;
+static Cpl::Container::SList<Cpl::TShell::Command>   cmdlist;
 static Cpl::TShell::Maker cmdProcessor_( cmdlist );
 static Cpl::TShell::Stdio shell_( cmdProcessor_ );
 

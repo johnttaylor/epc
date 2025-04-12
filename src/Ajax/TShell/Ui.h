@@ -61,7 +61,7 @@ public:
 
 public:
     /// Constructor
-    Ui( Cpl::Container::Map<Cpl::TShell::Command>&          commandList,
+    Ui( Cpl::Container::SList<Cpl::TShell::Command>&          commandList,
         Cpl::Container::RingBufferMP<AjaxScreenMgrEvent_T>& uiEventRingBuffer,
         Cpl::TShell::Security::Permission_T                 minPermLevel=OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;
 

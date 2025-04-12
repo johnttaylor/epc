@@ -22,7 +22,7 @@
 using namespace Cpl::TShell::Cmd;
 
 ///////////////////////////
-Tick::Tick( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+Tick::Tick( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
             Security::Permission_T                     minPermLevel ) noexcept
     :Command( commandList, verb, minPermLevel )
 {

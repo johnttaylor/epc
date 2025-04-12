@@ -155,7 +155,7 @@ public:
 
 public:
     /// Constructor
-    ShutdownHack( Cpl::Container::Map<Cpl::TShell::Command>& commandList, Cpl::TShell::Security::Permission_T minPerm = Cpl::TShell::Security::ePUBLIC ) noexcept
+    ShutdownHack( Cpl::Container::SList<Cpl::TShell::Command>& commandList, Cpl::TShell::Security::Permission_T minPerm = Cpl::TShell::Security::ePUBLIC ) noexcept
         :Command( commandList, "shutdown", minPerm )
     {
     }
@@ -178,7 +178,7 @@ public:
 } // end anonymous namespace
 ///////////////////////////////////////
 
-static Cpl::Container::Map<Cpl::TShell::Command>	cmdlist_;
+static Cpl::Container::SList<Cpl::TShell::Command>	cmdlist_;
 static Cpl::TShell::Maker							cmdProcessor_( cmdlist_ );
 static Cpl::TShell::Stdio							shell_( cmdProcessor_ );
 static Cpl::TShell::Cmd::Help						helpCmd_( cmdlist_ );

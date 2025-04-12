@@ -56,7 +56,7 @@ public:
 }  // end anonymous namespace
 
 ///////////////////////////
-Fs::Fs( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+Fs::Fs( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
         unsigned                                   numVolumes,
         const char*                                volumeRootPaths[],
         Cpl::TShell::Security::Permission_T        minPermLevel ) noexcept

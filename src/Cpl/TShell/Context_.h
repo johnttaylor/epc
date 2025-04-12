@@ -15,7 +15,7 @@
 #include "Cpl/TShell/ProcessorApi.h"
 #include "Cpl/TShell/Security.h"
 #include "Cpl/TShell/Command.h"
-#include "Cpl/Container/Map.h"
+#include "Cpl/Container/SList.h"
 
 
 ///
@@ -32,7 +32,10 @@ class Context_ : public ProcessorApi
 {
 public:
     /// This method returns the list of implemented commands
-    virtual Cpl::Container::Map<Command>& getCommands() noexcept = 0;
+    virtual Cpl::Container::SList<Command>& getCommands() noexcept = 0;
+
+    /// Lookup a command by its verb.  Returns a nullptr if the command is not found
+    virtual Command* findCommand( const char* verb, size_t verbLength  ) noexcept = 0;
 
 public:
     /// This method encodes and outputs the specified message/text.  The method returns false if there was Output Stream error

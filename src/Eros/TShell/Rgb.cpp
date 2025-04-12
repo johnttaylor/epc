@@ -23,7 +23,7 @@ using namespace Eros::TShell;
 
 
 ///////////////////////////
-Rgb::Rgb( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+Rgb::Rgb( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
           Driver::LED::RedGreenBlue&                 statusLED,
           Cpl::TShell::Security::Permission_T        minPermLevel ) noexcept
     : Cpl::TShell::Cmd::Command( commandList, verb, minPermLevel )

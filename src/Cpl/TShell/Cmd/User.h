@@ -54,7 +54,7 @@ public:
 
 public:
     /// Constructor
-    User( Cpl::Container::Map<Cpl::TShell::Command>& commandList, Cpl::TShell::Security& validator ) noexcept;
+    User( Cpl::Container::SList<Cpl::TShell::Command>& commandList, Cpl::TShell::Security& validator ) noexcept;
 
 
 public:

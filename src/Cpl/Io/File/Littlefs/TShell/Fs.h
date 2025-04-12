@@ -82,7 +82,7 @@ public:
 
 public:
     /// Constructor
-    Fs( Cpl::Container::Map<Cpl::TShell::Command>&  commandList, 
+    Fs( Cpl::Container::SList<Cpl::TShell::Command>&  commandList, 
         unsigned                                    numVolumes,
         const char*                                 volumeRootPaths[],
         Cpl::TShell::Security::Permission_T         minPermLevel=OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;

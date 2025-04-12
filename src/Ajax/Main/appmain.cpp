@@ -19,6 +19,7 @@
 #include "PersonalityRecord.h"
 #include "StorageMap_.h"
 #include "mp/ModelPoints.h"
+#include "Cpl/System/Api.h"
 #include "Cpl/System/Shutdown.h"
 #include "Cpl/System/Semaphore.h"
 #include "Cpl/TShell/Cmd/Help.h"
@@ -120,7 +121,7 @@ static Cpl::Persistent::Record*                                         records_
 static Cpl::Persistent::RecordServer                                    recordServer_( records_ );
 static Cpl::Persistent::IndexedEntryServer<Cpl::Logging::EntryData_T>   logServer_( recordServer_, logEntryRecord_, logEntryBuffer_ );
 
-Cpl::Container::Map<Cpl::TShell::Command>    Ajax::Main::g_cmdlist( "ignoreThisParameter_usedToCreateAUniqueConstructor" );
+Cpl::Container::SList<Cpl::TShell::Command>    Ajax::Main::g_cmdlist( "ignoreThisParameter_usedToCreateAUniqueConstructor" );
 static Cpl::TShell::Maker                    cmdProcessor_( g_cmdlist );
 static Cpl::TShell::Stdio                    shell_( cmdProcessor_, "TShell", OPTION_AJAX_MAIN_THREAD_PRIORITY_CONSOLE );
 static Cpl::TShell::Cmd::Help	             helpCmd_( g_cmdlist );
