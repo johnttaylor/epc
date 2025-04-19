@@ -20,7 +20,7 @@
 using namespace Cpl::TShell::Cmd;
 
 ///////////////////////////
-Wait::Wait( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+Wait::Wait( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
             Security::Permission_T                     minPermLevel ) noexcept
     :Command( commandList, verb, minPermLevel )
 {

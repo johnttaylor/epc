@@ -24,7 +24,7 @@ using namespace Ajax::TShell;
 
 
 ///////////////////////////
-Provision::Provision( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+Provision::Provision( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
                       Ajax::Main::PersonalityRecord&             personalityRecord,
                       Cpl::Persistent::RecordServer&             recordServer,
                       Driver::Crypto::Hash&                      sha512HashFunction,

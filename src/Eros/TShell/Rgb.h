@@ -52,7 +52,7 @@ public:
 
 public:
     /// Constructor
-    Rgb( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+    Rgb( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
          Driver::LED::RedGreenBlue&                 statusLED,
          Cpl::TShell::Security::Permission_T        minPermLevel=OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;
 

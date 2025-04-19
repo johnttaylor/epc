@@ -16,7 +16,6 @@
 #include "Cpl/System/Api.h"
 #include "Cpl/System/Trace.h"
 #include "Cpl/System/Thread.h"
-#include "Cpl/Container/Map.h"
 #include "mp/ModelPoints.h"
 #include "Cpl/TShell/Cmd/Help.h"
 #include "Cpl/TShell/Cmd/Bye.h"
@@ -35,7 +34,7 @@ using namespace Ajax::Heating::Io;
 
 static Cpl::Dm::MailboxServer mbox_;
 
-static Cpl::Container::Map<Cpl::TShell::Command>   cmdlist;
+static Cpl::Container::SList<Cpl::TShell::Command>   cmdlist;
 static Cpl::TShell::Maker cmdProcessor_( cmdlist );
 static Cpl::TShell::Stdio shell_( cmdProcessor_ );
 

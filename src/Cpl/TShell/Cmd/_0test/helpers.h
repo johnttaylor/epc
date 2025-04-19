@@ -107,7 +107,7 @@ public:
 
 public:
 	/// Constructor
-	Bob( Cpl::Container::Map<Cpl::TShell::Command>& commandList, Apple& application ) noexcept
+	Bob( Cpl::Container::SList<Cpl::TShell::Command>& commandList, Apple& application ) noexcept
 		:Command( commandList, "bob" )
 		, m_app( application )
 	{

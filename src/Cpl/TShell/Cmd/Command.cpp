@@ -17,20 +17,20 @@ using namespace Cpl::TShell::Cmd;
 
 
 ////////////////////////////
-Command::Command( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+Command::Command( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
 				  const char*                                verb,
 				  Security::Permission_T                     minPermLevel ) noexcept
-	: m_mapKey( verb )
+	: m_verb( verb )
 	, m_minPermissionLevel( minPermLevel )
 {
-	commandList.insert( *this );
+	commandList.put( *this );
 }
 
 
 ////////////////////////////
 const char* Command::getVerb() const noexcept
 {
-	return m_mapKey.getKeyValue();
+	return m_verb;
 }
 
 Cpl::TShell::Security::Permission_T Command::getMinPermissionRequired() const noexcept
@@ -38,7 +38,3 @@ Cpl::TShell::Security::Permission_T Command::getMinPermissionRequired() const no
 	return m_minPermissionLevel;
 }
 
-const Cpl::Container::Key& Command::getKey() const noexcept
-{
-	return m_mapKey;
-}

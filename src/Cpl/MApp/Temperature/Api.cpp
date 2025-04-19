@@ -12,7 +12,7 @@
 using namespace Cpl::MApp::Temperature;
 
 /////////////////////////////////////////////////////
-Api::Api( Cpl::Container::Map<MAppApi>&    mappList,
+Api::Api( Cpl::Container::SList<MAppApi>&    mappList,
           Cpl::Dm::MailboxServer&          myMbox,
           Cpl::Dm::Mp::Float&              srcTemperatureMp,
           const char*                      name )
@@ -44,7 +44,7 @@ bool Api::start_( char* args ) noexcept
     }
 
     CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ("%s: Configuration: sampleMs=%u ms, displayMs=%u ms, units=%s",
-                                                           m_name.getKeyValue(),
+                                                           m_name,
                                                            m_sampleMs,
                                                            m_displayMs,
                                                            m_fahrenheit ? "'F" : "'C") );
@@ -169,7 +169,7 @@ void Api::expired( void ) noexcept
             }
 
             CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ("%s: %g '%c, avg: %g '%c, min: %g '%c, max: %g '%c",
-                                                                   m_name.getKeyValue(),
+                                                                   m_name,
                                                                    displayTemp, units,
                                                                    avgTemp, units,
                                                                    minTemp, units,
@@ -180,7 +180,7 @@ void Api::expired( void ) noexcept
     else if ( !m_invalidData )
     {
         m_invalidData = true;
-        CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ("%s: <data invalid>", m_name.getKeyValue()) );
+        CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ("%s: <data invalid>", m_name) );
     }
 
     // Restart my timer

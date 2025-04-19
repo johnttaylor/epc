@@ -53,7 +53,7 @@ public:
 
 public:
     /// Constructor
-    Cmd( Cpl::Container::Map<Cpl::TShell::Command>& commandList, Cpl::MApp::ManagerApi& mappManager ) noexcept;
+    Cmd( Cpl::Container::SList<Cpl::TShell::Command>& commandList, Cpl::MApp::ManagerApi& mappManager ) noexcept;
 
 
 public:

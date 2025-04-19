@@ -48,7 +48,7 @@ static void createLogEntry( const char* catString, uint32_t catId, const char* m
 
 
 ///////////////////////////
-Log::Log( Cpl::Container::Map<Cpl::TShell::Command>&                         commandList,
+Log::Log( Cpl::Container::SList<Cpl::TShell::Command>&                         commandList,
           Cpl::Itc::PostApi&                                                 logEntryServerMailbox,
           Cpl::Persistent::IndexedEntryServer<Cpl::Logging::EntryData_T>&    logEntryServer,
           Cpl::TShell::Security::Permission_T                                minPermLevel ) noexcept

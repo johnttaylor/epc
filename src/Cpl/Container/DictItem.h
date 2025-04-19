@@ -23,7 +23,7 @@ namespace Container {
 
 
 /** This abstract class represents a item that can be contained in
-    Dictionary.  The Dictionary is an ordered map implemented as a hash table
+    Dictionary.  The Dictionary is an unordered map implemented as a hash table
     that can only contain item(s) with same key type. The client sub-class is
     required to implement the 'getKey() method.
 

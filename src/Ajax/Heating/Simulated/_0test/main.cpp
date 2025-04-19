@@ -117,7 +117,7 @@ static Cpl::Persistent::Record*                                         records_
 static Cpl::Persistent::RecordServer                                    recordServer_( records_ );
 static Cpl::Persistent::IndexedEntryServer<Cpl::Logging::EntryData_T>   logServer_( recordServer_, logEntryRecord_, logEntryBuffer_ );
 
-static Cpl::Container::Map<Cpl::TShell::Command>  cmdlist_( "ignore_this_parameter-used to invoke the static constructor" );
+static Cpl::Container::SList<Cpl::TShell::Command>  cmdlist_( "ignore_this_parameter-used to invoke the static constructor" );
 static Cpl::TShell::Maker                         cmdProcessor_( cmdlist_ );
 static Cpl::TShell::Stdio                         shell_( cmdProcessor_ );
 

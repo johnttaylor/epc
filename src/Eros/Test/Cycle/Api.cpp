@@ -12,10 +12,10 @@
 using namespace Eros::Test::Cycle;
 
 /////////////////////////////////////////////////////
-Api::Api( Cpl::Container::Map<MAppApi>& mappList,
-          Cpl::Dm::MailboxServer&       myMbox,
-          Driver::DIO::Pwm&             heaterPWMDriver,
-          Driver::DIO::Pwm&             fanPWMDriver )
+Api::Api( Cpl::Container::SList<MAppApi>& mappList,
+          Cpl::Dm::MailboxServer&         myMbox,
+          Driver::DIO::Pwm&               heaterPWMDriver,
+          Driver::DIO::Pwm&               fanPWMDriver )
     : MApp_( mappList, MAPP_NAME, DESCRIPTION, USAGE )
     , Cpl::System::Timer( myMbox )
     , m_heaterDriver( heaterPWMDriver )
@@ -44,13 +44,7 @@ bool Api::start_( char* args ) noexcept
         return false;
     }
 
-    CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ("%s: Configuration: hpwm=%u fpwm=%u, onTime=%u, offTime=%lu, repeat=%u",
-                                                           m_name.getKeyValue(),
-                                                           m_heaterPWM,
-                                                           m_fanPWM,
-                                                           m_onTimeMs,
-                                                           m_offTimeMs,
-                                                           m_maxCycles) );
+    CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ( "%s: Configuration: hpwm=%u fpwm=%u, onTime=%u, offTime=%lu, repeat=%u", m_name, m_heaterPWM, m_fanPWM, m_onTimeMs, m_offTimeMs, m_maxCycles ) );
 
     // Housekeeping
     m_started      = true;
@@ -81,11 +75,11 @@ void Api::stop_() noexcept
 bool Api::parse( char* args ) noexcept
 {
     // Default the arguments
-    m_heaterPWM    = 100;
-    m_fanPWM       = 100;
-    m_onTimeMs     = 60 * 1000;
-    m_offTimeMs    = 60 * 1000;
-    m_maxCycles    = 5;
+    m_heaterPWM = 100;
+    m_fanPWM    = 100;
+    m_onTimeMs  = 60 * 1000;
+    m_offTimeMs = 60 * 1000;
+    m_maxCycles = 5;
 
     // No arguments
     const char* arg1 = Cpl::Text::stripSpace( args );
@@ -171,9 +165,7 @@ void Api::expired( void ) noexcept
                 m_heaterDriver.setDutyCycle( 0 );
                 m_fanDriver.setDutyCycle( 0 );
 
-                CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ("OFF Cycle#%u. OffTime=%lu",
-                                                                       m_cycleCount,
-                                                                       m_offTimeMs) );
+                CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ( "OFF Cycle#%u. OffTime=%lu", m_cycleCount, m_offTimeMs ) );
             }
         }
 
@@ -189,11 +181,7 @@ void Api::expired( void ) noexcept
                 m_heaterDriver.setDutyCycle( m_heaterPWM );
                 m_fanDriver.setDutyCycle( m_fanPWM );
 
-                CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ("ON  Cycle#%u. HPWM=%d %, FPWM=%d %, OnTime=%lu",
-                                                                       m_cycleCount + 1,
-                                                                       m_heaterPWM,
-                                                                       m_fanPWM,
-                                                                       m_onTimeMs) );
+                CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ( "ON  Cycle#%u. HPWM=%d %, FPWM=%d %, OnTime=%lu", m_cycleCount + 1, m_heaterPWM, m_fanPWM, m_onTimeMs ) );
             }
         }
 
@@ -202,7 +190,6 @@ void Api::expired( void ) noexcept
     }
     else
     {
-        CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ("All Cycles completed (%u). To exit the test type: mapp stop %s", m_cycleCount, MAPP_NAME) );
+        CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ( "All Cycles completed (%u). To exit the test type: mapp stop %s", m_cycleCount, MAPP_NAME ) );
     }
 }
-

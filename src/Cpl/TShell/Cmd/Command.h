@@ -15,13 +15,11 @@
 #include "colony_config.h"
 #include "Cpl/TShell/Command.h"
 #include "Cpl/TShell/Context_.h"
-#include "Cpl/Container/Map.h"
-#include "Cpl/Text/String.h"
 
 /** Default Permission level for all commands
  */
 #ifndef OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL
-#define OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL	Cpl::TShell::Security::ePUBLIC
+#define OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL Cpl::TShell::Security::ePUBLIC
 #endif
 
 
@@ -38,43 +36,37 @@ namespace Cmd {
 class Command : public Cpl::TShell::Command
 {
 protected:
-	/// Result when processing a conditional statement
-	enum CondResult_T {
-		eFALSE, //!< The conditional statement evaluated to false
-		eTRUE,  //!< The conditional statement evaluated to true
-		eERROR  //!< Error occurring during the evaluation of the conditional
-	};
+    /// Result when processing a conditional statement
+    enum CondResult_T
+    {
+        eFALSE,  //!< The conditional statement evaluated to false
+        eTRUE,   //!< The conditional statement evaluated to true
+        eERROR   //!< Error occurring during the evaluation of the conditional
+    };
 
 protected:
-	/// Command 
-	Cpl::Container::KeyLiteralString	m_mapKey;
+    /// Command verb
+    const char* m_verb;
 
-	/// Minimum required user permission need to execute me
-	Security::Permission_T				m_minPermissionLevel;
+    /// Minimum required user permission need to execute me
+    Security::Permission_T m_minPermissionLevel;
 
 protected:
-	/// Constructor
-	Command( Cpl::Container::Map<Cpl::TShell::Command>& commandList, 
-			 const char*                                verb, 
-			 Security::Permission_T                     minPermLevel=OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;
+    /// Constructor
+    Command( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
+             const char*                                  verb,
+             Security::Permission_T                       minPermLevel = OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;
 
 
 public:
-	/// See Cpl::TShell::Command
-	const char* getVerb() const noexcept;
+    /// See Cpl::TShell::Command
+    const char* getVerb() const noexcept;
 
-	/// See Cpl::TShell::Command
-	Security::Permission_T getMinPermissionRequired() const noexcept;
-
-protected:
-	/// See Cpl::Container::Key
-	const Cpl::Container::Key& getKey() const noexcept;
-
-
-
+    /// See Cpl::TShell::Command
+    Security::Permission_T getMinPermissionRequired() const noexcept;
 };
 
-};      // end namespaces
+};  // end namespaces
 };
 };
 #endif  // end header latch

@@ -4,7 +4,7 @@
 #include "Cpl/Io/File/Littlefs/Api.h"
 #include "Cpl/Io/Serial/PhonyStdio/InputOutput.h"
 #include "Cpl/TShell/Command.h"
-#include "Cpl/Container/Map.h"
+#include "Cpl/Container/SList.h"
 #include "Cpl/System/Shutdown.h"
 //#include <signal.h>
 
@@ -20,7 +20,7 @@ Cpl::Io::Serial::PhonyStdio::InputOutput fd_;
 extern void shell_test( Cpl::Io::Input& infd, Cpl::Io::Output& outfd );
 
 // Note: this is global variable for test purposes
-Cpl::Container::Map<Cpl::TShell::Command>  cmdlist( "ignore_this_parameter-used to invoke the static constructor" );
+Cpl::Container::SList<Cpl::TShell::Command>  cmdlist( "ignore_this_parameter-used to invoke the static constructor" );
 
 #define ERASE_SIZE       4096
 #define NUM_ERASE_BLOCKS 128

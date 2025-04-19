@@ -15,7 +15,6 @@
 #include "colony_config.h"
 #include "Cpl/TShell/Context_.h"
 #include "Cpl/System/Mutex.h"
-#include "Cpl/System/Api.h"
 #include "Cpl/Text/FString.h"
 #include "Cpl/Text/Frame/StreamEncoder.h"
 #include "Cpl/Text/Frame/StreamDecoder.h"
@@ -25,32 +24,32 @@
     string/command.
  */
 #ifndef OPTION_CPL_TSHELL_PROCESSOR_INPUT_SIZE
-#define OPTION_CPL_TSHELL_PROCESSOR_INPUT_SIZE              128
+#define OPTION_CPL_TSHELL_PROCESSOR_INPUT_SIZE 128
 #endif
 
- /** This symbol defines the size, in bytes, of the maximum allowed unframed
+/** This symbol defines the size, in bytes, of the maximum allowed unframed
      output string/command.
   */
 #ifndef OPTION_CPL_TSHELL_PROCESSOR_OUTPUT_SIZE
-#define OPTION_CPL_TSHELL_PROCESSOR_OUTPUT_SIZE             256
+#define OPTION_CPL_TSHELL_PROCESSOR_OUTPUT_SIZE 256
 #endif
 
 /** This symbols defines the Shell's greeting message
  */
 #ifndef OPTION_CPL_TSHELL_PROCESSOR_GREETING
-#define OPTION_CPL_TSHELL_PROCESSOR_GREETING                "\n--- Your friendly neighborhood TShell. ---\n\n\n"
+#define OPTION_CPL_TSHELL_PROCESSOR_GREETING "\n--- Your friendly neighborhood TShell. ---\n\n\n"
 #endif
 
 /** This symbols defines the Shell's farewell message
  */
 #ifndef OPTION_CPL_TSHELL_PROCESSOR_FAREWELL
-#define OPTION_CPL_TSHELL_PROCESSOR_FAREWELL                "\n--- ...I am melting, am melting... ---\n\n"
+#define OPTION_CPL_TSHELL_PROCESSOR_FAREWELL "\n--- ...I am melting, am melting... ---\n\n"
 #endif
 
 /** This symbols defines the Shell's prompt string
  */
 #ifndef OPTION_CPL_TSHELL_PROCESSOR_PROMPT
-#define OPTION_CPL_TSHELL_PROCESSOR_PROMPT                  "$ "
+#define OPTION_CPL_TSHELL_PROCESSOR_PROMPT "$ "
 #endif
 
 ///
@@ -134,22 +133,21 @@ public:
         @param argTerminator			The command terminator character.
         @param initialPermissionLevel   The initial minimum permission level that a user needs to issue command(s)
      */
-    Processor( Cpl::Container::Map<Command>&     commands,
-               Cpl::Text::Frame::StreamDecoder&  deframer,
-               Cpl::Text::Frame::StreamEncoder&  framer,
-               Cpl::System::Mutex&               outputLock,
-               char                              commentChar='#',
-               char                              argEscape='`',
-               char                              argDelimiter=' ',
-               char                              argQuote='"',
-               char                              argTerminator='\n',
-               Security::Permission_T            initialPermissionLevel = Security::ePUBLIC
-    );
+    Processor( Cpl::Container::SList<Command>&  commands,
+               Cpl::Text::Frame::StreamDecoder& deframer,
+               Cpl::Text::Frame::StreamEncoder& framer,
+               Cpl::System::Mutex&              outputLock,
+               char                             commentChar            = '#',
+               char                             argEscape              = '`',
+               char                             argDelimiter           = ' ',
+               char                             argQuote               = '"',
+               char                             argTerminator          = '\n',
+               Security::Permission_T           initialPermissionLevel = Security::ePUBLIC );
 
 
 public:
     /// See Cpl::TShell::ProcessorApi
-    bool start( Cpl::Io::Input& infd, Cpl::Io::Output& outfd, bool blocking=true ) noexcept;
+    bool start( Cpl::Io::Input& infd, Cpl::Io::Output& outfd, bool blocking = true ) noexcept;
 
     /// See Cpl::TShell::ProcessorApi
     int poll() noexcept;
@@ -171,7 +169,10 @@ public:
 
 public:
     /// See Cpl::TShell::Context_
-    Cpl::Container::Map<Command>& getCommands() noexcept;
+    Cpl::Container::SList<Command>& getCommands() noexcept;
+
+    /// See Cpl::TShell::Context_
+    Command* findCommand( const char* verb, size_t verbLength  ) noexcept;
 
     /// See Cpl::TShell::Context_
     bool writeFrame( const char* text ) noexcept;
@@ -219,60 +220,63 @@ protected:
      */
     virtual int readInput( size_t& frameSize ) noexcept;
 
+    /// Helper method
+    virtual void sortCommandList() noexcept;
+
 protected:
     /// Command list
-    Cpl::Container::Map<Command>&       m_commands;
+    Cpl::Container::SList<Command>& m_commands;
 
     /// Raw input de-framer
-    Cpl::Text::Frame::StreamDecoder&    m_deframer;
+    Cpl::Text::Frame::StreamDecoder& m_deframer;
 
     /// Output framer handle
-    Cpl::Text::Frame::StreamEncoder&    m_framer;
+    Cpl::Text::Frame::StreamEncoder& m_framer;
 
     /// Output lock
-    Cpl::System::Mutex&                 m_outLock;
+    Cpl::System::Mutex& m_outLock;
 
-    /// User's permission level	
-    Security::Permission_T				m_userPermLevel;
+    /// User's permission level
+    Security::Permission_T m_userPermLevel;
 
     /// Comment character
-    char                                m_comment;
+    char m_comment;
 
     /// Argument Escape character
-    char                                m_esc;
+    char m_esc;
 
     /// Argument delimiter
-    char                                m_del;
+    char m_del;
 
     /// Argument quote character
-    char                                m_quote;
+    char m_quote;
 
     /// Argument terminator character
-    char                                m_term;
+    char m_term;
 
     /// Set to true when 'command prompt' should be outputted
-    bool								m_writeCommandPrompt;
+    bool m_writeCommandPrompt;
 
     /// Current frame size
-    size_t								m_frameSize;
+    size_t m_frameSize;
 
     /// My run state
-    bool                                m_running;
+    bool m_running;
 
     /// Input Frame buffer
-    char                                m_inputBuffer[OPTION_CPL_TSHELL_PROCESSOR_INPUT_SIZE + 1];
+    char m_inputBuffer[OPTION_CPL_TSHELL_PROCESSOR_INPUT_SIZE + 1];
 
     /// Buffer that is used to construct output messages
-    Cpl::Text::FString<OPTION_CPL_TSHELL_PROCESSOR_OUTPUT_SIZE>  m_outputBuffer;
+    Cpl::Text::FString<OPTION_CPL_TSHELL_PROCESSOR_OUTPUT_SIZE> m_outputBuffer;
 
     /// Shared token work buffer
-    Cpl::Text::FString<OPTION_CPL_TSHELL_PROCESSOR_INPUT_SIZE>   m_tokenBuffer;
+    Cpl::Text::FString<OPTION_CPL_TSHELL_PROCESSOR_INPUT_SIZE> m_tokenBuffer;
 
     /// Shared token work buffer
-    Cpl::Text::FString<OPTION_CPL_TSHELL_PROCESSOR_INPUT_SIZE>   m_tokenBuffer2;
+    Cpl::Text::FString<OPTION_CPL_TSHELL_PROCESSOR_INPUT_SIZE> m_tokenBuffer2;
 };
 
 
-};      // end namespaces
+};  // end namespaces
 };
 #endif  // end header latch

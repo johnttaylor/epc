@@ -72,7 +72,7 @@ public:
 
 public:
     /// Constructor. Note: The myMbox argument is only needed because the class uses a SW timer
-    Api( Cpl::Container::Map<MAppApi>&    mappList,
+    Api( Cpl::Container::SList<MAppApi>&    mappList,
          Cpl::Dm::MailboxServer&          myMbox,
          Cpl::Dm::Mp::Float&              srcTemperatureMp,
          const char*                      name = DEFAULT_NAME );

@@ -12,7 +12,7 @@ extern void shell_test( Cpl::Io::Input& infd, Cpl::Io::Output& outfd );
 Cpl::Io::Serial::PhonyStdio::InputOutput fd_;
 
 // Note: this is global variable for test purposes
-Cpl::Container::Map<Cpl::TShell::Command>  cmdlist( "ignore_this_parameter-used to invoke the static constructor" );
+Cpl::Container::SList<Cpl::TShell::Command>  cmdlist( "ignore_this_parameter-used to invoke the static constructor" );
 
 // HACK: to reuse a common test file
 #ifndef BUILD_VARIANT_CPP11

@@ -58,7 +58,7 @@ public:
 
 public:
     /// Constructor
-    Cmd( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+    Cmd( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
          Cpl::Dm::Mp::Bool&                   mpSimEnabled,
          Cpl::Dm::Mp::Int32&                  mpIndoorTemperature,
          Cpl::Dm::Mp::Double&                 mpOutdoorTemperature ) noexcept;

@@ -20,7 +20,7 @@
 using namespace Cpl::TShell::Cmd;
 
 ///////////////////////////
-Threads::Threads( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+Threads::Threads( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
 				  Security::Permission_T                     minPermLevel ) noexcept
 	:Command( commandList, verb, minPermLevel )
 	, m_contextPtr( 0 )

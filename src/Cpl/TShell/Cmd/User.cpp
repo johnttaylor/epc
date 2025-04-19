@@ -18,7 +18,7 @@ using namespace Cpl::TShell::Cmd;
 
 
 ///////////////////////////
-User::User( Cpl::Container::Map<Cpl::TShell::Command>& commandList, Cpl::TShell::Security& validator ) noexcept
+User::User( Cpl::Container::SList<Cpl::TShell::Command>& commandList, Cpl::TShell::Security& validator ) noexcept
     : Command( commandList, verb, Cpl::TShell::Security::ePUBLIC ) // ALWAYS a public command
     , m_validator( validator )
 {

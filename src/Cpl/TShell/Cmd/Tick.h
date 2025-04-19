@@ -54,7 +54,7 @@ protected:
 
 public:
     /// Constructor
-    Tick( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+    Tick( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
           Security::Permission_T                     minPermLevel=OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;
 
 public:

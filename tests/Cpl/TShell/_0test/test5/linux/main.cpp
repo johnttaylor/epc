@@ -15,7 +15,7 @@ Cpl::Io::Stdio::StdIn                           infd_;
 Cpl::Io::Stdio::StdOut                          outfd_;
 
 // Note: this is global variable for test purposes
-Cpl::Container::Map<Cpl::TShell::Command>  cmdlist( "ignore_this_parameter-used to invoke the static constructor" );
+Cpl::Container::SList<Cpl::TShell::Command>  cmdlist( "ignore_this_parameter-used to invoke the static constructor" );
 static Cpl::TShell::Cmd::Threads           threadsCmd_( cmdlist );
 
 

@@ -107,7 +107,7 @@ public:
 
 public:
 	/// Constructor
-	Bob( Cpl::Container::Map<Cpl::TShell::Command>& commandList, Apple& application, Cpl::TShell::Security::Permission_T minPerm = Cpl::TShell::Security::ePUBLIC ) noexcept
+	Bob( Cpl::Container::SList<Cpl::TShell::Command>& commandList, Apple& application, Cpl::TShell::Security::Permission_T minPerm = Cpl::TShell::Security::ePUBLIC ) noexcept
 		:Command( commandList, "bob", minPerm )
 		, m_app( application )
 	{

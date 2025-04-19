@@ -19,6 +19,7 @@
 #include "Cpl/Io/File/Output.h"
 #include "Cpl/Io/File/Littlefs/TShell/Fs.h"
 #include "Cpl/TShell/Stdio.h"
+#include "Cpl/System/Api.h"
 
 #define ROOT_VOL1_PATH "/apple"
 #define ROOT_VOL2_PATH "/orange"
@@ -26,7 +27,7 @@
 ///
 extern void shell_test( Cpl::Io::Input& infd, Cpl::Io::Output& outfd );
 
-extern Cpl::Container::Map<Cpl::TShell::Command> cmdlist;
+extern Cpl::Container::SList<Cpl::TShell::Command> cmdlist;
 
 static Cpl::TShell::Maker cmdProcessor_( cmdlist );
 

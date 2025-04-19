@@ -12,7 +12,7 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
-#include "Cpl/Container/MapItem.h"
+#include "Cpl/Container/Item.h"
 #include "Cpl/Io/Output.h"
 #include "Cpl/TShell/Security.h"
 
@@ -28,7 +28,7 @@ class Context_;
 
 /** This class defines the interface for a TShell command.
  */
-class Command : public Cpl::Container::MapItem
+class Command : public Cpl::Container::Item
 {
 public:
 	/// Possible result codes when executing a command

@@ -15,7 +15,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-extern Cpl::Container::Map<Cpl::TShell::Command>   cmdlist;
+extern Cpl::Container::SList<Cpl::TShell::Command>   cmdlist;
 
 static Cpl::TShell::Maker cmdProcessor_( cmdlist );
 

@@ -13,25 +13,39 @@
 #include "Cpl/System/GlobalLock.h"
 #include "Cpl/Text/strip.h"
 #include "Cpl/System/Assert.h"
+#include "Cpl/System/Api.h"
 
 #ifdef USE_CPL_TSHELL_PROCESSOR_SILENT_WHEN_PUBLIC
-#define OUTPUT_PROMPT()                     if ( m_userPermLevel != Security::ePUBLIC ) { outfd.write( OPTION_CPL_TSHELL_PROCESSOR_PROMPT ); }
-#define OUTPUT_GREETING()                   if ( m_userPermLevel != Security::ePUBLIC ) { outfd.write( OPTION_CPL_TSHELL_PROCESSOR_GREETING ); }
-#define OUTPUT_FAREWELL()                   if ( m_userPermLevel != Security::ePUBLIC ) { outfd.write( OPTION_CPL_TSHELL_PROCESSOR_FAREWELL ); }
-#define OUTPUT_CMD_ERROR_AND_RETURN()       if ( m_userPermLevel != Security::ePUBLIC ) \
-                                            { \
-                                                return outputCommandError( Command::eERROR_INVALID_CMD, deframedInput ) ? Command::eERROR_INVALID_CMD : Command::eERROR_IO; \
-                                            } \
-                                            else \
-                                            { \
-                                                return Command::eERROR_INVALID_CMD; \
-                                            }
+#define OUTPUT_PROMPT()                                    \
+    if ( m_userPermLevel != Security::ePUBLIC )            \
+    {                                                      \
+        outfd.write( OPTION_CPL_TSHELL_PROCESSOR_PROMPT ); \
+    }
+#define OUTPUT_GREETING()                                    \
+    if ( m_userPermLevel != Security::ePUBLIC )              \
+    {                                                        \
+        outfd.write( OPTION_CPL_TSHELL_PROCESSOR_GREETING ); \
+    }
+#define OUTPUT_FAREWELL()                                    \
+    if ( m_userPermLevel != Security::ePUBLIC )              \
+    {                                                        \
+        outfd.write( OPTION_CPL_TSHELL_PROCESSOR_FAREWELL ); \
+    }
+#define OUTPUT_CMD_ERROR_AND_RETURN()                                                                                               \
+    if ( m_userPermLevel != Security::ePUBLIC )                                                                                     \
+    {                                                                                                                               \
+        return outputCommandError( Command::eERROR_INVALID_CMD, deframedInput ) ? Command::eERROR_INVALID_CMD : Command::eERROR_IO; \
+    }                                                                                                                               \
+    else                                                                                                                            \
+    {                                                                                                                               \
+        return Command::eERROR_INVALID_CMD;                                                                                         \
+    }
 
 #else
-#define OUTPUT_PROMPT()                     outfd.write( OPTION_CPL_TSHELL_PROCESSOR_PROMPT )
-#define OUTPUT_GREETING()                   outfd.write( OPTION_CPL_TSHELL_PROCESSOR_GREETING )
-#define OUTPUT_FAREWELL()                   outfd.write( OPTION_CPL_TSHELL_PROCESSOR_FAREWELL)
-#define OUTPUT_CMD_ERROR_AND_RETURN()       return outputCommandError( Command::eERROR_INVALID_CMD, deframedInput ) ? Command::eERROR_INVALID_CMD : Command::eERROR_IO;       
+#define OUTPUT_PROMPT()               outfd.write( OPTION_CPL_TSHELL_PROCESSOR_PROMPT )
+#define OUTPUT_GREETING()             outfd.write( OPTION_CPL_TSHELL_PROCESSOR_GREETING )
+#define OUTPUT_FAREWELL()             outfd.write( OPTION_CPL_TSHELL_PROCESSOR_FAREWELL )
+#define OUTPUT_CMD_ERROR_AND_RETURN() return outputCommandError( Command::eERROR_INVALID_CMD, deframedInput ) ? Command::eERROR_INVALID_CMD : Command::eERROR_IO;
 #endif
 
 
@@ -42,18 +56,17 @@ static const char* resultToString_( Command::Result_T errcode );
 
 
 ///////////////////////////////////
-Processor::Processor( Cpl::Container::Map<Command>&commands,
-                      Cpl::Text::Frame::StreamDecoder & deframer,
-                      Cpl::Text::Frame::StreamEncoder & framer,
-                      Cpl::System::Mutex & outputLock,
-                      char                              commentChar,
-                      char                              argEscape,
-                      char                              argDelimiter,
-                      char                              argQuote,
-                      char                              argTerminator,
-                      Security::Permission_T            initialPermissionLevel
-)
-    :m_commands( commands )
+Processor::Processor( Cpl::Container::SList<Command>&  commands,
+                      Cpl::Text::Frame::StreamDecoder& deframer,
+                      Cpl::Text::Frame::StreamEncoder& framer,
+                      Cpl::System::Mutex&              outputLock,
+                      char                             commentChar,
+                      char                             argEscape,
+                      char                             argDelimiter,
+                      char                             argQuote,
+                      char                             argTerminator,
+                      Security::Permission_T           initialPermissionLevel )
+    : m_commands( commands )
     , m_deframer( deframer )
     , m_framer( framer )
     , m_outLock( outputLock )
@@ -77,11 +90,11 @@ Security::Permission_T Processor::getUserPermissionLevel() const noexcept
 Security::Permission_T Processor::setUserPermissionLevel( Security::Permission_T newPermissionLevel ) noexcept
 {
     Security::Permission_T oldLevel = m_userPermLevel;
-    m_userPermLevel = newPermissionLevel;
+    m_userPermLevel                 = newPermissionLevel;
     return oldLevel;
 }
 
-int Processor::readInput( size_t & frameSize ) noexcept
+int Processor::readInput( size_t& frameSize ) noexcept
 {
     frameSize = 0;
     if ( !m_deframer.scan( OPTION_CPL_TSHELL_PROCESSOR_INPUT_SIZE, m_inputBuffer, frameSize ) )
@@ -93,7 +106,7 @@ int Processor::readInput( size_t & frameSize ) noexcept
     return 1;
 }
 
-int Processor::getAndProcessFrame( Cpl::Io::Output & outfd ) noexcept
+int Processor::getAndProcessFrame( Cpl::Io::Output& outfd ) noexcept
 {
     // Check for stop request
     Cpl::System::GlobalLock::begin();
@@ -103,17 +116,17 @@ int Processor::getAndProcessFrame( Cpl::Io::Output & outfd ) noexcept
     if ( !run )
     {
         OUTPUT_FAREWELL();
-        Cpl::System::Api::sleep( 250 ); // Allow time for the farewell message to be outputted
+        Cpl::System::Api::sleep( 250 );  // Allow time for the farewell message to be outputted
         return 1;
     }
 
 
     // Get the next command string from my input stream
     size_t frameSize;
-    int readResult = readInput( frameSize );
+    int    readResult = readInput( frameSize );
     if ( readResult < 0 )
     {
-        // Input stream error 
+        // Input stream error
         return -1;
     }
     else if ( readResult == 1 )
@@ -125,7 +138,7 @@ int Processor::getAndProcessFrame( Cpl::Io::Output & outfd ) noexcept
         Command::Result_T result = executeCommand( m_inputBuffer, outfd );
         if ( result == Command::eERROR_IO )
         {
-            // Output stream error 
+            // Output stream error
             return -1;
         }
 
@@ -138,12 +151,13 @@ int Processor::getAndProcessFrame( Cpl::Io::Output & outfd ) noexcept
 }
 
 ///////////////////////////////////
-bool Processor::start( Cpl::Io::Input & infd, Cpl::Io::Output & outfd, bool blocking ) noexcept
+bool Processor::start( Cpl::Io::Input& infd, Cpl::Io::Output& outfd, bool blocking ) noexcept
 {
     // Housekeeping
     m_running = true;
     m_outputBuffer.clear();
     m_framer.setOutput( outfd );
+    sortCommandList();
 
     // Output the greeting message
     OUTPUT_GREETING();
@@ -158,7 +172,8 @@ bool Processor::start( Cpl::Io::Input & infd, Cpl::Io::Output & outfd, bool bloc
         {
             return result >= 0 ? true : false;
         }
-    } while ( blocking );
+    }
+    while ( blocking );
 
 
     // If I get here, then the command processor self terminated
@@ -182,7 +197,7 @@ int Processor::poll() noexcept
 
 
 ///////////////////////////////////
-Command::Result_T Processor::executeCommand( char* deframedInput, Cpl::Io::Output & outfd ) noexcept
+Command::Result_T Processor::executeCommand( char* deframedInput, Cpl::Io::Output& outfd ) noexcept
 {
     const char* firstToken = Cpl::Text::stripSpace( deframedInput );
 
@@ -194,9 +209,9 @@ Command::Result_T Processor::executeCommand( char* deframedInput, Cpl::Io::Outpu
 
     // Lookup the command to be executed
     const char* endFirstToken = Cpl::Text::stripNotSpace( firstToken );
-    Cpl::Container::KeyStringBuffer verb( firstToken, endFirstToken - firstToken );
-    Command*                         cmdPtr;
-    if ( (cmdPtr=m_commands.find( verb )) == 0 )
+    size_t      tokenSize     = endFirstToken - firstToken;
+    Command*    cmdPtr        = findCommand( firstToken, tokenSize );
+    if ( cmdPtr == nullptr )
     {
         OUTPUT_CMD_ERROR_AND_RETURN();
     }
@@ -206,7 +221,7 @@ Command::Result_T Processor::executeCommand( char* deframedInput, Cpl::Io::Outpu
     if ( cmdPtr->getMinPermissionRequired() <= m_userPermLevel )
     {
         // Execute the found command
-        result = cmdPtr->execute( *this, (char*) firstToken, outfd );
+        result = cmdPtr->execute( *this, (char*)firstToken, outfd );
         if ( result != Command::eSUCCESS )
         {
             return outputCommandError( result, deframedInput ) ? result : Command::eERROR_IO;
@@ -216,10 +231,28 @@ Command::Result_T Processor::executeCommand( char* deframedInput, Cpl::Io::Outpu
     return result;
 }
 
+
 ///////////////////////////////////
-Cpl::Container::Map<Command>& Processor::getCommands() noexcept
+Cpl::Container::SList<Command>& Processor::getCommands() noexcept
 {
     return m_commands;
+}
+
+Command* Processor::findCommand( const char* verbToMatch, size_t verbLength ) noexcept
+{
+    Command* cmdPtr = m_commands.first();
+    while ( cmdPtr )
+    {
+        // Check if the command matches
+        if ( strncmp( verbToMatch, cmdPtr->getVerb(), verbLength ) == 0 )
+        {
+            return cmdPtr;
+        }
+        cmdPtr = m_commands.next( *cmdPtr );
+    }
+
+    // If I get here, then the command was not found
+    return nullptr;
 }
 
 bool Processor::writeFrame( const char* text ) noexcept
@@ -333,4 +366,57 @@ bool Processor::outputCommandError( Command::Result_T result, const char* defram
     io &= writeFrame( resultToString_( result ) );
 
     return io;
+}
+
+void Processor::sortCommandList() noexcept
+{
+    // This a BRUTE force sort, because I am lazy
+
+    // Seed the sorted list with it
+    Cpl::Container::SList<Command> sortedList;
+    Command*                       item = m_commands.getFirst();
+    if ( item == nullptr )
+    {
+        return;  // the unsorted list is empty
+    }
+    sortedList.putFirst( *item );
+
+    // Walk the unsorted list
+    item = m_commands.getFirst();
+    while ( item )
+    {
+        bool     moved          = false;
+        Command* prevSortedItem = nullptr;
+        Command* sortedItem     = sortedList.first();
+        while ( sortedItem )
+        {
+            // Insert before if new item is 'smaller' then the current sorted item
+            if ( strcmp( item->getVerb(), sortedItem->getVerb() ) < 0 )
+            {
+                if ( prevSortedItem )
+                {
+                    sortedList.insertAfter( *prevSortedItem, *item );
+                }
+                else
+                {
+                    sortedList.putFirst( *item );
+                }
+                moved = true;
+                break;
+            }
+            prevSortedItem = sortedItem;
+            sortedItem     = m_commands.next( *sortedItem );
+        }
+
+        // new item is 'larger' than all items in the sorted listed
+        if ( !moved )
+        {
+            sortedList.putLast( *item );
+        }
+
+        item = m_commands.getFirst();
+    }
+
+    // Make the unsorted list THE list
+    sortedList.move( m_commands );
 }

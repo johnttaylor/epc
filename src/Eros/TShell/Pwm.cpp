@@ -24,7 +24,7 @@ using namespace Eros::TShell;
 
 
 ///////////////////////////
-Pwm::Pwm( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+Pwm::Pwm( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
           Driver::DIO::Pwm&                          heaterPWMDriver,
           Driver::DIO::Pwm&                          fanPWMDriver,
           Cpl::TShell::Security::Permission_T        minPermLevel ) noexcept
