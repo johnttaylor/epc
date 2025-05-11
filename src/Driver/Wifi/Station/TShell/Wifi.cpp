@@ -23,7 +23,7 @@ using namespace Driver::Wifi::Station::TShell;
 #define SECT_   "Driver::Wifi::Station::TShell"
 
 ///////////////////////////
-Wifi::Wifi( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
+Wifi::Wifi( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
             Cpl::TShell::Security::Permission_T        minPermLevel ) noexcept
     : Cpl::TShell::Cmd::Command( commandList, verb, minPermLevel )
 {

@@ -1,5 +1,5 @@
-#ifndef Cpl_Dm_Mp_BitArray16_h_
-#define Cpl_Dm_Mp_BitArray16_h_
+#ifndef Cpl_Dm_Mp_BitArray32_h_
+#define Cpl_Dm_Mp_BitArray32_h_
 /*-----------------------------------------------------------------------------
 * This file is part of the Colony.Core Project.  The Colony.Core Project is an
 * open source project with a BSD type of licensing agreement.  See the license
@@ -29,7 +29,7 @@ namespace Mp {
 
 /** This template class provides a concrete implementation for a Point who's
     data is a a bit array of N bits.  The underlying storage of the bit array is
-    16 bit unsigned integers.  A side effect of this storage
+    32 bit unsigned integers.  A side effect of this storage
     mechanism the bit ordering in the JSON 'val' string is dependent on the
     target platform's Endian architecture.
 
@@ -43,7 +43,7 @@ namespace Mp {
         Whether byte[0] is the MSB or LSB is dependent on the big/little Endian
         architecture of the target platform.
 
-        For example a 16bit Array (as binary hex: dataword[0]=0x30, dataword[1]=0x09)
+        For example a 16bit Array (as binary hex: dataword[0]=0x30, dataword[1]=0x09, dataword[2]=0x30, dataword[3]=0x09)
 
             val:"0011000000001001"
 
@@ -53,32 +53,32 @@ namespace Mp {
           documented otherwise.
 
  */
-class BitArray16 : public BitArray_<uint16_t, BitArray16>
+class BitArray32 : public BitArray_<uint32_t, BitArray32>
 {
 public:
         /** Constructor. Invalid MP.
      */
-    BitArray16( Cpl::Dm::ModelDatabase& myModelBase, const char* symbolicName )
-        : BitArray_<uint16_t, BitArray16>( myModelBase, symbolicName )
+    BitArray32( Cpl::Dm::ModelDatabase& myModelBase, const char* symbolicName )
+        : BitArray_<uint32_t, BitArray32>( myModelBase, symbolicName )
     {
     }
 
     /// Constructor. Valid MP.  Requires an initial value
-    BitArray16( Cpl::Dm::ModelDatabase& myModelBase, const char* symbolicName, uint16_t initialValue )
-        : BitArray_<uint16_t, BitArray16>( myModelBase, symbolicName, initialValue )
+    BitArray32( Cpl::Dm::ModelDatabase& myModelBase, const char* symbolicName, uint32_t initialValue )
+        : BitArray_<uint32_t, BitArray32>( myModelBase, symbolicName, initialValue )
     {
     }
 
 public:
     /// Type safe subscriber
-    typedef Cpl::Dm::Subscriber<BitArray16> Observer;
+    typedef Cpl::Dm::Subscriber<BitArray32> Observer;
 
 
 public:
     ///  See Cpl::Dm::ModelPoint.
     const char* getTypeAsText() const noexcept
     {
-        return "Cpl::Dm::Mp::BitArray16";
+        return "Cpl::Dm::Mp::BitArray32";
     }
 };
 

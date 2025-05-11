@@ -1,13 +1,13 @@
 /*-----------------------------------------------------------------------------
-* This file is part of the Colony.Core Project.  The Colony.Core Project is an
-* open source project with a BSD type of licensing agreement.  See the license
-* agreement (license.txt) in the top/ directory or on the Internet at
-* http://integerfox.com/colony.core/license.txt
-*
-* Copyright (c) 2014-2022  John T. Taylor
-*
-* Redistributions of the source code must retain the above copyright notice.
-*----------------------------------------------------------------------------*/
+ * This file is part of the Colony.Core Project.  The Colony.Core Project is an
+ * open source project with a BSD type of licensing agreement.  See the license
+ * agreement (license.txt) in the top/ directory or on the Internet at
+ * http://integerfox.com/colony.core/license.txt
+ *
+ * Copyright (c) 2014-2022  John T. Taylor
+ *
+ * Redistributions of the source code must retain the above copyright notice.
+ *----------------------------------------------------------------------------*/
 
 #include "Shutdown_TS.h"
 #include "Cpl/System/Shutdown.h"
@@ -79,7 +79,15 @@ static int preprocess_shutdown_( int exit_code, bool& true_exit )
         if ( counting_ )
         {
             counter_++;
-            true_exit = false;
+            if ( counter_ < OPTION_CPL_SYSTEM_SHUTDOWN_TS_MAX_FATAL_ERRORS )
+            {
+                true_exit = false;
+            }
+            else
+            {
+                true_exit = true;
+                exit_code = exitCode_;
+            }
         }
         else
         {
@@ -118,8 +126,3 @@ int Shutdown::failure( int exit_code )
 
     return exit_code;
 }
-
-
-
-
-

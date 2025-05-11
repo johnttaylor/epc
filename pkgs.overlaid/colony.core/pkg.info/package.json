@@ -183,13 +183,20 @@
   },
   "publish": {
     "current": {
-      "comment": "Add support for Littlefs",
-      "version": "4.5.2",
-      "date": "Sat Jan 11 19:09:20 2025",
-      "timestamp": 1736622560,
-      "changes": null
+      "comment": "Refactor TShell and MApp - breaking change",
+      "version": "5.0.0",
+      "date": "Mon May  5 11:54:45 2025",
+      "timestamp": 1746446085,
+      "changes": "\"Breaking Change:\\n- Refactor TShell and MApp for smaller memory footprint\\n\\nMaintenance:\\n- SList: prevent potential stack overflow\\n- Document necessary edits to the Little FS repo (when using the Microsoft compiler)\\n- Prevent fatal-error-infinite-loop when a unit test failure occurs\\n- Fix race condition on UART driver\\n- Fix bug in the BitArray base class\""
     },
     "history": [
+      {
+        "comment": "Add support for Littlefs",
+        "version": "4.5.2",
+        "date": "Sat Jan 11 19:09:20 2025",
+        "timestamp": 1736622560,
+        "changes": null
+      },
       {
         "comment": "Migrate to Catch2 v3.x test framework (now uses a static library instead of single header file)",
         "version": "4.5.1",

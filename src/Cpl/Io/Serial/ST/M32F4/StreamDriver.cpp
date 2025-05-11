@@ -19,7 +19,7 @@ using namespace Cpl::Io::Serial::ST::M32F4;
 StreamDriver::HalMapping_T Cpl::Io::Serial::ST::M32F4::StreamDriver::m_mappings[OPTION_CPL_IO_SERIAL_ST_M32F4_MAX_UARTS] = { 0, };
 
 #define ENTER_CRITICAL_SECTION()    do { Cpl::System::Api::suspendScheduling(); Bsp_NVIC_disableIRQ( m_uartIrqNum ); } while(0)
-#define EXIT_CRITICAL_SECTION()     do { Cpl::System::Api::resumeScheduling(); Bsp_NVIC_enableIRQ( m_uartIrqNum ); } while (0)
+#define EXIT_CRITICAL_SECTION()     do { Bsp_NVIC_enableIRQ( m_uartIrqNum ); Cpl::System::Api::resumeScheduling(); } while (0)
 
 ////////////////////////
 StreamDriver::StreamDriver( Cpl::Container::RingBuffer<uint8_t>& txBuffer,

@@ -20,7 +20,7 @@ using namespace Driver::DIO;
 
 
 ///////////////////////////
-InOutCmd::InOutCmd( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
+InOutCmd::InOutCmd( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
                     Cpl::TShell::Security::Permission_T        minPermLevel ) noexcept
     : Command( commandList, verb, minPermLevel )
 {

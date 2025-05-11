@@ -12,8 +12,19 @@
 *----------------------------------------------------------------------------*/
 /** @file */
 
+#include "colony_config.h"
 #include <stddef.h>
 
+/** Maximum number of allowed fatal errors before the application is
+    forced to exit.  This is a safety mechanism to prevent the unit test
+    from getting into a 'runaway' error condition.  
+
+    Note: The fatal error count is reset everytime getAndClearCounter() 
+          is called.
+ */
+#ifndef OPTION_CPL_SYSTEM_SHUTDOWN_TS_MAX_FATAL_ERRORS 
+#define OPTION_CPL_SYSTEM_SHUTDOWN_TS_MAX_FATAL_ERRORS  30
+#endif
 
 /// 
 namespace Cpl {
