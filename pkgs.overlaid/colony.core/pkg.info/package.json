@@ -122,23 +122,6 @@
         }
       },
       {
-        "pkgname": "nqbp2",
-        "pkgtype": "readonly",
-        "virtualAdoption": false,
-        "adoptedDate": "Sun Dec 29 17:43:31 2024",
-        "parentDir": "xsrc",
-        "version": {
-          "semanticVersion": "1.0.0",
-          "branch": null,
-          "tag": "OUTCAST2-main-1.0.0"
-        },
-        "repo": {
-          "name": "nqbp2",
-          "type": "git",
-          "origin": "https://github.com/johnttaylor"
-        }
-      },
-      {
         "pkgname": "catch",
         "pkgtype": "overlay",
         "virtualAdoption": false,
@@ -151,6 +134,23 @@
         },
         "repo": {
           "name": "catch",
+          "type": "git",
+          "origin": "https://github.com/johnttaylor"
+        }
+      },
+      {
+        "pkgname": "nqbp2",
+        "pkgtype": "readonly",
+        "virtualAdoption": false,
+        "adoptedDate": "Mon May 26 21:16:10 2025",
+        "parentDir": "xsrc",
+        "version": {
+          "semanticVersion": "1.0.1",
+          "branch": null,
+          "tag": "OUTCAST2-main-1.0.1"
+        },
+        "repo": {
+          "name": "nqbp2",
           "type": "git",
           "origin": "https://github.com/johnttaylor"
         }
@@ -183,13 +183,20 @@
   },
   "publish": {
     "current": {
-      "comment": "Refactor TShell and MApp - breaking change",
-      "version": "5.0.0",
-      "date": "Mon May  5 11:54:45 2025",
-      "timestamp": 1746446085,
-      "changes": "\"Breaking Change:\\n- Refactor TShell and MApp for smaller memory footprint\\n\\nMaintenance:\\n- SList: prevent potential stack overflow\\n- Document necessary edits to the Little FS repo (when using the Microsoft compiler)\\n- Prevent fatal-error-infinite-loop when a unit test failure occurs\\n- Fix race condition on UART driver\\n- Fix bug in the BitArray base class\""
+      "comment": "Minor updates, bug fixes, and transition to git actions",
+      "version": "5.0.1",
+      "date": "Sun May 25 18:11:43 2025",
+      "timestamp": 1748031103,
+      "changes": "\"- Add additional Atomic operations to the MP interface\\n- Minor bug fixes to trace statements\\n- Transition to git actions for CI\\n- Update copyright statements\""
     },
     "history": [
+      {
+        "comment": "Refactor TShell and MApp - breaking change",
+        "version": "5.0.0",
+        "date": "Mon May  5 11:54:45 2025",
+        "timestamp": 1746446085,
+        "changes": "\"Breaking Change:\\n- Refactor TShell and MApp for smaller memory footprint\\n\\nMaintenance:\\n- SList: prevent potential stack overflow\\n- Document necessary edits to the Little FS repo (when using the Microsoft compiler)\\n- Prevent fatal-error-infinite-loop when a unit test failure occurs\\n- Fix race condition on UART driver\\n- Fix bug in the BitArray base class\""
+      },
       {
         "comment": "Add support for Littlefs",
         "version": "4.5.2",

@@ -6,7 +6,7 @@
  * agreement (license.txt) in the top/ directory or on the Internet at
  * http://integerfox.com/colony.core/license.txt
  *
- * Copyright (c) 2014-2022  John T. Taylor
+ * Copyright (c) 2014-2025  John T. Taylor
  *
  * Redistributions of the source code must retain the above copyright notice.
  *----------------------------------------------------------------------------*/
@@ -14,8 +14,6 @@
 
 
 #include "Cpl/Dm/ModelPointCommon_.h"
-#include "Cpl/System/Assert.h"
-#include "Cpl/System/FatalError.h"
 #include "Cpl/Text/atob.h"
 #include "Cpl/Text/format.h"
 #include "Cpl/Text/FString.h"
@@ -82,9 +80,39 @@ protected:
 
 public:
     /// Type safe read. See Cpl::Dm::ModelPoint
-    inline bool read( ELEMTYPE& dstData, uint16_t* seqNumPtr = 0 ) const noexcept
+    inline bool read( ELEMTYPE& dstData, uint16_t* seqNumPtr = nullptr ) const noexcept
     {
         return Cpl::Dm::ModelPointCommon_::readData( &dstData, sizeof( ELEMTYPE ), seqNumPtr );
+    }
+
+    /** Atomic Read and then clear bits operation.
+        NOTES:
+            1. The return data value is BEFORE the clear operation.
+            2. If the MP is invalid then NO clear operation occurs.
+            3. When the MP is in the valid state, the returned sequence number
+               (if requested) is the AFTER the clear operation.
+     */
+    inline uint16_t readThenClearBits( ELEMTYPE& dstData, ELEMTYPE maskToClear, uint16_t* seqNumPtr = nullptr ) noexcept
+    {
+        Cpl::Dm::ModelPointCommon_::m_modelDatabase.lock_();
+        bool result = Cpl::Dm::ModelPointCommon_::readData( &dstData, sizeof( ELEMTYPE ), seqNumPtr );
+        if ( result )
+        {
+            ELEMTYPE newData = m_data  & ~maskToClear;
+            uint16_t seqNum  = Cpl::Dm::ModelPointCommon_::writeData( &newData, sizeof( ELEMTYPE ), Cpl::Dm::ModelPoint::eNO_REQUEST );
+            if ( seqNumPtr )
+            {
+                *seqNumPtr = seqNum;
+            }
+        }
+        Cpl::Dm::ModelPointCommon_::m_modelDatabase.unlock_();
+        return result;
+    }
+
+    /// Atomic Read and then clear (i.e. set to 0) operation.
+    inline uint16_t readThenClear( ELEMTYPE& dstData, uint16_t* seqNumPtr = nullptr ) noexcept
+    {
+        return readThenClearBits( dstData, (ELEMTYPE)-1, seqNumPtr );
     }
 
     /// Type safe write. See Cpl::Dm::ModelPoint
@@ -111,6 +139,42 @@ public:
         return result;
     }
 
+    /// Atomic bitwise OR operation
+    inline uint16_t bitwiseOR( ELEMTYPE maskToOR, Cpl::Dm::ModelPoint::LockRequest_T lockRequest = Cpl::Dm::ModelPoint::eNO_REQUEST ) noexcept
+    {
+        Cpl::Dm::ModelPointCommon_::m_modelDatabase.lock_();
+        uint16_t result = write( m_data | maskToOR, lockRequest );
+        Cpl::Dm::ModelPointCommon_::m_modelDatabase.unlock_();
+        return result;
+    }
+
+    /// Atomic bitwise XOR operation
+    inline uint16_t bitwiseXOR( ELEMTYPE maskToXOR, Cpl::Dm::ModelPoint::LockRequest_T lockRequest = Cpl::Dm::ModelPoint::eNO_REQUEST ) noexcept
+    {
+        Cpl::Dm::ModelPointCommon_::m_modelDatabase.lock_();
+        uint16_t result = write( m_data ^ maskToXOR, lockRequest );
+        Cpl::Dm::ModelPointCommon_::m_modelDatabase.unlock_();
+        return result;
+    }
+    
+    /// Atomic bitwise AND operation
+    inline uint16_t bitwiseAND( ELEMTYPE maskToAND, Cpl::Dm::ModelPoint::LockRequest_T lockRequest = Cpl::Dm::ModelPoint::eNO_REQUEST ) noexcept
+    {
+        Cpl::Dm::ModelPointCommon_::m_modelDatabase.lock_();
+        uint16_t result = write( m_data & maskToAND, lockRequest );
+        Cpl::Dm::ModelPointCommon_::m_modelDatabase.unlock_();
+        return result;
+    }
+
+    /// Atomic bitwise AND operation
+    inline uint16_t bitwiseClearAndSet( ELEMTYPE maskToClear, ELEMTYPE maskToSet, Cpl::Dm::ModelPoint::LockRequest_T lockRequest = Cpl::Dm::ModelPoint::eNO_REQUEST ) noexcept
+    {
+        Cpl::Dm::ModelPointCommon_::m_modelDatabase.lock_();
+        uint16_t result = write( ( m_data & ~maskToClear ) | maskToSet, lockRequest );
+        Cpl::Dm::ModelPointCommon_::m_modelDatabase.unlock_();
+        return result;
+    }
+
     /// Updates the MP with the valid-state/data from 'src'. Note: the src.lock state is NOT copied
     inline uint16_t copyFrom( const MPTYPE& src, LockRequest_T lockRequest = Cpl::Dm::ModelPoint::eNO_REQUEST ) noexcept
     {
@@ -132,7 +196,14 @@ public:
     /// See Cpl::Dm::ModelPointCommon
     inline bool readAndSync( ELEMTYPE& dstData, SubscriberApi& observerToSync )
     {
-        return ModelPointCommon_::readAndSync( &dstData, sizeof( ELEMTYPE ), observerToSync );
+        uint16_t seqNum;
+        return ModelPointCommon_::readAndSync( &dstData, sizeof( ELEMTYPE ), seqNum, observerToSync );
+    }
+
+    /// See Cpl::Dm::ModelPointCommon
+    inline bool readAndSync( ELEMTYPE& dstData, uint16_t& seqNum, SubscriberApi& observerToSync )
+    {
+        return ModelPointCommon_::readAndSync( &dstData, sizeof( ELEMTYPE ), seqNum, observerToSync );
     }
 
 protected:
@@ -237,28 +308,19 @@ public:
     /// Atomic operation to clear ONLY the bits as specified by the bit mask.
     inline uint16_t clearBitsByMask( WORDSIZE bitMask, Cpl::Dm::ModelPoint::LockRequest_T lockRequest = Cpl::Dm::ModelPoint::eNO_REQUEST ) noexcept
     {
-        Cpl::Dm::ModelPointCommon_::m_modelDatabase.lock_();
-        uint16_t result = Numeric<WORDSIZE, MPTYPE>::write( Numeric<WORDSIZE, MPTYPE>::m_data & ~( bitMask ), lockRequest );
-        Cpl::Dm::ModelPointCommon_::m_modelDatabase.unlock_();
-        return result;
+        return Numeric<WORDSIZE, MPTYPE>::bitwiseAND( ~bitMask, lockRequest );
     }
 
     /// Atomic operation to set the bits specified by the bit mask
     inline uint16_t setBitsByMask( WORDSIZE bitMask, Cpl::Dm::ModelPoint::LockRequest_T lockRequest = Cpl::Dm::ModelPoint::eNO_REQUEST ) noexcept
     {
-        Cpl::Dm::ModelPointCommon_::m_modelDatabase.lock_();
-        uint16_t result = Numeric<WORDSIZE, MPTYPE>::write( Numeric<WORDSIZE, MPTYPE>::m_data | bitMask, lockRequest );
-        Cpl::Dm::ModelPointCommon_::m_modelDatabase.unlock_();
-        return result;
+        return Numeric<WORDSIZE, MPTYPE>::bitwiseOR( bitMask, lockRequest );
     }
 
     /// Atomic operation to flip/toggle ONLY the bits as specified the bit mask
     inline uint16_t flipBitsByMask( WORDSIZE bitMask, Cpl::Dm::ModelPoint::LockRequest_T lockRequest = Cpl::Dm::ModelPoint::eNO_REQUEST ) noexcept
     {
-        Cpl::Dm::ModelPointCommon_::m_modelDatabase.lock_();
-        uint16_t result = Numeric<WORDSIZE, MPTYPE>::write( Numeric<WORDSIZE, MPTYPE>::m_data ^ bitMask, lockRequest );
-        Cpl::Dm::ModelPointCommon_::m_modelDatabase.unlock_();
-        return result;
+        return Numeric<WORDSIZE, MPTYPE>::bitwiseXOR( bitMask, lockRequest );
     }
 
 

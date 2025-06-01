@@ -7,7 +7,7 @@ standards require that doxygen execute without warning.
 The script assumes that doxygen is in the command path.
 
 
-Usage: doxygen [<buildtype> <buildNumber>] [debug]
+Usage: doxygen [<buildtype> <buildNumber>] [nochm]
 
 """
 
@@ -65,8 +65,9 @@ filename  = "colony.core-library"
 buildtype = 'private'
 buildnum  = 0
 debug     = False
-if ( len(sys.argv) > 3 and sys.argv[3] == 'debug' ):
-    debug = True
+chmfile   = "YES"
+if ( len(sys.argv) > 3 and sys.argv[3] == 'nochm' ):
+    chmfile = "NO"
 if ( len(sys.argv) > 2 ):
     buildtype = sys.argv[1]
     buildnum  = sys.argv[2]
@@ -76,11 +77,12 @@ if ( debug ):
     print( "= buildInfo: ", buildInfo )
 
 # Create a temporary config file that includes the build info
-cfgfile = "Doxyfile.tmp"
+cfgfile = "Doxyfile"
 indata  = ""
-with open ("Doxyfile", "r") as inf:
+with open ("Doxyfile.src", "r") as inf:
     indata=inf.read()
 indata = indata.replace('$$$PROJECT_NUMBER$$$',buildInfo)
+indata = indata.replace('$$$GENERATE_HELP_FILE$$$',chmfile)
 if ( debug ):
     print("= Config File...")
 with open (cfgfile, "w") as outf:
@@ -89,7 +91,7 @@ with open (cfgfile, "w") as outf:
         print(indata)
         
 # run doxygen
-cmd = "doxygen " + cfgfile
+cmd = "doxygen"
 if ( debug ):
     print("= Command: ", cmd )
 p   = subprocess.Popen( cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE )
@@ -109,8 +111,8 @@ except:
     pass
 
 # delete the HTML files - only keep the Windows Help (.chm) file
-path = os.path.join( '..', 'docs', 'html' )
-shutil.rmtree( path, ignore_errors=True  )
+#path = os.path.join( '..', 'docs', 'html' )
+#shutil.rmtree( path, ignore_errors=True  )
 
 
 # check for errors (note: filter_warnings exits on an error)
@@ -126,4 +128,11 @@ else:
 if ( len(sys.argv) > 2 ):
     outfile = os.path.join( '..', 'docs', f'{filename}.chm' )
     newfile = os.path.join( '..', 'docs', f'{filename}_{buildnum}-{buildtype}.chm' )
-    shutil.move( outfile, newfile )
+    try:
+        os.remove( newfile )
+    except:
+        pass
+    try:
+        shutil.move( outfile, newfile )
+    except:
+        pass

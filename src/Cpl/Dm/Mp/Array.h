@@ -1,37 +1,35 @@
 #ifndef Cpl_Dm_Mp_Array_h_
 #define Cpl_Dm_Mp_Array_h_
 /*-----------------------------------------------------------------------------
-* This file is part of the Colony.Core Project.  The Colony.Core Project is an
-* open source project with a BSD type of licensing agreement.  See the license
-* agreement (license.txt) in the top/ directory or on the Internet at
-* http://integerfox.com/colony.core/license.txt
-*
-* Copyright (c) 2014-2022  John T. Taylor
-*
-* Redistributions of the source code must retain the above copyright notice.
-*----------------------------------------------------------------------------*/
+ * This file is part of the Colony.Core Project.  The Colony.Core Project is an
+ * open source project with a BSD type of licensing agreement.  See the license
+ * agreement (license.txt) in the top/ directory or on the Internet at
+ * http://integerfox.com/colony.core/license.txt
+ *
+ * Copyright (c) 2014-2025  John T. Taylor
+ *
+ * Redistributions of the source code must retain the above copyright notice.
+ *----------------------------------------------------------------------------*/
 /** @file */
 
 
 #include "Cpl/Dm/ModelPointCommon_.h"
 
 
-
 /** The number of Elements in the temporary array (that is allocated on the
     STACK) when parsing the array elements in the fromJSON_() method.
  */
-#ifndef OPTION_CPL_DM_MP_ARRAY_TEMP_ARRAY_NUM_ELEMENTS      
-#define OPTION_CPL_DM_MP_ARRAY_TEMP_ARRAY_NUM_ELEMENTS      8
+#ifndef OPTION_CPL_DM_MP_ARRAY_TEMP_ARRAY_NUM_ELEMENTS
+#define OPTION_CPL_DM_MP_ARRAY_TEMP_ARRAY_NUM_ELEMENTS 8
 #endif
 
 
- ///
+///
 namespace Cpl {
 ///
 namespace Dm {
 ///
 namespace Mp {
-
 
 
 /** This a mostly concrete class provides 'common' implementation for a Model
@@ -51,17 +49,17 @@ protected:
     /// Meta data for read/write/copy operations
     struct MetaData_T
     {
-        uint8_t*  elemPtr;          //!< Pointer to the 1st element in the array to read/write
-        size_t    numElements;      //!< Number of element to read/write
-        size_t    elemIndex;        //!< Starting array index
+        uint8_t* elemPtr;      //!< Pointer to the 1st element in the array to read/write
+        size_t   numElements;  //!< Number of element to read/write
+        size_t   elemIndex;    //!< Starting array index
     };
 
 protected:
     /// Number of elements in the array
-    size_t  m_numElements;
+    size_t m_numElements;
 
     /// Size, in bytes, of an element
-    size_t  m_elementSize;
+    size_t m_elementSize;
 
 protected:
     /// Constructor: Invalid MP
@@ -121,17 +119,17 @@ public:
     /// See Cpl::Dm::ModelPoint
     void copyDataFrom_( const void* srcData, size_t srcSize ) noexcept;
 
-    /// See Cpl::Dm::ModelPoint.  
+    /// See Cpl::Dm::ModelPoint.
     bool isDataEqual_( const void* otherData ) const noexcept;
 
 
-    /// See Cpl::Dm::Point.  
+    /// See Cpl::Dm::Point.
     size_t getInternalDataSize_() const noexcept;
 
-    /// See Cpl::Dm::ModelPoint.  
+    /// See Cpl::Dm::ModelPoint.
     bool importMetadata_( const void* srcDataStream, size_t& bytesConsumed ) noexcept;
 
-    /// See Cpl::Dm::ModelPoint.  
+    /// See Cpl::Dm::ModelPoint.
     bool exportMetadata_( void* dstDataStream, size_t& bytesAdded ) const noexcept;
 };
 
@@ -142,7 +140,7 @@ public:
     1) All methods in this class are NOT thread Safe unless explicitly
     documented otherwise.
 */
-template<class ELEMTYPE>
+template <class ELEMTYPE>
 class NumericArrayBase_ : public ArrayBase_
 {
 protected:
@@ -151,7 +149,7 @@ protected:
                        const char*             symbolicName,
                        ELEMTYPE*               myDataPtr,
                        size_t                  numElements )
-        :ArrayBase_( myModelBase, symbolicName, myDataPtr, numElements, sizeof( ELEMTYPE ) )
+        : ArrayBase_( myModelBase, symbolicName, myDataPtr, numElements, sizeof( ELEMTYPE ) )
     {
     }
 
@@ -165,7 +163,7 @@ protected:
                        ELEMTYPE*               myDataPtr,
                        size_t                  numElements,
                        ELEMTYPE*               srcData )
-        :ArrayBase_( myModelBase, symbolicName, myDataPtr, numElements, sizeof( ELEMTYPE ), srcData )
+        : ArrayBase_( myModelBase, symbolicName, myDataPtr, numElements, sizeof( ELEMTYPE ), srcData )
     {
     }
 
@@ -198,19 +196,31 @@ public:
                              size_t         srcIndex = 0 )
     {
         uint16_t seqNum;
-        bool result = read( dstArrray, dstNumElements, srcIndex, &seqNum );
+        return readAndSync( dstArrray, dstNumElements, observerToSync, seqNum , srcIndex);
+    }
+
+    /** Same as readAndSync() above, but in addition returns the
+        sequence number of the MP.
+     */
+    inline bool readAndSync( ELEMTYPE*      dstArrray,
+                             size_t         dstNumElements,
+                             SubscriberApi& observerToSync,
+                             uint16_t&      seqNum,
+                             size_t         srcIndex = 0 )
+    {
+        bool result = ArrayBase_::readArrayElements( dstArrray, dstNumElements, srcIndex, &seqNum );
         ArrayBase_::attachSubscriber( observerToSync, seqNum );
         return result;
     }
 
 protected:
-    /// See Cpl::Dm::Point.  
+    /// See Cpl::Dm::Point.
     void setJSONVal( JsonDocument& doc ) noexcept
     {
         JsonObject obj    = doc.createNestedObject( "val" );
         obj["start"]      = 0;
         JsonArray arr     = obj.createNestedArray( "elems" );
-        ELEMTYPE* elemPtr = (ELEMTYPE*) m_dataPtr;
+        ELEMTYPE* elemPtr = (ELEMTYPE*)m_dataPtr;
         for ( size_t i = 0; i < m_numElements; i++ )
         {
             arr.add( elemPtr[i] );
@@ -218,7 +228,7 @@ protected:
     }
 
 public:
-    /// See Cpl::Dm::Point.  
+    /// See Cpl::Dm::Point.
     bool fromJSON_( JsonVariant& src, Cpl::Dm::ModelPoint::LockRequest_T lockRequest, uint16_t& retSequenceNumber, Cpl::Text::String* errorMsg ) noexcept
     {
         // Check for object
@@ -276,22 +286,22 @@ public:
                 }
                 tempArray[idx] = elems[idx + offset].as<ELEMTYPE>();
             }
-            retSequenceNumber = ArrayBase_::writeArrayElements( tempArray, idx, startIdx + offset, lockRequest );
-            offset      += idx;
-            numElements -= idx;
+            retSequenceNumber  = ArrayBase_::writeArrayElements( tempArray, idx, startIdx + offset, lockRequest );
+            offset            += idx;
+            numElements       -= idx;
         }
 
         return true;
     }
 };
 
-/** This mostly concrete template class implements an 'numeric Array' Model Point 
-    with an element size of N.  A child class is still required. The child classes 
+/** This mostly concrete template class implements an 'numeric Array' Model Point
+    with an element size of N.  A child class is still required. The child classes
     must provide the following:
 
         getTypeAsText() method and a typedef for child specific 'Observer'
 */
-template<class ELEMTYPE, int NUMELEMS, class MPTYPE>
+template <class ELEMTYPE, int NUMELEMS, class MPTYPE>
 class NumericArray_ : public NumericArrayBase_<ELEMTYPE>
 {
 protected:
@@ -302,7 +312,7 @@ protected:
     /// Constructor: Invalid MP
     NumericArray_( Cpl::Dm::ModelDatabase& myModelBase,
                    const char*             symbolicName )
-        :NumericArrayBase_<ELEMTYPE>( myModelBase, symbolicName, m_data, NUMELEMS )
+        : NumericArrayBase_<ELEMTYPE>( myModelBase, symbolicName, m_data, NUMELEMS )
     {
     }
 
@@ -314,12 +324,12 @@ protected:
     NumericArray_( Cpl::Dm::ModelDatabase& myModelBase,
                    const char*             symbolicName,
                    ELEMTYPE*               srcData )
-        :NumericArrayBase_<ELEMTYPE>( myModelBase, symbolicName, m_data, NUMELEMS, srcData )
+        : NumericArrayBase_<ELEMTYPE>( myModelBase, symbolicName, m_data, NUMELEMS, srcData )
     {
     }
 
 public:
-    /// Updates the MP's data/valid-state from 'src'. 
+    /// Updates the MP's data/valid-state from 'src'.
     inline uint16_t copyFrom( const MPTYPE& src, Cpl::Dm::ModelPoint::LockRequest_T lockRequest = Cpl::Dm::ModelPoint::eNO_REQUEST ) noexcept
     {
         return ArrayBase_::copyArrayFrom( src, lockRequest );
@@ -336,7 +346,6 @@ public:
     {
         ArrayBase_::detachSubscriber( observer );
     }
-
 };
 
 //////////////////////////////////////////////////////////////////////////////
@@ -345,7 +354,7 @@ public:
 
 /// uint8_t Array
 template <int N>
-class ArrayUint8: public NumericArray_<uint8_t, N, ArrayUint8<N>>
+class ArrayUint8 : public NumericArray_<uint8_t, N, ArrayUint8<N>>
 {
 public:
     /// Constructor. Invalid Point
@@ -559,7 +568,7 @@ public:
     typedef Cpl::Dm::Subscriber<ArrayDouble> Observer;
 };
 
-};      // end namespaces
+};  // end namespaces
 };
 };
 #endif  // end header latch
