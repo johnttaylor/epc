@@ -78,6 +78,7 @@ public:
         return ModelPointCommon_::readAndSync( &dstData, sizeof( void* ), seqNum, observerToSync );
     }
 
+    /// See Cpl::Dm::ModelPointCommon
     inline bool readAndSync( StaticScreenApi*& dstData, uint16_t& seqNum, Cpl::Dm::SubscriberApi& observerToSync )
     {
         return ModelPointCommon_::readAndSync( &dstData, sizeof( void* ), seqNum, observerToSync );
