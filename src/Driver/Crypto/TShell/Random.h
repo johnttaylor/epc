@@ -52,16 +52,15 @@ protected:
 
 public:
     /// Constructor
-    Random( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
-            Cpl::TShell::Security::Permission_T        minPermLevel=OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;
+    Random( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
+            Cpl::TShell::Security::Permission_T          minPermLevel = OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;
 
 public:
     /// See Cpl::TShell::Command
     Cpl::TShell::Command::Result_T execute( Cpl::TShell::Context_& context, char* cmdString, Cpl::Io::Output& outfd ) noexcept;
-
 };
 
-}       // end namespaces
-} 
-} 
+}  // end namespaces
+}
+}
 #endif  // end header latch

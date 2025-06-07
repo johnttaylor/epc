@@ -33,22 +33,24 @@ public:
     static constexpr const char* verb = "rhtemp";
 
     /// The command usage string
-    static constexpr const char* usage = "rhtemp start|stop\n"
-                                         "rhtemp sample\n"
-                                         "rhtemp begin\n"
-                                         "rhtemp read\n"
-                                         "rhtemp heater on|off";
+    static constexpr const char* usage =
+        "rhtemp start|stop\n"
+        "rhtemp sample\n"
+        "rhtemp begin\n"
+        "rhtemp read\n"
+        "rhtemp heater on|off";
 
 
     /** The command detailed help string (recommended that lines do not exceed 80 chars)
                                                           1         2         3         4         5         6         7         8
                                                  12345678901234567890123456789012345678901234567890123456789012345678901234567890
      */
-    static constexpr const char* detailedHelp = "  Exercises the RHTemp Driver.  The user is required to manually start (and\n"
-                                                "  stop) the driver for proper operation.\n"
-                                                "  'sample' performs a blocking sampling\n"
-                                                "  'begin' starts an asynchronous sample\n"
-                                                "  'read' returns the async result/state";
+    static constexpr const char* detailedHelp =
+        "  Exercises the RHTemp Driver.  The user is required to manually start (and\n"
+        "  stop) the driver for proper operation.\n"
+        "  'sample' performs a blocking sampling\n"
+        "  'begin' starts an asynchronous sample\n"
+        "  'read' returns the async result/state";
 protected:
     /// See Cpl::TShell::Command
     const char* getUsage() const noexcept { return usage; }
@@ -59,9 +61,9 @@ protected:
 
 public:
     /// Constructor
-    TShellCmd( Driver::RHTemp::Api&                       driver,
-               Cpl::Container::Map<Cpl::TShell::Command>& commandList,
-               Cpl::TShell::Security::Permission_T        minPermLevel=OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;
+    TShellCmd( Driver::RHTemp::Api&                         driver,
+               Cpl::Container::SList<Cpl::TShell::Command>& commandList,
+               Cpl::TShell::Security::Permission_T          minPermLevel = OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;
 
 public:
     /// See Cpl::TShell::Command
@@ -69,9 +71,9 @@ public:
 
 protected:
     /// Driver instance under test
-    Driver::RHTemp::Api&    m_driver;
+    Driver::RHTemp::Api& m_driver;
 };
 
-};      // end namespaces
+};  // end namespaces
 };
 #endif  // end header latch

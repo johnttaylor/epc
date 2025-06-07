@@ -17,11 +17,9 @@
 #include "Driver/DIO/In.h"
 
 ///
-namespace Eros
-{
+namespace Eros {
 ///
-namespace TShell
-{
+namespace TShell {
 
 /** This class implements a TShell command to verify the PWM signals on the board
  */
@@ -51,8 +49,8 @@ public:
 public:
     /// Constructor
     HwSafety( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
-              Driver::DIO::In&                           hwSafetyInDriver,
-              Cpl::TShell::Security::Permission_T        minPermLevel=OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;
+              Driver::DIO::In&                             hwSafetyInDriver,
+              Cpl::TShell::Security::Permission_T          minPermLevel = OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;
 
 
 public:
@@ -61,9 +59,9 @@ public:
 
 protected:
     /// Driver
-    Driver::DIO::In&  m_hwSafetyInDriver;
+    Driver::DIO::In& m_hwSafetyInDriver;
 };
 
-}       // end namespaces
+}  // end namespaces
 }
 #endif  // end header latch
