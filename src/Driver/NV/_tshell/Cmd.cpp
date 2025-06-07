@@ -22,7 +22,7 @@ using namespace Driver::NV;
 
 
 ///////////////////////////
-Cmd::Cmd( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+Cmd::Cmd( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
           Driver::NV::Api&                           nvDriver,
           Cpl::TShell::Security::Permission_T        minPermLevel ) noexcept
     : Command( commandList, verb, minPermLevel )

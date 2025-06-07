@@ -59,7 +59,7 @@ protected:
 
 public:
     /// Constructor
-    Cmd( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+    Cmd( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
          Driver::NV::Api&                           nvDriver,
          Cpl::TShell::Security::Permission_T        minPermLevel=OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;
 
