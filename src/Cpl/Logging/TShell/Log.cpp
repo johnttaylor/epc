@@ -112,7 +112,7 @@ Cpl::TShell::Command::Result_T Log::execute( Cpl::TShell::Context_ & context, ch
         }
         else
         {
-            outtext.format( "Failed to convert <max> (%s, %s)", tokens.getParameter( 1 ) );
+            outtext.format( "Failed to convert <max> (%s)", tokens.getParameter( 1 ) );
             context.writeFrame( outtext );
             return eERROR_FAILED;
         }

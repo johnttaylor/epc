@@ -69,7 +69,7 @@ bool BdFile::start() noexcept
         m_fd = OPENFN( m_fname, OPENFLAGS, 0666 );
         if ( m_fd < 0 )
         {
-            CPL_SYSTEM_TRACE_MSG( SECT_, ( "Failed to open file: %s, err=", m_fname, errno ) );
+            CPL_SYSTEM_TRACE_MSG( SECT_, ( "Failed to open file: %s, err=%d", m_fname, errno ) );
             return false;
         }
 
@@ -86,7 +86,7 @@ void BdFile::stop() noexcept
         m_started = false;
         if ( CLOSEFN( m_fd ) < 0 )
         {
-            CPL_SYSTEM_TRACE_MSG( SECT_, ( "Failed to close file: %s, err=", m_fname, errno ) );
+            CPL_SYSTEM_TRACE_MSG( SECT_, ( "Failed to close file: %s, err=%d", m_fname, errno ) );
         }
     }
 }
@@ -114,7 +114,7 @@ bool BdFile::readfn( const struct lfs_config* c, lfs_block_t block, lfs_off_t of
     // read
     if ( LSEEKFN( m_fd, address, SEEK_SET ) < 0 )
     {
-        CPL_SYSTEM_TRACE_MSG( SECT_, ( "Read: Failed to seek to address: %ld (%d)", address, -errno ) );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ( "Read: Failed to seek to address: %d (%d)", address, -errno ) );
         return false;
     }
 
@@ -161,7 +161,7 @@ bool BdFile::progfn( const struct lfs_config* c, lfs_block_t block, lfs_off_t of
     // program data
     if ( LSEEKFN( m_fd, address, SEEK_SET ) < 0 )
     {
-        CPL_SYSTEM_TRACE_MSG( SECT_, ( "Write: Failed to seek to address: %ld (%d)", address, -errno ) );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ( "Write: Failed to seek to address: %d (%d)", address, -errno ) );
         return false;
     }
     if ( WRITEFN( m_fd, buffer, size ) < 0 )
@@ -198,7 +198,7 @@ bool BdFile::erasefn( const struct lfs_config* c, lfs_block_t block ) noexcept
     // Move to start of the sector
     if ( LSEEKFN( m_fd, sectorAddress, SEEK_SET ) < 0 )
     {
-        CPL_SYSTEM_TRACE_MSG( SECT_, ( "Erase: seek failed -> %d (seek=%lu)", -errno, sectorAddress ) );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ( "Erase: seek failed -> %d (seek=%u)", -errno, sectorAddress ) );
         return false;
     }
 

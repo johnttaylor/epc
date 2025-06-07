@@ -4,7 +4,7 @@
 * agreement (license.txt) in the top/ directory or on the Internet at
 * http://integerfox.com/colony.core/license.txt
 *
-* Copyright (c) 2014-2022  John T. Taylor
+* Copyright (c) 2014-2025  John T. Taylor
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
@@ -102,7 +102,7 @@ public:
 
 //////////////////////////////////////////////
 // Create the Command/Debug Console and populate with commands
-static Cpl::Container::SList<Cpl::TShell::Command>    cmdlist_( "ignoreThisParameter_usedToInvokeTheStaticConstructor" );
+static Cpl::Container::Map<Cpl::TShell::Command>    cmdlist_( "ignoreThisParameter_usedToInvokeTheStaticConstructor" );
 static Cpl::TShell::PolledMaker                     cmdProcessor_( cmdlist_ );
 static Cpl::TShell::Cmd::Help	                    helpCmd_( cmdlist_ );
 static Cpl::TShell::Cmd::Bye	                    byeCmd_( cmdlist_ );

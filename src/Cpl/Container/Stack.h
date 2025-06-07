@@ -6,7 +6,7 @@
 * agreement (license.txt) in the top/ directory or on the Internet at
 * http://integerfox.com/colony.core/license.txt
 *
-* Copyright (c) 2014-2022  John T. Taylor
+* Copyright (c) 2014-2025  John T. Taylor
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
@@ -55,7 +55,7 @@ public:
     /** Adds an item to the top of the stack.  Returns true if successful;
         else false is returned (e.g. on stack overflow).
      */
-    bool push( const ITEM src ) noexcept;
+    bool push( const ITEM& src ) noexcept;
 
 
     /** Removes the top item of the stack.  If the stack is empty, 
@@ -140,7 +140,7 @@ inline void Stack<ITEM>::clearTheStack() noexcept
 
 
 template <class ITEM>
-inline bool Stack<ITEM>::push( const ITEM item ) noexcept
+inline bool Stack<ITEM>::push( const ITEM& item ) noexcept
 {
     if ( isFull() )
     {

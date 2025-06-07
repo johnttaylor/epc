@@ -6,7 +6,7 @@
 * agreement (license.txt) in the top/ directory or on the Internet at
 * http://integerfox.com/colony.core/license.txt
 *
-* Copyright (c) 2014-2022  John T. Taylor
+* Copyright (c) 2014-2025  John T. Taylor
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
@@ -82,7 +82,14 @@ public:
     /// See Cpl::Dm::ModelPointCommon
     inline bool readAndSync( void*& dstData, SubscriberApi& observerToSync )
     {
-        return ModelPointCommon_::readAndSync( &dstData, sizeof( void* ), observerToSync );
+        uint16_t seqNum;
+        return ModelPointCommon_::readAndSync( &dstData, sizeof( void* ), seqNum, observerToSync );
+    }
+
+    /// See Cpl::Dm::ModelPointCommon
+    inline bool readAndSync( void*& dstData, uint16_t& seqNum, SubscriberApi& observerToSync )
+    {
+        return ModelPointCommon_::readAndSync( &dstData, sizeof( void* ), seqNum, observerToSync );
     }
 
     ///  See Cpl::Dm::ModelPoint.

@@ -11,6 +11,7 @@ int main( int argc, char* argv[] )
 
 	CPL_SYSTEM_TRACE_ENABLE();
 	CPL_SYSTEM_TRACE_ENABLE_SECTION( "_0test" );
+	CPL_SYSTEM_TRACE_ENABLE_SECTION( "*Cpl::Persistent" );
 	CPL_SYSTEM_TRACE_SET_INFO_LEVEL( Cpl::System::Trace::eVERBOSE );
 
 	// Run the test(s)

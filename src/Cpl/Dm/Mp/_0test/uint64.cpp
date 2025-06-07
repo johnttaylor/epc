@@ -1,39 +1,36 @@
 /*-----------------------------------------------------------------------------
-* This file is part of the Colony.Core Project.  The Colony.Core Project is an
-* open source project with a BSD type of licensing agreement.  See the license
-* agreement (license.txt) in the top/ directory or on the Internet at
-* http://integerfox.com/colony.core/license.txt
-*
-* Copyright (c) 2014-2022  John T. Taylor
-*
-* Redistributions of the source code must retain the above copyright notice.
-*----------------------------------------------------------------------------*/
+ * This file is part of the Colony.Core Project.  The Colony.Core Project is an
+ * open source project with a BSD type of licensing agreement.  See the license
+ * agreement (license.txt) in the top/ directory or on the Internet at
+ * http://integerfox.com/colony.core/license.txt
+ *
+ * Copyright (c) 2014-2025  John T. Taylor
+ *
+ * Redistributions of the source code must retain the above copyright notice.
+ *----------------------------------------------------------------------------*/
 
 #include "Catch/catch.hpp"
 #include "Cpl/System/_testsupport/Shutdown_TS.h"
 #include "Cpl/System/Trace.h"
-#include "Cpl/System/Api.h"
-#include "Cpl/Text/FString.h"
-#include "Cpl/Text/DString.h"
 #include "Cpl/Dm/ModelDatabase.h"
 #include "Cpl/Dm/Mp/Uint64.h"
 #include <string.h>
 
-#define STRCMP(s1,s2)       (strcmp(s1,s2)==0)
-#define MAX_STR_LENG        1024
-#define SECT_               "_0test"
+#define STRCMP( s1, s2 ) ( strcmp( s1, s2 ) == 0 )
+#define MAX_STR_LENG     1024
+#define SECT_            "_0test"
 
-#define INITIAL_VALUE       42
+#define INITIAL_VALUE    42
 
 ////////////////////////////////////////////////////////////////////////////////
 using namespace Cpl::Dm;
 
 // Allocate/create my Model Database
-static ModelDatabase    modelDb_( "ignoreThisParameter_usedToInvokeTheStaticConstructor" );
+static ModelDatabase modelDb_( "ignoreThisParameter_usedToInvokeTheStaticConstructor" );
 
 // Allocate my Model Points
-static Mp::Uint64       mp_apple_( modelDb_, "APPLE" );
-static Mp::Uint64       mp_orange_( modelDb_, "ORANGE", INITIAL_VALUE );
+static Mp::Uint64 mp_apple_( modelDb_, "APPLE" );
+static Mp::Uint64 mp_orange_( modelDb_, "ORANGE", INITIAL_VALUE );
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -44,9 +41,9 @@ TEST_CASE( "Uint64" )
 {
     Cpl::System::Shutdown_TS::clearAndUseCounter();
 
-    char    string[MAX_STR_LENG + 1];
-    bool    truncated;
-    bool    valid;
+    char     string[MAX_STR_LENG + 1];
+    bool     truncated;
+    bool     valid;
     uint64_t value;
 
     SECTION( "gets" )
@@ -62,7 +59,7 @@ TEST_CASE( "Uint64" )
         REQUIRE( s == sizeof( value ) + sizeof( bool ) );
 
         const char* mpType = mp_apple_.getTypeAsText();
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("typeText: [%s]", mpType) );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ( "typeText: [%s]", mpType ) );
         REQUIRE( strcmp( mpType, "Cpl::Dm::Mp::Uint64" ) == 0 );
     }
 
@@ -86,14 +83,56 @@ TEST_CASE( "Uint64" )
         REQUIRE( value == INITIAL_VALUE );
     }
 
+    SECTION( "bit-operations" )
+    {
+        uint16_t seqNum1 = mp_apple_.write( 0xA5 );
+        uint16_t seqNum2 = mp_apple_.bitwiseOR( 0xF0 );
+        REQUIRE( ( seqNum1 + 1 ) == seqNum2 );
+        valid = mp_apple_.read( value );
+        REQUIRE( valid );
+        REQUIRE( value == ( 0xA5 | 0xF0 ) );
+
+        mp_apple_.bitwiseAND( 0xF01 );
+        valid = mp_apple_.read( value );
+        REQUIRE( valid );
+        REQUIRE( value == 0x01 );
+
+        mp_apple_.bitwiseXOR( 0xF01 );
+        valid = mp_apple_.read( value );
+        REQUIRE( valid );
+        REQUIRE( value == 0xF00 );
+
+        seqNum1 = mp_apple_.bitwiseClearAndSet( 0x300, 0x0A0 );
+        valid = mp_apple_.readThenClear( value, &seqNum2 );
+        REQUIRE( ( seqNum1 + 1 ) == seqNum2 );
+        REQUIRE( valid );
+        REQUIRE( value == 0xCA0 );
+        valid = mp_apple_.read( value );
+        REQUIRE( valid );
+        REQUIRE( value == 0);
+
+        mp_apple_.write( 0xA5 );
+        valid = mp_apple_.readThenClearBits( value, 0xF0 );
+        REQUIRE( valid );
+        REQUIRE( value == 0xA5 );
+        valid = mp_apple_.read( value );
+        REQUIRE( valid );
+        REQUIRE( value == 0x05);
+
+        seqNum1 = mp_apple_.setInvalid();
+        valid = mp_apple_.readThenClear( value, &seqNum2 );
+        REQUIRE( valid == false );
+        REQUIRE( seqNum1 == seqNum2 );
+    }
+
     SECTION( "toJSON-pretty" )
     {
         mp_apple_.write( 127 );
         mp_apple_.toJSON( string, MAX_STR_LENG, truncated, true, true );
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("toJSON: [%s]", string) );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ( "toJSON: [%s]", string ) );
 
         StaticJsonDocument<1024> doc;
-        DeserializationError err = deserializeJson( doc, string );
+        DeserializationError     err = deserializeJson( doc, string );
         REQUIRE( err == DeserializationError::Ok );
         REQUIRE( doc["locked"] == false );
         REQUIRE( doc["valid"] == true );
@@ -105,8 +144,8 @@ TEST_CASE( "Uint64" )
         // Start with MP in the invalid state
         mp_apple_.setInvalid();
 
-        const char* json = "{name:\"APPLE\", val:1234}";
-        bool result = modelDb_.fromJSON( json );
+        const char* json   = "{name:\"APPLE\", val:1234}";
+        bool        result = modelDb_.fromJSON( json );
         REQUIRE( result == true );
         valid = mp_apple_.read( value );
         REQUIRE( valid );

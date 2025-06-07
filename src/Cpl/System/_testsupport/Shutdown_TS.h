@@ -6,14 +6,25 @@
 * agreement (license.txt) in the top/ directory or on the Internet at
 * http://integerfox.com/colony.core/license.txt
 *
-* Copyright (c) 2014-2022  John T. Taylor
+* Copyright (c) 2014-2025  John T. Taylor
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
 /** @file */
 
+#include "colony_config.h"
 #include <stddef.h>
 
+/** Maximum number of allowed fatal errors before the application is
+    forced to exit.  This is a safety mechanism to prevent the unit test
+    from getting into a 'runaway' error condition.  
+
+    Note: The fatal error count is reset everytime getAndClearCounter() 
+          is called.
+ */
+#ifndef OPTION_CPL_SYSTEM_SHUTDOWN_TS_MAX_FATAL_ERRORS 
+#define OPTION_CPL_SYSTEM_SHUTDOWN_TS_MAX_FATAL_ERRORS  30
+#endif
 
 /// 
 namespace Cpl {
