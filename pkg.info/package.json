@@ -94,7 +94,9 @@
         "parentDir": null,
         "version": {
           "semanticVersion": "5.0.1",
+          "semanticVersion": "5.0.1",
           "branch": null,
+          "tag": "OUTCAST2-main-5.0.1"
           "tag": "OUTCAST2-main-5.0.1"
         },
         "repo": {

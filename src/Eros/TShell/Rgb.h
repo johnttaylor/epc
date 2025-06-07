@@ -31,9 +31,10 @@ public:
     static constexpr const char* verb = "rgb";
 
     /// The command usage string
-    static constexpr const char* usage = "rgb off\n"
-                                         "rgb <red> <green> <blue>\n"
-                                         "rgb <brightness>";
+    static constexpr const char* usage =
+        "rgb off\n"
+        "rgb <red> <green> <blue>\n"
+        "rgb <brightness>";
 
     /** The command detailed help string (recommended that lines do not exceed 80 chars)
                                                           1         2         3         4         5         6         7         8
@@ -53,8 +54,8 @@ public:
 public:
     /// Constructor
     Rgb( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
-         Driver::LED::RedGreenBlue&                 statusLED,
-         Cpl::TShell::Security::Permission_T        minPermLevel=OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;
+         Driver::LED::RedGreenBlue&                   statusLED,
+         Cpl::TShell::Security::Permission_T          minPermLevel = OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;
 
 
 public:
@@ -63,9 +64,9 @@ public:
 
 protected:
     /// LED Driver
-    Driver::LED::RedGreenBlue&  m_ledDriver;
+    Driver::LED::RedGreenBlue& m_ledDriver;
 };
 
-}       // end namespaces
+}  // end namespaces
 }
 #endif  // end header latch

@@ -41,22 +41,22 @@ namespace Dm {
 class MpFlcConfig : public Cpl::Dm::ModelPointCommon_
 {
 public:
-    /// Constructor. Invalid MP. 
+    /// Constructor. Invalid MP.
     MpFlcConfig( Cpl::Dm::ModelDatabase& myModelBase, const char* symbolicName )
-        :Cpl::Dm::ModelPointCommon_( myModelBase, symbolicName, &m_data, sizeof( m_data ), false )
+        : Cpl::Dm::ModelPointCommon_( myModelBase, symbolicName, &m_data, sizeof( m_data ), false )
     {
     }
 
     /// Constructor. Valid MP.  Requires an initial value
     MpFlcConfig( Cpl::Dm::ModelDatabase& myModelBase, const char* symbolicName, Ajax::Heating::Flc::Config_T initialValue )
-        :Cpl::Dm::ModelPointCommon_( myModelBase, symbolicName, &m_data, sizeof( m_data ), true )
+        : Cpl::Dm::ModelPointCommon_( myModelBase, symbolicName, &m_data, sizeof( m_data ), true )
     {
         m_data = initialValue;
     }
 
 public:
     /// Type safe read. See Cpl::Dm::ModelPoint
-    inline bool read( Ajax::Heating::Flc::Config_T& dstData, uint16_t* seqNumPtr=0 ) const noexcept
+    inline bool read( Ajax::Heating::Flc::Config_T& dstData, uint16_t* seqNumPtr = 0 ) const noexcept
     {
         return readData( &dstData, sizeof( m_data ), seqNumPtr );
     }
@@ -78,26 +78,34 @@ public:
     typedef Cpl::Dm::Subscriber<MpFlcConfig> Observer;
 
     /// Type safe register observer
-    void attach( Observer& observer, uint16_t initialSeqNumber=SEQUENCE_NUMBER_UNKNOWN ) noexcept;
+    void attach( Observer& observer, uint16_t initialSeqNumber = SEQUENCE_NUMBER_UNKNOWN ) noexcept;
 
     /// Type safe un-register observer
     void detach( Observer& observer ) noexcept;
 
+
     /// See Cpl::Dm::ModelPointCommon
     inline bool readAndSync( Ajax::Heating::Flc::Config_T& dstData, Cpl::Dm::SubscriberApi& observerToSync )
     {
-        return ModelPointCommon_::readAndSync( &dstData, sizeof( m_data ), observerToSync );
+        uint16_t seqNum;
+        return ModelPointCommon_::readAndSync( &dstData, sizeof( dstData ), seqNum, observerToSync );
+    }
+
+    /// See Cpl::Dm::ModelPointCommon
+    inline bool readAndSync( Ajax::Heating::Flc::Config_T& dstData, uint16_t& seqNum, Cpl::Dm::SubscriberApi& observerToSync )
+    {
+        return ModelPointCommon_::readAndSync( &dstData, sizeof( dstData ), seqNum, observerToSync );
     }
 
 public:
     ///  See Cpl::Dm::ModelPoint.
     const char* getTypeAsText() const noexcept;
 
-    /// See Cpl::Dm::Point.  
+    /// See Cpl::Dm::Point.
     bool fromJSON_( JsonVariant& src, LockRequest_T lockRequest, uint16_t& retSequenceNumber, Cpl::Text::String* errorMsg ) noexcept;
 
 protected:
-    /// See Cpl::Dm::Point.  
+    /// See Cpl::Dm::Point.
     void setJSONVal( JsonDocument& doc ) noexcept;
 
 protected:
@@ -106,7 +114,6 @@ protected:
 };
 
 
-
-};      // end namespaces
+};  // end namespaces
 };
 #endif  // end header latch

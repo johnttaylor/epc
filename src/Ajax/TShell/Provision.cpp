@@ -15,6 +15,7 @@
 #include "Driver/Crypto/Random.h"
 #include "Driver/Crypto/PasswordHash/Api.h"
 #include "Cpl/System/Trace.h"
+#include "Cpl/System/Assert.h"
 #include <string.h>
 
 #define SECT_   "Ajax::TShell"
