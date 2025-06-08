@@ -19,7 +19,7 @@ rmdir /s /q %ARTIFACTS_DIR%
 mkdir %ARTIFACTS_DIR%
 
 :: Set the NQBP_BIN path (and other magic variables - but no compiler selected)
-call ./env.bat
+call .\env.bat
 
 :: Set Build info (and force build number to zero for "non-official" builds)
 set BUILD_NUMBER=%1
