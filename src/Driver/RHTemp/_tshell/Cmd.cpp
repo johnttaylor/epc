@@ -21,7 +21,7 @@ using namespace Driver::RHTemp;
 
 ///////////////////////////
 TShellCmd::TShellCmd( Driver::RHTemp::Api&                       driver,
-                      pl::Container::SList<Cpl::TShell::Command>& commandList,
+                      Cpl::Container::SList<Cpl::TShell::Command>& commandList,
                       Cpl::TShell::Security::Permission_T        minPermLevel ) noexcept
     : Command( commandList, verb, minPermLevel )
     , m_driver( driver )

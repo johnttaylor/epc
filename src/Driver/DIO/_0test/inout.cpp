@@ -31,7 +31,7 @@ extern void test( Cpl::Io::Input& infd, Cpl::Io::Output& outfd );
 ////////////////////////////////////////////////////////////////////////////////
 
 /// 
-extern pl::Container::SList<Cpl::TShell::Command>    cmdlist;
+extern Cpl::Container::SList<Cpl::TShell::Command>    cmdlist;
 static Cpl::TShell::PolledMaker                     polledCmdProcessor_( cmdlist );
 
 //////////////////////////////////////////////

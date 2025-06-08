@@ -33,7 +33,7 @@ extern Driver::RHTemp::Api* g_uutPtr;
 ////////////////////////////////////////////////////////////////////////////////
 
 /// 
-extern pl::Container::SList<Cpl::TShell::Command>    cmdlist;
+extern Cpl::Container::SList<Cpl::TShell::Command>    cmdlist;
 static Cpl::TShell::PolledMaker                     polledCmdProcessor_( cmdlist );
 
 //////////////////////////////////////////////
