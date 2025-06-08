@@ -77,7 +77,7 @@ optimized_win64 = BuildValues()
 debug_win64     = BuildValues()
 
 # Set 'base' options
-base_win64.cflags     = '-m64 -std=c++17 -Wall -Werror -x c++'
+base_win64.cflags     = '-m64 -std=c++17 -Wall -Werror -x c++ -fprofile-arcs -ftest-coverage -Wno-class-memaccess'
 base_win64.inc        = catch2_inc
 base_win64.linkflags  = '-m64'
 base_win64.firstobjs  = unit_test_objects
