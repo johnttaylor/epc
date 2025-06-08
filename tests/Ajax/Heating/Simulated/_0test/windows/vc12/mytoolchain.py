@@ -68,7 +68,7 @@ base_cpp11.cflags     = '/W3 /WX /EHsc /D CATCH_CONFIG_FAST_COMPILE'  # /EHsc en
 
 # Set 'Optimized' options
 optimzed_cpp11.cflags   = '/O2'
-optimzed_cpp11.linklibs = ''
+optimzed_cpp11.linklibs = 'Advapi32.lib'
 
 # Set project specific 'debug' options
 debug_cpp11.linklibs = ''

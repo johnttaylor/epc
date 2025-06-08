@@ -11,7 +11,6 @@ import platform
 #
 from nqbplib.docopt.docopt import docopt
 from nqbplib import utils
-from nqbplib.my_globals import NQBP_PKG_ROOT
 
 
 #
@@ -23,16 +22,17 @@ Usage: tca [options] rpt [<args>...]
        tca [options] -m PATTERN
        tca [options] -c
        tca [options] --clean
+       tca [options] merge <SRC> <DST>
 
 Arguments:
   rpt              Uses 'gcovr' to generate a summary report of the code 
                    coverage.  The optional '<args>' are passed directory to
                    'gcovr' 
-  -d OFILE         Generates human reable '.gcov' for the specified 'OFILE' in
+  -d OFILE         Generates human readable '.gcov' for the specified 'OFILE' in
                    the project/object tree. The '.gcov' files are placed in the
                    current working directory
-  -m PATTERN       Searchs the file(s) identified by 'PATTERN' for code lines
-                   that did NOT execute.  You must run 'tca -d OFILE' before 
+  -m PATTERN       Searches the file(s) identified by 'PATTERN' for code lines
+                   that did NOT execute.  You must run 'tca -d OFILE' before
                    using this option.
   -c               Removes only the '.gcov' files. Note: You do NOT have 
                    re-compile or run the executable again before rerunning this 
@@ -43,7 +43,13 @@ Arguments:
   -z, --clean      Removes ALL code coverage related files.  You will have to
                    RE-COMPILE and RE-RUN the executable before running this script 
                    again.
-                   
+  merge            Merges the SRC code coverage output in single/combined DST
+                   coverage output file.
+  SRC              The source coverage output file to merge (i.e test coverage
+                   for a single unit test).
+  DST              The destination coverage output file to merge into (i.e. the
+                   combined coverage output file).    
+
 Options:
   --ci             Uses the repository root instead of the src/ directory. This
                    is a work-around for Jenkins-Cobertura plugin
@@ -71,6 +77,10 @@ Examples:
     # Filters the output to a single component directory
     tca.py rpt -f .*Cpl/Container.*
 
+    # Combine the code coverage output from multiple unit tests
+    tca.py rpt --json coverage.json
+    tca.py merge coverage.json combined.json
+
 NOTES:
     o TCA assumes you used the gcc compiler to create you executable.
     o When compiling you must use the following options:
@@ -91,23 +101,23 @@ def run(argv):
     args = docopt(usage, version="0.0.1", options_first=True)
     
     # get the package root
-    pkg = NQBP_PKG_ROOT()
+    pkg = os.environ.get('NQBP_PKG_ROOT')
     gcovr_root = f'-r {pkg}/src'
     if args['--ci']:
         gcovr_root = f'--filter .*src/.* -r {pkg}'
 
-    # setup excludes 
-    excludes = '--exclude=.*_0test.* --exclude=.*/xsrc/.* --exclude=.*src/Catch.* --exclude=.*src/Cpl/Json/Arduino.h --exclude=.*src/Cpl/Json/ArduinoHelpers.cpp --exclude=.*src/Cpl/Type/enum.h --exclude-unreachable-branches --exclude-lines-by-pattern .*CPL_SYSTEM_TRACE.* --exclude-lines-by-pattern .*CPL_SYSTEM_ASSERT.*'
-
-    # Setup 'arc' excludes for C++ code (see https://gcovr.com/en/stable/faq.html) 
-    arcopt = ' --exclude-unreachable-branches --decisions '
+    # setup excludes and other options
+    arcopt = ' --exclude-unreachable-branches --decisions ' # Setup 'arc' excludes for C++ code (see https://gcovr.com/en/stable/faq.html) 
     if ( args['--all'] ):
         arcopt = ''
+    excludes = '--exclude=.*_0test.* --exclude=.*/xsrc/.* --exclude=.*src/Catch.* --exclude=.*src/Cpl/Json/Arduino.h --exclude=.*src/Cpl/Json/ArduinoHelpers.cpp --exclude=.*src/Cpl/Type/enum.h --exclude-unreachable-branches --exclude-lines-by-pattern .*CPL_SYSTEM_TRACE.* --exclude-lines-by-pattern .*CPL_SYSTEM_ASSERT.*'
+    gcovr_args = f'{excludes} --gcov-ignore-parse-errors=negative_hits.warn -j 8 {arcopt} {gcovr_root} --object-directory . '
+    
 
     # Generate summary
     if (args['rpt']):
         python = 'python'
-        cmd  = '{} -m gcovr {} {} --gcov-ignore-parse-errors=negative_hits.warn -j 8 {} --object-directory . {} .'.format(python, excludes, arcopt, gcovr_root,  ' '.join(args['<args>']) if args['<args>'] else '') 
+        cmd  = f"{python} -m gcovr {gcovr_args} {' '.join(args['<args>']) if args['<args>'] else ''} ."
         if (args['<args>']):
             first = args['<args>'][0]
             if (first == '-h' or first == '--help'):
@@ -133,6 +143,10 @@ def run(argv):
     elif (args['-c']):
         clean( os.getcwd(), ['*.gcov'] )
         
+    # Merge code coverage output files
+    elif (args['merge']):
+        merge_files( gcovr_args, args['<SRC>'], args['<DST>'] )
+
 #------------------------------------------------------------------------------
 def run_shell(cmd, verbose_flag=False, on_err_msg=None):
     if (verbose_flag):
@@ -221,3 +235,22 @@ def _print_window(lines):
     for l in lines:
         print(l, end=' ')
     print()    
+
+#------------------------------------------------------------------------------
+import shutil
+def merge_files(gcovr_args, src, dst):
+    if (not os.path.isfile(src)):
+        exit("ERROR: Source file '{}' does not exist".format(src))
+    if (not os.path.isfile(dst)):
+        # Create the destination file with a empty json payload
+        with open(dst, 'w') as fd:
+            fd.write('{"files": [], "gcovr/format_version": "0.6"}')
+        
+    tmp_file = '__temp_combined_coverage.json'
+    cmd = f'python -m gcovr {gcovr_args} -a {src} -a {dst} --json {tmp_file}'
+    
+    print(cmd)
+    run_shell(cmd, True, f"ERROR: Failed to merge code coverage files {src} and {dst}")
+    shutil.copyfile(tmp_file, dst)  # Copy src to dst before merging
+    os.remove(tmp_file)  # Remove the temporary file
+    print(f"Updated code coverage file: {dst}")

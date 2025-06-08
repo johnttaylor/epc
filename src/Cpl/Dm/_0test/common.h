@@ -6,7 +6,7 @@
 * agreement (license.txt) in the top/ directory or on the Internet at
 * http://integerfox.com/colony.core/license.txt
 *
-* Copyright (c) 2014-2022  John T. Taylor
+* Copyright (c) 2014-2025  John T. Taylor
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
@@ -111,16 +111,18 @@ public:
 
 
 public:
-    void mp1_changed( Mp::Uint32& modelPointThatChanged, SubscriberApi& clientObsever ) noexcept
+    void mp1_changed( Mp::Uint32& modelPointThatChanged, SubscriberApi& clientObserver ) noexcept
     {
         CPL_SYSTEM_TRACE_ALLOCATE( uint32_t, prevValue, m_lastValue );
         CPL_SYSTEM_TRACE_ALLOCATE( int8_t, prevState, m_lastValid );
         uint16_t prevSeqNum = m_lastSeqNumber;
 
         m_mpNotificationCount1++;
-        m_lastValid     = modelPointThatChanged.readAndSync( m_lastValue, clientObsever );
+        uint16_t seqNum;
+        m_lastValid     = modelPointThatChanged.readAndSync( m_lastValue, seqNum , clientObserver);
         m_lastSeqNumber = m_observerMp1.getSequenceNumber_();
-        
+        REQUIRE( m_lastSeqNumber == seqNum );
+
         // The following test is NOT APPLICABLE anymore when using the xxxAndSync() methods
         //REQUIRE( m_observerMp1.getSequenceNumber_() == modelPointThatChanged.getSequenceNumber() );
 
@@ -143,7 +145,7 @@ public:
         {
             if ( m_done )
             {
-                CPL_SYSTEM_TRACE_MSG( SECT_, ("Viewer::mp1_changed(%p): Received Change notification after signaling the master thread, may or may not be an error. Prev: value=%lu, state=%d, seqNum=%u.  Rcvd: value=%lu, state=%d, seqNum=%u.  read_seq_num=%u, notifyCount=%d", this, prevValue, prevState, prevSeqNum, m_lastValue, m_lastValid, m_lastSeqNumber, m_lastSeqNumber, m_mpNotificationCount1) );
+                CPL_SYSTEM_TRACE_MSG( SECT_, ("Viewer::mp1_changed(%p): Received Change notification after signaling the master thread, may or may not be an error. Prev: value=%u, state=%d, seqNum=%u.  Rcvd: value=%u, state=%d, seqNum=%u.  read_seq_num=%u, notifyCount=%d", this, prevValue, prevState, prevSeqNum, m_lastValue, m_lastValid, m_lastSeqNumber, m_lastSeqNumber, m_mpNotificationCount1) );
             }
             else
             {
@@ -195,7 +197,7 @@ public:
         , m_stepSize( stepSize )
         , m_timer( myMbox, *this, &Writer::timerExpired )
     {
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("WRITER(%p). mp1=%s, endVal=%lu, interval=%lu", this, mp1.getName(), endValue, intervalMsec) );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("WRITER(%p). mp1=%s, endVal=%u, interval=%lu", this, mp1.getName(), endValue, intervalMsec) );
     }
 
 public:

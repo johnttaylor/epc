@@ -12,6 +12,7 @@
 #include "Api.h"
 #include "Ajax/Logging/Api.h"
 #include "StaticScreenApi.h"
+#include "Cpl/System/Assert.h"
 
 using namespace Ajax::ScreenMgr;
 

@@ -7,7 +7,7 @@ standards require that doxygen execute without warning.
 The script assumes that doxygen is in the command path.
 
 
-Usage: doxygen [build-number] [build-branch]
+Usage: doxygen [build-number] [build-branch] [nochm]
 
 """
 
@@ -32,6 +32,10 @@ def filter_warnings( output ):
             continue
 
         # Filter
+        if ( re.search( r"^.*Warning: node .*size too small for label$", line ) ):
+            continue
+
+        # Filter
         if ( re.search( r"^.*src/Cpl/Type/enum.h:.*warning:.*", line ) ):
             continue
 
@@ -40,7 +44,7 @@ def filter_warnings( output ):
             continue
 
         # Filter
-        if ( "warning: ignoring unsupported tag" in line ):
+        if ( re.search( r"^.*warning: ignoring unsupported tag.*", line ) ):
             continue
 
         # Filter
@@ -59,7 +63,6 @@ def filter_warnings( output ):
     if ( at_least_one == False ):
         print( "    All warnings are known warnings -->so you are good!")
         print()
-        exit(0)
     else:
         print()
         exit(1)
@@ -67,9 +70,15 @@ def filter_warnings( output ):
 #------------------------------------------------------------------------------
 print( "Running doxygen..." )    
 
+# File name MUST match the base file name that is set for CHM_FILE in the 'Doxyfile' file
+filename = "sdx-1330-gm6000-software-doxygen-output"
+
 # Insert the build number into the Doxygen config
-build_num = '0'
-build_branch = '<none>'
+build_num    = '0'
+build_branch = 'none'
+chmfile      = "YES"
+if ( len(sys.argv) > 3 and sys.argv[3] == 'nochm' ):
+    chmfile = "NO"
 if len(sys.argv) > 1:
     build_num = sys.argv[1]
 if len(sys.argv) > 2:
@@ -78,6 +87,7 @@ with open( "Doxyfile.src", 'r' ) as inf:
     d = inf.read()
     d = d.replace('$$$BUILD_NUMBER$$$', build_num )
     d = d.replace('$$$BUILD_BRANCH$$$', build_branch )
+    d = d.replace('$$$GENERATE_HELP_FILE$$$',chmfile)
     with open( "Doxyfile", 'w' ) as outf:
         outf.write( d )
 
@@ -89,13 +99,29 @@ if ( p.returncode != 0 ):
     exit( "ERROR: Doxygen failed to run.  Check if doxygen.exe is in your command path" )
 
 # delete the HTML files - only keep the Windows Help (.chm) file
-path = os.path.join( '..', 'docs', 'html' )
-shutil.rmtree( path, ignore_errors=True  )
+if ( chmfile == "YES" ):
+    path = os.path.join( '..', 'docs', 'html' )
+    shutil.rmtree( path, ignore_errors=True  )
 
 # check for errors
 if ( "warning: " in r[1].decode() or "error: " in r[1].decode() ):
     print()
     print( "*** Doxygen had one or more warnings! ***" )
     filter_warnings( r[1].decode() )
-    
-print( "Completed without warnings or errors." )
+else:
+    print( "Completed without warnings or errors." )
+
+# Rename help file output to include the build info
+if ( chmfile == "YES" ):
+    outfile = os.path.join( '..', 'docs', f'{filename}.chm' )
+    newfile = os.path.join( '..', 'docs', f'{filename}_{build_num}-{build_branch}.chm' )
+    try:
+        os.remove( newfile )
+    except:
+        pass
+    try:
+        shutil.move( outfile, newfile )
+    except:
+        pass
+
+

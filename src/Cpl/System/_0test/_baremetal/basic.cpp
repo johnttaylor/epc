@@ -4,7 +4,7 @@
 * agreement (license.txt) in the top/ directory or on the Internet at
 * http://integerfox.com/colony.core/license.txt
 *
-* Copyright (c) 2014-2022  John T. Taylor
+* Copyright (c) 2014-2025  John T. Taylor
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
@@ -49,7 +49,7 @@ public:
         {
             pleaseStop();
         }
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("<%-10s>. processEventFlag. event=%d, count=%d, rx=%0lX", Thread::myName(), eventNumber, m_eventCount, m_eventsReceived) );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("<%-10s>. processEventFlag. event=%d, count=%d, rx=%0X", Thread::myName(), eventNumber, m_eventCount, m_eventsReceived) );
     }
 };
 

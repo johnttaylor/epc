@@ -268,7 +268,10 @@ tests/Cpl/Dm/_0test/realtime/windows/mingw_w64
 tests/Cpl/Dm/_0test/realtime/windows/vc12
 tests/Cpl/Io/File/Littlefs
 tests/Cpl/Io/File/Littlefs/TShell/_0test
+tests/Cpl/Io/File/Littlefs/TShell/_0test/linux
+tests/Cpl/Io/File/Littlefs/TShell/_0test/linux/gcc
 tests/Cpl/Io/File/Littlefs/TShell/_0test/windows
+tests/Cpl/Io/File/Littlefs/TShell/_0test/windows/mingw_w64
 tests/Cpl/Io/File/Littlefs/TShell/_0test/windows/vc12
 tests/Cpl/Io/File/Littlefs/_0test/multiplevolumes
 tests/Cpl/Io/File/Littlefs/_0test/multiplevolumes/linux

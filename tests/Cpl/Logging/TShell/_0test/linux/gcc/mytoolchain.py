@@ -22,6 +22,10 @@
 
 # get definition of the Options structure
 from nqbplib.base import BuildValues
+from nqbplib.my_globals import NQBP_PKG_ROOT
+from nqbplib.my_globals import NQBP_PRE_PROCESS_SCRIPT
+from nqbplib.my_globals import NQBP_PRE_PROCESS_SCRIPT_ARGS
+import os, copy
 
 
 #===================================================
@@ -31,68 +35,54 @@ from nqbplib.base import BuildValues
 # Set the name for the final output item
 FINAL_OUTPUT_NAME = 'b.out'
 
+
 #
 # For build config/variant: "Release" (aka posix build variant)
 #
 
 # Set project specific 'base' (i.e always used) options
-base_release = BuildValues()        # Do NOT comment out this line
-base_release.cflags    = '-m32 -std=c++11 -Wall -Werror -x c++ -fprofile-arcs '
-base_release.linkflags = '-m32 -fprofile-arcs'
-base_release.linklibs  = '-lpthread -lm'
+base_posix32           = BuildValues()        # Do NOT comment out this line
+base_posix32.cflags    = '-m32 -std=c++17 -Wall -Werror -x c++ -fprofile-arcs -ftest-coverage'
+base_posix32.linkflags = '-m32'
+base_posix32.linklibs  = f'-lgcov'
 
 
 # Set project specific 'optimized' options
-optimzed_release = BuildValues()    # Do NOT comment out this line
-optimzed_release.cflags = '-O3'
+optimized_posix32           = BuildValues()    # Do NOT comment out this line
+optimized_posix32.cflags    = '-O3'
 
 # Set project specific 'debug' options
-debug_release = BuildValues()       # Do NOT comment out this line
-#debug_release.cflags = '-D_MY_APP_DEBUG_SWITCH_'
-
-
-# 
-# For build config/variant: "cpp11"
-# (note: uses same internal toolchain options as the 'Release' variant, 
-#        only the 'User' options will/are different)
-#
-
-# Construct option structs
-base_cpp11     = BuildValues()  
-optimzed_cpp11 = BuildValues()
-debug_cpp11    = BuildValues()
-
-# Set 'base' options
-base_cpp11.cflags     = '-m64 -std=c++11 -Wall -Werror -x c++ -fprofile-arcs '
-base_cpp11.linkflags  = '-m64 -fprofile-arcs -std=c++11'
-base_cpp11.linklibs   = '-lpthread -lm'
-
-# Set 'Optimized' options
-optimzed_cpp11.cflags = '-O3'
+debug_posix32           = BuildValues()       # Do NOT comment out this line
 
 
 
 # 
-# For build config/variant: "posix64" (same as release, except 64bit target)
-# (note: uses same internal toolchain options as the 'Release' variant, 
-#        only the 'User' options will/are different)
+# For build config/variant: "posix64"
 #
 
 # Construct option structs
-base_posix64     = BuildValues()
-optimzed_posix64 = BuildValues()
-debug_posix64    = BuildValues()
+base_posix64      = BuildValues()
+optimized_posix64 = BuildValues()
+debug_posix64     = BuildValues()
 
 # Set project specific 'base' (i.e always used) options
-base_posix64.cflags    = '-m64 -std=c++11 -Wall -Werror -x c++ -fprofile-arcs '
+base_posix64.cflags    = '-m64 -std=c++17 -Wall -Werror -x c++ -fprofile-arcs -ftest-coverage'
 base_posix64.linkflags = '-fprofile-arcs'
-base_posix64.linklibs  = '-lpthread -lm'
+base_posix64.linklibs  = f'-lgcov'
 
 # Set project specific 'optimized' options
-optimzed_posix64.cflags = '-O3'
+optimized_posix64.cflags    = '-O3'
 
 # Set project specific 'debug' options
 
+#
+# For build config/variant: "cpp11"
+#
+
+# same options as posix64 (but uses different libdirs entries)
+base_cpp11      = copy.deepcopy(base_posix64)
+optimized_cpp11 = copy.deepcopy(optimized_posix64)
+debug_cpp11     = copy.deepcopy(debug_posix64)
 
 #-------------------------------------------------
 # ONLY edit this section if you are ADDING options
@@ -100,26 +90,26 @@ optimzed_posix64.cflags = '-O3'
 # 'release' build
 #-------------------------------------------------
 
-release_opts = { 'user_base':base_release, 
-                 'user_optimized':optimzed_release, 
-                 'user_debug':debug_release
+release_opts = { 'user_base':base_posix32, 
+                 'user_optimized':optimized_posix32, 
+                 'user_debug':debug_posix32
                }
                
                
 # Add new dictionary of for new build configuration options
 cpp11_opts = { 'user_base':base_cpp11, 
-               'user_optimized':optimzed_cpp11, 
+               'user_optimized':optimized_cpp11, 
                'user_debug':debug_cpp11
              }
   
 posix64_opts = { 'user_base':base_posix64, 
-                 'user_optimized':optimzed_posix64, 
+                 'user_optimized':optimized_posix64, 
                  'user_debug':debug_posix64
                }
   
         
 # Add new variant option dictionary to # dictionary of 
-# build varaints
+# build variants
 build_variants = { 'posix':release_opts,
                    'posix64':posix64_opts,
                    'cpp11':cpp11_opts,

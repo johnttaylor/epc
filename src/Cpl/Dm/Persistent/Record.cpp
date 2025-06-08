@@ -4,7 +4,7 @@
 * agreement (license.txt) in the top/ directory or on the Internet at
 * http://integerfox.com/colony.core/license.txt
 *
-* Copyright (c) 2014-2022  John T. Taylor
+* Copyright (c) 2014-2025  John T. Taylor
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
@@ -225,7 +225,7 @@ bool Record::putData( const void* src, size_t srcLen ) noexcept
 
 void Record::dataChanged( Cpl::Dm::ModelPoint& point, Cpl::Dm::SubscriberApi& observer ) noexcept
 {
-    CPL_SYSTEM_TRACE_MSG( SECT_, ("Record Changed: mp=%s, timeMarker=%lu", point.getName(), m_timerMarker) );
+    CPL_SYSTEM_TRACE_MSG( SECT_, ("Record Changed: mp=%s, timeMarker=%u", point.getName(), m_timerMarker) );
 
     // NOTE: The observer instance is PURPOSELY not synchronized with the read 
     //       of the MP data.  This is because there can be multiple MPs that 
