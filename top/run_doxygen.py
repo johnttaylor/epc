@@ -32,6 +32,10 @@ def filter_warnings( output ):
             continue
 
         # Filter
+        if ( re.search( r"^.*Warning: node .*size too small for label$", line ) ):
+            continue
+
+        # Filter
         if ( re.search( r"^.*src/Cpl/Type/enum.h:.*warning:.*", line ) ):
             continue
 
