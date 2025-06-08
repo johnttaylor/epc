@@ -21,11 +21,18 @@ echo:
 echo:BUILD TYPE=%BUILD_TYPE%, BUILD_NUMBER=%BUILD_NUMBER%
 echo:
 
+:: Make sure the _artifacts directory exists and is empty
+set ARTIFACTS_DIR=%_ROOT%\_artifacts
+rmdir /s /q %ARTIFACTS_DIR%
+mkdir %ARTIFACTS_DIR%
+
 ::
 :: Build STM projects
 ::
 
 :: Set up the compiler (which is included in the repo)
+set ARTIFACTS_DIR=%ARTIFACTS_DIR%
+
 call .\env.bat 5
 echo:%PATH%
 
@@ -69,26 +76,26 @@ IF "%BUILD_BRANCH%"=="none" GOTO :builds_done
 cd %_ROOT%\projects\GM6000\Ajax\%_TARGET%\windows\gcc-arm\_stm32
 7z a ajax-%_TARGET%-%BUILD_NUMBER%.zip ajax.*
 IF ERRORLEVEL 1 EXIT /b 1
-copy *.zip %_ROOT%\_artifacts
+copy *.zip %ARTIFACTS_DIR%
 IF ERRORLEVEL 1 EXIT /b 1
 
 cd %_ROOT%\projects\GM6000\Eros\%_TARGET%\windows\gcc-arm\_stm32
 7z a eros-%_TARGET%-%BUILD_NUMBER%.zip eros.*
 IF ERRORLEVEL 1 EXIT /b 1
-copy *.zip %_ROOT%\_artifacts
+copy *.zip %ARTIFACTS_DIR%
 IF ERRORLEVEL 1 EXIT /b 1
 
 :: Arduino: Zip up (NON-debug) 'release' builds
 cd %_ROOT%\projects\GM6000\Ajax\%_TARGET2%\windows\gcc\_arduino
 7z a ajax-%_TARGET2%-%BUILD_NUMBER%.zip ajax.*
 IF ERRORLEVEL 1 EXIT /b 1
-copy *.zip %_ROOT%\_artifacts
+copy *.zip %ARTIFACTS_DIR%
 IF ERRORLEVEL 1 EXIT /b 1
 
 cd %_ROOT%\projects\GM6000\Eros\%_TARGET2%\windows\gcc\_arduino
 7z a eros-%_TARGET2%-%BUILD_NUMBER%.zip eros.*
 IF ERRORLEVEL 1 EXIT /b 1
-copy *.zip %_ROOT%\_artifacts
+copy *.zip %ARTIFACTS_DIR%
 IF ERRORLEVEL 1 EXIT /b 1
 
 ::
@@ -104,13 +111,13 @@ IF ERRORLEVEL 1 EXIT /b 1
 cd %_ROOT%\projects\GM6000\Ajax\%_TARGET%\windows\gcc-arm\_stm32
 7z a ajax-%_TARGET%-DEBUG-%BUILD_NUMBER%.zip ajax.*
 IF ERRORLEVEL 1 EXIT /b 1
-copy *.zip %_ROOT%\_artifacts
+copy *.zip %ARTIFACTS_DIR%
 IF ERRORLEVEL 1 EXIT /b 1
 
 cd %_ROOT%\projects\GM6000\Eros\%_TARGET%\windows\gcc-arm\_stm32
 7z a eros-%_TARGET%-DEBUG-%BUILD_NUMBER%.zip eros.*
 IF ERRORLEVEL 1 EXIT /b 1
-copy *.zip %_ROOT%\_artifacts
+copy *.zip %ARTIFACTS_DIR%
 IF ERRORLEVEL 1 EXIT /b 1
 
 :: Arduino: Build DEBUG version of the Target builds
@@ -122,13 +129,13 @@ IF ERRORLEVEL 1 EXIT /b 1
 cd %_ROOT%\projects\GM6000\Ajax\%_TARGET2%\windows\gcc\_arduino
 7z a ajax-%_TARGET2%-DEBUG-%BUILD_NUMBER%.zip ajax.*
 IF ERRORLEVEL 1 EXIT /b 1
-copy *.zip %_ROOT%\_artifacts
+copy *.zip %ARTIFACTS_DIR%
 IF ERRORLEVEL 1 EXIT /b 1
 
 cd %_ROOT%\projects\GM6000\Eros\%_TARGET2%\windows\gcc\_arduino
 7z a eros-%_TARGET2%-DEBUG-%BUILD_NUMBER%.zip eros.*
 IF ERRORLEVEL 1 EXIT /b 1
-copy *.zip %_ROOT%\_artifacts
+copy *.zip %ARTIFACTS_DIR%
 IF ERRORLEVEL 1 EXIT /b 1
 
 ::

@@ -21,9 +21,11 @@ The best and most thorough documentation for the source code and tools in this r
 
 The following changes have be made to the repository since the book was original published.  You can use the `DEVELOP-1000092` tag to access the snapshot of when the book was published.
 
-1. Migrated the Catch2 framework from v2.x to v3.x.  The change impacted how the unit test projects are build since Catch2 v3.x is static library based (vs v2.x which was a single header file).
-2. Maintenance updates to the CPL C++ framework (aka newer version of the [colony.core](https://github.com/johnttaylor/colony.core) repo)
-   - The update includes support for the [littlefs file system](https://github.com/littlefs-project/littlefs)
+1. **Switched from on-premise Jenkins CI server to GitHub Actions** using GitHub's free host runners (see [wike page](https://github.com/johnttaylor/epc/wiki/Git-Actions-CI))
+2. Migrated the Catch2 framework from v2.x to v3.x.  The change impacted how the unit test projects are build since Catch2 v3.x is static library based (vs v2.x which was a single header file).
+3. Maintenance updates to the CPL C++ framework (aka newer version of the [colony.core](https://github.com/johnttaylor/colony.core) repo)
+   - The update includes support for the [littlefs file system](https://github.com/littlefs-project/littlefs).
+   - Updates for smaller footprint for TShell console commands.
 
 ## Directory Structure for Repository
 

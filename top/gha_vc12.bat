@@ -14,12 +14,12 @@ echo:%_TOPDIR%
 set NQBP_CI_BUILD=1
 
 :: Make sure the _artifacts directory exists and is empty
-cd %_ROOT%
-rmdir /s /q _artifacts\projects
-mkdir _artifacts\projects
+set ARTIFACTS_DIR=%ARTIFACTS_DIR%
+rmdir /s /q %ARTIFACTS_DIR%
+mkdir %ARTIFACTS_DIR%
 
 :: Set the NQBP_BIN path (and other magic variables - but no compiler selected)
-call ./env.bat
+call .\env.bat
 
 :: Set Build info (and force build number to zero for "non-official" builds)
 set BUILD_NUMBER=%1
@@ -71,13 +71,13 @@ IF "%BUILD_BRANCH%"=="none" GOTO :builds_done
 cd %_ROOT%\projects\GM6000\Ajax\simulator\windows\vc12\_win32
 7z a ajax-simulator-%BUILD_NUMBER%.zip ajax-sim.exe ajax-sim.pdb
 IF ERRORLEVEL 1 EXIT /b 1
-copy *.zip %_ROOT%\_artifacts
+copy *.zip %ARTIFACTS_DIR%
 IF ERRORLEVEL 1 EXIT /b 1
 
 cd %_ROOT%\projects\GM6000\Eros\simulator\windows\vc12\_win32
 7z a eros-simulator-%BUILD_NUMBER%.zip eros-sim.exe eros-sim.pdb
 IF ERRORLEVEL 1 EXIT /b 1
-copy *.zip %_ROOT%\_artifacts
+copy *.zip %ARTIFACTS_DIR%
 IF ERRORLEVEL 1 EXIT /b 1
 
 ::
