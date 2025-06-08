@@ -14,7 +14,7 @@ echo:%_TOPDIR%
 set NQBP_CI_BUILD=1
 
 :: Make sure the _artifacts directory exists and is empty
-set ARTIFACTS_DIR=%ARTIFACTS_DIR%
+set ARTIFACTS_DIR=%_ROOT%\_artifacts
 rmdir /s /q %ARTIFACTS_DIR%
 mkdir %ARTIFACTS_DIR%
 
