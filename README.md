@@ -25,7 +25,7 @@ The following changes have be made to the repository since the book was original
 2. Migrated the Catch2 framework from v2.x to v3.x.  The change impacted how the unit test projects are build since Catch2 v3.x is static library based (vs v2.x which was a single header file).
 3. Maintenance updates to the CPL C++ framework (aka newer version of the [colony.core](https://github.com/johnttaylor/colony.core) repo)
    - The update includes support for the [littlefs file system](https://github.com/littlefs-project/littlefs).
-   - Updates for small footprint for TShell console commands.
+   - Updates for smaller footprint for TShell console commands.
 
 ## Directory Structure for Repository
 
