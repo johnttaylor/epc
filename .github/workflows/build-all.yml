@@ -57,14 +57,6 @@ jobs:
           echo "Running build script for PRs..."
           .\top\gha_vc12.bat ${{ github.run_number }} 
 
-      # Upload Project binaries
-      - name: Upload Project binaries
-        if: github.event_name != 'pull_request'
-        uses: actions/upload-artifact@v4
-        with:
-          name: binaries-${{ github.run_number }}
-          path: _artifacts/*.zip
-
       # Build Stable branches
       - name: Run build script - for stable branches
         if: github.event_name != 'pull_request'
@@ -72,6 +64,13 @@ jobs:
           echo "Running build script for stable branches..."
           .\top\gha_vc12.bat ${{ github.run_number }} ${{ github.ref_name }}
 
+      # Upload Project binaries
+      - name: Upload Project binaries
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: binaries-${{ github.run_number }}
+          path: _artifacts/*.zip
 
   # MinGW  Compiler Windows build job
   mingw_64_windows_build:
@@ -283,6 +282,14 @@ jobs:
         run: |
           echo "Running build script for stable branches..."
           .\top\gha_gcc-arm.bat ${{ github.run_number }} ${{ github.ref_name }}
+
+      # Upload Project binaries
+      - name: Upload Project binaries
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: binaries-${{ github.run_number }}
+          path: _artifacts/*.zip
 
   # Tag branch builds
   create_tag:
