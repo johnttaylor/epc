@@ -22,7 +22,7 @@ using namespace Driver::Crypto::TShell;
 #define MAX_LENGTH      256
 
 ///////////////////////////
-Random::Random( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+Random::Random( pl::Container::SList<Cpl::TShell::Command>& commandList,
                 Cpl::TShell::Security::Permission_T        minPermLevel ) noexcept
     :Command( commandList, verb, minPermLevel )
 {
