@@ -197,9 +197,9 @@ jobs:
           echo "Running build script for stable branches..."
           ./top/gha_linux-gcc.sh ${{ github.run_number }} ${{ github.ref_name }}
 
-      # Publish Doxygen documentation (but only when building main branch)
+      # Publish Doxygen documentation (but only when building develop branch)
       - name: Publish Doxygen documentation
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/develop'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
