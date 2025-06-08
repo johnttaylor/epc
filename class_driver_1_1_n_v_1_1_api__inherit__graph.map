@@ -1,11 +1,11 @@
 <map id="Driver::NV::Api" name="Driver::NV::Api">
-<area shape="rect" id="Node000001" title="This class defines the interface for a platform independent Non&#45;volatile storage driver." alt="" coords="5,80,111,106"/>
-<area shape="rect" id="Node000002" href="$class_driver_1_1_n_v_1_1_file_1_1_cpl_1_1_api.html" title="This class implements the Non&#45;volatile storage driver using the Cpl::Io::File interfaces." alt="" coords="159,5,316,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,70,158,40,187,29,189,34,160,45,97,75"/>
-<area shape="rect" id="Node000003" href="$class_driver_1_1_n_v_1_1_gang.html" title="This class implements the Non&#45;volatile storage driver using a collection of NV drivers to provide a &#39;..." alt="" coords="179,55,296,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="125,81,178,73,179,78,126,86"/>
-<area shape="rect" id="Node000004" href="$class_driver_1_1_n_v_1_1_null.html" title="This concrete class provides a &#39;null&#39; implementation of the NV Storage interface." alt="" coords="183,104,292,130"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="126,99,183,107,182,112,126,105"/>
-<area shape="rect" id="Node000005" href="$class_driver_1_1_n_v_1_1_onsemi_1_1_c_a_t24_c512_1_1_api.html" title="This class implements the Non&#45;volatile storage driver for the Onsemi CAT24C512 serial 512Kb (64KB) I2..." alt="" coords="172,154,303,195"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="100,111,160,140,185,151,183,156,158,145,98,116"/>
+<area shape="rect" id="Node000001" title="This class defines the interface for a platform independent Non&#45;volatile storage driver." alt="" coords="5,80,123,105"/>
+<area shape="rect" id="Node000002" href="$class_driver_1_1_n_v_1_1_file_1_1_cpl_1_1_api.html" title="This class implements the Non&#45;volatile storage driver using the Cpl::Io::File interfaces." alt="" coords="171,5,348,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,71,170,40,205,28,207,33,172,44,102,76"/>
+<area shape="rect" id="Node000003" href="$class_driver_1_1_n_v_1_1_gang.html" title="This class implements the Non&#45;volatile storage driver using a collection of NV drivers to provide a &#39;..." alt="" coords="194,55,325,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="136,81,193,73,194,78,137,86"/>
+<area shape="rect" id="Node000004" href="$class_driver_1_1_n_v_1_1_null.html" title="This concrete class provides a &#39;null&#39; implementation of the NV Storage interface." alt="" coords="198,104,321,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="137,99,198,107,198,112,136,104"/>
+<area shape="rect" id="Node000005" href="$class_driver_1_1_n_v_1_1_onsemi_1_1_c_a_t24_c512_1_1_api.html" title="This class implements the Non&#45;volatile storage driver for the Onsemi CAT24C512 serial 512Kb (64KB) I2..." alt="" coords="186,154,333,194"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="105,109,172,138,205,151,203,156,170,143,103,114"/>
 </map>

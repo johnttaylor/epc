@@ -1,7 +1,7 @@
 <map id="Driver::I2C::Master" name="Driver::I2C::Master">
-<area shape="rect" id="Node000001" title="This class defines a non&#45;platform specific interface for an I2C master device driver." alt="" coords="85,5,212,31"/>
-<area shape="rect" id="Node000002" href="$class_driver_1_1_i2_c_1_1_arduino_1_1_master.html" title="This class implements the I2C interface using the Arduino framework and/or APIs." alt="" coords="5,79,137,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,44,92,80,88,77,124,40"/>
-<area shape="rect" id="Node000003" href="$class_driver_1_1_i2_c_1_1_s_t_m32_1_1_master.html" title="This class implements the I2C interface for the STM32 family of micro&#45;controller using the ST&#39;s MX Cu..." alt="" coords="161,79,290,120"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,40,208,77,205,80,169,44"/>
+<area shape="rect" id="Node000001" title="This class defines a non&#45;platform specific interface for an I2C master device driver." alt="" coords="93,5,237,31"/>
+<area shape="rect" id="Node000002" href="$class_driver_1_1_i2_c_1_1_arduino_1_1_master.html" title="This class implements the I2C interface using the Arduino framework and/or APIs." alt="" coords="5,79,155,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,42,102,80,99,77,141,38"/>
+<area shape="rect" id="Node000003" href="$class_driver_1_1_i2_c_1_1_s_t_m32_1_1_master.html" title="This class implements the I2C interface for the STM32 family of micro&#45;controller using the ST&#39;s MX Cu..." alt="" coords="179,79,322,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,38,232,77,228,80,186,42"/>
 </map>

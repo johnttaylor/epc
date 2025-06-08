@@ -1,54 +1,54 @@
 <map id="Cpl::TShell::Processor" name="Cpl::TShell::Processor">
-<area shape="rect" id="Node000001" title="This concrete class provides the implementation of Command Processor for a TShell engine." alt="" coords="1525,219,1673,244"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_t_shell_1_1_context__.html" title="This Private Namespace class defines a &quot;Context&quot; for a TShell command." alt="" coords="1206,12,1346,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1350,40,1427,69,1466,89,1502,113,1531,139,1556,168,1591,217,1587,220,1552,171,1527,143,1499,118,1463,93,1425,73,1348,45"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_t_shell_1_1_processor_api.html" title="This class defines the interface a TShell Command Processor." alt="" coords="749,5,916,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="932,17,1205,21,1205,26,932,22"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_map.html" title=" " alt="" coords="1191,69,1361,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1356,112,1427,139,1502,172,1579,216,1576,220,1499,177,1425,144,1354,117"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_map.html" title="This template class implements an Map using an AVL Binary tree (i.e." alt="" coords="767,55,899,96"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="915,75,1190,84,1190,89,914,81"/>
-<area shape="rect" id="Node000006" href="$class_cpl_1_1_text_1_1_frame_1_1_stream_decoder.html" title="This partially concrete class defines an interface a Text &quot;Decoder&quot; that has a Cpl::Io::Input stream ..." alt="" coords="1195,146,1357,187"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1373,183,1501,209,1533,215,1532,221,1500,214,1372,188"/>
-<area shape="rect" id="Node000007" href="$class_cpl_1_1_text_1_1_frame_1_1_decoder__.html" title="This private partially concrete class implements the basic/common logic for a frame decoder." alt="" coords="745,120,920,146"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="936,137,1143,153,1194,157,1194,162,1142,158,935,143"/>
-<area shape="rect" id="Node000008" href="$class_cpl_1_1_text_1_1_frame_1_1_decoder.html" title="This class defines an interface for &#39;receiving&#39; (decode) a frame." alt="" coords="527,111,696,136"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="711,125,744,126,744,132,711,130"/>
-<area shape="rect" id="Node000009" href="$class_cpl_1_1_io_1_1_input.html" title="This partially abstract class defines a interface for operating on an input stream (example of a stre..." alt="" coords="787,169,879,195"/>
-<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="895,177,1194,166,1195,172,895,183"/>
-<area shape="rect" id="Node000010" href="$class_cpl_1_1_io_1_1_close.html" title="This abstract class defines a close operation that is intended to be used Input and Output streams/fi..." alt="" coords="563,228,660,254"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="674,222,785,192,787,197,676,227"/>
-<area shape="rect" id="Node000016" href="$class_cpl_1_1_io_1_1_output.html" title="This partially abstract class defines a interface for operating on an output stream (example of a str..." alt="" coords="782,219,884,244"/>
-<area shape="poly" id="edge16_Node000016_Node000010" title=" " alt="" coords="675,237,721,236,781,232,782,238,721,241,675,242"/>
-<area shape="rect" id="Node000011" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="345,228,478,254"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="494,238,563,238,563,244,494,244"/>
-<area shape="rect" id="Node000012" href="$class_cpl_1_1_io_1_1_is_eos.html" title="This abstract class defines a isEos() operation that is intended to be used Input and Output streams." alt="" coords="563,169,660,195"/>
-<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="675,175,720,173,786,175,786,180,720,178,676,180"/>
-<area shape="poly" id="edge17_Node000016_Node000012" title=" " alt="" coords="676,194,782,218,780,223,674,199"/>
-<area shape="rect" id="Node000013" href="$class_cpl_1_1_text_1_1_frame_1_1_stream_encoder.html" title="This concrete class implements the Encoder API where the Output destination is a Cpl::Io::Output stre..." alt="" coords="1195,211,1357,252"/>
-<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1372,229,1524,229,1524,234,1372,234"/>
-<area shape="rect" id="Node000014" href="$class_cpl_1_1_text_1_1_frame_1_1_encoder__.html" title="This Private Namespace partially concrete class implements common/helper method for supporting the En..." alt="" coords="746,268,920,294"/>
-<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="935,267,1194,238,1195,243,935,272"/>
-<area shape="rect" id="Node000015" href="$class_cpl_1_1_text_1_1_frame_1_1_encoder.html" title="This class defines an interface for &#39;transmitted&#39; (encoding) a frame." alt="" coords="528,277,695,303"/>
-<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="710,283,745,282,745,287,711,289"/>
-<area shape="poly" id="edge15_Node000013_Node000016" title=" " alt="" coords="899,229,1194,229,1194,234,899,234"/>
-<area shape="rect" id="Node000017" href="$class_cpl_1_1_system_1_1_mutex.html" title="This mutex class defines the interface for a mutex that has &quot;recursive&quot; semantics." alt="" coords="1210,276,1342,302"/>
-<area shape="poly" id="edge18_Node000001_Node000017" title=" " alt="" coords="1356,274,1500,249,1535,242,1536,248,1501,254,1357,279"/>
-<area shape="rect" id="Node000018" href="$class_cpl_1_1_text_1_1_f_string.html" title=" " alt="" coords="1166,326,1386,382"/>
-<area shape="poly" id="edge19_Node000001_Node000018" title=" " alt="" coords="1400,321,1500,285,1541,264,1576,243,1579,247,1544,269,1502,290,1401,326"/>
-<area shape="rect" id="Node000019" href="$class_cpl_1_1_text_1_1_f_string__.html" title="This mostly concrete class implements a &quot;fixed storage&quot; String Type." alt="" coords="548,396,675,422"/>
-<area shape="poly" id="edge20_Node000018_Node000019" title=" " alt="" coords="690,391,744,381,844,361,944,348,1043,344,1142,348,1166,348,1166,353,1142,353,1043,350,945,353,845,366,746,386,691,396"/>
-<area shape="rect" id="Node000023" href="$class_cpl_1_1_text_1_1_f_string.html" title="This template class represents a NULL terminated string of a specific length." alt="" coords="758,396,908,422"/>
-<area shape="poly" id="edge25_Node000023_Node000019" title=" " alt="" coords="690,406,757,406,757,412,690,412"/>
-<area shape="rect" id="Node000024" href="$class_cpl_1_1_text_1_1_f_string.html" title=" " alt="" coords="1173,416,1379,471"/>
-<area shape="poly" id="edge27_Node000024_Node000019" title=" " alt="" coords="690,422,745,432,856,448,943,456,1030,458,1142,454,1173,452,1173,457,1142,459,1030,463,943,461,856,453,745,437,690,427"/>
-<area shape="rect" id="Node000020" href="$class_cpl_1_1_text_1_1_string__.html" title="This partially concrete class implements the portions of the String Api that is independent of the in..." alt="" coords="352,396,471,422"/>
-<area shape="poly" id="edge21_Node000019_Node000020" title=" " alt="" coords="486,406,548,406,548,412,486,412"/>
-<area shape="rect" id="Node000021" href="$class_cpl_1_1_text_1_1_string.html" title="This abstract class defines the operations that can be before on a NULL terminated string." alt="" coords="184,396,295,422"/>
-<area shape="poly" id="edge22_Node000020_Node000021" title=" " alt="" coords="311,406,352,406,352,412,311,412"/>
-<area shape="rect" id="Node000022" href="$class_cpl_1_1_container_1_1_key.html" title="This abstract class defines the interface that a contained object must support if it has comparable k..." alt="" coords="5,396,135,422"/>
-<area shape="poly" id="edge23_Node000021_Node000022" title=" " alt="" coords="150,406,184,406,184,412,150,412"/>
-<area shape="poly" id="edge24_Node000018_Node000023" title=" " alt="" coords="923,400,1028,391,1142,378,1165,374,1166,379,1143,383,1029,396,924,406"/>
-<area shape="poly" id="edge28_Node000024_Node000023" title=" " alt="" coords="885,424,945,439,1063,448,1173,448,1173,453,1062,454,944,444,883,429"/>
-<area shape="poly" id="edge26_Node000001_Node000024" title=" " alt="" coords="1392,409,1448,385,1499,354,1529,327,1554,296,1588,243,1593,246,1558,300,1533,331,1502,358,1450,390,1394,414"/>
+<area shape="rect" id="Node000001" title="This concrete class provides the implementation of Command Processor for a TShell engine." alt="" coords="1631,219,1793,244"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_t_shell_1_1_context__.html" title="This Private Namespace class defines a &quot;Context&quot; for a TShell command." alt="" coords="1289,13,1446,39"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1446,40,1527,67,1569,86,1608,111,1639,137,1667,167,1705,217,1700,220,1663,170,1636,141,1605,115,1567,91,1525,72,1444,45"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_t_shell_1_1_processor_api.html" title="This class defines the interface a TShell Command Processor." alt="" coords="821,5,1004,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1018,17,1289,22,1289,27,1018,23"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_s_list.html" title=" " alt="" coords="1269,70,1465,110"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1450,112,1527,138,1608,170,1692,216,1689,221,1606,175,1526,143,1449,117"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_s_list.html" title="This template class implements a singly linked list which maintains the ordering imposed on it by the..." alt="" coords="836,55,989,95"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="1003,76,1269,84,1269,90,1003,81"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_text_1_1_frame_1_1_stream_decoder.html" title="This partially concrete class defines an interface a Text &quot;Decoder&quot; that has a Cpl::Io::Input stream ..." alt="" coords="1276,147,1459,187"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1473,184,1607,209,1645,216,1644,221,1606,214,1472,189"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_text_1_1_frame_1_1_decoder__.html" title="This private partially concrete class implements the basic/common logic for a frame decoder." alt="" coords="815,120,1011,145"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1025,137,1234,153,1276,156,1276,162,1233,158,1024,143"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_text_1_1_frame_1_1_decoder.html" title="This class defines an interface for &#39;receiving&#39; (decode) a frame." alt="" coords="576,111,765,136"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="779,125,814,126,814,132,779,130"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_io_1_1_input.html" title="This partially abstract class defines a interface for operating on an input stream (example of a stre..." alt="" coords="861,169,965,195"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="978,177,1276,168,1276,173,978,183"/>
+<area shape="rect" id="Node000010" href="$class_cpl_1_1_io_1_1_close.html" title="This abstract class defines a close operation that is intended to be used Input and Output streams/fi..." alt="" coords="617,228,724,253"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="737,222,860,192,861,197,738,227"/>
+<area shape="rect" id="Node000016" href="$class_cpl_1_1_io_1_1_output.html" title="This partially abstract class defines a interface for operating on an output stream (example of a str..." alt="" coords="855,219,970,244"/>
+<area shape="poly" id="edge16_Node000016_Node000010" title=" " alt="" coords="738,237,791,235,855,232,855,237,791,241,738,242"/>
+<area shape="rect" id="Node000011" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="375,228,527,253"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="540,238,617,238,617,243,540,243"/>
+<area shape="rect" id="Node000012" href="$class_cpl_1_1_io_1_1_is_eos.html" title="This abstract class defines a isEos() operation that is intended to be used Input and Output streams." alt="" coords="618,169,723,195"/>
+<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="737,175,789,173,860,175,860,180,789,178,737,180"/>
+<area shape="poly" id="edge17_Node000016_Node000012" title=" " alt="" coords="737,193,856,217,855,222,736,198"/>
+<area shape="rect" id="Node000013" href="$class_cpl_1_1_text_1_1_frame_1_1_stream_encoder.html" title="This concrete class implements the Encoder API where the Output destination is a Cpl::Io::Output stre..." alt="" coords="1276,211,1459,251"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1472,229,1630,229,1630,234,1472,234"/>
+<area shape="rect" id="Node000014" href="$class_cpl_1_1_text_1_1_frame_1_1_encoder__.html" title="This Private Namespace partially concrete class implements common/helper method for supporting the En..." alt="" coords="815,268,1010,293"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="1024,266,1276,239,1276,244,1024,271"/>
+<area shape="rect" id="Node000015" href="$class_cpl_1_1_text_1_1_frame_1_1_encoder.html" title="This class defines an interface for &#39;transmitted&#39; (encoding) a frame." alt="" coords="577,277,764,303"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="778,283,815,282,815,287,778,289"/>
+<area shape="poly" id="edge15_Node000013_Node000016" title=" " alt="" coords="984,229,1276,229,1276,234,984,234"/>
+<area shape="rect" id="Node000017" href="$class_cpl_1_1_system_1_1_mutex.html" title="This mutex class defines the interface for a mutex that has &quot;recursive&quot; semantics." alt="" coords="1293,276,1442,301"/>
+<area shape="poly" id="edge18_Node000001_Node000017" title=" " alt="" coords="1455,273,1606,249,1646,241,1647,247,1607,254,1456,278"/>
+<area shape="rect" id="Node000018" href="$class_cpl_1_1_text_1_1_f_string.html" title=" " alt="" coords="1257,325,1477,380"/>
+<area shape="poly" id="edge19_Node000001_Node000018" title=" " alt="" coords="1490,323,1548,307,1606,286,1651,264,1690,242,1692,246,1654,269,1608,291,1550,312,1492,328"/>
+<area shape="rect" id="Node000019" href="$class_cpl_1_1_text_1_1_f_string__.html" title="This mostly concrete class implements a &quot;fixed storage&quot; String Type." alt="" coords="601,395,740,420"/>
+<area shape="poly" id="edge20_Node000018_Node000019" title=" " alt="" coords="753,391,814,381,924,361,1034,347,1134,345,1233,347,1257,348,1257,353,1233,353,1134,350,1035,353,925,366,815,386,754,396"/>
+<area shape="rect" id="Node000023" href="$class_cpl_1_1_text_1_1_f_string.html" title="This template class represents a NULL terminated string of a specific length." alt="" coords="828,395,997,420"/>
+<area shape="poly" id="edge25_Node000023_Node000019" title=" " alt="" coords="754,405,828,405,828,410,754,410"/>
+<area shape="rect" id="Node000024" href="$class_cpl_1_1_text_1_1_f_string.html" title=" " alt="" coords="1264,413,1471,468"/>
+<area shape="poly" id="edge27_Node000024_Node000019" title=" " alt="" coords="751,420,815,430,932,445,1024,452,1115,454,1233,450,1264,448,1264,453,1233,455,1115,459,1023,458,932,450,814,435,750,425"/>
+<area shape="rect" id="Node000020" href="$class_cpl_1_1_text_1_1_string__.html" title="This partially concrete class implements the portions of the String Api that is independent of the in..." alt="" coords="385,395,516,420"/>
+<area shape="poly" id="edge21_Node000019_Node000020" title=" " alt="" coords="530,405,601,405,601,410,530,410"/>
+<area shape="rect" id="Node000021" href="$class_cpl_1_1_text_1_1_string.html" title="This abstract class defines the operations that can be before on a NULL terminated string." alt="" coords="201,395,325,420"/>
+<area shape="poly" id="edge22_Node000020_Node000021" title=" " alt="" coords="339,405,385,405,385,410,339,410"/>
+<area shape="rect" id="Node000022" href="$class_cpl_1_1_container_1_1_key.html" title="This abstract class defines the interface that a contained object must support if it has comparable k..." alt="" coords="5,395,152,420"/>
+<area shape="poly" id="edge23_Node000021_Node000022" title=" " alt="" coords="166,405,201,405,201,410,166,410"/>
+<area shape="poly" id="edge24_Node000018_Node000023" title=" " alt="" coords="1011,399,1118,390,1233,377,1257,373,1258,378,1234,382,1119,395,1011,404"/>
+<area shape="poly" id="edge28_Node000024_Node000023" title=" " alt="" coords="966,421,1035,437,1153,445,1264,444,1264,450,1153,450,1034,442,965,427"/>
+<area shape="poly" id="edge26_Node000001_Node000024" title=" " alt="" coords="1483,412,1546,389,1605,356,1637,328,1664,297,1701,243,1706,246,1669,300,1641,332,1608,360,1548,393,1485,417"/>
 </map>

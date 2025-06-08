@@ -1,74 +1,74 @@
 <map id="Ajax::Alerts::Summary" name="Ajax::Alerts::Summary">
-<area shape="rect" id="Node000001" title="This class manages the content of the Alert Summary model point." alt="" coords="2205,413,2353,439"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_close_sync.html" title="This partially concrete class implements the synchronous ITC close call for the CloseApi." alt="" coords="1924,180,2053,206"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2019,213,2263,411,2259,415,2016,218"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_open_sync.html" title="This partially concrete class implements the synchronous ITC open call for the OpenApi." alt="" coords="1582,80,1710,106"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1708,108,1942,177,1940,182,1707,113"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_open_api.html" title="This abstract class defines an open interface." alt="" coords="1183,5,1300,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1316,25,1520,60,1594,77,1593,82,1519,65,1315,31"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_itc_1_1_open_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="1168,55,1315,80"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="1330,70,1582,86,1582,92,1330,76"/>
-<area shape="rect" id="Node000006" href="$class_cpl_1_1_itc_1_1_post_api.html" title="This abstract class represents the interface used to send messages to a mailbox." alt="" coords="1185,104,1298,130"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="1313,110,1520,99,1581,94,1582,100,1520,104,1314,116"/>
-<area shape="rect" id="Node000007" href="$class_cpl_1_1_itc_1_1_close_api.html" title="This abstract class defines an close interface." alt="" coords="1586,155,1706,180"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="1721,170,1923,185,1923,191,1721,176"/>
-<area shape="rect" id="Node000008" href="$class_cpl_1_1_itc_1_1_close_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="1572,204,1720,230"/>
-<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="1735,208,1923,195,1924,200,1736,213"/>
-<area shape="rect" id="Node000009" href="$namespace_cpl_1_1_memory.html#namespace_cpl_1_1_memory" title=" " alt="" coords="1901,335,2075,376"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="2090,377,2224,410,2222,415,2088,383"/>
-<area shape="rect" id="Node000010" href="$namespace_cpl_1_1_memory.html#union_cpl_1_1_memory_1_1_aligned_class" title="This type is used to create a memory block that is large enough to hold the memory footprint of ONE i..." alt="" coords="1544,304,1748,330"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="1764,327,1901,343,1901,348,1763,333"/>
-<area shape="rect" id="Node000011" href="$class_ajax_1_1_dm_1_1_mp_alert.html" title="This class provides a concrete implementation for a basic Alert that has following attributes:" alt="" coords="1584,617,1708,643"/>
-<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1723,616,1886,583,1981,558,2074,528,2126,506,2177,481,2255,437,2257,442,2179,486,2129,511,2076,533,1983,563,1888,588,1724,621"/>
-<area shape="rect" id="Node000012" href="$class_cpl_1_1_dm_1_1_model_point_common__.html" title="This concrete class provide common infrastructure for a Model Point." alt="" coords="1143,617,1340,643"/>
-<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="1355,628,1584,628,1584,633,1355,633"/>
-<area shape="rect" id="Node000013" href="$class_cpl_1_1_dm_1_1_model_point.html" title="This mostly abstract class defines the interface for a Model Point." alt="" coords="806,641,943,667"/>
-<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="958,646,1143,634,1143,639,958,651"/>
-<area shape="rect" id="Node000014" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="357,485,490,511"/>
-<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="506,513,516,522,525,534,528,546,528,570,528,593,531,603,540,614,569,634,601,649,636,660,671,666,742,669,805,664,805,669,742,675,671,671,634,665,599,654,566,639,536,617,527,606,522,594,522,570,523,547,520,536,512,525,502,517"/>
-<area shape="rect" id="Node000027" href="$class_cpl_1_1_system_1_1_signable.html" title="This abstract class defines the interface by which a client can cause an object that is waiting&#45;on&#45;a&#45;..." alt="" coords="801,353,947,379"/>
-<area shape="poly" id="edge27_Node000027_Node000014" title=" " alt="" coords="502,480,512,472,519,462,523,452,522,430,523,408,527,397,536,387,569,366,605,351,643,342,682,338,757,340,820,350,819,355,756,346,682,343,644,348,606,356,571,370,540,391,532,400,528,409,528,430,528,453,524,465,516,476,505,484"/>
-<area shape="rect" id="Node000015" href="$class_cpl_1_1_container_1_1_d_list.html" title=" " alt="" coords="787,510,962,551"/>
-<area shape="poly" id="edge14_Node000012_Node000015" title=" " alt="" coords="972,552,1120,592,1144,604,1178,614,1177,619,1142,609,1118,597,971,557"/>
-<area shape="rect" id="Node000023" href="$class_cpl_1_1_dm_1_1_event_loop.html" title="This class extends the Cpl::System::EventLoop class to support the asynchronous change notification g..." alt="" coords="1921,477,2055,503"/>
-<area shape="poly" id="edge38_Node000023_Node000015" title=" " alt="" coords="977,524,1921,490,1921,495,978,529"/>
-<area shape="rect" id="Node000016" href="$class_cpl_1_1_container_1_1_d_list.html" title="This template class implements a Doubly linked list which maintains the ordering imposed on it by the..." alt="" coords="354,317,493,357"/>
-<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="488,361,825,507,823,512,486,366"/>
-<area shape="rect" id="Node000030" href="$class_cpl_1_1_container_1_1_d_list.html" title=" " alt="" coords="764,209,984,249"/>
-<area shape="poly" id="edge31_Node000030_Node000016" title=" " alt="" coords="507,314,785,247,787,252,508,319"/>
-<area shape="rect" id="Node000017" href="$class_cpl_1_1_dm_1_1_model_database.html" title="This concrete class implements a simple Model Database." alt="" coords="793,584,955,610"/>
-<area shape="poly" id="edge16_Node000012_Node000017" title=" " alt="" coords="971,603,1009,607,1143,619,1143,624,1008,612,971,608"/>
-<area shape="rect" id="Node000018" href="$class_cpl_1_1_dm_1_1_model_database_api.html" title="This class defines the basic operations that can be performed on a Model Base." alt="" coords="333,436,514,462"/>
-<area shape="poly" id="edge17_Node000017_Node000018" title=" " alt="" coords="492,464,515,470,630,502,679,519,741,545,765,560,823,581,821,586,763,565,739,550,678,524,628,507,513,475,491,469"/>
-<area shape="rect" id="Node000019" href="$class_cpl_1_1_container_1_1_s_list.html" title=" " alt="" coords="344,535,503,576"/>
-<area shape="poly" id="edge18_Node000017_Node000019" title=" " alt="" coords="519,561,793,587,792,592,518,567"/>
-<area shape="rect" id="Node000020" href="$class_cpl_1_1_container_1_1_s_list.html" title="This template class implements a singly linked list which maintains the ordering imposed on it by the..." alt="" coords="5,535,144,576"/>
-<area shape="poly" id="edge19_Node000019_Node000020" title=" " alt="" coords="160,553,343,553,343,558,160,558"/>
-<area shape="rect" id="Node000021" href="$class_cpl_1_1_system_1_1_mutex.html" title="This mutex class defines the interface for a mutex that has &quot;recursive&quot; semantics." alt="" coords="358,600,489,626"/>
-<area shape="poly" id="edge20_Node000017_Node000021" title=" " alt="" coords="504,608,740,601,792,599,793,604,740,606,505,614"/>
-<area shape="rect" id="Node000022" href="$struct_ajax_1_1_dm_1_1_mp_alert_1_1_data.html" title="The MP&#39;s Data container." alt="" coords="1163,568,1320,594"/>
-<area shape="poly" id="edge21_Node000011_Node000022" title=" " alt="" coords="1335,588,1520,609,1584,618,1583,623,1519,614,1335,593"/>
-<area shape="poly" id="edge22_Node000001_Node000023" title=" " alt="" coords="2065,471,2216,437,2218,442,2066,476"/>
-<area shape="rect" id="Node000024" href="$class_cpl_1_1_system_1_1_event_loop.html" title="This concrete class is a Runnable object that provides a event driven execution model for a thread." alt="" coords="1567,353,1725,379"/>
-<area shape="poly" id="edge23_Node000023_Node000024" title=" " alt="" coords="1699,382,1951,474,1949,479,1697,387"/>
-<area shape="rect" id="Node000025" href="$class_cpl_1_1_system_1_1_runnable.html" title="This is an abstract class defines the interface for an object that is &quot;executed&quot; when a Thread object..." alt="" coords="1166,153,1317,179"/>
-<area shape="poly" id="edge24_Node000024_Node000025" title=" " alt="" coords="1332,155,1381,156,1431,165,1480,183,1502,196,1522,212,1533,228,1538,245,1535,278,1532,310,1535,325,1546,340,1568,355,1565,360,1542,344,1530,327,1526,310,1529,277,1533,246,1528,231,1518,216,1499,200,1477,187,1430,170,1380,162,1332,160"/>
-<area shape="rect" id="Node000026" href="$class_cpl_1_1_system_1_1_event_flag.html" title="This abstract class defines the interface to generated a &#39;Event Flag&#39;." alt="" coords="1164,203,1319,228"/>
-<area shape="poly" id="edge25_Node000024_Node000026" title=" " alt="" coords="1334,203,1382,205,1431,213,1479,229,1521,256,1530,267,1534,278,1535,300,1535,321,1538,331,1545,340,1568,354,1565,359,1542,344,1533,333,1530,322,1529,300,1529,279,1526,269,1518,260,1477,234,1430,218,1381,210,1334,209"/>
-<area shape="poly" id="edge26_Node000024_Node000027" title=" " alt="" coords="962,350,1008,345,1152,333,1264,328,1376,332,1520,344,1571,350,1570,355,1519,349,1376,337,1264,333,1152,338,1009,350,963,355"/>
-<area shape="rect" id="Node000031" href="$class_cpl_1_1_system_1_1_thread.html" title="This abstract class defines the operations that can be performed on a thread." alt="" coords="1173,403,1310,428"/>
-<area shape="poly" id="edge33_Node000031_Node000027" title=" " alt="" coords="963,375,1173,404,1172,409,963,381"/>
-<area shape="rect" id="Node000033" href="$class_cpl_1_1_system_1_1_semaphore.html" title="This semaphore class defines the interface for a Counting Semaphore." alt="" coords="1160,353,1323,379"/>
-<area shape="poly" id="edge36_Node000033_Node000027" title=" " alt="" coords="963,364,1160,364,1160,369,963,369"/>
-<area shape="rect" id="Node000028" href="$class_cpl_1_1_system_1_1_timer_manager.html" title="This mostly concrete class implements manages a list of Software Timers." alt="" coords="1152,252,1331,278"/>
-<area shape="poly" id="edge28_Node000024_Node000028" title=" " alt="" coords="1346,252,1390,254,1436,260,1480,273,1521,295,1531,306,1535,318,1537,330,1545,340,1568,353,1565,357,1542,344,1533,332,1529,320,1526,309,1518,299,1478,278,1435,265,1390,259,1346,257"/>
-<area shape="rect" id="Node000029" href="$class_cpl_1_1_system_1_1_counter_source__.html" title="This abstract class defines the interface for registering for an Counter object with the Timer Manage..." alt="" coords="780,273,969,299"/>
-<area shape="poly" id="edge29_Node000028_Node000029" title=" " alt="" coords="984,277,1151,267,1152,273,985,282"/>
-<area shape="poly" id="edge30_Node000028_Node000030" title=" " alt="" coords="1000,238,1152,253,1151,259,1000,244"/>
-<area shape="poly" id="edge32_Node000024_Node000031" title=" " alt="" coords="1325,405,1519,384,1566,377,1566,382,1520,389,1325,411"/>
-<area shape="rect" id="Node000032" href="$class_cpl_1_1_system_1_1_shared_event_handler_api.html" title="This abstract class defines the interface for a Shared Event Handler." alt="" coords="1156,453,1327,493"/>
-<area shape="poly" id="edge34_Node000024_Node000032" title=" " alt="" coords="1342,460,1429,445,1519,423,1574,401,1620,377,1623,382,1576,405,1520,428,1430,450,1343,465"/>
-<area shape="poly" id="edge35_Node000024_Node000033" title=" " alt="" coords="1338,364,1566,364,1566,369,1338,369"/>
-<area shape="rect" id="Node000034" href="$class_cpl_1_1_dm_1_1_notification_api__.html" title="This class has PACKAGE Scope, i.e." alt="" coords="1564,568,1728,594"/>
-<area shape="poly" id="edge37_Node000023_Node000034" title=" " alt="" coords="1743,572,1809,563,1876,546,1925,525,1966,501,1968,506,1928,530,1878,551,1810,568,1743,578"/>
+<area shape="rect" id="Node000001" title="This class manages the content of the Alert Summary model point." alt="" coords="2484,413,2652,439"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_close_sync.html" title="This partially concrete class implements the synchronous ITC close call for the CloseApi." alt="" coords="2173,180,2316,205"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2276,211,2551,411,2547,415,2273,216"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_open_sync.html" title="This partially concrete class implements the synchronous ITC open call for the OpenApi." alt="" coords="1786,80,1926,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1920,106,2195,177,2194,183,1919,111"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_open_api.html" title="This abstract class defines an open interface." alt="" coords="1336,5,1467,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1481,25,1715,59,1802,77,1800,83,1714,65,1480,30"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_itc_1_1_open_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="1320,55,1483,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="1497,70,1786,86,1786,91,1496,75"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_itc_1_1_post_api.html" title="This abstract class represents the interface used to send messages to a mailbox." alt="" coords="1339,104,1463,129"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="1477,110,1715,98,1786,94,1786,99,1715,103,1477,116"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_itc_1_1_close_api.html" title="This abstract class defines an close interface." alt="" coords="1790,155,1922,180"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="1936,170,2173,185,2173,191,1936,175"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_itc_1_1_close_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="1774,204,1938,229"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="1951,208,2173,194,2173,200,1952,213"/>
+<area shape="rect" id="Node000009" href="$namespace_cpl_1_1_memory.html#namespace_cpl_1_1_memory" title=" " alt="" coords="2147,335,2343,375"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="2351,376,2509,411,2508,416,2350,381"/>
+<area shape="rect" id="Node000010" href="$namespace_cpl_1_1_memory.html#union_cpl_1_1_memory_1_1_aligned_class" title="This type is used to create a memory block that is large enough to hold the memory footprint of ONE i..." alt="" coords="1739,304,1973,329"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="1988,327,2146,343,2146,348,1987,332"/>
+<area shape="rect" id="Node000011" href="$class_ajax_1_1_dm_1_1_mp_alert.html" title="This class provides a concrete implementation for a basic Alert that has following attributes:" alt="" coords="1785,617,1927,643"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1940,616,2126,583,2235,558,2342,526,2455,480,2542,436,2544,441,2457,485,2344,531,2236,563,2127,588,1941,621"/>
+<area shape="rect" id="Node000012" href="$class_cpl_1_1_dm_1_1_model_point_common__.html" title="This concrete class provide common infrastructure for a Model Point." alt="" coords="1291,617,1512,643"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="1526,627,1785,627,1785,633,1526,633"/>
+<area shape="rect" id="Node000013" href="$class_cpl_1_1_dm_1_1_model_point.html" title="This mostly abstract class defines the interface for a Model Point." alt="" coords="911,641,1066,667"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="1079,646,1290,634,1291,639,1080,651"/>
+<area shape="rect" id="Node000014" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="401,485,553,511"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="567,510,582,521,591,533,595,546,594,570,594,593,597,603,606,613,642,638,682,656,726,667,770,673,856,673,929,664,930,669,856,678,770,678,725,672,681,661,639,643,602,617,593,606,588,594,589,570,589,547,586,536,578,525,564,515"/>
+<area shape="rect" id="Node000027" href="$class_cpl_1_1_system_1_1_signable.html" title="This abstract class defines the interface by which a client can cause an object that is waiting&#45;on&#45;a&#45;..." alt="" coords="907,353,1071,379"/>
+<area shape="poly" id="edge27_Node000027_Node000014" title=" " alt="" coords="564,481,578,471,585,461,589,451,588,430,589,408,593,397,602,387,642,362,686,345,732,336,779,332,869,337,941,351,940,356,868,343,779,337,733,341,687,350,644,366,606,391,598,400,594,409,594,430,594,452,590,464,582,475,568,485"/>
+<area shape="rect" id="Node000015" href="$class_cpl_1_1_container_1_1_d_list.html" title=" " alt="" coords="888,510,1089,550"/>
+<area shape="poly" id="edge14_Node000012_Node000015" title=" " alt="" coords="1092,550,1268,591,1292,602,1337,615,1335,620,1290,607,1266,597,1091,556"/>
+<area shape="rect" id="Node000023" href="$class_cpl_1_1_dm_1_1_event_loop.html" title="This class extends the Cpl::System::EventLoop class to support the asynchronous change notification g..." alt="" coords="2169,477,2320,503"/>
+<area shape="poly" id="edge38_Node000023_Node000015" title=" " alt="" coords="1103,524,2169,490,2169,495,1103,529"/>
+<area shape="rect" id="Node000016" href="$class_cpl_1_1_container_1_1_d_list.html" title="This template class implements a Doubly linked list which maintains the ordering imposed on it by the..." alt="" coords="400,317,555,357"/>
+<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="545,359,935,507,934,512,543,364"/>
+<area shape="rect" id="Node000030" href="$class_cpl_1_1_container_1_1_d_list.html" title=" " alt="" coords="863,209,1115,249"/>
+<area shape="poly" id="edge31_Node000030_Node000016" title=" " alt="" coords="567,315,892,246,893,251,568,320"/>
+<area shape="rect" id="Node000017" href="$class_cpl_1_1_dm_1_1_model_database.html" title="This concrete class implements a simple Model Database." alt="" coords="897,584,1081,609"/>
+<area shape="poly" id="edge16_Node000012_Node000017" title=" " alt="" coords="1095,602,1291,618,1290,624,1094,608"/>
+<area shape="rect" id="Node000018" href="$class_cpl_1_1_dm_1_1_model_database_api.html" title="This class defines the basic operations that can be performed on a Model Base." alt="" coords="375,436,580,461"/>
+<area shape="poly" id="edge17_Node000017_Node000018" title=" " alt="" coords="548,462,581,470,712,501,769,517,840,545,864,560,929,581,928,586,862,564,837,550,767,522,711,506,579,475,547,467"/>
+<area shape="rect" id="Node000019" href="$class_cpl_1_1_container_1_1_s_list.html" title=" " alt="" coords="385,535,570,575"/>
+<area shape="poly" id="edge18_Node000017_Node000019" title=" " alt="" coords="584,561,897,587,896,592,583,567"/>
+<area shape="rect" id="Node000020" href="$class_cpl_1_1_container_1_1_s_list.html" title="This template class implements a singly linked list which maintains the ordering imposed on it by the..." alt="" coords="5,535,159,575"/>
+<area shape="poly" id="edge19_Node000019_Node000020" title=" " alt="" coords="173,553,385,553,385,558,173,558"/>
+<area shape="rect" id="Node000021" href="$class_cpl_1_1_system_1_1_mutex.html" title="This mutex class defines the interface for a mutex that has &quot;recursive&quot; semantics." alt="" coords="403,600,552,625"/>
+<area shape="poly" id="edge20_Node000017_Node000021" title=" " alt="" coords="566,608,839,601,896,598,897,604,839,606,566,614"/>
+<area shape="rect" id="Node000022" href="$struct_ajax_1_1_dm_1_1_mp_alert_1_1_data.html" title="The MP&#39;s Data container." alt="" coords="1311,568,1491,593"/>
+<area shape="poly" id="edge21_Node000011_Node000022" title=" " alt="" coords="1505,587,1715,609,1786,618,1785,623,1714,614,1505,592"/>
+<area shape="poly" id="edge22_Node000001_Node000023" title=" " alt="" coords="2322,472,2503,436,2504,441,2323,477"/>
+<area shape="rect" id="Node000024" href="$class_cpl_1_1_system_1_1_event_loop.html" title="This concrete class is a Runnable object that provides a event driven execution model for a thread." alt="" coords="1768,353,1944,379"/>
+<area shape="poly" id="edge23_Node000023_Node000024" title=" " alt="" coords="1911,380,2204,475,2203,480,1909,385"/>
+<area shape="rect" id="Node000025" href="$class_cpl_1_1_system_1_1_runnable.html" title="This is an abstract class defines the interface for an object that is &quot;executed&quot; when a Thread object..." alt="" coords="1317,153,1486,179"/>
+<area shape="poly" id="edge24_Node000024_Node000025" title=" " alt="" coords="1500,150,1555,150,1613,158,1668,177,1694,191,1717,209,1729,226,1733,243,1730,276,1726,308,1730,324,1741,339,1754,349,1769,357,1766,361,1751,354,1737,342,1725,326,1721,309,1725,275,1728,243,1724,228,1713,213,1691,195,1666,181,1611,163,1554,156,1500,156"/>
+<area shape="rect" id="Node000026" href="$class_cpl_1_1_system_1_1_event_flag.html" title="This abstract class defines the interface to generated a &#39;Event Flag&#39;." alt="" coords="1315,203,1488,228"/>
+<area shape="poly" id="edge25_Node000024_Node000026" title=" " alt="" coords="1502,200,1556,200,1613,207,1668,224,1693,238,1716,255,1725,265,1729,276,1730,298,1730,319,1733,329,1740,339,1769,356,1766,360,1737,343,1728,332,1724,320,1724,298,1724,277,1721,268,1713,259,1690,242,1666,229,1612,212,1555,205,1502,205"/>
+<area shape="poly" id="edge26_Node000024_Node000027" title=" " alt="" coords="1084,350,1138,345,1300,332,1427,328,1553,331,1715,343,1777,351,1777,356,1714,349,1553,337,1427,333,1301,338,1139,350,1085,356"/>
+<area shape="rect" id="Node000031" href="$class_cpl_1_1_system_1_1_thread.html" title="This abstract class defines the operations that can be performed on a thread." alt="" coords="1325,403,1478,428"/>
+<area shape="poly" id="edge33_Node000031_Node000027" title=" " alt="" coords="1085,375,1325,404,1324,409,1084,380"/>
+<area shape="rect" id="Node000033" href="$class_cpl_1_1_system_1_1_semaphore.html" title="This semaphore class defines the interface for a Counting Semaphore." alt="" coords="1310,353,1493,379"/>
+<area shape="poly" id="edge36_Node000033_Node000027" title=" " alt="" coords="1085,363,1310,363,1310,369,1085,369"/>
+<area shape="rect" id="Node000028" href="$class_cpl_1_1_system_1_1_timer_manager.html" title="This mostly concrete class implements manages a list of Software Timers." alt="" coords="1300,252,1503,277"/>
+<area shape="poly" id="edge28_Node000024_Node000028" title=" " alt="" coords="1516,249,1566,250,1618,257,1669,271,1716,295,1726,306,1730,318,1732,329,1740,339,1769,353,1766,358,1737,343,1728,331,1724,319,1721,308,1713,299,1667,276,1617,262,1566,255,1516,254"/>
+<area shape="rect" id="Node000029" href="$class_cpl_1_1_system_1_1_counter_source__.html" title="This abstract class defines the interface for registering for an Counter object with the Timer Manage..." alt="" coords="883,273,1094,299"/>
+<area shape="poly" id="edge29_Node000028_Node000029" title=" " alt="" coords="1108,277,1300,267,1300,273,1108,283"/>
+<area shape="poly" id="edge30_Node000028_Node000030" title=" " alt="" coords="1128,238,1300,253,1300,259,1128,243"/>
+<area shape="poly" id="edge32_Node000024_Node000031" title=" " alt="" coords="1492,405,1714,383,1770,376,1771,381,1715,389,1492,411"/>
+<area shape="rect" id="Node000032" href="$class_cpl_1_1_system_1_1_shared_event_handler_api.html" title="This abstract class defines the interface for a Shared Event Handler." alt="" coords="1306,453,1497,493"/>
+<area shape="poly" id="edge34_Node000024_Node000032" title=" " alt="" coords="1510,460,1610,445,1714,422,1776,400,1828,376,1831,381,1778,405,1715,427,1611,451,1511,465"/>
+<area shape="poly" id="edge35_Node000024_Node000033" title=" " alt="" coords="1506,363,1768,363,1768,369,1506,369"/>
+<area shape="rect" id="Node000034" href="$class_cpl_1_1_dm_1_1_notification_api__.html" title="This class has PACKAGE Scope, i.e." alt="" coords="1763,568,1949,593"/>
+<area shape="poly" id="edge37_Node000023_Node000034" title=" " alt="" coords="1962,573,2041,564,2122,546,2176,524,2221,501,2224,505,2179,529,2123,551,2042,569,1963,579"/>
 </map>

@@ -1,19 +1,19 @@
 <map id="Ajax/ScreenMgr/DisplayApi.h" name="Ajax/ScreenMgr/DisplayApi.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="357,5,546,31"/>
-<area shape="rect" id="Node000002" href="$_ajax_2_screen_mgr_2_api_8h.html" title=" " alt="" coords="294,79,441,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="428,43,383,81,380,77,424,39"/>
-<area shape="rect" id="Node000007" href="$_pico_display_8h.html" title=" " alt="" coords="514,79,659,105"/>
-<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="489,36,564,76,562,81,487,41"/>
-<area shape="rect" id="Node000003" href="$_ajax_2_ui_2_about_2_screen_8h.html" title=" " alt="" coords="5,153,162,178"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="305,111,133,155,131,149,304,106"/>
-<area shape="rect" id="Node000005" href="$_ajax_2_ui_2_edit_setpt_2_screen_8h.html" title=" " alt="" coords="185,153,361,178"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="341,117,290,154,287,150,338,112"/>
-<area shape="rect" id="Node000006" href="$_ajax_2_ui_2_home_2_screen_8h.html" title=" " alt="" coords="385,153,542,178"/>
-<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="397,112,449,150,446,154,394,116"/>
-<area shape="rect" id="Node000004" href="$_ajax_2_main_2screens_8h.html" title="This file exposes handles to Screen instances for the Ajax Application." alt="" coords="204,226,342,252"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="130,182,241,223,240,228,129,187"/>
-<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="276,194,276,226,270,226,270,194"/>
-<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="418,187,306,228,304,223,416,182"/>
-<area shape="rect" id="Node000008" href="$appmain_8h.html" title="This file defines the hardware/platform independent start&#45;up interface(s) for the Ajax application." alt="" coords="566,153,708,178"/>
-<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="605,116,630,151,626,154,601,119"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="385,5,596,31"/>
+<area shape="rect" id="Node000002" href="$_ajax_2_screen_mgr_2_api_8h.html" title=" " alt="" coords="318,79,479,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="467,41,415,81,412,76,464,37"/>
+<area shape="rect" id="Node000007" href="$_pico_display_8h.html" title=" " alt="" coords="558,79,717,104"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="527,34,614,76,612,81,525,39"/>
+<area shape="rect" id="Node000003" href="$_ajax_2_ui_2_about_2_screen_8h.html" title=" " alt="" coords="5,152,176,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="336,110,141,154,140,149,335,104"/>
+<area shape="rect" id="Node000005" href="$_ajax_2_ui_2_edit_setpt_2_screen_8h.html" title=" " alt="" coords="200,152,392,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="372,114,314,154,311,150,369,110"/>
+<area shape="rect" id="Node000006" href="$_ajax_2_ui_2_home_2_screen_8h.html" title=" " alt="" coords="417,152,589,177"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="428,110,487,150,484,154,425,114"/>
+<area shape="rect" id="Node000004" href="$_ajax_2_main_2screens_8h.html" title="This file exposes handles to Screen instances for the Ajax Application." alt="" coords="219,225,373,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="137,179,264,223,262,228,136,184"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="299,191,299,225,293,225,293,191"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="457,184,330,228,329,223,456,179"/>
+<area shape="rect" id="Node000008" href="$appmain_8h.html" title="This file defines the hardware/platform independent start&#45;up interface(s) for the Ajax application." alt="" coords="613,152,773,177"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="657,113,686,150,682,154,653,117"/>
 </map>

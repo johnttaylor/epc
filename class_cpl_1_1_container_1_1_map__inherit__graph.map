@@ -1,9 +1,5 @@
 <map id="Cpl::Container::Map&lt; ITEM &gt;" name="Cpl::Container::Map&lt; ITEM &gt;">
-<area shape="rect" id="Node000001" title="This template class implements an Map using an AVL Binary tree (i.e." alt="" coords="5,71,138,111"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_map.html" title=" " alt="" coords="362,5,523,46"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,70,161,68,361,35,362,40,162,74,154,75"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_map.html" title=" " alt="" coords="357,71,528,111"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="153,88,357,88,357,94,153,94"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_map.html" title=" " alt="" coords="338,135,547,191"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="134,115,162,124,251,142,337,153,337,158,250,147,161,129,133,120"/>
+<area shape="rect" id="Node000001" title="This template class implements an Map using an AVL Binary tree (i.e." alt="" coords="49,5,200,45"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_map.html" title=" " alt="" coords="5,123,244,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,59,127,122,122,122,122,59"/>
 </map>

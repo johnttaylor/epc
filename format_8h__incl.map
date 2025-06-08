@@ -1,31 +1,31 @@
 <map id="Cpl/Text/format.h" name="Cpl/Text/format.h">
-<area shape="rect" id="Node000001" title="This file contains some general purpose string formatting functions." alt="" coords="431,5,552,31"/>
-<area shape="rect" id="Node000002" href="$_text_2_string_8h.html" title=" " alt="" coords="261,79,378,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="463,34,364,75,362,70,461,29"/>
-<area shape="rect" id="Node000012" href="$_elapsed_time_8h.html" title=" " alt="" coords="403,79,580,105"/>
-<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="494,31,494,63,489,63,489,31"/>
-<area shape="rect" id="Node000014" title=" " alt="" coords="604,79,667,105"/>
-<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="517,29,599,69,596,74,515,34"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,226,106,252"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="261,103,189,120,152,135,118,155,90,183,70,214,65,211,86,180,115,151,150,130,188,115,260,97"/>
-<area shape="rect" id="Node000004" href="$_key_8h.html" title=" " alt="" coords="129,153,265,178"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="300,108,232,147,229,142,297,103"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="289,153,356,178"/>
-<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="323,105,324,137,318,137,317,105"/>
-<area shape="rect" id="Node000011" title=" " alt="" coords="380,153,451,178"/>
-<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="337,103,389,141,386,146,334,107"/>
-<area shape="poly" id="edge9_Node000004_Node000003" title=" " alt="" coords="174,181,94,221,92,217,172,176"/>
-<area shape="rect" id="Node000005" href="$_fatal_error_8h.html" title=" " alt="" coords="130,226,288,252"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="201,178,207,210,202,211,196,179"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="428,226,491,252"/>
-<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="242,176,413,223,412,228,241,181"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="312,226,375,252"/>
-<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="223,176,306,217,304,221,221,181"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="119,300,187,326"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="202,254,174,289,170,286,197,251"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="210,300,320,326"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="220,251,248,286,244,289,216,254"/>
-<area shape="poly" id="edge13_Node000012_Node000008" title=" " alt="" coords="491,106,468,211,463,210,486,104"/>
-<area shape="rect" id="Node000013" title=" " alt="" coords="526,153,604,178"/>
-<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="505,103,544,140,540,144,502,107"/>
+<area shape="rect" id="Node000001" title="This file contains some general purpose string formatting functions." alt="" coords="467,5,601,31"/>
+<area shape="rect" id="Node000002" href="$_text_2_string_8h.html" title=" " alt="" coords="283,79,411,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="505,33,391,76,390,71,503,28"/>
+<area shape="rect" id="Node000012" href="$_elapsed_time_8h.html" title=" " alt="" coords="436,79,632,104"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="537,31,537,65,531,65,531,31"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="656,79,727,104"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="560,28,654,71,652,75,558,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,225,119,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="284,102,207,119,167,134,130,154,99,183,77,214,73,211,95,179,127,150,165,129,205,114,283,97"/>
+<area shape="rect" id="Node000004" href="$_key_8h.html" title=" " alt="" coords="141,152,289,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="327,106,250,148,248,143,325,102"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="314,152,389,177"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="351,104,353,138,347,139,345,104"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="413,152,493,177"/>
+<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="366,102,426,142,423,147,363,106"/>
+<area shape="poly" id="edge9_Node000004_Node000003" title=" " alt="" coords="192,180,100,222,98,217,190,175"/>
+<area shape="rect" id="Node000005" href="$_fatal_error_8h.html" title=" " alt="" coords="143,225,317,251"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="220,177,227,211,222,212,215,178"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="465,225,536,251"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="262,175,453,222,451,227,261,180"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="341,225,412,251"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="242,175,339,217,337,222,240,180"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="131,299,206,324"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="222,253,190,290,186,286,218,249"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="230,299,353,324"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="242,249,274,286,270,290,238,253"/>
+<area shape="poly" id="edge13_Node000012_Node000008" title=" " alt="" coords="534,105,509,213,504,211,529,104"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="568,152,655,177"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="548,102,590,141,587,144,545,106"/>
 </map>

@@ -1,7 +1,7 @@
 <map id="Cpl/TShell/SecurityNull.h" name="Cpl/TShell/SecurityNull.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="57,5,222,31"/>
-<area shape="rect" id="Node000002" href="$_security_8h.html" title=" " alt="" coords="5,79,148,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,33,99,69,95,65,127,29"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="172,79,235,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,29,184,66,180,69,148,33"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="59,5,242,31"/>
+<area shape="rect" id="Node000002" href="$_security_8h.html" title=" " alt="" coords="5,79,160,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,33,105,70,101,67,138,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="185,79,255,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,29,201,67,197,71,160,33"/>
 </map>

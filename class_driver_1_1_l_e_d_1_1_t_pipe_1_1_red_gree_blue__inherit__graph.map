@@ -1,5 +1,5 @@
 <map id="Driver::LED::TPipe::RedGreeBlue" name="Driver::LED::TPipe::RedGreeBlue">
-<area shape="rect" id="Node000001" title="This concrete class implements the Red&#45;Green&#45;Blue LED interface by sending the LED state over the TPi..." alt="" coords="30,79,157,120"/>
-<area shape="rect" id="Node000002" href="$class_driver_1_1_l_e_d_1_1_red_green_blue.html" title="This abstract class defines a basic interface for a single Red&#45;Green&#45;Blue LED where the application c..." alt="" coords="5,5,182,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,46,96,79,91,79,91,46"/>
+<area shape="rect" id="Node000001" title="This concrete class implements the Red&#45;Green&#45;Blue LED interface by sending the LED state over the TPi..." alt="" coords="34,79,173,119"/>
+<area shape="rect" id="Node000002" href="$class_driver_1_1_l_e_d_1_1_red_green_blue.html" title="This abstract class defines a basic interface for a single Red&#45;Green&#45;Blue LED where the application c..." alt="" coords="5,5,201,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,44,106,79,101,79,101,44"/>
 </map>

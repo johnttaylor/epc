@@ -1,7 +1,7 @@
 <map id="Cpl::Memory::HPool&lt; T &gt;" name="Cpl::Memory::HPool&lt; T &gt;">
-<area shape="rect" id="Node000001" title="This template class defines a concrete Allocator that allocates its block memory from the HEAP." alt="" coords="5,153,170,178"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_memory_1_1_allocator.html" title="This abstract class defines the interface for a Memory Allocator." alt="" coords="13,79,162,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,120,90,152,85,152,85,120"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="21,5,154,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="90,46,90,79,85,79,85,46"/>
+<area shape="rect" id="Node000001" title="This template class defines a concrete Allocator that allocates its block memory from the HEAP." alt="" coords="5,152,193,177"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_memory_1_1_allocator.html" title="This abstract class defines the interface for a Memory Allocator." alt="" coords="14,79,185,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,118,102,152,97,152,97,118"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="23,5,175,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="102,44,102,79,97,79,97,44"/>
 </map>

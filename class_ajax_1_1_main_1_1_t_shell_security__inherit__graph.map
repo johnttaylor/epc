@@ -1,5 +1,5 @@
 <map id="Ajax::Main::TShellSecurity" name="Ajax::Main::TShellSecurity">
-<area shape="rect" id="Node000001" title="Validates the TShell login password." alt="" coords="5,79,176,105"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_t_shell_1_1_security.html" title="This abstract defines the interface for validating a &#39;user login&#39; for TShell." alt="" coords="22,5,159,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,46,93,79,88,79,88,46"/>
+<area shape="rect" id="Node000001" title="Validates the TShell login password." alt="" coords="5,79,197,104"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_t_shell_1_1_security.html" title="This abstract defines the interface for validating a &#39;user login&#39; for TShell." alt="" coords="25,5,177,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,44,104,79,99,79,99,44"/>
 </map>

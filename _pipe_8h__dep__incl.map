@@ -1,7 +1,7 @@
 <map id="Driver/TPipe/Pipe.h" name="Driver/TPipe/Pipe.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="82,5,216,31"/>
-<area shape="rect" id="Node000002" href="$_driver_2_pico_display_2_t_pipe_2_api_8h.html" title="This file defines the interface for initializing the concrete implementation of the PicoDisplay drive..." alt="" coords="5,79,133,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,44,91,81,87,77,124,40"/>
-<area shape="rect" id="Node000003" href="$_driver_2_t_pipe_2_maker_8h.html" title=" " alt="" coords="157,87,301,112"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,40,219,84,215,88,170,44"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="90,5,237,31"/>
+<area shape="rect" id="Node000002" href="$_driver_2_pico_display_2_t_pipe_2_api_8h.html" title="This file defines the interface for initializing the concrete implementation of the PicoDisplay drive..." alt="" coords="5,79,148,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,42,99,80,96,77,139,38"/>
+<area shape="rect" id="Node000003" href="$_driver_2_t_pipe_2_maker_8h.html" title=" " alt="" coords="173,86,330,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,38,240,84,237,88,185,42"/>
 </map>

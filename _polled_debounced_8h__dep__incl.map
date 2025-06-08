@@ -1,11 +1,11 @@
 <map id="Driver/Button/PolledDebounced.h" name="Driver/Button/PolledDebounced.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="52,5,264,31"/>
-<area shape="rect" id="Node000002" href="$_driver_2_pico_display_2_api_8h.html" title=" " alt="" coords="94,79,221,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,46,160,79,155,79,155,46"/>
-<area shape="rect" id="Node000003" href="$platform_8h.html" title="This file contains the interface(s) that are platform VARIANT specific." alt="" coords="5,168,145,193"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="128,132,90,169,86,165,125,128"/>
-<area shape="rect" id="Node000004" href="$_pico_display_8h.html" title=" " alt="" coords="169,168,314,193"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="191,128,231,165,227,169,188,132"/>
-<area shape="rect" id="Node000005" href="$appmain_8h.html" title="This file defines the hardware/platform independent start&#45;up interface(s) for the Ajax application." alt="" coords="171,241,312,267"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="244,209,244,241,239,241,239,209"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="56,5,295,31"/>
+<area shape="rect" id="Node000002" href="$_driver_2_pico_display_2_api_8h.html" title=" " alt="" coords="104,79,247,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,44,178,79,173,79,173,44"/>
+<area shape="rect" id="Node000003" href="$platform_8h.html" title="This file contains the interface(s) that are platform VARIANT specific." alt="" coords="5,167,164,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="145,130,100,168,97,164,141,126"/>
+<area shape="rect" id="Node000004" href="$_pico_display_8h.html" title=" " alt="" coords="188,167,347,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="210,126,255,164,252,168,206,130"/>
+<area shape="rect" id="Node000005" href="$appmain_8h.html" title="This file defines the hardware/platform independent start&#45;up interface(s) for the Ajax application." alt="" coords="187,240,347,265"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="270,206,270,240,265,240,265,206"/>
 </map>

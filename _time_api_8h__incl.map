@@ -1,7 +1,7 @@
 <map id="Cpl/Logging/TimeApi.h" name="Cpl/Logging/TimeApi.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="38,5,191,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,115,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,33,80,68,76,65,104,30"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="139,79,202,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="126,30,154,65,150,68,122,33"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="43,5,211,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,128,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,33,87,70,83,66,115,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="153,79,223,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="139,29,171,66,167,70,135,33"/>
 </map>

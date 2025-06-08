@@ -1,11 +1,11 @@
 <map id="Cpl::Persistent::DataRecord" name="Cpl::Persistent::DataRecord">
-<area shape="rect" id="Node000001" title="This mostly concrete class implements the Cpl::Persistent::DataRecord interface where a DataRecord in..." alt="" coords="103,79,283,105"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_persistent_1_1_index_record.html" title="This concrete class extends the Cpl::Persistent::DataRecord interface to store a latest/oldest &#39;recor..." alt="" coords="5,160,189,186"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="168,117,113,162,110,158,165,113"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_persistent_1_1_indexed_entry_record.html" title="This concrete class implements the Cpl::Persistent::Record interface to store a collection &#39;entries&#39;." alt="" coords="212,153,369,193"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="221,113,268,150,265,154,218,117"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_persistent_1_1_record.html" title="This abstract class defines the public interface for a Record instance." alt="" coords="27,5,180,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,39,180,77,176,81,129,43"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_persistent_1_1_payload.html" title="This abstract class defines the interface accessing the &#39;data payload&#39; of an individual Record instan..." alt="" coords="204,5,361,31"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="257,43,210,81,206,77,254,39"/>
+<area shape="rect" id="Node000001" title="This mostly concrete class implements the Cpl::Persistent::DataRecord interface where a DataRecord in..." alt="" coords="115,79,315,104"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_persistent_1_1_index_record.html" title="This concrete class extends the Cpl::Persistent::DataRecord interface to store a latest/oldest &#39;recor..." alt="" coords="5,159,211,185"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="190,114,125,161,122,157,186,110"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_persistent_1_1_indexed_entry_record.html" title="This concrete class implements the Cpl::Persistent::Record interface to store a collection &#39;entries&#39;." alt="" coords="235,152,410,192"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="243,110,298,150,295,154,240,114"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_persistent_1_1_record.html" title="This abstract class defines the public interface for a Record instance." alt="" coords="33,5,202,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,37,200,76,197,81,143,41"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_persistent_1_1_payload.html" title="This abstract class defines the interface accessing the &#39;data payload&#39; of an individual Record instan..." alt="" coords="226,5,401,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="288,41,232,81,229,76,285,36"/>
 </map>

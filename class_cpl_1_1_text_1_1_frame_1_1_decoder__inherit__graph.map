@@ -1,18 +1,18 @@
 <map id="Cpl::Text::Frame::Decoder" name="Cpl::Text::Frame::Decoder">
-<area shape="rect" id="Node000001" title="This class defines an interface for &#39;receiving&#39; (decode) a frame." alt="" coords="5,114,174,140"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_text_1_1_frame_1_1_decoder__.html" title="This private partially concrete class implements the basic/common logic for a frame decoder." alt="" coords="223,114,398,140"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,124,222,124,222,130,189,130"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_text_1_1_frame_1_1_stream_decoder.html" title="This partially concrete class defines an interface a Text &quot;Decoder&quot; that has a Cpl::Io::Input stream ..." alt="" coords="448,57,610,98"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="385,108,447,93,448,99,386,113"/>
-<area shape="rect" id="Node000008" href="$class_cpl_1_1_text_1_1_frame_1_1_string_decoder.html" title="This concrete class defines an interface a Text &quot;Decoder&quot; that accepts a null terminated string as it..." alt="" coords="452,123,606,163"/>
-<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="414,132,451,135,451,140,413,137"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_text_1_1_frame_1_1_line_decoder.html" title=" " alt="" coords="1089,30,1352,86"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="580,48,618,31,659,19,714,10,771,5,885,4,994,13,1089,27,1088,32,993,19,885,10,771,10,715,15,660,24,620,36,582,52"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_text_1_1_frame_1_1_ascii_decoder.html" title="This concrete template class provide a basic implementation of the Frame::Decoder interface that uses..." alt="" coords="659,33,857,74"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="626,65,659,61,659,67,626,70"/>
-<area shape="rect" id="Node000006" href="$class_cpl_1_1_text_1_1_frame_1_1_line_decoder.html" title="This concrete template class provide a basic implementation of the Frame::Decoder interface that uses..." alt="" coords="661,99,855,139"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="626,92,661,99,660,104,625,98"/>
-<area shape="rect" id="Node000007" href="$class_driver_1_1_t_pipe_1_1_maker.html" title="This concrete class is a &quot;Maker&quot; that assembles the objects needed for TPipe." alt="" coords="689,164,827,189"/>
-<area shape="poly" id="edge7_Node000003_Node000007" title=" " alt="" coords="601,103,612,109,636,130,646,139,661,149,691,161,689,166,658,153,643,144,633,134,608,113,599,108"/>
-<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="870,102,1088,73,1088,78,870,107"/>
+<area shape="rect" id="Node000001" title="This class defines an interface for &#39;receiving&#39; (decode) a frame." alt="" coords="5,113,195,138"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_text_1_1_frame_1_1_decoder__.html" title="This private partially concrete class implements the basic/common logic for a frame decoder." alt="" coords="244,113,440,138"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,123,244,123,244,128,209,128"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_text_1_1_frame_1_1_stream_decoder.html" title="This partially concrete class defines an interface a Text &quot;Decoder&quot; that has a Cpl::Io::Input stream ..." alt="" coords="489,57,672,97"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="419,107,489,93,490,98,420,112"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_text_1_1_frame_1_1_string_decoder.html" title="This concrete class defines an interface a Text &quot;Decoder&quot; that accepts a null terminated string as it..." alt="" coords="494,121,667,161"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="454,130,494,133,494,138,453,135"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_text_1_1_frame_1_1_line_decoder.html" title=" " alt="" coords="1175,30,1433,85"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="632,49,674,32,721,19,780,10,840,5,961,5,1076,14,1175,28,1174,34,1075,19,961,10,840,10,780,15,722,24,676,37,634,54"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_text_1_1_frame_1_1_ascii_decoder.html" title="This concrete template class provide a basic implementation of the Frame::Decoder interface that uses..." alt="" coords="721,33,941,73"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="686,65,721,61,722,66,686,70"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_text_1_1_frame_1_1_line_decoder.html" title="This concrete template class provide a basic implementation of the Frame::Decoder interface that uses..." alt="" coords="723,97,939,137"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="686,91,723,97,723,103,685,97"/>
+<area shape="rect" id="Node000007" href="$class_driver_1_1_t_pipe_1_1_maker.html" title="This concrete class is a &quot;Maker&quot; that assembles the objects needed for TPipe." alt="" coords="754,162,909,187"/>
+<area shape="poly" id="edge7_Node000003_Node000007" title=" " alt="" coords="661,100,673,107,698,128,708,138,723,147,756,159,754,164,720,152,705,142,695,132,671,111,658,105"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="953,99,1174,71,1175,76,954,104"/>
 </map>

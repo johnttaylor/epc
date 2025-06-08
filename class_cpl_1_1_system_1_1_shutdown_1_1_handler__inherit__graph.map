@@ -1,5 +1,5 @@
 <map id="Cpl::System::Shutdown::Handler" name="Cpl::System::Shutdown::Handler">
-<area shape="rect" id="Node000001" title="This call defines the callback interface that is used when the application is shutdown." alt="" coords="5,79,160,120"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="16,5,149,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,46,85,79,80,79,80,46"/>
+<area shape="rect" id="Node000001" title="This call defines the callback interface that is used when the application is shutdown." alt="" coords="5,79,177,119"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="15,5,167,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,44,94,79,89,79,89,44"/>
 </map>

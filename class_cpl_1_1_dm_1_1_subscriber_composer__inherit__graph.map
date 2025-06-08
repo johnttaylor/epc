@@ -1,45 +1,45 @@
 <map id="Cpl::Dm::SubscriberComposer&lt; CONTEXT, MP &gt;" name="Cpl::Dm::SubscriberComposer&lt; CONTEXT, MP &gt;">
-<area shape="rect" id="Node000001" title="This template class is a composer pattern/class that manages the callback function for a Model Point&#39;..." alt="" coords="1024,667,1217,708"/>
-<area shape="rect" id="Node000007" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1490,47,1683,102"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1121,651,1131,527,1151,361,1167,278,1186,203,1210,142,1224,119,1239,102,1266,82,1296,67,1328,57,1361,50,1427,47,1489,52,1489,57,1427,52,1362,56,1329,62,1298,72,1269,86,1243,106,1228,122,1215,145,1191,205,1172,279,1156,362,1136,528,1126,652"/>
-<area shape="rect" id="Node000008" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1490,127,1683,182"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1122,652,1135,546,1159,408,1174,339,1193,278,1214,227,1239,194,1266,174,1296,158,1328,147,1361,140,1427,134,1489,136,1489,141,1428,139,1362,145,1329,152,1298,163,1269,178,1243,198,1219,230,1198,279,1179,341,1164,409,1141,546,1128,652"/>
-<area shape="rect" id="Node000009" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1490,207,1683,262"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1124,652,1139,559,1163,441,1179,383,1197,332,1217,290,1239,262,1257,251,1282,243,1345,233,1418,228,1489,228,1489,233,1418,234,1346,238,1283,248,1260,256,1243,266,1221,292,1202,334,1184,385,1168,443,1144,560,1129,652"/>
-<area shape="rect" id="Node000010" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1490,287,1683,342"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1120,651,1126,584,1145,500,1160,457,1180,416,1206,378,1239,346,1267,327,1298,313,1362,297,1428,292,1489,295,1489,300,1428,297,1363,302,1299,318,1270,332,1243,350,1211,381,1185,418,1165,459,1150,502,1132,585,1125,652"/>
-<area shape="rect" id="Node000011" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1471,367,1701,422"/>
-<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1125,651,1137,601,1159,541,1192,482,1214,456,1240,433,1279,417,1337,405,1470,394,1471,399,1337,410,1281,422,1242,438,1218,459,1196,485,1164,543,1142,602,1130,652"/>
-<area shape="rect" id="Node000012" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1478,446,1695,516"/>
-<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="1138,652,1180,595,1208,566,1240,543,1297,516,1359,497,1420,486,1477,480,1477,485,1421,491,1360,503,1299,521,1242,547,1211,570,1184,598,1143,655"/>
-<area shape="rect" id="Node000013" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1490,540,1683,596"/>
-<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1165,657,1201,638,1240,621,1303,603,1369,589,1489,572,1489,577,1370,594,1305,608,1242,626,1203,642,1167,662"/>
-<area shape="rect" id="Node000014" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1490,620,1683,676"/>
-<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="1233,675,1489,653,1489,659,1233,681"/>
-<area shape="rect" id="Node000015" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1490,700,1683,756"/>
-<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="1233,707,1241,708,1370,719,1489,724,1489,729,1370,725,1241,714,1232,712"/>
-<area shape="rect" id="Node000016" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1490,780,1683,836"/>
-<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="1162,715,1200,738,1242,758,1304,776,1369,789,1489,802,1489,808,1368,794,1303,781,1240,763,1197,743,1159,719"/>
-<area shape="rect" id="Node000017" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1490,860,1683,916"/>
-<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="1141,720,1182,780,1210,810,1242,834,1302,861,1367,877,1431,886,1489,889,1489,894,1430,891,1366,882,1301,866,1240,839,1206,814,1178,784,1137,723"/>
-<area shape="rect" id="Node000018" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1490,940,1683,996"/>
-<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="1131,723,1144,770,1166,825,1198,878,1219,902,1243,922,1270,939,1301,952,1365,969,1429,976,1489,976,1489,981,1429,981,1364,974,1299,957,1268,944,1239,926,1215,906,1194,882,1161,827,1139,771,1126,724"/>
-<area shape="rect" id="Node000019" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1490,1020,1683,1076"/>
-<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="1126,723,1133,787,1152,867,1167,908,1187,947,1212,982,1243,1012,1270,1029,1300,1043,1364,1059,1429,1064,1489,1061,1489,1066,1429,1069,1363,1064,1298,1048,1267,1034,1239,1016,1208,985,1182,949,1162,910,1147,868,1128,788,1120,724"/>
-<area shape="rect" id="Node000020" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1490,1100,1683,1156"/>
-<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="1129,723,1145,813,1169,928,1185,984,1202,1034,1222,1074,1243,1100,1270,1118,1299,1131,1330,1141,1363,1147,1428,1150,1489,1145,1489,1150,1428,1155,1362,1152,1329,1146,1297,1136,1267,1122,1239,1104,1217,1077,1197,1036,1180,985,1164,929,1139,814,1124,724"/>
-<area shape="rect" id="Node000021" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1488,1180,1684,1236"/>
-<area shape="poly" id="edge20_Node000001_Node000021" title=" " alt="" coords="1127,723,1138,834,1160,979,1176,1051,1195,1115,1217,1167,1229,1186,1243,1200,1269,1218,1299,1230,1330,1238,1362,1243,1427,1242,1487,1233,1488,1238,1427,1247,1361,1248,1329,1243,1297,1235,1267,1222,1239,1204,1225,1189,1212,1170,1190,1117,1171,1052,1155,980,1133,835,1122,723"/>
-<area shape="rect" id="Node000022" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1473,1260,1700,1316"/>
-<area shape="poly" id="edge21_Node000001_Node000022" title=" " alt="" coords="1126,723,1135,849,1155,1018,1170,1103,1190,1178,1214,1239,1228,1262,1243,1278,1269,1296,1297,1309,1328,1317,1359,1322,1423,1322,1484,1313,1484,1319,1424,1327,1359,1327,1327,1323,1295,1314,1266,1301,1239,1282,1223,1265,1209,1242,1184,1180,1165,1104,1149,1019,1129,850,1121,724"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_dm_1_1_subscriber.html" title="This template class defines a type safe Subscriber." alt="" coords="840,667,974,708"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="990,685,1023,685,1023,690,990,690"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_dm_1_1_subscriber_base.html" title="This mostly concrete class defines the Subscriber interface &#45; for change notifications &#45; to a Model P..." alt="" coords="626,675,791,701"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="807,685,840,685,840,690,807,690"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_dm_1_1_subscriber_api.html" title="This abstract class defines the Subscriber interface &#45; for change notifications &#45; to a Model Points d..." alt="" coords="424,675,577,701"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="593,685,626,685,626,690,593,690"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="188,675,374,701"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="390,685,423,685,423,690,390,690"/>
-<area shape="rect" id="Node000006" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,675,139,701"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="154,685,187,685,187,690,154,690"/>
+<area shape="rect" id="Node000001" title="This template class is a composer pattern/class that manages the callback function for a Model Point&#39;..." alt="" coords="1121,659,1337,699"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1658,45,1874,99"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1231,645,1244,526,1268,366,1285,285,1306,213,1331,154,1345,131,1360,114,1392,90,1428,72,1466,60,1505,51,1585,46,1658,50,1658,55,1585,51,1506,57,1467,65,1430,77,1395,95,1363,118,1349,134,1335,156,1311,214,1291,287,1274,367,1249,527,1236,646"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1658,123,1874,178"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1232,645,1247,541,1274,404,1291,336,1311,274,1334,225,1360,191,1381,178,1411,168,1486,155,1573,148,1657,146,1658,151,1574,153,1487,160,1412,173,1383,183,1363,195,1339,227,1316,276,1296,337,1279,405,1253,542,1237,646"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1658,202,1874,257"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1227,645,1232,566,1238,516,1249,462,1266,408,1289,356,1320,308,1360,267,1381,255,1411,245,1487,232,1574,226,1658,224,1658,230,1574,231,1488,237,1412,250,1384,260,1363,271,1324,311,1294,358,1271,410,1254,463,1243,516,1237,566,1233,645"/>
+<area shape="rect" id="Node000010" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1658,281,1874,335"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1230,645,1238,578,1259,493,1276,449,1297,407,1325,369,1360,336,1382,325,1412,316,1488,305,1574,301,1658,301,1658,306,1574,306,1488,310,1413,321,1384,330,1363,341,1329,372,1302,410,1280,451,1264,494,1243,579,1235,645"/>
+<area shape="rect" id="Node000011" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1637,359,1895,414"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1235,645,1249,594,1273,533,1309,472,1333,446,1360,423,1381,413,1408,404,1477,393,1557,386,1636,383,1637,389,1557,391,1478,398,1409,410,1383,418,1363,428,1336,449,1313,475,1278,535,1254,595,1240,646"/>
+<area shape="rect" id="Node000012" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1645,439,1887,508"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="1248,646,1294,587,1325,558,1360,534,1430,504,1504,485,1577,474,1645,469,1645,474,1578,479,1505,490,1432,509,1363,538,1328,562,1298,591,1252,649"/>
+<area shape="rect" id="Node000013" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1658,533,1874,587"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1275,650,1316,629,1361,612,1437,593,1515,578,1658,562,1658,568,1516,584,1438,598,1362,617,1318,634,1277,654"/>
+<area shape="rect" id="Node000014" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1658,611,1874,666"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="1351,666,1361,665,1657,644,1658,649,1362,671,1351,671"/>
+<area shape="rect" id="Node000015" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1658,690,1874,745"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="1351,694,1362,695,1517,706,1658,712,1658,717,1517,711,1361,700,1351,699"/>
+<area shape="rect" id="Node000016" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1658,769,1874,823"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="1274,703,1316,726,1362,744,1438,763,1515,777,1658,791,1657,796,1515,782,1437,769,1361,749,1314,730,1272,708"/>
+<area shape="rect" id="Node000017" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1658,847,1874,902"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="1252,709,1297,768,1328,797,1363,820,1435,849,1513,867,1589,876,1658,878,1658,883,1588,881,1512,872,1434,855,1360,825,1325,801,1293,772,1248,712"/>
+<area shape="rect" id="Node000018" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1655,926,1877,981"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="1241,711,1256,758,1281,813,1316,868,1338,891,1363,911,1396,930,1432,944,1508,962,1584,968,1655,966,1655,971,1584,973,1508,967,1431,949,1394,935,1360,916,1334,895,1312,871,1276,816,1251,760,1236,713"/>
+<area shape="rect" id="Node000019" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1657,1005,1875,1059"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="1236,712,1245,777,1266,857,1282,899,1304,938,1330,974,1363,1003,1396,1023,1432,1038,1469,1048,1508,1054,1585,1057,1656,1051,1657,1057,1585,1063,1507,1060,1468,1053,1430,1043,1394,1028,1360,1007,1326,977,1299,941,1277,901,1261,859,1239,778,1230,713"/>
+<area shape="rect" id="Node000020" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1658,1083,1874,1138"/>
+<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="1232,712,1235,793,1241,844,1252,898,1268,953,1291,1006,1323,1053,1363,1093,1384,1103,1412,1111,1488,1120,1574,1121,1658,1117,1658,1123,1574,1126,1487,1125,1411,1117,1382,1108,1360,1097,1318,1056,1287,1008,1263,955,1247,900,1236,845,1230,793,1227,712"/>
+<area shape="rect" id="Node000021" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1654,1162,1878,1217"/>
+<area shape="poly" id="edge20_Node000001_Node000021" title=" " alt="" coords="1237,712,1252,819,1278,958,1295,1027,1315,1089,1338,1138,1363,1170,1395,1191,1431,1207,1468,1217,1507,1222,1585,1223,1657,1214,1657,1219,1585,1228,1506,1228,1467,1222,1429,1212,1393,1196,1360,1174,1333,1141,1310,1091,1290,1028,1273,959,1247,820,1232,713"/>
+<area shape="rect" id="Node000022" href="$class_cpl_1_1_dm_1_1_subscriber_composer.html" title=" " alt="" coords="1632,1241,1900,1295"/>
+<area shape="poly" id="edge21_Node000001_Node000022" title=" " alt="" coords="1236,712,1247,836,1270,1003,1287,1086,1308,1161,1334,1221,1348,1243,1363,1259,1397,1282,1435,1297,1476,1306,1518,1310,1600,1306,1675,1293,1676,1298,1601,1312,1517,1316,1475,1312,1434,1302,1395,1286,1360,1263,1344,1246,1329,1223,1303,1163,1282,1087,1265,1003,1242,836,1230,713"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_dm_1_1_subscriber.html" title="This template class defines a type safe Subscriber." alt="" coords="921,659,1072,699"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1085,676,1121,676,1121,681,1085,681"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_dm_1_1_subscriber_base.html" title="This mostly concrete class defines the Subscriber interface &#45; for change notifications &#45; to a Model P..." alt="" coords="689,666,872,691"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="886,676,921,676,921,681,886,681"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_dm_1_1_subscriber_api.html" title="This abstract class defines the Subscriber interface &#45; for change notifications &#45; to a Model Points d..." alt="" coords="469,666,640,691"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="654,676,689,676,689,681,654,681"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="207,666,420,691"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="434,676,469,676,469,681,434,681"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,666,157,691"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="171,676,206,676,206,681,171,681"/>
 </map>

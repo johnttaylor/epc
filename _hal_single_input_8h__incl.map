@@ -1,5 +1,5 @@
 <map id="Driver/AIO/HalSingleInput.h" name="Driver/AIO/HalSingleInput.h">
-<area shape="rect" id="Node000001" title="This file defines a hardware abstraction layer (HAL) for sampling a single Analog input source." alt="" coords="5,5,187,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="46,79,146,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,31,99,63,93,63,93,31"/>
+<area shape="rect" id="Node000001" title="This file defines a hardware abstraction layer (HAL) for sampling a single Analog input source." alt="" coords="5,5,205,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="49,79,162,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,31,108,65,103,65,103,31"/>
 </map>

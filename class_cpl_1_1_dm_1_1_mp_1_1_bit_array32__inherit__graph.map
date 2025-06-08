@@ -1,0 +1,21 @@
+<map id="Cpl::Dm::Mp::BitArray32" name="Cpl::Dm::Mp::BitArray32">
+<area shape="rect" id="Node000001" title="This template class provides a concrete implementation for a Point who&#39;s data is a a bit array of N b..." alt="" coords="1961,41,2140,66"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_dm_1_1_mp_1_1_bit_array__.html" title=" " alt="" coords="1723,33,1912,73"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1926,51,1961,51,1961,56,1926,56"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title="This template class provides a mostly concrete implementation for a Model Point who&#39;s data is a C num..." alt="" coords="884,5,1063,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1076,24,1357,29,1699,41,1723,43,1722,48,1699,47,1357,34,1076,29"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_dm_1_1_model_point_common__.html" title="This concrete class provide common infrastructure for a Model Point." alt="" coords="411,63,632,89"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="623,59,656,55,883,31,884,36,656,60,624,64"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title=" " alt="" coords="1087,63,1269,103"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="646,75,1086,79,1086,84,645,80"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title="This template class provides a mostly concrete implementation for a Model Point who&#39;s data is a C num..." alt="" coords="681,113,860,153"/>
+<area shape="poly" id="edge10_Node000009_Node000004" title=" " alt="" coords="591,89,684,111,683,116,590,94"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_dm_1_1_model_point.html" title="This mostly abstract class defines the interface for a Model Point." alt="" coords="207,63,361,89"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="375,73,411,73,411,79,375,79"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,63,157,89"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="171,73,207,73,207,79,171,79"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_dm_1_1_mp_1_1_bit_array__.html" title="This template class extends the Numeric&lt;&gt; class to provide bit operation on the numeric value." alt="" coords="1319,63,1509,103"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="1523,72,1722,58,1723,63,1523,77"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1283,80,1318,80,1318,85,1283,85"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="873,126,966,119,1062,107,1097,100,1098,105,1063,112,966,124,874,131"/>
+</map>

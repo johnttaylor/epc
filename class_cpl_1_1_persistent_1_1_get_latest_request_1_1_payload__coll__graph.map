@@ -1,7 +1,7 @@
 <map id="Cpl::Persistent::GetLatestRequest::Payload" name="Cpl::Persistent::GetLatestRequest::Payload">
-<area shape="rect" id="Node000001" title="Payload for Message: GetLatest." alt="" coords="95,109,265,150"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_persistent_1_1_payload.html" title="This abstract class defines the interface accessing the &#39;data payload&#39; of an individual Record instan..." alt="" coords="5,13,163,39"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,48,163,107,159,110,104,52"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_persistent_1_1_indexed_entry_reader.html#struct_cpl_1_1_persistent_1_1_indexed_entry_reader_1_1_entry_marker___t" title="This structure define an &#39;marker&#39; that identifies an entry&#39;s location in persistent media." alt="" coords="187,5,368,46"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="250,59,201,110,197,107,246,55"/>
+<area shape="rect" id="Node000001" title="Payload for Message: GetLatest." alt="" coords="106,108,293,148"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_persistent_1_1_payload.html" title="This abstract class defines the interface accessing the &#39;data payload&#39; of an individual Record instan..." alt="" coords="5,13,180,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,46,181,106,177,110,113,50"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_persistent_1_1_indexed_entry_reader.html#struct_cpl_1_1_persistent_1_1_indexed_entry_reader_1_1_entry_marker___t" title="This structure define an &#39;marker&#39; that identifies an entry&#39;s location in persistent media." alt="" coords="204,5,408,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="278,57,221,110,217,106,274,53"/>
 </map>

@@ -1,15 +1,15 @@
 <map id="Cpl/Itc/Mailbox.h" name="Cpl/Itc/Mailbox.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="162,5,280,31"/>
-<area shape="rect" id="Node000002" href="$_post_api_8h.html" title=" " alt="" coords="5,79,125,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,34,106,75,104,70,193,29"/>
-<area shape="rect" id="Node000005" href="$_s_list_8h.html" title=" " alt="" coords="149,79,293,105"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="224,31,224,63,218,63,218,31"/>
-<area shape="rect" id="Node000006" href="$_signable_8h.html" title=" " alt="" coords="254,153,407,178"/>
-<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="248,29,279,49,307,77,322,107,330,136,324,138,317,109,303,81,275,53,245,34"/>
-<area shape="rect" id="Node000003" href="$_message_8h.html" title=" " alt="" coords="29,153,155,178"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="72,104,84,137,79,139,67,106"/>
-<area shape="rect" id="Node000004" href="$_item_8h.html" title=" " alt="" coords="147,226,287,252"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="114,177,184,216,181,221,112,181"/>
-<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="223,105,220,211,215,211,218,105"/>
-<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="313,181,251,220,248,215,310,177"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="175,5,306,31"/>
+<area shape="rect" id="Node000002" href="$_post_api_8h.html" title=" " alt="" coords="43,79,171,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,33,142,74,140,70,218,28"/>
+<area shape="rect" id="Node000005" href="$_s_list_8h.html" title=" " alt="" coords="167,152,325,177"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="244,31,248,138,242,138,238,31"/>
+<area shape="rect" id="Node000006" href="$_signable_8h.html" title=" " alt="" coords="278,79,446,104"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="262,28,332,69,329,74,259,33"/>
+<area shape="rect" id="Node000003" href="$_message_8h.html" title=" " alt="" coords="5,152,143,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="104,105,88,141,83,139,99,103"/>
+<area shape="rect" id="Node000004" href="$_item_8h.html" title=" " alt="" coords="168,225,324,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="103,175,206,218,204,222,101,180"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="249,178,249,212,243,212,243,178"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="364,105,357,140,350,160,339,179,314,203,287,221,284,217,311,199,335,176,345,158,352,138,358,104"/>
 </map>

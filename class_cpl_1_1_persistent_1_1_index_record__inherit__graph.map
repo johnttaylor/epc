@@ -1,9 +1,9 @@
 <map id="Cpl::Persistent::IndexRecord" name="Cpl::Persistent::IndexRecord">
-<area shape="rect" id="Node000001" title="This concrete class extends the Cpl::Persistent::DataRecord interface to store a latest/oldest &#39;recor..." alt="" coords="79,153,263,178"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_persistent_1_1_data_record.html" title="This mostly concrete class implements the Cpl::Persistent::DataRecord interface where a DataRecord in..." alt="" coords="81,79,261,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,120,174,152,168,152,168,120"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_persistent_1_1_record.html" title="This abstract class defines the public interface for a Record instance." alt="" coords="5,5,158,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="110,39,158,77,154,81,107,43"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_persistent_1_1_payload.html" title="This abstract class defines the interface accessing the &#39;data payload&#39; of an individual Record instan..." alt="" coords="182,5,339,31"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="235,43,187,81,184,77,232,39"/>
+<area shape="rect" id="Node000001" title="This concrete class extends the Cpl::Persistent::DataRecord interface to store a latest/oldest &#39;recor..." alt="" coords="85,152,290,177"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_persistent_1_1_data_record.html" title="This mostly concrete class implements the Cpl::Persistent::DataRecord interface where a DataRecord in..." alt="" coords="87,79,287,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,118,190,152,185,152,185,118"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_persistent_1_1_record.html" title="This abstract class defines the public interface for a Record instance." alt="" coords="5,5,175,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="118,37,173,76,170,81,115,41"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_persistent_1_1_payload.html" title="This abstract class defines the interface accessing the &#39;data payload&#39; of an individual Record instan..." alt="" coords="199,5,373,31"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="261,41,205,81,202,76,258,36"/>
 </map>

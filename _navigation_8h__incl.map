@@ -1,17 +1,17 @@
 <map id="Ajax/ScreenMgr/Navigation.h" name="Ajax/ScreenMgr/Navigation.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="168,5,357,31"/>
-<area shape="rect" id="Node000002" href="$_screen_api_8h.html" title=" " alt="" coords="169,79,356,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="265,31,265,63,260,63,260,31"/>
-<area shape="rect" id="Node000003" href="$_event_8h.html" title=" " alt="" coords="87,153,247,178"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="248,107,196,146,193,141,245,103"/>
-<area shape="rect" id="Node000006" href="$_elapsed_time_8h.html" title=" " alt="" coords="271,153,449,178"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="281,103,333,141,330,146,278,107"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="5,226,115,252"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="150,181,92,220,89,215,147,177"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="139,226,240,252"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="173,178,183,210,178,212,168,179"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="307,226,370,252"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="359,179,349,212,344,211,354,178"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="395,226,472,252"/>
-<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="374,177,412,214,408,217,370,180"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="185,5,396,31"/>
+<area shape="rect" id="Node000002" href="$_screen_api_8h.html" title=" " alt="" coords="188,79,393,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="293,31,293,65,288,65,288,31"/>
+<area shape="rect" id="Node000003" href="$_event_8h.html" title=" " alt="" coords="97,152,274,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="275,106,215,147,212,142,272,102"/>
+<area shape="rect" id="Node000006" href="$_elapsed_time_8h.html" title=" " alt="" coords="298,152,494,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="309,102,369,142,366,147,306,106"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,225,128,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="168,180,99,220,97,216,165,175"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="153,225,266,251"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="192,177,204,211,199,213,187,179"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="337,225,407,251"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="395,179,383,213,378,211,390,177"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="431,225,518,251"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="410,175,454,214,450,218,407,179"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="Cpl::MApp::GetStartedMAppRequest" name="Cpl::MApp::GetStartedMAppRequest">
-<area shape="rect" id="Node000001" title="This abstract class define ITC message type and payload for the application to Get a list of started ..." alt="" coords="5,5,189,46"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_m_app_1_1_manager.html" title="This concrete class implements the MApp Manager." alt="" coords="29,94,165,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,62,100,93,94,93,94,62"/>
+<area shape="rect" id="Node000001" title="This abstract class define ITC message type and payload for the application to Get a list of started ..." alt="" coords="5,5,208,45"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_m_app_1_1_manager.html" title="This concrete class implements the MApp Manager." alt="" coords="30,93,183,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,59,109,93,104,93,104,59"/>
 </map>

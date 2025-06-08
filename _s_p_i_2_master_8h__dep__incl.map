@@ -1,7 +1,7 @@
 <map id="Driver/SPI/Master.h" name="Driver/SPI/Master.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="92,5,227,31"/>
-<area shape="rect" id="Node000002" href="$_s_p_i_2_arduino_2_master_8h.html" title=" " alt="" coords="5,79,135,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,43,94,81,90,77,133,39"/>
-<area shape="rect" id="Node000003" href="$_s_p_i_2_s_t_m32_2_master_8h.html" title=" " alt="" coords="159,87,341,112"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="186,39,238,84,234,88,183,43"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="98,5,245,31"/>
+<area shape="rect" id="Node000002" href="$_s_p_i_2_arduino_2_master_8h.html" title=" " alt="" coords="5,79,145,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,41,100,81,97,76,145,37"/>
+<area shape="rect" id="Node000003" href="$_s_p_i_2_s_t_m32_2_master_8h.html" title=" " alt="" coords="170,86,365,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="198,37,255,84,251,88,194,41"/>
 </map>

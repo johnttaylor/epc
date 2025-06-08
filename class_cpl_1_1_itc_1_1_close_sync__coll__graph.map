@@ -1,15 +1,15 @@
 <map id="Cpl::Itc::CloseSync" name="Cpl::Itc::CloseSync">
-<area shape="rect" id="Node000001" title="This partially concrete class implements the synchronous ITC close call for the CloseApi." alt="" coords="303,169,433,195"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_open_sync.html" title="This partially concrete class implements the synchronous ITC open call for the OpenApi." alt="" coords="156,94,284,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="259,124,344,166,342,171,257,129"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_open_api.html" title="This abstract class defines an open interface." alt="" coords="5,5,123,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="101,37,199,91,197,96,98,41"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_open_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="147,5,293,31"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="223,47,223,94,217,94,217,47"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_itc_1_1_post_api.html" title="This abstract class represents the interface used to send messages to a mailbox." alt="" coords="317,5,430,31"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="340,41,243,96,240,91,338,36"/>
-<area shape="rect" id="Node000006" href="$class_cpl_1_1_itc_1_1_close_api.html" title="This abstract class defines an close interface." alt="" coords="308,94,428,120"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="371,135,371,169,365,169,365,135"/>
-<area shape="rect" id="Node000007" href="$class_cpl_1_1_itc_1_1_close_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="451,94,600,120"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="487,129,396,171,393,166,484,124"/>
+<area shape="rect" id="Node000001" title="This partially concrete class implements the synchronous ITC close call for the CloseApi." alt="" coords="330,168,473,193"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_open_sync.html" title="This partially concrete class implements the synchronous ITC open call for the OpenApi." alt="" coords="171,93,311,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="280,122,377,166,375,170,278,127"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_open_api.html" title="This abstract class defines an open interface." alt="" coords="5,5,136,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="107,34,219,91,217,95,105,39"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_open_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="160,5,323,31"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="244,45,244,93,239,93,239,45"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_itc_1_1_post_api.html" title="This abstract class represents the interface used to send messages to a mailbox." alt="" coords="347,5,471,31"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="376,39,265,95,263,91,373,35"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_itc_1_1_close_api.html" title="This abstract class defines an close interface." alt="" coords="335,93,467,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="404,133,404,168,399,168,399,133"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_itc_1_1_close_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="491,93,655,119"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="535,126,429,170,427,166,532,122"/>
 </map>

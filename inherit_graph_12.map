@@ -1,7 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$class_cpl_1_1_checksum_1_1_api16.html" title="This class provides an interface for calculate a 16 bit wide Checksum." alt="" coords="5,31,153,56"/>
-<area shape="rect" id="Node000001" href="$class_cpl_1_1_checksum_1_1_crc16_ccitt_fast.html" title="This class provides an implementation for the 16 Bit CRC&#45;CCITT standard." alt="" coords="201,5,402,31"/>
-<area shape="poly" id="edge15_Node000000_Node000001" title=" " alt="" coords="168,31,200,27,200,32,168,36"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_checksum_1_1_fletcher16.html" title="This class provides an implementation for the 16 Bit wide Fletcher Checksum." alt="" coords="214,55,389,80"/>
-<area shape="poly" id="edge16_Node000000_Node000002" title=" " alt="" coords="168,50,213,55,213,61,168,56"/>
+<area shape="rect" id="Node000000" href="$class_cpl_1_1_checksum_1_1_api32.html" title="This class provides an interface for calculate a 32 bit wide Checksum." alt="" coords="5,5,169,31"/>
+<area shape="rect" id="Node000001" href="$class_cpl_1_1_checksum_1_1_crc32_ethernet_fast.html" title="This class provides an implementation for the 32 Bit &quot;Ethernet&quot; standard." alt="" coords="217,5,463,31"/>
+<area shape="poly" id="edge17_Node000000_Node000001" title=" " alt="" coords="183,15,217,15,217,21,183,21"/>
 </map>

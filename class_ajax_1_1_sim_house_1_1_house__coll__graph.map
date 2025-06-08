@@ -1,5 +1,5 @@
 <map id="Ajax::SimHouse::House" name="Ajax::SimHouse::House">
-<area shape="rect" id="Node000001" title="This class provides a &#39;functional&#39; simulation of house with respect to Outdoor temperature,..." alt="" coords="8,94,166,120"/>
-<area shape="rect" id="Node000002" href="$class_ajax_1_1_sim_house_1_1_system.html" title="This class simulates a &quot;system&quot; whose state is affected by its environment and any number of control ..." alt="" coords="5,5,169,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,47,90,94,84,94,84,47"/>
+<area shape="rect" id="Node000001" title="This class provides a &#39;functional&#39; simulation of house with respect to Outdoor temperature,..." alt="" coords="9,93,184,119"/>
+<area shape="rect" id="Node000002" href="$class_ajax_1_1_sim_house_1_1_system.html" title="This class simulates a &quot;system&quot; whose state is affected by its environment and any number of control ..." alt="" coords="5,5,188,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,45,99,93,94,93,94,45"/>
 </map>

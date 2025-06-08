@@ -1,7 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$class_cpl_1_1_t_shell_1_1_security.html" title="This abstract defines the interface for validating a &#39;user login&#39; for TShell." alt="" coords="5,31,142,56"/>
-<area shape="rect" id="Node000001" href="$class_ajax_1_1_main_1_1_t_shell_security.html" title="Validates the TShell login password." alt="" coords="190,5,360,31"/>
-<area shape="poly" id="edge378_Node000000_Node000001" title=" " alt="" coords="157,30,189,26,189,32,158,36"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_t_shell_1_1_security_null.html" title="This concrete class dummy/null implementation of the Security interface." alt="" coords="195,55,355,80"/>
-<area shape="poly" id="edge379_Node000000_Node000002" title=" " alt="" coords="157,51,195,55,194,61,157,56"/>
+<area shape="rect" id="Node000000" href="$class_cpl_1_1_t_shell_1_1_stdio.html" title="This concrete class provides the &#39;threading wrapper&#39; for running a TShell Command Processor." alt="" coords="5,5,137,31"/>
+<area shape="rect" id="Node000001" href="$class_cpl_1_1_t_shell_1_1_restartable.html" title="This concrete class extends the &#39;Stdio&#39; class for running a TShell Command Processor that provides th..." alt="" coords="185,5,360,31"/>
+<area shape="poly" id="edge383_Node000000_Node000001" title=" " alt="" coords="151,15,185,15,185,21,151,21"/>
 </map>

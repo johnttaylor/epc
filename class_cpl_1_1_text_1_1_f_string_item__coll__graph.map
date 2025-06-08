@@ -1,17 +1,17 @@
 <map id="Cpl::Text::FStringItem&lt; S &gt;" name="Cpl::Text::FStringItem&lt; S &gt;">
-<area shape="rect" id="Node000001" title="This template class implements the StringItem class for a &#39;String&#39; using a &#39;FString&#39; as the internal ..." alt="" coords="92,394,268,420"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_text_1_1_string_item.html" title="This partially concrete provides a wrapper class that allows a String object to be stored directly in..." alt="" coords="111,319,249,345"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,360,183,394,177,394,177,360"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_map_item.html" title="This abstract class represents a item that can be contained in an Map (aka a sorted list implemented ..." alt="" coords="22,230,180,256"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="124,266,171,317,167,320,120,269"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_dict_item.html" title="This abstract class represents a item that can be contained in Dictionary." alt="" coords="20,155,177,181"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="102,196,103,230,98,230,97,197"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="5,80,192,106"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="101,121,101,155,96,155,96,121"/>
-<area shape="rect" id="Node000006" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="32,5,165,31"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="101,46,101,80,96,80,96,46"/>
-<area shape="rect" id="Node000007" href="$class_cpl_1_1_text_1_1_string.html" title="This abstract class defines the operations that can be before on a NULL terminated string." alt="" coords="208,230,320,256"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="243,269,193,321,190,317,240,266"/>
-<area shape="rect" id="Node000008" href="$class_cpl_1_1_container_1_1_key.html" title="This abstract class defines the interface that a contained object must support if it has comparable k..." alt="" coords="201,155,330,181"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="267,196,267,230,261,230,262,196"/>
+<area shape="rect" id="Node000001" title="This template class implements the StringItem class for a &#39;String&#39; using a &#39;FString&#39; as the internal ..." alt="" coords="103,392,302,417"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_text_1_1_string_item.html" title="This partially concrete provides a wrapper class that allows a String object to be stored directly in..." alt="" coords="125,317,280,343"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,357,205,392,200,392,200,357"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_map_item.html" title="This abstract class represents a item that can be contained in an Map (aka a sorted list implemented ..." alt="" coords="26,229,206,255"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="139,262,192,315,189,319,135,266"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_dict_item.html" title="This abstract class represents a item that can be contained in Dictionary." alt="" coords="23,155,201,180"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="116,194,118,229,113,229,111,194"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="5,80,219,105"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="115,120,115,154,109,154,109,120"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="36,5,188,31"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="115,45,115,80,109,80,109,45"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_text_1_1_string.html" title="This abstract class defines the operations that can be before on a NULL terminated string." alt="" coords="235,229,359,255"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="276,266,218,319,214,315,272,262"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_container_1_1_key.html" title="This abstract class defines the interface that a contained object must support if it has comparable k..." alt="" coords="225,155,372,180"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="301,194,300,229,295,229,296,194"/>
 </map>

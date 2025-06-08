@@ -1,3 +1,31 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$namespace_cpl_1_1_container.html#struct_cpl_1_1_container_1_1_hash_table_stats" title="This struct defines what usage/stats can be retrieved from a Hash table." alt="" coords="5,5,176,46"/>
+<area shape="rect" id="Node000000" href="$class_cpl_1_1_container_1_1_key.html" title="This abstract class defines the interface that a contained object must support if it has comparable k..." alt="" coords="5,131,152,157"/>
+<area shape="rect" id="Node000001" href="$class_cpl_1_1_container_1_1_key_plain_type.html" title="This template class is used to generate Key classes for most of the C/C++ primitive data types." alt="" coords="203,60,381,100"/>
+<area shape="poly" id="edge19_Node000000_Node000001" title=" " alt="" coords="134,125,224,98,225,103,136,130"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_key_string_buffer.html" title="This class provides a &#39;Key&#39; wrapper for a array of Character of length N, i.e." alt="" coords="200,124,384,164"/>
+<area shape="poly" id="edge20_Node000000_Node000002" title=" " alt="" coords="166,141,200,141,200,147,166,147"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_text_1_1_string.html" title="This abstract class defines the operations that can be before on a NULL terminated string." alt="" coords="230,189,354,214"/>
+<area shape="poly" id="edge22_Node000000_Node000004" title=" " alt="" coords="141,158,245,186,243,191,139,163"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_key_literal_string.html" title="This class provides a &#39;Key&#39; wrapper for a C string literal." alt="" coords="432,124,619,164"/>
+<area shape="poly" id="edge21_Node000002_Node000003" title=" " alt="" coords="398,141,432,141,432,147,398,147"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_text_1_1_string__.html" title="This partially concrete class implements the portions of the String Api that is independent of the in..." alt="" coords="460,189,591,214"/>
+<area shape="poly" id="edge23_Node000004_Node000005" title=" " alt="" coords="368,199,460,199,460,204,368,204"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_text_1_1_d_string.html" title="This concrete class implements a simple &quot;dynamic storage&quot; String Type." alt="" coords="669,163,803,189"/>
+<area shape="poly" id="edge24_Node000005_Node000006" title=" " alt="" coords="604,189,668,181,669,187,605,195"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_text_1_1_f_string__.html" title="This mostly concrete class implements a &quot;fixed storage&quot; String Type." alt="" coords="667,213,805,238"/>
+<area shape="poly" id="edge25_Node000005_Node000007" title=" " alt="" coords="605,208,667,215,666,220,604,213"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_text_1_1_f_string.html" title=" " alt="" coords="865,5,1080,45"/>
+<area shape="poly" id="edge26_Node000007_Node000008" title=" " alt="" coords="798,203,803,198,816,181,823,163,826,128,829,92,837,73,851,55,868,43,871,48,855,59,841,76,834,93,831,128,828,164,821,183,807,202,801,207"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_text_1_1_f_string.html" title=" " alt="" coords="907,69,1038,109"/>
+<area shape="poly" id="edge27_Node000007_Node000009" title=" " alt="" coords="795,204,804,198,819,179,826,159,834,139,852,119,878,104,906,95,908,100,880,109,855,123,839,142,831,161,824,181,807,202,798,208"/>
+<area shape="rect" id="Node000010" href="$class_cpl_1_1_text_1_1_f_string.html" title=" " alt="" coords="853,133,1092,173"/>
+<area shape="poly" id="edge28_Node000007_Node000010" title=" " alt="" coords="784,205,853,183,894,171,895,176,854,188,786,211"/>
+<area shape="rect" id="Node000011" href="$class_cpl_1_1_text_1_1_f_string.html" title=" " alt="" coords="863,198,1083,253"/>
+<area shape="poly" id="edge29_Node000007_Node000011" title=" " alt="" coords="819,223,862,223,862,228,819,228"/>
+<area shape="rect" id="Node000012" href="$class_cpl_1_1_text_1_1_f_string.html" title=" " alt="" coords="869,277,1076,331"/>
+<area shape="poly" id="edge30_Node000007_Node000012" title=" " alt="" coords="789,240,890,274,889,279,788,245"/>
+<area shape="rect" id="Node000013" href="$class_cpl_1_1_text_1_1_d_f_string.html" title="This concrete class is a mix of FString and a DString &#45; the initial memory is dynamically allocated &#45;..." alt="" coords="902,355,1043,381"/>
+<area shape="poly" id="edge31_Node000007_Node000013" title=" " alt="" coords="756,247,797,295,824,320,855,340,902,357,901,362,852,345,821,324,794,299,752,251"/>
+<area shape="rect" id="Node000014" href="$class_cpl_1_1_text_1_1_f_string.html" title="This template class represents a NULL terminated string of a specific length." alt="" coords="888,405,1057,430"/>
+<area shape="poly" id="edge32_Node000007_Node000014" title=" " alt="" coords="750,250,766,283,789,322,818,360,855,391,889,406,886,411,852,396,815,363,784,325,761,285,745,252"/>
 </map>

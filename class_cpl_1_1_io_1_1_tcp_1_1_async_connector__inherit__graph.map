@@ -1,5 +1,5 @@
 <map id="Cpl::Io::Tcp::AsyncConnector" name="Cpl::Io::Tcp::AsyncConnector">
-<area shape="rect" id="Node000001" title="This abstract class defines the interface for establishing/requesting a SIMPLE socket connection,..." alt="" coords="5,5,192,31"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_tcp_1_1_win32_1_1_async_connector.html" title="This class implements the Asynchronous Connector." alt="" coords="35,79,162,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,46,101,79,96,79,96,46"/>
+<area shape="rect" id="Node000001" title="This abstract class defines the interface for establishing/requesting a SIMPLE socket connection,..." alt="" coords="5,5,211,31"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_tcp_1_1_win32_1_1_async_connector.html" title="This class implements the Asynchronous Connector." alt="" coords="37,79,179,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,44,111,79,105,79,105,44"/>
 </map>

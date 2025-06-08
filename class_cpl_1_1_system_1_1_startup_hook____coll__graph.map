@@ -1,5 +1,5 @@
 <map id="Cpl::System::StartupHook_" name="Cpl::System::StartupHook_">
-<area shape="rect" id="Node000001" title="This class defines a start&#45;up handler/hook that allows a Colony.Core sub&#45;system to register to be cal..." alt="" coords="5,79,182,105"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="27,5,160,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,46,96,79,91,79,91,46"/>
+<area shape="rect" id="Node000001" title="This class defines a start&#45;up handler/hook that allows a Colony.Core sub&#45;system to register to be cal..." alt="" coords="5,79,201,104"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="27,5,179,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,44,106,79,101,79,101,44"/>
 </map>

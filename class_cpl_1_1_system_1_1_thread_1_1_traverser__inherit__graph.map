@@ -1,9 +1,9 @@
 <map id="Cpl::System::Thread::Traverser" name="Cpl::System::Thread::Traverser">
-<area shape="rect" id="Node000001" title="This abstract class defines the client interface for walking the list of threads, i...." alt="" coords="127,5,263,46"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_t_shell_1_1_cmd_1_1_threads.html" title="This class implements a Shell command." alt="" coords="110,94,280,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,62,198,93,192,93,192,62"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_t_shell_1_1_cmd_1_1_free_r_t_o_s_1_1_threads.html" title="This class implements a TShell command." alt="" coords="5,168,190,208"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="170,132,123,169,120,165,167,128"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_t_shell_1_1_cmd_1_1_win32_1_1_threads.html" title="This class implements a TShell command." alt="" coords="214,168,373,208"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="223,128,271,165,267,169,220,132"/>
+<area shape="rect" id="Node000001" title="This abstract class defines the client interface for walking the list of threads, i...." alt="" coords="135,5,288,45"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_t_shell_1_1_cmd_1_1_threads.html" title="This class implements a Shell command." alt="" coords="117,93,306,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,59,214,93,209,93,209,59"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_t_shell_1_1_cmd_1_1_free_r_t_o_s_1_1_threads.html" title="This class implements a TShell command." alt="" coords="5,167,204,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="186,129,132,169,129,164,183,125"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_t_shell_1_1_cmd_1_1_win32_1_1_threads.html" title="This class implements a TShell command." alt="" coords="229,167,407,207"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="240,125,294,164,291,169,237,129"/>
 </map>

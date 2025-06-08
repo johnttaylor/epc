@@ -1,5 +1,5 @@
 <map id="Cpl::Itc::AtomicApi&lt; ACCESS_API &gt;" name="Cpl::Itc::AtomicApi&lt; ACCESS_API &gt;">
-<area shape="rect" id="Node000001" title="This abstract class provides an interface to allow a client to call the server synchronously to have ..." alt="" coords="10,5,138,46"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_atomic_sync.html" title="This concrete class provides the ITC wrapper implementation for calling the &quot;Atomic Api&quot; synchronousl..." alt="" coords="5,94,143,135"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,62,77,94,71,94,71,62"/>
+<area shape="rect" id="Node000001" title="This abstract class provides an interface to allow a client to call the server synchronously to have ..." alt="" coords="10,5,153,45"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_atomic_sync.html" title="This concrete class provides the ITC wrapper implementation for calling the &quot;Atomic Api&quot; synchronousl..." alt="" coords="5,93,157,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,59,84,93,79,93,79,59"/>
 </map>

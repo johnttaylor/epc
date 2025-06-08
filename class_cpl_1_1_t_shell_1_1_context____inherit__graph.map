@@ -1,9 +1,9 @@
 <map id="Cpl::TShell::Context_" name="Cpl::TShell::Context_">
-<area shape="rect" id="Node000001" title="This Private Namespace class defines a &quot;Context&quot; for a TShell command." alt="" coords="27,79,168,105"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_t_shell_1_1_processor.html" title="This concrete class provides the implementation of Command Processor for a TShell engine." alt="" coords="23,153,172,178"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="100,120,100,152,95,152,95,120"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_t_shell_1_1_processor_api.html" title="This class defines the interface a TShell Command Processor." alt="" coords="14,5,181,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,46,100,79,95,79,95,46"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_t_shell_1_1_polled_processor.html" title="This concrete class provides a non&#45;blocking implementation of Command PolledProcessor for a TShell en..." alt="" coords="5,226,190,252"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="100,194,100,226,95,226,95,194"/>
+<area shape="rect" id="Node000001" title="This Private Namespace class defines a &quot;Context&quot; for a TShell command." alt="" coords="28,79,185,104"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_t_shell_1_1_processor.html" title="This concrete class provides the implementation of Command Processor for a TShell engine." alt="" coords="25,152,188,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="109,118,109,152,104,152,104,118"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_t_shell_1_1_processor_api.html" title="This class defines the interface a TShell Command Processor." alt="" coords="15,5,198,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,44,109,79,104,79,104,44"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_t_shell_1_1_polled_processor.html" title="This concrete class provides a non&#45;blocking implementation of Command PolledProcessor for a TShell en..." alt="" coords="5,225,208,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="109,191,109,225,104,225,104,191"/>
 </map>

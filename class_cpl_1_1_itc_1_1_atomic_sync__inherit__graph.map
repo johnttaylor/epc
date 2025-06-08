@@ -1,9 +1,9 @@
 <map id="Cpl::Itc::AtomicSync&lt; ACCESS_API &gt;" name="Cpl::Itc::AtomicSync&lt; ACCESS_API &gt;">
-<area shape="rect" id="Node000001" title="This concrete class provides the ITC wrapper implementation for calling the &quot;Atomic Api&quot; synchronousl..." alt="" coords="98,168,235,208"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_atomic_request.html" title="This concrete class define the &#39;Atomic&#39; Message request that allows a client to invoke multiple opera..." alt="" coords="5,79,162,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,129,149,165,146,169,111,133"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="32,5,135,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="86,46,86,79,81,79,81,46"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_atomic_api.html" title="This abstract class provides an interface to allow a client to call the server synchronously to have ..." alt="" coords="185,79,313,120"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="221,133,187,169,183,165,218,129"/>
+<area shape="rect" id="Node000001" title="This concrete class provides the ITC wrapper implementation for calling the &quot;Atomic Api&quot; synchronousl..." alt="" coords="107,167,259,207"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_atomic_request.html" title="This concrete class define the &#39;Atomic&#39; Message request that allows a client to invoke multiple opera..." alt="" coords="5,79,180,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,126,165,165,161,168,121,130"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="42,5,143,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,44,95,79,90,79,90,44"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_atomic_api.html" title="This abstract class provides an interface to allow a client to call the server synchronously to have ..." alt="" coords="204,79,347,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="247,130,206,168,202,164,243,126"/>
 </map>

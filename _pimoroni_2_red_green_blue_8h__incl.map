@@ -1,17 +1,17 @@
 <map id="Driver/LED/Pimoroni/RedGreenBlue.h" name="Driver/LED/Pimoroni/RedGreenBlue.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="211,5,350,46"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,94,86,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,49,97,91,95,86,221,44"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="110,94,261,120"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="258,48,213,86,210,82,255,44"/>
-<area shape="rect" id="Node000004" href="$_red_green_blue_8h.html" title=" " alt="" coords="285,94,467,120"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="306,44,351,82,348,86,302,48"/>
-<area shape="rect" id="Node000006" href="$_driver_2_d_i_o_2_pwm_8h.html" title=" " alt="" coords="492,94,618,120"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="350,44,498,87,497,92,348,49"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="345,168,408,193"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="379,120,379,152,374,152,374,120"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="467,168,568,193"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="551,121,533,155,528,153,546,119"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="592,168,702,193"/>
-<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="572,118,621,156,618,160,569,122"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="235,5,389,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,96,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="250,48,103,92,101,87,249,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="121,93,293,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="288,48,235,87,232,83,285,43"/>
+<area shape="rect" id="Node000004" href="$_red_green_blue_8h.html" title=" " alt="" coords="317,93,517,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="339,43,392,83,389,87,336,48"/>
+<area shape="rect" id="Node000006" href="$_driver_2_d_i_o_2_pwm_8h.html" title=" " alt="" coords="541,93,680,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="384,43,555,87,553,92,383,48"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="382,167,453,192"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="420,119,420,153,415,153,415,119"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="515,167,629,192"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="607,120,587,156,582,153,602,118"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="653,167,776,192"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="629,116,688,156,685,161,626,121"/>
 </map>

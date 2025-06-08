@@ -1,7 +1,7 @@
 <map id="Cpl/Io/NewLine.h" name="Cpl/Io/NewLine.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="90,5,211,31"/>
-<area shape="rect" id="Node000002" href="$_line_reader_8h.html" title=" " alt="" coords="5,79,141,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,44,88,81,84,77,124,40"/>
-<area shape="rect" id="Node000003" href="$_line_writer_8h.html" title=" " alt="" coords="165,79,293,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="176,40,218,77,214,81,173,43"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="97,5,228,31"/>
+<area shape="rect" id="Node000002" href="$_line_reader_8h.html" title=" " alt="" coords="5,79,152,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,42,94,80,91,76,137,38"/>
+<area shape="rect" id="Node000003" href="$_line_writer_8h.html" title=" " alt="" coords="176,79,317,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,38,235,76,231,80,185,42"/>
 </map>

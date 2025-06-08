@@ -1,19 +1,19 @@
 <map id="Driver/LED/RedGreenBlue.h" name="Driver/LED/RedGreenBlue.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="349,5,532,31"/>
-<area shape="rect" id="Node000002" href="$_ajax_2_ui_2_status_indicator_2_api_8h.html" title=" " alt="" coords="5,79,161,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="371,37,162,83,161,78,370,32"/>
-<area shape="rect" id="Node000003" href="$_pimoroni_2_red_green_blue_8h.html" title=" " alt="" coords="185,79,325,120"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="399,40,302,81,300,76,397,35"/>
-<area shape="rect" id="Node000004" href="$_t_pipe_2_red_green_blue_8h.html" title=" " alt="" coords="348,79,533,120"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="443,46,443,79,438,79,438,46"/>
-<area shape="rect" id="Node000005" href="$_driver_2_pico_display_2_api_8h.html" title=" " alt="" coords="557,79,684,120"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="483,35,576,76,574,81,481,40"/>
-<area shape="rect" id="Node000009" href="$_rgb_8h.html" title=" " alt="" coords="708,87,834,112"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="509,32,697,76,725,83,723,88,696,82,508,38"/>
-<area shape="rect" id="Node000006" href="$platform_8h.html" title="This file contains the interface(s) that are platform VARIANT specific." alt="" coords="468,168,607,193"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="591,132,552,169,549,165,587,128"/>
-<area shape="rect" id="Node000007" href="$_pico_display_8h.html" title=" " alt="" coords="632,168,777,193"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="654,128,693,165,690,169,650,132"/>
-<area shape="rect" id="Node000008" href="$appmain_8h.html" title="This file defines the hardware/platform independent start&#45;up interface(s) for the Ajax application." alt="" coords="634,241,775,267"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="707,209,707,241,702,241,702,209"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="377,5,577,31"/>
+<area shape="rect" id="Node000002" href="$_ajax_2_ui_2_status_indicator_2_api_8h.html" title=" " alt="" coords="5,79,176,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="408,36,177,83,176,77,407,31"/>
+<area shape="rect" id="Node000003" href="$_pimoroni_2_red_green_blue_8h.html" title=" " alt="" coords="201,79,354,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="437,38,326,81,324,76,435,33"/>
+<area shape="rect" id="Node000004" href="$_t_pipe_2_red_green_blue_8h.html" title=" " alt="" coords="378,79,577,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="480,44,480,79,475,79,475,44"/>
+<area shape="rect" id="Node000005" href="$_driver_2_pico_display_2_api_8h.html" title=" " alt="" coords="601,79,743,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="519,33,626,76,624,81,517,38"/>
+<area shape="rect" id="Node000009" href="$_rgb_8h.html" title=" " alt="" coords="767,86,902,111"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="547,31,757,76,788,83,787,89,755,81,545,36"/>
+<area shape="rect" id="Node000006" href="$platform_8h.html" title="This file contains the interface(s) that are platform VARIANT specific." alt="" coords="502,167,661,192"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="642,130,597,168,593,164,638,126"/>
+<area shape="rect" id="Node000007" href="$_pico_display_8h.html" title=" " alt="" coords="685,167,843,192"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="706,126,752,164,748,168,703,130"/>
+<area shape="rect" id="Node000008" href="$appmain_8h.html" title="This file defines the hardware/platform independent start&#45;up interface(s) for the Ajax application." alt="" coords="684,240,844,265"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="767,206,767,240,761,240,761,206"/>
 </map>

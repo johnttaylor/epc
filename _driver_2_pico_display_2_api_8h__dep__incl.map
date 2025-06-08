@@ -1,9 +1,9 @@
 <map id="Driver/PicoDisplay/Api.h" name="Driver/PicoDisplay/Api.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="94,5,221,46"/>
-<area shape="rect" id="Node000002" href="$platform_8h.html" title="This file contains the interface(s) that are platform VARIANT specific." alt="" coords="5,94,145,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,59,90,95,86,91,125,55"/>
-<area shape="rect" id="Node000003" href="$_pico_display_8h.html" title=" " alt="" coords="169,94,314,120"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="191,55,231,91,227,95,188,59"/>
-<area shape="rect" id="Node000004" href="$appmain_8h.html" title="This file defines the hardware/platform independent start&#45;up interface(s) for the Ajax application." alt="" coords="171,168,312,193"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="244,135,244,167,239,167,239,135"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="104,5,247,45"/>
+<area shape="rect" id="Node000002" href="$platform_8h.html" title="This file contains the interface(s) that are platform VARIANT specific." alt="" coords="5,93,164,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,56,100,95,97,91,141,52"/>
+<area shape="rect" id="Node000003" href="$_pico_display_8h.html" title=" " alt="" coords="188,93,347,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="210,52,255,91,252,95,206,56"/>
+<area shape="rect" id="Node000004" href="$appmain_8h.html" title="This file defines the hardware/platform independent start&#45;up interface(s) for the Ajax application." alt="" coords="187,167,347,192"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="270,132,270,167,265,167,265,132"/>
 </map>

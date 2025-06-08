@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$class_driver_1_1_crypto_1_1_e_d25519.html#struct_driver_1_1_crypto_1_1_e_d25519_1_1_keys___t" title="Asymmetrically Key Pair." alt="" coords="5,5,162,46"/>
+<area shape="rect" id="Node000000" href="$class_driver_1_1_crypto_1_1_hash.html" title="This class defines an abstract interface for a Hashing Algorithms." alt="" coords="5,13,160,38"/>
+<area shape="rect" id="Node000001" href="$class_driver_1_1_crypto_1_1_orlp_1_1_s_h_a512.html" title="This class implements the Hash interface using Orson Peter&#39;s SHA512 algorithm." alt="" coords="208,5,356,45"/>
+<area shape="poly" id="edge384_Node000000_Node000001" title=" " alt="" coords="174,23,207,23,207,28,174,28"/>
 </map>

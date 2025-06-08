@@ -1,9 +1,9 @@
 <map id="Cpl/Math/real.h" name="Cpl/Math/real.h">
-<area shape="rect" id="Node000001" title="This file contains a collection of methods comparing, manipulating, etc." alt="" coords="114,5,222,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,115,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,34,93,72,90,68,148,29"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="139,79,197,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,31,171,63,165,63,165,31"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="221,79,273,105"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="183,30,224,66,220,70,180,34"/>
+<area shape="rect" id="Node000001" title="This file contains a collection of methods comparing, manipulating, etc." alt="" coords="123,5,245,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,128,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,33,99,74,96,69,164,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="153,79,215,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="187,31,187,65,181,65,181,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="240,79,299,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="199,29,247,68,243,72,196,33"/>
 </map>

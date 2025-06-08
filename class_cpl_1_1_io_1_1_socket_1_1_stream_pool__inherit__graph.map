@@ -1,14 +1,14 @@
 <map id="Cpl::Io::Socket::StreamPool&lt; N &gt;" name="Cpl::Io::Socket::StreamPool&lt; N &gt;">
-<area shape="rect" id="Node000001" title="This concrete template class implement a socket factory that is capable of creating N concurrently op..." alt="" coords="37,364,247,390"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_socket_1_1_factory.html" title="This abstract class defines an interface for a Socket factory." alt="" coords="5,282,159,307"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,318,135,362,131,365,98,322"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_memory_1_1_s_pool.html" title=" " alt="" coords="183,274,400,315"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="243,325,166,366,163,361,240,320"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_memory_1_1_allocator.html" title="This abstract class defines the interface for a Memory Allocator." alt="" coords="195,80,345,106"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="275,121,282,196,291,273,286,274,277,196,270,122"/>
-<area shape="rect" id="Node000006" href="$class_cpl_1_1_memory_1_1_s_pool.html" title="This template class defines a concrete Allocator that STATICALLY allocates all of its Memory and can ..." alt="" coords="291,155,425,196"/>
-<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="296,115,338,153,335,157,293,119"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="203,5,337,31"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="273,46,273,80,267,80,267,46"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="342,211,305,275,300,272,337,208"/>
+<area shape="rect" id="Node000001" title="This concrete template class implement a socket factory that is capable of creating N concurrently op..." alt="" coords="5,361,243,387"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_socket_1_1_factory.html" title="This abstract class defines an interface for a Socket factory." alt="" coords="23,279,193,305"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,317,124,361,119,362,110,318"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_memory_1_1_s_pool.html" title=" " alt="" coords="217,272,463,312"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="277,319,156,364,155,359,275,314"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_memory_1_1_allocator.html" title="This abstract class defines the interface for a Memory Allocator." alt="" coords="232,80,403,105"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="323,119,331,194,340,272,335,272,325,195,317,120"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_memory_1_1_s_pool.html" title="This template class defines a concrete Allocator that STATICALLY allocates all of its Memory and can ..." alt="" coords="339,155,487,195"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="343,112,392,153,389,157,340,116"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="241,5,393,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="320,45,320,80,315,80,315,45"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="396,208,354,273,350,270,392,205"/>
 </map>

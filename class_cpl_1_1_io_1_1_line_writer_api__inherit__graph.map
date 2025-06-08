@@ -1,7 +1,7 @@
 <map id="Cpl::Io::LineWriterApi" name="Cpl::Io::LineWriterApi">
-<area shape="rect" id="Node000001" title="This abstract class defines a interface for a stream line writer." alt="" coords="5,79,147,105"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_io_1_1_line_writer.html" title="This concrete class implements a Line Writer stream using a previously opened Output stream." alt="" coords="15,153,137,178"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="79,120,79,152,73,152,73,120"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="9,5,143,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,46,79,79,73,79,73,46"/>
+<area shape="rect" id="Node000001" title="This abstract class defines a interface for a stream line writer." alt="" coords="5,79,164,104"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_io_1_1_line_writer.html" title="This concrete class implements a Line Writer stream using a previously opened Output stream." alt="" coords="15,152,154,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="87,118,87,152,82,152,82,118"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="9,5,161,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,44,87,79,82,79,82,44"/>
 </map>

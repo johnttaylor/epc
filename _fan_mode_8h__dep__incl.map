@@ -1,9 +1,9 @@
 <map id="Ajax/Type/FanMode.h" name="Ajax/Type/FanMode.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="11,5,157,31"/>
-<area shape="rect" id="Node000002" href="$_mp_fan_mode_8h.html" title=" " alt="" coords="6,79,162,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,46,87,79,81,79,81,46"/>
-<area shape="rect" id="Node000003" href="$_ajax_2_ui_2_home_2_screen_8h.html" title=" " alt="" coords="5,153,163,178"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,120,87,152,81,152,81,120"/>
-<area shape="rect" id="Node000004" href="$_ajax_2_main_2screens_8h.html" title="This file exposes handles to Screen instances for the Ajax Application." alt="" coords="15,226,153,252"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="87,194,87,226,81,226,81,194"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="12,5,171,31"/>
+<area shape="rect" id="Node000002" href="$_mp_fan_mode_8h.html" title=" " alt="" coords="5,79,177,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,44,94,79,89,79,89,44"/>
+<area shape="rect" id="Node000003" href="$_ajax_2_ui_2_home_2_screen_8h.html" title=" " alt="" coords="5,152,177,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,118,94,152,89,152,89,118"/>
+<area shape="rect" id="Node000004" href="$_ajax_2_main_2screens_8h.html" title="This file exposes handles to Screen instances for the Ajax Application." alt="" coords="15,225,168,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,191,94,225,89,225,89,191"/>
 </map>

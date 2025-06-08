@@ -1,5 +1,5 @@
 <map id="Cpl::TShell::Stdio" name="Cpl::TShell::Stdio">
-<area shape="rect" id="Node000001" title="This concrete class provides the &#39;threading wrapper&#39; for running a TShell Command Processor." alt="" coords="23,5,143,31"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_t_shell_1_1_restartable.html" title="This concrete class extends the &#39;Stdio&#39; class for running a TShell Command Processor that provides th..." alt="" coords="5,79,161,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,46,86,79,80,79,80,46"/>
+<area shape="rect" id="Node000001" title="This concrete class provides the &#39;threading wrapper&#39; for running a TShell Command Processor." alt="" coords="27,5,159,31"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_t_shell_1_1_restartable.html" title="This concrete class extends the &#39;Stdio&#39; class for running a TShell Command Processor that provides th..." alt="" coords="5,79,180,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,44,95,79,90,79,90,44"/>
 </map>

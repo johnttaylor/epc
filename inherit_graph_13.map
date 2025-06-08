@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$class_cpl_1_1_checksum_1_1_api32.html" title="This class provides an interface for calculate a 32 bit wide Checksum." alt="" coords="5,5,153,31"/>
-<area shape="rect" id="Node000001" href="$class_cpl_1_1_checksum_1_1_crc32_ethernet_fast.html" title="This class provides an implementation for the 32 Bit &quot;Ethernet&quot; standard." alt="" coords="201,5,423,31"/>
-<area shape="poly" id="edge17_Node000000_Node000001" title=" " alt="" coords="168,16,200,16,200,21,168,21"/>
+<area shape="rect" id="Node000000" href="$class_cpl_1_1_checksum_1_1_api_md5.html" title="This class provides an interface for performing a MD5 Hash on a collection of bytes." alt="" coords="5,5,181,31"/>
+<area shape="rect" id="Node000001" href="$class_cpl_1_1_checksum_1_1_md5_aladdin.html" title="This class provides an implementation for the MD5 Hash interface that is wrapper to the third party M..." alt="" coords="229,5,433,31"/>
+<area shape="poly" id="edge18_Node000000_Node000001" title=" " alt="" coords="195,15,229,15,229,21,195,21"/>
 </map>

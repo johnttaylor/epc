@@ -1,5 +1,5 @@
 <map id="Cpl::Checksum::ApiMd5" name="Cpl::Checksum::ApiMd5">
-<area shape="rect" id="Node000001" title="This class provides an interface for performing a MD5 Hash on a collection of bytes." alt="" coords="17,5,176,31"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_checksum_1_1_md5_aladdin.html" title="This class provides an implementation for the MD5 Hash interface that is wrapper to the third party M..." alt="" coords="5,79,188,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,46,99,79,94,79,94,46"/>
+<area shape="rect" id="Node000001" title="This class provides an interface for performing a MD5 Hash on a collection of bytes." alt="" coords="19,5,195,31"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_checksum_1_1_md5_aladdin.html" title="This class provides an implementation for the MD5 Hash interface that is wrapper to the third party M..." alt="" coords="5,79,209,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,44,110,79,105,79,105,44"/>
 </map>

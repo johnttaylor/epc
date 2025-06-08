@@ -1,67 +1,67 @@
 <map id="Cpl::Io::Close" name="Cpl::Io::Close">
-<area shape="rect" id="Node000001" title="This abstract class defines a close operation that is intended to be used Input and Output streams/fi..." alt="" coords="187,593,283,619"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_io_1_1_input.html" title="This partially abstract class defines a interface for operating on an input stream (example of a stre..." alt="" coords="336,527,428,552"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="278,584,350,551,353,555,280,589"/>
-<area shape="rect" id="Node000024" href="$class_cpl_1_1_io_1_1_output.html" title="This partially abstract class defines a interface for operating on an output stream (example of a str..." alt="" coords="331,617,433,643"/>
-<area shape="poly" id="edge23_Node000001_Node000024" title=" " alt="" coords="299,614,331,619,330,624,298,619"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,593,139,619"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,604,186,604,186,609,154,609"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_io_1_1_file_1_1_input_api.html" title="This abstract class defines the interface for a Random Access Input File." alt="" coords="493,55,632,80"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="383,511,394,416,413,291,425,227,441,170,459,123,479,90,493,79,497,83,483,93,463,125,446,172,431,229,418,292,399,417,389,511"/>
-<area shape="rect" id="Node000009" href="$class_cpl_1_1_io_1_1_input_output.html" title="This abstract class defines a interface for operating on an input&#45;output stream (example of a stream ..." alt="" coords="497,489,628,515"/>
-<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="443,524,497,513,498,518,444,530"/>
-<area shape="rect" id="Node000022" href="$class_cpl_1_1_io_1_1_stdio_1_1_input__.html" title="This concrete class implements a Input stream using the underlying platform&#39;s native OS &#39;file interfa..." alt="" coords="495,805,630,831"/>
-<area shape="poly" id="edge21_Node000003_Node000022" title=" " alt="" coords="408,563,436,604,446,632,451,658,452,705,452,727,456,748,466,770,483,792,497,803,494,807,479,796,461,773,451,750,447,728,446,705,446,659,441,634,431,606,404,566"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_io_1_1_file_1_1_input.html" title="This concrete class provides a platform independent &#39;standard&#39; implementation of a Cpl::Io::File::Inp..." alt="" coords="721,5,841,31"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="637,48,720,29,721,34,638,53"/>
-<area shape="rect" id="Node000006" href="$class_cpl_1_1_io_1_1_file_1_1_input_output_api.html" title="This abstract class defines the interface for a Random Access Input Output File." alt="" coords="692,55,870,80"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="647,65,692,65,692,70,647,70"/>
-<area shape="rect" id="Node000007" href="$class_cpl_1_1_io_1_1_file_1_1_input_output.html" title="This concrete class provides a platform independent &#39;standard&#39; implementation of an InputOutputFileAp..." alt="" coords="932,31,1090,56"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="884,54,931,49,932,54,885,59"/>
-<area shape="rect" id="Node000008" href="$class_cpl_1_1_io_1_1_file_1_1_null.html" title="This concrete class implements a NULL InputOutputApi File that all of its input operations return &#39;En..." alt="" coords="955,80,1068,106"/>
-<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="885,76,954,84,954,89,884,82"/>
-<area shape="rect" id="Node000010" href="$class_cpl_1_1_io_1_1_null.html" title="This concrete class implements a NULL InputOutput stream &#45; that all of its input operations return &#39;E..." alt="" coords="738,153,824,179"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="564,474,575,414,597,337,614,297,634,257,660,220,690,188,712,175,737,167,738,172,714,179,693,192,664,224,639,260,619,299,602,339,580,415,570,474"/>
-<area shape="rect" id="Node000011" href="$class_cpl_1_1_io_1_1_ram_1_1_input_output.html" title="This concrete class implements an InputOutput stream using a Ring Buffer." alt="" coords="699,203,863,228"/>
-<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="567,474,581,423,605,360,641,295,663,265,690,239,709,227,712,231,693,243,667,268,645,298,610,362,586,425,572,475"/>
-<area shape="rect" id="Node000012" href="$class_cpl_1_1_io_1_1_serial_1_1_adafruit_1_1_nrf5_1_1_b_l_e_1_1_input_output.html" title="This concrete class implements the InputOutput stream interface as a wrapper around Adafruit&#39;s BLEUar..." alt="" coords="702,253,860,293"/>
-<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="572,474,590,436,616,391,649,345,690,304,710,292,712,296,693,308,654,348,621,394,595,439,577,476"/>
-<area shape="rect" id="Node000013" href="$class_cpl_1_1_io_1_1_serial_1_1_adafruit_1_1_nrf5_1_1_input_output.html" title="This concrete class implements the InputOutput stream interface as a wrapper around Adafruit&#39;s Arduin..." alt="" coords="707,318,855,359"/>
-<area shape="poly" id="edge12_Node000009_Node000013" title=" " alt="" coords="581,475,627,422,657,394,690,369,713,357,716,361,693,374,661,398,631,426,585,479"/>
-<area shape="rect" id="Node000014" href="$class_cpl_1_1_io_1_1_serial_1_1_arduino_1_1_input_output.html" title="This concrete class implements the InputOutput stream interface as a wrapper around Arduino Serial cl..." alt="" coords="708,383,854,424"/>
-<area shape="poly" id="edge13_Node000009_Node000014" title=" " alt="" coords="600,479,691,434,720,422,723,427,693,439,602,484"/>
-<area shape="rect" id="Node000015" href="$class_cpl_1_1_io_1_1_serial_1_1_phony_stdio_1_1_input_output.html" title="This concrete class implements the InputOutput stream interface built on top the C Library&#39;s fread/fw..." alt="" coords="697,449,865,489"/>
-<area shape="poly" id="edge14_Node000009_Node000015" title=" " alt="" coords="643,487,696,479,696,484,644,493"/>
-<area shape="rect" id="Node000016" href="$class_cpl_1_1_io_1_1_serial_1_1_s_t_1_1_m32_f4_1_1_input_output.html" title="This concrete class implements the InputOutput stream interface built on top of ST HAL Layer/SDK." alt="" coords="710,514,852,555"/>
-<area shape="poly" id="edge15_Node000009_Node000016" title=" " alt="" coords="644,511,710,521,709,526,643,517"/>
-<area shape="rect" id="Node000017" href="$class_cpl_1_1_io_1_1_socket_1_1_input_output.html" title="This concrete class provides a platform independent &#39;standard&#39; implementation of an InputOutput strea..." alt="" coords="692,579,870,604"/>
-<area shape="poly" id="edge16_Node000009_Node000017" title=" " alt="" coords="602,520,693,564,728,576,726,581,691,569,599,525"/>
-<area shape="rect" id="Node000018" href="$class_cpl_1_1_io_1_1_stdio_1_1_input_output__.html" title="This concrete class implements a Input&#45;Output stream." alt="" coords="694,628,868,654"/>
-<area shape="poly" id="edge17_Node000009_Node000018" title=" " alt="" coords="587,525,633,571,662,594,693,614,717,625,715,630,690,619,659,599,629,575,583,529"/>
-<area shape="rect" id="Node000019" href="$class_cpl_1_1_io_1_1_tcp_1_1_input_output.html" title="This concrete class defines a platform independent implementation of an InputOutput stream used by th..." alt="" coords="701,677,861,703"/>
-<area shape="poly" id="edge18_Node000009_Node000019" title=" " alt="" coords="580,527,624,596,656,633,693,664,713,674,711,679,690,668,652,637,620,600,575,530"/>
-<area shape="rect" id="Node000020" href="$class_cpl_1_1_io_1_1_tcp_1_1_async_connector_1_1_client.html" title="This class defines the callback mechanism used for accepting incoming TCP connections." alt="" coords="918,638,1104,679"/>
-<area shape="poly" id="edge19_Node000019_Node000020" title=" " alt="" coords="876,674,917,668,918,674,876,680"/>
-<area shape="rect" id="Node000021" href="$class_cpl_1_1_io_1_1_tcp_1_1_async_listener_1_1_client.html" title="This class defines the callback mechanism used for accepting incoming TCP connections." alt="" coords="924,703,1098,744"/>
-<area shape="poly" id="edge20_Node000019_Node000021" title=" " alt="" coords="876,701,924,708,923,714,876,707"/>
-<area shape="rect" id="Node000023" href="$class_cpl_1_1_io_1_1_stdio_1_1_std_in.html" title="This concrete class represents the C&#45;library &#39;stdin&#39; stream." alt="" coords="716,891,846,916"/>
-<area shape="poly" id="edge22_Node000022_Node000023" title=" " alt="" coords="634,835,645,840,669,859,693,877,719,888,717,893,690,882,666,863,642,844,631,839"/>
-<area shape="poly" id="edge29_Node000024_Node000009" title=" " alt="" coords="413,606,541,513,544,518,416,610"/>
-<area shape="rect" id="Node000025" href="$class_cpl_1_1_io_1_1_atomic_output_api.html" title="This abstract template class defines a interface for an Atomic outputs to a stream." alt="" coords="481,691,644,732"/>
-<area shape="poly" id="edge24_Node000024_Node000025" title=" " alt="" coords="428,647,517,688,514,693,425,652"/>
-<area shape="rect" id="Node000027" href="$class_cpl_1_1_io_1_1_file_1_1_output_api.html" title="This abstract class defines the interface for a Random Access Input File." alt="" coords="488,104,637,130"/>
-<area shape="poly" id="edge26_Node000024_Node000027" title=" " alt="" coords="404,604,431,564,459,501,483,436,521,308,545,199,557,130,562,131,550,200,526,309,488,438,464,503,436,566,408,607"/>
-<area shape="rect" id="Node000029" href="$class_cpl_1_1_io_1_1_stdio_1_1_output__.html" title="This concrete class implements a Output stream using the underlying platform&#39;s native OS &#39;file interf..." alt="" coords="490,756,635,782"/>
-<area shape="poly" id="edge30_Node000024_Node000029" title=" " alt="" coords="402,655,436,699,458,722,483,741,506,753,504,758,480,746,455,726,432,703,398,658"/>
-<area shape="rect" id="Node000032" href="$class_cpl_1_1_io_1_1_tee_output.html" title="This concrete class implements a Output stream that outputs the data to MANY (or none) output streams..." alt="" coords="500,855,625,880"/>
-<area shape="poly" id="edge33_Node000024_Node000032" title=" " alt="" coords="391,657,402,698,420,748,446,798,463,821,483,841,501,853,498,857,480,846,459,825,442,801,415,750,397,700,386,659"/>
-<area shape="rect" id="Node000026" href="$class_cpl_1_1_io_1_1_atomic_output.html" title="This concrete template class implements the AtomicOutputApi using a mutex to enforce the &#39;atomic&#45;ness..." alt="" coords="709,727,853,768"/>
-<area shape="poly" id="edge25_Node000025_Node000026" title=" " alt="" coords="660,725,709,733,708,738,659,730"/>
-<area shape="poly" id="edge27_Node000027_Node000006" title=" " alt="" coords="637,97,720,78,721,84,638,103"/>
-<area shape="rect" id="Node000028" href="$class_cpl_1_1_io_1_1_file_1_1_output.html" title="This concrete class provides a platform independent &#39;standard&#39; implementation of a Cpl::Io::File::Out..." alt="" coords="716,104,846,130"/>
-<area shape="poly" id="edge28_Node000027_Node000028" title=" " alt="" coords="652,114,716,114,716,120,652,120"/>
-<area shape="rect" id="Node000030" href="$class_cpl_1_1_io_1_1_stdio_1_1_std_err.html" title="This concrete class represents the C&#45;library &#39;stderr&#39; stream." alt="" coords="713,792,849,818"/>
-<area shape="poly" id="edge31_Node000029_Node000030" title=" " alt="" coords="651,781,713,791,712,796,650,786"/>
-<area shape="rect" id="Node000031" href="$class_cpl_1_1_io_1_1_stdio_1_1_std_out.html" title="This concrete class represents the C&#45;library &#39;stdout&#39; stream." alt="" coords="711,841,851,867"/>
-<area shape="poly" id="edge32_Node000029_Node000031" title=" " alt="" coords="634,785,645,791,669,810,693,828,719,838,717,843,690,832,666,814,642,795,631,790"/>
+<area shape="rect" id="Node000001" title="This abstract class defines a close operation that is intended to be used Input and Output streams/fi..." alt="" coords="205,588,312,613"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_io_1_1_input.html" title="This partially abstract class defines a interface for operating on an input stream (example of a stre..." alt="" coords="365,521,469,547"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="301,580,385,544,387,549,303,585"/>
+<area shape="rect" id="Node000024" href="$class_cpl_1_1_io_1_1_output.html" title="This partially abstract class defines a interface for operating on an output stream (example of a str..." alt="" coords="360,612,475,637"/>
+<area shape="poly" id="edge23_Node000001_Node000024" title=" " alt="" coords="326,608,360,613,359,619,325,613"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,588,157,613"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,598,205,598,205,603,171,603"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_io_1_1_file_1_1_input_api.html" title="This abstract class defines the interface for a Random Access Input File." alt="" coords="536,55,692,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="419,507,430,415,451,290,465,227,481,169,499,122,521,90,536,78,539,82,525,93,504,124,486,171,470,228,456,291,435,415,424,508"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_io_1_1_input_output.html" title="This abstract class defines a interface for operating on an input&#45;output stream (example of a stream ..." alt="" coords="540,484,688,509"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="482,519,546,507,547,512,483,524"/>
+<area shape="rect" id="Node000022" href="$class_cpl_1_1_io_1_1_stdio_1_1_input__.html" title="This concrete class implements a Input stream using the underlying platform&#39;s native OS &#39;file interfa..." alt="" coords="538,800,690,825"/>
+<area shape="poly" id="edge21_Node000003_Node000022" title=" " alt="" coords="445,555,462,575,477,598,488,626,493,652,493,700,494,722,498,743,507,765,525,787,539,798,536,802,521,791,502,767,492,745,489,722,488,700,488,653,483,628,472,601,458,578,441,559"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_io_1_1_file_1_1_input.html" title="This concrete class provides a platform independent &#39;standard&#39; implementation of a Cpl::Io::File::Inp..." alt="" coords="786,5,921,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="689,49,790,28,791,33,690,54"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_io_1_1_file_1_1_input_output_api.html" title="This abstract class defines the interface for a Random Access Input Output File." alt="" coords="753,55,953,80"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="706,65,753,65,753,70,706,70"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_io_1_1_file_1_1_input_output.html" title="This concrete class provides a platform independent &#39;standard&#39; implementation of an InputOutputFileAp..." alt="" coords="1015,31,1193,56"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="966,54,1014,49,1015,55,967,59"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_io_1_1_file_1_1_null.html" title="This concrete class implements a NULL InputOutputApi File that all of its input operations return &#39;En..." alt="" coords="1040,80,1168,105"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="967,76,1040,84,1040,89,967,81"/>
+<area shape="rect" id="Node000010" href="$class_cpl_1_1_io_1_1_null.html" title="This concrete class implements a NULL InputOutput stream &#45; that all of its input operations return &#39;E..." alt="" coords="805,153,902,179"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="617,470,629,411,654,335,672,295,694,256,720,219,752,188,777,174,804,166,805,171,779,179,755,192,724,223,698,258,676,297,659,337,635,413,622,471"/>
+<area shape="rect" id="Node000011" href="$class_cpl_1_1_io_1_1_ram_1_1_input_output.html" title="This concrete class implements an InputOutput stream using a Ring Buffer." alt="" coords="760,203,947,228"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="619,470,635,420,661,358,700,293,724,264,752,239,774,226,777,230,755,243,728,268,704,296,666,360,640,422,624,471"/>
+<area shape="rect" id="Node000012" href="$class_cpl_1_1_io_1_1_serial_1_1_adafruit_1_1_nrf5_1_1_b_l_e_1_1_input_output.html" title="This concrete class implements the InputOutput stream interface as a wrapper around Adafruit&#39;s BLEUar..." alt="" coords="766,253,941,293"/>
+<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="624,470,644,433,672,388,708,342,752,303,772,290,775,295,755,307,712,346,677,391,649,436,629,473"/>
+<area shape="rect" id="Node000013" href="$class_cpl_1_1_io_1_1_serial_1_1_adafruit_1_1_nrf5_1_1_input_output.html" title="This concrete class implements the InputOutput stream interface as a wrapper around Adafruit&#39;s Arduin..." alt="" coords="769,317,937,357"/>
+<area shape="poly" id="edge12_Node000009_Node000013" title=" " alt="" coords="633,472,683,419,716,391,752,366,777,354,779,359,755,371,719,395,687,423,636,475"/>
+<area shape="rect" id="Node000014" href="$class_cpl_1_1_io_1_1_serial_1_1_arduino_1_1_input_output.html" title="This concrete class implements the InputOutput stream interface as a wrapper around Arduino Serial cl..." alt="" coords="770,381,937,421"/>
+<area shape="poly" id="edge13_Node000009_Node000014" title=" " alt="" coords="651,475,752,430,785,418,787,423,754,435,654,480"/>
+<area shape="rect" id="Node000015" href="$class_cpl_1_1_io_1_1_serial_1_1_phony_stdio_1_1_input_output.html" title="This concrete class implements the InputOutput stream interface built on top the C Library&#39;s fread/fw..." alt="" coords="759,445,948,485"/>
+<area shape="poly" id="edge14_Node000009_Node000015" title=" " alt="" coords="701,482,758,475,759,480,702,488"/>
+<area shape="rect" id="Node000016" href="$class_cpl_1_1_io_1_1_serial_1_1_s_t_1_1_m32_f4_1_1_input_output.html" title="This concrete class implements the InputOutput stream interface built on top of ST HAL Layer/SDK." alt="" coords="774,509,933,549"/>
+<area shape="poly" id="edge15_Node000009_Node000016" title=" " alt="" coords="702,506,774,515,774,521,702,511"/>
+<area shape="rect" id="Node000017" href="$class_cpl_1_1_io_1_1_socket_1_1_input_output.html" title="This concrete class provides a platform independent &#39;standard&#39; implementation of an InputOutput strea..." alt="" coords="754,573,953,599"/>
+<area shape="poly" id="edge16_Node000009_Node000017" title=" " alt="" coords="652,513,700,536,754,558,796,571,794,576,752,563,698,541,650,518"/>
+<area shape="rect" id="Node000018" href="$class_cpl_1_1_io_1_1_stdio_1_1_input_output__.html" title="This concrete class implements a Input&#45;Output stream." alt="" coords="755,623,951,648"/>
+<area shape="poly" id="edge17_Node000009_Node000018" title=" " alt="" coords="638,517,688,564,720,588,755,609,783,620,781,625,752,614,717,593,685,568,634,521"/>
+<area shape="rect" id="Node000019" href="$class_cpl_1_1_io_1_1_tcp_1_1_input_output.html" title="This concrete class defines a platform independent implementation of an InputOutput stream used by th..." alt="" coords="765,672,942,697"/>
+<area shape="poly" id="edge18_Node000009_Node000019" title=" " alt="" coords="631,520,680,590,715,627,755,658,778,669,776,674,752,663,711,631,676,593,627,523"/>
+<area shape="rect" id="Node000020" href="$class_cpl_1_1_io_1_1_tcp_1_1_async_connector_1_1_client.html" title="This class defines the callback mechanism used for accepting incoming TCP connections." alt="" coords="1001,633,1207,673"/>
+<area shape="poly" id="edge19_Node000019_Node000020" title=" " alt="" coords="955,669,1001,663,1002,668,956,674"/>
+<area shape="rect" id="Node000021" href="$class_cpl_1_1_io_1_1_tcp_1_1_async_listener_1_1_client.html" title="This class defines the callback mechanism used for accepting incoming TCP connections." alt="" coords="1009,697,1199,737"/>
+<area shape="poly" id="edge20_Node000019_Node000021" title=" " alt="" coords="956,695,1009,702,1008,707,955,700"/>
+<area shape="rect" id="Node000023" href="$class_cpl_1_1_io_1_1_stdio_1_1_std_in.html" title="This concrete class represents the C&#45;library &#39;stdin&#39; stream." alt="" coords="781,885,926,911"/>
+<area shape="poly" id="edge22_Node000022_Node000023" title=" " alt="" coords="687,827,707,836,731,854,755,872,785,883,783,888,752,876,728,858,704,840,685,832"/>
+<area shape="poly" id="edge29_Node000024_Node000009" title=" " alt="" coords="448,602,592,507,595,512,451,607"/>
+<area shape="rect" id="Node000025" href="$class_cpl_1_1_io_1_1_atomic_output_api.html" title="This abstract template class defines a interface for an Atomic outputs to a stream." alt="" coords="523,686,705,726"/>
+<area shape="poly" id="edge24_Node000024_Node000025" title=" " alt="" coords="462,640,566,683,564,688,460,645"/>
+<area shape="rect" id="Node000027" href="$class_cpl_1_1_io_1_1_file_1_1_output_api.html" title="This abstract class defines the interface for a Random Access Input File." alt="" coords="531,104,697,129"/>
+<area shape="poly" id="edge26_Node000024_Node000027" title=" " alt="" coords="440,600,472,557,502,496,528,432,569,305,595,197,608,129,613,130,600,198,574,307,533,434,507,498,477,559,444,603"/>
+<area shape="rect" id="Node000029" href="$class_cpl_1_1_io_1_1_stdio_1_1_output__.html" title="This concrete class implements a Output stream using the underlying platform&#39;s native OS &#39;file interf..." alt="" coords="533,751,695,776"/>
+<area shape="poly" id="edge30_Node000024_Node000029" title=" " alt="" coords="436,647,473,692,497,716,524,736,551,748,549,753,521,740,494,720,469,696,432,650"/>
+<area shape="rect" id="Node000032" href="$class_cpl_1_1_io_1_1_tee_output.html" title="This concrete class implements a Output stream that outputs the data to MANY (or none) output streams..." alt="" coords="545,849,683,875"/>
+<area shape="poly" id="edge33_Node000024_Node000032" title=" " alt="" coords="427,650,438,691,457,742,486,793,504,816,524,836,546,849,544,853,521,840,500,819,481,796,452,744,433,693,421,652"/>
+<area shape="rect" id="Node000026" href="$class_cpl_1_1_io_1_1_atomic_output.html" title="This concrete template class implements the AtomicOutputApi using a mutex to enforce the &#39;atomic&#45;ness..." alt="" coords="773,722,934,762"/>
+<area shape="poly" id="edge25_Node000025_Node000026" title=" " alt="" coords="719,719,773,727,772,733,719,724"/>
+<area shape="poly" id="edge27_Node000027_Node000006" title=" " alt="" coords="689,99,790,77,791,83,690,104"/>
+<area shape="rect" id="Node000028" href="$class_cpl_1_1_io_1_1_file_1_1_output.html" title="This concrete class provides a platform independent &#39;standard&#39; implementation of a Cpl::Io::File::Out..." alt="" coords="780,104,927,129"/>
+<area shape="poly" id="edge28_Node000027_Node000028" title=" " alt="" coords="711,114,780,114,780,119,711,119"/>
+<area shape="rect" id="Node000030" href="$class_cpl_1_1_io_1_1_stdio_1_1_std_err.html" title="This concrete class represents the C&#45;library &#39;stderr&#39; stream." alt="" coords="778,787,929,812"/>
+<area shape="poly" id="edge31_Node000029_Node000030" title=" " alt="" coords="709,775,778,785,778,791,708,780"/>
+<area shape="rect" id="Node000031" href="$class_cpl_1_1_io_1_1_stdio_1_1_std_out.html" title="This concrete class represents the C&#45;library &#39;stdout&#39; stream." alt="" coords="775,836,931,861"/>
+<area shape="poly" id="edge32_Node000029_Node000031" title=" " alt="" coords="687,778,707,786,731,805,755,822,785,833,783,838,752,827,728,809,704,791,685,783"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="Driver::NV::Null" name="Driver::NV::Null">
-<area shape="rect" id="Node000001" title="This concrete class provides a &#39;null&#39; implementation of the NV Storage interface." alt="" coords="5,79,115,105"/>
-<area shape="rect" id="Node000002" href="$class_driver_1_1_n_v_1_1_api.html" title="This class defines the interface for a platform independent Non&#45;volatile storage driver." alt="" coords="7,5,113,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,46,63,79,57,79,57,46"/>
+<area shape="rect" id="Node000001" title="This concrete class provides a &#39;null&#39; implementation of the NV Storage interface." alt="" coords="5,79,128,104"/>
+<area shape="rect" id="Node000002" href="$class_driver_1_1_n_v_1_1_api.html" title="This class defines the interface for a platform independent Non&#45;volatile storage driver." alt="" coords="8,5,125,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="69,44,69,79,64,79,64,44"/>
 </map>

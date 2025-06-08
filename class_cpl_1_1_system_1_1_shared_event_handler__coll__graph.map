@@ -1,5 +1,5 @@
 <map id="Cpl::System::SharedEventHandler&lt; N &gt;" name="Cpl::System::SharedEventHandler&lt; N &gt;">
-<area shape="rect" id="Node000001" title="This template concrete class is a &#39;strategy class&#39; in that in provides most of work needed for a Runn..." alt="" coords="5,94,176,135"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_system_1_1_shared_event_handler_api.html" title="This abstract class defines the interface for a Shared Event Handler." alt="" coords="5,5,176,46"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,62,93,94,88,94,88,62"/>
+<area shape="rect" id="Node000001" title="This template concrete class is a &#39;strategy class&#39; in that in provides most of work needed for a Runn..." alt="" coords="5,93,196,133"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_system_1_1_shared_event_handler_api.html" title="This abstract class defines the interface for a Shared Event Handler." alt="" coords="5,5,196,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,59,103,93,98,93,98,59"/>
 </map>

@@ -1,9 +1,9 @@
 <map id="Cpl::Itc::OpenSync" name="Cpl::Itc::OpenSync">
-<area shape="rect" id="Node000001" title="This partially concrete class implements the synchronous ITC open call for the OpenApi." alt="" coords="156,94,284,120"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_open_api.html" title="This abstract class defines an open interface." alt="" coords="5,5,123,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,37,199,91,197,96,98,41"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_open_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="147,5,293,31"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="223,47,223,94,217,94,217,47"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_post_api.html" title="This abstract class represents the interface used to send messages to a mailbox." alt="" coords="317,5,430,31"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="340,41,243,96,240,91,338,36"/>
+<area shape="rect" id="Node000001" title="This partially concrete class implements the synchronous ITC open call for the OpenApi." alt="" coords="171,93,311,119"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_open_api.html" title="This abstract class defines an open interface." alt="" coords="5,5,136,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,34,219,91,217,95,105,39"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_open_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="160,5,323,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,45,244,93,239,93,239,45"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_post_api.html" title="This abstract class represents the interface used to send messages to a mailbox." alt="" coords="347,5,471,31"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="376,39,265,95,263,91,373,35"/>
 </map>

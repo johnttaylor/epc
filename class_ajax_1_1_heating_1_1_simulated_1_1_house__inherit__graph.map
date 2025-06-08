@@ -1,33 +1,33 @@
 <map id="Ajax::Heating::Simulated::House" name="Ajax::Heating::Simulated::House">
-<area shape="rect" id="Node000001" title="This class glues the House Simulation into the Heater Application." alt="" coords="1242,167,1404,208"/>
-<area shape="rect" id="Node000002" href="$class_ajax_1_1_heating_1_1_supervisor_1_1_api.html" title="This class implements the Heating Algorithm Supervisor." alt="" coords="1003,175,1193,200"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1209,185,1242,185,1242,190,1209,190"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_close_sync.html" title="This partially concrete class implements the synchronous ITC close call for the CloseApi." alt="" coords="806,104,935,130"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="930,132,1055,172,1053,177,928,137"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_open_sync.html" title="This partially concrete class implements the synchronous ITC open call for the OpenApi." alt="" coords="576,29,703,55"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="716,57,740,64,839,101,837,106,738,69,714,62"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_itc_1_1_open_api.html" title="This abstract class defines an open interface." alt="" coords="223,5,340,31"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="356,20,576,35,575,41,355,26"/>
-<area shape="rect" id="Node000006" href="$class_cpl_1_1_itc_1_1_open_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="208,55,354,80"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="370,59,575,44,576,49,370,64"/>
-<area shape="rect" id="Node000007" href="$class_cpl_1_1_itc_1_1_close_api.html" title="This abstract class defines an close interface." alt="" coords="580,79,699,104"/>
-<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="715,97,806,107,805,112,714,102"/>
-<area shape="rect" id="Node000008" href="$class_cpl_1_1_itc_1_1_close_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="565,128,714,154"/>
-<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="729,129,805,121,806,126,729,134"/>
-<area shape="rect" id="Node000009" href="$class_cpl_1_1_system_1_1_timer.html" title="This mostly concrete interface defines the operations that can be performed on a software timer." alt="" coords="806,175,935,200"/>
-<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="951,185,1002,185,1002,190,951,190"/>
-<area shape="rect" id="Node000010" href="$class_cpl_1_1_system_1_1_counter_callback__.html" title="This abstract class defines the call&#45;back interface for a Counter object." alt="" coords="540,177,739,203"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="754,186,805,186,806,191,754,192"/>
-<area shape="rect" id="Node000011" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="188,177,374,203"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="390,188,540,188,540,193,390,193"/>
-<area shape="rect" id="Node000012" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,177,139,203"/>
-<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="154,188,187,188,187,193,154,193"/>
-<area shape="rect" id="Node000013" href="$class_ajax_1_1_heating_1_1_supervisor_1_1_fsm_event_queue__.html" title="Event Queue for FSM events." alt="" coords="788,225,953,265"/>
-<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="968,218,1043,198,1045,204,969,223"/>
-<area shape="rect" id="Node000014" href="$class_ajax_1_1_heating_1_1_supervisor_1_1_fsm.html" title="Here is the graph that shows the state machine this class implements." alt="" coords="616,231,663,256"/>
-<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="679,241,788,242,788,247,679,246"/>
-<area shape="rect" id="Node000015" href="$class_cpl_1_1_container_1_1_ring_buffer.html" title=" " alt="" coords="556,281,723,321"/>
-<area shape="poly" id="edge14_Node000013_Node000015" title=" " alt="" coords="738,274,787,262,788,268,739,280"/>
-<area shape="rect" id="Node000016" href="$class_cpl_1_1_container_1_1_ring_buffer.html" title="This template class implements a Ring Buffer." alt="" coords="198,281,365,321"/>
-<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="381,298,556,298,556,304,381,304"/>
+<area shape="rect" id="Node000001" title="This class glues the House Simulation into the Heater Application." alt="" coords="1368,167,1552,207"/>
+<area shape="rect" id="Node000002" href="$class_ajax_1_1_heating_1_1_supervisor_1_1_api.html" title="This class implements the Heating Algorithm Supervisor." alt="" coords="1103,175,1319,200"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1332,185,1368,185,1368,190,1332,190"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_close_sync.html" title="This partially concrete class implements the synchronous ITC close call for the CloseApi." alt="" coords="889,104,1031,129"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1020,131,1165,172,1164,177,1019,136"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_open_sync.html" title="This partially concrete class implements the synchronous ITC open call for the OpenApi." alt="" coords="636,29,776,55"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="786,55,818,63,927,101,926,106,817,69,785,60"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_itc_1_1_open_api.html" title="This abstract class defines an open interface." alt="" coords="248,5,379,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="393,20,636,35,636,40,392,25"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_itc_1_1_open_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="232,55,395,80"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="408,59,635,44,636,49,409,64"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_itc_1_1_close_api.html" title="This abstract class defines an close interface." alt="" coords="640,79,772,104"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="786,97,889,107,888,112,785,102"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_itc_1_1_close_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="624,128,788,153"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="801,129,888,121,889,126,802,134"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_system_1_1_timer.html" title="This mostly concrete interface defines the operations that can be performed on a software timer." alt="" coords="887,175,1033,200"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="1047,185,1102,185,1102,190,1047,190"/>
+<area shape="rect" id="Node000010" href="$class_cpl_1_1_system_1_1_counter_callback__.html" title="This abstract class defines the call&#45;back interface for a Counter object." alt="" coords="595,177,817,203"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="831,186,886,185,887,191,831,191"/>
+<area shape="rect" id="Node000011" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="207,177,420,203"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="434,187,595,187,595,193,434,193"/>
+<area shape="rect" id="Node000012" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,177,157,203"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="171,187,206,187,206,193,171,193"/>
+<area shape="rect" id="Node000013" href="$class_ajax_1_1_heating_1_1_supervisor_1_1_fsm_event_queue__.html" title="Event Queue for FSM events." alt="" coords="867,225,1053,265"/>
+<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="1060,219,1154,197,1155,203,1062,224"/>
+<area shape="rect" id="Node000014" href="$class_ajax_1_1_heating_1_1_supervisor_1_1_fsm.html" title="Here is the graph that shows the state machine this class implements." alt="" coords="681,231,731,256"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="745,241,866,242,866,247,745,246"/>
+<area shape="rect" id="Node000015" href="$class_cpl_1_1_container_1_1_ring_buffer.html" title=" " alt="" coords="611,281,801,321"/>
+<area shape="poly" id="edge14_Node000013_Node000015" title=" " alt="" coords="810,275,868,262,869,267,811,280"/>
+<area shape="rect" id="Node000016" href="$class_cpl_1_1_container_1_1_ring_buffer.html" title="This template class implements a Ring Buffer." alt="" coords="218,281,409,321"/>
+<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="423,298,610,298,610,303,423,303"/>
 </map>

@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$class_cpl_1_1_io_1_1_serial_1_1_s_t_1_1_m32_f4_1_1_stream_driver.html#struct_cpl_1_1_io_1_1_serial_1_1_s_t_1_1_m32_f4_1_1_stream_driver_1_1_hal_mapping___t" title="Used to map a HAL UART Handle to an instance of this class." alt="" coords="5,5,155,61"/>
+<area shape="rect" id="Node000000" href="$class_cpl_1_1_io_1_1_socket_1_1_connector.html" title="This abstract class defines the interface for establishing/requesting a SIMPLE socket connection,..." alt="" coords="5,45,193,70"/>
+<area shape="rect" id="Node000001" href="$class_cpl_1_1_io_1_1_socket_1_1_posix_1_1_connector.html" title="This concrete class implements the Cpl::Io::Socket::Connector interface using IPv4/IPv6 addressing fo..." alt="" coords="244,5,401,45"/>
+<area shape="poly" id="edge46_Node000000_Node000001" title=" " alt="" coords="202,40,243,34,244,39,202,45"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_socket_1_1_win32_1_1_connector.html" title="This concrete class implements the Cpl::Io::Socket::Connector interface using IPv4/IPv6 addressing fo..." alt="" coords="241,69,404,109"/>
+<area shape="poly" id="edge47_Node000000_Node000002" title=" " alt="" coords="203,69,242,75,241,80,202,75"/>
 </map>

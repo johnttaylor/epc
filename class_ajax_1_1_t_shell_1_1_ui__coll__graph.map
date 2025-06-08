@@ -1,61 +1,49 @@
 <map id="Ajax::TShell::Ui" name="Ajax::TShell::Ui">
-<area shape="rect" id="Node000001" title="This class implements a TShell command that generates a UI event." alt="" coords="2996,142,3104,168"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_t_shell_1_1_cmd_1_1_command.html" title="This partially concrete class implements infrastructure and/or common functionality for a Shell comma..." alt="" coords="1929,70,2110,96"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2126,88,2995,149,2995,154,2125,93"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_t_shell_1_1_command.html" title="This class defines the interface for a TShell command." alt="" coords="1656,70,1804,96"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1820,80,1928,80,1928,86,1820,86"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_map_item.html" title="This abstract class represents a item that can be contained in an Map (aka a sorted list implemented ..." alt="" coords="1318,70,1476,96"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1492,80,1655,80,1655,86,1492,86"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_dict_item.html" title="This abstract class represents a item that can be contained in Dictionary." alt="" coords="1084,66,1241,92"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="1256,78,1317,79,1317,84,1256,83"/>
-<area shape="rect" id="Node000006" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="719,17,905,43"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="921,42,1084,65,1083,71,920,48"/>
-<area shape="rect" id="Node000007" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="357,16,490,41"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="506,26,718,27,718,32,506,31"/>
-<area shape="rect" id="Node000018" href="$class_cpl_1_1_dm_1_1_model_point.html" title="This mostly abstract class defines the interface for a Model Point." alt="" coords="744,66,881,92"/>
-<area shape="poly" id="edge18_Node000018_Node000007" title=" " alt="" coords="506,36,744,67,743,73,505,42"/>
-<area shape="rect" id="Node000008" href="$class_cpl_1_1_container_1_1_key_literal_string.html" title="This class provides a &#39;Key&#39; wrapper for a C string literal." alt="" coords="1647,5,1813,46"/>
-<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="1828,42,1951,67,1950,72,1827,48"/>
-<area shape="rect" id="Node000009" href="$class_cpl_1_1_container_1_1_key_string_buffer.html" title="This class provides a &#39;Key&#39; wrapper for a array of Character of length N, i.e." alt="" coords="1315,5,1478,46"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="1494,23,1647,23,1647,28,1494,28"/>
-<area shape="rect" id="Node000010" href="$class_cpl_1_1_container_1_1_key.html" title="This abstract class defines the interface that a contained object must support if it has comparable k..." alt="" coords="1098,13,1227,39"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="1243,23,1315,23,1315,28,1243,28"/>
-<area shape="rect" id="Node000011" href="$class_cpl_1_1_container_1_1_ring_buffer_m_p.html" title=" " alt="" coords="2654,208,2854,249"/>
-<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="2853,201,2995,166,2996,171,2854,206"/>
-<area shape="rect" id="Node000012" href="$class_cpl_1_1_container_1_1_ring_buffer_m_t.html" title="This template class implements a THREAD SAFE Ring Buffer." alt="" coords="729,319,896,359"/>
-<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="912,333,1161,328,2363,328,2411,326,2460,320,2554,299,2639,272,2705,247,2707,252,2641,277,2556,304,2461,325,2412,331,2363,334,1161,334,912,338"/>
-<area shape="rect" id="Node000013" href="$class_cpl_1_1_container_1_1_ring_buffer.html" title="This template class implements a Ring Buffer." alt="" coords="340,359,507,399"/>
-<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="522,383,607,383,695,375,759,357,761,362,695,380,607,389,522,389"/>
-<area shape="rect" id="Node000027" href="$class_cpl_1_1_container_1_1_ring_buffer_m_t.html" title="This template class implements a THREAD SAFE Ring Buffer." alt="" coords="729,253,896,294"/>
-<area shape="poly" id="edge30_Node000027_Node000013" title=" " alt="" coords="522,367,607,350,652,338,694,322,706,314,718,305,745,292,747,297,720,309,709,318,696,327,653,343,609,356,523,372"/>
-<area shape="rect" id="Node000014" href="$class_cpl_1_1_system_1_1_mutex.html" title="This mutex class defines the interface for a mutex that has &quot;recursive&quot; semantics." alt="" coords="358,261,489,287"/>
-<area shape="poly" id="edge13_Node000012_Node000014" title=" " alt="" coords="505,285,538,291,729,323,728,328,538,297,504,291"/>
-<area shape="rect" id="Node000021" href="$class_cpl_1_1_dm_1_1_model_database.html" title="This concrete class implements a simple Model Database." alt="" coords="731,181,893,207"/>
-<area shape="poly" id="edge25_Node000021_Node000014" title=" " alt="" coords="504,258,694,221,761,205,762,210,696,226,505,263"/>
-<area shape="poly" id="edge31_Node000027_Node000014" title=" " alt="" coords="504,271,728,271,728,276,504,276"/>
-<area shape="rect" id="Node000015" href="$class_cpl_1_1_dm_1_1_mp_1_1_uint32.html" title="This class provides a concrete implementation for a Point who&#39;s data is a uint32_t." alt="" coords="1952,182,2087,208"/>
-<area shape="poly" id="edge14_Node000011_Node000015" title=" " alt="" coords="2102,195,2339,203,2630,216,2654,218,2654,223,2630,222,2339,208,2102,200"/>
-<area shape="rect" id="Node000026" href="$class_cpl_1_1_container_1_1_ring_buffer_m_p.html" title="This template class implements a THREAD SAFE Ring Buffer AND it maintains/reports the number of eleme..." alt="" coords="2278,243,2445,283"/>
-<area shape="poly" id="edge32_Node000026_Node000015" title=" " alt="" coords="2076,210,2135,226,2278,251,2277,256,2133,231,2074,215"/>
-<area shape="rect" id="Node000016" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title=" " alt="" coords="1657,175,1803,215"/>
-<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="1818,192,1952,192,1952,198,1818,198"/>
-<area shape="rect" id="Node000017" href="$class_cpl_1_1_dm_1_1_model_point_common__.html" title="This concrete class provide common infrastructure for a Model Point." alt="" coords="1064,125,1261,151"/>
-<area shape="poly" id="edge16_Node000016_Node000017" title=" " alt="" coords="1276,141,1441,152,1624,172,1657,178,1656,183,1623,178,1440,158,1276,146"/>
-<area shape="rect" id="Node000025" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title="This template class provides a mostly concrete implementation for a Model Point who&#39;s data is a C num..." alt="" coords="1310,175,1483,215"/>
-<area shape="poly" id="edge27_Node000025_Node000017" title=" " alt="" coords="1233,152,1311,171,1310,177,1232,157"/>
-<area shape="poly" id="edge17_Node000017_Node000018" title=" " alt="" coords="896,90,1041,114,1086,122,1085,127,1040,119,895,95"/>
-<area shape="rect" id="Node000019" href="$class_cpl_1_1_container_1_1_d_list.html" title=" " alt="" coords="725,116,900,157"/>
-<area shape="poly" id="edge19_Node000017_Node000019" title=" " alt="" coords="915,134,1064,135,1064,140,915,139"/>
-<area shape="rect" id="Node000020" href="$class_cpl_1_1_container_1_1_d_list.html" title="This template class implements a Doubly linked list which maintains the ordering imposed on it by the..." alt="" coords="354,65,493,106"/>
-<area shape="poly" id="edge20_Node000019_Node000020" title=" " alt="" coords="508,94,724,122,724,128,507,99"/>
-<area shape="poly" id="edge21_Node000017_Node000021" title=" " alt="" coords="908,176,1077,148,1078,154,909,181"/>
-<area shape="rect" id="Node000022" href="$class_cpl_1_1_dm_1_1_model_database_api.html" title="This class defines the basic operations that can be performed on a Model Base." alt="" coords="333,196,514,221"/>
-<area shape="poly" id="edge22_Node000021_Node000022" title=" " alt="" coords="529,202,731,194,731,199,529,207"/>
-<area shape="rect" id="Node000023" href="$class_cpl_1_1_container_1_1_s_list.html" title=" " alt="" coords="344,131,503,171"/>
-<area shape="poly" id="edge23_Node000021_Node000023" title=" " alt="" coords="519,159,731,182,730,187,518,164"/>
-<area shape="rect" id="Node000024" href="$class_cpl_1_1_container_1_1_s_list.html" title="This template class implements a singly linked list which maintains the ordering imposed on it by the..." alt="" coords="5,131,144,171"/>
-<area shape="poly" id="edge24_Node000023_Node000024" title=" " alt="" coords="160,148,343,148,343,154,160,154"/>
-<area shape="poly" id="edge26_Node000016_Node000025" title=" " alt="" coords="1498,192,1657,192,1657,198,1498,198"/>
-<area shape="poly" id="edge28_Node000011_Node000026" title=" " alt="" coords="2460,252,2654,234,2654,240,2461,257"/>
-<area shape="poly" id="edge29_Node000026_Node000027" title=" " alt="" coords="912,271,1161,271,2021,271,2278,264,2278,270,2021,276,1161,276,912,276"/>
+<area shape="rect" id="Node000001" title="This class implements a TShell command that generates a UI event." alt="" coords="3380,108,3501,133"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_t_shell_1_1_cmd_1_1_command.html" title="This partially concrete class implements infrastructure and/or common functionality for a Shell comma..." alt="" coords="1435,23,1639,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1653,45,1787,56,1933,61,3118,61,3196,65,3272,77,3397,105,3396,111,3271,82,3195,71,3118,66,1933,66,1787,61,1652,50"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_t_shell_1_1_command.html" title="This class defines the interface for a TShell command." alt="" coords="829,5,996,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1010,18,1435,30,1434,35,1010,23"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="401,5,553,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="567,15,829,15,829,21,567,21"/>
+<area shape="rect" id="Node000012" href="$class_cpl_1_1_dm_1_1_model_point.html" title="This mostly abstract class defines the interface for a Model Point." alt="" coords="835,55,990,80"/>
+<area shape="poly" id="edge12_Node000012_Node000004" title=" " alt="" coords="567,25,836,56,835,61,567,31"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_ring_buffer_m_p.html" title=" " alt="" coords="3005,189,3228,229"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="3204,182,3392,131,3393,136,3205,188"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_container_1_1_ring_buffer_m_t.html" title="This template class implements a THREAD SAFE Ring Buffer." alt="" coords="817,306,1008,346"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1022,320,1299,317,2678,317,2733,314,2789,307,2898,283,2994,254,3067,226,3069,231,2995,259,2899,289,2790,312,2734,319,2678,322,1299,322,1022,326"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_container_1_1_ring_buffer.html" title="This template class implements a Ring Buffer." alt="" coords="382,347,573,387"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="586,372,685,373,788,363,861,344,862,349,788,369,685,378,586,378"/>
+<area shape="rect" id="Node000021" href="$class_cpl_1_1_container_1_1_ring_buffer_m_t.html" title="This template class implements a THREAD SAFE Ring Buffer." alt="" coords="817,242,1008,282"/>
+<area shape="poly" id="edge24_Node000021_Node000007" title=" " alt="" coords="586,359,686,342,738,329,787,310,799,302,811,292,837,280,840,285,813,296,802,306,789,315,739,334,687,348,587,364"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_system_1_1_mutex.html" title="This mutex class defines the interface for a mutex that has &quot;recursive&quot; semantics." alt="" coords="403,249,552,275"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="566,273,604,279,818,310,817,316,604,285,565,279"/>
+<area shape="rect" id="Node000015" href="$class_cpl_1_1_dm_1_1_model_database.html" title="This concrete class implements a simple Model Database." alt="" coords="821,169,1005,195"/>
+<area shape="poly" id="edge19_Node000015_Node000008" title=" " alt="" coords="565,247,787,209,861,192,862,197,789,214,566,252"/>
+<area shape="poly" id="edge25_Node000021_Node000008" title=" " alt="" coords="566,259,817,259,817,265,566,265"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_dm_1_1_mp_1_1_uint32.html" title="This class provides a concrete implementation for a Point who&#39;s data is a uint32_t." alt="" coords="2243,171,2396,196"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="2410,183,2981,199,3005,200,3005,206,2981,205,2410,188"/>
+<area shape="rect" id="Node000020" href="$class_cpl_1_1_container_1_1_ring_buffer_m_p.html" title="This template class implements a THREAD SAFE Ring Buffer AND it maintains/reports the number of eleme..." alt="" coords="2581,231,2772,271"/>
+<area shape="poly" id="edge26_Node000020_Node000009" title=" " alt="" coords="2367,198,2421,214,2503,230,2582,240,2581,245,2502,235,2419,219,2365,203"/>
+<area shape="rect" id="Node000010" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title=" " alt="" coords="2028,163,2193,203"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="2207,181,2243,181,2243,186,2207,186"/>
+<area shape="rect" id="Node000011" href="$class_cpl_1_1_dm_1_1_model_point_common__.html" title="This concrete class provide common infrastructure for a Model Point." alt="" coords="1189,113,1411,139"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="1425,135,1663,155,2028,177,2028,182,1662,161,1424,141"/>
+<area shape="rect" id="Node000019" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title="This template class provides a mostly concrete implementation for a Model Point who&#39;s data is a C num..." alt="" coords="1663,106,1841,146"/>
+<area shape="poly" id="edge21_Node000019_Node000011" title=" " alt="" coords="1424,123,1662,123,1662,129,1424,129"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="1004,78,1216,111,1215,116,1003,84"/>
+<area shape="rect" id="Node000013" href="$class_cpl_1_1_container_1_1_d_list.html" title=" " alt="" coords="812,105,1013,145"/>
+<area shape="poly" id="edge13_Node000011_Node000013" title=" " alt="" coords="1027,122,1189,123,1189,128,1027,128"/>
+<area shape="rect" id="Node000014" href="$class_cpl_1_1_container_1_1_d_list.html" title="This template class implements a Doubly linked list which maintains the ordering imposed on it by the..." alt="" coords="400,55,555,95"/>
+<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="569,83,812,111,811,116,568,88"/>
+<area shape="poly" id="edge15_Node000011_Node000015" title=" " alt="" coords="1016,165,1165,143,1214,136,1215,141,1166,149,1017,170"/>
+<area shape="rect" id="Node000016" href="$class_cpl_1_1_dm_1_1_model_database_api.html" title="This class defines the basic operations that can be performed on a Model Base." alt="" coords="375,184,580,209"/>
+<area shape="poly" id="edge16_Node000015_Node000016" title=" " alt="" coords="594,190,820,182,821,188,594,195"/>
+<area shape="rect" id="Node000017" href="$class_cpl_1_1_container_1_1_s_list.html" title=" " alt="" coords="385,119,570,159"/>
+<area shape="poly" id="edge17_Node000015_Node000017" title=" " alt="" coords="584,147,821,170,820,176,584,152"/>
+<area shape="rect" id="Node000018" href="$class_cpl_1_1_container_1_1_s_list.html" title="This template class implements a singly linked list which maintains the ordering imposed on it by the..." alt="" coords="5,119,159,159"/>
+<area shape="poly" id="edge18_Node000017_Node000018" title=" " alt="" coords="173,137,385,137,385,142,173,142"/>
+<area shape="poly" id="edge20_Node000010_Node000019" title=" " alt="" coords="1855,138,2004,162,2028,166,2027,171,2004,167,1854,144"/>
+<area shape="poly" id="edge22_Node000005_Node000020" title=" " alt="" coords="2786,238,3005,217,3006,222,2786,243"/>
+<area shape="poly" id="edge23_Node000020_Node000021" title=" " alt="" coords="1022,259,1299,259,2321,259,2581,253,2581,258,2321,265,1299,265,1022,265"/>
 </map>

@@ -1,13 +1,13 @@
 <map id="Cpl::Itc::Message" name="Cpl::Itc::Message">
-<area shape="rect" id="Node000001" title="This abstract class defines the operations for an ITC message." alt="" coords="163,153,283,178"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_response_message.html" title="This template class represents a client response message, which is posted to the client&#39;s mailbox aft..." alt="" coords="5,226,225,267"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="196,190,143,228,140,224,193,185"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_itc_1_1_service_message.html" title="This class represents a defined message, which is posted to a mailbox&#45;server as a request." alt="" coords="249,234,413,260"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="253,185,316,231,313,235,250,190"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="130,79,316,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,120,226,152,220,152,220,120"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="156,5,290,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="226,46,226,79,220,79,220,46"/>
-<area shape="rect" id="Node000006" href="$class_cpl_1_1_itc_1_1_request_message.html" title="This template class represents a service request message to a particular server." alt="" coords="247,315,415,356"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="334,275,334,315,328,315,328,275"/>
+<area shape="rect" id="Node000001" title="This abstract class defines the operations for an ITC message." alt="" coords="164,152,297,177"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_response_message.html" title="This template class represents a client response message, which is posted to the client&#39;s mailbox aft..." alt="" coords="5,225,229,265"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="204,187,146,227,143,223,201,183"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_itc_1_1_service_message.html" title="This class represents a defined message, which is posted to a mailbox&#45;server as a request." alt="" coords="253,233,435,258"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="260,183,329,230,326,235,257,187"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="124,79,337,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,118,233,152,228,152,228,118"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="155,5,307,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="233,44,233,79,228,79,228,44"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_itc_1_1_request_message.html" title="This template class represents a service request message to a particular server." alt="" coords="251,313,437,353"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="347,272,347,313,341,313,341,272"/>
 </map>

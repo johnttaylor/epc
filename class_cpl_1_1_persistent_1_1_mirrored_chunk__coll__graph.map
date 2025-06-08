@@ -1,7 +1,7 @@
 <map id="Cpl::Persistent::MirroredChunk" name="Cpl::Persistent::MirroredChunk">
-<area shape="rect" id="Node000001" title="This concrete class implements the Chunk interface by storing two copies of the Record&#39;s data." alt="" coords="96,124,255,165"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_persistent_1_1_chunk.html" title="This abstract class defines the interface for a Chunk." alt="" coords="5,5,154,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,41,163,122,158,125,96,45"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_persistent_1_1_region_media.html" title="This mostly abstract class defines the operations that can be performed on a persistent media." alt="" coords="178,5,365,31"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="255,45,193,125,188,122,251,41"/>
+<area shape="rect" id="Node000001" title="This concrete class implements the Chunk interface by storing two copies of the Record&#39;s data." alt="" coords="104,123,283,163"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_persistent_1_1_chunk.html" title="This abstract class defines the interface for a Chunk." alt="" coords="5,5,171,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,39,179,121,175,124,105,43"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_persistent_1_1_region_media.html" title="This mostly abstract class defines the operations that can be performed on a persistent media." alt="" coords="195,5,405,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="283,43,212,124,208,121,279,39"/>
 </map>

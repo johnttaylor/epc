@@ -1,7 +1,7 @@
 <map id="Driver::NV::Onsemi::CAT24C512::Api" name="Driver::NV::Onsemi::CAT24C512::Api">
-<area shape="rect" id="Node000001" title="This class implements the Non&#45;volatile storage driver for the Onsemi CAT24C512 serial 512Kb (64KB) I2..." alt="" coords="62,94,193,135"/>
-<area shape="rect" id="Node000002" href="$class_driver_1_1_n_v_1_1_api.html" title="This class defines the interface for a platform independent Non&#45;volatile storage driver." alt="" coords="5,5,111,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,42,115,92,111,95,74,45"/>
-<area shape="rect" id="Node000003" href="$class_driver_1_1_i2_c_1_1_master.html" title="This class defines a non&#45;platform specific interface for an I2C master device driver." alt="" coords="134,5,262,31"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,45,144,95,140,92,178,42"/>
+<area shape="rect" id="Node000001" title="This class implements the Non&#45;volatile storage driver for the Onsemi CAT24C512 serial 512Kb (64KB) I2..." alt="" coords="68,93,215,133"/>
+<area shape="rect" id="Node000002" href="$class_driver_1_1_n_v_1_1_api.html" title="This class defines the interface for a platform independent Non&#45;volatile storage driver." alt="" coords="5,5,123,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,39,128,91,124,95,80,43"/>
+<area shape="rect" id="Node000003" href="$class_driver_1_1_i2_c_1_1_master.html" title="This class defines a non&#45;platform specific interface for an I2C master device driver." alt="" coords="147,5,291,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="203,43,159,95,155,91,198,39"/>
 </map>

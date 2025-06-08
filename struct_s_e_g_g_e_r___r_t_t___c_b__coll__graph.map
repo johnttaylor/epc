@@ -1,7 +1,0 @@
-<map id="SEGGER_RTT_CB" name="SEGGER_RTT_CB">
-<area shape="rect" id="Node000001" title=" " alt="" coords="149,94,281,120"/>
-<area shape="rect" id="Node000002" href="$struct_s_e_g_g_e_r___r_t_t___b_u_f_f_e_r___u_p.html" title=" " alt="" coords="5,5,198,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,38,200,91,197,95,127,43"/>
-<area shape="rect" id="Node000003" href="$struct_s_e_g_g_e_r___r_t_t___b_u_f_f_e_r___d_o_w_n.html" title=" " alt="" coords="222,5,437,31"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="303,43,233,95,229,91,300,38"/>
-</map>

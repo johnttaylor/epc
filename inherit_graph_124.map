@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$struct_cpl_1_1_system_1_1_periodic_scheduler_1_1_interval___t.html" title="Defines an interval." alt="" coords="5,5,207,46"/>
+<area shape="rect" id="Node000000" href="$class_cpl_1_1_system_1_1_shared_event_handler_api.html" title="This abstract class defines the interface for a Shared Event Handler." alt="" coords="5,5,196,45"/>
+<area shape="rect" id="Node000001" href="$class_cpl_1_1_system_1_1_shared_event_handler.html" title="This template concrete class is a &#39;strategy class&#39; in that in provides most of work needed for a Runn..." alt="" coords="244,5,435,45"/>
+<area shape="poly" id="edge366_Node000000_Node000001" title=" " alt="" coords="210,23,244,23,244,28,210,28"/>
 </map>

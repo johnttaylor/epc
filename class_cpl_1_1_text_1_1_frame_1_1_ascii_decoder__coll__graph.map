@@ -1,17 +1,17 @@
 <map id="Cpl::Text::Frame::AsciiDecoder&lt; BUFSIZE &gt;" name="Cpl::Text::Frame::AsciiDecoder&lt; BUFSIZE &gt;">
-<area shape="rect" id="Node000001" title="This concrete template class provide a basic implementation of the Frame::Decoder interface that uses..." alt="" coords="72,334,269,375"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_text_1_1_frame_1_1_stream_decoder.html" title="This partially concrete class defines an interface a Text &quot;Decoder&quot; that has a Cpl::Io::Input stream ..." alt="" coords="89,244,252,285"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,300,173,334,168,334,168,300"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_text_1_1_frame_1_1_decoder__.html" title="This private partially concrete class implements the basic/common logic for a frame decoder." alt="" coords="5,155,181,181"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="115,191,156,242,152,245,110,195"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_text_1_1_frame_1_1_decoder.html" title="This class defines an interface for &#39;receiving&#39; (decode) a frame." alt="" coords="9,80,177,106"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="96,121,96,155,90,155,90,121"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_io_1_1_input.html" title="This partially abstract class defines a interface for operating on an input stream (example of a stre..." alt="" coords="204,155,297,181"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="233,194,189,245,185,242,229,191"/>
-<area shape="rect" id="Node000006" href="$class_cpl_1_1_io_1_1_close.html" title="This abstract class defines a close operation that is intended to be used Input and Output streams/fi..." alt="" coords="201,80,297,106"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="252,121,253,155,247,155,247,121"/>
-<area shape="rect" id="Node000007" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="182,5,316,31"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="252,46,252,80,246,80,246,46"/>
-<area shape="rect" id="Node000008" href="$class_cpl_1_1_io_1_1_is_eos.html" title="This abstract class defines a isEos() operation that is intended to be used Input and Output streams." alt="" coords="321,80,417,106"/>
-<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="338,117,271,157,269,153,335,112"/>
+<area shape="rect" id="Node000001" title="This concrete template class provide a basic implementation of the Frame::Decoder interface that uses..." alt="" coords="80,332,300,372"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_text_1_1_frame_1_1_stream_decoder.html" title="This partially concrete class defines an interface a Text &quot;Decoder&quot; that has a Cpl::Io::Input stream ..." alt="" coords="99,243,281,283"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,297,193,332,187,332,187,297"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_text_1_1_frame_1_1_decoder__.html" title="This private partially concrete class implements the basic/common logic for a frame decoder." alt="" coords="5,155,201,180"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="125,188,174,241,170,244,121,192"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_text_1_1_frame_1_1_decoder.html" title="This class defines an interface for &#39;receiving&#39; (decode) a frame." alt="" coords="9,80,198,105"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="106,120,106,154,101,154,101,120"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_io_1_1_input.html" title="This partially abstract class defines a interface for operating on an input stream (example of a stre..." alt="" coords="226,155,330,180"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="260,192,210,244,206,241,256,188"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_io_1_1_close.html" title="This abstract class defines a close operation that is intended to be used Input and Output streams/fi..." alt="" coords="223,80,330,105"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="280,120,280,154,275,154,274,120"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="201,5,353,31"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="279,45,279,80,274,80,274,45"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_io_1_1_is_eos.html" title="This abstract class defines a isEos() operation that is intended to be used Input and Output streams." alt="" coords="355,80,460,105"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="376,114,300,157,297,152,374,110"/>
 </map>

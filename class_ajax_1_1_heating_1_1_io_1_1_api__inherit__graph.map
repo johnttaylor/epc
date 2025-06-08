@@ -1,23 +1,23 @@
 <map id="Ajax::Heating::Io::Api" name="Ajax::Heating::Io::Api">
-<area shape="rect" id="Node000001" title="This class is responsible for &#39;translating&#39; physical hardware signal to/from model point values." alt="" coords="845,129,984,155"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_close_sync.html" title="This partially concrete class implements the synchronous ITC close call for the CloseApi." alt="" coords="667,92,797,118"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="813,119,849,126,848,131,812,124"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_open_sync.html" title="This partially concrete class implements the synchronous ITC open call for the OpenApi." alt="" coords="457,29,584,55"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="596,57,620,64,696,89,694,94,619,69,594,62"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_open_api.html" title="This abstract class defines an open interface." alt="" coords="221,5,339,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="354,23,456,33,456,38,353,28"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_itc_1_1_open_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="207,55,353,80"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="368,56,456,46,456,52,368,61"/>
-<area shape="rect" id="Node000006" href="$class_cpl_1_1_itc_1_1_close_api.html" title="This abstract class defines an close interface." alt="" coords="461,79,580,104"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="595,94,667,98,667,103,595,99"/>
-<area shape="rect" id="Node000007" href="$class_cpl_1_1_itc_1_1_close_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="446,128,594,154"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="609,123,666,113,667,118,610,128"/>
-<area shape="rect" id="Node000008" href="$class_cpl_1_1_system_1_1_timer.html" title="This mostly concrete interface defines the operations that can be performed on a software timer." alt="" coords="667,153,797,179"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="812,153,844,149,845,154,813,158"/>
-<area shape="rect" id="Node000009" href="$class_cpl_1_1_system_1_1_counter_callback__.html" title="This abstract class defines the call&#45;back interface for a Counter object." alt="" coords="421,177,619,203"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="635,175,666,171,667,176,635,180"/>
-<area shape="rect" id="Node000010" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="187,177,373,203"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="389,188,420,188,420,193,389,193"/>
-<area shape="rect" id="Node000011" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,177,139,203"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="154,188,186,188,186,193,154,193"/>
+<area shape="rect" id="Node000001" title="This class is responsible for &#39;translating&#39; physical hardware signal to/from model point values." alt="" coords="932,129,1091,155"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_close_sync.html" title="This partially concrete class implements the synchronous ITC close call for the CloseApi." alt="" coords="739,92,882,117"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="893,117,943,127,942,132,892,123"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_open_sync.html" title="This partially concrete class implements the synchronous ITC open call for the OpenApi." alt="" coords="508,29,648,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="657,55,690,63,774,89,772,94,689,69,655,60"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_open_api.html" title="This abstract class defines an open interface." alt="" coords="247,5,377,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="391,22,508,33,507,38,390,28"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_itc_1_1_open_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="231,55,393,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="407,56,507,46,508,51,407,61"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_itc_1_1_close_api.html" title="This abstract class defines an close interface." alt="" coords="512,79,644,104"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="658,93,739,98,739,103,657,99"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_itc_1_1_close_request.html" title="This abstract class define message types and payloads for a set of ITC services." alt="" coords="496,128,660,153"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="673,123,739,113,740,118,674,129"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_system_1_1_timer.html" title="This mostly concrete interface defines the operations that can be performed on a software timer." alt="" coords="737,153,884,179"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="897,153,932,149,932,154,898,158"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_system_1_1_counter_callback__.html" title="This abstract class defines the call&#45;back interface for a Counter object." alt="" coords="467,177,689,203"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="703,174,737,171,737,176,704,180"/>
+<area shape="rect" id="Node000010" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="205,177,419,203"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="433,187,466,187,466,193,433,193"/>
+<area shape="rect" id="Node000011" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,177,157,203"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="171,187,205,187,205,193,171,193"/>
 </map>

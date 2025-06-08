@@ -1,7 +1,7 @@
 <map id="Cpl/Io/File/Littlefs/Api.h" name="Cpl/Io/File/Littlefs/Api.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="79,5,203,46"/>
-<area shape="rect" id="Node000002" href="$_io_2_file_2_littlefs_2_private___8h.html" title=" " alt="" coords="5,94,130,135"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,60,86,95,82,92,113,56"/>
-<area shape="rect" id="Node000003" href="$_littlefs_2__api_2_dir_list___8h.html" title=" " alt="" coords="153,94,278,135"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="170,56,201,92,197,95,166,60"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="84,5,219,45"/>
+<area shape="rect" id="Node000002" href="$_io_2_file_2_littlefs_2_private___8h.html" title=" " alt="" coords="5,93,140,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,57,92,95,88,91,123,54"/>
+<area shape="rect" id="Node000003" href="$_littlefs_2__api_2_dir_list___8h.html" title=" " alt="" coords="164,93,299,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="180,54,216,91,212,95,176,57"/>
 </map>

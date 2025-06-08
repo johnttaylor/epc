@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$struct_driver_1_1_s_p_i_1_1_arduino_1_1_master_1_1_s_p_i_config___t.html" title="SPI Settings (note: needed because the SPISettings class does not allow changing the baudrate once in..." alt="" coords="5,5,152,46"/>
+<area shape="rect" id="Node000000" href="$class_driver_1_1_s_p_i_1_1_master.html" title="This class defines a non&#45;platform specific interface for an SPI master device driver." alt="" coords="5,45,148,70"/>
+<area shape="rect" id="Node000001" href="$class_driver_1_1_s_p_i_1_1_arduino_1_1_master.html" title="This class implements the SPI interface using the Arduino Framework." alt="" coords="196,5,344,45"/>
+<area shape="poly" id="edge395_Node000000_Node000001" title=" " alt="" coords="161,41,196,35,196,40,162,46"/>
+<area shape="rect" id="Node000002" href="$class_driver_1_1_s_p_i_1_1_s_t_m32_1_1_master.html" title="This class implements the SPI interface for the STM32 family of micro&#45;controller using the ST&#39;s MX Cu..." alt="" coords="199,69,341,109"/>
+<area shape="poly" id="edge396_Node000000_Node000002" title=" " alt="" coords="162,69,199,75,198,80,161,74"/>
 </map>

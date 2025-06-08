@@ -1,14 +1,14 @@
 <map id="Cpl::Io::LineReader" name="Cpl::Io::LineReader">
-<area shape="rect" id="Node000001" title="This concrete class implements a Line Reader stream using a previously opened Input stream." alt="" coords="42,268,171,294"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_line_reader_api.html" title="This abstract class defines a interface for a stream line reader." alt="" coords="5,130,154,156"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,170,106,268,101,269,82,171"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="29,5,162,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,47,84,130,78,129,89,46"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_io_1_1_close.html" title="This abstract class defines a close operation that is intended to be used Input and Output streams/fi..." alt="" coords="117,80,213,106"/>
-<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="119,41,156,78,152,82,116,44"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_io_1_1_input.html" title="This partially abstract class defines a interface for operating on an input stream (example of a stre..." alt="" coords="128,180,220,205"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="157,219,118,270,113,266,153,216"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="170,121,176,179,170,179,165,121"/>
-<area shape="rect" id="Node000006" href="$class_cpl_1_1_io_1_1_is_eos.html" title="This abstract class defines a isEos() operation that is intended to be used Input and Output streams." alt="" coords="237,80,333,106"/>
-<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="262,118,190,181,186,177,258,114"/>
+<area shape="rect" id="Node000001" title="This concrete class implements a Line Reader stream using a previously opened Input stream." alt="" coords="44,267,188,292"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_line_reader_api.html" title="This abstract class defines a interface for a stream line reader." alt="" coords="5,129,171,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,168,116,266,111,267,91,169"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="28,5,180,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="103,45,92,130,87,129,98,44"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_io_1_1_close.html" title="This abstract class defines a close operation that is intended to be used Input and Output streams/fi..." alt="" coords="125,80,232,105"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="128,38,168,78,165,81,124,42"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_io_1_1_input.html" title="This partially abstract class defines a interface for operating on an input stream (example of a stre..." alt="" coords="139,179,243,204"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="174,216,128,268,124,264,170,213"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="184,119,192,178,187,179,179,119"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_io_1_1_is_eos.html" title="This abstract class defines a isEos() operation that is intended to be used Input and Output streams." alt="" coords="257,80,362,105"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="286,116,206,181,203,177,283,112"/>
 </map>

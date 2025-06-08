@@ -1,13 +1,13 @@
 <map id="Cpl::Io::Stdio::StdIn" name="Cpl::Io::Stdio::StdIn">
-<area shape="rect" id="Node000001" title="This concrete class represents the C&#45;library &#39;stdin&#39; stream." alt="" coords="67,300,197,326"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_stdio_1_1_input__.html" title="This concrete class implements a Input stream using the underlying platform&#39;s native OS &#39;file interfa..." alt="" coords="64,226,200,252"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,267,135,300,129,300,129,267"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_io_1_1_input.html" title="This partially abstract class defines a interface for operating on an input stream (example of a stre..." alt="" coords="86,153,178,178"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="135,194,135,226,129,226,129,194"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_io_1_1_close.html" title="This abstract class defines a close operation that is intended to be used Input and Output streams/fi..." alt="" coords="24,79,120,105"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,115,124,150,120,154,90,118"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,5,139,31"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="75,46,75,79,69,79,69,46"/>
-<area shape="rect" id="Node000006" href="$class_cpl_1_1_io_1_1_is_eos.html" title="This abstract class defines a isEos() operation that is intended to be used Input and Output streams." alt="" coords="144,79,240,105"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="174,118,144,154,140,150,170,115"/>
+<area shape="rect" id="Node000001" title="This concrete class represents the C&#45;library &#39;stdin&#39; stream." alt="" coords="74,299,219,324"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_stdio_1_1_input__.html" title="This concrete class implements a Input stream using the underlying platform&#39;s native OS &#39;file interfa..." alt="" coords="71,225,223,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,264,149,299,144,299,144,264"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_io_1_1_input.html" title="This partially abstract class defines a interface for operating on an input stream (example of a stre..." alt="" coords="95,152,199,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="149,191,149,225,144,225,144,191"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_io_1_1_close.html" title="This abstract class defines a close operation that is intended to be used Input and Output streams/fi..." alt="" coords="28,79,135,104"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="103,113,138,150,134,154,99,116"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,5,157,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="84,44,84,79,79,79,79,44"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_io_1_1_is_eos.html" title="This abstract class defines a isEos() operation that is intended to be used Input and Output streams." alt="" coords="159,79,265,104"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="194,116,159,154,155,150,190,113"/>
 </map>

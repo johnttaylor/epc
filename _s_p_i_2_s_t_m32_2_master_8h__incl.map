@@ -1,15 +1,11 @@
 <map id="Driver/SPI/STM32/Master.h" name="Driver/SPI/STM32/Master.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="113,5,294,31"/>
-<area shape="rect" id="Node000002" href="$_s_p_i_2_master_8h.html" title=" " alt="" coords="5,79,141,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,34,109,74,107,69,180,29"/>
-<area shape="rect" id="Node000004" href="$_bsp_2_api_8h.html" title="This file defines the common/generic interfaces that all Colony." alt="" coords="165,79,242,105"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="206,31,206,63,201,63,201,31"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="267,79,330,105"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="221,29,272,67,269,72,218,34"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="42,153,104,178"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="76,105,76,137,70,137,70,105"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="138,153,248,178"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="205,105,200,138,194,137,199,104"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="272,153,373,178"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="225,103,291,142,288,147,222,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="120,5,315,31"/>
+<area shape="rect" id="Node000002" href="$_s_p_i_2_master_8h.html" title=" " alt="" coords="5,79,152,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,33,115,75,112,70,194,28"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="176,79,259,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="220,31,220,65,215,65,215,31"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="283,79,354,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="235,28,292,68,289,73,232,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="43,152,114,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="81,104,81,138,76,138,76,104"/>
 </map>

@@ -1,3 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$class_cpl_1_1_persistent_1_1_indexed_entry_writer.html" title="This abstract class defines interface for appending a single &#39;entry&#39; to a a collection of entries (i...." alt="" coords="5,5,162,46"/>
+<area shape="rect" id="Node000000" href="$class_cpl_1_1_persistent_1_1_region_media.html" title="This mostly abstract class defines the operations that can be performed on a persistent media." alt="" coords="5,55,215,80"/>
+<area shape="rect" id="Node000001" href="$class_cpl_1_1_persistent_1_1_file_adapter.html" title="This concrete class implements the RegionMedia interface using the Cpl::Io::File interfaces." alt="" coords="263,5,461,31"/>
+<area shape="poly" id="edge363_Node000000_Node000001" title=" " alt="" coords="188,49,296,28,297,33,189,55"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_persistent_1_1_n_v_adapter.html" title="This concrete class implements the RegionMedia interface using the Driver::NV::Api interface." alt="" coords="265,55,459,80"/>
+<area shape="poly" id="edge364_Node000000_Node000002" title=" " alt="" coords="229,65,265,65,265,70,229,70"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_persistent_1_1_null_region_media.html" title="This concrete class provides a &#39;null&#39; implementation of the RegionMedia interface." alt="" coords="265,105,459,145"/>
+<area shape="poly" id="edge365_Node000000_Node000003" title=" " alt="" coords="181,81,274,102,273,107,179,86"/>
 </map>

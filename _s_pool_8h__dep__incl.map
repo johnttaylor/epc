@@ -1,7 +1,7 @@
 <map id="Cpl/Memory/SPool.h" name="Cpl/Memory/SPool.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="86,5,225,31"/>
-<area shape="rect" id="Node000002" href="$_io_2_file_2_littlefs_2_private___8h.html" title=" " alt="" coords="5,79,130,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,44,91,81,87,77,129,40"/>
-<area shape="rect" id="Node000003" href="$_stream_pool_8h.html" title=" " alt="" coords="154,87,336,112"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,40,233,84,229,88,179,44"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="91,5,244,31"/>
+<area shape="rect" id="Node000002" href="$_io_2_file_2_littlefs_2_private___8h.html" title=" " alt="" coords="5,79,140,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,41,97,81,94,76,141,37"/>
+<area shape="rect" id="Node000003" href="$_stream_pool_8h.html" title=" " alt="" coords="165,86,362,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,37,251,84,247,88,190,41"/>
 </map>

@@ -1,18 +1,18 @@
 <map id="Cpl::Io::File::ObjectApi" name="Cpl::Io::File::ObjectApi">
-<area shape="rect" id="Node000001" title="This abstract class defines the basic additional functionality, beyond that of a stream,..." alt="" coords="163,5,311,31"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_file_1_1_input_api.html" title="This abstract class defines the interface for a Random Access Input File." alt="" coords="84,79,222,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,43,169,81,165,77,210,39"/>
-<area shape="rect" id="Node000007" href="$class_cpl_1_1_io_1_1_file_1_1_output_api.html" title="This abstract class defines the interface for a Random Access Input File." alt="" coords="247,79,395,105"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="264,39,309,77,305,81,261,43"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_io_1_1_file_1_1_input.html" title="This concrete class provides a platform independent &#39;standard&#39; implementation of a Cpl::Io::File::Inp..." alt="" coords="5,153,125,178"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="128,117,81,154,78,150,125,113"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_io_1_1_file_1_1_input_output_api.html" title="This abstract class defines the interface for a Random Access Input Output File." alt="" coords="148,153,326,178"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="180,113,225,150,221,154,177,117"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_io_1_1_file_1_1_input_output.html" title="This concrete class provides a platform independent &#39;standard&#39; implementation of an InputOutputFileAp..." alt="" coords="78,226,236,252"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="214,191,172,228,169,224,210,187"/>
-<area shape="rect" id="Node000006" href="$class_cpl_1_1_io_1_1_file_1_1_null.html" title="This concrete class implements a NULL InputOutputApi File that all of its input operations return &#39;En..." alt="" coords="260,226,374,252"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="264,187,305,224,302,228,260,191"/>
-<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="297,117,253,154,249,150,294,113"/>
-<area shape="rect" id="Node000008" href="$class_cpl_1_1_io_1_1_file_1_1_output.html" title="This concrete class provides a platform independent &#39;standard&#39; implementation of a Cpl::Io::File::Out..." alt="" coords="350,153,479,178"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="351,112,400,150,397,154,347,117"/>
+<area shape="rect" id="Node000001" title="This abstract class defines the basic additional functionality, beyond that of a stream,..." alt="" coords="181,5,346,31"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_file_1_1_input_api.html" title="This abstract class defines the interface for a Random Access Input File." alt="" coords="93,79,249,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="240,41,188,81,185,76,236,37"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_io_1_1_file_1_1_output_api.html" title="This abstract class defines the interface for a Random Access Input File." alt="" coords="273,79,440,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="291,37,343,76,340,81,287,41"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_io_1_1_file_1_1_input.html" title="This concrete class provides a platform independent &#39;standard&#39; implementation of a Cpl::Io::File::Inp..." alt="" coords="5,152,140,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="146,114,90,154,87,150,143,110"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_io_1_1_file_1_1_input_output_api.html" title="This abstract class defines the interface for a Random Access Input Output File." alt="" coords="165,152,365,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="199,110,251,150,248,154,195,114"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_io_1_1_file_1_1_input_output.html" title="This concrete class provides a platform independent &#39;standard&#39; implementation of an InputOutputFileAp..." alt="" coords="87,225,266,251"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="242,188,193,227,189,223,238,184"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_io_1_1_file_1_1_null.html" title="This concrete class implements a NULL InputOutputApi File that all of its input operations return &#39;En..." alt="" coords="290,225,418,251"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="291,184,341,223,338,227,288,188"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="333,114,281,154,278,150,330,110"/>
+<area shape="rect" id="Node000008" href="$class_cpl_1_1_io_1_1_file_1_1_output.html" title="This concrete class provides a platform independent &#39;standard&#39; implementation of a Cpl::Io::File::Out..." alt="" coords="389,152,535,177"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="387,110,446,150,443,154,384,114"/>
 </map>

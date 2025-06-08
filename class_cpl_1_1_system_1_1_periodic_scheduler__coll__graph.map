@@ -1,8 +1,8 @@
 <map id="Cpl::System::PeriodicScheduler" name="Cpl::System::PeriodicScheduler">
-<area shape="rect" id="Node000001" title="This concrete class is a &#39;policy&#39; object that is used to add polled based, cooperative monotonic sche..." alt="" coords="41,262,242,288"/>
-<area shape="rect" id="Node000002" href="$struct_cpl_1_1_system_1_1_periodic_scheduler_1_1_interval___t.html" title="Defines an interval." alt="" coords="214,141,416,182"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="273,193,162,264,159,259,271,188"/>
-<area shape="rect" id="Node000003" href="$struct_cpl_1_1_system_1_1_elapsed_time_1_1_precision___t.html" title="Data type for time in seconds with a &#39;fractional&#39; millisecond precision." alt="" coords="5,5,177,46"/>
-<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="85,61,78,120,79,152,85,183,94,206,106,227,132,260,128,263,102,230,89,208,79,185,73,152,72,119,80,61"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="138,52,284,138,281,143,135,56"/>
+<area shape="rect" id="Node000001" title="This concrete class is a &#39;policy&#39; object that is used to add polled based, cooperative monotonic sche..." alt="" coords="47,259,271,284"/>
+<area shape="rect" id="Node000002" href="$struct_cpl_1_1_system_1_1_periodic_scheduler_1_1_interval___t.html" title="Defines an interval." alt="" coords="240,139,464,179"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="308,189,180,261,178,256,306,184"/>
+<area shape="rect" id="Node000003" href="$struct_cpl_1_1_system_1_1_elapsed_time_1_1_precision___t.html" title="Data type for time in seconds with a &#39;fractional&#39; millisecond precision." alt="" coords="5,5,197,45"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="95,59,87,117,88,149,95,181,105,203,119,224,148,257,144,260,115,228,100,206,89,182,83,150,82,117,90,58"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="151,50,317,137,315,142,148,54"/>
 </map>

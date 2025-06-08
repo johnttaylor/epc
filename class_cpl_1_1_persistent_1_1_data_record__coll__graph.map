@@ -1,9 +1,9 @@
 <map id="Cpl::Persistent::DataRecord" name="Cpl::Persistent::DataRecord">
-<area shape="rect" id="Node000001" title="This mostly concrete class implements the Cpl::Persistent::DataRecord interface where a DataRecord in..." alt="" coords="171,94,350,120"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_persistent_1_1_record.html" title="This abstract class defines the public interface for a Record instance." alt="" coords="5,5,158,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,36,236,91,234,96,119,41"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_persistent_1_1_payload.html" title="This abstract class defines the interface accessing the &#39;data payload&#39; of an individual Record instan..." alt="" coords="182,5,339,31"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="263,47,263,94,258,94,258,47"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_persistent_1_1_chunk.html" title="This abstract class defines the interface for a Chunk." alt="" coords="363,5,512,31"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="400,41,286,96,284,91,398,36"/>
+<area shape="rect" id="Node000001" title="This mostly concrete class implements the Cpl::Persistent::DataRecord interface where a DataRecord in..." alt="" coords="186,93,386,119"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_persistent_1_1_record.html" title="This abstract class defines the public interface for a Record instance." alt="" coords="5,5,175,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,34,260,91,258,96,128,39"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_persistent_1_1_payload.html" title="This abstract class defines the interface accessing the &#39;data payload&#39; of an individual Record instan..." alt="" coords="199,5,373,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="289,45,289,93,283,93,283,45"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_persistent_1_1_chunk.html" title="This abstract class defines the interface for a Chunk." alt="" coords="398,5,563,31"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="443,39,314,96,311,91,441,34"/>
 </map>

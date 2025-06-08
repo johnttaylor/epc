@@ -1,7 +1,7 @@
 <map id="Cpl/Io/Socket/Connector.h" name="Cpl/Io/Socket/Connector.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="68,5,242,31"/>
-<area shape="rect" id="Node000002" href="$_posix_2_connector_8h.html" title=" " alt="" coords="5,79,142,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,44,95,81,92,77,130,40"/>
-<area shape="rect" id="Node000003" href="$_win32_2_connector_8h.html" title=" " alt="" coords="166,79,306,120"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="180,40,218,77,214,81,176,44"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="70,5,257,31"/>
+<area shape="rect" id="Node000002" href="$_posix_2_connector_8h.html" title=" " alt="" coords="5,79,151,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,42,100,80,97,77,139,38"/>
+<area shape="rect" id="Node000003" href="$_win32_2_connector_8h.html" title=" " alt="" coords="175,79,325,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,38,231,77,227,80,185,42"/>
 </map>

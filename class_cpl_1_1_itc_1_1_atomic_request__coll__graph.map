@@ -1,5 +1,5 @@
 <map id="Cpl::Itc::AtomicRequest&lt; ACCESS_API &gt;" name="Cpl::Itc::AtomicRequest&lt; ACCESS_API &gt;">
-<area shape="rect" id="Node000001" title="This concrete class define the &#39;Atomic&#39; Message request that allows a client to invoke multiple opera..." alt="" coords="5,79,162,120"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="32,5,135,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,46,86,79,81,79,81,46"/>
+<area shape="rect" id="Node000001" title="This concrete class define the &#39;Atomic&#39; Message request that allows a client to invoke multiple opera..." alt="" coords="5,79,180,119"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="42,5,143,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,44,95,79,90,79,90,44"/>
 </map>

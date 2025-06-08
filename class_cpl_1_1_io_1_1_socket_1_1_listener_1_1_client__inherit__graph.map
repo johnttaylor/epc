@@ -1,7 +1,7 @@
 <map id="Cpl::Io::Socket::Listener::Client" name="Cpl::Io::Socket::Listener::Client">
-<area shape="rect" id="Node000001" title="This class defines the callback mechanism used for accepting incoming socket connections." alt="" coords="89,5,247,46"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_socket_1_1_listener_client_sync.html" title="This partially concrete class implements the synchronous ITC open call for the OpenApi." alt="" coords="5,94,163,135"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,59,105,95,101,92,136,56"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_t_shell_1_1_socket.html" title="This concrete class provides a socket listener/server and &#39;threading wrapper&#39; for running a TShell Co..." alt="" coords="187,102,317,127"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,55,242,99,239,103,195,59"/>
+<area shape="rect" id="Node000001" title="This class defines the callback mechanism used for accepting incoming socket connections." alt="" coords="96,5,271,45"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_socket_1_1_listener_client_sync.html" title="This partially concrete class implements the synchronous ITC open call for the OpenApi." alt="" coords="5,93,180,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,57,115,95,111,91,152,53"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_t_shell_1_1_socket.html" title="This concrete class provides a socket listener/server and &#39;threading wrapper&#39; for running a TShell Co..." alt="" coords="204,101,347,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,53,264,98,261,102,212,57"/>
 </map>

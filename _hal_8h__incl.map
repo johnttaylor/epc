@@ -1,5 +1,5 @@
 <map id="Driver/Button/Hal.h" name="Driver/Button/Hal.h">
-<area shape="rect" id="Node000001" title="This file defines a hardware abstraction layer (HAL) for accessing a digital Input that is being used..." alt="" coords="5,5,137,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="21,79,121,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,31,74,63,68,63,68,31"/>
+<area shape="rect" id="Node000001" title="This file defines a hardware abstraction layer (HAL) for accessing a digital Input that is being used..." alt="" coords="5,5,152,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="22,79,135,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,31,81,65,76,65,76,31"/>
 </map>

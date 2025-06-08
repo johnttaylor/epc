@@ -1,9 +1,9 @@
 <map id="Ajax/Dm/MpAlertSummary.h" name="Ajax/Dm/MpAlertSummary.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="81,5,266,31"/>
-<area shape="rect" id="Node000002" href="$_ajax_2_ui_2_home_2_screen_8h.html" title=" " alt="" coords="5,87,163,112"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,44,99,88,96,84,147,40"/>
-<area shape="rect" id="Node000004" href="$_ajax_2_ui_2_status_indicator_2_api_8h.html" title=" " alt="" coords="186,79,342,120"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="200,39,243,77,240,81,197,43"/>
-<area shape="rect" id="Node000003" href="$_ajax_2_main_2screens_8h.html" title="This file exposes handles to Screen instances for the Ajax Application." alt="" coords="15,168,153,193"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,128,87,167,81,167,81,128"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="85,5,292,31"/>
+<area shape="rect" id="Node000002" href="$_ajax_2_ui_2_home_2_screen_8h.html" title=" " alt="" coords="5,86,177,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,41,107,88,104,84,162,37"/>
+<area shape="rect" id="Node000004" href="$_ajax_2_ui_2_status_indicator_2_api_8h.html" title=" " alt="" coords="202,79,373,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="216,37,265,76,262,81,212,41"/>
+<area shape="rect" id="Node000003" href="$_ajax_2_main_2screens_8h.html" title="This file exposes handles to Screen instances for the Ajax Application." alt="" coords="15,167,168,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,125,94,166,89,166,89,125"/>
 </map>

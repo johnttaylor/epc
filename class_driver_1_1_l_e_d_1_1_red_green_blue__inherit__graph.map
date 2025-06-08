@@ -1,7 +1,7 @@
 <map id="Driver::LED::RedGreenBlue" name="Driver::LED::RedGreenBlue">
-<area shape="rect" id="Node000001" title="This abstract class defines a basic interface for a single Red&#45;Green&#45;Blue LED where the application c..." alt="" coords="68,5,244,31"/>
-<area shape="rect" id="Node000002" href="$class_driver_1_1_l_e_d_1_1_pimoroni_1_1_red_green_blue.html" title="This concrete class is wrapper to the GENERIC pimoroni RGBLED class." alt="" coords="5,79,149,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,44,98,81,95,77,131,40"/>
-<area shape="rect" id="Node000003" href="$class_driver_1_1_l_e_d_1_1_t_pipe_1_1_red_gree_blue.html" title="This concrete class implements the Red&#45;Green&#45;Blue LED interface by sending the LED state over the TPi..." alt="" coords="173,79,299,120"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="180,40,218,77,214,81,177,44"/>
+<area shape="rect" id="Node000001" title="This abstract class defines a basic interface for a single Red&#45;Green&#45;Blue LED where the application c..." alt="" coords="75,5,271,31"/>
+<area shape="rect" id="Node000002" href="$class_driver_1_1_l_e_d_1_1_pimoroni_1_1_red_green_blue.html" title="This concrete class is wrapper to the GENERIC pimoroni RGBLED class." alt="" coords="5,79,167,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,42,109,80,105,77,148,38"/>
+<area shape="rect" id="Node000003" href="$class_driver_1_1_l_e_d_1_1_t_pipe_1_1_red_gree_blue.html" title="This concrete class implements the Red&#45;Green&#45;Blue LED interface by sending the LED state over the TPi..." alt="" coords="191,79,330,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="197,38,241,77,238,81,194,42"/>
 </map>

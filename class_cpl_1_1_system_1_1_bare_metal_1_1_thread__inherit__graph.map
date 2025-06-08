@@ -1,9 +1,9 @@
 <map id="Cpl::System::BareMetal::Thread" name="Cpl::System::BareMetal::Thread">
-<area shape="rect" id="Node000001" title="This concrete class implements &#39;enough&#39; of a Thread object to support Cpl::System framework on a bare..." alt="" coords="5,226,161,267"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_system_1_1_thread.html" title="This abstract class defines the operations that can be performed on a thread." alt="" coords="15,153,151,178"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,194,86,226,80,226,80,194"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_system_1_1_signable.html" title="This abstract class defines the interface by which a client can cause an object that is waiting&#45;on&#45;a&#45;..." alt="" coords="10,79,156,105"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="86,120,86,152,80,152,80,120"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="16,5,150,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="86,46,86,79,80,79,80,46"/>
+<area shape="rect" id="Node000001" title="This concrete class implements &#39;enough&#39; of a Thread object to support Cpl::System framework on a bare..." alt="" coords="5,225,180,265"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_system_1_1_thread.html" title="This abstract class defines the operations that can be performed on a thread." alt="" coords="16,152,169,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,191,95,225,90,225,90,191"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_system_1_1_signable.html" title="This abstract class defines the interface by which a client can cause an object that is waiting&#45;on&#45;a&#45;..." alt="" coords="11,79,175,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,118,95,152,90,152,90,118"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="17,5,169,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="95,44,95,79,90,79,90,44"/>
 </map>

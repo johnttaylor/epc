@@ -1,5 +1,5 @@
 <map id="Cpl::TShell::Socket" name="Cpl::TShell::Socket">
-<area shape="rect" id="Node000001" title="This concrete class provides a socket listener/server and &#39;threading wrapper&#39; for running a TShell Co..." alt="" coords="19,94,149,120"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_socket_1_1_listener_1_1_client.html" title="This class defines the callback mechanism used for accepting incoming socket connections." alt="" coords="5,5,163,46"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,62,87,93,81,93,81,62"/>
+<area shape="rect" id="Node000001" title="This concrete class provides a socket listener/server and &#39;threading wrapper&#39; for running a TShell Co..." alt="" coords="21,93,164,119"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_socket_1_1_listener_1_1_client.html" title="This class defines the callback mechanism used for accepting incoming socket connections." alt="" coords="5,5,180,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,59,95,93,90,93,90,59"/>
 </map>

@@ -1,17 +1,17 @@
 <map id="Cpl/Io/File/Littlefs/_bdspi/BdSpi.h" name="Cpl/Io/File/Littlefs/_bdspi/BdSpi.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="231,5,356,46"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,102,115,127"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="241,49,108,98,106,93,239,44"/>
-<area shape="rect" id="Node000003" href="$_block_driver_api_8h.html" title=" " alt="" coords="139,94,264,135"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="274,48,235,85,231,81,271,45"/>
-<area shape="rect" id="Node000005" href="$_master_half_duplex_8h.html" title=" " alt="" coords="288,102,486,127"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="316,45,365,89,361,93,313,48"/>
-<area shape="rect" id="Node000007" href="$_out_8h.html" title=" " alt="" coords="509,102,627,127"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="357,44,516,94,514,99,355,49"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="159,183,244,208"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="204,135,204,167,199,167,199,135"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="356,183,418,208"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="389,128,389,167,384,167,384,128"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="518,183,618,208"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="571,128,571,167,565,167,565,128"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="253,5,387,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,101,128,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="265,48,114,99,113,94,264,43"/>
+<area shape="rect" id="Node000003" href="$_block_driver_api_8h.html" title=" " alt="" coords="153,93,287,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="300,48,254,86,251,82,296,44"/>
+<area shape="rect" id="Node000005" href="$_master_half_duplex_8h.html" title=" " alt="" coords="311,101,531,126"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="344,44,399,89,395,93,341,48"/>
+<area shape="rect" id="Node000007" href="$_out_8h.html" title=" " alt="" coords="555,101,685,126"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="387,43,568,94,566,100,385,48"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="172,181,268,207"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="223,134,223,167,217,167,217,134"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="386,181,457,207"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="424,126,424,167,419,167,419,126"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="563,181,677,207"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="623,126,623,167,617,167,617,126"/>
 </map>

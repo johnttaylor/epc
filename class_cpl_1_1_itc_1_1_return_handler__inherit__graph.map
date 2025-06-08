@@ -1,9 +1,9 @@
 <map id="Cpl::Itc::ReturnHandler" name="Cpl::Itc::ReturnHandler">
-<area shape="rect" id="Node000001" title="This abstract class represents the action that is executed by a server thread in response to the serv..." alt="" coords="5,55,156,80"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_async_return_handler.html" title="This class implements an asynchronous ReturnHandler." alt="" coords="204,5,390,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,48,237,29,238,34,156,53"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_null_return_handler.html" title="This class implements a Null ReturnHandler." alt="" coords="210,55,384,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,65,210,65,210,70,171,70"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_sync_return_handler.html" title="This class implements a synchronous ReturnHandler." alt="" coords="207,104,387,130"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="156,82,238,101,237,106,155,87"/>
+<area shape="rect" id="Node000001" title="This abstract class represents the action that is executed by a server thread in response to the serv..." alt="" coords="5,55,175,80"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_async_return_handler.html" title="This class implements an asynchronous ReturnHandler." alt="" coords="223,5,431,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,49,264,28,265,33,166,54"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_null_return_handler.html" title="This class implements a Null ReturnHandler." alt="" coords="229,55,424,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="189,65,229,65,229,70,189,70"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_itc_1_1_sync_return_handler.html" title="This class implements a synchronous ReturnHandler." alt="" coords="227,104,427,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="166,80,265,101,264,107,164,85"/>
 </map>

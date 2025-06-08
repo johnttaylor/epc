@@ -1,9 +1,9 @@
 <map id="Cpl::Memory::AlignedClass&lt; T &gt;" name="Cpl::Memory::AlignedClass&lt; T &gt;">
-<area shape="rect" id="Node000001" title="This type is used to create a memory block that is large enough to hold the memory footprint of ONE i..." alt="" coords="5,78,210,104"/>
-<area shape="rect" id="Node000002" href="$namespace_cpl_1_1_memory.html#namespace_cpl_1_1_memory" title=" " alt="" coords="381,5,581,46"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,72,380,41,380,46,201,78"/>
-<area shape="rect" id="Node000003" href="$namespace_cpl_1_1_memory.html#namespace_cpl_1_1_memory" title=" " alt="" coords="394,71,568,111"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="225,88,393,88,393,94,225,94"/>
-<area shape="rect" id="Node000004" href="$namespace_cpl_1_1_memory.html#namespace_cpl_1_1_memory" title=" " alt="" coords="394,135,568,191"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="166,106,234,124,394,150,393,155,233,129,165,111"/>
+<area shape="rect" id="Node000001" title="This type is used to create a memory block that is large enough to hold the memory footprint of ONE i..." alt="" coords="5,77,240,102"/>
+<area shape="rect" id="Node000002" href="$namespace_cpl_1_1_memory.html#namespace_cpl_1_1_memory" title=" " alt="" coords="433,5,663,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,72,433,40,434,45,222,77"/>
+<area shape="rect" id="Node000003" href="$namespace_cpl_1_1_memory.html#namespace_cpl_1_1_memory" title=" " alt="" coords="450,69,646,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="254,87,450,87,450,92,254,92"/>
+<area shape="rect" id="Node000004" href="$namespace_cpl_1_1_memory.html#namespace_cpl_1_1_memory" title=" " alt="" coords="450,134,646,189"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="183,103,264,121,450,149,449,154,264,127,182,108"/>
 </map>

@@ -1,26 +1,26 @@
 <map id="Cpl::Dm::Mp::Pointer_&lt; MPTYPE &gt;" name="Cpl::Dm::Mp::Pointer_&lt; MPTYPE &gt;">
-<area shape="rect" id="Node000001" title="This template class extends the implementation of Numeric&lt;&gt; class to support the pointers instead of ..." alt="" coords="1156,71,1294,111"/>
-<area shape="rect" id="Node000007" href="$class_cpl_1_1_dm_1_1_mp_1_1_pointer__.html" title=" " alt="" coords="1513,5,1658,46"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="1308,70,1317,68,1512,34,1513,40,1318,74,1309,75"/>
-<area shape="rect" id="Node000009" href="$class_cpl_1_1_dm_1_1_mp_1_1_pointer__.html" title=" " alt="" coords="1496,71,1675,111"/>
-<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="1309,88,1496,88,1496,94,1309,94"/>
-<area shape="rect" id="Node000011" href="$class_cpl_1_1_dm_1_1_mp_1_1_pointer__.html" title=" " alt="" coords="1517,136,1654,177"/>
-<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="1309,107,1318,109,1517,143,1516,149,1317,114,1308,112"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title=" " alt="" coords="962,71,1107,111"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1122,88,1156,88,1156,94,1122,94"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_dm_1_1_model_point_common__.html" title="This concrete class provide common infrastructure for a Model Point." alt="" coords="375,80,571,105"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="586,85,595,84,766,77,841,76,938,79,961,81,961,86,938,84,841,81,766,82,595,90,586,90"/>
-<area shape="rect" id="Node000006" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title="This template class provides a mostly concrete implementation for a Model Point who&#39;s data is a C num..." alt="" coords="620,100,794,141"/>
-<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="587,103,620,107,619,113,586,109"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_dm_1_1_model_point.html" title="This mostly abstract class defines the interface for a Model Point." alt="" coords="188,80,325,105"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="341,90,374,90,374,95,341,95"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,80,139,105"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="154,90,188,90,188,95,154,95"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="809,109,961,95,961,100,809,114"/>
-<area shape="rect" id="Node000008" href="$class_ajax_1_1_screen_mgr_1_1_mp_screen_api_ptr.html" title="This class provides a concrete implementation for a Point who&#39;s data is a ScreenApi pointer." alt="" coords="1724,5,1905,46"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="1673,23,1724,23,1724,28,1673,28"/>
-<area shape="rect" id="Node000010" href="$class_ajax_1_1_screen_mgr_1_1_mp_static_screen_api_ptr.html" title="This class provides a concrete implementation for a Point who&#39;s data is a StaticScreenApi pointer." alt="" coords="1728,71,1901,111"/>
-<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="1691,88,1728,88,1728,94,1691,94"/>
-<area shape="rect" id="Node000012" href="$class_cpl_1_1_dm_1_1_mp_1_1_void.html" title="This class provides a concrete implementation for a Point who&#39;s data is a void pointer." alt="" coords="1753,144,1876,169"/>
-<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="1670,154,1753,154,1753,159,1670,159"/>
+<area shape="rect" id="Node000001" title="This template class extends the implementation of Numeric&lt;&gt; class to support the pointers instead of ..." alt="" coords="1256,69,1412,109"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_dm_1_1_mp_1_1_pointer__.html" title=" " alt="" coords="1653,5,1815,45"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="1425,69,1436,67,1652,34,1653,39,1436,72,1426,74"/>
+<area shape="rect" id="Node000009" href="$class_cpl_1_1_dm_1_1_mp_1_1_pointer__.html" title=" " alt="" coords="1635,69,1833,109"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="1426,87,1635,87,1635,92,1426,92"/>
+<area shape="rect" id="Node000011" href="$class_cpl_1_1_dm_1_1_mp_1_1_pointer__.html" title=" " alt="" coords="1656,133,1812,173"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="1426,105,1436,107,1656,140,1655,146,1436,112,1425,110"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title=" " alt="" coords="1041,69,1207,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1220,87,1256,87,1256,92,1220,92"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_dm_1_1_model_point_common__.html" title="This concrete class provide common infrastructure for a Model Point." alt="" coords="411,78,632,103"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="646,84,656,84,837,76,916,75,1017,77,1041,79,1041,84,1017,83,916,80,837,82,656,89,646,90"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_dm_1_1_mp_1_1_numeric.html" title="This template class provides a mostly concrete implementation for a Model Point who&#39;s data is a C num..." alt="" coords="681,99,860,139"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="646,102,681,106,681,111,645,107"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_dm_1_1_model_point.html" title="This mostly abstract class defines the interface for a Model Point." alt="" coords="207,78,361,103"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="375,88,411,88,411,93,375,93"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,78,157,103"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="171,88,207,88,207,93,171,93"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="873,108,1041,93,1041,99,874,113"/>
+<area shape="rect" id="Node000008" href="$class_ajax_1_1_screen_mgr_1_1_mp_screen_api_ptr.html" title="This class provides a concrete implementation for a Point who&#39;s data is a ScreenApi pointer." alt="" coords="1883,5,2083,45"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="1829,23,1882,23,1882,28,1829,28"/>
+<area shape="rect" id="Node000010" href="$class_ajax_1_1_screen_mgr_1_1_mp_static_screen_api_ptr.html" title="This class provides a concrete implementation for a Point who&#39;s data is a StaticScreenApi pointer." alt="" coords="1886,69,2079,109"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="1847,87,1886,87,1886,92,1847,92"/>
+<area shape="rect" id="Node000012" href="$class_cpl_1_1_dm_1_1_mp_1_1_void.html" title="This class provides a concrete implementation for a Point who&#39;s data is a void pointer." alt="" coords="1913,141,2052,166"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="1826,151,1913,151,1913,156,1826,156"/>
 </map>

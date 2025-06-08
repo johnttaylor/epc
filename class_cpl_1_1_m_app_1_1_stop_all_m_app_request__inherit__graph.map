@@ -1,5 +1,5 @@
 <map id="Cpl::MApp::StopAllMAppRequest" name="Cpl::MApp::StopAllMAppRequest">
-<area shape="rect" id="Node000001" title="This abstract class define ITC message type and payload for the application to stop the current MApp." alt="" coords="5,5,216,31"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_m_app_1_1_manager.html" title="This concrete class implements the MApp Manager." alt="" coords="42,79,179,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,46,113,79,108,79,108,46"/>
+<area shape="rect" id="Node000001" title="This abstract class define ITC message type and payload for the application to stop the current MApp." alt="" coords="5,5,237,31"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_m_app_1_1_manager.html" title="This concrete class implements the MApp Manager." alt="" coords="45,79,198,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,44,124,79,119,79,119,44"/>
 </map>

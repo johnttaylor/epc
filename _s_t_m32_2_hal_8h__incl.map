@@ -1,7 +1,7 @@
 <map id="Driver/Button/STM32/Hal.h" name="Driver/Button/STM32/Hal.h">
-<area shape="rect" id="Node000001" title="This file defines the concrete implementation for the Button HAL running on STM32 MCUs." alt="" coords="5,5,149,46"/>
-<area shape="rect" id="Node000002" href="$_hal_8h.html" title="This file defines a hardware abstraction layer (HAL) for accessing a digital Input that is being used..." alt="" coords="11,94,143,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,46,80,78,74,78,74,46"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="27,168,127,193"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="80,120,80,152,74,152,74,120"/>
+<area shape="rect" id="Node000001" title="This file defines the concrete implementation for the Button HAL running on STM32 MCUs." alt="" coords="5,5,163,45"/>
+<area shape="rect" id="Node000002" href="$_hal_8h.html" title="This file defines a hardware abstraction layer (HAL) for accessing a digital Input that is being used..." alt="" coords="11,93,157,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,46,87,79,81,79,81,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="27,167,141,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,119,87,153,81,153,81,119"/>
 </map>

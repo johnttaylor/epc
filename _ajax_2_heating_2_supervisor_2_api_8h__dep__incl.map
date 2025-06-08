@@ -1,7 +1,7 @@
 <map id="Ajax/Heating/Supervisor/Api.h" name="Ajax/Heating/Supervisor/Api.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="83,5,244,46"/>
-<area shape="rect" id="Node000002" href="$_ajax_2_heating_2_io_2_api_8h.html" title=" " alt="" coords="5,102,149,127"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,59,91,103,87,99,131,55"/>
-<area shape="rect" id="Node000003" href="$_heating_2_simulated_2_house_8h_source.html" title=" " alt="" coords="173,94,330,135"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,55,234,92,230,95,193,59"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="91,5,270,45"/>
+<area shape="rect" id="Node000002" href="$_ajax_2_heating_2_io_2_api_8h.html" title=" " alt="" coords="5,101,164,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,57,100,102,96,98,147,53"/>
+<area shape="rect" id="Node000003" href="$_heating_2_simulated_2_house_8h_source.html" title=" " alt="" coords="189,93,365,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,53,257,91,254,95,211,57"/>
 </map>

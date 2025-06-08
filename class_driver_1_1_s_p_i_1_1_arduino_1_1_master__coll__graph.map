@@ -1,7 +1,7 @@
 <map id="Driver::SPI::Arduino::Master" name="Driver::SPI::Arduino::Master">
-<area shape="rect" id="Node000001" title="This class implements the SPI interface using the Arduino Framework." alt="" coords="83,109,217,150"/>
-<area shape="rect" id="Node000002" href="$class_driver_1_1_s_p_i_1_1_master.html" title="This class defines a non&#45;platform specific interface for an SPI master device driver." alt="" coords="5,13,135,39"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,49,137,107,132,110,87,53"/>
-<area shape="rect" id="Node000003" href="$struct_driver_1_1_s_p_i_1_1_arduino_1_1_master_1_1_s_p_i_config___t.html" title="SPI Settings (note: needed because the SPISettings class does not allow changing the baudrate once in..." alt="" coords="158,5,305,46"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,60,168,110,164,107,204,57"/>
+<area shape="rect" id="Node000001" title="This class implements the SPI interface using the Arduino Framework." alt="" coords="89,108,237,148"/>
+<area shape="rect" id="Node000002" href="$class_driver_1_1_s_p_i_1_1_master.html" title="This class defines a non&#45;platform specific interface for an SPI master device driver." alt="" coords="5,13,148,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,47,149,106,145,110,94,50"/>
+<area shape="rect" id="Node000003" href="$struct_driver_1_1_s_p_i_1_1_arduino_1_1_master_1_1_s_p_i_config___t.html" title="SPI Settings (note: needed because the SPISettings class does not allow changing the baudrate once in..." alt="" coords="172,5,331,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="228,58,182,110,178,106,224,54"/>
 </map>

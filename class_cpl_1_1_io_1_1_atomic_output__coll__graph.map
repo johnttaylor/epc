@@ -1,16 +1,16 @@
 <map id="Cpl::Io::AtomicOutput&lt; CONTEXT &gt;" name="Cpl::Io::AtomicOutput&lt; CONTEXT &gt;">
-<area shape="rect" id="Node000001" title="This concrete template class implements the AtomicOutputApi using a mutex to enforce the &#39;atomic&#45;ness..." alt="" coords="211,334,354,375"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_atomic_output_api.html" title="This abstract template class defines a interface for an Atomic outputs to a stream." alt="" coords="202,230,364,271"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="285,287,285,334,280,334,280,287"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_io_1_1_output.html" title="This partially abstract class defines a interface for operating on an output stream (example of a str..." alt="" coords="81,155,183,181"/>
-<area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="126,196,122,233,124,252,131,270,147,290,166,307,213,331,210,336,163,311,143,294,126,272,119,253,116,233,121,195"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="169,186,247,228,245,232,167,191"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_io_1_1_close.html" title="This abstract class defines a close operation that is intended to be used Input and Output streams/fi..." alt="" coords="24,80,120,106"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,117,124,153,120,157,90,120"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,5,139,31"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="75,46,75,80,69,80,69,46"/>
-<area shape="rect" id="Node000006" href="$class_cpl_1_1_io_1_1_is_eos.html" title="This abstract class defines a isEos() operation that is intended to be used Input and Output streams." alt="" coords="144,80,240,106"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="174,120,144,157,140,153,170,117"/>
-<area shape="rect" id="Node000007" href="$class_cpl_1_1_system_1_1_mutex.html" title="This mutex class defines the interface for a mutex that has &quot;recursive&quot; semantics." alt="" coords="388,238,519,264"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="421,274,317,336,314,331,419,269"/>
+<area shape="rect" id="Node000001" title="This concrete template class implements the AtomicOutputApi using a mutex to enforce the &#39;atomic&#45;ness..." alt="" coords="237,332,398,372"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_atomic_output_api.html" title="This abstract template class defines a interface for an Atomic outputs to a stream." alt="" coords="226,229,409,269"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="320,283,320,332,315,332,315,283"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_io_1_1_output.html" title="This partially abstract class defines a interface for operating on an output stream (example of a str..." alt="" coords="89,155,204,180"/>
+<area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="141,194,136,231,138,250,145,268,163,290,186,307,238,331,235,336,183,312,159,293,140,271,133,252,130,231,136,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="185,183,278,227,276,232,182,188"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_io_1_1_close.html" title="This abstract class defines a close operation that is intended to be used Input and Output streams/fi..." alt="" coords="28,80,135,105"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="103,114,138,153,134,156,99,118"/>
+<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="5,5,157,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="84,45,84,80,79,80,79,45"/>
+<area shape="rect" id="Node000006" href="$class_cpl_1_1_io_1_1_is_eos.html" title="This abstract class defines a isEos() operation that is intended to be used Input and Output streams." alt="" coords="159,80,265,105"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="194,118,159,156,155,153,190,114"/>
+<area shape="rect" id="Node000007" href="$class_cpl_1_1_system_1_1_mutex.html" title="This mutex class defines the interface for a mutex that has &quot;recursive&quot; semantics." alt="" coords="433,237,583,262"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="475,271,354,334,352,329,473,266"/>
 </map>

@@ -1,7 +1,7 @@
 <map id="Ajax::ScreenMgr::MockStaticScreen" name="Ajax::ScreenMgr::MockStaticScreen">
-<area shape="rect" id="Node000001" title="This class implements a &#39;Mock&#39; StaticScreenApi instances." alt="" coords="127,109,315,150"/>
-<area shape="rect" id="Node000002" href="$class_ajax_1_1_screen_mgr_1_1_static_screen_api.html" title="This class defines interface for Screens that only contain static data." alt="" coords="5,13,221,39"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,47,202,106,198,110,135,51"/>
-<area shape="rect" id="Node000003" href="$struct_cpl_1_1_system_1_1_elapsed_time_1_1_precision___t.html" title="Data type for time in seconds with a &#39;fractional&#39; millisecond precision." alt="" coords="245,5,416,46"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="300,59,244,111,240,107,296,55"/>
+<area shape="rect" id="Node000001" title="This class implements a &#39;Mock&#39; StaticScreenApi instances." alt="" coords="141,108,349,148"/>
+<area shape="rect" id="Node000002" href="$class_ajax_1_1_screen_mgr_1_1_static_screen_api.html" title="This class defines interface for Screens that only contain static data." alt="" coords="5,13,244,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,45,224,106,220,110,148,49"/>
+<area shape="rect" id="Node000003" href="$struct_cpl_1_1_system_1_1_elapsed_time_1_1_precision___t.html" title="Data type for time in seconds with a &#39;fractional&#39; millisecond precision." alt="" coords="269,5,461,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="333,56,269,110,265,106,330,52"/>
 </map>

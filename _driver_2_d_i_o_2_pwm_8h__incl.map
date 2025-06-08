@@ -1,7 +1,7 @@
 <map id="Driver/DIO/Pwm.h" name="Driver/DIO/Pwm.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="56,5,183,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,106,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,33,78,69,74,66,107,29"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="130,79,240,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="132,29,166,66,162,69,128,33"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="63,5,202,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,119,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,33,85,71,81,67,119,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="143,79,266,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="146,29,185,67,181,71,143,33"/>
 </map>

@@ -1,3 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$class_cpl_1_1_itc_1_1_open_response.html" title="This abstract class define response message types for a set of ITC services." alt="" coords="5,5,162,31"/>
+<area shape="rect" id="Node000000" href="$class_cpl_1_1_itc_1_1_return_handler.html" title="This abstract class represents the action that is executed by a server thread in response to the serv..." alt="" coords="5,55,175,80"/>
+<area shape="rect" id="Node000001" href="$class_cpl_1_1_itc_1_1_async_return_handler.html" title="This class implements an asynchronous ReturnHandler." alt="" coords="223,5,431,31"/>
+<area shape="poly" id="edge53_Node000000_Node000001" title=" " alt="" coords="164,49,264,28,265,33,166,54"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_null_return_handler.html" title="This class implements a Null ReturnHandler." alt="" coords="229,55,424,80"/>
+<area shape="poly" id="edge54_Node000000_Node000002" title=" " alt="" coords="189,65,229,65,229,70,189,70"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_sync_return_handler.html" title="This class implements a synchronous ReturnHandler." alt="" coords="227,104,427,129"/>
+<area shape="poly" id="edge55_Node000000_Node000003" title=" " alt="" coords="166,80,265,101,264,107,164,85"/>
 </map>

@@ -1,9 +1,9 @@
 <map id="Cpl::Container::MapItem" name="Cpl::Container::MapItem">
-<area shape="rect" id="Node000001" title="This abstract class represents a item that can be contained in an Map (aka a sorted list implemented ..." alt="" coords="19,226,178,252"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_dict_item.html" title="This abstract class represents a item that can be contained in Dictionary." alt="" coords="20,153,177,178"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,194,101,226,96,226,96,194"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="5,79,192,105"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="101,120,101,152,96,152,96,120"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="32,5,165,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="101,46,101,79,96,79,96,46"/>
+<area shape="rect" id="Node000001" title="This abstract class represents a item that can be contained in an Map (aka a sorted list implemented ..." alt="" coords="22,225,202,251"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_dict_item.html" title="This abstract class represents a item that can be contained in Dictionary." alt="" coords="23,152,201,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,191,115,225,109,225,109,191"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="5,79,219,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="115,118,115,152,109,152,109,118"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="36,5,188,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="115,44,115,79,109,79,109,44"/>
 </map>

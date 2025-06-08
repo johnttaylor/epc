@@ -1,7 +1,7 @@
 <map id="Driver/AIO/Arduino/HalSingleInput.h" name="Driver/AIO/Arduino/HalSingleInput.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="62,5,192,46"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,94,115,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,48,82,83,78,80,108,45"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="138,94,249,120"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="145,45,175,80,171,83,141,48"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="69,5,211,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,128,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,47,89,85,85,81,120,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="152,93,277,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,44,196,81,192,85,156,47"/>
 </map>

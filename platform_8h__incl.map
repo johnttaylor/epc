@@ -1,19 +1,19 @@
 <map id="Ajax/Main/platform.h" name="Ajax/Main/platform.h">
-<area shape="rect" id="Node000001" title="This file contains the interface(s) that are platform VARIANT specific." alt="" coords="228,5,367,31"/>
-<area shape="rect" id="Node000002" href="$_driver_2_pico_display_2_api_8h.html" title=" " alt="" coords="234,79,361,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="300,31,300,64,295,64,295,31"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,168,115,193"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="239,123,112,165,110,160,237,118"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="139,168,264,193"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="275,122,229,160,226,156,272,118"/>
-<area shape="rect" id="Node000005" href="$_polled_debounced_8h.html" title=" " alt="" coords="289,168,501,193"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="323,118,370,156,366,160,320,122"/>
-<area shape="rect" id="Node000008" href="$_red_green_blue_8h.html" title=" " alt="" coords="525,168,707,193"/>
-<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="362,114,553,161,552,166,361,119"/>
-<area shape="rect" id="Node000006" href="$_hal_8h.html" title="This file defines a hardware abstraction layer (HAL) for accessing a digital Input that is being used..." alt="" coords="329,241,460,267"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="397,194,397,226,392,226,392,194"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="345,315,445,341"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="397,267,397,299,392,299,392,267"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="584,241,648,267"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="619,194,619,226,613,226,613,194"/>
+<area shape="rect" id="Node000001" title="This file contains the interface(s) that are platform VARIANT specific." alt="" coords="249,5,407,31"/>
+<area shape="rect" id="Node000002" href="$_driver_2_pico_display_2_api_8h.html" title=" " alt="" coords="257,79,399,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="331,31,331,65,325,65,325,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,128,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="266,121,119,165,117,160,265,116"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="152,167,291,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="304,121,250,160,247,156,301,117"/>
+<area shape="rect" id="Node000005" href="$_polled_debounced_8h.html" title=" " alt="" coords="315,167,554,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="355,117,409,156,406,160,352,121"/>
+<area shape="rect" id="Node000008" href="$_red_green_blue_8h.html" title=" " alt="" coords="579,167,779,192"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="400,113,615,161,613,166,399,118"/>
+<area shape="rect" id="Node000006" href="$_hal_8h.html" title="This file defines a hardware abstraction layer (HAL) for accessing a digital Input that is being used..." alt="" coords="361,240,508,265"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="437,192,437,226,432,226,432,192"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="378,313,491,339"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="437,266,437,300,432,300,432,266"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="643,240,714,265"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="681,192,681,226,676,226,676,192"/>
 </map>

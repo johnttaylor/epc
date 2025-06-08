@@ -1,9 +1,9 @@
 <map id="Ajax::ScreenMgr::Api::NavigationElement" name="Ajax::ScreenMgr::Api::NavigationElement">
-<area shape="rect" id="Node000001" title="Type for &#39;elements&#39; in the Navigation Stack." alt="" coords="132,169,273,210"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="5,80,192,106"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,114,183,166,179,170,121,118"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="32,5,165,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="101,46,101,80,96,80,96,46"/>
-<area shape="rect" id="Node000004" href="$class_ajax_1_1_screen_mgr_1_1_screen_api.html" title="This class defines the interface for a &#39;Screen&#39;." alt="" coords="216,80,397,106"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="284,118,226,170,222,166,281,114"/>
+<area shape="rect" id="Node000001" title="Type for &#39;elements&#39; in the Navigation Stack." alt="" coords="149,168,307,208"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="5,80,219,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,112,206,166,203,170,135,116"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="36,5,188,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="115,45,115,80,109,80,109,45"/>
+<area shape="rect" id="Node000004" href="$class_ajax_1_1_screen_mgr_1_1_screen_api.html" title="This class defines the interface for a &#39;Screen&#39;." alt="" coords="243,80,445,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="321,116,253,170,250,166,317,112"/>
 </map>

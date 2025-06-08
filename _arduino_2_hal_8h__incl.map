@@ -1,7 +1,7 @@
 <map id="Driver/Button/Arduino/Hal.h" name="Driver/Button/Arduino/Hal.h">
-<area shape="rect" id="Node000001" title="This file defines the concrete implementation for the Button HAL running on the Arduino Framework." alt="" coords="5,5,151,46"/>
-<area shape="rect" id="Node000002" href="$_hal_8h.html" title="This file defines a hardware abstraction layer (HAL) for accessing a digital Input that is being used..." alt="" coords="12,94,144,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,46,81,78,75,78,75,46"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="28,168,128,193"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="81,120,81,152,75,152,75,120"/>
+<area shape="rect" id="Node000001" title="This file defines the concrete implementation for the Button HAL running on the Arduino Framework." alt="" coords="5,5,168,45"/>
+<area shape="rect" id="Node000002" href="$_hal_8h.html" title="This file defines a hardware abstraction layer (HAL) for accessing a digital Input that is being used..." alt="" coords="13,93,160,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,46,89,79,84,79,84,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="30,167,143,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,119,89,153,84,153,84,119"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="Cpl/System/_testsupport/Shutdown_TS.h" name="Cpl/System/_testsupport/Shutdown_TS.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,170,46"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="54,94,121,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,46,90,78,85,78,85,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="37,5,219,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,128,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,47,86,84,82,81,111,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="152,93,227,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="145,44,174,81,170,84,141,47"/>
 </map>

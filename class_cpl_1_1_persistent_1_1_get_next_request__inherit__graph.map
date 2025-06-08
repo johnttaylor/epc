@@ -1,8 +1,8 @@
 <map id="Cpl::Persistent::GetNextRequest" name="Cpl::Persistent::GetNextRequest">
-<area shape="rect" id="Node000001" title="This abstract class define ITC message type and payload for the application to request read Indexed E..." alt="" coords="5,14,165,55"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_persistent_1_1_indexed_entry_server.html" title=" " alt="" coords="591,5,762,61"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,26,360,20,567,21,591,23,591,28,567,26,360,25,180,31"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_persistent_1_1_indexed_entry_server.html" title="This concrete template class implements the ITC messaging (and Model Point monitoring) needed to prov..." alt="" coords="214,42,370,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="180,45,214,49,213,55,180,50"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="386,53,591,37,591,42,386,58"/>
+<area shape="rect" id="Node000001" title="This abstract class define ITC message type and payload for the application to request read Indexed E..." alt="" coords="5,14,184,54"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_persistent_1_1_indexed_entry_server.html" title=" " alt="" coords="659,5,852,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,26,400,19,635,21,658,22,658,27,635,26,400,24,198,31"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_persistent_1_1_indexed_entry_server.html" title="This concrete template class implements the ITC messaging (and Model Point monitoring) needed to prov..." alt="" coords="233,42,408,82"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="198,44,233,49,233,54,197,49"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="422,53,658,36,659,42,422,58"/>
 </map>

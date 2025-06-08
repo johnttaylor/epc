@@ -1,13 +1,13 @@
 <map id="Driver/DIO/Pwm.h" name="Driver/DIO/Pwm.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="345,5,471,31"/>
-<area shape="rect" id="Node000002" href="$_ajax_2_heating_2_io_2_api_8h.html" title=" " alt="" coords="5,87,149,112"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="342,38,129,88,127,83,341,33"/>
-<area shape="rect" id="Node000003" href="$appmain_8h.html" title="This file defines the hardware/platform independent start&#45;up interface(s) for the Ajax application." alt="" coords="173,87,314,112"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="370,41,270,88,268,84,367,36"/>
-<area shape="rect" id="Node000004" href="$_pimoroni_2_red_green_blue_8h.html" title=" " alt="" coords="338,79,477,120"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="410,46,410,79,405,79,405,46"/>
-<area shape="rect" id="Node000005" href="$_eros_2_t_shell_2_pwm_8h.html" title=" " alt="" coords="502,87,634,112"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="447,36,544,84,542,88,445,41"/>
-<area shape="rect" id="Node000006" href="$_eros_2_test_2_cycle_2_api_8h.html" title=" " alt="" coords="659,87,805,112"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="473,33,682,83,681,88,472,38"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="381,5,519,31"/>
+<area shape="rect" id="Node000002" href="$_ajax_2_heating_2_io_2_api_8h.html" title=" " alt="" coords="5,86,164,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="384,36,138,89,137,83,383,31"/>
+<area shape="rect" id="Node000003" href="$appmain_8h.html" title="This file defines the hardware/platform independent start&#45;up interface(s) for the Ajax application." alt="" coords="189,86,349,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="412,39,296,88,294,84,410,34"/>
+<area shape="rect" id="Node000004" href="$_pimoroni_2_red_green_blue_8h.html" title=" " alt="" coords="373,79,527,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="453,44,453,79,447,79,447,44"/>
+<area shape="rect" id="Node000005" href="$_eros_2_t_shell_2_pwm_8h.html" title=" " alt="" coords="551,86,693,111"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="488,34,598,84,596,88,486,39"/>
+<area shape="rect" id="Node000006" href="$_eros_2_test_2_cycle_2_api_8h.html" title=" " alt="" coords="718,86,875,111"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="514,31,747,83,746,89,513,36"/>
 </map>

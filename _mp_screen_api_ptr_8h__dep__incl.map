@@ -1,15 +1,15 @@
 <map id="Ajax/ScreenMgr/MpScreenApiPtr.h" name="Ajax/ScreenMgr/MpScreenApiPtr.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="175,5,371,46"/>
-<area shape="rect" id="Node000002" href="$_ajax_2_screen_mgr_2_api_8h.html" title=" " alt="" coords="200,94,346,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="276,62,276,93,270,93,270,62"/>
-<area shape="rect" id="Node000003" href="$_ajax_2_ui_2_about_2_screen_8h.html" title=" " alt="" coords="5,168,162,193"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="228,128,117,170,115,165,226,123"/>
-<area shape="rect" id="Node000005" href="$_ajax_2_ui_2_edit_setpt_2_screen_8h.html" title=" " alt="" coords="185,168,361,193"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="276,135,276,167,270,167,270,135"/>
-<area shape="rect" id="Node000006" href="$_ajax_2_ui_2_home_2_screen_8h.html" title=" " alt="" coords="385,168,542,193"/>
-<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="320,123,432,165,430,170,318,128"/>
-<area shape="rect" id="Node000004" href="$_ajax_2_main_2screens_8h.html" title="This file exposes handles to Screen instances for the Ajax Application." alt="" coords="204,241,342,267"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="130,197,241,238,240,243,129,202"/>
-<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="276,209,276,241,270,241,270,209"/>
-<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="418,202,306,243,304,238,416,197"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="189,5,403,45"/>
+<area shape="rect" id="Node000002" href="$_ajax_2_screen_mgr_2_api_8h.html" title=" " alt="" coords="215,93,377,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="299,59,299,93,293,93,293,59"/>
+<area shape="rect" id="Node000003" href="$_ajax_2_ui_2_about_2_screen_8h.html" title=" " alt="" coords="5,167,176,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="251,126,125,169,123,164,249,121"/>
+<area shape="rect" id="Node000005" href="$_ajax_2_ui_2_edit_setpt_2_screen_8h.html" title=" " alt="" coords="200,167,392,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="299,132,299,167,293,167,293,132"/>
+<area shape="rect" id="Node000006" href="$_ajax_2_ui_2_home_2_screen_8h.html" title=" " alt="" coords="417,167,589,192"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="343,121,470,164,468,169,341,126"/>
+<area shape="rect" id="Node000004" href="$_ajax_2_main_2screens_8h.html" title="This file exposes handles to Screen instances for the Ajax Application." alt="" coords="219,240,373,265"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="137,194,264,237,262,242,136,199"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="299,206,299,240,293,240,293,206"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="457,199,330,242,329,237,456,194"/>
 </map>

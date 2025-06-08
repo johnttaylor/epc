@@ -1,9 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,13,109,39"/>
-<area shape="rect" id="Node000001" href="$class_cpl_1_1_itc_1_1_atomic_request.html" title="This concrete class define the &#39;Atomic&#39; Message request that allows a client to invoke multiple opera..." alt="" coords="157,5,313,46"/>
-<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="124,23,156,23,156,28,124,28"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_atomic_sync.html" title="This concrete class provides the ITC wrapper implementation for calling the &quot;Atomic Api&quot; synchronousl..." alt="" coords="361,39,498,79"/>
-<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="329,39,361,45,360,50,328,44"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_atomic_api.html" title="This abstract class provides an interface to allow a client to call the server synchronously to have ..." alt="" coords="171,71,299,111"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="314,75,360,68,361,73,315,81"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,13,107,38"/>
+<area shape="rect" id="Node000001" href="$class_cpl_1_1_itc_1_1_atomic_request.html" title="This concrete class define the &#39;Atomic&#39; Message request that allows a client to invoke multiple opera..." alt="" coords="155,5,329,45"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="121,23,155,23,155,28,121,28"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_itc_1_1_atomic_sync.html" title="This concrete class provides the ITC wrapper implementation for calling the &quot;Atomic Api&quot; synchronousl..." alt="" coords="377,37,529,77"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="343,38,377,43,376,48,342,43"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_itc_1_1_atomic_api.html" title="This abstract class provides an interface to allow a client to call the server synchronously to have ..." alt="" coords="171,69,313,109"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="326,74,377,66,378,71,327,79"/>
 </map>

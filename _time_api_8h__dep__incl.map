@@ -1,12 +1,12 @@
 <map id="Cpl/Logging/TimeApi.h" name="Cpl/Logging/TimeApi.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="71,5,223,31"/>
-<area shape="rect" id="Node000002" href="$_cpl_2_logging_2_api_8h.html" title=" " alt="" coords="5,160,129,186"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,46,76,161,71,159,131,44"/>
-<area shape="rect" id="Node000003" href="$_entry_data___t_8h.html" title=" " alt="" coords="131,79,307,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,40,209,77,205,80,168,44"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="184,114,92,162,89,157,181,110"/>
-<area shape="rect" id="Node000004" href="$_log_sink_8h.html" title=" " alt="" coords="152,160,305,186"/>
-<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="225,120,230,159,224,160,220,120"/>
-<area shape="rect" id="Node000005" href="$_log_8h.html" title=" " alt="" coords="328,153,459,193"/>
-<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="261,109,351,150,349,155,259,114"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="75,5,243,31"/>
+<area shape="rect" id="Node000002" href="$_cpl_2_logging_2_api_8h.html" title=" " alt="" coords="5,159,140,185"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,44,82,160,77,158,144,41"/>
+<area shape="rect" id="Node000003" href="$_entry_data___t_8h.html" title=" " alt="" coords="140,79,333,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="184,38,226,76,222,80,180,42"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="202,112,98,162,95,157,199,107"/>
+<area shape="rect" id="Node000004" href="$_log_sink_8h.html" title=" " alt="" coords="165,159,330,185"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="243,117,248,159,243,159,237,118"/>
+<area shape="rect" id="Node000005" href="$_log_8h.html" title=" " alt="" coords="355,152,497,192"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="278,107,381,149,379,154,276,112"/>
 </map>

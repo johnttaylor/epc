@@ -1,56 +1,56 @@
 <map id="Cpl/Itc/CloseSync.h" name="Cpl/Itc/CloseSync.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="788,5,923,31"/>
-<area shape="rect" id="Node000002" href="$_summary_8h.html" title=" " alt="" coords="5,87,159,112"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="772,27,507,46,343,61,178,82,138,89,137,83,178,76,342,56,507,40,772,21"/>
-<area shape="rect" id="Node000003" href="$_ajax_2_heating_2_io_2_api_8h.html" title=" " alt="" coords="72,175,215,201"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="772,22,636,24,475,32,397,40,326,50,267,64,223,81,197,102,176,128,150,176,146,173,172,125,193,98,221,77,265,59,325,45,396,35,475,27,635,19,772,16"/>
-<area shape="rect" id="Node000004" href="$_ajax_2_heating_2_supervisor_2_api_8h.html" title=" " alt="" coords="235,79,396,120"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="773,32,608,53,416,82,397,85,396,80,415,76,607,48,772,27"/>
-<area shape="rect" id="Node000006" href="$_ajax_2_metrics_2_api_8h.html" title=" " alt="" coords="459,330,585,356"/>
-<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="772,22,685,26,592,36,511,53,481,66,461,81,444,111,438,145,442,181,453,217,485,283,515,328,511,331,481,286,448,219,437,182,433,145,439,109,457,77,479,61,510,48,591,30,685,21,772,17"/>
-<area shape="rect" id="Node000007" href="$_ajax_2_screen_mgr_2_api_8h.html" title=" " alt="" coords="693,87,839,112"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="832,44,781,88,778,84,829,40"/>
-<area shape="rect" id="Node000012" href="$_logical_buttons_8h.html" title=" " alt="" coords="864,87,1028,112"/>
-<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="882,39,934,84,930,88,879,43"/>
-<area shape="rect" id="Node000013" href="$_ajax_2_ui_2_status_indicator_2_api_8h.html" title=" " alt="" coords="1052,79,1208,120"/>
-<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="913,33,1062,76,1061,81,912,38"/>
-<area shape="rect" id="Node000014" href="$_log_sink_8h.html" title=" " alt="" coords="1231,87,1384,112"/>
-<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="939,29,1220,76,1254,83,1253,89,1219,82,938,34"/>
-<area shape="rect" id="Node000015" href="$_manager_8h.html" title=" " alt="" coords="1408,87,1551,112"/>
-<area shape="poly" id="edge17_Node000001_Node000015" title=" " alt="" coords="939,23,1147,43,1396,76,1431,83,1430,89,1395,82,1146,48,938,28"/>
-<area shape="rect" id="Node000016" href="$_indexed_entry_server_8h.html" title=" " alt="" coords="1574,79,1755,120"/>
-<area shape="poly" id="edge18_Node000001_Node000016" title=" " alt="" coords="939,21,1216,40,1389,56,1562,76,1574,78,1573,83,1562,82,1388,61,1215,46,938,26"/>
-<area shape="rect" id="Node000018" href="$_record_server_8h.html" title=" " alt="" coords="472,87,668,112"/>
-<area shape="poly" id="edge20_Node000001_Node000018" title=" " alt="" coords="797,38,615,88,613,83,796,33"/>
-<area shape="rect" id="Node000024" href="$_ajax_2_thermistor_8h.html" title=" " alt="" coords="1779,87,1966,112"/>
-<area shape="poly" id="edge28_Node000001_Node000024" title=" " alt="" coords="939,19,1299,36,1532,52,1768,76,1813,83,1812,89,1767,82,1532,58,1299,41,938,24"/>
-<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="264,129,169,177,166,172,262,125"/>
-<area shape="rect" id="Node000005" href="$_heating_2_simulated_2_house_8h_source.html" title=" " alt="" coords="239,168,397,208"/>
-<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="319,135,320,167,315,167,314,135"/>
-<area shape="rect" id="Node000008" href="$_ajax_2_ui_2_about_2_screen_8h.html" title=" " alt="" coords="732,175,888,201"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="781,125,806,174,802,176,777,127"/>
-<area shape="rect" id="Node000010" href="$_ajax_2_ui_2_edit_setpt_2_screen_8h.html" title=" " alt="" coords="913,175,1088,201"/>
-<area shape="poly" id="edge10_Node000007_Node000010" title=" " alt="" coords="814,115,969,172,967,177,812,120"/>
-<area shape="rect" id="Node000011" href="$_ajax_2_ui_2_home_2_screen_8h.html" title=" " alt="" coords="1114,175,1271,201"/>
-<area shape="poly" id="edge12_Node000007_Node000011" title=" " alt="" coords="834,113,852,117,1101,165,1135,172,1134,177,1100,170,851,122,833,119"/>
-<area shape="rect" id="Node000009" href="$_ajax_2_main_2screens_8h.html" title="This file exposes handles to Screen instances for the Ajax Application." alt="" coords="1129,256,1267,282"/>
-<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="883,202,901,206,1137,253,1136,258,900,211,882,207"/>
-<area shape="poly" id="edge11_Node000010_Node000009" title=" " alt="" coords="1046,205,1169,253,1167,258,1044,209"/>
-<area shape="poly" id="edge13_Node000011_Node000009" title=" " alt="" coords="1197,216,1200,256,1195,256,1192,217"/>
-<area shape="rect" id="Node000017" href="$_log_8h.html" title=" " alt="" coords="1599,168,1730,208"/>
-<area shape="poly" id="edge19_Node000016_Node000017" title=" " alt="" coords="1667,135,1667,167,1662,167,1662,135"/>
-<area shape="rect" id="Node000019" href="$_provision_8h.html" title=" " alt="" coords="676,330,832,356"/>
-<area shape="poly" id="edge21_Node000018_Node000019" title=" " alt="" coords="545,124,527,145,514,169,502,201,495,228,497,253,512,280,537,297,578,311,677,330,676,336,576,317,534,302,508,284,492,255,489,227,496,199,509,167,523,142,541,121"/>
-<area shape="rect" id="Node000020" href="$_dm_2_persistent_2_record_8h.html" title=" " alt="" coords="523,175,705,201"/>
-<area shape="poly" id="edge22_Node000018_Node000020" title=" " alt="" coords="585,125,610,174,606,176,581,127"/>
-<area shape="rect" id="Node000021" href="$_metrics_record_8h.html" title=" " alt="" coords="522,256,698,282"/>
-<area shape="poly" id="edge23_Node000020_Node000021" title=" " alt="" coords="615,217,613,256,608,256,610,216"/>
-<area shape="rect" id="Node000022" href="$_personality_record_8h.html" title=" " alt="" coords="722,256,919,282"/>
-<area shape="poly" id="edge25_Node000020_Node000022" title=" " alt="" coords="661,204,790,253,788,258,659,209"/>
-<area shape="rect" id="Node000023" href="$_user_record_8h.html" title=" " alt="" coords="944,256,1105,282"/>
-<area shape="poly" id="edge27_Node000020_Node000023" title=" " alt="" coords="693,202,962,253,961,258,692,207"/>
-<area shape="poly" id="edge24_Node000021_Node000006" title=" " alt="" coords="585,294,538,332,535,328,582,290"/>
-<area shape="poly" id="edge26_Node000022_Node000019" title=" " alt="" coords="801,295,767,331,763,328,797,291"/>
-<area shape="rect" id="Node000025" href="$_eros_2_thermistor_8h.html" title=" " alt="" coords="1779,175,1967,201"/>
-<area shape="poly" id="edge29_Node000024_Node000025" title=" " alt="" coords="1875,128,1875,175,1870,175,1870,128"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="848,5,995,31"/>
+<area shape="rect" id="Node000002" href="$_summary_8h.html" title=" " alt="" coords="5,86,176,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="834,26,550,45,373,61,195,81,149,89,148,83,194,76,372,56,549,40,834,21"/>
+<area shape="rect" id="Node000003" href="$_ajax_2_heating_2_io_2_api_8h.html" title=" " alt="" coords="70,174,229,199"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="834,21,688,23,514,32,430,39,352,50,288,64,240,81,211,101,188,127,157,175,153,172,184,124,208,97,237,76,286,58,351,44,429,34,514,26,688,18,834,16"/>
+<area shape="rect" id="Node000004" href="$_ajax_2_heating_2_supervisor_2_api_8h.html" title=" " alt="" coords="251,79,429,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="835,32,656,53,448,81,430,84,429,79,448,76,656,48,834,26"/>
+<area shape="rect" id="Node000006" href="$_ajax_2_metrics_2_api_8h.html" title=" " alt="" coords="490,328,630,353"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="834,21,740,24,638,33,590,41,549,51,516,64,494,80,477,110,471,144,476,180,487,216,521,281,553,326,548,329,517,284,482,218,471,181,466,144,472,109,490,77,513,59,547,46,589,35,637,28,739,19,834,16"/>
+<area shape="rect" id="Node000007" href="$_ajax_2_screen_mgr_2_api_8h.html" title=" " alt="" coords="743,86,905,111"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="898,41,840,88,837,84,895,37"/>
+<area shape="rect" id="Node000012" href="$_logical_buttons_8h.html" title=" " alt="" coords="929,86,1111,111"/>
+<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="948,37,1007,84,1004,88,945,41"/>
+<area shape="rect" id="Node000013" href="$_ajax_2_ui_2_status_indicator_2_api_8h.html" title=" " alt="" coords="1135,79,1305,119"/>
+<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="978,31,1149,76,1148,81,977,37"/>
+<area shape="rect" id="Node000014" href="$_log_sink_8h.html" title=" " alt="" coords="1329,86,1495,111"/>
+<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="1009,29,1318,76,1357,83,1356,89,1317,81,1008,34"/>
+<area shape="rect" id="Node000015" href="$_manager_8h.html" title=" " alt="" coords="1519,86,1675,111"/>
+<area shape="poly" id="edge17_Node000001_Node000015" title=" " alt="" coords="1009,23,1235,42,1507,76,1547,83,1546,89,1506,81,1234,48,1008,28"/>
+<area shape="rect" id="Node000016" href="$_indexed_entry_server_8h.html" title=" " alt="" coords="1699,79,1901,119"/>
+<area shape="poly" id="edge18_Node000001_Node000016" title=" " alt="" coords="1009,21,1309,40,1498,56,1687,76,1699,78,1698,83,1686,81,1497,61,1309,46,1008,26"/>
+<area shape="rect" id="Node000018" href="$_record_server_8h.html" title=" " alt="" coords="505,86,719,111"/>
+<area shape="poly" id="edge20_Node000001_Node000018" title=" " alt="" coords="864,37,658,89,656,83,863,31"/>
+<area shape="rect" id="Node000024" href="$_ajax_2_thermistor_8h.html" title=" " alt="" coords="1925,86,2133,111"/>
+<area shape="poly" id="edge28_Node000001_Node000024" title=" " alt="" coords="1009,19,1401,36,1656,52,1914,76,1966,83,1965,89,1913,81,1656,58,1401,41,1008,24"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="287,127,176,176,174,172,285,122"/>
+<area shape="rect" id="Node000005" href="$_heating_2_simulated_2_house_8h_source.html" title=" " alt="" coords="253,167,429,207"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="343,133,344,166,338,166,338,133"/>
+<area shape="rect" id="Node000008" href="$_ajax_2_ui_2_about_2_screen_8h.html" title=" " alt="" coords="788,174,959,199"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="840,122,869,172,864,175,835,125"/>
+<area shape="rect" id="Node000010" href="$_ajax_2_ui_2_edit_setpt_2_screen_8h.html" title=" " alt="" coords="985,174,1177,199"/>
+<area shape="poly" id="edge10_Node000007_Node000010" title=" " alt="" coords="872,113,1048,171,1046,176,871,118"/>
+<area shape="rect" id="Node000011" href="$_ajax_2_ui_2_home_2_screen_8h.html" title=" " alt="" coords="1203,174,1375,199"/>
+<area shape="poly" id="edge12_Node000007_Node000011" title=" " alt="" coords="894,111,918,116,1190,164,1230,171,1229,177,1189,169,917,121,893,117"/>
+<area shape="rect" id="Node000009" href="$_ajax_2_main_2screens_8h.html" title="This file exposes handles to Screen instances for the Ajax Application." alt="" coords="1225,255,1378,280"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="948,199,974,204,1238,252,1237,257,973,209,947,205"/>
+<area shape="poly" id="edge11_Node000010_Node000009" title=" " alt="" coords="1127,201,1270,252,1268,257,1125,206"/>
+<area shape="poly" id="edge13_Node000011_Node000009" title=" " alt="" coords="1296,213,1302,254,1297,255,1291,214"/>
+<area shape="rect" id="Node000017" href="$_log_8h.html" title=" " alt="" coords="1729,167,1871,207"/>
+<area shape="poly" id="edge19_Node000016_Node000017" title=" " alt="" coords="1803,133,1803,166,1797,166,1797,133"/>
+<area shape="rect" id="Node000019" href="$_provision_8h.html" title=" " alt="" coords="728,328,899,353"/>
+<area shape="poly" id="edge21_Node000018_Node000019" title=" " alt="" coords="586,122,564,142,548,168,535,199,527,226,529,251,545,278,556,288,572,297,618,311,673,322,728,329,727,335,672,327,617,316,570,302,553,292,541,282,524,253,522,226,530,198,543,165,560,139,582,118"/>
+<area shape="rect" id="Node000020" href="$_dm_2_persistent_2_record_8h.html" title=" " alt="" coords="557,174,757,199"/>
+<area shape="poly" id="edge22_Node000018_Node000020" title=" " alt="" coords="627,123,653,172,649,175,622,125"/>
+<area shape="rect" id="Node000021" href="$_metrics_record_8h.html" title=" " alt="" coords="555,255,751,280"/>
+<area shape="poly" id="edge23_Node000020_Node000021" title=" " alt="" coords="659,213,657,255,651,254,653,213"/>
+<area shape="rect" id="Node000022" href="$_personality_record_8h.html" title=" " alt="" coords="776,255,997,280"/>
+<area shape="poly" id="edge25_Node000020_Node000022" title=" " alt="" coords="705,201,854,252,852,257,703,206"/>
+<area shape="rect" id="Node000023" href="$_user_record_8h.html" title=" " alt="" coords="1021,255,1200,280"/>
+<area shape="poly" id="edge27_Node000020_Node000023" title=" " alt="" coords="737,199,1045,252,1044,257,736,204"/>
+<area shape="poly" id="edge24_Node000021_Node000006" title=" " alt="" coords="629,290,577,330,574,326,626,286"/>
+<area shape="poly" id="edge26_Node000022_Node000019" title=" " alt="" coords="867,292,827,330,823,326,863,288"/>
+<area shape="rect" id="Node000025" href="$_eros_2_thermistor_8h.html" title=" " alt="" coords="1926,174,2133,199"/>
+<area shape="poly" id="edge29_Node000024_Node000025" title=" " alt="" coords="2032,125,2032,173,2027,173,2027,125"/>
 </map>

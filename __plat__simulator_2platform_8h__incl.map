@@ -1,7 +1,7 @@
 <map id="Ajax/Main/_plat_simulator/platform.h" name="Ajax/Main/_plat_simulator/platform.h">
-<area shape="rect" id="Node000001" title="This file defines platform specific interfaces when running on the simulator." alt="" coords="80,5,250,46"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,94,144,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,48,102,86,98,82,141,44"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="168,94,344,120"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="189,44,232,82,229,86,186,48"/>
+<area shape="rect" id="Node000001" title="This file defines platform specific interfaces when running on the simulator." alt="" coords="87,5,279,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,160,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,48,110,87,107,82,157,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="184,93,381,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="209,43,258,82,255,87,205,48"/>
 </map>

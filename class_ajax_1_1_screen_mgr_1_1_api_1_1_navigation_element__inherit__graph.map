@@ -1,7 +1,7 @@
 <map id="Ajax::ScreenMgr::Api::NavigationElement" name="Ajax::ScreenMgr::Api::NavigationElement">
-<area shape="rect" id="Node000001" title="Type for &#39;elements&#39; in the Navigation Stack." alt="" coords="28,153,169,193"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="5,79,192,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,120,101,152,96,152,96,120"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="32,5,165,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="101,46,101,79,96,79,96,46"/>
+<area shape="rect" id="Node000001" title="Type for &#39;elements&#39; in the Navigation Stack." alt="" coords="33,152,191,192"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="5,79,219,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,118,115,152,109,152,109,118"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="36,5,188,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="115,44,115,79,109,79,109,44"/>
 </map>

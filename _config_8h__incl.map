@@ -1,7 +1,7 @@
 <map id="Ajax/Heating/Flc/Config.h" name="Ajax/Heating/Flc/Config.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,173,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="13,79,77,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,33,63,67,58,64,79,30"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="101,79,165,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="99,30,120,64,115,67,94,33"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,192,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="17,79,87,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,32,69,69,65,66,89,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="111,79,182,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="109,30,134,66,129,69,104,33"/>
 </map>

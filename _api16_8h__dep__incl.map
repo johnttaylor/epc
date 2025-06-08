@@ -1,7 +1,7 @@
 <map id="Cpl/Checksum/Api16.h" name="Cpl/Checksum/Api16.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="142,5,295,31"/>
-<area shape="rect" id="Node000002" href="$_crc16_ccitt_fast_8h.html" title=" " alt="" coords="5,79,213,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,42,129,81,126,76,186,37"/>
-<area shape="rect" id="Node000003" href="$_fletcher16_8h.html" title=" " alt="" coords="237,79,418,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="251,37,310,76,308,81,248,42"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="151,5,319,31"/>
+<area shape="rect" id="Node000002" href="$_crc16_ccitt_fast_8h.html" title=" " alt="" coords="5,79,229,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,40,138,81,135,76,203,35"/>
+<area shape="rect" id="Node000003" href="$_fletcher16_8h.html" title=" " alt="" coords="253,79,453,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="267,35,335,76,333,81,264,40"/>
 </map>

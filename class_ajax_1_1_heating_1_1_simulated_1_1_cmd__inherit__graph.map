@@ -1,15 +1,9 @@
 <map id="Ajax::Heating::Simulated::Cmd" name="Ajax::Heating::Simulated::Cmd">
-<area shape="rect" id="Node000001" title="This class implements a Shell command." alt="" coords="5,447,200,473"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_t_shell_1_1_cmd_1_1_command.html" title="This partially concrete class implements infrastructure and/or common functionality for a Shell comma..." alt="" coords="12,374,193,399"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,415,105,447,100,447,100,415"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_t_shell_1_1_command.html" title="This class defines the interface for a TShell command." alt="" coords="28,300,177,326"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="105,341,105,373,100,373,100,341"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_map_item.html" title="This abstract class represents a item that can be contained in an Map (aka a sorted list implemented ..." alt="" coords="23,226,182,252"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="105,267,105,300,100,300,100,267"/>
-<area shape="rect" id="Node000005" href="$class_cpl_1_1_container_1_1_dict_item.html" title="This abstract class represents a item that can be contained in Dictionary." alt="" coords="24,153,181,178"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="105,194,105,226,100,226,100,194"/>
-<area shape="rect" id="Node000006" href="$class_cpl_1_1_container_1_1_extended_item.html" title="This class is used by the Container classes to implement a various types of DOUBLY linked containers." alt="" coords="9,79,196,105"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="105,120,105,152,100,152,100,120"/>
-<area shape="rect" id="Node000007" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="36,5,169,31"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="105,46,105,79,100,79,100,46"/>
+<area shape="rect" id="Node000001" title="This class implements a Shell command." alt="" coords="5,225,228,251"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_t_shell_1_1_cmd_1_1_command.html" title="This partially concrete class implements infrastructure and/or common functionality for a Shell comma..." alt="" coords="15,152,219,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,191,119,225,114,225,114,191"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_t_shell_1_1_command.html" title="This class defines the interface for a TShell command." alt="" coords="33,79,200,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="119,118,119,152,114,152,114,118"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_item.html" title="This class is used by the Container classes to implement a various types of singly linked containers." alt="" coords="41,5,193,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="119,44,119,79,114,79,114,44"/>
 </map>

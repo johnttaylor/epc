@@ -1,9 +1,9 @@
 <map id="Driver/I2C/Master.h" name="Driver/I2C/Master.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="180,5,313,31"/>
-<area shape="rect" id="Node000002" href="$_i2_c_2_arduino_2_master_8h.html" title=" " alt="" coords="5,79,133,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,40,114,81,112,76,204,35"/>
-<area shape="rect" id="Node000003" href="$_i2_c_2_s_t_m32_2_master_8h.html" title=" " alt="" coords="157,87,336,112"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="249,47,249,86,244,86,244,47"/>
-<area shape="rect" id="Node000004" href="$_driver_2_n_v_2_onsemi_2_c_a_t24_c512_2_api_8h.html" title=" " alt="" coords="360,79,562,120"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="294,34,408,76,407,81,293,39"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="195,5,341,31"/>
+<area shape="rect" id="Node000002" href="$_i2_c_2_arduino_2_master_8h.html" title=" " alt="" coords="5,79,147,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,38,123,81,121,76,227,33"/>
+<area shape="rect" id="Node000003" href="$_i2_c_2_s_t_m32_2_master_8h.html" title=" " alt="" coords="171,86,365,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="271,44,271,86,265,86,265,44"/>
+<area shape="rect" id="Node000004" href="$_driver_2_n_v_2_onsemi_2_c_a_t24_c512_2_api_8h.html" title=" " alt="" coords="390,79,607,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="315,33,444,76,442,81,314,38"/>
 </map>

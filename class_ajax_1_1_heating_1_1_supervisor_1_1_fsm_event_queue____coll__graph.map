@@ -1,9 +1,9 @@
 <map id="Ajax::Heating::Supervisor::FsmEventQueue_" name="Ajax::Heating::Supervisor::FsmEventQueue_">
-<area shape="rect" id="Node000001" title="Event Queue for FSM events." alt="" coords="5,199,171,240"/>
-<area shape="rect" id="Node000002" href="$class_ajax_1_1_heating_1_1_supervisor_1_1_fsm.html" title="Here is the graph that shows the state machine this class implements." alt="" coords="48,117,96,142"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,157,87,198,82,199,74,158"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_ring_buffer.html" title=" " alt="" coords="120,109,288,150"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="168,161,116,201,112,196,165,157"/>
-<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_ring_buffer.html" title="This template class implements a Ring Buffer." alt="" coords="120,5,288,46"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="207,62,207,109,201,109,201,62"/>
+<area shape="rect" id="Node000001" title="Event Queue for FSM events." alt="" coords="5,197,192,237"/>
+<area shape="rect" id="Node000002" href="$class_ajax_1_1_heating_1_1_supervisor_1_1_fsm.html" title="Here is the graph that shows the state machine this class implements." alt="" coords="57,115,108,141"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,154,98,197,93,198,85,155"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_container_1_1_ring_buffer.html" title=" " alt="" coords="133,108,323,148"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,158,128,199,125,195,187,153"/>
+<area shape="rect" id="Node000004" href="$class_cpl_1_1_container_1_1_ring_buffer.html" title="This template class implements a Ring Buffer." alt="" coords="133,5,323,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="231,59,231,108,225,108,225,59"/>
 </map>

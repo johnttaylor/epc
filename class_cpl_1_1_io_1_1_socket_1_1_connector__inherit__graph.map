@@ -1,7 +1,7 @@
 <map id="Cpl::Io::Socket::Connector" name="Cpl::Io::Socket::Connector">
-<area shape="rect" id="Node000001" title="This abstract class defines the interface for establishing/requesting a SIMPLE socket connection,..." alt="" coords="76,5,245,31"/>
-<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_socket_1_1_posix_1_1_connector.html" title="This concrete class implements the Cpl::Io::Socket::Connector interface using IPv4/IPv6 addressing fo..." alt="" coords="5,79,148,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,44,99,81,95,77,135,40"/>
-<area shape="rect" id="Node000003" href="$class_cpl_1_1_io_1_1_socket_1_1_win32_1_1_connector.html" title="This concrete class implements the Cpl::Io::Socket::Connector interface using IPv4/IPv6 addressing fo..." alt="" coords="171,79,318,120"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="186,40,226,77,222,81,182,44"/>
+<area shape="rect" id="Node000001" title="This abstract class defines the interface for establishing/requesting a SIMPLE socket connection,..." alt="" coords="82,5,270,31"/>
+<area shape="rect" id="Node000002" href="$class_cpl_1_1_io_1_1_socket_1_1_posix_1_1_connector.html" title="This concrete class implements the Cpl::Io::Socket::Connector interface using IPv4/IPv6 addressing fo..." alt="" coords="5,79,163,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,42,108,81,104,76,150,38"/>
+<area shape="rect" id="Node000003" href="$class_cpl_1_1_io_1_1_socket_1_1_win32_1_1_connector.html" title="This concrete class implements the Cpl::Io::Socket::Connector interface using IPv4/IPv6 addressing fo..." alt="" coords="187,79,349,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,38,248,76,244,81,198,42"/>
 </map>

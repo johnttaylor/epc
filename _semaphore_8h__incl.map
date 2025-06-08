@@ -1,9 +1,9 @@
 <map id="Cpl/System/Semaphore.h" name="Cpl/System/Semaphore.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="46,5,214,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,106,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,33,81,70,77,66,116,30"/>
-<area shape="rect" id="Node000003" href="$_signable_8h.html" title=" " alt="" coords="130,79,282,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="145,30,184,66,181,70,141,33"/>
-<area shape="rect" id="Node000004" href="$_item_8h.html" title=" " alt="" coords="137,153,276,178"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="209,105,209,137,204,137,204,105"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="51,5,238,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,119,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,33,88,72,84,67,130,29"/>
+<area shape="rect" id="Node000003" href="$_signable_8h.html" title=" " alt="" coords="143,79,311,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,29,205,67,202,72,156,33"/>
+<area shape="rect" id="Node000004" href="$_item_8h.html" title=" " alt="" coords="149,152,305,177"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="230,104,230,138,225,138,225,104"/>
 </map>
