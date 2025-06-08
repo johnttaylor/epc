@@ -46,6 +46,7 @@ IF ERRORLEVEL 1 EXIT /b 1
 
 :: Set up the compiler (which is included in the repo)
 call ./env.bat 4
+echo:%PATH%
 
 :: Build the Projects (non-debug)
 cd %_ROOT%\projects
