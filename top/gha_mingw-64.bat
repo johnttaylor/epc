@@ -29,7 +29,7 @@ echo:
 
 :: Build NON-unit-test projects
 cd %_ROOT%\projects
-%_TOOLS%\bob.py -v4 --exclude catch2 mingw_w64 -c --bldtime --try win64 --bldnum %BUILD_NUMBER%
+python %_ROOT%\xsrc\nqbp2\other\bob.py -v4 --script-prefix python --exclude catch2 mingw_w64 -c --bldtime --try win64 --bldnum %BUILD_NUMBER%
 IF ERRORLEVEL 1 EXIT /b 1
 
 :: Build the Catch2 static library

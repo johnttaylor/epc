@@ -36,12 +36,12 @@ echo:
 
 :: Build NON-unit-test projects (debug builds)
 cd %_ROOT%\projects      
-%_TOOLS%\bob.py -v4 --exclude catch2 --script-prefix python vc12 -cg --bldtime -b win32 --bldnum %BUILD_NUMBER%
+python %_ROOT%\xsrc\nqbp2\other\bob.py -v4 --exclude catch2 --script-prefix python vc12 -cg --bldtime -b win32 --bldnum %BUILD_NUMBER%
 IF ERRORLEVEL 1 EXIT /b 1
 
 :: Build the Catch2 static library
 cd %_ROOT%\projects\xsrc\catch2
-%_ROOT%\xsrc\nqbp2\other\bob.py -v4 --script-prefix python vc12 -c --bld-all
+python %_ROOT%\xsrc\nqbp2\other\bob.py -v4 --script-prefix python vc12 -c --bld-all
 
 
 :: Build the unit tests
