@@ -22,7 +22,7 @@
 
 # get definition of the Options strcuture
 from nqbplib.base import BuildValues
-
+import os, copy
 
 #===================================================
 # BEGIN EDITS/CUSTOMIZATIONS
@@ -51,26 +51,6 @@ debug_release = BuildValues()       # Do NOT comment out this line
 
 
 
-# 
-# For build config/variant: "cpp11"
-# (note: uses same internal toolchain options as the 'Release' variant, 
-#        only the 'User' options will/are different)
-#
-
-# Construct option structs
-base_cpp11     = BuildValues()  
-optimzed_cpp11 = BuildValues()
-debug_cpp11    = BuildValues()
-
-# Set 'base' options
-base_cpp11.cflags     = '-m32 -std=c++11 -Wall -Werror -x c++ -Wl,-static-libgcc -Wl,-static-libstdc++ -fprofile-arcs -ftest-coverage'
-base_cpp11.linkflags  = '-m32 -fprofile-arcs'
-base_cpp11.linklibs   = '-lgcov'
-
-# Set 'Optimized' options
-optimzed_cpp11.cflags = '-O3'
-
-
 #
 # For build config/variant: "win64"
 # (note: uses same internal toolchain options as the 'Release' variant,
@@ -88,7 +68,20 @@ base_win64.linkflags  = '-m64 -fprofile-arcs'
 base_win64.linklibs   = '-lgcov'
 
 # Set 'Optimized' options
-optimzed_cpp11.cflags = '-O3'
+optimzed_win64.cflags = '-O3'
+
+# 
+# For build config/variant: "cpp11"
+# (note: uses same internal toolchain options as the 'Release' variant, 
+#        only the 'User' options will/are different)
+#
+
+# same options as win64 (but uses different libdirs entries)
+base_cpp11      = copy.deepcopy(base_win64)
+optimized_cpp11 = copy.deepcopy(optimzed_win64)
+debug_cpp11     = copy.deepcopy(debug_win64)
+
+
 
 #-------------------------------------------------
 # ONLY edit this section if you are ADDING options
@@ -103,7 +96,7 @@ release_opts = { 'user_base':base_release,
                
 # Add new dictionary of for new build configuraiton options
 cpp11_opts = { 'user_base':base_cpp11, 
-               'user_optimized':optimzed_cpp11, 
+               'user_optimized':optimized_cpp11, 
                'user_debug':debug_cpp11
              }
   

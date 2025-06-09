@@ -8,8 +8,8 @@ $ ERROR: [bye]
 ERRNO 5: Command encounter 'extra' argument(s)
 $ ERROR: [tprint]
 ERRNO 5: Command encounter 'extra' argument(s)
-$ ERROR: [thread to many args]
-ERRNO 2: Command not supported
+$ ERROR: [thread]
+ERRNO 5: Command encounter 'extra' argument(s)
 $ ERROR: [trace]
 ERRNO 6: One or more Command arguments are incorrect/invalid
 $ ERROR: [help]

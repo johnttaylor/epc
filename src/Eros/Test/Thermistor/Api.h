@@ -53,7 +53,7 @@ public:
 
 public:
     /// Constructor. 
-    Api( Cpl::Container::Map<MAppApi>&    mappList,
+    Api( Cpl::Container::SList<MAppApi>&    mappList,
          Cpl::Dm::MailboxServer&          myMbox,
          Cpl::Dm::Mp::ArrayInt32<2>&      mpDriverSamples,
          const char*                      name = DEFAULT_NAME );

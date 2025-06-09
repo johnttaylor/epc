@@ -4,7 +4,7 @@
 * agreement (license.txt) in the top/ directory or on the Internet at
 * http://integerfox.com/colony.core/license.txt
 *
-* Copyright (c) 2014-2022  John T. Taylor
+* Copyright (c) 2014-2025  John T. Taylor
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
@@ -18,7 +18,7 @@ using namespace Cpl::TShell::Cmd;
 
 
 ///////////////////////////
-User::User( Cpl::Container::Map<Cpl::TShell::Command>& commandList, Cpl::TShell::Security& validator ) noexcept
+User::User( Cpl::Container::SList<Cpl::TShell::Command>& commandList, Cpl::TShell::Security& validator ) noexcept
     : Command( commandList, verb, Cpl::TShell::Security::ePUBLIC ) // ALWAYS a public command
     , m_validator( validator )
 {

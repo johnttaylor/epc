@@ -45,6 +45,26 @@ which littlefs to use).  For example:
     Cpl::Io::File::Api::createDirectory( "/A/mydirectory" );    // Created on volume1
 
 
+NOTE: The following edits need to be made to the littlefs repo to be 
+      build without warnings when using the Microsoft Compiler
+
+      \code
+
+      File: lfs.c, lfs_utils.h
+        Add the following #ifdef at the top of the file
+            // EDIT: JTT - Added this to suppress warning when using the Visual Studio compiler
+            #ifdef _MSC_VER
+            #pragma warning( disable : 4244 4804 )
+            #endif
+
+      File: lfs_utils.h
+        Add the following #ifdef at the top of the file
+            // EDIT: JTT - Added this to suppress warning when using the Visual Studio compiler
+            #ifdef _MSC_VER
+            #pragma warning( disable : 4146 )
+            #endif
+
+     \endcode
 */  
 
 

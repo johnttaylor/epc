@@ -4,7 +4,7 @@
 * agreement (license.txt) in the top/ directory or on the Internet at
 * http://integerfox.com/colony.core/license.txt
 *
-* Copyright (c) 2014-2022  John T. Taylor
+* Copyright (c) 2014-2025  John T. Taylor
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
@@ -29,7 +29,7 @@ static void dummy_( const char* f1, const char* f2, const char* f3, const char* 
 
 
 ///////////////////////////
-Trace::Trace( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+Trace::Trace( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
 			  Security::Permission_T                     minPermLevel ) noexcept
 	:Command( commandList, verb, minPermLevel )
 {

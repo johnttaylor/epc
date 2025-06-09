@@ -1,14 +1,14 @@
 {
   "configurations": [
     {
-      "name": "NQBP2: C:\\_workspaces\\zoe\\epc\\projects\\GM6000\\Ajax\\simulator\\windows\\mingw_w64\\_win32\\ajax-sim.exe",
+      "name": "NQBP2: C:\\_workspaces\\zoe\\epc\\tests\\Cpl\\TShell\\Cmd\\_0test\\windows\\vc12\\_win32\\b.exe",
       "type": "cppdbg",
       "request": "launch",
-      "program": "C:\\_workspaces\\zoe\\epc\\projects\\GM6000\\Ajax\\simulator\\windows\\mingw_w64\\_win32\\ajax-sim.exe",
+      "program": "C:\\_workspaces\\zoe\\epc\\tests\\Cpl\\TShell\\Cmd\\_0test\\windows\\vc12\\_win32\\b.exe",
       "args": [],
       "environment": [],
       "stopAtEntry": false,
-      "cwd": "C:\\_workspaces\\zoe\\epc\\projects\\GM6000\\Ajax\\simulator\\windows\\mingw_w64",
+      "cwd": "C:\\_workspaces\\zoe\\epc\\tests\\Cpl\\TShell\\Cmd\\_0test\\windows\\vc12",
       "externalConsole": false,
       "MIMode": "gdb",
       "setupCommands": [

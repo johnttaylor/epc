@@ -23,13 +23,20 @@
   },
   "publish": {
     "current": {
-      "comment": "Add support for building the Catch2 static library.  NOTE: This is breaking change to the 'preprocess' build script (new/different args)",
-      "version": "1.0.0",
-      "date": "Sun Dec 29 17:40:55 2024",
-      "timestamp": 1735494055,
+      "comment": "Minor updates to better support CI environements (on Windozes boxes)",
+      "version": "1.0.1",
+      "date": "Sun May 25 22:15:11 2025",
+      "timestamp": 1748211311,
       "changes": null
     },
     "history": [
+      {
+        "comment": "Add support for building the Catch2 static library.  NOTE: This is breaking change to the 'preprocess' build script (new/different args)",
+        "version": "1.0.0",
+        "date": "Sun Dec 29 17:40:55 2024",
+        "timestamp": 1735494055,
+        "changes": null
+      },
       {
         "comment": "Minor tweaks to vscode support",
         "version": "0.1.9",

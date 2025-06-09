@@ -51,19 +51,19 @@ public:
      */
     struct Data
     {
-        unsigned count;         //!< Number of currently active Alerts
-        Ajax::Type::Alert activeAlerts[Ajax::Type::Alert::NUM_ALERTS]; //!< Sorted (by priority) list of active Alerts
+        unsigned          count;                                        //!< Number of currently active Alerts
+        Ajax::Type::Alert activeAlerts[Ajax::Type::Alert::NUM_ALERTS];  //!< Sorted (by priority) list of active Alerts
 
         /// Constructor (to ensure any pad bytes get zero'd)
         Data()
         {
-            memset( (void*) this, 0, sizeof( Data ) );
+            memset( (void*)this, 0, sizeof( Data ) );
         }
     };
 
 protected:
     /// Storage for the MP's data
-    Data                m_data;
+    Data m_data;
 
 public:
     /** Constructor (MP in the invalid state)
@@ -72,7 +72,7 @@ public:
 
 public:
     /// Type safe read. See Cpl::Dm::ModelPoint
-    inline bool read( Data& dstData, uint16_t* seqNumPtr=0 ) const noexcept
+    inline bool read( Data& dstData, uint16_t* seqNumPtr = 0 ) const noexcept
     {
         return readData( &dstData, sizeof( Data ), seqNumPtr );
     }
@@ -95,7 +95,7 @@ public:
     typedef Cpl::Dm::Subscriber<MpAlertSummary> Observer;
 
     /// Type safe register observer
-    void attach( Observer& observer, uint16_t initialSeqNumber=SEQUENCE_NUMBER_UNKNOWN ) noexcept;
+    void attach( Observer& observer, uint16_t initialSeqNumber = SEQUENCE_NUMBER_UNKNOWN ) noexcept;
 
     /// Type safe un-register observer
     void detach( Observer& observer ) noexcept;
@@ -103,23 +103,29 @@ public:
     /// See Cpl::Dm::ModelPointCommon
     inline bool readAndSync( Data& dstData, Cpl::Dm::SubscriberApi& observerToSync )
     {
-        return ModelPointCommon_::readAndSync( &dstData, sizeof( Data ), observerToSync );
+        uint16_t seqNum;
+        return ModelPointCommon_::readAndSync( &dstData, sizeof( Data ), seqNum, observerToSync );
+    }
+
+    /// See Cpl::Dm::ModelPointCommon
+    inline bool readAndSync( Data& dstData, uint16_t& seqNum, Cpl::Dm::SubscriberApi& observerToSync )
+    {
+        return ModelPointCommon_::readAndSync( &dstData, sizeof( Data ), seqNum, observerToSync );
     }
 
 public:
     /// See Cpl::Dm::ModelPoint.
     const char* getTypeAsText() const noexcept;
 
-    /// See Cpl::Dm::Point.  
+    /// See Cpl::Dm::Point.
     bool fromJSON_( JsonVariant& src, LockRequest_T lockRequest, uint16_t& retSequenceNumber, Cpl::Text::String* errorMsg ) noexcept;
 
 protected:
-    /// See Cpl::Dm::Point.  
+    /// See Cpl::Dm::Point.
     void setJSONVal( JsonDocument& doc ) noexcept;
 };
 
 
-
-};      // end namespaces
+};  // end namespaces
 };
 #endif  // end header latch

@@ -6,7 +6,7 @@
 * agreement (license.txt) in the top/ directory or on the Internet at
 * http://integerfox.com/colony.core/license.txt
 *
-* Copyright (c) 2014-2022  John T. Taylor
+* Copyright (c) 2014-2025  John T. Taylor
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
@@ -43,7 +43,7 @@ public:
 	/** Constructor.  The application is responsible for supplying the set of commands and the mutex to ensure atomic
 		output.
 	 */
-	Maker( Cpl::Container::Map<Command>& cmdlist, Cpl::System::Mutex& lock=Cpl::System::Locks_::tracingOutput() );
+	Maker( Cpl::Container::SList<Command>& cmdlist, Cpl::System::Mutex& lock=Cpl::System::Locks_::tracingOutput() );
 
 
 public:

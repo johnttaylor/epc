@@ -6,7 +6,7 @@
 * agreement (license.txt) in the top/ directory or on the Internet at
 * http://integerfox.com/colony.core/license.txt
 *
-* Copyright (c) 2014-2022  John T. Taylor
+* Copyright (c) 2014-2025  John T. Taylor
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
@@ -23,7 +23,7 @@ namespace Container {
 
 
 /** This abstract class represents a item that can be contained in
-    Dictionary.  The Dictionary is an ordered map implemented as a hash table
+    Dictionary.  The Dictionary is an unordered map implemented as a hash table
     that can only contain item(s) with same key type. The client sub-class is
     required to implement the 'getKey() method.
 

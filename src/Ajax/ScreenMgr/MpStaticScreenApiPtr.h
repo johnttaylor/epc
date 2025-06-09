@@ -74,9 +74,15 @@ public:
     /// See Cpl::Dm::ModelPointCommon
     inline bool readAndSync( StaticScreenApi*& dstData, Cpl::Dm::SubscriberApi& observerToSync )
     {
-        return ModelPointCommon_::readAndSync( &dstData, sizeof( void* ), observerToSync );
+        uint16_t seqNum;
+        return ModelPointCommon_::readAndSync( &dstData, sizeof( void* ), seqNum, observerToSync );
     }
 
+    /// See Cpl::Dm::ModelPointCommon
+    inline bool readAndSync( StaticScreenApi*& dstData, uint16_t& seqNum, Cpl::Dm::SubscriberApi& observerToSync )
+    {
+        return ModelPointCommon_::readAndSync( &dstData, sizeof( void* ), seqNum, observerToSync );
+    }
     ///  See Cpl::Dm::ModelPoint.
     const char* getTypeAsText() const noexcept
     {

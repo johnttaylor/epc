@@ -37,6 +37,8 @@ Options:
                          config/setup is required.
     --config SCRIPT      Same as the '--xconfig' option, but the name and path 
                          are relative to the package root directory
+    --script-prefix PRE  Prefix for all script calls (typically only needed in a
+                         a CI environment, e.g. --scrip-prefix python.exe)
     -x SCRIPT            Build using SCRIPT [Default: nqbp.py]
     -2                   Run two builds at the same time
     -4                   Run four builds at the same time
@@ -91,7 +93,7 @@ def _filter_prj_list( all_prj, pattern, pkgroot, exclude=None, exclude2=None, ex
 
     return list
     
-def _build_project( full_path_of_build_script, verbose, bldopts, config, xconfig, pkgroot ):
+def _build_project( full_path_of_build_script, verbose, bldopts, config, xconfig, pkgroot, script_prefix ):
     # reconcile config options
     cfg = None
     if ( config ):
@@ -101,7 +103,7 @@ def _build_project( full_path_of_build_script, verbose, bldopts, config, xconfig
     
     # Build the project
     utils.push_dir( os.path.dirname(full_path_of_build_script) )
-    cmd = full_path_of_build_script + ' ' + " ".join(bldopts)
+    cmd = f"{script_prefix} {full_path_of_build_script} "  + " ".join(bldopts)
     print( "BUILDING: "+ cmd )
     if ( config ):
         cmd = utils.concatenate_commands( cfg, cmd )
@@ -130,8 +132,10 @@ if __name__ == '__main__':
 
     
     # Set which build engine to use
-    build_script = args['-x']
-
+    build_script  = args['-x']
+    script_prefix = args['--script-prefix']
+    if script_prefix is None:
+        script_prefix = ''
 
     # Get superset of projects to build
     utils.push_dir( ppath )
@@ -158,7 +162,7 @@ if __name__ == '__main__':
                 line = utils.standardize_dir_sep( line.strip() )
         
                 # Process 'add' entries
-                cmd = "bob.py " + line
+                cmd = f"{script_prefix} bob.py " + line
                 utils.run_shell( cmd, args['-v'], "ERROR: Build from File failed." )
     
             inf.close()
@@ -180,7 +184,7 @@ if __name__ == '__main__':
         # Run the Jobs serially
         if ( not args['-2'] and not args['-4'] ):
             for p in jobs:
-                _build_project(p, args['-v'], args['<build-opts>'], args['--config'], args['--xconfig'], pkgroot )
+                _build_project(p, args['-v'], args['<build-opts>'], args['--config'], args['--xconfig'], pkgroot, script_prefix )
 
         # Run the Jobs in PARALLEL
         else:
@@ -200,7 +204,7 @@ if __name__ == '__main__':
                         j         = jobs[index]
                         index     += 1
                         busy      += 1
-                        handles[i] = Process(target=_build_project, args=(j, args['-v'], args['<build-opts>'], args['--config'], args['--xconfig'], pkgroot) )
+                        handles[i] = Process(target=_build_project, args=(j, args['-v'], args['<build-opts>'], args['--config'], args['--xconfig'], pkgroot, script_prefix) )
                         handles[i].start()
 
                 # Poll for processes being done

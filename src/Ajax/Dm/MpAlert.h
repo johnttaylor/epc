@@ -136,7 +136,14 @@ public:
     /// See Cpl::Dm::ModelPointCommon
     inline bool readAndSync( Data& dstData, Cpl::Dm::SubscriberApi& observerToSync )
     {
-        return ModelPointCommon_::readAndSync( &dstData, sizeof( Data ), observerToSync );
+        uint16_t seqNum;
+        return ModelPointCommon_::readAndSync( &dstData, sizeof( Data ), seqNum, observerToSync );
+    }
+
+    /// See Cpl::Dm::ModelPointCommon
+    inline bool readAndSync( Data& dstData, uint16_t& seqNum, Cpl::Dm::SubscriberApi& observerToSync )
+    {
+        return ModelPointCommon_::readAndSync( &dstData, sizeof( Data ), seqNum, observerToSync );
     }
 
 public:

@@ -34,7 +34,7 @@ static Eros::TShell::Rgb        rgbCmd_( g_cmdlist, Driver::PicoDisplay::Api::rg
 static Eros::TShell::Pwm        pwmCmd_( g_cmdlist, Ajax::Main::g_heaterPWMDriver, Ajax::Main::g_fanPWMDriver );
 static Eros::TShell::HwSafety   hwSafetyCmd_( g_cmdlist, Ajax::Main::g_hwSafetyDriver );
 
-static Cpl::Container::Map<Cpl::MApp::MAppApi>   mappList_;
+static Cpl::Container::SList<Cpl::MApp::MAppApi>   mappList_;
 static Cpl::MApp::Manager                        mappManager_( g_appMbox, mappList_ );
 static Cpl::MApp::Cmd                            mappCmd_( g_cmdlist, mappManager_ );
 

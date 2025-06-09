@@ -4,7 +4,7 @@
 * agreement (license.txt) in the root directory or on the Internet at
 * http://www.shift-right.com/openrepo/license.htm
 *
-* Copyright (c) 2014-2022  John T. Taylor
+* Copyright (c) 2014-2025  John T. Taylor
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/

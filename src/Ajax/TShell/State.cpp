@@ -22,7 +22,7 @@ using namespace Ajax::TShell;
 
 
 ///////////////////////////
-State::State( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+State::State( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
                       Cpl::TShell::Security::Permission_T        minPermLevel ) noexcept
     : Cpl::TShell::Cmd::Command( commandList, verb, minPermLevel )
 {

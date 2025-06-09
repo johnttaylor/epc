@@ -4,7 +4,7 @@
 * agreement (license.txt) in the top/ directory or on the Internet at
 * http://integerfox.com/colony.core/license.txt
 *
-* Copyright (c) 2014-2022  John T. Taylor
+* Copyright (c) 2014-2025  John T. Taylor
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
@@ -134,7 +134,7 @@ void AsyncListener::poll() noexcept
             //       to the socket after the remote host has disconnected.  In theory
             //       I could use WSApoll (Windoze equivalent of poll()) to determine
             //       the socket state - but WSApoll is apparently broken - google: 
-            //       “Windows 8 Bugs 309411 – WSAPoll does not report failed connections”.
+            //       ï¿½Windows 8 Bugs 309411 ï¿½ WSAPoll does not report failed connectionsï¿½.
             if ( m_clientPtr->isEos() )
             {
                 // Accept connections again

@@ -53,7 +53,7 @@ class Api : public Cpl::MApp::MApp_, public Cpl::System::Timer
 
 public:
     /// Constructor. 
-    Api( Cpl::Container::Map<MAppApi>& mappList,
+    Api( Cpl::Container::SList<MAppApi>& mappList,
          Cpl::Dm::MailboxServer&       myMbox,
          Driver::DIO::Pwm&             heaterPWMDriver,
          Driver::DIO::Pwm&             fanPWMDriver );

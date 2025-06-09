@@ -18,7 +18,7 @@ using namespace Eros::TShell;
 
 
 ///////////////////////////
-HwSafety::HwSafety( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+HwSafety::HwSafety( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
           Driver::DIO::In&                           hwSafetyInDriver,
           Cpl::TShell::Security::Permission_T        minPermLevel ) noexcept
     : Cpl::TShell::Cmd::Command( commandList, verb, minPermLevel )

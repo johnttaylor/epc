@@ -25,7 +25,7 @@ void getDisplayIdt( int32_t srcTemp, int32_t& dstInteger, int32_t& dstFractional
 }
 
 /////////////////////////////////////////////////////
-Api::Api( Cpl::Container::Map<MAppApi>&    mappList,
+Api::Api( Cpl::Container::SList<MAppApi>&    mappList,
           Cpl::Dm::MailboxServer&          myMbox,
           Cpl::Dm::Mp::ArrayInt32<2>&      mpDriverSamples,
           const char*                      name )
@@ -57,7 +57,7 @@ bool Api::start_( char* args ) noexcept
     }
 
     CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ("%s: Configuration: displayMs=%u ms",
-                                                           m_name.getKeyValue(),
+                                                           m_name,
                                                            m_displayMs) );
 
     // Housekeeping
@@ -164,7 +164,7 @@ void Api::changedADCSample( Cpl::Dm::Mp::ArrayInt32<2>& mp, Cpl::Dm::SubscriberA
            
             uint32_t avgBits = (uint32_t)(m_sumADCBits / m_numSamples);
             CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ("%s: 'F= %02d.%d (%02d.%d %02d.%d %02d.%d), ADC= %4u (%4u %4u %4u)",
-                                                                   m_name.getKeyValue(),
+                                                                   m_name,
                                                                    tempInteger, tempTenths,
                                                                    avgInteger, avgTenths,
                                                                    minInteger, minTenths,
@@ -178,7 +178,7 @@ void Api::changedADCSample( Cpl::Dm::Mp::ArrayInt32<2>& mp, Cpl::Dm::SubscriberA
     else if ( !m_invalidData )
     {
         m_invalidData = true;
-        CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ("%s: <data invalid>", m_name.getKeyValue()) );
+        CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ("%s: <data invalid>", m_name) );
     }
 }
 

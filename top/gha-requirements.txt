@@ -1,0 +1,2 @@
+gcovr==7.2
+pexpect==4.9.0

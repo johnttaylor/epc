@@ -48,7 +48,7 @@ static void createLogEntry( const char* catString, uint32_t catId, const char* m
 
 
 ///////////////////////////
-Log::Log( Cpl::Container::Map<Cpl::TShell::Command>&                         commandList,
+Log::Log( Cpl::Container::SList<Cpl::TShell::Command>&                         commandList,
           Cpl::Itc::PostApi&                                                 logEntryServerMailbox,
           Cpl::Persistent::IndexedEntryServer<Cpl::Logging::EntryData_T>&    logEntryServer,
           Cpl::TShell::Security::Permission_T                                minPermLevel ) noexcept
@@ -112,7 +112,7 @@ Cpl::TShell::Command::Result_T Log::execute( Cpl::TShell::Context_ & context, ch
         }
         else
         {
-            outtext.format( "Failed to convert <max> (%s, %s)", tokens.getParameter( 1 ) );
+            outtext.format( "Failed to convert <max> (%s)", tokens.getParameter( 1 ) );
             context.writeFrame( outtext );
             return eERROR_FAILED;
         }

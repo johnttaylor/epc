@@ -15,6 +15,7 @@
 #include "Driver/Crypto/Random.h"
 #include "Driver/Crypto/PasswordHash/Api.h"
 #include "Cpl/System/Trace.h"
+#include "Cpl/System/Assert.h"
 #include <string.h>
 
 #define SECT_   "Ajax::TShell"
@@ -24,7 +25,7 @@ using namespace Ajax::TShell;
 
 
 ///////////////////////////
-Provision::Provision( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+Provision::Provision( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
                       Ajax::Main::PersonalityRecord&             personalityRecord,
                       Cpl::Persistent::RecordServer&             recordServer,
                       Driver::Crypto::Hash&                      sha512HashFunction,

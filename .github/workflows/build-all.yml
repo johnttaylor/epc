@@ -1,0 +1,318 @@
+name: Build All
+# This workflow builds the project using different compilers and platforms.
+# It runs on pull requests and pushes to the develop and main branches.
+on:
+  pull_request:
+    branches:
+      - develop
+      - main
+  push:
+    branches:
+      - develop
+      - main
+
+# Cancels in-progress jobs if a new job is triggered
+# This helps to avoid multiple builds for the same pull request or branch.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Visual Studio Compiler Windows build job
+  vc_windows_build:
+    name: Visual Studio Compiler Windows Build
+    runs-on: windows-latest
+
+    steps:
+      # Checkout code
+      - name: Checkout code
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.safecrlf false
+      - uses: actions/checkout@v2
+
+      # Python setup
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12' 
+
+      # Ninja setup
+      - uses: seanmiddleditch/gha-setup-ninja@master
+        with:
+          version: '1.11.1'
+
+      # MSVC setup (For a Git hosted runner - always uses the latest version of MSVC)
+      - uses: ilammy/msvc-dev-cmd@v1.4.1
+        with:
+          arch: x86 
+
+      # This step is commented out, but can be used for debugging purposes.
+      #- name: Setup tmate session
+      # uses: mxschmitt/action-tmate@v3
+
+      # Build PRs
+      - name: Run build script - for PRs
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "Running build script for PRs..."
+          .\top\gha_vc12.bat ${{ github.run_number }} 
+
+      # Build Stable branches
+      - name: Run build script - for stable branches
+        if: github.event_name != 'pull_request'
+        run: |
+          echo "Running build script for stable branches..."
+          .\top\gha_vc12.bat ${{ github.run_number }} ${{ github.ref_name }}
+
+      # Upload Project binaries
+      - name: Upload Project binaries
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: simulator-binaries-${{ github.run_number }}
+          path: _artifacts/*.zip
+
+  # MinGW  Compiler Windows build job
+  mingw_64_windows_build:
+    name: MinGW Compiler Windows 64bit Build
+    runs-on: windows-latest
+
+    steps:
+      # Checkout code
+      - name: Checkout code
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.safecrlf false
+      - uses: actions/checkout@v2
+
+      # Python setup
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12' 
+
+      # Ninja setup
+      - uses: seanmiddleditch/gha-setup-ninja@master
+        with:
+          version: '1.11.1'
+
+      # MinGW setup
+      - name: MinGW compiler
+        uses: rlalik/setup-cpp-compiler@master
+        with:
+          compiler: gcc-10.3.0
+
+      # This step is commented out, but can be used for debugging purposes.
+      #- name: Setup tmate session
+      # uses: mxschmitt/action-tmate@v3
+
+      # Build PRs
+      - name: Run build script - for PRs
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "Running build script for PRs..."
+          .\top\gha_mingw-64.bat ${{ github.run_number }} 
+
+      # Build Stable branches
+      - name: Run build script - for stable branches
+        if: github.event_name != 'pull_request'
+        run: |
+          echo "Running build script for stable branches..."
+          .\top\gha_mingw-64.bat ${{ github.run_number }} ${{ github.ref_name }}
+
+  # GCC Compiler Linux build job
+  gcc_linux_build:
+    name: GCC Compiler Linux Build
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout code
+      - name: Checkout code
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.safecrlf false
+      - uses: actions/checkout@v2
+
+      - name: Calculate Lines of Code
+        id: loc
+        uses: PavanMudigonda/lines-of-code-reporter@v1.6
+        with:
+          directory: "./src" 
+          exclude_dir: "_0test,Bsp,Catch,.github"
+          exclude_ext: "xml,md,py,txt"                  
+
+      # Publish Lines of Code Summary  
+      - name: Add Lines of Code Summary
+        run: echo "${{ steps.loc.outputs.lines-of-code-summary }}" >> $GITHUB_STEP_SUMMARY
+
+      # Publish Lines - Details
+      - name: print output # Optional
+        shell: pwsh
+        run: | 
+          Write-Host 'Total Lines of Code...:  ${{ steps.loc.outputs.total_lines }}'
+          Write-Host 'Lines of Code Markdown Report Path...:  ${{ steps.loc.outputs.loc_report }}'
+
+      # Python setup (with gcovr)
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12' 
+      - run: pip install -r top/gha-requirements.txt
+
+      # Ninja setup
+      - uses: seanmiddleditch/gha-setup-ninja@master
+        with:
+          version: '1.11.1'
+
+      # This step is commented out, but can be used for debugging purposes.
+      #- name: Setup tmate session 
+      # uses: mxschmitt/action-tmate@v3
+
+      # Installs 
+      - name: Install Doxygen
+        uses: ssciwr/doxygen-install@v1
+        with:
+          version: "1.10.0"
+      
+      # Install Graphviz
+      - name: Install Graphviz
+        uses: tlylt/install-graphviz@v1
+         
+      # Run Doxygen 
+      - name: Run Doxygen
+        run: |
+          echo "Running Doxygen..."
+          cd ./top
+          ./run_doxygen.py ${{ github.run_number }} ${{ github.ref_name }} nochm
+        
+      # Build PRs
+      - name: Run build script - for PRs
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "Running build script for PRs..."
+          ./top/gha_linux-gcc.sh ${{ github.run_number }} 
+
+      # Build Stable branches
+      - name: Run build script - for stable branches
+        if: github.event_name != 'pull_request'
+        run: |
+          echo "Running build script for stable branches..."
+          ./top/gha_linux-gcc.sh ${{ github.run_number }} ${{ github.ref_name }}
+
+      # Publish Doxygen documentation (but only when building develop branch)
+      - name: Publish Doxygen documentation
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/develop'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/html
+
+      # Setup .NET Core Required to execute ReportGenerator
+      - name: Setup .NET Core # Required to execute ReportGenerator
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.x
+          dotnet-quality: 'ga'
+
+      # Generate Code Coverage Report
+      - name: ReportGenerator
+        uses: danielpalme/ReportGenerator-GitHub-Action@5.4.7
+        with:
+          reports: 'cobertura.xml'
+          targetdir: '_artifacts/coveragereport'
+          reporttypes: 'MarkdownSummaryGithub'
+          sourcedirs: 'src/'
+
+      # Upload coverage report artifact
+      - name: Upload coverage report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: CoverageReport # Artifact name        
+          path: _artifacts/coveragereport 
+
+      # Add Code Coverage Report as a PR comment
+      - name: Add comment to PR 
+        if: github.event_name == 'pull_request'
+        run: gh pr comment $PR_NUMBER --body-file _artifacts/coveragereport/SummaryGithub.md 
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.number }}
+
+      # Publish report to the Build summary    
+      - name: Publish coverage in build summary 
+        run: cat _artifacts/coveragereport/SummaryGithub.md >> $GITHUB_STEP_SUMMARY 
+        shell: bash
+
+
+  # ARM Cortex M/R Compiler Windows build job
+  arm_gcc_windows_build:
+    name: ARM Cortex M/R Compiler Windows Build
+    runs-on: windows-latest
+
+    steps:
+      # Checkout code
+      - name: Checkout code
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.safecrlf false
+      - uses: actions/checkout@v2
+
+      # Python setup
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12' 
+
+      # Ninja setup
+      - uses: seanmiddleditch/gha-setup-ninja@master
+        with:
+          version: '1.11.1'
+
+      #- name: Setup tmate session
+      # This step is commented out, but can be used for debugging purposes.
+      # uses: mxschmitt/action-tmate@v3
+
+      # Build PRs
+      - name: Run build script - for PRs
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "Running build script for PRs..."
+          .\top\gha_gcc-arm.bat ${{ github.run_number }} 
+
+      # Build Stable branches
+      - name: Run build script - for stable branches
+        if: github.event_name != 'pull_request'
+        run: |
+          echo "Running build script for stable branches..."
+          .\top\gha_gcc-arm.bat ${{ github.run_number }} ${{ github.ref_name }}
+
+      # Upload Project binaries
+      - name: Upload Project binaries
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: target-binaries-${{ github.run_number }}
+          path: _artifacts/*.zip
+
+  # Tag branch builds
+  create_tag:
+    runs-on: ubuntu-latest
+    needs: [vc_windows_build, mingw_64_windows_build, gcc_linux_build, arm_gcc_windows_build]
+    permissions:
+      contents: write
+
+    # Skip pull requests
+    if: github.event_name != 'pull_request' && startsWith(github.ref, 'refs/heads/')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create Tag
+        run: |
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "<>"
+          
+          BRANCH_NAME=$(git branch --show-current)
+          BRANCH_NAME=$(echo "$BRANCH_NAME" | tr -d '[:punct:]')
+          TAG_NAME=$BRANCH_NAME-bld-${{ github.run_number }}
+          echo "Creating tag: $TAG_NAME"
+          
+          git tag "$TAG_NAME" 
+          git push origin "$TAG_NAME"

@@ -7,7 +7,7 @@
 
 using namespace Cpl::MApp;
 
-MApp_::MApp_( Cpl::Container::Map<MAppApi>&   mappList,
+MApp_::MApp_( Cpl::Container::SList<MAppApi>& mappList,
               const char*                     mappName,
               const char*                     description,
               const char*                     usage )
@@ -16,12 +16,12 @@ MApp_::MApp_( Cpl::Container::Map<MAppApi>&   mappList,
     , m_usage( usage )
     , m_started( false )
 {
-    mappList.insert( *this );
+    mappList.put( *this );
 }
 
 const char* MApp_::getName() const noexcept
 {
-    return m_name.getKeyValue();
+    return m_name;
 }
 
 const char* MApp_::getDescription() const noexcept
@@ -32,9 +32,4 @@ const char* MApp_::getDescription() const noexcept
 const char* MApp_::getUsage() const noexcept
 {
     return m_usage;
-}
-
-const Cpl::Container::Key& MApp_::getKey() const noexcept
-{
-    return m_name;
 }

@@ -65,7 +65,7 @@ public:
 
 public:
     /// Constructor
-    State( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+    State( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
            Cpl::TShell::Security::Permission_T        minPermLevel=OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;
 
 

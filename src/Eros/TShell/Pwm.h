@@ -50,7 +50,7 @@ public:
 
 public:
     /// Constructor
-    Pwm( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+    Pwm( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
          Driver::DIO::Pwm&                          heaterPWMDriver,
          Driver::DIO::Pwm&                          fanPWMDriver,
          Cpl::TShell::Security::Permission_T        minPermLevel=OPTION_TSHELL_CMD_COMMAND_DEFAULT_PERMISSION_LEVEL ) noexcept;

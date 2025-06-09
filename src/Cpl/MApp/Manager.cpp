@@ -11,13 +11,13 @@
 
 using namespace Cpl::MApp;
 
-static MAppApi* searchList( Cpl::Container::Map<MAppApi>& listToSearch,
-                            const char*                   nameToFind );
+static MAppApi* searchList( Cpl::Container::SList<MAppApi>& listToSearch,
+                            const char*                     nameToFind );
 
 ////////////////////////////////////////////////////////////////////////////////
-Manager::Manager( Cpl::Dm::MailboxServer&       myMbox,
-                  Cpl::Container::Map<MAppApi>& listOfMApps )
-    : Cpl::Itc::CloseSync( *((Cpl::Itc::PostApi*) &myMbox) )
+Manager::Manager( Cpl::Dm::MailboxServer&         myMbox,
+                  Cpl::Container::SList<MAppApi>& listOfMApps )
+    : Cpl::Itc::CloseSync( *( (Cpl::Itc::PostApi*)&myMbox ) )
     , m_inactiveMApps( listOfMApps )
     , m_startedMApps()
     , m_opened( false )
@@ -29,12 +29,12 @@ void Manager::request( Cpl::Itc::OpenRequest::OpenMsg& msg )
 {
     if ( m_opened )
     {
-        CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ("Cpl::MApp::Manager: open() called when already opened") );
+        CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ( "Cpl::MApp::Manager: open() called when already opened" ) );
     }
     else
     {
         // Housekeeping
-        m_opened  = true;
+        m_opened = true;
 
         // initialize my instances
         MAppApi* itemPtr = m_inactiveMApps.first();
@@ -53,12 +53,12 @@ void Manager::request( Cpl::Itc::CloseRequest::CloseMsg& msg )
 {
     if ( !m_opened )
     {
-        CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ("Cpl::MApp::Manager: close() called when not opened") );
+        CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ( "Cpl::MApp::Manager: close() called when not opened" ) );
     }
     else
     {
         // Housekeeping
-        m_opened  = false;
+        m_opened = false;
 
         // shutdown my inactive instances
         MAppApi* itemPtr = m_inactiveMApps.first();
@@ -76,7 +76,7 @@ void Manager::request( Cpl::Itc::CloseRequest::CloseMsg& msg )
             itemPtr->shutdown_();
 
             // Return the instance to the inactive list
-            m_inactiveMApps.insert( *itemPtr );
+            m_inactiveMApps.put( *itemPtr );
 
             // Get the next item
             itemPtr = m_startedMApps.getFirst();
@@ -90,7 +90,7 @@ void Manager::request( Cpl::Itc::CloseRequest::CloseMsg& msg )
 void Manager::request( StartMAppMsg& msg )
 {
     StartMAppRequest::Payload& payload = msg.getPayload();
-    payload.success = false;
+    payload.success                    = false;
 
     // Look-up the MApp by name
     MAppApi* mapp = searchList( m_inactiveMApps, payload.mappName );
@@ -99,31 +99,31 @@ void Manager::request( StartMAppMsg& msg )
         payload.success = true;
 
         // Put the MApp instance into the started list
-        m_inactiveMApps.removeItem( *mapp );
-        m_startedMApps.insert( *mapp );
+        m_inactiveMApps.remove( *mapp );
+        m_startedMApps.put( *mapp );
 
         // Start the MApp
         char* args = payload.mappArgs;
         if ( args == nullptr )
         {
-            CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ("FAILED to start: %s due to nullptr for 'args'", mapp->getName()) );
+            CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ( "FAILED to start: %s due to nullptr for 'args'", mapp->getName() ) );
             payload.success = false;
 
             // Restore the MApp to the inactive list
-            m_startedMApps.removeItem( *mapp );
-            m_inactiveMApps.insert( *mapp );
+            m_startedMApps.remove( *mapp );
+            m_inactiveMApps.put( *mapp );
         }
         else
         {
-            CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ("Starting: %s", mapp->getName()) );
+            CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ( "Starting: %s", mapp->getName() ) );
             if ( !mapp->start_( args ) )
             {
-                CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ("FAILED to start: %s %s", mapp->getName(), args) );
+                CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ( "FAILED to start: %s %s", mapp->getName(), args ) );
                 payload.success = false;
 
                 // Restore the MApp to the inactive list
-                m_startedMApps.removeItem( *mapp );
-                m_inactiveMApps.insert( *mapp );
+                m_startedMApps.remove( *mapp );
+                m_inactiveMApps.put( *mapp );
             }
         }
     }
@@ -131,41 +131,41 @@ void Manager::request( StartMAppMsg& msg )
     msg.returnToSender();
 }
 
-void Manager::request( StopMAppMsg & msg )
+void Manager::request( StopMAppMsg& msg )
 {
     StopMAppRequest::Payload& payload = msg.getPayload();
-    payload.success = false;
+    payload.success                   = false;
 
     // Look-up the MApp by name in the 'running' list
     MAppApi* mapp = searchList( m_startedMApps, payload.mappName );
     if ( mapp != nullptr )
     {
-        CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ("Stopping: %s", mapp->getName()) );
+        CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ( "Stopping: %s", mapp->getName() ) );
         mapp->stop_();
 
         // Return the instance to the inactive list
-        m_startedMApps.removeItem( *mapp );
-        m_inactiveMApps.insert( *mapp );
-    
+        m_startedMApps.remove( *mapp );
+        m_inactiveMApps.put( *mapp );
+
         payload.success = true;
     }
 
     msg.returnToSender();
 }
 
-void Manager::request( StopAllMAppMsg & msg )
+void Manager::request( StopAllMAppMsg& msg )
 {
     // Walk the running list
     MAppApi* item = m_startedMApps.getFirst();
-    while ( item  )
+    while ( item )
     {
         // Stop the instance
-        CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ("Stopping: %s", item->getName()) );
+        CPL_SYSTEM_TRACE_MSG( OPTION_CPL_MAPP_TRACE_SECTION, ( "Stopping: %s", item->getName() ) );
         item->stop_();
 
         // Move the stop instance to the inactive list
-        m_inactiveMApps.insert( *item );
-        
+        m_inactiveMApps.put( *item );
+
         // Get the next item
         item = m_startedMApps.getFirst();
     }
@@ -175,9 +175,9 @@ void Manager::request( StopAllMAppMsg & msg )
 
 void Manager::request( GetAvailableMAppMsg& msg )
 {
-    GetAvailableMAppRequest::Payload& payload = msg.getPayload();
-    size_t idx                                = 0;
-    size_t maxElems                           = payload.dstMaxElements;
+    GetAvailableMAppRequest::Payload& payload  = msg.getPayload();
+    size_t                            idx      = 0;
+    size_t                            maxElems = payload.dstMaxElements;
 
     // Walk the inactive list
     MAppApi* item = m_inactiveMApps.first();
@@ -206,11 +206,11 @@ void Manager::request( GetAvailableMAppMsg& msg )
     msg.returnToSender();
 }
 
-void Manager::request( GetStartedMAppMsg & msg )
+void Manager::request( GetStartedMAppMsg& msg )
 {
-    GetStartedMAppRequest::Payload& payload = msg.getPayload();
-    size_t idx                              = 0;
-    size_t maxElems                         = payload.dstMaxElements;
+    GetStartedMAppRequest::Payload& payload  = msg.getPayload();
+    size_t                          idx      = 0;
+    size_t                          maxElems = payload.dstMaxElements;
 
     // Walk the running list
     MAppApi* item = m_startedMApps.first();
@@ -227,7 +227,7 @@ void Manager::request( GetStartedMAppMsg & msg )
     msg.returnToSender();
 }
 
-void Manager::request( LookupMAppMsg & msg )
+void Manager::request( LookupMAppMsg& msg )
 {
     LookupMAppRequest::Payload& payload = msg.getPayload();
 
@@ -245,9 +245,9 @@ void Manager::request( LookupMAppMsg & msg )
 //////////////////////////////////////////////////////////////////////////////
 bool Manager::startMApp( const char* name, char* args ) noexcept
 {
-    StartMAppRequest::Payload      payload( name, args );
-    Cpl::Itc::SyncReturnHandler    srh;
-    StartMAppMsg                   msg( *this, payload, srh );
+    StartMAppRequest::Payload   payload( name, args );
+    Cpl::Itc::SyncReturnHandler srh;
+    StartMAppMsg                msg( *this, payload, srh );
     m_mbox.postSync( msg );
 
     return payload.success;
@@ -256,26 +256,26 @@ bool Manager::startMApp( const char* name, char* args ) noexcept
 
 bool Manager::stopMApp( const char* name ) noexcept
 {
-    StopMAppRequest::Payload     payload( name );
-    Cpl::Itc::SyncReturnHandler  srh;
-    StopMAppMsg                  msg( *this, payload, srh );
+    StopMAppRequest::Payload    payload( name );
+    Cpl::Itc::SyncReturnHandler srh;
+    StopMAppMsg                 msg( *this, payload, srh );
     m_mbox.postSync( msg );
     return payload.success;
 }
 
 void Manager::stopAllMApps() noexcept
 {
-    StopAllMAppRequest::Payload  payload;
-    Cpl::Itc::SyncReturnHandler  srh;
-    StopAllMAppMsg               msg( *this, payload, srh );
+    StopAllMAppRequest::Payload payload;
+    Cpl::Itc::SyncReturnHandler srh;
+    StopAllMAppMsg              msg( *this, payload, srh );
     m_mbox.postSync( msg );
 }
 
 bool Manager::getAvailableMApps( Cpl::MApp::MAppApi* dstList[], size_t dstMaxElements, size_t& numElemsFound ) noexcept
 {
-    GetAvailableMAppRequest::Payload  payload( dstList, dstMaxElements );
-    Cpl::Itc::SyncReturnHandler       srh;
-    GetAvailableMAppMsg               msg( *this, payload, srh );
+    GetAvailableMAppRequest::Payload payload( dstList, dstMaxElements );
+    Cpl::Itc::SyncReturnHandler      srh;
+    GetAvailableMAppMsg              msg( *this, payload, srh );
     m_mbox.postSync( msg );
 
     numElemsFound = payload.numElements;
@@ -284,9 +284,9 @@ bool Manager::getAvailableMApps( Cpl::MApp::MAppApi* dstList[], size_t dstMaxEle
 
 bool Manager::getStartedMApps( Cpl::MApp::MAppApi* dstList[], size_t dstMaxElements, size_t& numElemsFound ) noexcept
 {
-    GetStartedMAppRequest::Payload  payload( dstList, dstMaxElements );
-    Cpl::Itc::SyncReturnHandler     srh;
-    GetStartedMAppMsg               msg( *this, payload, srh );
+    GetStartedMAppRequest::Payload payload( dstList, dstMaxElements );
+    Cpl::Itc::SyncReturnHandler    srh;
+    GetStartedMAppMsg              msg( *this, payload, srh );
     m_mbox.postSync( msg );
 
     numElemsFound = payload.numElements;
@@ -304,10 +304,20 @@ Cpl::MApp::MAppApi* Manager::lookUpMApp( const char* mappName ) noexcept
 }
 
 ///////////////////////////////
-MAppApi* searchList( Cpl::Container::Map<MAppApi>& listToSearch,
-                     const char*                   nameToFind )
+MAppApi* searchList( Cpl::Container::SList<MAppApi>& listToSearch,
+                     const char*                     nameToFind )
 {
+    MAppApi* mappPtr = listToSearch.first();
+    while ( mappPtr )
+    {
+        // Check if the command matches
+        if ( strcmp( nameToFind, mappPtr->getName() ) == 0 )
+        {
+            return mappPtr;
+        }
+        mappPtr = listToSearch.next( *mappPtr );
+    }
 
-    Cpl::Container::KeyLiteralString keyToFind( nameToFind );
-    return listToSearch.find( keyToFind );
+    // If I get here, then the command was not found
+    return nullptr;
 }

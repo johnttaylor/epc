@@ -4,7 +4,7 @@
  * agreement (license.txt) in the top/ directory or on the Internet at
  * http://integerfox.com/colony.core/license.txt
  *
- * Copyright (c) 2014-2022  John T. Taylor
+ * Copyright (c) 2014-2025  John T. Taylor
  *
  * Redistributions of the source code must retain the above copyright notice.
  *----------------------------------------------------------------------------*/
@@ -56,7 +56,7 @@ public:
 }  // end anonymous namespace
 
 ///////////////////////////
-Fs::Fs( Cpl::Container::Map<Cpl::TShell::Command>& commandList,
+Fs::Fs( Cpl::Container::SList<Cpl::TShell::Command>& commandList,
         unsigned                                   numVolumes,
         const char*                                volumeRootPaths[],
         Cpl::TShell::Security::Permission_T        minPermLevel ) noexcept

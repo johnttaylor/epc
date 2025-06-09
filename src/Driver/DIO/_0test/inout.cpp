@@ -4,7 +4,7 @@
 * agreement (license.txt) in the top/ directory or on the Internet at
 * http://integerfox.com/colony.core/license.txt
 *
-* Copyright (c) 2014-2022  John T. Taylor
+* Copyright (c) 2014-2025  John T. Taylor
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
@@ -31,7 +31,7 @@ extern void test( Cpl::Io::Input& infd, Cpl::Io::Output& outfd );
 ////////////////////////////////////////////////////////////////////////////////
 
 /// 
-extern Cpl::Container::Map<Cpl::TShell::Command>    cmdlist;
+extern Cpl::Container::SList<Cpl::TShell::Command>    cmdlist;
 static Cpl::TShell::PolledMaker                     polledCmdProcessor_( cmdlist );
 
 //////////////////////////////////////////////

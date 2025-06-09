@@ -16,7 +16,7 @@ using namespace Cpl::MApp;
 #define SUBCMD_LIST     "ls"
 
 ///////////////////////////
-Cmd::Cmd( Cpl::Container::Map<Cpl::TShell::Command>& commandList, Cpl::MApp::ManagerApi& mappManager ) noexcept
+Cmd::Cmd( Cpl::Container::SList<Cpl::TShell::Command>& commandList, Cpl::MApp::ManagerApi& mappManager ) noexcept
     : Cpl::TShell::Cmd::Command( commandList, verb )
     , m_mappManager( mappManager )
 {

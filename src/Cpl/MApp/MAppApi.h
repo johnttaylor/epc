@@ -7,7 +7,7 @@
 
 
 #include "colony_config.h"
-#include "Cpl/Container/MapItem.h"
+#include "Cpl/Container/Item.h"
 
 
 /// CPL Trace Section identifier for a common trace output section
@@ -33,7 +33,7 @@ namespace MApp {
         o The application can safely pass initial settings, configuration, 
           options when the MApp is started
  */
-class MAppApi : public Cpl::Container::MapItem
+class MAppApi : public Cpl::Container::Item
 {
 public:
     /** This method returns the MApp name.  The MApp name must an printable

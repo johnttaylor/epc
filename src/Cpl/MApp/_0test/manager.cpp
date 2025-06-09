@@ -17,42 +17,40 @@
 #include "Cpl/System/Shutdown.h"
 
 
+#define SECT_ "_0test"
 
-#define SECT_     "_0test"
-
-/// 
+///
 using namespace Cpl::MApp;
 
 
+///
+extern void                                        runtest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd );
 
-/// 
-extern void runtest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd );
 
+extern Cpl::Container::SList<Cpl::TShell::Command> cmdlist;
 
-extern Cpl::Container::Map<Cpl::TShell::Command>   cmdlist;
+static Cpl::TShell::Maker                          cmdProcessor_( cmdlist );
+static Cpl::TShell::Stdio                          shell_( cmdProcessor_ );
 
-static Cpl::TShell::Maker       cmdProcessor_( cmdlist );
-static Cpl::TShell::Stdio       shell_( cmdProcessor_ );
-
-static Cpl::TShell::Cmd::Help	helpCmd_( cmdlist );
-static Cpl::TShell::Cmd::Bye	byeCmd_( cmdlist );
-static Cpl::TShell::Cmd::Trace	traceCmd_( cmdlist );
-static Cpl::TShell::Cmd::TPrint	tprintCmd_( cmdlist );
+static Cpl::TShell::Cmd::Help                      helpCmd_( cmdlist );
+static Cpl::TShell::Cmd::Bye                       byeCmd_( cmdlist );
+static Cpl::TShell::Cmd::Trace                     traceCmd_( cmdlist );
+static Cpl::TShell::Cmd::TPrint                    tprintCmd_( cmdlist );
 
 // Allocate/create my Model Database
-static Cpl::Dm::ModelDatabase    modelDb_( "ignoreThisParameter_usedToInvokeTheStaticConstructor" );
+static Cpl::Dm::ModelDatabase modelDb_( "ignoreThisParameter_usedToInvokeTheStaticConstructor" );
 
 // Allocate my Model Points
-static Cpl::Dm::Mp::Float        mp_apple_( modelDb_, "apple" );
-static Cpl::Dm::Mp::Float        mp_orange_( modelDb_, "orange" );
-static Cpl::Dm::Mp::Float        mp_cherry_( modelDb_, "cherry" );
+static Cpl::Dm::Mp::Float                        mp_apple_( modelDb_, "apple" );
+static Cpl::Dm::Mp::Float                        mp_orange_( modelDb_, "orange" );
+static Cpl::Dm::Mp::Float                        mp_cherry_( modelDb_, "cherry" );
 
-static Cpl::Dm::TShell::Dm	    dmCmd_( cmdlist, modelDb_ );
+static Cpl::Dm::TShell::Dm                       dmCmd_( cmdlist, modelDb_ );
 
 
-static Cpl::Dm::MailboxServer   mappMbox_;
+static Cpl::Dm::MailboxServer                    mappMbox_;
 
-static Cpl::Container::Map<Cpl::MApp::MAppApi>   mappList_;
+static Cpl::Container::SList<Cpl::MApp::MAppApi> mappList_;
 static Cpl::MApp::Manager                        mappManager_( mappMbox_, mappList_ );
 static Cpl::MApp::Cmd                            mappCmd_( cmdlist, mappManager_ );
 
@@ -64,7 +62,7 @@ static Cpl::MApp::Temperature::Api               t3_( mappList_, mappMbox_, mp_c
 ////////////////////////////////////////////////////////////////////
 static Cpl::System::Semaphore shutdownWaiter_;
 static int                    exitCode_;
-static void waitForShutdown();
+static void                   waitForShutdown();
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -75,7 +73,7 @@ void runtest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd )
     CPL_SYSTEM_TRACE_ENABLE_SECTION( OPTION_CPL_MAPP_TRACE_SECTION );
 
     // Create thread for the MApp instances to run in
-    Cpl::System::Thread* t1 =  Cpl::System::Thread::create( mappMbox_, "MAPPS" );
+    Cpl::System::Thread* t1 = Cpl::System::Thread::create( mappMbox_, "MAPPS" );
 
     // Initialize some (but not all) MPs
     mp_apple_.write( 3.14F );
@@ -104,7 +102,7 @@ void runtest( Cpl::Io::Input& infd, Cpl::Io::Output& outfd )
 //////////////////////////////////////////////////////////////////////
 void waitForShutdown()
 {
-    // Wait till I am signaled 
+    // Wait till I am signaled
     shutdownWaiter_.wait();
 }
 

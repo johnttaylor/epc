@@ -14,7 +14,7 @@ Cpl::Io::Stdio::StdIn                           infd_;
 Cpl::Io::Stdio::StdOut                          outfd_;
 
 // Note: this is a global variable for test purposes
-Cpl::Container::Map<Cpl::TShell::Command>  cmdlist( "ignore_this_parameter-used to invoke the static constructor" );
+Cpl::Container::SList<Cpl::TShell::Command>  cmdlist( "ignore_this_parameter-used to invoke the static constructor" );
 
 // HACK: to reuse a common test file
 #ifndef BUILD_VARIANT_CPP11

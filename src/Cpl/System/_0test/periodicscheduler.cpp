@@ -4,7 +4,7 @@
 * agreement (license.txt) in the top/ directory or on the Internet at
 * http://integerfox.com/colony.core/license.txt
 *
-* Copyright (c) 2014-2022  John T. Taylor
+* Copyright (c) 2014-2025  John T. Taylor
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
@@ -155,7 +155,7 @@ TEST_CASE( "PeriodicScheduler" )
         ElapsedTime::Precision_T intervalTime;
 
         currentTick_ ={ 0, 5 };
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04d.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04lu.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
         uut.beginLoop();
         uut.executeScheduler();
         REQUIRE( appleCount_ == 0 );
@@ -165,7 +165,7 @@ TEST_CASE( "PeriodicScheduler" )
         REQUIRE( startLoopCountLastCurrentTick_ == currentTick_ );
         REQUIRE( endLoopCount_ == 0 );
         currentTick_ += 5;
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04d.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04lu.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
         uut.executeScheduler();
 
         displayInfo( "APPLE", appleCount_, appleLastCurrentTick_, appleLastCurrentInterval_, appleLastContext_ );
@@ -182,7 +182,7 @@ TEST_CASE( "PeriodicScheduler" )
         REQUIRE( cherryLastCurrentInterval_ == intervalTime );
 
         currentTick_ += 5;
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04d.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04lu.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
         uut.executeScheduler();
 
         displayInfo( "APPLE", appleCount_, appleLastCurrentTick_, appleLastCurrentInterval_, appleLastContext_ );
@@ -196,7 +196,7 @@ TEST_CASE( "PeriodicScheduler" )
         REQUIRE( cherryLastCurrentInterval_ == intervalTime );
 
         currentTick_ += 5;
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04d.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04lu.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
         uut.executeScheduler();
 
         displayInfo( "APPLE", appleCount_, appleLastCurrentTick_, appleLastCurrentInterval_, appleLastContext_ );
@@ -213,7 +213,7 @@ TEST_CASE( "PeriodicScheduler" )
         REQUIRE( cherryCount_ == 2 );
 
         currentTick_ += 1;
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04d.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04lu.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
         uut.executeScheduler();
         displayInfo( "APPLE", appleCount_, appleLastCurrentTick_, appleLastCurrentInterval_, appleLastContext_ );
         displayInfo( "ORANGE", orangeCount_, orangeLastCurrentTick_, orangeLastCurrentInterval_, orangeLastContext_ );
@@ -237,7 +237,7 @@ TEST_CASE( "PeriodicScheduler" )
         ElapsedTime::Precision_T intervalTime;
 
         currentTick_ ={ 0, 5 };
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04d.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04lu.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
         uut.beginLoop();
         uut.executeScheduler();
         displayInfo( "APPLE", appleCount_, appleLastCurrentTick_, appleLastCurrentInterval_, appleLastContext_ );
@@ -251,7 +251,7 @@ TEST_CASE( "PeriodicScheduler" )
         REQUIRE( endLoopCount_ == 0 );
 
         currentTick_ += 5;
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04d.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04lu.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
         uut.executeScheduler();
         displayInfo( "APPLE", appleCount_, appleLastCurrentTick_, appleLastCurrentInterval_, appleLastContext_ );
         displayInfo( "ORANGE", orangeCount_, orangeLastCurrentTick_, orangeLastCurrentInterval_, orangeLastContext_ );
@@ -263,7 +263,7 @@ TEST_CASE( "PeriodicScheduler" )
 
         // Slip a single interval
         currentTick_ += 20;
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04d.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04lu.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
         uut.executeScheduler();
         displayInfo( "APPLE", appleCount_, appleLastCurrentTick_, appleLastCurrentInterval_, appleLastContext_ );
         displayInfo( "ORANGE", orangeCount_, orangeLastCurrentTick_, orangeLastCurrentInterval_, orangeLastContext_ );
@@ -281,7 +281,7 @@ TEST_CASE( "PeriodicScheduler" )
         REQUIRE( slippageLastContext_ == (void*) 0xFEED );
 
         currentTick_ += 10;
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04d.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04lu.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
         uut.executeScheduler();
         displayInfo( "APPLE", appleCount_, appleLastCurrentTick_, appleLastCurrentInterval_, appleLastContext_ );
         displayInfo( "ORANGE", orangeCount_, orangeLastCurrentTick_, orangeLastCurrentInterval_, orangeLastContext_ );
@@ -299,7 +299,7 @@ TEST_CASE( "PeriodicScheduler" )
 
         // Slip multiple intervals
         currentTick_ += 30;
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04d.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04lu.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
         uut.executeScheduler();
         displayInfo( "APPLE", appleCount_, appleLastCurrentTick_, appleLastCurrentInterval_, appleLastContext_ );
         displayInfo( "ORANGE", orangeCount_, orangeLastCurrentTick_, orangeLastCurrentInterval_, orangeLastContext_ );
@@ -315,7 +315,7 @@ TEST_CASE( "PeriodicScheduler" )
 
         // Verify interval boundaries after 'big' slippage
         currentTick_ += 10;
-        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04d.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
+        CPL_SYSTEM_TRACE_MSG( SECT_, ("== TICK: %04lu.%03d", currentTick_.m_seconds, currentTick_.m_thousandths) );
         uut.executeScheduler();
         displayInfo( "APPLE", appleCount_, appleLastCurrentTick_, appleLastCurrentInterval_, appleLastContext_ );
         displayInfo( "ORANGE", orangeCount_, orangeLastCurrentTick_, orangeLastCurrentInterval_, orangeLastContext_ );
