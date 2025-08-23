@@ -134,6 +134,12 @@ void LogicalButtons::expired( void ) noexcept
             generateKeyEvent( m_latchedKey );
             m_state = m_isSingleKeyEvent ? STATE_IDLE : STATE_WAITING_ALL_RELEASED;
         }
+        else if ( --m_delayCounter == 0 )
+        {
+            m_latchedKey   = getLogicalKey( EDGE_TIME, edgeB, edgeX, edgeY );
+            generateKeyEvent( m_latchedKey );
+            m_delayCounter = OPTION_AJAX_UI_LOGICAL_BUTTON_REPEAT_COUNT;
+        }
         break;
     }
 
