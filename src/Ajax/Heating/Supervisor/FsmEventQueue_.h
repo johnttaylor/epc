@@ -6,7 +6,7 @@
 * agreement (license.txt) in the top/ directory or on the Internet at
 * http://integerfox.com/colony.core/license.txt
 *
-* Copyright (c) 2014-2020  John T. Taylor
+* Copyright (c) 2014-2025  John T. Taylor
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
@@ -40,7 +40,7 @@ protected:
     FSM_EVENT_T m_eventQueMemory[4];
 
     /// Flag for tracking re-entrant events
-    bool        m_processingFsmEvent;
+    bool m_processingFsmEvent;
 
 public:
     /// Constructor
@@ -51,5 +51,5 @@ public:
     virtual void generateEvent( FSM_EVENT_T msg );
 };
 
-};};};  // end namespace(s)
+}}}  // end namespace(s)
 #endif /// end header latch

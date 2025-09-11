@@ -224,6 +224,12 @@ TEST_CASE( "Array" )
         REQUIRE( valid );
         uint8_t expectedVal2[] ={ 100,2,3,4,5,6,7,8,9,99 };
         REQUIRE( memcmp( expectedVal2, readValue, sizeof( expectedVal2 ) ) == 0 );
+
+        mp_apple_.write( tooLarge, MY_ARRAY_SIZE, MY_ARRAY_SIZE );
+        valid = mp_apple_.read( readValue, MY_ARRAY_SIZE );
+        REQUIRE( valid );
+        uint8_t expectedVal3[] ={ 100,2,3,4,5,6,7,8,9,100 };
+        REQUIRE( memcmp( expectedVal3, readValue, sizeof( expectedVal3 ) ) == 0 );
     }
 
     SECTION( "observer" )
