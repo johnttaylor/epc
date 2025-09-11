@@ -4,7 +4,7 @@
 * agreement (license.txt) in the top/ directory or on the Internet at
 * http://integerfox.com/colony.core/license.txt
 *
-* Copyright (c) 2014-2020  John T. Taylor
+* Copyright (c) 2014-2025  John T. Taylor
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
@@ -47,12 +47,15 @@ void FsmEventQueue_::generateEvent( FSM_EVENT_T msg )
         m_processingFsmEvent = true;
         while( remove( msg ) )
             {
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("Processing event:= %s, current state=%s ...", getNameByEvent(msg), getNameByState(getInnermostActiveState())) );
+            CPL_SYSTEM_TRACE_MSG( SECT_, ("EVENT:= %s, current state=%s ...", getNameByEvent(msg), getNameByState(getInnermostActiveState())) );
             if ( processEvent(msg) == 0 )
                 {
-                CPL_SYSTEM_TRACE_MSG( SECT_, ("  Event IGNORED:= %s", getNameByEvent(msg)) );
+                CPL_SYSTEM_TRACE_MSG( SECT_, ("  IGNORED: end state=%s", getNameByState(getInnermostActiveState())) );
                 }
-            CPL_SYSTEM_TRACE_MSG( SECT_, ("  Event Completed:=  %s, end state=%s", getNameByEvent(msg), getNameByState(getInnermostActiveState())) );
+            else
+                {
+                CPL_SYSTEM_TRACE_MSG( SECT_, ("  Completed: end state=%s", getNameByState(getInnermostActiveState())) );
+                }
 
             // Provide 'hook' for event-processing-completed
             if ( m_eventCompletedCallback )
@@ -65,4 +68,4 @@ void FsmEventQueue_::generateEvent( FSM_EVENT_T msg )
         }
     }
 
-};};};  // end namespace(s)
+}}}  // end namespace(s)

@@ -90,6 +90,12 @@ void ArrayBase_::copyDataTo_( void* dstData, size_t dstSize ) const noexcept
     CPL_SYSTEM_ASSERT( dstSize == sizeof( MetaData_T ) );
     MetaData_T* dstInfo = (MetaData_T*) dstData;
 
+    // Trap index out-of-bounds (clamp at max index)
+    if ( dstInfo->elemIndex >= m_numElements )
+    {
+        dstInfo->elemIndex = m_numElements-1;   
+    }
+
     // Make sure we don't read past the m_data storage
     if ( dstInfo->elemIndex + dstInfo->numElements > m_numElements )
     {
@@ -106,6 +112,12 @@ void ArrayBase_::copyDataFrom_( const void* srcData, size_t srcSize ) noexcept
     CPL_SYSTEM_ASSERT( srcSize == sizeof( MetaData_T ) );
     MetaData_T* srcInfo = (MetaData_T*) srcData;
 
+    // Trap index out-of-bounds (clamp at max index)
+    if ( srcInfo->elemIndex >= m_numElements )
+    {
+        srcInfo->elemIndex = m_numElements-1;   
+    }
+
     // Make sure we don't write past the m_data storage
     if ( srcInfo->elemIndex + srcInfo->numElements > m_numElements )
     {
@@ -120,6 +132,12 @@ void ArrayBase_::copyDataFrom_( const void* srcData, size_t srcSize ) noexcept
 bool ArrayBase_::isDataEqual_( const void* otherData ) const noexcept
 {
     MetaData_T* otherInfo = (MetaData_T*) otherData;
+
+    // Trap index out-of-bounds (clamp at max index)
+    if ( otherInfo->elemIndex >= m_numElements )
+    {
+        otherInfo->elemIndex = m_numElements-1;   
+    }
 
     // Make sure we don't compare past the m_data storage
     if ( otherInfo->elemIndex + otherInfo->numElements > m_numElements )

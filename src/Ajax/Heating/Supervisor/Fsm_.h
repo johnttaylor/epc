@@ -4,7 +4,7 @@
 * agreement (license.txt) in the top/ directory or on the Internet at
 * http://integerfox.com/colony.core/license.txt
 *
-* Copyright (c) 2014-2020  John T. Taylor
+* Copyright (c) 2014-2025  John T. Taylor
 *
 * Redistributions of the source code must retain the above copyright notice.
 *----------------------------------------------------------------------------*/
@@ -120,12 +120,12 @@ structDefaultroot[shape=circle, fontsize=14, height=0.3, width=0.3, fixedsize=tr
 #include "Ajax/Heating/Supervisor/Fsm_ext_.h"
 #include "Ajax/Heating/Supervisor/FsmContext_.h"
 
-#ifndef DOXYGEN_WILL_SKIP_THIS
-
 namespace Ajax { namespace Heating { namespace Supervisor  {
+    /// Finite State Machine class
 
     class Fsm: public FsmContext_
     {
+    /// @cond 
         public:
             explicit Fsm(void);
 
@@ -188,12 +188,11 @@ namespace Ajax { namespace Heating { namespace Supervisor  {
 
 
 
+    /// @endcond 
     };
 
 }}} //namespace Ajax { namespace Heating { namespace Supervisor 
 
-
-#endif // !DOXYGEN_WILL_SKIP_THIS
 
 #endif // __FSM_AJAX_HEATING_SUPERVISOR_H__
 

@@ -1,14 +1,14 @@
 {
   "configurations": [
     {
-      "name": "NQBP2: C:\\_workspaces\\zoe\\epc\\tests\\Cpl\\TShell\\Cmd\\_0test\\windows\\vc12\\_win32\\b.exe",
+      "name": "NQBP2: C:\\_workspaces\\zoe\\epc\\tests\\Cpl\\Dm\\Mp\\_0test\\realtime\\windows\\mingw_w64\\_win32\\a.exe",
       "type": "cppdbg",
       "request": "launch",
-      "program": "C:\\_workspaces\\zoe\\epc\\tests\\Cpl\\TShell\\Cmd\\_0test\\windows\\vc12\\_win32\\b.exe",
+      "program": "C:\\_workspaces\\zoe\\epc\\tests\\Cpl\\Dm\\Mp\\_0test\\realtime\\windows\\mingw_w64\\_win32\\a.exe",
       "args": [],
       "environment": [],
       "stopAtEntry": false,
-      "cwd": "C:\\_workspaces\\zoe\\epc\\tests\\Cpl\\TShell\\Cmd\\_0test\\windows\\vc12",
+      "cwd": "C:\\_workspaces\\zoe\\epc\\tests\\Cpl\\Dm\\Mp\\_0test\\realtime\\windows\\mingw_w64",
       "externalConsole": false,
       "MIMode": "gdb",
       "setupCommands": [
